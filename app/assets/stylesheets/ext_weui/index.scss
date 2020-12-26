@@ -1,0 +1,20 @@
+@import 'weui/dist/style/weui';
+
+@import 'widget/article';
+@import 'widget/button';
+@import 'widget/cell';
+@import 'widget/half_screen_dialog';
+@import 'widget/icon';
+@import 'widget/media';
+@import 'widget/panel';
+@import 'widget/preview';
+@import 'widget/tab';
+@import 'widget/tabbar';
+
+html, body {
+  height: 100%;
+}
+
+.weui-label {
+  color: #666;
+}
