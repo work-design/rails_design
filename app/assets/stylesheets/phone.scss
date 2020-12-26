@@ -1,7 +1,7 @@
-@import 'weui_ext';
-@import 'bulma_ext';
-@import 'font_ext';
+@import 'ext_weui';
+@import 'ext_bulma';
+@import 'ext_font';
 
 html {
-  overflow-y: hidden;
+  overflow-y: auto;
 }
