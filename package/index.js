@@ -3,15 +3,34 @@ const { sync: globSync } = require('glob')
 const extname = require('path-complete-extname')
 const { config } = require('@rails/webpacker')
 
-const paths = () => {
-  let result = {}
+const getEntryObject = (rootPath) => {
+  const entries = {}
 
-  config.additional_paths.forEach((rootPath) => {
-    globSync(`${rootPath}/**/*.*`, { ignore: config.ignore }).forEach((path) => {
-      const namespace = relative(join(rootPath), dirname(path))
-      const name = join(namespace, basename(path, extname(path)))
-      result[name] = resolve(path)
-    })
+  globSync(`${rootPath}/**/*.*`).forEach((path) => {
+    const namespace = relative(join(rootPath), dirname(path))
+    const name = join(namespace, basename(path, extname(path)))
+    let assetPaths = resolve(path)
+
+    let previousPaths = entries[name]
+    if (previousPaths) {
+      previousPaths = Array.isArray(previousPaths)
+        ? previousPaths
+        : [previousPaths]
+      previousPaths.push(assetPaths)
+      assetPaths = previousPaths
+    }
+
+    entries[name] = assetPaths
+  })
+
+  return entries
+}
+
+const paths = () => {
+  const result = {}
+
+  config.engine_paths.forEach((rootPath) => {
+    Object.assign(result, getEntryObject(rootPath))
   })
 
   return result
