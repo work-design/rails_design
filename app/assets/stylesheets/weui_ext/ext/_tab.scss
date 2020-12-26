@@ -1,0 +1,9 @@
+.weui-tab__panel > :first-child {
+  margin-top: 0;
+}
+
+.weui-tab__panel {
+  overflow-y: auto;
+  overflow-x: visible;
+  margin-bottom: 60px;
+}

@@ -1,0 +1,25 @@
+.field {
+  &.has-addons {
+    a {
+      margin-right: .75rem;
+    }
+    &.has-addons-middle {
+      align-items: center;
+    }
+  }
+
+  .is-flex {
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+
+.checkbox + .checkbox {
+  margin-left: .5em;
+}
+
+.checkbox {
+  input + span {
+    padding-left: .25em;
+  }
+}

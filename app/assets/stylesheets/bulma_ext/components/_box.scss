@@ -1,0 +1,15 @@
+.as-tooltip {
+  position: absolute;
+  bottom: 100%;
+  min-width: max-content;
+  z-index: 1;
+  .as-tooltip-arrow {
+    width: 0;
+    height: 0;
+    position: relative;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid #000;
+    box-shadow: 1px 1px;
+  }
+}

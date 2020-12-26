@@ -1,0 +1,15 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+
+.as-vertical-middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

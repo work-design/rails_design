@@ -1,0 +1,43 @@
+.table {
+  border: 1px solid $border;
+  &.is-borderless {
+    border: none;
+  }
+
+  tbody + tbody {
+    tr:first-child td,
+    tr:last-child th {
+      border-top-width: 1px;
+    }
+  }
+
+  th, td {
+    vertical-align: middle;
+  }
+
+  &.as-show {
+    td.has-text-right::after {
+      content: ':';
+      padding-left: .25em;
+      color: #888;
+    }
+  }
+}
+
+table.as-search {
+  th, td {
+    padding: 0 .5em .75em 0;
+    vertical-align: middle;
+  }
+  th {
+    text-align: right;
+    white-space: nowrap;
+  }
+  th::after {
+    content: ':';
+    color: #888;
+  }
+  td {
+    width: 100%;
+  }
+}

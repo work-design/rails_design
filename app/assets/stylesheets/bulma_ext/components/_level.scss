@@ -1,0 +1,8 @@
+.level {
+  &.is-underline {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    margin-bottom: 0;
+    border-bottom: solid #eee 1px;
+  }
+}

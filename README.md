@@ -1,28 +1,5 @@
 # RailsUi
-Short description and motivation.
 
-## Usage
-How to use my plugin.
-
-## Installation
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'rails_ui'
-```
-
-And then execute:
-```bash
-$ bundle
-```
-
-Or install it yourself as:
-```bash
-$ gem install rails_ui
-```
-
-## Contributing
-Contribution directions go here.
-
-## License
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+## 约定
+* app/assets 下的文件可以 import;
+* app/javascripts 下的文件进入 webpack 的 entry

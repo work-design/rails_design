@@ -1,0 +1,9 @@
+del {
+  color: red;
+}
+
+@include touch {
+  html {
+    overflow-y: auto;
+  }
+}

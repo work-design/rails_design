@@ -1,0 +1,13 @@
+main.columns {
+  margin: 0;
+}
+
+main.columns:not(:last-child) {
+  margin-bottom: 0;
+}
+
+main.columns.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}

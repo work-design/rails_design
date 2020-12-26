@@ -1,0 +1,25 @@
+.image {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+figure.image {
+  display: flex;
+  flex-flow: column;
+  margin: auto;
+  background-color: black;
+
+  figcaption {
+    background-color: #222;
+    color: #fff;
+    padding: 3px;
+    text-align: center;
+  }
+  img {
+    max-height: inherit;
+  }
+  video {
+    max-height: inherit;
+    height: inherit;
+  }
+}
