@@ -15,8 +15,8 @@ Gem::Specification.new do |s|
   s.metadata['allowed_push_host'] = 'https://rubygems.org'
 
   s.metadata['homepage_uri'] = s.homepage
-  s.metadata['source_code_uri'] = ''
-  s.metadata['changelog_uri'] = ''
+  s.metadata['source_code_uri'] = 'https://github.com/work-design/rails_ui'
+  s.metadata['changelog_uri'] = 'https://github.com/work-design/rails_ui'
 
   s.files = Dir[
     '{app,config,db,lib}/**/*',
