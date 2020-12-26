@@ -15,8 +15,8 @@ Gem::Specification.new do |s|
   s.metadata['allowed_push_host'] = 'https://rubygems.org'
 
   s.metadata['homepage_uri'] = s.homepage
-  s.metadata['source_code_uri'] = 'Put your gem's public repo URL here.'
-  s.metadata['changelog_uri'] = 'Put your gem's CHANGELOG.md URL here.'
+  s.metadata['source_code_uri'] = ''
+  s.metadata['changelog_uri'] = ''
 
   s.files = Dir[
     '{app,config,db,lib}/**/*',
