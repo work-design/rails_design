@@ -1,17 +1,14 @@
 import * as Turbo from '@hotwired/turbo'
 window.Turbo = Turbo
 import { timeForLocalized, prepareFormFilter } from './footer'
-import { prepareFormValid } from 'default_form/footer'
 
 document.addEventListener('DOMContentLoaded', () => {
   timeForLocalized()
   prepareFormFilter()
-  prepareFormValid()
 })
 document.addEventListener('turbo:load', () => {
   timeForLocalized()
   prepareFormFilter()
-  prepareFormValid()
 })
 document.addEventListener('turbo:visit', () => {
   timeForLocalized()
