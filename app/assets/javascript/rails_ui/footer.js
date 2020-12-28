@@ -1,13 +1,3 @@
-export function timeForLocalized() {
-  document.querySelectorAll('time:not([data-localized="true"])').forEach(el => {
-    if (el.textContent.length > 0) {
-      let format = el.dataset['format'] || 'YYYY-MM-DD HH:mm'
-      el.textContent = moment.utc(el.textContent).local().format(format)
-      el.dataset['localized'] = 'true'
-    }
-  })
-}
-
 export function prepareFormFilter() {
   document.querySelectorAll('form[method="get"]').forEach(el => {
     el.addEventListener('submit', event => {

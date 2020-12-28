@@ -6,6 +6,7 @@ class ModalController extends Controller {
   connect() {
     console.debug('Modal Controller works!')
     document.documentElement.classList.add('is-clipped')
+    console.debug(document.referrer)
   }
 
   close() {
