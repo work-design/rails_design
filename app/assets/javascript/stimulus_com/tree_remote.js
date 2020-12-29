@@ -1,6 +1,7 @@
 import { Controller } from 'stimulus'
 
 class TreeRemoteController extends Controller {
+  static targets = ['item']
 
   connect() {
     console.debug('Tree Remote Controller works!')
@@ -8,7 +9,7 @@ class TreeRemoteController extends Controller {
 
   collapse(event) {
     let ele = event.currentTarget
-    let par = ele.parentNode.parentNode.parentNode
+    let par = this.itemTarget
     ele.parentNode.addEventListener('click', this.disableLink)
 
     var el = par.nextElementSibling
