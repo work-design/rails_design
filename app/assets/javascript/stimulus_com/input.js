@@ -2,37 +2,22 @@ import { Controller } from 'stimulus'
 
 // data-controller="input"
 class InputController extends Controller {
+  static targets = ['checkbox', 'submit']
 
   connect() {
     console.debug('Input Controller works!')
+  }
 
-    let label = this.element.querySelector('label')
-    if (label) {
-      label.addEventListener('click', () => {
-        let input = this.element.querySelector('input')
-        input.click()
-      })
+  check() {
+    if (this.hasCheckboxTarget) {
+      this.checkboxTarget.click()
+      this.submitTarget.click()
     }
   }
 
   submit(event) {
     let el = event.currentTarget
-    let str
-
-    if (el.defaultValue === '') {
-      str = el.name + '=' + el.checked
-    } else if (el.nodeName === 'SELECT') {
-      str = el.name + '=' + el.value
-    } else {
-      str = el.name + '=' + el.defaultValue
-    }
-
-    if (el.dataset['params']) {
-      el.dataset['params'] += '&'
-    } else {
-      el.dataset['params'] = ''
-    }
-    el.dataset['params'] += str
+    el.form.submit()
   }
 
   uncheck(event) {
