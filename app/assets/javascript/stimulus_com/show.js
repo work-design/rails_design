@@ -14,14 +14,14 @@ class ShowController extends Controller {
   }
 
   show() {
-    console.log(this)
+    //console.log(this)
     this.itemTargets.forEach(el => {
       el.style.visibility = 'visible'
     })
   }
 
   hide(event) {
-    console.log(event.target)
+    //console.log(event.target)
     this.itemTargets.forEach(el => {
       el.style.visibility = 'hidden'
     })
