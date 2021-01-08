@@ -2,7 +2,7 @@ import { Controller } from 'stimulus'
 
 // data-controller="input"
 class InputController extends Controller {
-  static targets = ['checkbox', 'submit']
+  static targets = ['checkbox']
 
   connect() {
     console.debug('Input Controller works!')
@@ -11,13 +11,11 @@ class InputController extends Controller {
   check() {
     if (this.hasCheckboxTarget) {
       this.checkboxTarget.click()
-      this.submitTarget.click()
-    }
-  }
 
-  submit(event) {
-    let el = event.currentTarget
-    el.form.submit()
+      let evt = document.createEvent('Event')
+      evt.initEvent('submit', true, true)
+      this.element.dispatchEvent(evt)
+    }
   }
 
   uncheck(event) {
@@ -27,7 +25,9 @@ class InputController extends Controller {
   form(event) {
     let el = event.currentTarget
 
-    Rails.fire(event.target.form, 'submit')
+    let evt = document.createEvent('Event')
+    evt.initEvent('submit', true, true)
+    el.form.dispatchEvent(evt)
   }
 
   filter(event) {
@@ -36,17 +36,9 @@ class InputController extends Controller {
       return
     }
 
-    let url = ele.dataset['url']
-    if (url) {
-      Rails.ajax({
-        url: url,
-        type: 'GET',
-        data: `${ele.name}=${ele.value}`,
-        dataType: 'script'
-      })
-    } else {
-      Rails.fire(ele.form, 'submit')
-    }
+    let evt = document.createEvent('Event')
+    evt.initEvent('submit', true, true)
+    ele.form.dispatchEvent(evt)
   }
 
   remove() {
