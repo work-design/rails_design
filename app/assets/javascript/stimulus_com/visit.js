@@ -13,6 +13,10 @@ class VisitController extends Controller {
       Turbo.visit(location.href, { action: 'replace' })
     }
 
+    Turbo.clearCache()
+    document.documentElement.classList.remove('is-clipped')
+
+
     this.element.remove()
   }
 
