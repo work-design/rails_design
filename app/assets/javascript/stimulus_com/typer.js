@@ -6,6 +6,10 @@ class TyperController extends Controller {
 
   connect() {
     console.debug('Typer Controller works!')
+    this.initInput()
+  }
+
+  initInput() {
     let ele = this.inputTarget
     ele.addEventListener('input', this.form)
     ele.addEventListener('compositionstart', event => {
@@ -23,26 +27,9 @@ class TyperController extends Controller {
       return
     }
 
-    let url = ele.dataset['url']
-    let method = ele.dataset['method']
-    if (url && method === 'post') {
-      let body = new FormData(ele.form)
-      Rails.ajax({
-        url: url,
-        type: 'POST',
-        data: body,
-        dataType: 'script'
-      })
-    } else if (url) {
-      Rails.ajax({
-        url: url,
-        type: 'GET',
-        data: `${ele.name}=${ele.value}`,
-        dataType: 'script'
-      })
-    } else {
-      Rails.fire(ele.form, 'submit')
-    }
+    let evt = document.createEvent('Event')
+    evt.initEvent('submit', true, true)
+    ele.form.dispatchEvent(evt)
   }
 
   // click->typer#choose
