@@ -59,6 +59,8 @@ class SlideController extends Controller {
   // data-action="touchend->slide#end:passive"
   end(event) {
     let ele = event.currentTarget
+    let next = ele.nextElementSibling
+    let prev = ele.previousElementSibling
     if (event.changedTouches.length > 1 || event.scale && event.scale !== 1) {
       return
     }
@@ -76,7 +78,6 @@ class SlideController extends Controller {
 
     if (isMore || speed > 0.1) {
       if (offset.x < 0) {
-        let next = ele.nextElementSibling
         if (next) {
           next.style.left = 0
           next.style.transitionProperty = 'left'
@@ -87,7 +88,6 @@ class SlideController extends Controller {
         ele.style.transitionProperty = 'right'
         ele.style.transitionDuration = '1s'
       } else if (offset.x > 0) {
-        let prev = ele.previousElementSibling
         if (prev) {
           prev.style.right = 0
           prev.style.transitionProperty = 'right'
@@ -101,6 +101,11 @@ class SlideController extends Controller {
       ele.style.right = 0
       ele.style.transitionProperty = 'right'
       ele.style.transitionDuration = '1s'
+      if (next) {
+        next.style.left = this.element.clientWidth + 'px'
+        next.style.transitionProperty = 'left'
+        next.style.transitionDuration = '1s'
+      }
     }
   }
 
