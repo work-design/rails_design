@@ -16,6 +16,7 @@ class SlideController extends Controller {
     return offset
   }
 
+  // data-action="touchstart->slide#start:passive"
   start(event) {
     let touch = event.targetTouches[0]
     this.startPos = {
@@ -25,10 +26,12 @@ class SlideController extends Controller {
     this.startTime = new Date().getTime() // 毫秒，千分之一秒
   }
 
-  // data-action="touchmove->slide#move touchstart->slide#start"
+  // data-action="touchmove->slide#move:passive"
   move(event) {
     let ele = event.currentTarget
+    console.log('move start', ele.dataset.index)
     if (event.targetTouches.length > 1 || event.scale && event.scale !== 1) {  // scale && scale !== 表示缩放了
+      console.error('scale')
       return
     }
     let offset = this.offset(event.targetTouches[0])
@@ -39,14 +42,12 @@ class SlideController extends Controller {
     }
 
     if (offset.x < 0) {  // offset.x < 0 表示向左滑动
-      event.preventDefault()
       let next = ele.nextElementSibling
       if (next) {
         ele.style.right = pad + 'px'
         next.style.left = (this.element.clientWidth - pad) + 'px'
       }
     } else if (offset.x > 0) {  // offset.x > 0 表示向右滑动
-      event.preventDefault()
       let prev = ele.previousElementSibling
       if (prev) {
         ele.style.left = pad + 'px'
@@ -55,7 +56,7 @@ class SlideController extends Controller {
     }
   }
 
-  // data-action="touchend->slide#end"
+  // data-action="touchend->slide#end:passive"
   end(event) {
     let ele = event.currentTarget
     if (event.changedTouches.length > 1 || event.scale && event.scale !== 1) {
@@ -80,6 +81,7 @@ class SlideController extends Controller {
           next.style.left = 0
           next.style.transitionProperty = 'left'
           next.style.transitionDuration = '1s'
+          next.style.zIndex = 0
         }
         ele.style.right = this.element.clientWidth + 'px'
         ele.style.transitionProperty = 'right'
