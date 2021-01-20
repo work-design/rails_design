@@ -7,7 +7,7 @@
 
 form.button_to {
   display: inline;
-  button {
+  button:not(.button) {
     border: none;
     padding: 0;
     background: none;
