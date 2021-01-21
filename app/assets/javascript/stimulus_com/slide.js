@@ -108,6 +108,7 @@ class SlideController extends Controller {
     }
   }
 
+  // 更新 z-index 应该在动画完成之后
   zIndex(ele) {
     ele.style.zIndex = parseInt(ele.style.zIndex) + 1
 
