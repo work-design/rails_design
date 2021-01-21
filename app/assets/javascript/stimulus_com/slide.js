@@ -4,6 +4,9 @@ class SlideController extends Controller {
 
   connect() {
     console.debug('Slide Controller works!')
+    this.element.addEventListener('transitionend', (event) => {
+      this.clearStyle(event.target)
+    })
   }
 
   offset(touch) {
@@ -107,6 +110,12 @@ class SlideController extends Controller {
         next.style.transitionDuration = '1s'
       }
     }
+  }
+
+  clearStyle(ele) {
+    ['left', 'right', 'transition-property', 'transition-duration'].forEach(rule => {
+      ele.style.removeProperty(rule)
+    })
   }
 
   get startPos() {
