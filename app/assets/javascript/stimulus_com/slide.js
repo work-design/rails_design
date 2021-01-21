@@ -82,40 +82,84 @@ class SlideController extends Controller {
     if (isMore || speed > 0.1) {
       if (offset.x < 0) {
         if (next) {
-          next.style.left = 0
-          next.style.transitionProperty = 'left'
-          next.style.transitionDuration = '1s'
-          next.style.zIndex = 0
+          this.nearLeft(next)
+          this.zIndex(next)
         }
-        ele.style.right = this.element.clientWidth + 'px'
-        ele.style.transitionProperty = 'right'
-        ele.style.transitionDuration = '1s'
+        this.farRight(ele)
       } else if (offset.x > 0) {
         if (prev) {
-          prev.style.right = 0
-          prev.style.transitionProperty = 'right'
-          prev.style.transitionDuration = '1s'
+          this.nearRight(prev)
+          this.zIndex(prev)
         }
-        ele.style.left = this.element.clientWidth + 'px'
-        ele.style.transitionProperty = 'left'
-        ele.style.transitionDuration = '1s'
+        this.farLeft(ele)
       }
     } else if (isMore === 0) {
-      ele.style.right = 0
-      ele.style.transitionProperty = 'right'
-      ele.style.transitionDuration = '1s'
-      if (next) {
-        next.style.left = this.element.clientWidth + 'px'
-        next.style.transitionProperty = 'left'
-        next.style.transitionDuration = '1s'
+      if (offset.x < 0) {
+        if (next) {
+          this.nearRight(ele)
+          this.farLeft(next)
+        }
+      } else if (offset.x > 0) {
+        if (prev) {
+          this.nearLeft(ele)
+          this.farRight(prev)
+        }
       }
     }
+  }
+
+  zIndex(ele) {
+    ele.style.zIndex = parseInt(ele.style.zIndex) + 1
+
+    let next = ele.nextElementSibling
+    while (next) {
+      next.style.zIndex = parseInt(next.style.zIndex) + 1
+      next = next.nextElementSibling
+    }
+
+    let prev = ele.previousElementSibling
+    while (prev) {
+      prev.style.zIndex = parseInt(prev.style.zIndex) - 1
+      prev = prev.previousElementSibling
+    }
+  }
+
+  nearLeft(ele) {
+    ele.style.left = 0
+    ele.style.transitionProperty = 'left'
+    ele.style.transitionDuration = this.duration
+  }
+
+  nearRight(ele) {
+    ele.style.right = 0
+    ele.style.transitionProperty = 'right'
+    ele.style.transitionDuration = this.duration
+  }
+
+  farRight(ele) {
+    ele.style.right = this.element.clientWidth + 'px'
+    ele.style.transitionProperty = 'right'
+    ele.style.transitionDuration = this.duration
+  }
+
+  farLeft(ele) {
+    ele.style.left = this.element.clientWidth + 'px'
+    ele.style.transitionProperty = 'left'
+    ele.style.transitionDuration = this.duration
   }
 
   clearStyle(ele) {
     ['left', 'right', 'transition-property', 'transition-duration'].forEach(rule => {
       ele.style.removeProperty(rule)
     })
+  }
+
+  get duration() {
+    let duration = this.data.get('duration')
+    if (!duration) {
+      duration = '1s'
+    }
+    return duration
   }
 
   get startPos() {
