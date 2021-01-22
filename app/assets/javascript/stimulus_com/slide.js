@@ -1,5 +1,9 @@
 import { Controller } from 'stimulus'
 
+// z-index: 0, 当前显示的图片；
+// z-index: -1, 即将显示的图片，touch move 时动态设定；
+// z-index: -2, 未显示的图片；
+
 class SlideController extends Controller {
 
   connect() {
@@ -86,20 +90,26 @@ class SlideController extends Controller {
           next.addEventListener('transitionend', (event) => { this.clearStyle(event.currentTarget) }, { once: true })
 
           this.farRight(ele)
-          ele.style.zIndex = -2
-          ele.addEventListener('transitionend', (event) => { this.clearStyle(event.target) }, { once: true })
+          ele.style.zIndex = -1
+          ele.addEventListener('transitionend', (event) => {
+            this.clearStyle(event.currentTarget)
+            event.currentTarget.style.zIndex = -2
+          }, { once: true })
         }
       } else if (offset.x > 0) {
         if (prev) {
           this.nearRight(prev)
-
+          prev.style.zIndex = 0
           prev.addEventListener('transitionend', (event) => {
             this.clearStyle(event.currentTarget)
-            this.zIndex(event.currentTarget, -1)
           }, { once: true })
 
           this.farLeft(ele)
-          ele.addEventListener('transitionend', (event) => { this.clearStyle(event.target) }, { once: true })
+          ele.style.zIndex = -1
+          ele.addEventListener('transitionend', (event) => {
+            this.clearStyle(event.currentTarget)
+            event.currentTarget.style.zIndex = -2
+          }, { once: true })
         }
       }
     } else if (isMore === 0) {
@@ -114,23 +124,6 @@ class SlideController extends Controller {
           this.farRight(prev)
         }
       }
-    }
-  }
-
-  // 更新 z-index 应该在动画完成之后
-  zIndex(ele, step = 1) {
-    ele.style.zIndex = parseInt(ele.style.zIndex) + 1
-
-    let next = ele.nextElementSibling
-    while (next) {
-      next.style.zIndex = parseInt(next.style.zIndex) + step
-      next = next.nextElementSibling
-    }
-
-    let prev = ele.previousElementSibling
-    while (prev) {
-      prev.style.zIndex = parseInt(prev.style.zIndex) - step
-      prev = prev.previousElementSibling
     }
   }
 
