@@ -45,12 +45,14 @@ class SlideController extends Controller {
       let next = ele.nextElementSibling
       if (next) {
         ele.style.right = pad + 'px'
+        next.style.zIndex = -1
         next.style.left = (this.element.clientWidth - pad) + 'px'
       }
     } else if (offset.x > 0) {  // offset.x > 0 表示向右滑动
       let prev = ele.previousElementSibling
       if (prev) {
         ele.style.left = pad + 'px'
+        prev.style.zIndex = -1
         prev.style.right = (this.element.clientWidth - pad) + 'px'
       }
     }
@@ -80,12 +82,11 @@ class SlideController extends Controller {
       if (offset.x < 0) {
         if (next) {
           this.nearLeft(next)
-          next.addEventListener('transitionend', (event) => {
-            this.clearStyle(event.currentTarget)
-            this.zIndex(event.currentTarget)
-          }, { once: true })
+          next.style.zIndex = 0
+          next.addEventListener('transitionend', (event) => { this.clearStyle(event.currentTarget) }, { once: true })
 
           this.farRight(ele)
+          ele.style.zIndex = -2
           ele.addEventListener('transitionend', (event) => { this.clearStyle(event.target) }, { once: true })
         }
       } else if (offset.x > 0) {
