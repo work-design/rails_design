@@ -84,15 +84,22 @@ class SlideController extends Controller {
             this.clearStyle(event.currentTarget)
             this.zIndex(event.currentTarget)
           }, { once: true })
+
+          this.farRight(ele)
+          ele.addEventListener('transitionend', (event) => { this.clearStyle(event.target) }, { once: true })
         }
-        this.farRight(ele)
-        ele.addEventListener('transitionend', (event) => { this.clearStyle(event.target) }, { once: true })
       } else if (offset.x > 0) {
         if (prev) {
           this.nearRight(prev)
-          this.zIndex(prev)
+
+          prev.addEventListener('transitionend', (event) => {
+            this.clearStyle(event.currentTarget)
+            this.zIndex(event.currentTarget, -1)
+          }, { once: true })
+
+          this.farLeft(ele)
+          ele.addEventListener('transitionend', (event) => { this.clearStyle(event.target) }, { once: true })
         }
-        this.farLeft(ele)
       }
     } else if (isMore === 0) {
       if (offset.x < 0) {
@@ -110,18 +117,18 @@ class SlideController extends Controller {
   }
 
   // 更新 z-index 应该在动画完成之后
-  zIndex(ele) {
+  zIndex(ele, step = 1) {
     ele.style.zIndex = parseInt(ele.style.zIndex) + 1
 
     let next = ele.nextElementSibling
     while (next) {
-      next.style.zIndex = parseInt(next.style.zIndex) + 1
+      next.style.zIndex = parseInt(next.style.zIndex) + step
       next = next.nextElementSibling
     }
 
     let prev = ele.previousElementSibling
     while (prev) {
-      prev.style.zIndex = parseInt(prev.style.zIndex) - 1
+      prev.style.zIndex = parseInt(prev.style.zIndex) - step
       prev = prev.previousElementSibling
     }
   }
