@@ -116,12 +116,28 @@ class SlideController extends Controller {
       if (offset.x < 0) {
         if (next) {
           this.nearRight(ele)
+          ele.addEventListener('transitionend', (event) => {
+            this.clearStyle(event.currentTarget)
+          }, { once: true })
+
           this.farLeft(next)
+          next.addEventListener('transitionend', (event) => {
+            this.clearStyle(event.currentTarget)
+            event.currentTarget.style.zIndex = -2
+          }, { once: true })
         }
       } else if (offset.x > 0) {
         if (prev) {
           this.nearLeft(ele)
+          ele.addEventListener('transitionend', (event) => {
+            this.clearStyle(event.currentTarget)
+          }, { once: true })
+
           this.farRight(prev)
+          prev.addEventListener('transitionend', (event) => {
+            this.clearStyle(event.currentTarget)
+            event.currentTarget.style.zIndex = -2
+          }, { once: true })
         }
       }
     }
