@@ -4,9 +4,6 @@ class SlideController extends Controller {
 
   connect() {
     console.debug('Slide Controller works!')
-    this.element.addEventListener('transitionend', (event) => {
-      this.clearStyle(event.target)
-    })
   }
 
   offset(touch) {
@@ -83,9 +80,13 @@ class SlideController extends Controller {
       if (offset.x < 0) {
         if (next) {
           this.nearLeft(next)
-          this.zIndex(next)
+          next.addEventListener('transitionend', (event) => {
+            this.clearStyle(event.currentTarget)
+            this.zIndex(event.currentTarget)
+          }, { once: true })
         }
         this.farRight(ele)
+        ele.addEventListener('transitionend', (event) => { this.clearStyle(event.target) }, { once: true })
       } else if (offset.x > 0) {
         if (prev) {
           this.nearRight(prev)
