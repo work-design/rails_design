@@ -7,6 +7,9 @@ class SlideController extends Controller {
 
   connect() {
     console.debug('Slide Controller works!')
+    this.element.addEventListener('touchstart', (event) => {
+      this.start(event)
+    }, { passive: true })
   }
 
   offset(touch) {
