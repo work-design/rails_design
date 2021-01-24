@@ -62,6 +62,11 @@ class SlideController extends Controller {
     }
   }
 
+  // data-action="touchcancel->slide#cancel:passive"
+  cancel() {
+    console.error('touch canceled')
+  }
+
   // data-action="touchend->slide#end:passive"
   end(event) {
     let ele = event.currentTarget
@@ -87,60 +92,62 @@ class SlideController extends Controller {
         if (next) {
           this.nearLeft(next)
           next.style.zIndex = 0
-          next.addEventListener('transitionend', (event) => { this.clearStyle(event.currentTarget) }, { once: true })
+          this.toCurrent(next)
 
           this.farRight(ele)
           ele.style.zIndex = -1
-          ele.addEventListener('transitionend', (event) => {
-            this.clearStyle(event.currentTarget)
-            event.currentTarget.style.zIndex = -2
-          }, { once: true })
+          this.beenCurrent(ele)
         }
       } else if (offset.x > 0) {
         if (prev) {
           this.nearRight(prev)
           prev.style.zIndex = 0
-          prev.addEventListener('transitionend', (event) => {
-            this.clearStyle(event.currentTarget)
-          }, { once: true })
+          this.toCurrent(prev)
 
           this.farLeft(ele)
           ele.style.zIndex = -1
-          ele.addEventListener('transitionend', (event) => {
-            this.clearStyle(event.currentTarget)
-            event.currentTarget.style.zIndex = -2
-          }, { once: true })
+          this.beenCurrent(ele)
         }
       }
     } else if (isMore === 0) {
       if (offset.x < 0) {
         if (next) {
           this.nearRight(ele)
-          ele.addEventListener('transitionend', (event) => {
-            this.clearStyle(event.currentTarget)
-          }, { once: true })
+          this.toCurrent(ele)
 
           this.farLeft(next)
-          next.addEventListener('transitionend', (event) => {
-            this.clearStyle(event.currentTarget)
-            event.currentTarget.style.zIndex = -2
-          }, { once: true })
+          this.beenCurrent(next)
         }
       } else if (offset.x > 0) {
         if (prev) {
           this.nearLeft(ele)
-          ele.addEventListener('transitionend', (event) => {
-            this.clearStyle(event.currentTarget)
-          }, { once: true })
+          this.toCurrent(ele)
 
           this.farRight(prev)
-          prev.addEventListener('transitionend', (event) => {
-            this.clearStyle(event.currentTarget)
-            event.currentTarget.style.zIndex = -2
-          }, { once: true })
+          this.beenCurrent(prev)
         }
       }
     }
+  }
+
+  beenCurrent(ele) {
+    ele.addEventListener('transitionend', (event) => {
+      this.clearStyle(event.currentTarget)
+      event.currentTarget.style.zIndex = -2
+    }, { once: true })
+    ele.addEventListener('transitioncancel', (event) => {
+      this.clearStyle(event.currentTarget)
+      event.currentTarget.style.zIndex = -2
+    }, { once: true })
+  }
+
+  toCurrent(ele) {
+    ele.addEventListener('transitionend', (event) => {
+      this.clearStyle(event.currentTarget)
+    }, { once: true })
+    ele.addEventListener('transitioncancel', (event) => {
+      this.clearStyle(event.currentTarget)
+    }, { once: true })
   }
 
   nearLeft(ele) {
