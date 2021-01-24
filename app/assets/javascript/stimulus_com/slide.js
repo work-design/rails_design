@@ -3,7 +3,6 @@ import { Controller } from 'stimulus'
 // z-index: 0, 当前显示的图片；
 // z-index: -1, 即将显示的图片，touch move 时动态设定；
 // z-index: -2, 未显示的图片；
-
 class SlideController extends Controller {
 
   connect() {
@@ -60,11 +59,6 @@ class SlideController extends Controller {
         prev.style.right = (this.element.clientWidth - pad) + 'px'
       }
     }
-  }
-
-  // data-action="touchcancel->slide#cancel:passive"
-  cancel() {
-    console.error('touch canceled')
   }
 
   // data-action="touchend->slide#end:passive"
