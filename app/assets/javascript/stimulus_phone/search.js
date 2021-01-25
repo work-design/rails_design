@@ -5,6 +5,9 @@ class SearchController extends Controller {
 
   connect() {
     console.debug('Search Controller works!')
+    if (this.hasInputTarget && this.inputTarget.value.length > 0) {
+      this.focus()
+    }
   }
 
   focus() {
@@ -26,6 +29,7 @@ class SearchController extends Controller {
   }
 
   cancel() {
+    Turbo.visit(location.pathname, { action: 'replace' })
     this.element.classList.remove('weui-search-bar_focusing')
     this.inputTarget.blur()
   }
