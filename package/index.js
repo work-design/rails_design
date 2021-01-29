@@ -6,7 +6,7 @@ const { config } = require('@rails/webpacker')
 const getEntryObject = (rootPath) => {
   const entries = {}
 
-  globSync(`${rootPath}/**/*.+(js|css|scss|png|jpg)`).forEach((path) => {
+  globSync(`${rootPath}/**/*.+(js|css|scss)`).forEach((path) => {
     const namespace = relative(join(rootPath), dirname(path))
     const name = join(namespace, basename(path, extname(path)))
     let assetPaths = resolve(path)
