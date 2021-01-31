@@ -14,9 +14,7 @@ class InputController extends Controller {
     if (this.hasCheckboxTarget) {
       this.checkboxTarget.checked = !this.checkboxTarget.checked
 
-      let evt = document.createEvent('Event')
-      evt.initEvent('submit', true, true)
-      this.element.dispatchEvent(evt)
+      this.submit(this.element)
     }
   }
 
@@ -28,9 +26,7 @@ class InputController extends Controller {
   form(event) {
     let el = event.currentTarget
 
-    let evt = document.createEvent('Event')
-    evt.initEvent('submit', true, true)
-    el.form.dispatchEvent(evt)
+    this.submit(el.form)
   }
 
   filter(event) {
@@ -39,13 +35,17 @@ class InputController extends Controller {
       return
     }
 
-    let evt = document.createEvent('Event')
-    evt.initEvent('submit', true, true)
-    ele.form.dispatchEvent(evt)
+    this.submit(ele.form)
   }
 
   remove() {
     this.element.remove()
+  }
+
+  submit(form) {
+    let evt = document.createEvent('Event')
+    evt.initEvent('submit', true, true)
+    form.dispatchEvent(evt)
   }
 
 }
