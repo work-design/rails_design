@@ -13,20 +13,12 @@ class InputController extends Controller {
   check() {
     if (this.hasCheckboxTarget) {
       this.checkboxTarget.checked = !this.checkboxTarget.checked
-
       this.submit(this.element)
     }
   }
 
-  // change->input#check
-  uncheck(event) {
-
-  }
-
   form(event) {
-    let el = event.currentTarget
-
-    this.submit(el.form)
+    this.submit(event.currentTarget.form)
   }
 
   filter(event) {
@@ -34,7 +26,6 @@ class InputController extends Controller {
     if (!ele.value) {
       return
     }
-
     this.submit(ele.form)
   }
 
