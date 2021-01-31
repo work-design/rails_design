@@ -8,9 +8,11 @@ class InputController extends Controller {
     console.debug('Input Controller works!')
   }
 
+  // <label data-action="click->input#check"></label>
+  // label out of check
   check() {
     if (this.hasCheckboxTarget) {
-      this.checkboxTarget.click()
+      this.checkboxTarget.checked = !this.checkboxTarget.checked
 
       let evt = document.createEvent('Event')
       evt.initEvent('submit', true, true)
@@ -18,6 +20,7 @@ class InputController extends Controller {
     }
   }
 
+  // change->input#check
   uncheck(event) {
 
   }
