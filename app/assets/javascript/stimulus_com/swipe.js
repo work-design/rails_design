@@ -1,6 +1,6 @@
-import { Controller } from 'stimulus'
+import TouchController from './touch'
 
-class SwipeController extends Controller {
+class SwipeController extends TouchController {
   static targets = ['open']
 
   connect() {
@@ -20,12 +20,7 @@ class SwipeController extends Controller {
     if (event.targetTouches.length > 1 || event.scale && event.scale !== 1) {
       return
     }
-    let touch = event.targetTouches[0]
-    let offset = {
-      x: touch.pageX - this.startPos.x,
-      y: touch.pageY - this.startPos.y
-    }
-    console.debug(offset)
+    let offset = this.offset(event.targetTouches[0])
     let isScrolling = Math.abs(offset.x) < Math.abs(offset.y) ? 1 : 0
     if (isScrolling === 0 && offset.x < 0) {
       let styles = {
@@ -47,18 +42,6 @@ class SwipeController extends Controller {
       'transition-property': 'width'
     }
     Object.assign(this.openTarget.style, styles)
-  }
-
-  get startPos() {
-    let r = this.data.get('startPos').split(',')
-    return {
-      x: parseFloat(r[0]),
-      y: parseFloat(r[1])
-    }
-  }
-
-  set startPos(pos) {
-    this.data.set('startPos', [pos.x, pos.y].join(','))
   }
 
 }

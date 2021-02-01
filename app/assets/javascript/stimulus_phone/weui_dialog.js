@@ -15,6 +15,12 @@ class WeuiDialogController extends Controller {
     this.dialogTarget.classList.remove('weui-half-screen-dialog_show')
   }
 
+  show() {
+    let ele = this.element
+    ele.style.display = 'block'
+    ele.style.opacity = 1
+  }
+
 }
 
 application.register('weui-dialog', WeuiDialogController)

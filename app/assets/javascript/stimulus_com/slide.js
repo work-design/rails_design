@@ -1,35 +1,15 @@
-import { Controller } from 'stimulus'
+import TouchController from './touch'
 
 // z-index: 0, 当前显示的图片；
 // z-index: -1, 即将显示的图片，touch move 时动态设定；
 // z-index: -2, 未显示的图片；
-class SlideController extends Controller {
+class SlideController extends TouchController {
 
   connect() {
     console.debug('Slide Controller works!')
     this.element.addEventListener('touchstart', (event) => {
       this.start(event)
     }, { passive: true })
-  }
-
-  offset(touch) {
-    let offset = {
-      x: touch.pageX - this.startPos.x,
-      y: touch.pageY - this.startPos.y
-    }
-    console.debug('offset', offset)
-
-    return offset
-  }
-
-  // data-action="touchstart->slide#start:passive"
-  start(event) {
-    let touch = event.targetTouches[0]
-    this.startPos = {
-      x: touch.pageX,
-      y: touch.pageY
-    }
-    this.startTime = new Date().getTime() // 毫秒，千分之一秒
   }
 
   // data-action="touchmove->slide#move:passive"
@@ -185,26 +165,7 @@ class SlideController extends Controller {
     return duration
   }
 
-  get startPos() {
-    let r = this.data.get('startPos').split(',')
-    return {
-      x: parseFloat(r[0]),
-      y: parseFloat(r[1])
-    }
-  }
-
-  set startPos(pos) {
-    this.data.set('startPos', [pos.x, pos.y].join(','))
-  }
-
-  get startTime() {
-    return this.data.get('startTime')
-  }
-
-  set startTime(time) {
-    this.data.set('startTime', time)
-  }
-
 }
 
 application.register('slide', SlideController)
+window.SlideController = SlideController
