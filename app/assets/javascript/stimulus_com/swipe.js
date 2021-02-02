@@ -48,11 +48,12 @@ class SwipeController extends TouchController {
   }
 
   end(event) {
-    let styles = {
-      width: '150px',
-      'transition-property': 'width'
-    }
-    Object.assign(this.element.style, styles)
+    // let styles = {
+    //   width: '150px',
+    //   'transition-property': 'width'
+    // }
+    this.openTarget.style.width = `${this.openTarget.clientWidth}px`
+    // Object.assign(this.element.style, styles)
   }
 
   get width() {
