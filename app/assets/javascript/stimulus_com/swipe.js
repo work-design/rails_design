@@ -7,12 +7,15 @@ class SwipeController extends TouchController {
     console.debug('Swipe Controller works!')
   }
 
+  // data-action="touchstart->slide#start:passive"
   start(event) {
     let touch = event.targetTouches[0]
     this.startPos = {
       x: touch.pageX,
       y: touch.pageY
     }
+    this.startTime = new Date().getTime() // 毫秒，千分之一秒
+    this.width = this.element.clientWidth
   }
 
   // data-action="touchmove->swipe#left touchstart->swipe#start"
@@ -28,16 +31,19 @@ class SwipeController extends TouchController {
     }
 
     if (isScrolling === 0 && offset.x < 0) {
+      this.openTarget.style.width = `${pad}px`
+      let movePad = this.openTarget.clientWidth >= pad ? pad : this.openTarget.clientWidth
       let styles = {
-        width: `${Math.abs(offset.x)}px`
+        width: `${this.width + movePad}px`,
+        left: `-${movePad}px`
       }
-      this.openTarget.style.removeProperty('display')
-      Object.assign(this.openTarget.style, styles)
+      Object.assign(this.element.style, styles)
     } else if (isScrolling === 0 && offset.x > 0) {
+      let x = this.right - offset.x
       let styles = {
-        width: 0
+        right: `${x > 0 ? x : 0}px`
       }
-      Object.assign(this.openTarget.style, styles)
+      Object.assign(this.element.style, styles)
     }
   }
 
@@ -46,7 +52,15 @@ class SwipeController extends TouchController {
       width: '150px',
       'transition-property': 'width'
     }
-    Object.assign(this.openTarget.style, styles)
+    Object.assign(this.element.style, styles)
+  }
+
+  get width() {
+    return parseFloat(this.data.get('width'))
+  }
+
+  set width(value) {
+    this.data.set('width', value)
   }
 
 }

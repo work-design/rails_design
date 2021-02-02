@@ -16,7 +16,7 @@ class SlideController extends TouchController {
   move(event) {
     let ele = event.currentTarget
     console.debug('move start', ele.dataset.index)
-    if (event.targetTouches.length > 1 || event.scale && event.scale !== 1) {  // scale && scale !== 表示缩放了
+    if (this.zoomed(event)) {
       console.error('scale')
       return
     }

@@ -14,31 +14,30 @@
 
 .weui-media-box__ft {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   max-width: max-content;
   align-self: stretch;
   margin-top: -16px;
   margin-bottom: -16px;
+
+  .weui-btn {
+    border-radius: 0;
+    white-space: nowrap;
+    width: max-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+    margin-bottom: 1px;
+  }
+  .weui-btn:not(.weui-btn_mini) + .weui-btn:not(.weui-btn_mini) {
+    margin-top: 0;
+  }
 }
 
 .weui-media-box__ft.x {
   width: 0;
   display: none;
   transition: width 1s linear;
-}
-
-.weui-media-box__ft .weui-btn {
-  border-radius: 0;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1px;
-  margin-bottom: 1px;
-}
-.weui-media-box__ft .weui-btn + .weui-btn {
-  margin-top: 0;
 }

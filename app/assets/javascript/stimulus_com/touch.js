@@ -12,8 +12,16 @@ export default class TouchController extends Controller {
     this.startTime = new Date().getTime() // 毫秒，千分之一秒
   }
 
+  // scale && scale !== 表示缩放了
   zoomed(event) {
     return event.changedTouches.length > 1 || (event.scale && event.scale !== 1)
+  }
+
+  xx(pad) {
+    let endTime = new Date().getTime()
+    let isMore = pad > this.element.clientWidth / 2 ? 1 : 0  // 滑动距离是否超过元素宽度一半
+    let speed = pad / (endTime - this.startTime)  // 手势速度
+    console.debug('手势速度', speed)  // 大于 0.1
   }
 
   offset(touch) {
