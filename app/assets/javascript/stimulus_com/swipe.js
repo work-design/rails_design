@@ -15,11 +15,12 @@ class SwipeController extends TouchController {
       y: touch.pageY
     }
     this.startTime = new Date().getTime() // 毫秒，千分之一秒
-    this.width = this.element.clientWidth
+    this.barWidth = this.element.clientWidth
+    this.swiperWidth = this.openTarget.clientWidth
   }
 
   // data-action="touchmove->swipe#left touchstart->swipe#start"
-  left(event) {
+  move(event) {
     if (this.zoomed(event)) {
       return
     }
@@ -31,16 +32,16 @@ class SwipeController extends TouchController {
     }
 
     if (isScrolling === 0 && offset.x < 0) {
-      this.openTarget.style.width = `${pad}px`
-      let movePad = this.openTarget.clientWidth >= pad ? pad : this.openTarget.clientWidth
+      this.openTarget.style.width = `${this.swiperWidth + pad}px`
       let styles = {
-        width: `${this.width + movePad}px`,
-        left: `-${movePad}px`
+        width: `${this.barWidth - this.swiperWidth + this.openTarget.clientWidth}px`,
+        left: `-${this.openTarget.clientWidth}px`
       }
       Object.assign(this.element.style, styles)
     } else if (isScrolling === 0 && offset.x > 0) {
       let x = this.right - offset.x
       let styles = {
+        width: `${this.width}`,
         right: `${x > 0 ? x : 0}px`
       }
       Object.assign(this.element.style, styles)
@@ -56,12 +57,25 @@ class SwipeController extends TouchController {
     // Object.assign(this.element.style, styles)
   }
 
-  get width() {
-    return parseFloat(this.data.get('width'))
+  get leftPos() {
+    let left = this.element.style.left.replace(/px$/, '')
+    return parseFloat(left)
   }
 
-  set width(value) {
-    this.data.set('width', value)
+  get barWidth() {
+    return parseFloat(this.data.get('barWidth'))
+  }
+
+  set barWidth(value) {
+    this.data.set('barWidth', value)
+  }
+
+  get swiperWidth() {
+    return parseFloat(this.data.get('swiperWidth'))
+  }
+
+  set swiperWidth(value) {
+    this.data.set('swiperWidth', value)
   }
 
 }
