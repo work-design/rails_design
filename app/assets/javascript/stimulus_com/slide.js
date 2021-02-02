@@ -46,12 +46,12 @@ class SlideController extends TouchController {
 
   // data-action="touchend->slide#end:passive"
   end(event) {
+    if (this.zoomed(event)) {
+      return
+    }
     let ele = event.currentTarget
     let next = ele.nextElementSibling
     let prev = ele.previousElementSibling
-    if (event.changedTouches.length > 1 || event.scale && event.scale !== 1) {
-      return
-    }
     let endTime = new Date().getTime()
     let offset = this.offset(event.changedTouches[0])
     let pad = Math.abs(offset.x)

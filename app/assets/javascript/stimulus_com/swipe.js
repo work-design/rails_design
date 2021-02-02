@@ -17,11 +17,16 @@ class SwipeController extends TouchController {
 
   // data-action="touchmove->swipe#left touchstart->swipe#start"
   left(event) {
-    if (event.targetTouches.length > 1 || event.scale && event.scale !== 1) {
+    if (this.zoomed(event)) {
       return
     }
     let offset = this.offset(event.targetTouches[0])
-    let isScrolling = Math.abs(offset.x) < Math.abs(offset.y) ? 1 : 0
+    let pad = Math.abs(offset.x)
+    let isScrolling = pad < Math.abs(offset.y) ? 1 : 0 // 1 上下滚动，0 左右滑动
+    if (isScrolling !== 0) {
+      return
+    }
+
     if (isScrolling === 0 && offset.x < 0) {
       let styles = {
         width: `${Math.abs(offset.x)}px`

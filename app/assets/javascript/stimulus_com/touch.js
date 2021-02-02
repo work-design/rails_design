@@ -2,16 +2,6 @@ import { Controller } from 'stimulus'
 
 export default class TouchController extends Controller {
 
-  offset(touch) {
-    let offset = {
-      x: touch.pageX - this.startPos.x,
-      y: touch.pageY - this.startPos.y
-    }
-    console.debug('offset', offset)
-
-    return offset
-  }
-
   // data-action="touchstart->slide#start:passive"
   start(event) {
     let touch = event.targetTouches[0]
@@ -20,6 +10,20 @@ export default class TouchController extends Controller {
       y: touch.pageY
     }
     this.startTime = new Date().getTime() // 毫秒，千分之一秒
+  }
+
+  zoomed(event) {
+    return event.changedTouches.length > 1 || (event.scale && event.scale !== 1)
+  }
+
+  offset(touch) {
+    let offset = {
+      x: touch.pageX - this.startPos.x,
+      y: touch.pageY - this.startPos.y
+    }
+    console.debug('offset', offset)
+
+    return offset
   }
 
   get startPos() {
