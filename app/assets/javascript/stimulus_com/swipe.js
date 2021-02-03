@@ -39,11 +39,11 @@ class SwipeController extends TouchController {
       }
       Object.assign(this.element.style, styles)
     } else if (isScrolling === 0 && offset.x > 0) {
-      let x = this.swiperWidth - pad
+      let x = pad < this.swiperWidth ? this.swiperWidth - pad : 0
       this.openTarget.style.width = `${x}px`
       let styles = {
         width: `${this.barWidth - (pad < this.swiperWidth ? pad : this.swiperWidth)}px`,
-        left: `-${x > 0 ? x : 0}px`
+        left: `-${x}px`
       }
       Object.assign(this.element.style, styles)
     }
