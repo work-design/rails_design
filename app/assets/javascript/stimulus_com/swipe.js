@@ -42,7 +42,7 @@ class SwipeController extends TouchController {
       let x = this.swiperWidth - pad
       this.openTarget.style.width = `${x}px`
       let styles = {
-        width: `${this.barWidth - pad}px`,
+        width: `${this.barWidth - (pad < this.swiperWidth ? pad : this.swiperWidth)}px`,
         left: `-${x > 0 ? x : 0}px`
       }
       Object.assign(this.element.style, styles)
