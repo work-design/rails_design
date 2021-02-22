@@ -2,9 +2,22 @@ import { Controller } from 'stimulus'
 
 class TreeRemoteController extends Controller {
   static targets = ['item']
+  static values = { hide: Boolean }
 
   connect() {
     console.debug('Tree Remote Controller works!')
+
+    if (this.hideValue) {
+      this.collapseDirect()
+    }
+  }
+
+  collapseDirect() {
+    let el = this.element.nextElementSibling
+    while (el && el.id.startsWith(this.element.id)) {
+      el = el.nextElementSibling
+      el.previousElementSibling.remove()
+    }
   }
 
   collapse(event) {
@@ -12,7 +25,7 @@ class TreeRemoteController extends Controller {
     let par = this.itemTarget
     ele.parentNode.addEventListener('click', this.disableLink)
 
-    var el = par.nextElementSibling
+    let el = par.nextElementSibling
     while (el && el.id.startsWith(par.id)) {
       el = el.nextElementSibling
       el.previousElementSibling.remove()
@@ -39,4 +52,4 @@ class TreeRemoteController extends Controller {
 
 }
 
-application.register('tree_remote', TreeRemoteController)
+application.register('tree-remote', TreeRemoteController)
