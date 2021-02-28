@@ -7,15 +7,13 @@ class VisitController extends Controller {
   connect() {
     console.debug('Common Controller works!')
 
+    let request = Turbo.navigator.currentVisit.request
     if (this.hasUrlValue) {
-      Turbo.visit(this.urlValue, { action: 'replace' })
-    } else {
-      Turbo.visit(location.href, { action: 'replace' })
+      request.url = new URL(this.urlValue)
     }
+    request.perform()
 
-    Turbo.clearCache()
     document.documentElement.classList.remove('is-clipped')
-
 
     this.element.remove()
   }

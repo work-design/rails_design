@@ -1,6 +1,6 @@
 import '../stimulus_com'
 
-import * as Turbo from '@hotwired/turbo'
+import { Turbo } from '@hotwired/turbo-rails'
 window.Turbo = Turbo
 
 document.addEventListener('turbo:before-fetch-request', event => {
