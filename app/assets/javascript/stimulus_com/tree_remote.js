@@ -1,7 +1,7 @@
 import { Controller } from 'stimulus'
 
 class TreeRemoteController extends Controller {
-  static targets = ['item']
+  static targets = ['item', 'checkbox']
   static values = { hide: Boolean }
 
   connect() {
@@ -20,6 +20,14 @@ class TreeRemoteController extends Controller {
     }
   }
 
+  collapseCheckbox() {
+    this.checkboxTargets.forEach(el=> {
+      if (el.elements['expand']) {
+        el.elements['expand'].value = null
+      }
+    })
+  }
+
   collapse(event) {
     let ele = event.currentTarget
     let par = this.itemTarget
@@ -31,6 +39,7 @@ class TreeRemoteController extends Controller {
       el.previousElementSibling.remove()
     }
 
+    this.collapseCheckbox()
     ele.classList.replace('fa-caret-down', 'fa-caret-right')
     ele.dataset['action'] = 'click->tree-remote#expand'
   }
