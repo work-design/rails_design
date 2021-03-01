@@ -13,4 +13,7 @@ form.button_to {
     background: none;
     cursor: pointer;
   }
+  button:not(.button):focus {
+    outline: none;
+  }
 }
