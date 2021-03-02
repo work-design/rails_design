@@ -9,6 +9,13 @@ document.addEventListener('turbo:before-fetch-request', event => {
   //xhr.headers['X-Csp-Nonce'] = Rails.cspNonce()
 })
 
+document.addEventListener('turbo:before-cache', event => {
+  let modal = document.getElementById('modal')
+  if (modal) {
+    modal.removeAttribute('src')
+  }
+})
+
 document.addEventListener('turbo:before-stream-render', event => {
   let target = event.target
   if (target.action === 'after') {
