@@ -34,7 +34,7 @@ button[aria-label] {
     position: absolute;
     white-space: nowrap;
     box-shadow: 1px 1px 1px 1px #bababc;
-    z-index: 40;
+    z-index: 20;
   }
 
   &:before {
@@ -45,7 +45,7 @@ button[aria-label] {
     content: '';
     position: absolute;
     box-shadow: 1px 1px 0 0 #bababc;
-    z-index: 41;
+    z-index: 21;
   }
 
   &:hover,
