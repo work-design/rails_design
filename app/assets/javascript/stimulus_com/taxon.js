@@ -26,14 +26,19 @@ class TaxonController extends Controller {
       }).then(response => {
         return response.text()
       }).then(body => {
+        this.clear(element.parentNode.parentNode)
         Turbo.renderStreamMessage(body)
       })
     } else {
-      let el = element.parentNode.parentNode.nextElementSibling
-      while (el && el.dataset.title === 'parent_ancestors_input') {
-        el.remove()
-        el = node.nextElementSibling
-      }
+      this.clear(element.parentNode.parentNode)
+    }
+  }
+
+  clear(node) {
+    let el = node.nextElementSibling
+    while (el && el.dataset.title === 'parent_ancestors_input') {
+      el.remove()
+      el = node.nextElementSibling
     }
   }
 
