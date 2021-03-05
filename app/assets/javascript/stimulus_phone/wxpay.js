@@ -3,7 +3,7 @@ import { Controller } from 'stimulus'
 class WxpayController extends Controller {
 
   connect() {
-    console.debug('Wechat Controller works!')
+    console.debug('Wxpay Controller works!')
     this.chooseWXPay()
   }
 
