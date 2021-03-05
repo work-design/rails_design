@@ -18,10 +18,15 @@ class TaxonController extends Controller {
       if (element.dataset['index']) {
         search_url.searchParams.set('index', element.dataset['index'])
       }
-      Rails.ajax({
-        url: search_url,
-        type: 'get',
-        dataType: 'script'
+      fetch(search_url, {
+        method: 'GET',
+        headers: {
+          Accept: 'text/vnd.turbo-stream.html'
+        }
+      }).then(response => {
+        return response.text()
+      }).then(body => {
+        Turbo.renderStreamMessage(body)
       })
     } else {
       let el = element.parentNode.parentNode.nextElementSibling
