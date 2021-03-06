@@ -1,6 +1,7 @@
 import { Controller } from 'stimulus'
 
 class OuterController extends Controller {
+  static values = { url: String }
 
   connect() {
     console.debug('Outer Controller works!')
@@ -10,7 +11,7 @@ class OuterController extends Controller {
   choose(event) {
     let element = event.currentTarget
     if (element.value) {
-      let search_url = new URL(location.origin + '/nodes/outer')
+      let search_url = new URL(this.urlValue, location.origin)
       search_url.searchParams.set('node_id', element.value)
       search_url.searchParams.set('node_type', element.dataset['nodeType'])
       search_url.searchParams.set('scope', element.dataset['scope'])
