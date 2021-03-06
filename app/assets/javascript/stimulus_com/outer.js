@@ -1,7 +1,10 @@
 import { Controller } from 'stimulus'
 
 class OuterController extends Controller {
-  static values = { url: String }
+  static values = {
+    url: String,
+    params: Object
+  }
 
   connect() {
     console.debug('Outer Controller works!')
@@ -13,14 +16,11 @@ class OuterController extends Controller {
     if (element.value) {
       let search_url = new URL(this.urlValue, location.origin)
       search_url.searchParams.set('node_id', element.value)
-      search_url.searchParams.set('node_type', element.dataset['nodeType'])
-      search_url.searchParams.set('scope', element.dataset['scope'])
-      search_url.searchParams.set('method', element.dataset['method'])
-      search_url.searchParams.set('outer', element.dataset['outer'])
       search_url.searchParams.set('html_id', element.parentNode.parentNode.id)
-      if (element.dataset['index']) {
-        search_url.searchParams.set('index', element.dataset['index'])
-      }
+      Object.keys(this.paramsValue).forEach(k => {
+        search_url.searchParams.set(k, this.paramsValue[k])
+      })
+      window.xxx = this
 
       fetch(search_url, {
         method: 'GET',
