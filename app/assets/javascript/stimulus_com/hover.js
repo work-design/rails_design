@@ -1,4 +1,4 @@
-import { Controller } from "stimulus"
+import { Controller } from 'stimulus'
 
 class HoverController extends Controller {
   static targets = ['card']
