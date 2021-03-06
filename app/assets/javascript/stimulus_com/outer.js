@@ -21,17 +21,27 @@ class OuterController extends Controller {
         search_url.searchParams.set('index', element.dataset['index'])
       }
 
-      Rails.ajax({
-        url: search_url,
-        type: 'GET',
-        dataType: 'script'
+      fetch(search_url, {
+        method: 'GET',
+        headers: {
+          Accept: 'text/vnd.turbo-stream.html'
+        }
+      }).then(response => {
+        return response.text()
+      }).then(body => {
+        this.clear(element.parentNode.parentNode)
+        Turbo.renderStreamMessage(body)
       })
     } else {
-      let el = element.parentNode.parentNode.nextElementSibling
-      while (el && el.dataset.title === 'outer_ancestors_input') {
-        el.remove()
-        el = node.nextElementSibling
-      }
+      this.clear(element.parentNode.parentNode)
+    }
+  }
+
+  clear(node) {
+    let el = node.nextElementSibling
+    while (el && el.dataset.title === 'outer_ancestors_input') {
+      el.remove()
+      el = node.nextElementSibling
     }
   }
 
