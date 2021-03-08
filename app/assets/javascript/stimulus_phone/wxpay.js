@@ -2,6 +2,7 @@ import { Controller } from 'stimulus'
 
 class WxpayController extends Controller {
   static values = { params: Object }
+  static targets = ['load']
 
   connect() {
     console.debug('Wxpay Controller works!')
@@ -14,7 +15,7 @@ class WxpayController extends Controller {
         ...this.paramsValue,
         success: (res) => {
           console.log(res)
-          this.element.style.removeProperty('display')
+          this.loadTarget.style.removeProperty('display')
         },
         error: (e) => {
           alert(e)
