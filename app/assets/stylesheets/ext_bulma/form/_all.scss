@@ -7,13 +7,15 @@
 
 form.button_to {
   display: inline;
-  button:not(.button) {
+  button:not(.button),
+  input[type="submit"] {
     border: none;
     padding: 0;
     background: none;
     cursor: pointer;
   }
-  button:not(.button):focus {
+  button:not(.button):focus,
+  input[type="submit"]:focus {
     outline: none;
   }
 }
