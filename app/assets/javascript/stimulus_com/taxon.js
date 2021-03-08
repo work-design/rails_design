@@ -1,23 +1,28 @@
 import { Controller } from 'stimulus'
 
 class TaxonController extends Controller {
-
-  connect() {
-    console.debug('Taxon Controller works!')
+  static values = {
+    url: String,
+    title: String,
+    params: Object
   }
 
-  // change->
+  connect() {
+    console.debug('Outer Controller works!')
+  }
+
+  // change
   choose(event) {
-    let element = event.currentTarget
-    if (element.value) {
-      let search_url = new URL(location.origin + '/nodes/children')
-      search_url.searchParams.set('node_id', element.value)
-      search_url.searchParams.set('node_type', element.dataset['type'])
-      search_url.searchParams.set('method', element.dataset['method'])
-      search_url.searchParams.set('html_id', element.parentNode.parentNode.id)
-      if (element.dataset['index']) {
-        search_url.searchParams.set('index', element.dataset['index'])
-      }
+    let ele = event.currentTarget
+    if (ele.value) {
+      let search_url = new URL(this.urlValue, location.origin)
+      search_url.searchParams.set('node_id', ele.value)
+      search_url.searchParams.set('html_id', this.element.id)
+      Object.keys(this.paramsValue).forEach(k => {
+        search_url.searchParams.set(k, this.paramsValue[k])
+      })
+      window.xxx = this
+
       fetch(search_url, {
         method: 'GET',
         headers: {
@@ -26,17 +31,17 @@ class TaxonController extends Controller {
       }).then(response => {
         return response.text()
       }).then(body => {
-        this.clear(element.parentNode.parentNode)
+        this.clear(this.element)
         Turbo.renderStreamMessage(body)
       })
     } else {
-      this.clear(element.parentNode.parentNode)
+      this.clear(this.element)
     }
   }
 
   clear(node) {
     let el = node.nextElementSibling
-    while (el && el.dataset.title === 'parent_ancestors_input') {
+    while (el && el.dataset['taxon-title-value'] === this.titleValue) {
       el.remove()
       el = node.nextElementSibling
     }
