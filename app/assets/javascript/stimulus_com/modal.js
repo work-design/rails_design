@@ -5,13 +5,18 @@ class ModalController extends Controller {
 
   connect() {
     console.debug(this.identifier, 'connected!')
+    console.debug('modal refer:', document.referrer)
     document.documentElement.classList.add('is-clipped')
-    console.debug(document.referrer)
   }
 
   close() {
-    this.element.remove()
+    this.element.classList.remove('is-active')
     document.documentElement.classList.remove('is-clipped')
+  }
+
+  // turbo:frame-render->modal#loaded
+  loaded() {
+    this.element.classList.add('is-active')
   }
 
 }

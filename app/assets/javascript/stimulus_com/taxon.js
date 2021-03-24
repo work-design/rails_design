@@ -14,14 +14,15 @@ class TaxonController extends Controller {
   // change
   choose(event) {
     let ele = event.currentTarget
-    if (ele.value) {
+    if (ele.value === '' || ele.value === null) {
+      this.clear(this.element)
+    } else {
       let search_url = new URL(this.urlValue, location.origin)
       search_url.searchParams.set('node_id', ele.value)
       search_url.searchParams.set('html_id', this.element.id)
       Object.keys(this.paramsValue).forEach(k => {
         search_url.searchParams.set(k, this.paramsValue[k])
       })
-      window.xxx = this
 
       fetch(search_url, {
         method: 'GET',
@@ -34,14 +35,12 @@ class TaxonController extends Controller {
         this.clear(this.element)
         Turbo.renderStreamMessage(body)
       })
-    } else {
-      this.clear(this.element)
     }
   }
 
   clear(node) {
     let el = node.nextElementSibling
-    while (el && el.dataset['taxon-title-value'] === this.titleValue) {
+    while (el && el.dataset['taxonTitleValue'] === this.titleValue) {
       el.remove()
       el = node.nextElementSibling
     }
