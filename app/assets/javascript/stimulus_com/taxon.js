@@ -8,7 +8,7 @@ class TaxonController extends Controller {
   }
 
   connect() {
-    console.debug('Taxon Controller connected!')
+    console.debug(this.identifier, 'connected!')
   }
 
   // change

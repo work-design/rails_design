@@ -29,7 +29,7 @@ class SortableController extends Controller {
   }
 
   connect() {
-    console.debug('Sortable Controller works!')
+    console.debug(this.identifier, 'connected!')
     this.reload(this.element)
   }
 

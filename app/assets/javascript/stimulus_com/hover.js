@@ -7,7 +7,7 @@ class HoverController extends Controller {
   }
 
   connect() {
-    console.debug(this.identifier, 'connected')
+    console.debug(this.identifier, 'connected!')
   }
 
   show(event) {

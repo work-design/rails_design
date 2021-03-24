@@ -4,7 +4,7 @@ class ShowController extends Controller {
   static targets = ['src', 'item']
 
   connect() {
-    console.debug('Show Controller works!')
+    console.debug(this.identifier, 'connected!')
   }
 
   initEvent() {

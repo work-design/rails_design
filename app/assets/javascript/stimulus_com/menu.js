@@ -9,7 +9,7 @@ class MenuController extends Controller {
   }
 
   connect() {
-    console.debug('Menu Controller works!')
+    console.debug(this.identifier, 'connected!')
   }
 
   toggle() {

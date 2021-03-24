@@ -5,7 +5,7 @@ class TreeRemoteController extends Controller {
   static values = { hide: Boolean }
 
   connect() {
-    console.debug('Tree Remote Controller works!')
+    console.debug(this.identifier, 'connected!')
 
     if (this.hideValue) {
       this.collapseDirect()

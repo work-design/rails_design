@@ -4,7 +4,7 @@ import { Controller } from 'stimulus'
 class NoticeController extends Controller {
 
   connect() {
-    console.debug('Notice Controller works!')
+    console.debug(this.identifier, 'connected!')
   }
 
   close() {

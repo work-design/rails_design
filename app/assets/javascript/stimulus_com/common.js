@@ -4,7 +4,7 @@ import { Controller } from 'stimulus'
 class CommonController extends Controller {
 
   connect() {
-    console.debug('Common Controller works!')
+    console.debug(this.identifier, 'connected!')
   }
 
   cancel(event) {

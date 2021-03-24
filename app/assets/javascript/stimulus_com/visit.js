@@ -5,7 +5,7 @@ class VisitController extends Controller {
   static values = { url: String }
 
   connect() {
-    console.debug('Common Controller works!')
+    console.debug(this.identifier, 'connected!')
 
     if (this.hasUrlValue) {
       Turbo.visit(this.urlValue, { action: 'replace' })

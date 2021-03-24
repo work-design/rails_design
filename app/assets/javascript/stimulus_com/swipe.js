@@ -4,7 +4,7 @@ class SwipeController extends TouchController {
   static targets = ['open']
 
   connect() {
-    console.debug('Swipe Controller works!')
+    console.debug(this.identifier, 'connected!')
   }
 
   // data-action="touchstart->slide#start:passive"
