@@ -1,11 +1,13 @@
 import { Controller } from 'stimulus'
 
 class WxpayController extends Controller {
-  static values = { params: Object }
+  static values = {
+    params: Object
+  }
   static targets = ['load']
 
   connect() {
-    console.debug('Wxpay Controller works!')
+    console.debug(this.identifier, 'connected!')
     this.chooseWXPay()
   }
 

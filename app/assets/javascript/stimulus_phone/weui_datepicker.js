@@ -3,7 +3,7 @@ import { Controller } from 'stimulus'
 class WeuiDatePickerController extends Controller {
 
   connect() {
-    console.debug('Weui Datepicker Controller works!')
+    console.debug(this.identifier, 'connected!')
   }
 
   // focus->weui#getFocus

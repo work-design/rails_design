@@ -4,7 +4,7 @@ class SearchController extends Controller {
   static targets = ['input', 'label']
 
   connect() {
-    console.debug('Search Controller works!')
+    console.debug(this.identifier, 'connected!')
     if (this.hasInputTarget && this.inputTarget.value.length > 0) {
       this.focus()
     }

@@ -3,7 +3,7 @@ import { Controller } from 'stimulus'
 class WechatController extends Controller {
 
   connect() {
-    console.debug('Wechat Controller works!')
+    console.debug(this.identifier, 'connected!')
   }
 
   close() {

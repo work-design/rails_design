@@ -4,7 +4,7 @@ class WeuiDialogController extends Controller {
   static targets = ['dialog']
 
   connect() {
-    console.debug('Weui Half Screen Dialog Controller works!')
+    console.debug(this.identifier, 'connected!')
   }
 
   close() {
