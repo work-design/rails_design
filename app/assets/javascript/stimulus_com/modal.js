@@ -6,7 +6,6 @@ class ModalController extends Controller {
   connect() {
     console.debug(this.identifier, 'connected!')
     console.debug('modal refer:', document.referrer)
-    document.documentElement.classList.add('is-clipped')
   }
 
   close() {
