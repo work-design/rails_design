@@ -19,3 +19,14 @@ form.button_to {
     outline: none;
   }
 }
+
+form.button_box {
+  display: inline-block;
+  width: 100%;
+  button:not(.button) {
+    text-align: left;
+    border: solid 1px transparent;
+    box-shadow: inset 0 0.0625em 0.125em rgb(10 10 10 / 5%);
+    width: 100%;
+  }
+}
