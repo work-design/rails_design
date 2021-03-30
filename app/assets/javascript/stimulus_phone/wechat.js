@@ -1,6 +1,7 @@
 import { Controller } from 'stimulus'
 
 class WechatController extends Controller {
+  static targets = ['preview']
 
   connect() {
     console.debug(this.identifier, 'connected!')
@@ -33,7 +34,7 @@ class WechatController extends Controller {
     wx.ready(() => {
       wx.getLocation({
         type: 'gcj02',
-        success: function(res) {
+        success: (res) => {
           wx.openLocation({
             latitude: res.latitude,
             longitude: res.longitude,
@@ -44,6 +45,24 @@ class WechatController extends Controller {
         },
         fail: function(res) {
           alert(res)
+        }
+      })
+    })
+  }
+
+  chooseImage() {
+    wx.ready(() => {
+      wx.chooseImage({
+        count: 1,
+        success: (res) => {
+          let localId = res.localIds[0]
+          this.previewTarget.src = localId
+          wx.uploadImage({
+            localId: localId,
+            success: (res) => {
+              alert(res.serverId)
+            }
+          })
         }
       })
     })
