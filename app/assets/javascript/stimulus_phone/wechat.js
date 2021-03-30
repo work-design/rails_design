@@ -29,6 +29,34 @@ class WechatController extends Controller {
     })
   }
 
+  location() {
+    wx.ready(() => {
+      wx.getLocation({
+        type: 'gcj02',
+        success: function(res) {
+          wx.openLocation({
+            latitude: res.latitude,
+            longitude: res.longitude,
+            name: '点击右侧打开导航软件',
+            address: '点击测试',
+            scale: 15
+          })
+        },
+        fail: function(res) {
+          alert(res)
+        }
+      })
+    })
+  }
+
+  scan() {
+    wx.scanQRCode({
+      success: function (res) {
+        var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+      }
+    })
+  }
+
 }
 
 application.register('wechat', WechatController)

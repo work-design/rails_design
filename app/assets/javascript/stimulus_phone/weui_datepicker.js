@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus'
 
-class WeuiDatePickerController extends Controller {
+class WeuiDatepickerController extends Controller {
 
   connect() {
     console.debug(this.identifier, 'connected!')
@@ -36,4 +36,4 @@ class WeuiDatePickerController extends Controller {
 
 }
 
-application.register('weui_date_picker', WechatController)
+application.register('weui-datepicker', WeuiDatepickerController)

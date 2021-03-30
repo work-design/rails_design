@@ -19,7 +19,7 @@
     td:first-child {
       width: 33%;
     }
-    td:first-child::after {
+    tbody > td:first-child::after {
       content: ':';
       padding-left: .25em;
       color: #888;
