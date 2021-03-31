@@ -33,12 +33,6 @@ class InputController extends Controller {
     this.element.remove()
   }
 
-  submit(form) {
-    let evt = document.createEvent('Event')
-    evt.initEvent('submit', true, true)
-    form.dispatchEvent(evt)
-  }
-
 }
 
 application.register('input', InputController)

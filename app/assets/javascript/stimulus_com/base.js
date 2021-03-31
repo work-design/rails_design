@@ -1,6 +1,12 @@
-import { Application } from 'stimulus'
+import { Application, Controller } from 'stimulus'
 
 window.application = Application.start()
+
+Controller.prototype.submit = function(form) {
+  let evt = document.createEvent('Event')
+  evt.initEvent('submit', true, true)
+  form.dispatchEvent(evt)
+}
 
 // el.dataset.add_controller('xx')
 DOMStringMap.prototype.add_controller = function(controller_name) {

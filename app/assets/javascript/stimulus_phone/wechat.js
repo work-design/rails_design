@@ -1,7 +1,7 @@
 import { Controller } from 'stimulus'
 
 class WechatController extends Controller {
-  static targets = ['preview']
+  static targets = ['preview', 'media']
 
   connect() {
     console.debug(this.identifier, 'connected!')
@@ -60,7 +60,8 @@ class WechatController extends Controller {
           wx.uploadImage({
             localId: localId,
             success: (res) => {
-              alert(res.serverId)
+              this.mediaTarget.value = res.serverId
+              this.submit(this.mediaTarget.form)
             }
           })
         }
