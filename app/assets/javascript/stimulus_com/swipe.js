@@ -7,7 +7,7 @@ class SwipeController extends TouchController {
     console.debug(this.identifier, 'connected!')
   }
 
-  // data-action="touchstart->slide#start:passive"
+  // data-action="touchstart->swipe#start:passive"
   start(event) {
     let touch = event.targetTouches[0]
     this.startPos = {
@@ -19,7 +19,7 @@ class SwipeController extends TouchController {
     this.swiperWidth = this.openTarget.clientWidth
   }
 
-  // data-action="touchmove->swipe#left touchstart->swipe#start"
+  // data-action="touchmove->swipe#move touchstart->swipe#move"
   move(event) {
     if (this.zoomed(event)) {
       return
