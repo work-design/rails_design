@@ -8,6 +8,11 @@ Controller.prototype.submit = function(form) {
   form.dispatchEvent(evt)
 }
 
+Controller.prototype.csrfToken = function() {
+  let meta = document.querySelector('meta[name=csrf-token]')
+  return meta && meta.content
+}
+
 // el.dataset.add_controller('xx')
 DOMStringMap.prototype.add_controller = function(controller_name) {
   if (typeof this.controller === 'string' && this.controller.length > 0) {
