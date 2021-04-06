@@ -4,6 +4,10 @@
     border: none;
   }
 
+  thead th, td {
+    border-bottom-width: 1px;
+  }
+
   tbody + tbody {
     tr:first-child td,
     tr:last-child th {
