@@ -1,3 +1,7 @@
 .weui-btn__extra {
   font-weight: lighter;
 }
+
+.weui-cells__group_form button.weui-vcode-btn[disabled] {
+  color: var(--weui-BTN-DISABLED-FONT-COLOR);
+}
