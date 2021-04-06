@@ -6,5 +6,5 @@
   overflow-y: auto;
   overflow-x: visible;
   margin-bottom: 60px;
-  -webkit-overflow-scrolling: auto;
+  -webkit-overflow-scrolling: auto; // fix ios safari z-index with fixed bug
 }
