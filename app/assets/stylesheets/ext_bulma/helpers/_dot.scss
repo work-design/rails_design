@@ -1,0 +1,11 @@
+.has-dot-success:before {
+  content: '•';
+  color: #48c78e;
+  padding-right: 5px;
+}
+
+.has-dot-danger:before {
+  content: '•';
+  color: #f14668;
+  padding-right: 5px;
+}
