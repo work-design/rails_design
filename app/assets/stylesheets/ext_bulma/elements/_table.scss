@@ -7,6 +7,9 @@
   thead th, td {
     border-bottom-width: 1px;
   }
+  tfoot td, th {
+    border-top-width: 1px;
+  }
 
   tbody + tbody {
     tr:first-child td,
