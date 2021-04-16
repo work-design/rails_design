@@ -16,6 +16,22 @@ class CommonController extends Controller {
     Turbo.visit(location.href, { action: 'replace' })
   }
 
+  link(event) {
+    event.preventDefault()
+    let ele = event.currentTarget
+
+    fetch(ele.href, {
+      method: 'GET',
+      headers: {
+        Accept: 'text/vnd.turbo-stream.html'
+      }
+    }).then(response => {
+      return response.text()
+    }).then(body => {
+      Turbo.renderStreamMessage(body)
+    })
+  }
+
   stream(event) {
     let ele = event.currentTarget
     let search_url = new URL(this.urlValue, location.origin)
