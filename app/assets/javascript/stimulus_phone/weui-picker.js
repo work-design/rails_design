@@ -36,18 +36,18 @@ class WeuiPickerController extends Controller {
     weui.picker(data.values, {
       id: 'multiPickerBtn',
       title: '多列选择器',
+      depth: 3,
       onChange: result => {
-        console.log(result)
+        console.log('changed', result)
       },
       onConfirm: result => {
-        let values = result.map(item => {
-          return item.value
+        let val = result[result.length - 1]
+        let names = result.map(item => {
+          return item.label
         })
-        console.debug('values', values)
-        let val = values[values.length - 1]
-        document.getElementById(this.idValue).value = val
-        ele.value = val
-        console.log(val)
+        console.debug('Val', val)
+        document.getElementById(this.idValue).value = val.value
+        ele.value = names.join(' ')
       },
       onClose: () => {
       }
