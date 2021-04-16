@@ -17,7 +17,9 @@ class WeuiPickerController extends Controller {
   }
 
   // focus->weui-picker#getData
-  getData() {
+  getData(event) {
+    let ele = event.currentTarget
+
     fetch(this.urlValue, {
       method: 'GET',
       headers: {
@@ -26,11 +28,11 @@ class WeuiPickerController extends Controller {
     }).then(response => {
       return response.json()
     }).then(body => {
-      this.picker(body)
+      this.picker(body, ele)
     })
   }
 
-  picker(data) {
+  picker(data, ele) {
     weui.picker(data.values, {
       id: 'multiPickerBtn',
       title: '多列选择器',
@@ -38,11 +40,13 @@ class WeuiPickerController extends Controller {
         console.log(result)
       },
       onConfirm: result => {
-        var values = result.map(item => {
+        let values = result.map(item => {
           return item.value
         })
-        var val = values[values.length - 1]
+        console.debug('values', values)
+        let val = values[values.length - 1]
         document.getElementById(this.idValue).value = val
+        ele.value = val
         console.log(val)
       },
       onClose: () => {

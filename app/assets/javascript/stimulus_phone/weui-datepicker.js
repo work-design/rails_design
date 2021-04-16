@@ -1,4 +1,5 @@
 import { Controller } from 'stimulus'
+import weui from 'weui.js'
 
 class WeuiDatepickerController extends Controller {
 
