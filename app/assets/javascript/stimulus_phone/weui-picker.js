@@ -18,6 +18,7 @@ class WeuiPickerController extends Controller {
 
   // focus->weui-picker#getData
   getData(event) {
+    document.activeElement.blur()
     let ele = event.currentTarget
 
     fetch(this.urlValue, {
