@@ -11,11 +11,6 @@ class WeuiPickerController extends Controller {
     console.debug(this.identifier, 'connected!')
   }
 
-  // focus->weui#getFocus
-  getFocus() {
-    document.activeElement.blur()
-  }
-
   // focus->weui-picker#getData
   getData(event) {
     document.activeElement.blur()  // disable input
@@ -35,8 +30,9 @@ class WeuiPickerController extends Controller {
 
   picker(data, ele) {
     weui.picker(data.values, {
-      id: 'multiPickerBtn',
+      id: data.default.join('_'),
       title: '多列选择器',
+      defaultValue: data.default,
       depth: 3,
       onChange: result => {
         console.log('changed', result)
