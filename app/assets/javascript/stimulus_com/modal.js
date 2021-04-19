@@ -13,7 +13,7 @@ class ModalController extends Controller {
     document.documentElement.classList.remove('is-clipped')
   }
 
-  // turbo:frame-render->modal#loaded
+  // turbo:frame-load->modal#loaded
   loaded() {
     this.element.classList.add('is-active')
   }
