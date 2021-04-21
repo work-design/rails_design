@@ -11,11 +11,16 @@ class ModalController extends Controller {
   close() {
     this.element.classList.remove('is-active')
     document.documentElement.classList.remove('is-clipped')
+    this.modal.removeAttribute('src')
   }
 
   // turbo:frame-load->modal#loaded
   loaded() {
     this.element.classList.add('is-active')
+  }
+
+  get modal() {
+    return document.getElementById('modal')
   }
 
 }
