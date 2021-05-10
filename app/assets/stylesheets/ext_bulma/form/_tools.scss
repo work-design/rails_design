@@ -22,8 +22,9 @@
   margin-left: 0;
 }
 
-.checkbox {
-  input + span {
+.checkbox,
+.radio {
+  input + span, label {
     padding-left: .25em;
   }
 }
