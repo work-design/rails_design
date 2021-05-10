@@ -18,6 +18,10 @@
   margin-left: .5em;
 }
 
+.radio + .radio.is-block {
+  margin-left: 0;
+}
+
 .checkbox {
   input + span {
     padding-left: .25em;
