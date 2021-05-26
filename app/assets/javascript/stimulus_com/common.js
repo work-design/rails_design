@@ -19,9 +19,10 @@ class CommonController extends Controller {
   link(event) {
     event.preventDefault()
     let ele = event.currentTarget
+    let method = (ele.dataset.method && ele.dataset.method.toUpperCase()) || 'GET'
 
     fetch(ele.href, {
-      method: 'GET',
+      method: method,
       headers: {
         Accept: 'text/vnd.turbo-stream.html'
       }
