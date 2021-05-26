@@ -16,6 +16,7 @@ class CommonController extends Controller {
     Turbo.visit(location.href, { action: 'replace' })
   }
 
+  // 用于兼容 rails ujs data-method 的逻辑
   link(event) {
     event.preventDefault()
     let ele = event.currentTarget
