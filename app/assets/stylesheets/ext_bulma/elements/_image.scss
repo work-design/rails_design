@@ -5,18 +5,20 @@
 }
 
 .image {
-  display: inline-block;
-  vertical-align: middle;
-
   &.is-border {
     border: solid 1px red;
+  }
+
+  &.is-flex-item {
+    display: inline-block;
+    vertical-align: middle;
   }
 }
 
 figure.is-flex {
-  //display: flex;
-  //flex-flow: column;
-  //margin: auto;
+  display: flex;
+  flex-flow: column;
+  margin: auto;
 }
 
 figure.image {
