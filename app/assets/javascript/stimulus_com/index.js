@@ -13,7 +13,7 @@ import './slide'
 import './sticky'
 import './swipe'
 import './taxon'
-import './time'
+import './time'  // 时间格式根据浏览器时区等进行转化
 import './tree'
 import './tree_remote'
 import './typer'
