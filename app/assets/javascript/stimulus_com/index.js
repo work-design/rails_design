@@ -9,6 +9,7 @@ import './navbar'
 import './notice'
 import './picture'
 import './show'
+import './showcase'  // 点击小图，显示大图
 import './slide'
 import './sticky'
 import './swipe'
