@@ -1,12 +1,25 @@
+.images {
+  .image + .image {
+    margin-left: 1em;
+  }
+}
+
 .image {
   display: inline-block;
   vertical-align: middle;
+
+  &.is-border {
+    border: solid 1px red;
+  }
+}
+
+figure.is-flex {
+  //display: flex;
+  //flex-flow: column;
+  //margin: auto;
 }
 
 figure.image {
-  display: flex;
-  flex-flow: column;
-  margin: auto;
   background-color: black;
 
   figcaption {
