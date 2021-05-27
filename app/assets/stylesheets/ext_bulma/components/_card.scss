@@ -1,4 +1,11 @@
 .cards {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+
+  .card {
+    margin: 1rem;
+  }
+
   .card + .card {
     margin-top: 1rem;
   }
