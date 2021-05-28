@@ -1,6 +1,9 @@
 import { Controller } from 'stimulus'
 
 export default class TouchController extends Controller {
+  static values = {
+    debug: Boolean
+  }
 
   // data-action="touchstart->slide#start:passive"
   start(event) {
@@ -32,7 +35,9 @@ export default class TouchController extends Controller {
       x: touch.pageX - this.startPos.x,
       y: touch.pageY - this.startPos.y
     }
-    console.debug('offset', offset)
+    if (this.hasDebugValue && this.debugValue) {
+      console.debug('offset:', offset)
+    }
 
     return offset
   }
