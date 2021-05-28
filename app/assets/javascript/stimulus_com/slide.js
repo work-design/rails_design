@@ -113,7 +113,7 @@ class SlideController extends TouchController {
   }
 
   // xx
-  resetIndex(event) {     
+  resetIndex(event) {
     ['left', 'right', 'transition-property', 'transition-duration'].forEach(rule => {
       event.currentTarget.style.removeProperty(rule)
     })
