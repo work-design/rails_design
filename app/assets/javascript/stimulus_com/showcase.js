@@ -7,6 +7,9 @@ class ShowcaseController extends Controller {
   static targets = [
     'window'
   ]
+  static classes = [
+    'hover'
+  ]
 
   connect() {
     console.debug(this.identifier, 'connected!')
@@ -15,6 +18,13 @@ class ShowcaseController extends Controller {
   // data-action="mouseover->showcase#show"
   show(event) {
     let ele = event.currentTarget
+    ele.classList.add(this.hoverClass)
+    for (const el of ele.parentElement.children) {
+      if (el !== ele) {
+        el.classList.remove(this.hoverClass)
+      }
+    }
+
     let target = this.windowTarget.querySelector(`[data-index="${ele.dataset.index}"`)
     target.style.zIndex = 1
 
