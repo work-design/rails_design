@@ -13,36 +13,28 @@ Controller.prototype.csrfToken = function() {
   return meta && meta.content
 }
 
-// el.dataset.add_controller('xx')
-DOMStringMap.prototype.add_controller = function(controller_name) {
-  if (typeof this.controller === 'string' && this.controller.length > 0) {
-    this.controller = this.controller.concat(' ').concat(controller_name)
-  } else {
-    this.controller = controller_name
-  }
-}
-
-// el.dataset.add_target('xx')
-DOMStringMap.prototype.add_target = function(target_name) {
-  if (typeof this.target === 'string') {
-    let targets = this.target.split(' ')
-    if (!targets.includes(target_name)) {
-      targets.push(target_name)
+// el.dataset.add('controller', 'xx')
+// el.dataset.add('', 'xx')
+DOMStringMap.prototype.add = function(name, value) {
+  if (typeof this[name] === 'string') {
+    let values = this[name].split(' ')
+    if (!values.includes(value)) {
+      values.push(value)
     }
-    this.target = targets.join(' ')
+    this[name] = values.join(' ')
   } else {
-    this.target = target_name
+    this[name] = value
   }
 }
 
-// el.dataset.remove_target('xx')
-DOMStringMap.prototype.remove_target = function(target_name) {
-  if (typeof this.target === 'string') {
-    let targets = this.target.split(' ')
-    let index = targets.indexOf(target_name)
+// el.dataset.remove('controller', 'xx')
+DOMStringMap.prototype.remove = function(name, value) {
+  if (typeof this[name] === 'string') {
+    let values = this[name].split(' ')
+    let index = values.indexOf(value)
     if (index > -1) {
-      targets.splice(index, 1)
+      values.splice(index, 1)
     }
-    this.target = targets.join(' ')
+    this[name] = values.join(' ')
   }
 }
