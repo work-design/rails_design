@@ -15,7 +15,7 @@ class SlideController extends TouchController {
   // data-action="touchmove->slide#move:passive"
   move(event) {
     let ele = event.currentTarget
-    console.debug('move start', ele.dataset.index)
+    console.debug('touch moved by:', ele.dataset.index)
     if (this.zoomed(event)) {
       console.error('scale')
       return
@@ -112,20 +112,27 @@ class SlideController extends TouchController {
     prev.style.right = (this.element.clientWidth - pad) + 'px'
   }
 
+  // xx
+  resetIndex(event) {     
+    ['left', 'right', 'transition-property', 'transition-duration'].forEach(rule => {
+      event.currentTarget.style.removeProperty(rule)
+    })
+    event.currentTarget.style.zIndex = -2
+  }
+
   // 不再展示
   beenCurrent(ele) {
-    ele.addEventListener('transitionend', (event) => {
-      this.clearStyle(event.currentTarget)
-      event.currentTarget.style.zIndex = -2
-    }, { once: true })
+    console.debug('add transition event listener for been', ele.dataset.index)
+    ele.addEventListener('transitionend', this.resetIndex, { once: true })
     ele.addEventListener('transitioncancel', (event) => {
-      this.clearStyle(event.currentTarget)
-      event.currentTarget.style.zIndex = -2
+      this.resetIndex(event)
+      ele.removeEventListener('transitionend', this.resetIndex)
     }, { once: true })
   }
 
   // 即将展示
   toCurrent(ele) {
+    console.debug('add transition event listener for to', ele.dataset.index)
     ele.addEventListener('transitionend', (event) => {
       this.clearStyle(event.currentTarget)
     }, { once: true })
