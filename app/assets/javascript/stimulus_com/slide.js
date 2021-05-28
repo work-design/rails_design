@@ -168,4 +168,4 @@ class SlideController extends TouchController {
 }
 
 application.register('slide', SlideController)
-window.SlideController = SlideController
+window.SlideController = SlideController //todo debug, should remove

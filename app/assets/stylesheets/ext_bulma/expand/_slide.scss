@@ -1,11 +1,12 @@
 .slide {
+  --height: 430px;
   position: relative;
-  height: 400px;
+  height: calc(var(--height) + 30px);
   //margin-bottom: 27px;
 
   figure {
     position: absolute;
     width: 100%;
-    max-height: 400px;
+    height: var(--height);
   }
 }

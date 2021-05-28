@@ -22,19 +22,17 @@ figure.is-flex {
 }
 
 figure.image {
-  background-color: black;
+  background-color: white;
+  opacity: 1;
 
   figcaption {
-    background-color: #222;
+    background-color: #666;
     color: #fff;
     padding: 3px;
     text-align: center;
   }
-  img {
-    max-height: inherit;
-  }
-  video {
-    max-height: inherit;
+  img, video {
     height: inherit;
+    object-fit: contain;
   }
 }
