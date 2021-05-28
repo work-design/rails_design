@@ -67,21 +67,21 @@ class SlideController extends TouchController {
     if (isMore || speed > 0.1) {
       if (offset.x < 0) {
         if (next) {
-          this.nearLeft(next)
+          this.closeToLeft(next)
           next.style.zIndex = 0
           this.toCurrent(next)
 
-          this.farRight(ele)
+          this.awayFromRight(ele)
           ele.style.zIndex = -1
           this.beenCurrent(ele)
         }
       } else if (offset.x > 0) {
         if (prev) {
-          this.nearRight(prev)
+          this.closeToRight(prev)
           prev.style.zIndex = 0
           this.toCurrent(prev)
 
-          this.farLeft(ele)
+          this.awayFromLeft(ele)
           ele.style.zIndex = -1
           this.beenCurrent(ele)
         }
@@ -89,24 +89,25 @@ class SlideController extends TouchController {
     } else if (isMore === 0) {
       if (offset.x < 0) {
         if (next) {
-          this.nearRight(ele)
+          this.closeToRight(ele)
           this.toCurrent(ele)
 
-          this.farLeft(next)
+          this.awayFromLeft(next)
           this.beenCurrent(next)
         }
       } else if (offset.x > 0) {
         if (prev) {
-          this.nearLeft(ele)
+          this.closeToLeft(ele)
           this.toCurrent(ele)
 
-          this.farRight(prev)
+          this.awayFromRight(prev)
           this.beenCurrent(prev)
         }
       }
     }
   }
 
+  // 不再展示
   beenCurrent(ele) {
     ele.addEventListener('transitionend', (event) => {
       this.clearStyle(event.currentTarget)
@@ -118,6 +119,7 @@ class SlideController extends TouchController {
     }, { once: true })
   }
 
+  // 即将展示
   toCurrent(ele) {
     ele.addEventListener('transitionend', (event) => {
       this.clearStyle(event.currentTarget)
@@ -127,25 +129,29 @@ class SlideController extends TouchController {
     }, { once: true })
   }
 
-  nearLeft(ele) {
+  // 接近左侧
+  closeToLeft(ele) {
     ele.style.left = 0
     ele.style.transitionProperty = 'left'
     ele.style.transitionDuration = this.duration
   }
 
-  nearRight(ele) {
+  // 接近右侧
+  closeToRight(ele) {
     ele.style.right = 0
     ele.style.transitionProperty = 'right'
     ele.style.transitionDuration = this.duration
   }
 
-  farRight(ele) {
+  // 远离右侧
+  awayFromRight(ele) {
     ele.style.right = this.element.clientWidth + 'px'
     ele.style.transitionProperty = 'right'
     ele.style.transitionDuration = this.duration
   }
 
-  farLeft(ele) {
+  // 远离左侧
+  awayFromLeft(ele) {
     ele.style.left = this.element.clientWidth + 'px'
     ele.style.transitionProperty = 'left'
     ele.style.transitionDuration = this.duration
