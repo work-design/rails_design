@@ -17,11 +17,14 @@ export default class TouchController extends Controller {
     return event.changedTouches.length > 1 || (event.scale && event.scale !== 1)
   }
 
-  xx(pad) {
+  // 是否达到触发条件
+  effective(pad) {
     let endTime = new Date().getTime()
     let isMore = pad > this.element.clientWidth / 2 ? 1 : 0  // 滑动距离是否超过元素宽度一半
     let speed = pad / (endTime - this.startTime)  // 手势速度
-    console.debug('手势速度', speed)  // 大于 0.1
+    console.debug('手势速度：', speed)  // 大于 0.1
+
+    return isMore || speed > 0.1
   }
 
   offset(touch) {

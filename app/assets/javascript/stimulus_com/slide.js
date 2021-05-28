@@ -30,16 +30,12 @@ class SlideController extends TouchController {
     if (offset.x < 0) {  // offset.x < 0 表示向左滑动
       let next = ele.nextElementSibling
       if (next) {
-        ele.style.right = pad + 'px'
-        next.style.zIndex = -1
-        next.style.left = (this.element.clientWidth - pad) + 'px'
+        this.slidingToLeft(ele, next, pad)
       }
     } else if (offset.x > 0) {  // offset.x > 0 表示向右滑动
       let prev = ele.previousElementSibling
       if (prev) {
-        ele.style.left = pad + 'px'
-        prev.style.zIndex = -1
-        prev.style.right = (this.element.clientWidth - pad) + 'px'
+        this.slidingToRight(ele, prev, pad)
       }
     }
   }
@@ -52,7 +48,6 @@ class SlideController extends TouchController {
     let ele = event.currentTarget
     let next = ele.nextElementSibling
     let prev = ele.previousElementSibling
-    let endTime = new Date().getTime()
     let offset = this.offset(event.changedTouches[0])
     let pad = Math.abs(offset.x)
     let isScrolling = pad < Math.abs(offset.y) ? 1 : 0  // 1 上下滚动，0 左右滑动
@@ -60,11 +55,7 @@ class SlideController extends TouchController {
       return
     }
 
-    let isMore = pad > this.element.clientWidth / 2 ? 1 : 0  // 滑动距离是否超过元素宽度一半
-    let speed = pad / (endTime - this.startTime)  // 手势速度
-    console.debug('手势速度', speed)  // 大于 0.1
-
-    if (isMore || speed > 0.1) {
+    if (this.effective(pad)) {
       if (offset.x < 0) {
         if (next) {
           this.closeToLeft(next)
@@ -86,7 +77,7 @@ class SlideController extends TouchController {
           this.beenCurrent(ele)
         }
       }
-    } else if (isMore === 0) {
+    } else {
       if (offset.x < 0) {
         if (next) {
           this.closeToRight(ele)
@@ -105,6 +96,20 @@ class SlideController extends TouchController {
         }
       }
     }
+  }
+
+  // 左滑
+  slidingToLeft(ele, next, pad) {
+    ele.style.right = pad + 'px'
+    next.style.zIndex = -1
+    next.style.left = (this.element.clientWidth - pad) + 'px'
+  }
+
+  // 右滑
+  slidingToRight(ele, prev, pad) {
+    ele.style.left = pad + 'px'
+    prev.style.zIndex = -1
+    prev.style.right = (this.element.clientWidth - pad) + 'px'
   }
 
   // 不再展示
