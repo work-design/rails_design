@@ -40,8 +40,10 @@ class ModalController extends Controller {
           }
           let ele = item.target.parentNode.parentNode
           ele.classList.add('is-active')
-          if (item.oldValue) {
+          if (item.oldValue && item.target.src !== ele.dataset.modalUrlValue) {
             ele.dataset.modalUrlValue = item.oldValue
+          } else {
+            ele.removeAttribute('data-modal-url-value')
           }
       }
     })
