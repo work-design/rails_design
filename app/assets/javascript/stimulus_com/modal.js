@@ -18,7 +18,7 @@ class ModalController extends Controller {
     document.documentElement.classList.remove('is-clipped')
     if (this.hasUrlValue) {
       this.modal.delegate.visit(this.urlValue)
-      this.modal.src = this.hasUrlValue
+      this.modal.src = this.urlValue
     } else {
       this.modal.removeAttribute('src')
     }
