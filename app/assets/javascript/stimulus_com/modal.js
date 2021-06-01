@@ -19,7 +19,6 @@ class ModalController extends Controller {
     this.urlsValue = this.urlsValue.slice(0, this.urlsValue.length - 1)
     let url = this.urlsValue.pop()
     if (url) {
-      this.modal.delegate.visit(url)
       this.modal.src = url
     } else {
       this.modal.removeAttribute('src')
@@ -38,6 +37,7 @@ class ModalController extends Controller {
     let ele = item.target.parentNode.parentNode
     let con = application.getControllerForElementAndIdentifier(ele, 'modal')
 window.xxx = con
+    console.log(con.urlsValue)
     switch(item.type) {
       case 'childList':
         if (typeof item.target.src === 'undefined' || item.target.src === null) {
