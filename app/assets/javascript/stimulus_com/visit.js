@@ -3,20 +3,29 @@ import { Controller } from 'stimulus'
 // data-controller="visit"
 class VisitController extends Controller {
   static values = {
-    url: String
+    url: String,
+    frame: String
   }
 
   connect() {
     console.debug(this.identifier, 'connected!')
 
+    if (this.hasFrameValue) {
+      this.visit()
+    } else {
+      this.topVisit()
+    }
+
+    document.documentElement.classList.remove('is-clipped')
+    this.element.remove()
+  }
+
+  topVisit() {
     if (this.hasUrlValue) {
       Turbo.visit(this.urlValue, { action: 'replace' })
     } else {
       Turbo.visit(location.href, { action: 'replace' })
     }
-
-    document.documentElement.classList.remove('is-clipped')
-    this.element.remove()
   }
 
   visit() {
@@ -24,7 +33,7 @@ class VisitController extends Controller {
   }
 
   get modal() {
-    return document.getElementById('modal').delegate
+    return document.getElementById(this.frameValue).delegate
   }
 
 }
