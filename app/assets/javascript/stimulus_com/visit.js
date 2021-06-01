@@ -17,6 +17,14 @@ class VisitController extends Controller {
     this.element.remove()
   }
 
+  visit() {
+    this.modal.visit(this.urlValue)
+  }
+
+  get modal() {
+    return document.getElementById('modal').delegate
+  }
+
 }
 
 application.register('visit', VisitController)
