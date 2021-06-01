@@ -19,6 +19,7 @@ class ModalController extends Controller {
     this.urlsValue = this.urlsValue.slice(0, this.urlsValue.length - 1)
     let url = this.urlsValue.pop()
     if (url) {
+      this.urlsValue = this.urlsValue.slice(0, this.urlsValue.length - 1)
       this.modal.src = url
     } else {
       this.modal.removeAttribute('src')
