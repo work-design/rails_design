@@ -3,22 +3,24 @@ import { Controller } from 'stimulus'
 // data-controller="modal"
 class ModalController extends Controller {
   static values = {
-    url: String
+    urls: Array
   }
 
   connect() {
     console.debug(this.identifier, 'connected!')
     console.debug('modal refer:', document.referrer)
     this.observer = new MutationObserver(this.loaded)
-    this.observer.observe(this.modal, { attributeFilter: ['src'], attributeOldValue: true })
+    this.observer.observe(this.modal, { childList: true })
   }
 
   close() {
     this.element.classList.remove('is-active')
     document.documentElement.classList.remove('is-clipped')
-    if (this.hasUrlValue) {
-      this.modal.delegate.visit(this.urlValue)
-      this.modal.src = this.urlValue
+    this.urlsValue = this.urlsValue.slice(0, this.urlsValue.length - 1)
+    let url = this.urlsValue.pop()
+    if (url) {
+      this.modal.delegate.visit(url)
+      this.modal.src = url
     } else {
       this.modal.removeAttribute('src')
     }
@@ -32,21 +34,18 @@ class ModalController extends Controller {
 
   // NOTICE: here this becomes observer
   loaded(list, observer) {
-    list.forEach(item => {
-      switch(item.type) {
-        case 'attributes':
-          if (typeof item.target.src === 'undefined' || item.target.src === null) {
-            break
-          }
-          let ele = item.target.parentNode.parentNode
-          ele.classList.add('is-active')
-          if (item.oldValue && item.target.src !== ele.dataset.modalUrlValue) {
-            ele.dataset.modalUrlValue = item.oldValue
-          } else {
-            ele.removeAttribute('data-modal-url-value')
-          }
-      }
-    })
+    let item = list[0]
+    let ele = item.target.parentNode.parentNode
+    let con = application.getControllerForElementAndIdentifier(ele, 'modal')
+window.xxx = con
+    switch(item.type) {
+      case 'childList':
+        if (typeof item.target.src === 'undefined' || item.target.src === null) {
+          break
+        }
+        ele.classList.add('is-active')
+        con.urlsValue = con.urlsValue.concat(item.target.src)
+    }
   }
 
   get modal() {
