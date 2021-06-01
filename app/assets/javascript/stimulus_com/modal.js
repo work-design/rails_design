@@ -16,7 +16,12 @@ class ModalController extends Controller {
   close() {
     this.element.classList.remove('is-active')
     document.documentElement.classList.remove('is-clipped')
-    this.modal.removeAttribute('src')
+    if (this.hasUrlValue) {
+      this.modal.delegate.visit(this.urlValue)
+      this.modal.src = this.hasUrlValue
+    } else {
+      this.modal.removeAttribute('src')
+    }
   }
 
   disconnect() {
