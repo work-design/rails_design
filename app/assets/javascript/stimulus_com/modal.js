@@ -28,9 +28,11 @@ class ModalController extends Controller {
   // NOTICE: here this becomes observer
   loaded(list, observer) {
     list.forEach(item => {
-      window.xxx = item
       switch(item.type) {
         case 'attributes':
+          if (typeof item.target.src === 'undefined' || item.target.src === null) {
+            break
+          }
           let ele = item.target.parentNode.parentNode
           ele.classList.add('is-active')
           if (item.oldValue) {
