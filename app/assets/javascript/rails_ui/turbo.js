@@ -23,4 +23,6 @@ document.addEventListener('turbo:before-stream-render', event => {
   }
 })
 
-customElements.get('turbo-stream').prototype
+customElements.get('turbo-stream').prototype.disconnect = function() {
+
+}
