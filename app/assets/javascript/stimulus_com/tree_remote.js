@@ -2,7 +2,9 @@ import { Controller } from 'stimulus'
 
 class TreeRemoteController extends Controller {
   static targets = ['item', 'checkbox']
-  static values = { hide: Boolean }
+  static values = {
+    hide: Boolean
+  }
 
   connect() {
     console.debug(this.identifier, 'connected!')

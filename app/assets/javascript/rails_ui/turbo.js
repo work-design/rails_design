@@ -23,6 +23,15 @@ document.addEventListener('turbo:before-stream-render', event => {
   }
 })
 
-customElements.get('turbo-stream').prototype.disconnect = function() {
-
-}
+Object.defineProperties(customElements.get('turbo-stream').prototype, {
+  targetElement: {
+    get: function() {
+      if (this.target === 'body') {
+        return this.ownerDocument.body
+      } else if (this.target) {
+        return this.ownerDocument.getElementById(this.target)
+      }
+      this.raise("target attribute is missing")
+    }
+  }
+})

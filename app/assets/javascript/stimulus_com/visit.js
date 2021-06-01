@@ -2,7 +2,9 @@ import { Controller } from 'stimulus'
 
 // data-controller="visit"
 class VisitController extends Controller {
-  static values = { url: String }
+  static values = {
+    url: String
+  }
 
   connect() {
     console.debug(this.identifier, 'connected!')
