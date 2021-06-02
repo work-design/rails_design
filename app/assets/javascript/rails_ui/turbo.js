@@ -19,7 +19,7 @@ document.addEventListener('turbo:before-stream-render', event => {
   if (target.action === 'after') {
     target.targetElement.parentNode.insertBefore(target.templateContent, target.targetElement.nextSibling)
   } else {
-    console.log(target.action)
+    console.debug('event turbo:', target.action)
   }
 })
 

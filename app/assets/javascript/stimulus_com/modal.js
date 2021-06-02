@@ -53,7 +53,7 @@ class ModalController extends Controller {
   }
 
   addEvent() {
-    this.modal.addEventListener('turbo:before-fetch-request', event => {
+    document.addEventListener('turbo:before-fetch-request', event => {
       let xhr = event.detail.fetchOptions
       console.debug('add redirect headers')
       xhr.headers['Redirect'] = this.redirectValue
