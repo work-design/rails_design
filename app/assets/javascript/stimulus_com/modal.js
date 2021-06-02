@@ -44,11 +44,11 @@ class ModalController extends Controller {
           break
         }
         ele.classList.add('is-active')
-        con.urlsValue = con.urlsValue.concat(item.target.src)
-        if (!con.hasRedirectValue) {
+        if (con.urlsValue.length > 0 && !con.hasRedirectValue) {
           con.redirectValue = item.target.src
           con.addEvent()
         }
+        con.urlsValue = con.urlsValue.concat(item.target.src)
     }
   }
 
