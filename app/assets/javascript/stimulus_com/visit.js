@@ -8,7 +8,7 @@ class VisitController extends Controller {
   }
 
   connect() {
-    console.debug(this.identifier, 'connected!')
+    console.debug('connected:', this.identifier)
 
     if (this.hasFrameValue) {
       this.visit()

@@ -6,7 +6,7 @@ import TouchController from './touch'
 class SlideController extends TouchController {
 
   connect() {
-    console.debug(this.identifier, 'connected!')
+    console.debug('connected:', this.identifier)
     this.element.addEventListener('touchstart', (event) => {
       this.start(event)
     }, { passive: true })

@@ -3,11 +3,12 @@ import { Controller } from 'stimulus'
 // data-controller="modal"
 class ModalController extends Controller {
   static values = {
-    urls: Array
+    urls: Array,
+    redirect: String
   }
 
   connect() {
-    console.debug(this.identifier, 'connected!')
+    console.debug('connected:', this.identifier)
     console.debug('modal refer:', document.referrer)
     this.observer = new MutationObserver(this.loaded)
     this.observer.observe(this.modal, { childList: true })
@@ -37,8 +38,6 @@ class ModalController extends Controller {
     let item = list[0]
     let ele = item.target.parentNode.parentNode
     let con = application.getControllerForElementAndIdentifier(ele, 'modal')
-window.xxx = con
-    console.log(con.urlsValue)
     switch(item.type) {
       case 'childList':
         if (typeof item.target.src === 'undefined' || item.target.src === null) {
@@ -46,7 +45,19 @@ window.xxx = con
         }
         ele.classList.add('is-active')
         con.urlsValue = con.urlsValue.concat(item.target.src)
+        if (!con.hasRedirectValue) {
+          con.redirectValue = item.target.src
+          con.addEvent()
+        }
     }
+  }
+
+  addEvent() {
+    this.modal.addEventListener('turbo:before-fetch-request', event => {
+      let xhr = event.detail.fetchOptions
+      console.debug('add redirect headers')
+      xhr.headers['Redirect'] = this.redirectValue
+    })
   }
 
   get modal() {

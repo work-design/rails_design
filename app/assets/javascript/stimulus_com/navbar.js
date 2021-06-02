@@ -4,7 +4,7 @@ class NavbarController extends Controller {
   static targets = ['menu']
 
   connect() {
-    console.debug(this.identifier, 'connected!')
+    console.debug('connected:', this.identifier)
   }
 
   toggle(element) {

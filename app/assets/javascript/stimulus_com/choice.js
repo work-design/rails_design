@@ -12,7 +12,7 @@ class ChoiceController extends Controller {
   }
 
   connect() {
-    console.debug(this.identifier, 'connected!')
+    console.debug('connected:', this.identifier)
     this.reload(this.element)
   }
 

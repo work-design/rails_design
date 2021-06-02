@@ -5,7 +5,7 @@ class CheckController extends Controller {
   static targets = ['added', 'moved']
 
   connect() {
-    console.debug(this.identifier, 'connected!')
+    console.debug('connected:', this.identifier)
   }
 
   applyFor(event) {

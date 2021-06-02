@@ -5,7 +5,7 @@ class TyperController extends Controller {
   static targets = ['input', 'value']
 
   connect() {
-    console.debug(this.identifier, 'connected!')
+    console.debug('connected:', this.identifier)
     this.initInput()
   }
 

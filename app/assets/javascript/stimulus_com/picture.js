@@ -6,7 +6,7 @@ class PictureController extends Controller {
   static targets = ['src', 'filename', 'preview', 'uploadDiv']
 
   connect() {
-    console.debug(this.identifier, 'connected!')
+    console.debug('connected:', this.identifier)
   }
 
   /*

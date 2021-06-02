@@ -31,7 +31,7 @@ Object.defineProperties(customElements.get('turbo-stream').prototype, {
       } else if (this.target) {
         return this.ownerDocument.getElementById(this.target)
       }
-      this.raise("target attribute is missing")
+      this.raise('target attribute is missing')
     }
   }
 })

@@ -5,7 +5,7 @@ import moment from 'moment'
 class TimeController extends Controller {
 
   connect() {
-    console.debug(this.identifier, 'connected!')
+    console.debug('connected:', this.identifier)
     this.parse()
   }
 

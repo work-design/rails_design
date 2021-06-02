@@ -5,7 +5,7 @@ import { Controller } from 'stimulus'
 class StickyController extends Controller {
 
   connect() {
-    console.debug(this.identifier, 'connected!')
+    console.debug('connected:', this.identifier)
     stickybits(this.element)
   }
 

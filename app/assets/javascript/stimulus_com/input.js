@@ -5,7 +5,7 @@ class InputController extends Controller {
   static targets = ['checkbox']
 
   connect() {
-    console.debug(this.identifier, 'connected!')
+    console.debug('connected:', this.identifier)
   }
 
   // <label data-action="click->input#check"></label>
