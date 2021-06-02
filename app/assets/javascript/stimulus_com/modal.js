@@ -56,6 +56,10 @@ class ModalController extends Controller {
     document.addEventListener('turbo:before-fetch-request', this.addHeader)
   }
 
+  removeEvent() {
+    document.removeEventListener('turbo:before-fetch-request', this.addHeader)
+  }
+
   addHeader(event) {
     let xhr = event.detail.fetchOptions
     console.debug('add redirect headers')
