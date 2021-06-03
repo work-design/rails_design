@@ -44,6 +44,7 @@ class ModalController extends Controller {
           break
         }
         ele.classList.add('is-active')
+        document.documentElement.classList.add('is-clipped')
         if (con.urlsValue.length > 0 && !con.hasRedirectValue) {
           con.redirectValue = item.target.src
           con.addEvent()

@@ -25,3 +25,4 @@ import './choice' // Dependent on Choices.js
 
 // Dependent on Bulma CSS
 import './modal'
+import './modal_show'

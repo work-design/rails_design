@@ -13,7 +13,7 @@ class InputController extends Controller {
   check() {
     if (this.hasCheckboxTarget) {
       this.checkboxTarget.checked = !this.checkboxTarget.checked
-      this.submit(this.element)
+      this.submit(this.checkboxTarget.form)
     }
   }
 

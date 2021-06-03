@@ -4,7 +4,8 @@ import { Controller } from 'stimulus'
 class VisitController extends Controller {
   static values = {
     url: String,
-    frame: String
+    frame: String,
+    headers: Object
   }
 
   connect() {
@@ -13,6 +14,7 @@ class VisitController extends Controller {
     if (this.hasFrameValue) {
       this.visit()
     } else {
+      this.addEvent()
       this.topVisit()
     }
 
@@ -26,6 +28,13 @@ class VisitController extends Controller {
     } else {
       Turbo.visit(location.href, { action: 'replace' })
     }
+  }
+
+  addEvent() {
+    document.addEventListener('turbo:before-fetch-request', event => {
+      let xhr = event.detail.fetchOptions
+      xhr.headers['Utc-Offset'] = (new Date).getTimezoneOffset()
+    }, { once: true })
   }
 
   visit() {
