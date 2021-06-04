@@ -1,7 +1,6 @@
 .table {
-  border: 1px solid $border;
-  &.is-borderless {
-    border: none;
+  &.is-border {
+    border: solid 1px $border;
   }
 
   thead th, td {
