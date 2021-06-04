@@ -24,7 +24,7 @@ class VisitController extends Controller {
     }
 
     document.documentElement.classList.remove('is-clipped')
-    //this.element.remove()
+    this.element.remove()
   }
 
   addEvent(headers) {
