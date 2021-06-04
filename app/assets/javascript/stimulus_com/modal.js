@@ -15,8 +15,7 @@ class ModalController extends Controller {
   }
 
   close() {
-    this.element.classList.remove('is-active')
-    document.documentElement.classList.remove('is-clipped')
+    this.removeClass()
     this.urlsValue = this.urlsValue.slice(0, this.urlsValue.length - 1)
     let url = this.urlsValue.pop()
     if (url) {
@@ -27,8 +26,13 @@ class ModalController extends Controller {
     }
   }
 
+  reloadClose() {
+    this.removeClass()
+    Turbo.visit(location.href, { action: 'replace' })
+  }
+
   disconnect() {
-    console.debug(this.identifier, 'disconnected!')
+    console.debug('disconnected:', this.identifier)
     this.observer.disconnect()
     delete this.observer
   }
@@ -68,6 +72,11 @@ class ModalController extends Controller {
     let con = application.getControllerForElementAndIdentifier(ele, 'modal')
     console.debug('add redirect headers')
     xhr.headers['Redirect'] = con.redirectValue
+  }
+
+  removeClass() {
+    this.element.classList.remove('is-active')
+    document.documentElement.classList.remove('is-clipped')
   }
 
   get modal() {
