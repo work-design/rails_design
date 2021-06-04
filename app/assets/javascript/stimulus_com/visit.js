@@ -42,8 +42,18 @@ class VisitController extends Controller {
     this.modal.visit(this.urlValue)
   }
 
+  replaceAction() {
+    this.modalWrapper.querySelectorAll('[data-action$="modal#close"]').forEach(ele => {
+
+    })
+  }
+
   get modal() {
     return document.getElementById(this.frameValue).delegate
+  }
+
+  get modalWrapper() {
+    return document.getElementById('modal_wrapper')
   }
 
 }
