@@ -5,6 +5,7 @@ class VisitController extends Controller {
   static values = {
     url: String,
     frame: String,
+    reload: Boolean,
     headers: Object
   }
 
@@ -15,10 +16,13 @@ class VisitController extends Controller {
       this.visit()
     } else {
       this.addEvent(this.headersValue)
-      //this.topVisit()
+      this.topVisit()
     }
 
-    this.headersValue = {a:1, b: '2'}
+    if (this.hasReloadValue && this.reloadValue) {
+      this.replaceAction()
+    }
+
     document.documentElement.classList.remove('is-clipped')
     //this.element.remove()
   }
@@ -44,7 +48,7 @@ class VisitController extends Controller {
 
   replaceAction() {
     this.modalWrapper.querySelectorAll('[data-action$="modal#close"]').forEach(ele => {
-
+      ele.dataset.replace('action', 'modal#close', 'modal#reloadClose')
     })
   }
 
