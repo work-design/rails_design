@@ -85,7 +85,7 @@ module Viter
 
     def defaults
       @defaults ||= begin
-        path = File.expand_path("../../config/viter.yml", __FILE__)
+        path = File.expand_path('../../config/viter_template.yml', __dir__)
         config = begin
           YAML.load_file(path, aliases: true)
         rescue ArgumentError
