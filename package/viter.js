@@ -6,7 +6,6 @@ const { existsSync } = require('fs')
 const baseConfig = require('./environments/base')
 const config = require('./config')
 const { nodeEnv } = require('./env')
-const { moduleExists, canProcess } = require('./utils/helpers')
 
 const webpackConfig = () => {
   const path = resolve(__dirname, 'environments', `${nodeEnv}.js`)
@@ -17,7 +16,5 @@ const webpackConfig = () => {
 module.exports = {
   config,
   webpackConfig: webpackConfig(),
-  baseConfig,
-  moduleExists,
-  canProcess
+  baseConfig
 }
