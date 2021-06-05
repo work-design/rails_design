@@ -2,8 +2,6 @@
 /* eslint import/no-dynamic-require: 0 */
 
 const { basename, dirname, join, relative, resolve } = require('path')
-const extname = require('path-complete-extname')
-const PnpWebpackPlugin = require('pnp-webpack-plugin')
 const { sync: globSync } = require('glob')
 const config = require('../config')
 
@@ -56,12 +54,6 @@ module.exports = {
     hotUpdateChunkFilename: 'js/[id]-[hash].hot-update.js',
     path: config.outputPath,
     publicPath: config.publicPath
-  },
-  entry: getEntryObject(),
-  resolve: {
-    extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', '.coffee'],
-    modules: getModulePaths(),
-    plugins: [PnpWebpackPlugin]
   },
 
   resolveLoader: {

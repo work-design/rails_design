@@ -10,7 +10,9 @@
     "node": ">=6.14.4",
     "yarn": ">=1.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "glob": "^7.1.7"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "jest",
