@@ -1,12 +1,11 @@
 const { resolve } = require('path')
 const { safeLoad } = require('js-yaml')
 const { readFileSync } = require('fs')
-const { merge } = require('webpack-merge')
 const { ensureTrailingSlash } = require('./utils/helpers')
 const { railsEnv } = require('./env')
-const configPath = require('./configPath')
+const configPath = process.env.VITER_CONFIG || resolve('config', 'webpacker.yml')
 
-const defaultConfigPath = require.resolve('../lib/install/config/webpacker.yml')
+const defaultConfigPath = require.resolve('../config/viter_default.yml')
 
 const getDefaultConfig = () => {
   const defaultConfig = safeLoad(readFileSync(defaultConfigPath), 'utf8')
@@ -16,7 +15,7 @@ const getDefaultConfig = () => {
 const defaults = getDefaultConfig()
 const app = safeLoad(readFileSync(configPath), 'utf8')[railsEnv]
 
-const config = merge(defaults, app)
+const config = Object.assign(defaults, app)
 config.outputPath = resolve(config.public_root_path, config.public_output_path)
 
 // Ensure that the publicPath includes our asset host so dynamic imports

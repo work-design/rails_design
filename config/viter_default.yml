@@ -1,5 +1,8 @@
+# Vite 默认配置
 default: &default
+
   source_path: app/packs
+  
   watchAdditionalPaths: []
   server:
     port: 4000

@@ -8,7 +8,6 @@ const { sync: globSync } = require('glob')
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 const WebpackAssetsManifest = require('webpack-assets-manifest')
 const webpack = require('webpack')
-const rules = require('../rules')
 const config = require('../config')
 const { moduleExists } = require('../utils/helpers')
 
@@ -76,6 +75,10 @@ const getPlugins = () => {
 }
 
 module.exports = {
+  root: join(process.pwd(), config.source_path),
+
+
+
   mode: 'production',
   output: {
     filename: 'js/[name]-[contenthash].js',
@@ -105,7 +108,6 @@ module.exports = {
   },
 
   module: {
-    strictExportPresence: true,
-    rules
+    strictExportPresence: true
   }
 }
