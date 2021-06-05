@@ -26,7 +26,6 @@ module Viter
       )
 
       server = DevServer.new(@config)
-      binding.pry
       @hostname = server.host
       @port = server.port
       @pretty = server.pretty?
@@ -66,16 +65,16 @@ module Viter
       cmd = if node_modules_bin_exist?
         ["#{@node_modules_bin_path}/vite"]
       else
-        ["yarn", "vite"]
+        ['yarn', 'vite']
       end
 
-      if @argv.include?("--debug-webpacker")
-        cmd = [ "node", "--inspect-brk"] + cmd
-        @argv.delete "--debug-webpacker"
+      if @argv.include?('--debug-viter')
+        cmd = ['node', '--inspect-brk'] + cmd
+        @argv.delete '--debug-viter'
       end
 
-      cmd += ["--config", @webpack_config]
-      cmd += ["--progress", "--color"] if @pretty
+      cmd += ['--config', @vite_config]
+      cmd += ['--progress', '--color'] if @pretty
       cmd += @argv
 
       Dir.chdir(@app_path) do
