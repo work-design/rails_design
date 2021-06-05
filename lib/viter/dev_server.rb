@@ -1,6 +1,6 @@
 module Viter
   class DevServer
-    DEFAULT_ENV_PREFIX = "WEBPACKER_DEV_SERVER".freeze
+    DEFAULT_ENV_PREFIX = 'WEBPACKER_DEV_SERVER'.freeze
 
     # Configure dev server connection timeout (in seconds), default: 0.01
     # Webpacker.server.connect_timeout = 1
@@ -33,7 +33,7 @@ module Viter
 
     def https?
       case fetch(:https)
-      when true, "true", Hash
+      when true, 'true', Hash
         true
       else
         false
@@ -41,7 +41,7 @@ module Viter
     end
 
     def protocol
-      https? ? "https" : "http"
+      https? ? 'https' : 'http'
     end
 
     def host_with_port
