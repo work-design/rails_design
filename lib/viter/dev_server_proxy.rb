@@ -10,15 +10,15 @@ class Viter::DevServerProxy < Rack::Proxy
   end
 
   def perform_request(env)
-    if env["PATH_INFO"].start_with?("/#{public_output_uri_path}") && dev_server.running?
-      env["HTTP_HOST"] = env["HTTP_X_FORWARDED_HOST"] = dev_server.host
-      env["HTTP_X_FORWARDED_SERVER"] = dev_server.host_with_port
-      env["HTTP_PORT"] = env["HTTP_X_FORWARDED_PORT"] = dev_server.port.to_s
-      env["HTTP_X_FORWARDED_PROTO"] = env["HTTP_X_FORWARDED_SCHEME"] = dev_server.protocol
+    if env['PATH_INFO'].start_with?("/#{public_output_uri_path}") && dev_server.running?
+      env['HTTP_HOST'] = env['HTTP_X_FORWARDED_HOST'] = dev_server.host
+      env['HTTP_X_FORWARDED_SERVER'] = dev_server.host_with_port
+      env['HTTP_PORT'] = env['HTTP_X_FORWARDED_PORT'] = dev_server.port.to_s
+      env['HTTP_X_FORWARDED_PROTO'] = env['HTTP_X_FORWARDED_SCHEME'] = dev_server.protocol
       unless dev_server.https?
-        env["HTTPS"] = env["HTTP_X_FORWARDED_SSL"] = "off"
+        env['HTTPS'] = env['HTTP_X_FORWARDED_SSL'] = 'off'
       end
-      env["SCRIPT_NAME"] = ""
+      env['SCRIPT_NAME'] = ''
 
       super(env)
     else
@@ -28,7 +28,7 @@ class Viter::DevServerProxy < Rack::Proxy
 
   private
   def public_output_uri_path
-    config.public_output_path.relative_path_from(config.public_path).to_s + "/"
+    config.public_output_path.relative_path_from(config.public_path).to_s + '/'
   end
 
 end
