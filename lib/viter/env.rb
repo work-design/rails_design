@@ -1,22 +1,23 @@
-class Webpacker::Env
-  DEFAULT = "production".freeze
+module Viter
+  class Env
+    DEFAULT = 'production'.freeze
 
-  delegate :config_path, :logger, to: :@webpacker
+    delegate :config_path, :logger, to: :@webpacker
 
-  def self.inquire(webpacker)
-    new(webpacker).inquire
-  end
+    def self.inquire(webpacker)
+      new(webpacker).inquire
+    end
 
-  def initialize(webpacker)
-    @webpacker = webpacker
-  end
+    def initialize(webpacker)
+      @webpacker = webpacker
+    end
 
-  def inquire
-    fallback_env_warning if config_path.exist? && !current
-    current || DEFAULT.inquiry
-  end
+    def inquire
+      fallback_env_warning if config_path.exist? && !current
+      current || DEFAULT.inquiry
+    end
 
-  private
+    private
     def current
       Rails.env.presence_in(available_environments)
     end
@@ -40,4 +41,6 @@ class Webpacker::Env
             "Please note that YAML must be consistently indented using spaces. Tabs are not allowed. " \
             "Error: #{e.message}"
     end
+
+  end
 end
