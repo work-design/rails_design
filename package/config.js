@@ -3,7 +3,7 @@ const { safeLoad } = require('js-yaml')
 const { readFileSync } = require('fs')
 const { ensureTrailingSlash } = require('./utils/helpers')
 const { railsEnv } = require('./env')
-const configPath = process.env.VITER_CONFIG || resolve('config', 'webpacker.yml')
+const configPath = require('./configPath')
 
 const defaultConfigPath = require.resolve('../config/viter_default.yml')
 
