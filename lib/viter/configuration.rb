@@ -16,6 +16,10 @@ module Viter
       fetch(:server)
     end
 
+    def host
+      "#{server[:host]}:#{server[:port]}"
+    end
+
     def compile?
       fetch(:compile)
     end
@@ -60,7 +64,6 @@ module Viter
       data.fetch(key, defaults[key])
     end
 
-    private
     def data
       @data ||= load
     end
@@ -73,8 +76,8 @@ module Viter
       end
       config[env].deep_symbolize_keys
     rescue Errno::ENOENT => e
-      raise "Webpacker configuration file not found #{config_path}. " \
-            "Please run rails webpacker:install " \
+      raise "Viter configuration file not found #{config_path}. " \
+            "Please run rails viter:install " \
             "Error: #{e.message}"
 
     rescue Psych::SyntaxError => e
@@ -85,7 +88,7 @@ module Viter
 
     def defaults
       @defaults ||= begin
-        path = File.expand_path('../../config/viter_template.yml', __dir__)
+        path = File.expand_path('../../config/viter_default.yml', __dir__)
         config = begin
           YAML.load_file(path, aliases: true)
         rescue ArgumentError

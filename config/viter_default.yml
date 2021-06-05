@@ -1,20 +1,19 @@
 # Vite 默认配置
 default: &default
-
   source_path: app/packs
   public_root_path: public
   public_output_path: vites
-  
   watchAdditionalPaths: []
-  server:
-    port: 4000
 development:
   <<: *default
   autoBuild: true
   publicOutputDir: vite-dev
   server:
-    port: 3036
+    host: localhost
+    port: 4000
 test:
   <<: *default
   autoBuild: true
   publicOutputDir: vite-test
+production:
+  <<: *default

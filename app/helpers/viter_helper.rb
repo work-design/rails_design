@@ -46,7 +46,7 @@ module ViterHelper
   private
   # Internal: Returns the current manifest loaded by Vite Ruby.
   def vite_manifest
-    ViteRuby.instance.manifest
+    Viter.instance.manifest
   end
 
   # Internal: Renders a modulepreload link tag.
