@@ -1,38 +1,41 @@
-class Webpacker::Instance
-  cattr_accessor(:logger) { ActiveSupport::TaggedLogging.new(ActiveSupport::Logger.new(STDOUT)) }
+module Viter
+  class Instance
+    cattr_accessor(:logger) { ActiveSupport::TaggedLogging.new(ActiveSupport::Logger.new(STDOUT)) }
 
-  attr_reader :root_path, :config_path
+    attr_reader :root_path, :config_path
 
-  def initialize(root_path: Rails.root, config_path: Rails.root.join("config/webpacker.yml"))
-    @root_path, @config_path = root_path, config_path
+    def initialize(root_path: Rails.root, config_path: Rails.root.join('config/viter.yml'))
+      @root_path = root_path
+      @config_path = config_path
+    end
+
+    def env
+      @env ||= Webpacker::Env.inquire self
+    end
+
+    def config
+      @config ||= Configuration.new(
+        root_path: root_path,
+        config_path: config_path,
+        env: env
+      )
+    end
+
+    def compiler
+      @compiler ||= Compiler.new self
+    end
+
+    def dev_server
+      @dev_server ||= DevServer.new config
+    end
+
+    def manifest
+      @manifest ||= Manifest.new self
+    end
+
+    def commands
+      @commands ||= Commands.new self
+    end
+
   end
-
-  def env
-    @env ||= Webpacker::Env.inquire self
-  end
-
-  def config
-    @config ||= Webpacker::Configuration.new(
-      root_path: root_path,
-      config_path: config_path,
-      env: env
-    )
-  end
-
-  def compiler
-    @compiler ||= Webpacker::Compiler.new self
-  end
-
-  def dev_server
-    @dev_server ||= Webpacker::DevServer.new config
-  end
-
-  def manifest
-    @manifest ||= Webpacker::Manifest.new self
-  end
-
-  def commands
-    @commands ||= Webpacker::Commands.new self
-  end
-
 end

@@ -4,14 +4,14 @@
 # "/packs/calendar-1016838bab065ae1e314.css".
 #
 # When the configuration is set to on-demand compilation, with the `compile: true` option in
-# the webpacker.yml file, any lookups will be preceded by a compilation if one is needed.
-class Webpacker::Manifest
+# the viter.yml file, any lookups will be preceded by a compilation if one is needed.
+class Viter::Manifest
   class MissingEntryError < StandardError; end
 
-  delegate :config, :compiler, :dev_server, to: :@webpacker
+  delegate :config, :compiler, :dev_server, to: :@viter
 
-  def initialize(webpacker)
-    @webpacker = webpacker
+  def initialize(viter)
+    @viter = viter
   end
 
   def refresh
@@ -97,8 +97,8 @@ class Webpacker::Manifest
 
     def manifest_type(pack_type)
       case pack_type
-      when :javascript then "js"
-      when :stylesheet then "css"
+      when :javascript then 'js'
+      when :stylesheet then 'css'
       else pack_type.to_s
       end
     end
@@ -106,10 +106,10 @@ class Webpacker::Manifest
     def missing_file_from_manifest_error(bundle_name)
       <<-MSG
 Webpacker can't find #{bundle_name} in #{config.public_manifest_path}. Possible causes:
-1. You want to set webpacker.yml value of compile to true for your environment
+1. You want to set viter.yml value of compile to true for your environment
    unless you are using the `webpack -w` or the webpack-dev-server.
 2. webpack has not yet re-run to reflect updates.
-3. You have misconfigured Webpacker's config/webpacker.yml file.
+3. You have misconfigured Webpacker's config/viter.yml file.
 4. Your webpack configuration is not creating a manifest.
 Your manifest contains:
 #{JSON.pretty_generate(@data)}

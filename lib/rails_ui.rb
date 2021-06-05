@@ -6,3 +6,5 @@ require 'rails_ui/engine'
 require 'rails_ui/webpacker/yaml_helper'
 require 'rails_ui/webpacker/json_helper'
 require 'rails_ui/webpacker/helper'
+
+require 'viter'
