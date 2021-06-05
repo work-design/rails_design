@@ -45,7 +45,7 @@ const getModulePaths = () => {
 }
 
 module.exports = {
-  root: join(process.pwd(), config.source_path),
+  root: join(process.cwd(), config.source_path),
 
 
 
