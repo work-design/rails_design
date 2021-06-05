@@ -2,6 +2,8 @@
 default: &default
 
   source_path: app/packs
+  public_root_path: public
+  public_output_path: vites
   
   watchAdditionalPaths: []
   server:

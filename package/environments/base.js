@@ -5,11 +5,7 @@ const { basename, dirname, join, relative, resolve } = require('path')
 const extname = require('path-complete-extname')
 const PnpWebpackPlugin = require('pnp-webpack-plugin')
 const { sync: globSync } = require('glob')
-const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
-const WebpackAssetsManifest = require('webpack-assets-manifest')
-const webpack = require('webpack')
 const config = require('../config')
-const { moduleExists } = require('../utils/helpers')
 
 const getEntryObject = () => {
   const entries = {}
@@ -48,32 +44,6 @@ const getModulePaths = () => {
   return result
 }
 
-const getPlugins = () => {
-  const plugins = [
-    new webpack.EnvironmentPlugin(process.env),
-    new CaseSensitivePathsPlugin(),
-    new WebpackAssetsManifest({
-      entrypoints: true,
-      writeToDisk: true,
-      output: 'manifest.json',
-      entrypointsUseAssets: true,
-      publicPath: true
-    })
-  ]
-
-  if (moduleExists('css-loader') && moduleExists('mini-css-extract-plugin')) {
-    const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-    plugins.push(
-      new MiniCssExtractPlugin({
-        filename: 'css/[name]-[contenthash:8].css',
-        chunkFilename: 'css/[id]-[contenthash:8].css'
-      })
-    )
-  }
-
-  return plugins
-}
-
 module.exports = {
   root: join(process.pwd(), config.source_path),
 
@@ -93,8 +63,6 @@ module.exports = {
     modules: getModulePaths(),
     plugins: [PnpWebpackPlugin]
   },
-
-  plugins: getPlugins(),
 
   resolveLoader: {
     modules: ['node_modules'],
