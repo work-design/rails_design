@@ -33,7 +33,7 @@ module ViterHelper
   end
 
   # Public: Renders a <script> tag for the specified Vite entrypoints.
-  def vite_typescript_tag(*names, **options)
+  def typescript_vite_tag(*names, **options)
     vite_javascript_tag(*names, asset_type: :typescript, **options)
   end
 
@@ -43,8 +43,7 @@ module ViterHelper
     stylesheet_link_tag(*style_paths, **options)
   end
 
-private
-
+  private
   # Internal: Returns the current manifest loaded by Vite Ruby.
   def vite_manifest
     ViteRuby.instance.manifest
@@ -58,5 +57,5 @@ private
       tag.link(rel: 'modulepreload', href: href, as: 'script', crossorigin: crossorigin, **options)
     }.join("\n").html_safe
   end
-end
 
+end
