@@ -1,3 +1,4 @@
+$:.push File.expand_path('lib', __dir__)
 require_relative 'lib/rails_ui/version'
 
 Gem::Specification.new do |s|
