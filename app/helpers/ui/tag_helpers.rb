@@ -45,7 +45,7 @@ module Ui
     end
 
     # Public: Renders a <link> tag for the specified Vite entrypoints.
-    def vite_stylesheet_tag(*names, **options)
+    def stylesheet_vite_tag(*names, **options)
       style_paths = names.map { |name| vite_asset_path(name, type: :stylesheet) }
       stylesheet_link_tag(*style_paths, **options)
     end

@@ -1,4 +1,4 @@
-module Vite
+module Viter
   class Runner
 
     def self.run(argv)

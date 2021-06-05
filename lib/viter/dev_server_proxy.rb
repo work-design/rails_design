@@ -1,4 +1,4 @@
-require "rack/proxy"
+require 'rack/proxy'
 
 class Viter::DevServerProxy < Rack::Proxy
   delegate :config, :dev_server, to: :@webpacker

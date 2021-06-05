@@ -1,7 +1,7 @@
 require "shellwords"
-require "webpacker/runner"
+require "viter/runner"
 
-module Webpacker
+module Viter
   class WebpackRunner < Webpacker::Runner
     def run
       env = Webpacker::Compiler.env
