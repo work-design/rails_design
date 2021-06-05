@@ -56,11 +56,6 @@ module.exports = {
     publicPath: config.publicPath
   },
 
-  resolveLoader: {
-    modules: ['node_modules'],
-    plugins: [PnpWebpackPlugin.moduleLoader(module)]
-  },
-
   optimization: {
     splitChunks: { chunks: 'all' },
 
