@@ -61,38 +61,39 @@ module Viter
     end
 
     private
-      def data
-        @data ||= load
-      end
+    def data
+      @data ||= load
+    end
 
-      def load
+    def load
+      config = begin
+        YAML.load_file(config_path.to_s, aliases: true)
+      rescue ArgumentError
+        YAML.load_file(config_path.to_s)
+      end
+      config[env].deep_symbolize_keys
+    rescue Errno::ENOENT => e
+      raise "Webpacker configuration file not found #{config_path}. " \
+            "Please run rails webpacker:install " \
+            "Error: #{e.message}"
+
+    rescue Psych::SyntaxError => e
+      raise "YAML syntax error occurred while parsing #{config_path}. " \
+            "Please note that YAML must be consistently indented using spaces. Tabs are not allowed. " \
+            "Error: #{e.message}"
+    end
+
+    def defaults
+      @defaults ||= begin
+        path = File.expand_path("../../config/viter.yml", __FILE__)
         config = begin
-          YAML.load_file(config_path.to_s, aliases: true)
+          YAML.load_file(path, aliases: true)
         rescue ArgumentError
-          YAML.load_file(config_path.to_s)
+          YAML.load_file(path)
         end
-        config[env].deep_symbolize_keys
-      rescue Errno::ENOENT => e
-        raise "Webpacker configuration file not found #{config_path}. " \
-              "Please run rails webpacker:install " \
-              "Error: #{e.message}"
-
-      rescue Psych::SyntaxError => e
-        raise "YAML syntax error occurred while parsing #{config_path}. " \
-              "Please note that YAML must be consistently indented using spaces. Tabs are not allowed. " \
-              "Error: #{e.message}"
+        HashWithIndifferentAccess.new(config[env])
       end
+    end
 
-      def defaults
-        @defaults ||= begin
-          path = File.expand_path("../../config/viter.yml", __FILE__)
-          config = begin
-            YAML.load_file(path, aliases: true)
-          rescue ArgumentError
-            YAML.load_file(path)
-          end
-          HashWithIndifferentAccess.new(config[env])
-        end
-      end
   end
 end
