@@ -13,7 +13,7 @@ const getDefaultConfig = () => {
 
 const defaults = getDefaultConfig()
 const app = yaml.load(readFileSync(configPath), 'utf8')[railsEnv]
-debugger
+
 const config = Object.assign(defaults, app)
 config.outputPath = resolve(config.public_root_path, config.public_output_path)
 

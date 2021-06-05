@@ -15,6 +15,6 @@ const webpackConfig = () => {
 
 module.exports = {
   config,
-  webpackConfig: webpackConfig(),
+  viteConfig: webpackConfig(),
   baseConfig
 }

@@ -11,6 +11,6 @@ const devConfig =  {
 }
 
 module.exports = {
-  baseConfig,
+  ...baseConfig,
   ...devConfig
 }
