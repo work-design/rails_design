@@ -1,11 +1,15 @@
 default: &default
   sourceCodeDir: app/packs
   watchAdditionalPaths: []
-
+  server:
+    port: 4000
 development:
+  <<: *default
   autoBuild: true
   publicOutputDir: vite-dev
-  port: 3036
+  server:
+    port: 3036
 test:
+  <<: *default
   autoBuild: true
   publicOutputDir: vite-test

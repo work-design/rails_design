@@ -3,7 +3,7 @@ module Viter
     DEFAULT_ENV_PREFIX = "WEBPACKER_DEV_SERVER".freeze
 
     # Configure dev server connection timeout (in seconds), default: 0.01
-    # Webpacker.dev_server.connect_timeout = 1
+    # Webpacker.server.connect_timeout = 1
     #cattr_accessor(:connect_timeout) { 0.01 }
 
     attr_reader :config
@@ -13,7 +13,7 @@ module Viter
     end
 
     def running?
-      if config.dev_server.present?
+      if config.server.present?
         Socket.tcp(host, port, connect_timeout: connect_timeout).close
         true
       else
@@ -53,16 +53,16 @@ module Viter
     end
 
     def env_prefix
-      config.dev_server.fetch(:env_prefix, DEFAULT_ENV_PREFIX)
+      config.server.fetch(:env_prefix, DEFAULT_ENV_PREFIX)
     end
 
     private
     def fetch(key)
-      ENV["#{env_prefix}_#{key.upcase}"] || config.dev_server.fetch(key, defaults[key])
+      ENV["#{env_prefix}_#{key.upcase}"] || config.server.fetch(key, defaults[key])
     end
 
     def defaults
-      config.send(:defaults)[:dev_server] || {}
+      config.send(:defaults)[:server] || {}
     end
 
   end

@@ -21,19 +21,19 @@ module Viter
 
       @config = Configuration.new(
         root_path: app_root,
-        config_path: app_root.join("config/webpacker.yml"),
-        env: ENV["RAILS_ENV"]
+        config_path: app_root.join('config/viter.yml'),
+        env: ENV['RAILS_ENV']
       )
 
-      dev_server = DevServer.new(@config)
-
-      @hostname          = dev_server.host
-      @port              = dev_server.port
-      @pretty            = dev_server.pretty?
-      @https             = dev_server.https?
+      server = DevServer.new(@config)
+      binding.pry
+      @hostname = server.host
+      @port = server.port
+      @pretty = server.pretty?
+      @https = server.https?
 
     rescue Errno::ENOENT, NoMethodError
-      $stdout.puts "webpack dev_server configuration not found in #{@config.config_path}[#{ENV["RAILS_ENV"]}]."
+      $stdout.puts "webpack server configuration not found in #{@config.config_path}[#{ENV["RAILS_ENV"]}]."
       $stdout.puts "Please run bundle exec rails webpacker:install to install Webpacker"
       exit!
     end
@@ -58,7 +58,7 @@ module Viter
       server.close
 
     rescue Errno::EADDRINUSE
-      $stdout.puts "Another program is running on port #{@port}. Set a new port in #{@config.config_path} for dev_server"
+      $stdout.puts "Another program is running on port #{@port}. Set a new port in #{@config.config_path} for server"
       exit!
     end
 
