@@ -44,25 +44,14 @@ const getModulePaths = () => {
 
 module.exports = {
   root: join(process.cwd(), config.source_path),
-
-
-
-  mode: 'production',
+  optimizeDeps: {
+    include: config.include
+  },
   output: {
     filename: 'js/[name]-[contenthash].js',
     chunkFilename: 'js/[name]-[contenthash].chunk.js',
     hotUpdateChunkFilename: 'js/[id]-[hash].hot-update.js',
     path: config.outputPath,
     publicPath: config.publicPath
-  },
-
-  optimization: {
-    splitChunks: { chunks: 'all' },
-
-    runtimeChunk: 'single'
-  },
-
-  module: {
-    strictExportPresence: true
   }
 }
