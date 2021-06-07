@@ -6,7 +6,7 @@ module Webpacker
 
     # uses config/webpacker_template.yml in rails_com engine as default,
     # config/webpacker_template.yml in Rails project will override this.
-    def initialize(template: 'config/webpacker_template.yml', export: 'config/webpacker.yml')
+    def initialize(template:, export:)
       template_path = (Rails.root + template).existence || RailsUi::Engine.root + template
       export_path = Rails.root + export
 

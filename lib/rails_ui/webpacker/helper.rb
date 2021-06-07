@@ -3,7 +3,7 @@ module Webpacker
     extend self
 
     def export
-      webpack = YamlHelper.new
+      webpack = YamlHelper.new(template: 'config/webpacker_template.yml', export: 'config/webpacker.yml')
       vite = YamlHelper.new(template: 'config/viter_template.yml', export: 'config/viter.yml')
       Rails::Engine.subclasses.each do |engine|
         java_root = engine.root.join('app/packs')
