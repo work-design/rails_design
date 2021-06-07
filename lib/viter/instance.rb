@@ -10,7 +10,7 @@ module Viter
     end
 
     def env
-      @env ||= Webpacker::Env.inquire self
+      @env ||= Env.inquire self
     end
 
     def config

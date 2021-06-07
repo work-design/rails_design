@@ -3,7 +3,7 @@
 # config.webpacker.xxx = xx if config.respond_to?(:webpacker)
 module Webpacker
   class YamlHelper
-
+    attr_reader :content, :parsed
     # uses config/webpacker_template.yml in rails_com engine as default,
     # config/webpacker_template.yml in Rails project will override this.
     def initialize(template:, export:)
@@ -35,6 +35,25 @@ module Webpacker
       end
 
       value_content
+    end
+
+    def add(env = 'default', key, value)
+      value_content = xx(env = 'default', key, value)
+
+      if value_content.is_a?(Psych::Nodes::Sequence)
+        value_content.style = 1  # block style
+        value_content.children << Psych::Nodes::Scalar.new(value)
+      end
+
+      value_content
+    end
+
+    def xx(env = 'default', key, value)
+      return if Array(@parsed.dig(env, key)).include? value
+      env_index = @content.find_index { |i| i.is_a?(Psych::Nodes::Scalar) && i.value == env }
+      env_content = @content[env_index + 1].children
+      value_index = env_content.find_index { |i| i.is_a?(Psych::Nodes::Scalar) && i.value == key }
+      value_content = env_content[value_index + 1]
     end
 
   end

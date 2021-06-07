@@ -9,7 +9,7 @@ module Webpacker
         java_root = engine.root.join('app/packs')
         java_root.children.select(&:directory?).each do |path|
           webpack.append 'additional_paths', path.to_s
-          vite.append 'include', path.to_s
+          vite.append 'alias', path.to_s
         end if java_root.directory?
         asset_root = engine.root.join('app/assets')
         asset_root.children.select(&:directory?).each do |path|
