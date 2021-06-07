@@ -1,7 +1,6 @@
 const { basename, dirname, join, relative, resolve } = require('path')
 const { sync: globSync } = require('glob')
 const extname = require('path-complete-extname')
-const { config } = require('@rails/webpacker')
 
 const getEntryObject = (rootPath) => {
   const entries = {}
@@ -26,14 +25,4 @@ const getEntryObject = (rootPath) => {
   return entries
 }
 
-const paths = () => {
-  const result = {}
-
-  config.engine_paths.forEach((rootPath) => {
-    Object.assign(result, getEntryObject(rootPath))
-  })
-
-  return result
-}
-
-module.exports = paths
+module.exports = getEntryObject

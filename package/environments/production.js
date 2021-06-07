@@ -2,6 +2,7 @@
 /* eslint import/no-dynamic-require: 0 */
 
 const baseConfig = require('./base')
+const getEntryObject = require('../paths')
 
 const getPlugins = () => {
   const plugins = []
@@ -11,10 +12,20 @@ const getPlugins = () => {
   return plugins
 }
 
+const paths = () => {
+  const result = {}
+
+  config.engine_paths.forEach((rootPath) => {
+    Object.assign(result, getEntryObject(rootPath))
+  })
+
+  return result
+}
+
 const productionConfig = {
-  devtool: 'source-map',
-  stats: 'normal',
-  bail: true
+  build: {
+    rollupOptions: {}
+  }
 }
 
 module.exports = Object.assign(baseConfig, productionConfig)
