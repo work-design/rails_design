@@ -2,6 +2,7 @@
 /* eslint import/no-dynamic-require: 0 */
 
 const baseConfig = require('./base')
+const config = require('../config')
 const getEntryObject = require('../paths')
 
 const getPlugins = () => {
@@ -24,6 +25,7 @@ const paths = () => {
 
 const productionConfig = {
   build: {
+    outDir: join(process.cwd(), config.public_root_path, config.public_output_path),
     rollupOptions: {
       input: paths()
     }
