@@ -8,6 +8,7 @@ development:
   autoBuild: true
   publicOutputDir: vite-dev
   server:
+    host: localhost
     port: 3036
 test:
   <<: *default

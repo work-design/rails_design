@@ -45,7 +45,7 @@ const getModulePaths = () => {
 module.exports = {
   root: join(process.cwd(), config.source_path),
   optimizeDeps: {
-    include: config.include
+    //include: config.include
   },
   output: {
     filename: 'js/[name]-[contenthash].js',
