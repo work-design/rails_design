@@ -4,6 +4,7 @@
 const baseConfig = require('./base')
 const config = require('../config')
 const getEntryObject = require('../paths')
+const { join } = require('path')
 
 const getPlugins = () => {
   const plugins = []
