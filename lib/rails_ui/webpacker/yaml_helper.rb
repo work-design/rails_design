@@ -39,7 +39,7 @@ module Webpacker
     end
 
     def add(env = 'default', key, value)
-      value_content = xx(env = 'default', key, value)
+      value_content = xx(env, key)
 
       if value_content.is_a?(Psych::Nodes::Sequence)
         value_content.style = 1  # block style
@@ -49,12 +49,11 @@ module Webpacker
       value_content
     end
 
-    def xx(env = 'default', key, value)
-      return if Array(@parsed.dig(env, key)).include? value
+    def xx(env = 'default', key)
       env_index = @content.find_index { |i| i.is_a?(Psych::Nodes::Scalar) && i.value == env }
       env_content = @content[env_index + 1].children
       value_index = env_content.find_index { |i| i.is_a?(Psych::Nodes::Scalar) && i.value == key }
-      value_content = env_content[value_index + 1]
+      env_content[value_index + 1]
     end
 
   end
