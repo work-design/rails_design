@@ -1,16 +1,8 @@
 require 'rails/railtie'
-require 'viter/dev_server_proxy'
 
 class Viter::Engine < ::Rails::Engine
   # Allows Viter config values to be set via Rails env config files
   config.webpacker = ActiveSupport::OrderedOptions.new
-
-  initializer 'webpacker.proxy' do |app|
-    insert_middleware = Viter.config.dev_server.present? rescue nil
-    if insert_middleware
-      app.middleware.insert_before 0, Viter::DevServerProxy, ssl_verify_none: true
-    end
-  end
 
   initializer 'webpacker.logger' do
     config.after_initialize do

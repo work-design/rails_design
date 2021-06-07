@@ -27,6 +27,7 @@ module Webpacker
       env_index = @content.find_index { |i| i.is_a?(Psych::Nodes::Scalar) && i.value == env }
       env_content = @content[env_index + 1].children
       value_index = env_content.find_index { |i| i.is_a?(Psych::Nodes::Scalar) && i.value == key }
+      return unless value_index
       value_content = env_content[value_index + 1]
 
       if value_content.is_a?(Psych::Nodes::Sequence)
