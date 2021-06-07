@@ -1,6 +1,8 @@
 default: &default
   source_path: app/packs
   include: []
+  alias:
+    a: '/'
   server:
     port: 4000
 development:

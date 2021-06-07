@@ -40,16 +40,26 @@ module Webpacker
 
     def add(env = 'default', key, value)
       value_content = xx(env, key)
-
-      if value_content.is_a?(Psych::Nodes::Sequence)
+      if value_content.is_a?(Psych::Nodes::Sequence)  # 数组
         value_content.style = 1  # block style
         value_content.children << Psych::Nodes::Scalar.new(value)
+      elsif value_content.is_a?(Psych::Nodes::Mapping) && value.is_a?(Hash)  # 有下级内容
+        value.each do |item, val|
+          value_content.children << Psych::Nodes::Scalar.new(item)
+          value_content.children << Psych::Nodes::Scalar.new(val)
+        end
+      elsif value_content.is_a?(Psych::Nodes::Scalar) && value.is_a?(Hash)
+        value_content.children = []
+        value.each do |item, val|
+          value_content.children << Psych::Nodes::Scalar.new(item)
+          value_content.children << Psych::Nodes::Scalar.new(val)
+        end
       end
 
       value_content
     end
 
-    def xx(env = 'default', key)
+    def xx(env, key)
       env_index = @content.find_index { |i| i.is_a?(Psych::Nodes::Scalar) && i.value == env }
       env_content = @content[env_index + 1].children
       value_index = env_content.find_index { |i| i.is_a?(Psych::Nodes::Scalar) && i.value == key }
