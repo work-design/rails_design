@@ -22,7 +22,9 @@
     "stickybits": "^3.7.9",
     "stimulus": "^2.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "path-complete-extname": "^1.0.0"
+  },
   "scripts": {
     "test": "jest",
     "lint": "eslint package/"

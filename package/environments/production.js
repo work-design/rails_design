@@ -15,7 +15,7 @@ const getPlugins = () => {
 const paths = () => {
   const result = {}
 
-  config.engine_paths.forEach((rootPath) => {
+  baseConfig.engine_paths.forEach((rootPath) => {
     Object.assign(result, getEntryObject(rootPath))
   })
 
@@ -24,7 +24,9 @@ const paths = () => {
 
 const productionConfig = {
   build: {
-    rollupOptions: {}
+    rollupOptions: {
+      input: paths()
+    }
   }
 }
 

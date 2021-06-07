@@ -44,6 +44,7 @@ const getModulePaths = () => {
 
 module.exports = {
   root: join(process.cwd(), config.source_path),
+  engine_paths: config.engine_paths,
   resolve: {
     alias: config.alias
   },
