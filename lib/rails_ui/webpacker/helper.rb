@@ -7,20 +7,26 @@ module Webpacker
       vite = YamlHelper.new(template: 'config/viter_template.yml', export: 'config/viter.yml')
       Rails::Engine.subclasses.each do |engine|
         java_root = engine.root.join('app/packs')
-        java_root.children.select(&:directory?).each do |path|
-          webpack.append 'additional_paths', path.to_s
-          #vite.append 'alias', path.to_s
-        end if java_root.directory?
+        if java_root.directory?
+          java_root.children.select(&:directory?).each do |path|
+            webpack.append 'additional_paths', path.to_s
+          end
+          vite.add 'alias', { "#{engine.engine_name}_pack" => java_root.to_s }
+        end
+
         asset_root = engine.root.join('app/assets')
-        asset_root.children.select(&:directory?).each do |path|
-          webpack.append 'additional_paths', path.to_s
-          vite.append 'include', path.to_s
-        end if asset_root.directory?
+        if asset_root.directory?
+          asset_root.children.select(&:directory?).each do |path|
+            webpack.append 'additional_paths', path.to_s
+          end
+          vite.add 'alias', { "#{engine.engine_name}_ui" => asset_root.to_s }
+        end
+
         view_root = engine.root.join('app/views')
         if view_root.directory?
           webpack.append 'additional_paths', view_root.to_s
           webpack.append 'engine_paths', view_root.to_s
-          vite.add 'alias', { engine.engine_name => view_root.to_s }
+          vite.add 'alias', { "#{engine.engine_name}_view" => view_root.to_s }
         end
       end
       vite.dump
