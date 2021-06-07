@@ -11,8 +11,13 @@
     "yarn": ">=1.0.0"
   },
   "dependencies": {
+    "@hotwired/turbo-rails": "^7.0.0-beta.5",
+    "@rails/activestorage": "^6.0.3-7",
     "glob": "^7.1.7",
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "sortablejs": "^1.13.0",
+    "stickybits": "^3.7.9",
+    "stimulus": "^2.0.0"
   },
   "devDependencies": {},
   "scripts": {

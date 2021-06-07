@@ -2,6 +2,55 @@
 # yarn lockfile v1
 
 
+"@hotwired/turbo-rails@^7.0.0-beta.5":
+  version "7.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo-rails/-/turbo-rails-7.0.0-beta.5.tgz#a0efdb7a20613845c43afe6f376b353e62f7e68d"
+  integrity sha512-zj+ZYbs2IHeJHtLavcLX5K0oW/3K8s3zjok4lpujxqLactp3OpuqBZxKBr+tgODnAX/WYFoKLpzivyx3xVRfTw==
+  dependencies:
+    "@hotwired/turbo" "^7.0.0-beta.4"
+    "@rails/actioncable" "^6.1.0"
+
+"@hotwired/turbo@^7.0.0-beta.4":
+  version "7.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-7.0.0-beta.5.tgz#3167e8e882b9075c5b3b2e2f32432cca2862c61c"
+  integrity sha512-z10dI2U/StkMSmnfJUsyez6jrhnitgzjyw2CxE3LnAAzW/TBhvsMYKsVG7Xu337r3gh0r6UwIFWyvvtm3in6gg==
+
+"@rails/actioncable@^6.1.0":
+  version "6.1.3"
+  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-6.1.3.tgz#c8a67ec4d22ecd6931f7ebd98143fddbc815419a"
+  integrity sha512-m02524MR9cTnUNfGz39Lkx9jVvuL0tle4O7YgvouJ7H83FILxzG1nQ5jw8pAjLAr9XQGu+P1sY4SKE3zyhCNjw==
+
+"@rails/activestorage@^6.0.3-7":
+  version "6.0.3-7"
+  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-6.0.3-7.tgz#74995b47ac318225f08006722efca06b3a18c365"
+  integrity sha512-CQvbACA/0oemv5U2AVg/HVKBFEe7rl3Tk1Nmh5HLfXbhWnIOsSYjplY52kkSd+I3DWS/QAL7eI/06eIRtND/0g==
+  dependencies:
+    spark-md5 "^3.0.0"
+
+"@stimulus/core@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@stimulus/core/-/core-2.0.0.tgz#140c85318d6a8a8210c0faf182223b8459348877"
+  integrity sha512-ff70GafKtzc8zQ1/cG+UvL06GcifPWovf2wBEdjLMh9xO2GOYURO3y2RYgzIGYUIBefQwyfX2CLfJdZFJrEPTw==
+  dependencies:
+    "@stimulus/mutation-observers" "^2.0.0"
+
+"@stimulus/multimap@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@stimulus/multimap/-/multimap-2.0.0.tgz#420cfa096ed6538df4a91dbd2b2842c1779952b2"
+  integrity sha512-pMBCewkZCFVB3e5mEMoyO9+9aKzHDITmf3OnPun51YWxlcPdHcwbjqm1ylK63fsoduIE+RowBpFwFqd3poEz4w==
+
+"@stimulus/mutation-observers@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@stimulus/mutation-observers/-/mutation-observers-2.0.0.tgz#3dbe37453bda47a6c795a90204ee8d77a799fb87"
+  integrity sha512-kx4VAJdPhIGBQKGIoUDC2tupEKorG3A+ckc2b1UiwInKTMAC1axOHU8ebcwhaJIxRqIrs8//4SJo9YAAOx6FEg==
+  dependencies:
+    "@stimulus/multimap" "^2.0.0"
+
+"@stimulus/webpack-helpers@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@stimulus/webpack-helpers/-/webpack-helpers-2.0.0.tgz#54296d2a2dffd4f962d2e802d99a3fdd84b8845f"
+  integrity sha512-D6tJWsAC024MwGEIKlUVYU8Ln87mlrmiwHvYAjipg+s8H4eLxUMQ3PZkWyPevfipH+oR3leuHsjYsK1gN5ViQA==
+
 argparse@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/argparse/-/argparse-2.0.1.tgz#246f50f3ca78a3240f6c997e8a9bd1eac49e4b38"
@@ -80,6 +129,29 @@ path-is-absolute@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
   integrity sha1-F0uSaHNVNP+8es5r9TpanhtcX18=
+
+sortablejs@^1.13.0:
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.13.0.tgz#3ab2473f8c69ca63569e80b1cd1b5669b51269e9"
+  integrity sha512-RBJirPY0spWCrU5yCmWM1eFs/XgX2J5c6b275/YyxFRgnzPhKl/TDeU2hNR8Dt7ITq66NRPM4UlOt+e5O4CFHg==
+
+spark-md5@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/spark-md5/-/spark-md5-3.0.1.tgz#83a0e255734f2ab4e5c466e5a2cfc9ba2aa2124d"
+  integrity sha512-0tF3AGSD1ppQeuffsLDIOWlKUd3lS92tFxcsrh5Pe3ZphhnoK+oXIBTzOAThZCiuINZLvpiLH/1VS1/ANEJVig==
+
+stickybits@^3.7.9:
+  version "3.7.9"
+  resolved "https://registry.yarnpkg.com/stickybits/-/stickybits-3.7.9.tgz#0e469ffb960e1e661bd308ba4da370dc439902bf"
+  integrity sha512-wSEH/RO0TPIeI1rYI6p3Hv9FFSKr6+58Ru4xyYbEgd4PfE1r3TGgbYUWvW6SwnfoRY3DMDLxOuvUoW+8LWblQQ==
+
+stimulus@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/stimulus/-/stimulus-2.0.0.tgz#713c8b91a72ef90914b90955f0e705f004403047"
+  integrity sha512-xipy7BS5TVpg4fX6S8LhrYZp7cmHGjmk09WSAiVx1gF5S5g43IWsuetfUhIk8HfHUG+4MQ9nY0FQz4dRFLs/8w==
+  dependencies:
+    "@stimulus/core" "^2.0.0"
+    "@stimulus/webpack-helpers" "^2.0.0"
 
 wrappy@1:
   version "1.0.2"
