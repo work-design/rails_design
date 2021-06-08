@@ -47,5 +47,10 @@ module.exports = {
   engine_paths: config.engine_paths,
   resolve: {
     alias: config.alias
+  },
+  build: {
+    rollupOptions: {
+      input: getEntryObject()
+    }
   }
 }
