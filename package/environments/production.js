@@ -26,6 +26,7 @@ const paths = () => {
 
 const productionConfig = {
   build: {
+    ...config.build,
     manifest: true,
     sourcemap: true,
     emptyOutDir: true,
