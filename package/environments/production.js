@@ -29,7 +29,10 @@ const productionConfig = {
     manifest: true,
     outDir: join(process.cwd(), config.public_root_path, config.public_output_path),
     rollupOptions: {
-      input: paths()
+      input: paths(),
+      output: {
+        entryFileNames: 'entry-[name].js'
+      }
     }
   }
 }
