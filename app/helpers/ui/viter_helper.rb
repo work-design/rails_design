@@ -46,7 +46,6 @@ module Ui
     end
 
     private
-    # Internal: Returns the current manifest loaded by Vite Ruby.
     def vite_manifest
       Viter.instance.manifest
     end

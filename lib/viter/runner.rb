@@ -11,7 +11,7 @@ module Viter
       @argv = argv
 
       @app_path = File.expand_path('.', Dir.pwd)
-      @node_modules_bin_path = ENV['WEBPACKER_NODE_MODULES_BIN_PATH'] || `yarn bin`.chomp
+      @node_modules_bin_path = ENV['VITER_NODE_MODULES_BIN_PATH'] || `yarn bin`.chomp
       @vite_config = File.join(@app_path, "config/vite/#{ENV["NODE_ENV"]}.js")
       @webpacker_config = File.join(@app_path, 'config/vite.yml')
 

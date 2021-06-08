@@ -1,49 +1,50 @@
-require "open3"
-require "digest/sha1"
+require 'open3'
+require 'digest/sha1'
 
-class Viter::Compiler
-  # Additional paths that test compiler needs to watch
-  # Webpacker::Compiler.watched_paths << 'bower_components'
-  #
-  # Deprecated. Use additional_paths in the YAML configuration instead.
-  cattr_accessor(:watched_paths) { [] }
+module Viter
+  class Viter::Compiler
+    # Additional paths that test compiler needs to watch
+    # Webpacker::Compiler.watched_paths << 'bower_components'
+    #
+    # Deprecated. Use additional_paths in the YAML configuration instead.
+    cattr_accessor(:watched_paths) { [] }
 
-  # Additional environment variables that the compiler is being run with
-  # Webpacker::Compiler.env['FRONTEND_API_KEY'] = 'your_secret_key'
-  cattr_accessor(:env) { {} }
+    # Additional environment variables that the compiler is being run with
+    # Webpacker::Compiler.env['FRONTEND_API_KEY'] = 'your_secret_key'
+    cattr_accessor(:env) { {} }
 
-  delegate :config, :logger, to: :webpacker
+    delegate :config, :logger, to: :webpacker
 
-  def initialize(webpacker)
-    @webpacker = webpacker
-  end
-
-  def compile
-    if stale?
-      run_webpack.tap do |success|
-        # We used to only record the digest on success
-        # However, the output file is still written on error, meaning that the digest should still be updated.
-        # If it's not, you can end up in a situation where a recompile doesn't take place when it should.
-        # See https://github.com/rails/webpacker/issues/2113
-        record_compilation_digest
-      end
-    else
-      logger.debug "Everything's up-to-date. Nothing to do"
-      true
+    def initialize(webpacker)
+      @webpacker = webpacker
     end
-  end
 
-  # Returns true if all the compiled packs are up to date with the underlying asset files.
-  def fresh?
-    last_compilation_digest&.== watched_files_digest
-  end
+    def compile
+      if stale?
+        run_webpack.tap do |success|
+          # We used to only record the digest on success
+          # However, the output file is still written on error, meaning that the digest should still be updated.
+          # If it's not, you can end up in a situation where a recompile doesn't take place when it should.
+          # See https://github.com/rails/webpacker/issues/2113
+          record_compilation_digest
+        end
+      else
+        logger.debug "Everything's up-to-date. Nothing to do"
+        true
+      end
+    end
 
-  # Returns true if the compiled packs are out of date with the underlying asset files.
-  def stale?
-    !fresh?
-  end
+    # Returns true if all the compiled packs are up to date with the underlying asset files.
+    def fresh?
+      last_compilation_digest&.== watched_files_digest
+    end
 
-  private
+    # Returns true if the compiled packs are out of date with the underlying asset files.
+    def stale?
+      !fresh?
+    end
+
+    private
     attr_reader :webpacker
 
     def last_compilation_digest
@@ -66,13 +67,13 @@ class Viter::Compiler
     end
 
     def optionalRubyRunner
-      bin_webpack_path = config.root_path.join("bin/webpack")
+      bin_webpack_path = config.root_path.join('bin/viter')
       first_line = File.readlines(bin_webpack_path).first.chomp
       /ruby/.match?(first_line) ? RbConfig.ruby : ""
     end
 
     def run_webpack
-      logger.info "Compiling..."
+      logger.info 'Viter Compiling...'
 
       stdout, stderr, status = Open3.capture3(
         webpack_env,
@@ -99,8 +100,9 @@ class Viter::Compiler
       [
         *config.additional_paths,
         "#{config.source_path}/**/*",
-        "yarn.lock", "package.json",
-        "config/webpack/**/*"
+        'yarn.lock',
+        'package.json',
+        'config/webpack/**/*'
       ].freeze
     end
 
@@ -111,8 +113,12 @@ class Viter::Compiler
     def webpack_env
       return env unless defined?(ActionController::Base)
 
-      env.merge("WEBPACKER_ASSET_HOST"        => ENV.fetch("WEBPACKER_ASSET_HOST", ActionController::Base.helpers.compute_asset_host),
-                "WEBPACKER_RELATIVE_URL_ROOT" => ENV.fetch("WEBPACKER_RELATIVE_URL_ROOT", ActionController::Base.relative_url_root),
-                "WEBPACKER_CONFIG" => webpacker.config_path.to_s)
+      env.merge(
+        'VITER_ASSET_HOST' => ENV.fetch('VITER_ASSET_HOST', ActionController::Base.helpers.compute_asset_host),
+        'VITER_RELATIVE_URL_ROOT' => ENV.fetch('VITER_RELATIVE_URL_ROOT', ActionController::Base.relative_url_root),
+        'VITER_CONFIG' => webpacker.config_path.to_s
+      )
     end
+
+  end
 end
