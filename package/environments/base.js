@@ -8,7 +8,7 @@ const config = require('../config')
 
 const getEntryObject = () => {
   const entries = {}
-  const rootPath = join(config.source_path, config.source_entry_path)
+  const rootPath = join(config.source_path)
 
   globSync(`${rootPath}/**/*.*`).forEach((path) => {
     const namespace = relative(join(rootPath), dirname(path))
