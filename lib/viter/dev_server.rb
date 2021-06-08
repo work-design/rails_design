@@ -5,7 +5,6 @@ module Viter
     # Configure dev server connection timeout (in seconds), default: 0.01
     # Webpacker.server.connect_timeout = 1
     #cattr_accessor(:connect_timeout) { 0.01 }
-
     attr_reader :config
 
     def initialize(config)

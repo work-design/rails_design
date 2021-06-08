@@ -30,7 +30,7 @@ const productionConfig = {
     outDir: join(process.cwd(), config.public_root_path, config.public_output_path),
     rollupOptions: {
       input: {
-        ...,
+        ...baseConfig.build.rollupOptions.input,
         ...paths()
       }
     }

@@ -3,6 +3,7 @@
 
 const { basename, dirname, join, relative, resolve } = require('path')
 const { sync: globSync } = require('glob')
+const extname = require('path-complete-extname')
 const config = require('../config')
 
 const getEntryObject = () => {
