@@ -6,7 +6,7 @@ module Ui
     def pack_path(ext:,**options)
       path, ext = assets_load_path(exts: ext, suffix: options.delete(:suffix))
 
-      asset_pack_path(path + ext)
+      asset_vite_path(path + ext)
     end
 
     def js_load(**options)
@@ -14,7 +14,7 @@ module Ui
       path, _ = assets_load_path(exts: exts, suffix: options.delete(:suffix))
 
       if path
-        javascript_pack_tag(path, **options).html_safe
+        javascript_vite_tag(path, **options).html_safe
       end
     end
 
@@ -24,7 +24,7 @@ module Ui
       path, _ = assets_load_path(exts: exts, suffix: options.delete(:suffix))
 
       if path
-        stylesheet_pack_tag(path, **options).html_safe
+        stylesheet_vite_tag(path, **options).html_safe
       end
     end
 

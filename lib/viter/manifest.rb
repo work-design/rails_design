@@ -51,11 +51,12 @@ module Viter
       lookup(name, pack_type) || handle_missing_entry(name, pack_type)
     end
 
-    def lookup_by_path(path, pack_type = {})
+    def lookup_by_path(path, type: :javascript)
       pathname = Pathname.new(path)
       name = pathname.relative_path_from config.source_path
+      js_name = name.without_extname.sub_ext manifest_type(type)
 
-      lookup(name, pack_type)
+      find(js_name)
     end
 
     def compiling?
