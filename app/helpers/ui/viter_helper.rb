@@ -20,7 +20,7 @@ module Ui
     #
     # Example:
     #   <%= vite_asset_path 'calendar.css' %> # => "/vite/assets/calendar-1016838bab065ae1e122.css"
-    def vite_asset_path(name, **options)
+    def asset_vite_path(name, **options)
       path_to_asset vite_manifest.path_for(name, **options)
     end
 

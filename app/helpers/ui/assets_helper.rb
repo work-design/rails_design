@@ -40,6 +40,7 @@ module Ui
       filename = "#{controller_path}/#{@_rendered_template}"
       filename = [filename, '-', suffix].join if suffix
 
+      binding.pry
       exts.each do |ext|
         if Webpacker.manifest.lookup(filename + ext)
           return [filename, ext]
