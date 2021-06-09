@@ -45,9 +45,13 @@ const getModulePaths = () => {
 
 module.exports = {
   root: join(process.cwd(), config.source_path),
+  base: `http://${config.server.host}:${config.server.port}`,
   engine_paths: config.engine_paths,
   resolve: {
     alias: config.alias
+  },
+  css: {
+    postcss: join(process.cwd(), 'postcss.config.js')
   },
   build: {
     rollupOptions: {

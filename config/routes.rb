@@ -1,5 +1,3 @@
 Rails.application.routes.draw do
-  namespace :ui do
-
-  end
+  get '@fs/*path' => 'ui/common#index'
 end
