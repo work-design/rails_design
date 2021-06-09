@@ -4,6 +4,11 @@
 
 module Ui
   module ViterHelper
+
+    def image_vite_tag(name, **options)
+      image_tag(name, **options)
+    end
+
     # Public: Renders a script tag for vite/client to enable HMR in development.
     def vite_client_tag
       return unless src = vite_manifest.vite_client_src
