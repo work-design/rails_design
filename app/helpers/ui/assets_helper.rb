@@ -3,25 +3,19 @@ module Ui
   module AssetsHelper
 
     # Assets path: app/assets/javascripts/controllers
-    def origin_js_load(**options)
-      exts = ['.js'] + Array(options.delete(:ext))
-      path, ext = assets_load_path(exts: exts, suffix: options.delete(:suffix))
+    def pack_path(ext:,**options)
+      path, ext = assets_load_path(exts: ext, suffix: options.delete(:suffix))
 
-      if path
-        [javascript_pack_tag(path, **options).html_safe, asset_pack_path(path + ext)]
-      else
-        []
-      end
+      asset_pack_path(path + ext)
     end
 
     def js_load(**options)
-      r, _ = origin_js_load(**options)
-      r
-    end
+      exts = ['.js'] + Array(options.delete(:ext))
+      path, _ = assets_load_path(exts: exts, suffix: options.delete(:suffix))
 
-    def remote_js_load(**options)
-      _, r = origin_js_load(**options)
-      r
+      if path
+        javascript_pack_tag(path, **options).html_safe
+      end
     end
 
     # Assets path: app/assets/stylesheets/controllers
@@ -40,9 +34,8 @@ module Ui
       filename = "#{controller_path}/#{@_rendered_template}"
       filename = [filename, '-', suffix].join if suffix
 
-      binding.pry
       exts.each do |ext|
-        if Webpacker.manifest.lookup(filename + ext)
+        if Viter.manifest.lookup_by(@_rendered_template_path, type: ext)
           return [filename, ext]
         end
       end
