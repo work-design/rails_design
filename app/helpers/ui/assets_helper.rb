@@ -35,7 +35,7 @@ module Ui
       filename = [filename, '-', suffix].join if suffix
 
       exts.each do |ext|
-        if Viter.manifest.lookup_by(@_rendered_template_path, type: ext)
+        if Viter.manifest.lookup_by_path(@_rendered_template_path, type: ext)
           return [filename, ext]
         end
       end

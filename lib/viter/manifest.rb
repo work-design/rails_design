@@ -10,6 +10,7 @@ module Viter
     class MissingEntryError < StandardError; end
 
     delegate :config, :compiler, :dev_server, to: :@viter
+    attr_reader :viter
 
     def initialize(viter)
       @viter = viter
@@ -38,7 +39,7 @@ module Viter
     #
     # Example:
     #
-    #   Viter.manifest.lookup('calendar.js') # => "/packs/calendar-1016838bab065ae1e122.js"
+    #  Viter.manifest.lookup('calendar.js') # => "/packs/calendar-1016838bab065ae1e122.js"
     def lookup(name, pack_type = {})
       compile if compiling?
 
@@ -48,6 +49,13 @@ module Viter
     # Like lookup, except that if no asset is found, raises a Webpacker::Manifest::MissingEntryError.
     def lookup!(name, pack_type = {})
       lookup(name, pack_type) || handle_missing_entry(name, pack_type)
+    end
+
+    def lookup_by_path(path, pack_type = {})
+      pathname = Pathname.new(path)
+      name = pathname.relative_path_from config.source_path
+
+      lookup(name, pack_type)
     end
 
     def compiling?
