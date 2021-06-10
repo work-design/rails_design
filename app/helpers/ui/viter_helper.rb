@@ -23,7 +23,11 @@ module Ui
     # Example:
     #   <%= vite_asset_path 'calendar.css' %> # => "/vite/assets/calendar-1016838bab065ae1e122.css"
     def asset_vite_path(name, **options)
-      path_to_asset vite_manifest.path_for(name, **options)
+      asset_path name, options
+    end
+
+    def image_vite_path(name, **options)
+      image_path(name, options)
     end
 
     # Public: Renders a <script> tag for the specified Vite entrypoints.
