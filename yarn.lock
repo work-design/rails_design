@@ -68,6 +68,11 @@ argparse@^2.0.1:
   resolved "https://registry.yarnpkg.com/argparse/-/argparse-2.0.1.tgz#246f50f3ca78a3240f6c997e8a9bd1eac49e4b38"
   integrity sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==
 
+balajs@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/balajs/-/balajs-0.1.9.tgz#e03d1e6fb88d53cc1a2591a7bfec70d1e52d8f00"
+  integrity sha1-4D0eb7iNU8waJZGnv+xw0eUtjwA=
+
 balanced-match@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
@@ -99,6 +104,11 @@ deepmerge@^4.2.0:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.2.2.tgz#44d2ea3679b8f4d4ffba33f03d865fc1e7bf4955"
   integrity sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==
+
+element-closest@^2.0.1:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/element-closest/-/element-closest-2.0.2.tgz#72a740a107453382e28df9ce5dbb5a8df0f966ec"
+  integrity sha1-cqdAoQdFM4LijfnOXbtajfD5Zuw=
 
 fs.realpath@^1.0.0:
   version "1.0.0"
@@ -154,6 +164,11 @@ moment@^2.29.1:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
   integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
 
+object-assign@^4.1.0:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
+  integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
+
 once@^1.3.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/once/-/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
@@ -205,6 +220,20 @@ stimulus@^2.0.0:
   dependencies:
     "@stimulus/core" "^2.0.0"
     "@stimulus/webpack-helpers" "^2.0.0"
+
+weui.js@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/weui.js/-/weui.js-1.2.2.tgz#bb8e37dce53b3132a2cc1a44d046f5e501df3530"
+  integrity sha512-Ii2YL6PKv+nF8fS7NdDQXmkSoqTLem/y5AQReHpQjKSY44DjGMKJ/9yEEoQiNaTEuArfh2omKfXM8LoU2/WRMw==
+  dependencies:
+    balajs "^0.1.9"
+    element-closest "^2.0.1"
+    object-assign "^4.1.0"
+
+weui@^2.4.4:
+  version "2.4.4"
+  resolved "https://registry.yarnpkg.com/weui/-/weui-2.4.4.tgz#b8204ea420844eccc52fc0de8e50617091ce702a"
+  integrity sha512-rqxKAFaDBKkF6H1GzumDR/CLcGBxCzOZ1KUIXqOieZ316wbaxojgs/j1w9RrsjkCdH6zL1kLnr/elsDKB9pMdg==
 
 wrappy@1:
   version "1.0.2"

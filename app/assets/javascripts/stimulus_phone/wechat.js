@@ -4,7 +4,7 @@ class WechatController extends Controller {
   static targets = ['preview', 'media']
 
   connect() {
-    console.debug(this.identifier, 'connected!')
+    console.debug('connected:', this.identifier)
   }
 
   close() {

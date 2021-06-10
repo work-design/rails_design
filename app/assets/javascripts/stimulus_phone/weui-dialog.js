@@ -4,7 +4,7 @@ class WeuiDialogController extends Controller {
   static targets = ['dialog']
 
   connect() {
-    console.debug(this.identifier, 'connected!')
+    console.debug('connected:', this.identifier)
   }
 
   close() {

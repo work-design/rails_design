@@ -8,7 +8,7 @@ class WeuiPickerController extends Controller {
   }
 
   connect() {
-    console.debug(this.identifier, 'connected!')
+    console.debug('connected:', this.identifier)
   }
 
   // focus->weui-picker#getData

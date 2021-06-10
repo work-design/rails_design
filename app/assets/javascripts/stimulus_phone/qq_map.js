@@ -8,7 +8,7 @@ class QqMapController extends Controller {
   static targets = ['load']
 
   connect() {
-    console.debug(this.identifier, 'connected!')
+    console.debug('connected:', this.identifier)
   }
 
   selected(event) {
