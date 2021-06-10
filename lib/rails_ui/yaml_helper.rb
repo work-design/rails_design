@@ -23,8 +23,8 @@ module RailsUi
     end
 
     def append(env = 'default', key, value)
-      return if Array(@parsed.dig(env, key)).include? value
       value_content = xx(env, key)
+      return if value_content.children.find { |i| i.value == value }
 
       if value_content.is_a?(Psych::Nodes::Sequence)
         value_content.style = 1  # block style
