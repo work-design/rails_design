@@ -16,11 +16,6 @@ module Ui
       tag.script(src: src, type: 'module')
     end
 
-    # Public: Renders a script tag to enable HMR with React Refresh.
-    def vite_react_refresh_tag
-      vite_manifest.react_refresh_preamble&.html_safe
-    end
-
     # Public: Resolves the path for the specified Vite asset.
     #
     # Example:
@@ -46,8 +41,8 @@ module Ui
 
     # Public: Renders a <link> tag for the specified Vite entrypoints.
     def stylesheet_vite_tag(*names, **options)
-      style_paths = names.map { |name| vite_asset_path(name, type: :stylesheet) }
-      stylesheet_link_tag(*style_paths, **options)
+      #style_paths = names.map { |name| asset_vite_path(name, type: :stylesheet) }
+      stylesheet_link_tag(*style_paths, **options) unless Rails.env.development?
     end
 
     private
