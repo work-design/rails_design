@@ -1,6 +1,5 @@
 default: &default
-  source_path: app/packs
-  source_entry_path: javascripts
+  root_path: app/assets/entrypoints
   engine_paths: []
   alias:
     a: '/'

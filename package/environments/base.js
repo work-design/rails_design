@@ -5,18 +5,16 @@ const { basename, dirname, join, relative, resolve } = require('path')
 const { sync: globSync } = require('glob')
 const extname = require('path-complete-extname')
 const config = require('../config')
+const rootPath = join(config.root_path)
 
-const getEntryObject = () => {
+const getEntryObject = (rootPath) => {
   const entries = {}
-  const rootPath = join(config.source_path, config.source_entry_path)
 
   globSync(`${rootPath}/**/*.*`).forEach((path) => {
     const namespace = relative(join(rootPath), dirname(path))
     const name = join(namespace, basename(path, extname(path)))
     let assetPaths = resolve(path)
 
-    // Allows for multiple filetypes per entry (https://webpack.js.org/guides/entry-advanced/)
-    // Transforms the config object value to an array with all values under the same name
     let previousPaths = entries[name]
     if (previousPaths) {
       previousPaths = Array.isArray(previousPaths)
@@ -44,7 +42,7 @@ const getModulePaths = () => {
 }
 
 module.exports = {
-  root: join(process.cwd(), config.source_path),
+  root: join(process.cwd(), config.root_path),
   engine_paths: config.engine_paths,
   resolve: {
     alias: config.alias

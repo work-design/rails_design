@@ -1,9 +1,8 @@
 # Vite 默认配置
 default: &default
-  source_path: app/packs
+  root_path: app/assets/entrypoints
   public_root_path: public
   public_output_path: vites
-  watchAdditionalPaths: []
 development:
   <<: *default
   autoBuild: true
