@@ -6,13 +6,11 @@ default: &default
 development:
   <<: *default
   autoBuild: true
-  publicOutputDir: vite-dev
   server:
     host: localhost
     port: 4000
 test:
   <<: *default
   autoBuild: true
-  publicOutputDir: vite-test
 production:
   <<: *default
