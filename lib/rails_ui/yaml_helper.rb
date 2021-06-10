@@ -3,7 +3,7 @@
 # config.webpacker.xxx = xx if config.respond_to?(:webpacker)
 module RailsUi
   class YamlHelper
-    attr_reader :content, :parsed
+    attr_reader :content
     # uses config/viter_template.yml in rails_ui engine as default,
     # config/viter_template.yml in Rails project will override this.
     def initialize(template:, export:)
@@ -24,11 +24,7 @@ module RailsUi
 
     def append(env = 'default', key, value)
       return if Array(@parsed.dig(env, key)).include? value
-      env_index = @content.find_index { |i| i.is_a?(Psych::Nodes::Scalar) && i.value == env }
-      env_content = @content[env_index + 1].children
-      value_index = env_content.find_index { |i| i.is_a?(Psych::Nodes::Scalar) && i.value == key }
-      return unless value_index
-      value_content = env_content[value_index + 1]
+      value_content = xx(env, key)
 
       if value_content.is_a?(Psych::Nodes::Sequence)
         value_content.style = 1  # block style
@@ -63,6 +59,7 @@ module RailsUi
       env_index = @content.find_index { |i| i.is_a?(Psych::Nodes::Scalar) && i.value == env }
       env_content = @content[env_index + 1].children
       value_index = env_content.find_index { |i| i.is_a?(Psych::Nodes::Scalar) && i.value == key }
+      return unless value_index
       env_content[value_index + 1]
     end
 
