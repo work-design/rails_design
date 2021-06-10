@@ -8,7 +8,7 @@ const getEntryObject = require('../paths')
 
 module.exports = {
   root: join(process.cwd(), config.root_path),
-  engine_paths: config.engine_paths,
+  entry_paths: config.entry_paths,
   resolve: {
     alias: config.alias
   },
