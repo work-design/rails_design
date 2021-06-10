@@ -1,7 +1,7 @@
 # ignore config/webpacker.yml in git
 # gem 'webpacker', require: File.exist?('config/webpacker.yml')
 # config.webpacker.xxx = xx if config.respond_to?(:webpacker)
-module Webpacker
+module RailsUi
   class YamlHelper
     attr_reader :content, :parsed
     # uses config/webpacker_template.yml in rails_com engine as default,
