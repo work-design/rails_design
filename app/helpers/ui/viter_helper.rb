@@ -55,8 +55,8 @@ module Ui
           r = helper.path_to_javascript(name)
           r.delete_prefix!('/')
           mani = vite_manifest.find(r)
-          mani.fetch('css', {})[0] if mani
-        end
+          mani.fetch('css', {}) if mani
+        end.flatten.compact
 
         stylesheet_link_tag(*entries, **options)
       end
