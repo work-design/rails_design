@@ -1,6 +1,6 @@
 default: &default
   root_path: app/assets/entrypoints
-  engine_paths: []
+  entry_paths: []
   alias:
     a: '/'
   server:

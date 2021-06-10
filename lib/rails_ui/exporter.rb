@@ -15,13 +15,13 @@ module RailsUi
 
         view_root = engine.root.join('app/views')
         if view_root.directory?
-          vite.append 'engine_paths', view_root.to_s
+          vite.append 'entry_paths', view_root.to_s
           vite.add 'alias', { "#{engine.engine_name}_view" => view_root.to_s }
         end
 
         entrypoint_root = engine.root.join('app/assets', 'entrypoints')
         if entrypoint_root.directory?
-          vite.append 'engine_paths', entrypoint_root
+          vite.append 'entry_paths', entrypoint_root
         end
       end
 

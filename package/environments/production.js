@@ -17,7 +17,7 @@ const getPlugins = () => {
 const paths = () => {
   const result = {}
 
-  baseConfig.engine_paths.forEach((rootPath) => {
+  baseConfig.entry_paths.forEach((rootPath) => {
     Object.assign(result, getEntryObject(rootPath))
   })
 
