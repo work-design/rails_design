@@ -1,11 +1,11 @@
-# ignore config/webpacker.yml in git
+# ignore config/viter.yml in git
 # gem 'webpacker', require: File.exist?('config/webpacker.yml')
 # config.webpacker.xxx = xx if config.respond_to?(:webpacker)
 module RailsUi
   class YamlHelper
     attr_reader :content, :parsed
-    # uses config/webpacker_template.yml in rails_com engine as default,
-    # config/webpacker_template.yml in Rails project will override this.
+    # uses config/viter_template.yml in rails_ui engine as default,
+    # config/viter_template.yml in Rails project will override this.
     def initialize(template:, export:)
       template_path = (Rails.root + template).existence || RailsUi::Engine.root + template
       export_path = Rails.root + export
