@@ -9,8 +9,8 @@ module Ui
       if Rails.env.development?
         image_tag(name, **options)
       else
-        r = helper.path_to_image(name)
-        r.delete_prefix!('/')
+        r = path_to_image(name)
+        r = r.delete_prefix('/')
         mani = vite_manifest.find(r)
         if mani
           image_tag(mani['file'], **options)
@@ -36,7 +36,7 @@ module Ui
         entries = names
       else
         entries = names.map do |name|
-          r = helper.path_to_javascript(name)
+          r = path_to_javascript(name)
           r.delete_prefix!('/')
           mani = vite_manifest.find(r)
           mani['file'] if mani
@@ -56,7 +56,7 @@ module Ui
     def stylesheet_vite_tag(*names, **options)
       unless Rails.env.development?
         entries = names.map do |name|
-          r = helper.path_to_javascript(name)
+          r = path_to_javascript(name)
           r.delete_prefix!('/')
           mani = vite_manifest.find(r)
           mani.fetch('css', {}) if mani

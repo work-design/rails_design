@@ -3,8 +3,6 @@ default: &default
   entry_paths: []
   alias:
     a: '/'
-  server:
-    port: 4000
   build:
     assetsInlineLimit: 0
     sourcemap: false
