@@ -1,3 +1,5 @@
+require 'rails_ui/yaml_helper'
+
 module RailsUi
   module Exporter
     extend self

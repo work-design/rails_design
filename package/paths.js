@@ -12,9 +12,7 @@ const getEntryObject = (rootPath) => {
 
     let previousPaths = entries[name]
     if (previousPaths) {
-      previousPaths = Array.isArray(previousPaths)
-        ? previousPaths
-        : [previousPaths]
+      previousPaths = Array.isArray(previousPaths) ? previousPaths : [previousPaths]
       previousPaths.push(assetPaths)
       assetPaths = previousPaths
     }
