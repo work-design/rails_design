@@ -29,8 +29,7 @@ module Ui
       if Rails.env.development?
         entries = names
       else
-        entries = []
-        names.map do |name|
+        entries = names.map do |name|
           r = helper.path_to_javascript(name)
           r.delete_prefix!('/')
           mani = vite_manifest.find(r)
@@ -49,8 +48,16 @@ module Ui
 
     # Public: Renders a <link> tag for the specified Vite entrypoints.
     def stylesheet_vite_tag(*names, **options)
-      #style_paths = names.map { |name| asset_vite_path(name, type: :stylesheet) }
-      stylesheet_link_tag(*style_paths, **options) unless Rails.env.development?
+      unless Rails.env.development?
+        entries = names.map do |name|
+          r = helper.path_to_javascript(name)
+          r.delete_prefix!('/')
+          mani = vite_manifest.find(r)
+          mani.fetch('css', {})[0] if r
+        end
+
+        stylesheet_link_tag(*entries, **options)
+      end
     end
 
     private
