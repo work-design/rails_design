@@ -44,6 +44,14 @@ module Viter
       public_path.join(fetch(:public_output_path))
     end
 
+    def output_path
+      r = fetch(:public_output_path)
+      r.delete_prefix!('/')
+      r.delete_suffix!('/')
+
+      "/#{r}/"
+    end
+
     def public_manifest_path
       public_output_path.join("manifest.json")
     end

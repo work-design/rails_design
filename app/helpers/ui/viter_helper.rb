@@ -13,7 +13,7 @@ module Ui
         r = r.delete_prefix('/')
         mani = vite_manifest.find(r)
         if mani
-          image_tag(mani['file'], **options)
+          image_tag(Viter.config.output_path + mani['file'], **options)
         end
       end
     end
@@ -40,7 +40,9 @@ module Ui
           r = path_to_javascript(name)
           r.delete_prefix!('/')
           mani = vite_manifest.find(r)
-          mani['file'] if mani
+          if mani
+            Viter.config.output_path + mani['file']
+          end
         end
       end
 
@@ -59,7 +61,9 @@ module Ui
           r = path_to_javascript(name)
           r.delete_prefix!('/')
           mani = vite_manifest.find(r)
-          mani.fetch('css', {}) if mani
+          if mani
+            mani.fetch('css', []).map(&->(i){ Viter.config.output_path + i })
+          end
         end.flatten.compact
 
         stylesheet_link_tag(*entries, **options)
