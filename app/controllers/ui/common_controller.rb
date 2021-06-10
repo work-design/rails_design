@@ -7,18 +7,18 @@ module Ui
       if path.exist? && Rails.env.development?
         send_file path
       else
-        header :ok
+        head :ok
       end
     end
 
     def image
       file = "#{params[:path]}.#{params[:format]}"
-      path = Rails.root.join('app/packs/images', file)
+      path = Rails.root.join('app/assets', 'images', file)
 
       if path.exist? && Rails.env.development?
         send_file path
       else
-        header :ok
+        head :ok
       end
     end
 

@@ -25,10 +25,10 @@ module Ui
     end
 
     # Public: Renders a <script> tag for the specified Vite entrypoints.
-    def javascript_vite_tag(*names, type: 'module', asset_type: :javascript, skip_preload_tags: false, skip_style_tags: false, crossorigin: 'anonymous', media: 'screen', **options)
+    def javascript_vite_tag(*names, type: 'module', skip_preload_tags: false, skip_style_tags: false, crossorigin: 'anonymous', media: 'screen', **options)
       #entries = vite_manifest.resolve_entries(*names, type: asset_type)
       options[:host] = Viter.instance.config.host
-      tags = javascript_include_tag(*names, crossorigin: crossorigin, type: type, extname: false, **options)
+      tags = javascript_include_tag(*names, crossorigin: crossorigin, type: type, **options)
       #tags << vite_preload_tag(*entries.fetch(:imports), crossorigin: crossorigin, **options) unless skip_preload_tags
       #tags << stylesheet_link_tag(*entries.fetch(:stylesheets), media: media, crossorigin: crossorigin, **options) unless skip_style_tags
       tags

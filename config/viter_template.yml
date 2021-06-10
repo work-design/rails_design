@@ -1,5 +1,5 @@
 default: &default
-  root_path: app/assets/entrypoints
+  root_path: app/assets
   entry_paths: []
   alias:
     a: '/'

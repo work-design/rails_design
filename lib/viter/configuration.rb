@@ -25,7 +25,7 @@ module Viter
     end
 
     def source_path
-      root_path.join(fetch(:source_path))
+      root_path.join(fetch(:root_path))
     end
 
     def additional_paths
