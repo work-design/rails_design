@@ -6,14 +6,16 @@ module Ui
   module ViterHelper
 
     def image_vite_tag(name, **options)
-      image_tag(name, **options)
-    end
-
-    # Public: Renders a script tag for vite/client to enable HMR in development.
-    def vite_client_tag
-      return unless src = vite_manifest.vite_client_src
-
-      tag.script(src: src, type: 'module')
+      if Rails.env.development?
+        image_tag(name, **options)
+      else
+        r = helper.path_to_image(name)
+        r.delete_prefix!('/')
+        mani = vite_manifest.find(r)
+        if mani
+          image_tag(mani['file'], **options)
+        end
+      end
     end
 
     # Public: Resolves the path for the specified Vite asset.
@@ -33,7 +35,7 @@ module Ui
           r = helper.path_to_javascript(name)
           r.delete_prefix!('/')
           mani = vite_manifest.find(r)
-          mani['file'] if r
+          mani['file'] if mani
         end
       end
 
@@ -53,7 +55,7 @@ module Ui
           r = helper.path_to_javascript(name)
           r.delete_prefix!('/')
           mani = vite_manifest.find(r)
-          mani.fetch('css', {})[0] if r
+          mani.fetch('css', {})[0] if mani
         end
 
         stylesheet_link_tag(*entries, **options)
