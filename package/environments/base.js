@@ -8,7 +8,7 @@ const config = require('../config')
 
 const getEntryObject = () => {
   const entries = {}
-  const rootPath = join(config.source_path)
+  const rootPath = join(config.source_path, config.source_entry_path)
 
   globSync(`${rootPath}/**/*.*`).forEach((path) => {
     const namespace = relative(join(rootPath), dirname(path))
@@ -45,7 +45,6 @@ const getModulePaths = () => {
 
 module.exports = {
   root: join(process.cwd(), config.source_path),
-  base: `http://${config.server.host}:${config.server.port}`,
   engine_paths: config.engine_paths,
   resolve: {
     alias: config.alias

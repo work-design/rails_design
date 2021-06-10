@@ -8,6 +8,7 @@ default: &default
     port: 4000
   build:
     assetsInlineLimit: 0
+    sourcemap: false
 development:
   <<: *default
   autoBuild: true

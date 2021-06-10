@@ -28,7 +28,6 @@ const productionConfig = {
   build: {
     ...config.build,
     manifest: true,
-    sourcemap: true,
     emptyOutDir: true,
     outDir: join(process.cwd(), config.public_root_path, config.public_output_path),
     rollupOptions: {
