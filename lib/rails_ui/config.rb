@@ -6,7 +6,7 @@ module RailsUi #:nodoc:
   include ActiveSupport::Configurable
 
   configure do |config|
-    config.custom_webpacker = true
+    config.custom_viter = true
   end
 
 end
