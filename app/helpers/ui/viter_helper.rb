@@ -34,6 +34,7 @@ module Ui
     def javascript_vite_tag(*names, type: 'module', crossorigin: 'anonymous', **options)
       if Rails.env.development?
         entries = names
+        options[:host] = Viter.instance.config.host
       else
         entries = names.map do |name|
           r = path_to_javascript(name)
@@ -43,7 +44,6 @@ module Ui
         end
       end
 
-      options[:host] = Viter.instance.config.host
       javascript_include_tag(*entries, crossorigin: crossorigin, type: type, **options)
     end
 
