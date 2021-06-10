@@ -13,7 +13,7 @@ module Ui
         r = r.delete_prefix('/')
         mani = vite_manifest.find(r)
         if mani
-          image_tag(Viter.config.output_path + mani['file'], **options)
+          image_tag(Viter.config.output_path + mani['assets'][0], **options)
         end
       end
     end
