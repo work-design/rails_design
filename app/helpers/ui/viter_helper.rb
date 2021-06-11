@@ -66,7 +66,12 @@ module Ui
           r.delete_prefix!('/')
           mani = vite_manifest.find(r)
           if mani
-            mani.fetch('css', []).map(&->(i){ "/#{i}" })
+            csses = []
+            csses += mani.fetch('css', []).map(&->(i){ "/#{i}" })
+            mani.fetch('imports', []).map(&->(i){
+              csses += vite_manifest.find_css(i)
+            })
+            csses
           end
         end.flatten.compact
 

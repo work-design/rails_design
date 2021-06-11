@@ -77,6 +77,11 @@ module Viter
       data[name.to_s].presence
     end
 
+    def find_css(name)
+      r = find(name)
+      Array(r['css'])
+    end
+
     def full_pack_name(name, pack_type)
       return name unless File.extname(name.to_s).empty?
       "#{name}.#{manifest_type(pack_type)}"
