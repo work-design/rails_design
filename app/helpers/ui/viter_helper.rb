@@ -13,7 +13,7 @@ module Ui
         r = r.delete_prefix('/')
         mani = vite_manifest.find(r)
         if mani
-          image_tag(mani['assets'][0], **options)
+          image_tag("/#{mani['assets'][0]}", **options)
         end
       end
     end
