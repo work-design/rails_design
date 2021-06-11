@@ -33,12 +33,15 @@ module Ui
 
       pathname = Pathname.new(@_rendered_template_path)
       js_name = pathname.without_extname.sub_ext ext
+      r = Viter.manifest.lookup_by_path(js_name)
 
-      if Viter.manifest.lookup_by_path(js_name)
-        return [js_name.to_s, ext]
+      if r && Rails.env.development?
+        [js_name.to_s, ext]
+      elsif r
+        [r['file']]
+      else
+        []
       end
-
-      []
     end
 
   end
