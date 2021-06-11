@@ -14,7 +14,7 @@ module Ui
       options[:host] = Viter.instance.config.host if Rails.env.development?
 
       if path
-        javascript_include_tag("/#{path}", **options)
+        javascript_include_tag("/#{path}", type: 'module', **options)
       end
     end
 
