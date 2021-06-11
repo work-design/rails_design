@@ -79,7 +79,7 @@ module Viter
 
     def find_css(name)
       r = find(name)
-      Array(r['css'])
+      Array(r['css']).map(&->(i){ "/#{i}" })
     end
 
     def full_pack_name(name, pack_type)
