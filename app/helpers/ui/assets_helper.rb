@@ -11,18 +11,20 @@ module Ui
 
     def js_load(ext: '.js', **options)
       path, _ = assets_load_path(ext: ext, suffix: options.delete(:suffix))
+      options[:host] = Viter.instance.config.host if Rails.env.development?
 
       if path
-        javascript_vite_tag(path, **options).html_safe
+        javascript_include_tag(path, **options)
       end
     end
 
     # Assets path: app/assets/stylesheets/controllers
     def css_load(ext: '.css', **options)
       path, _ = assets_load_path(ext: ext, suffix: options.delete(:suffix))
+      options[:host] = Viter.instance.config.host if Rails.env.development?
 
       if path
-        stylesheet_vite_tag(path, **options).html_safe
+        stylesheet_link_tag(path, **options)
       end
     end
 
