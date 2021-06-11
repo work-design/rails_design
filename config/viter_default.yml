@@ -1,11 +1,8 @@
 # Vite 默认配置
 default: &default
-  root_path: app/assets
   public_root_path: public
-  public_output_path: vites
 development:
   <<: *default
-  autoBuild: true
   server:
     host: localhost
     port: 4000

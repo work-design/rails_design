@@ -6,6 +6,7 @@ default: &default
   build:
     assetsInlineLimit: 0
     sourcemap: false
+    assetsDir: assets
 development:
   <<: *default
   autoBuild: true

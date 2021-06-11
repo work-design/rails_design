@@ -43,10 +43,14 @@ module Ui
           if mani
             Viter.config.output_path + mani['file']
           end
-        end
+        end.compact
       end
 
-      javascript_include_tag(*entries, crossorigin: crossorigin, type: type, **options)
+      if entries.blank?
+        logger.debug "Names: #{names}"
+      else
+        javascript_include_tag(*entries, crossorigin: crossorigin, type: type, **options)
+      end
     end
 
     # Public: Renders a <script> tag for the specified Vite entrypoints.

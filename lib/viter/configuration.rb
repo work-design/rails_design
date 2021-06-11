@@ -53,7 +53,7 @@ module Viter
     end
 
     def public_manifest_path
-      public_output_path.join("manifest.json")
+      public_output_path.join('manifest.json')
     end
 
     def cache_manifest?
