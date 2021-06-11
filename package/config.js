@@ -15,12 +15,11 @@ const defaults = getDefaultConfig()
 const app = yaml.load(readFileSync(configPath), 'utf8')[railsEnv]
 
 const config = Object.assign(defaults, app)
-config.outputPath = resolve(config.public_root_path, config.public_output_path)
 
 // Ensure that the publicPath includes our asset host so dynamic imports
 // (code-splitting chunks and static assets) load from the CDN instead of a relative path.
 const getPublicPath = () => {
-  const rootUrl = process.env.WEBPACKER_ASSET_HOST || '/'
+  const rootUrl = process.env.VITER_ASSET_HOST || '/'
   return `${rootUrl}${config.public_output_path}/`
 }
 
