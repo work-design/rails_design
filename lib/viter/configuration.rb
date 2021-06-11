@@ -40,12 +40,8 @@ module Viter
       root_path.join(fetch(:public_root_path))
     end
 
-    def public_output_path
-      public_path.join(fetch(:public_output_path))
-    end
-
     def public_manifest_path
-      public_output_path.join('manifest.json')
+      public_path.join('manifest.json')
     end
 
     def cache_manifest?
