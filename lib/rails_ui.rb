@@ -4,4 +4,3 @@ require 'rails_ui/engine'
 
 # controllers
 require 'rails_ui/exporter'
-require 'viter'
