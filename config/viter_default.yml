@@ -3,11 +3,7 @@ default: &default
   public_root_path: public
 development:
   <<: *default
-  server:
-    host: localhost
-    port: 4000
 test:
   <<: *default
-  autoBuild: true
 production:
   <<: *default

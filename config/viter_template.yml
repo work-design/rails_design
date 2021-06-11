@@ -9,14 +9,10 @@ default: &default
     assetsDir: assets
 development:
   <<: *default
-  autoBuild: true
-  publicOutputDir: vite-dev
   server:
     host: localhost
     port: 3036
 test:
   <<: *default
-  autoBuild: true
-  publicOutputDir: vite-test
 production:
   <<: *default
