@@ -15,8 +15,6 @@
     "@hotwired/turbo-rails": "^7.0.0-beta.5",
     "@rails/activestorage": "^6.0.3-7",
     "choices.js": "^9.0.1",
-    "glob": "^7.1.7",
-    "js-yaml": "^4.1.0",
     "moment": "^2.29.1",
     "sortablejs": "^1.13.0",
     "stickybits": "^3.7.9",
@@ -24,9 +22,7 @@
     "weui": "^2.4.4",
     "weui.js": "^1.2.2"
   },
-  "devDependencies": {
-    "path-complete-extname": "^1.0.0"
-  },
+  "devDependencies": {},
   "scripts": {
     "test": "jest",
     "lint": "eslint package/"
