@@ -18,7 +18,11 @@ class InputController extends Controller {
   }
 
   form(event) {
-    this.submit(event.currentTarget.form)
+    let el = event.currentTarget
+
+    if (el.value.length > 0) {
+      this.submit(event.currentTarget.form)
+    }
   }
 
   filter(event) {
