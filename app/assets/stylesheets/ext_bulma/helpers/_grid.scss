@@ -1,0 +1,10 @@
+.is-several {
+  display: inline-flex;
+}
+
+.is-several > * {
+  margin-left: .5em;
+}
+.is-several > *:first-child {
+  margin-left: 0;
+}
