@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/qinmingyuan/viter.git
+  revision: 7e67bf86c44f0c95c918d631df253e0f824caf15
+  specs:
+    viter (0.1.0)
+      rails
+
+GIT
   remote: https://github.com/work-design/rails_com.git
   revision: bd578e56067b362bd4fc1abd68514215ba0ef1b4
   specs:
@@ -148,6 +155,8 @@ GEM
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     pg (1.2.3)
+    puma (5.3.2)
+      nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -205,8 +214,10 @@ PLATFORMS
 
 DEPENDENCIES
   pg
+  puma
   rails_com!
   rails_ui!
+  viter!
 
 BUNDLED WITH
    2.2.22
