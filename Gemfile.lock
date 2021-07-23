@@ -1,3 +1,18 @@
+GIT
+  remote: https://github.com/work-design/rails_com.git
+  revision: bd578e56067b362bd4fc1abd68514215ba0ef1b4
+  specs:
+    rails_com (1.2.9)
+      acme-client
+      acts_as_list (>= 1.0)
+      closure_tree (>= 7.2)
+      default_where (~> 2.2)
+      http-form_data (~> 2.2)
+      httpx (~> 0.8)
+      kaminari
+      rails (~> 6.0)
+      turbo-rails
+
 PATH
   remote: .
   specs:
@@ -7,6 +22,8 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    acme-client (2.0.8)
+      faraday (>= 0.17, < 2.0.0)
     actioncable (6.1.4)
       actionpack (= 6.1.4)
       activesupport (= 6.1.4)
@@ -66,14 +83,55 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    acts_as_list (1.0.4)
+      activerecord (>= 4.2)
     builder (3.2.4)
+    closure_tree (7.3.0)
+      activerecord (>= 4.2.10)
+      with_advisory_lock (>= 4.0.0)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
+    default_where (2.2.0)
+      activerecord (>= 4.0.0)
     erubi (1.10.0)
+    faraday (1.5.1)
+      faraday-em_http (~> 1.0)
+      faraday-em_synchrony (~> 1.0)
+      faraday-excon (~> 1.1)
+      faraday-httpclient (~> 1.0.1)
+      faraday-net_http (~> 1.0)
+      faraday-net_http_persistent (~> 1.1)
+      faraday-patron (~> 1.0)
+      multipart-post (>= 1.2, < 3)
+      ruby2_keywords (>= 0.0.4)
+    faraday-em_http (1.0.0)
+    faraday-em_synchrony (1.0.0)
+    faraday-excon (1.1.0)
+    faraday-httpclient (1.0.1)
+    faraday-net_http (1.0.1)
+    faraday-net_http_persistent (1.2.0)
+    faraday-patron (1.0.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    http-2-next (0.4.3)
+    http-form_data (2.3.0)
+    httpx (0.15.4)
+      http-2-next (>= 0.4.1)
+      timers
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
+    kaminari (1.2.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.1)
+      kaminari-activerecord (= 1.2.1)
+      kaminari-core (= 1.2.1)
+    kaminari-actionview (1.2.1)
+      actionview
+      kaminari-core (= 1.2.1)
+    kaminari-activerecord (1.2.1)
+      activerecord
+      kaminari-core (= 1.2.1)
+    kaminari-core (1.2.1)
     loofah (2.10.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -84,10 +142,12 @@ GEM
     mini_mime (1.1.0)
     mini_portile2 (2.5.3)
     minitest (5.14.4)
+    multipart-post (2.1.1)
     nio4r (2.5.7)
     nokogiri (1.11.7)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
+    pg (1.2.3)
     racc (1.5.2)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -119,6 +179,7 @@ GEM
       rake (>= 0.13)
       thor (~> 1.0)
     rake (13.0.6)
+    ruby2_keywords (0.0.5)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -126,21 +187,26 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     thor (1.1.0)
+    timers (4.3.3)
+    turbo-rails (0.5.12)
+      rails (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    with_advisory_lock (4.6.0)
+      activerecord (>= 4.2)
     zeitwerk (2.4.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  pg
+  rails_com!
   rails_ui!
-  sqlite3
 
 BUNDLED WITH
    2.2.22
