@@ -1,13 +1,13 @@
 GIT
   remote: https://github.com/qinmingyuan/viter.git
-  revision: 7e67bf86c44f0c95c918d631df253e0f824caf15
+  revision: 68d21b1844497c22df45dea05cf93bc84c809166
   specs:
     viter (0.1.0)
       rails
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 9c9cba93faf42ad6b31fb31edd2b1942591b4536
+  revision: f47fef0202a835772b491479e967dedcd8a4e120
   specs:
     rails_com (1.2.9)
       acme-client
