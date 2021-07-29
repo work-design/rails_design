@@ -3,7 +3,7 @@ import Sortable from 'sortablejs'
 
 class SortableController extends Controller {
 
-  reload(element) {
+  reload(element, controller) {
     Sortable.create(element, {
       handle: '.is-drawable',
       onEnd: function(evt) {
@@ -21,7 +21,8 @@ class SortableController extends Controller {
           method: 'PATCH',
           headers: {
             Accept: 'text/vnd.turbo-stream.html',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': controller.csrfToken()
           },
           body: JSON.stringify(body)
         }).then(response => {
@@ -35,7 +36,7 @@ class SortableController extends Controller {
 
   connect() {
     console.debug('connected:', this.identifier)
-    this.reload(this.element)
+    this.reload(this.element, this)
   }
 
 }
