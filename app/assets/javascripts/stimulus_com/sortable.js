@@ -11,18 +11,23 @@ class SortableController extends Controller {
           return
         }
         let url = element.dataset['src'] + evt.item.dataset['id'] + '/reorder'
-        let body = new FormData()
-        this.toArray().forEach(el => {
-          body.append('sort_array[]', el)
-        })
-        body.append('old_index', evt.oldIndex)
-        body.append('new_index', evt.newIndex)
+        let body = {
+          sort_array: this.toArray(),
+          old_index: evt.oldIndex,
+          new_index: evt.newIndex
+        }
 
-        Rails.ajax({
-          url: url,
-          type: 'PATCH',
-          dataType: 'script',
-          data: body
+        fetch(url, {
+          method: 'PATCH',
+          headers: {
+            Accept: 'text/vnd.turbo-stream.html',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(body)
+        }).then(response => {
+          return response.text()
+        }).then(body => {
+          Turbo.renderStreamMessage(body)
         })
       }
     })
