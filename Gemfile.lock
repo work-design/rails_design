@@ -1,13 +1,13 @@
 GIT
   remote: https://github.com/qinmingyuan/viter.git
-  revision: 68d21b1844497c22df45dea05cf93bc84c809166
+  revision: f007952bb7cf5f1c30d56d0bbb9b1c37bc73317e
   specs:
     viter (0.1.0)
       rails
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: f47fef0202a835772b491479e967dedcd8a4e120
+  revision: 7fc0febef0c859540d88ea3d83937248279d92e0
   specs:
     rails_com (1.2.9)
       acme-client
@@ -101,7 +101,7 @@ GEM
     default_where (2.2.0)
       activerecord (>= 4.0.0)
     erubi (1.10.0)
-    faraday (1.5.1)
+    faraday (1.6.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -109,6 +109,7 @@ GEM
       faraday-net_http (~> 1.0)
       faraday-net_http_persistent (~> 1.1)
       faraday-patron (~> 1.0)
+      faraday-rack (~> 1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords (>= 0.0.4)
     faraday-em_http (1.0.0)
@@ -118,11 +119,12 @@ GEM
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
+    faraday-rack (1.0.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     http-2-next (0.4.3)
     http-form_data (2.3.0)
-    httpx (0.15.4)
+    httpx (0.16.0)
       http-2-next (>= 0.4.1)
       timers
     i18n (1.8.10)
