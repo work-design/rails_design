@@ -23,6 +23,7 @@ import './visit'
 
 import './sortable' // dependent on sortable
 import './choice' // Dependent on Choices.js
+import './vue' // 依赖 Vue
 
 // Dependent on Bulma CSS
 import './modal'
