@@ -10,7 +10,7 @@ class SortableController extends Controller {
         if (evt.oldIndex === evt.newIndex) {
           return
         }
-        let url = element.dataset['src'] + evt.item.dataset['id'] + '/reorder'
+        let url = [element.dataset['src'], evt.item.dataset['id'], 'reorder'].join('/')
         let body = {
           sort_array: this.toArray(),
           old_index: evt.oldIndex,
