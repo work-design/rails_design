@@ -11,3 +11,7 @@ Controller.prototype.csrfToken = function() {
   let meta = document.querySelector('meta[name=csrf-token]')
   return meta && meta.content
 }
+
+HTMLElement.prototype.controller = function(identifier) {
+  return application.getControllerForElementAndIdentifier(this, identifier)
+}

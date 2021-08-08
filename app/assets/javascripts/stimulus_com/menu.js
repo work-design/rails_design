@@ -27,11 +27,11 @@ class MenuController extends Controller {
     }
   }
 
-  get closeClass () {
+  get closeClass() {
     return this.openClassValue || 'fa-angle-left'
   }
 
-  get openClass () {
+  get openClass() {
     return this.closeClassValue || 'fa-angle-down'
   }
 
