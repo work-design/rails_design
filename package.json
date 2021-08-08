@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
-    "@hotwired/turbo": "^7.0.0-beta.7",
-    "@hotwired/turbo-rails": "^7.0.0-beta.7",
+    "@hotwired/turbo": "^7.0.0-rc.1",
+    "@hotwired/turbo-rails": "^7.0.0-rc.1",
     "@rails/activestorage": "^6.0.3-7",
     "choices.js": "^9.0.1",
     "moment": "^2.29.1",
@@ -34,7 +34,7 @@
     "url": "git+https://github.com/work.design/rails_ui.git"
   },
   "author": "mingyuanqin<mingyuan0715@foxmail.com>",
-  "license": "LGPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/work.design/rails_ui/issues"
   },
