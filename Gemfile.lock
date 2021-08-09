@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/qinmingyuan/default_form.git
+  revision: 476ba7231079b1071415ad4e953b55ce16ae1d0d
+  specs:
+    default_form (1.5.1)
+      rails_com (~> 1.2)
+
+GIT
   remote: https://github.com/qinmingyuan/viter.git
   revision: 69e5b6e5585471aa973aa1fd807e38544295b886
   specs:
@@ -215,6 +222,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  default_form!
   pg
   puma
   rails_com!

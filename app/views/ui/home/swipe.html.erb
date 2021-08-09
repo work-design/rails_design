@@ -1,0 +1,7 @@
+<div style="height: 100%; width: 100%">
+<% @videos.each_with_index do |url, index| %>
+  <figure style="height: 100%; width: 100%">
+    <%= video_tag(url, controls: true, preload: 'auto', class: index == 0 ? '' : 'is-hidden') %>
+  </figure>
+<% end %>
+</div>
