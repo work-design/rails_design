@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus'
 
-class TaxonController extends Controller {
+export default class extends Controller {
   static values = {
     url: String,
     title: String,

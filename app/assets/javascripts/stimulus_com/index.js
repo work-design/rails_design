@@ -12,7 +12,7 @@ import './picture'
 import './show'
 import './showcase'  // 点击小图，显示大图
 import './slide'
-import './slide_y'
+import SlideYController from './slide_y'
 import './sticky'
 import './swipe'
 import './taxon'
@@ -24,6 +24,8 @@ import './visit'
 
 import './sortable' // dependent on sortable
 import './choice' // Dependent on Choices.js
+
+application.register('slide-y', SlideYController)
 
 // Dependent on Bulma CSS
 import './modal'
