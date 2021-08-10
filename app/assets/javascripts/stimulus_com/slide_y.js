@@ -55,7 +55,7 @@ class SlideYController extends TouchController {
       this.rollback(offset, ele)
     }
 
-    if (this.effective(pad_y)) {
+    if (this.effective(pad_y, false)) {
       this.going(offset, ele)
     } else {
       this.rollback(offset, ele)
@@ -185,24 +185,6 @@ class SlideYController extends TouchController {
     ['top', 'bottom', 'transition-property', 'transition-duration'].forEach(rule => {
       ele.style.removeProperty(rule)
     })
-  }
-
-  // 是否达到触发条件
-  effective(pad) {
-    let endTime = new Date().getTime()
-    let isMore = pad > this.element.clientHeight / 2 ? 1 : 0  // 滑动距离是否超过元素宽度一半
-    let speed = pad / (endTime - this.startTime)  // 手势速度
-    console.debug('手势速度：', speed)  // 大于 0.1
-
-    return isMore || speed > 0.1
-  }
-
-  get duration() {
-    let duration = this.data.get('duration')
-    if (!duration) {
-      duration = '1s'
-    }
-    return duration
   }
 
 }

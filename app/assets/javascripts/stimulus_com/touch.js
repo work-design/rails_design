@@ -21,13 +21,22 @@ export default class TouchController extends Controller {
   }
 
   // 是否达到触发条件
-  effective(pad) {
-    let endTime = new Date().getTime()
-    let isMore = pad > this.element.clientWidth / 2 ? 1 : 0  // 滑动距离是否超过元素宽度一半
-    let speed = pad / (endTime - this.startTime)  // 手势速度
-    console.debug('手势速度：', speed)  // 大于 0.1
+  effective(pad, x = true) {
+    const endTime = new Date().getTime()
+    let isMore
+    // 滑动距离是否超过元素宽度一半
+    if (x) {
+      isMore = pad > this.element.clientWidth / 2
+    } else {
+      isMore = pad > this.element.clientHeight / 2
+    }
+    console.debug('是否超过一半：', isMore)
 
-    return isMore || speed > 0.1
+    const speed = pad / (endTime - this.startTime) // 手势速度
+    const isFast = speed > 0.1
+    console.debug('手势速度：', isFast) // 大于 0.1
+
+    return isMore || isFast
   }
 
   offset(event) {
@@ -61,6 +70,14 @@ export default class TouchController extends Controller {
 
   set startTime(time) {
     this.data.set('startTime', time)
+  }
+
+  get duration() {
+    let duration = this.data.get('duration')
+    if (!duration) {
+      duration = '1s'
+    }
+    return duration
   }
 
 }

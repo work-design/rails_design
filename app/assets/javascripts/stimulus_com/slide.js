@@ -186,15 +186,6 @@ class SlideController extends TouchController {
     })
   }
 
-  get duration() {
-    let duration = this.data.get('duration')
-    if (!duration) {
-      duration = '1s'
-    }
-    return duration
-  }
-
 }
 
 application.register('slide', SlideController)
-window.SlideController = SlideController //todo debug, should remove
