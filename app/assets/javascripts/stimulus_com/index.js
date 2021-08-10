@@ -12,6 +12,7 @@ import './picture'
 import './show'
 import './showcase'  // 点击小图，显示大图
 import './slide'
+import './slide_y'
 import './sticky'
 import './swipe'
 import './taxon'

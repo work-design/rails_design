@@ -26,16 +26,17 @@ class SlideYController extends TouchController {
     if (isScrolling !== 0) {
       return
     }
+    console.debug(offset)
 
-    if (offset.y < 0) {  // offset.x < 0 表示向左滑动
+    if (offset.y < 0) {  // offset.y < 0 表示向上滑动
       let next = ele.nextElementSibling
       if (next) {
-        this.slidingToLeft(ele, next, pad)
+        this.slidingToUp(ele, next, pad_y)
       }
-    } else if (offset.y > 0) {  // offset.x > 0 表示向右滑动
+    } else if (offset.y > 0) {  // offset.y > 0 表示向下滑动
       let prev = ele.previousElementSibling
       if (prev) {
-        this.slidingToRight(ele, prev, pad)
+        this.slidingToDown(ele, prev, pad_y)
       }
     }
   }
@@ -98,23 +99,23 @@ class SlideYController extends TouchController {
     }
   }
 
-  // 左滑
-  slidingToLeft(ele, next, pad) {
-    ele.style.right = pad + 'px'
+  // 上滑
+  slidingToUp(ele, next, pad) {
+    ele.style.down = pad + 'px'
     next.style.zIndex = -1
-    next.style.left = (this.element.clientWidth - pad) + 'px'
+    next.style.up = (this.element.clientHeight - pad) + 'px'
   }
 
-  // 右滑
-  slidingToRight(ele, prev, pad) {
-    ele.style.left = pad + 'px'
+  // 下滑
+  slidingToDown(ele, prev, pad) {
+    ele.style.up = pad + 'px'
     prev.style.zIndex = -1
-    prev.style.right = (this.element.clientWidth - pad) + 'px'
+    prev.style.down = (this.element.clientHeight - pad) + 'px'
   }
 
   // xx
   resetIndex(event) {
-    ['left', 'right', 'transition-property', 'transition-duration'].forEach(rule => {
+    ['up', 'down', 'transition-property', 'transition-duration'].forEach(rule => {
       event.currentTarget.style.removeProperty(rule)
     })
     event.currentTarget.style.zIndex = -2
@@ -141,36 +142,36 @@ class SlideYController extends TouchController {
     }, { once: true })
   }
 
-  // 接近左侧
-  closeToLeft(ele) {
-    ele.style.left = 0
-    ele.style.transitionProperty = 'left'
+  // 接近上侧
+  closeToUp(ele) {
+    ele.style.up = 0
+    ele.style.transitionProperty = 'up'
     ele.style.transitionDuration = this.duration
   }
 
-  // 接近右侧
-  closeToRight(ele) {
-    ele.style.right = 0
-    ele.style.transitionProperty = 'right'
+  // 接近下侧
+  closeToDown(ele) {
+    ele.style.down = 0
+    ele.style.transitionProperty = 'down'
     ele.style.transitionDuration = this.duration
   }
 
-  // 远离右侧
-  awayFromRight(ele) {
-    ele.style.right = this.element.clientWidth + 'px'
-    ele.style.transitionProperty = 'right'
+  // 远离下侧
+  awayFromDown(ele) {
+    ele.style.down = this.element.clientHeight + 'px'
+    ele.style.transitionProperty = 'down'
     ele.style.transitionDuration = this.duration
   }
 
-  // 远离左侧
-  awayFromLeft(ele) {
-    ele.style.left = this.element.clientWidth + 'px'
-    ele.style.transitionProperty = 'left'
+  // 远离上侧
+  awayFromUp(ele) {
+    ele.style.up = this.element.clientHeight + 'px'
+    ele.style.transitionProperty = 'up'
     ele.style.transitionDuration = this.duration
   }
 
   clearStyle(ele) {
-    ['left', 'right', 'transition-property', 'transition-duration'].forEach(rule => {
+    ['up', 'down', 'transition-property', 'transition-duration'].forEach(rule => {
       ele.style.removeProperty(rule)
     })
   }
