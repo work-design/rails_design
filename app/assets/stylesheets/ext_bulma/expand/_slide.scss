@@ -8,5 +8,18 @@
     position: absolute;
     width: 100%;
     height: var(--height);
+    text-align: center;
+  }
+}
+
+.slide-y {
+  position: relative;
+
+  figure {
+    position: absolute;
+    width: 100%;
+    height: max-content;
+    text-align: center;
+    background: black;
   }
 }

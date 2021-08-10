@@ -1,6 +1,6 @@
-<div style="height: 500px; width: 100%" data-controller="slide-y" class="slide">
+<div style="height: 500px; width: 100%" data-controller="slide-y" class="slide-y">
 <% @videos.each_with_index do |url, index| %>
-  <figure data-action="touchmove->slide-y#move:passive touchend->slide-y#end:passive" data-index="<%= index %>" style="height: 100%; width: 100%; z-index: <%= index == 0 ? 0 : -2 %>">
+  <figure data-action="touchmove->slide-y#move:passive touchend->slide-y#end:passive" data-index="<%= index %>" style="z-index: <%= index == 0 ? 0 : -2 %>">
     <%= video_tag(url, controls: true, preload: 'auto') %>
   </figure>
 <% end %>
