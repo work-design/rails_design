@@ -28,12 +28,12 @@ class SlideController extends TouchController {
     }
 
     if (offset.x < 0) {  // offset.x < 0 表示向左滑动
-      let next = ele.nextElementSibling
+      const next = ele.nextElementSibling
       if (next) {
         this.slidingToLeft(ele, next, pad)
       }
     } else if (offset.x > 0) {  // offset.x > 0 表示向右滑动
-      let prev = ele.previousElementSibling
+      const prev = ele.previousElementSibling
       if (prev) {
         this.slidingToRight(ele, prev, pad)
       }
@@ -46,55 +46,66 @@ class SlideController extends TouchController {
       return
     }
     let ele = event.currentTarget
-    let next = ele.nextElementSibling
-    let prev = ele.previousElementSibling
     let offset = this.offset(event)
     let pad = Math.abs(offset.x)
     let isScrolling = pad > Math.abs(offset.y) ? 1 : 0  // 1 左右滑动，0 上下滑动
     if (isScrolling === 0) {
-      return
+      console.debug('not scrolling')
+      this.rollback(offset, ele)
     }
 
     if (this.effective(pad)) {
-      if (offset.x < 0) {
-        if (next) {
-          this.closeToLeft(next)
-          next.style.zIndex = 0
-          this.toCurrent(next)
-
-          this.awayFromRight(ele)
-          ele.style.zIndex = -1
-          this.beenCurrent(ele)
-        }
-      } else if (offset.x > 0) {
-        if (prev) {
-          this.closeToRight(prev)
-          prev.style.zIndex = 0
-          this.toCurrent(prev)
-
-          this.awayFromLeft(ele)
-          ele.style.zIndex = -1
-          this.beenCurrent(ele)
-        }
-      }
+      this.going(offset, ele)
     } else {
-      if (offset.x < 0) {
-        if (next) {
-          this.closeToRight(ele)
-          this.toCurrent(ele)
+      this.rollback(offset, ele)
+    }
+  }
 
-          this.awayFromLeft(next)
-          this.beenCurrent(next)
-        }
-      } else if (offset.x > 0) {
-        if (prev) {
-          this.closeToLeft(ele)
-          this.toCurrent(ele)
+  // 执行翻页
+  going(offset, ele) {
+    const next = ele.nextElementSibling
+    const prev = ele.previousElementSibling
 
-          this.awayFromRight(prev)
-          this.beenCurrent(prev)
-        }
-      }
+    if (offset.x < 0 && next) {
+      this.closeToLeft(next)
+      next.style.zIndex = 0
+      this.toCurrent(next)
+
+      this.awayFromRight(ele)
+      ele.style.zIndex = -1
+      this.beenCurrent(ele)
+    }
+
+    if (offset.x > 0 && prev) {
+      this.closeToRight(prev)
+      prev.style.zIndex = 0
+      this.toCurrent(prev)
+
+      this.awayFromLeft(ele)
+      ele.style.zIndex = -1
+      this.beenCurrent(ele)
+    }
+  }
+
+  // 回退到之前的状态
+  rollback(offset, ele) {
+    const next = ele.nextElementSibling
+    const prev = ele.previousElementSibling
+
+    if (offset.x < 0 && next) {
+      this.closeToRight(ele)
+      this.toCurrent(ele)
+
+      this.awayFromLeft(next)
+      this.beenCurrent(next)
+    }
+
+    if (offset.x > 0 && prev) {
+      this.closeToLeft(ele)
+      this.toCurrent(ele)
+
+      this.awayFromRight(prev)
+      this.beenCurrent(prev)
     }
   }
 
