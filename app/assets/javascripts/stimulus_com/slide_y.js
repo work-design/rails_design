@@ -3,7 +3,7 @@ import TouchController from './touch'
 // z-index: 0, 当前显示的图片；
 // z-index: -1, 即将显示的图片，touch move 时动态设定；
 // z-index: -2, 未显示的图片；
-class SlideYController extends TouchController {
+export default class SlideYController extends TouchController {
 
   connect() {
     console.debug('connected:', this.identifier)
