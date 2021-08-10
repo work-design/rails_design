@@ -26,7 +26,6 @@ class SlideYController extends TouchController {
     if (isScrolling !== 0) {
       return
     }
-    console.debug(offset)
 
     if (offset.y < 0) {  // offset.y < 0 表示向上滑动
       let next = ele.nextElementSibling
