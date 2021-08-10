@@ -20,7 +20,7 @@ class SlideController extends TouchController {
       console.error('scale')
       return
     }
-    let offset = this.offset(event.targetTouches[0])
+    let offset = this.offset(event)
     let pad = Math.abs(offset.x)
     let isScrolling = pad > Math.abs(offset.y) ? 1 : 0  // 1 左右滑动，0 上下滑动
     if (isScrolling === 0) {
@@ -48,7 +48,7 @@ class SlideController extends TouchController {
     let ele = event.currentTarget
     let next = ele.nextElementSibling
     let prev = ele.previousElementSibling
-    let offset = this.offset(event.changedTouches[0])
+    let offset = this.offset(event)
     let pad = Math.abs(offset.x)
     let isScrolling = pad > Math.abs(offset.y) ? 1 : 0  // 1 左右滑动，0 上下滑动
     if (isScrolling === 0) {

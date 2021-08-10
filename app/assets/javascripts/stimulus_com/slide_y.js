@@ -20,7 +20,7 @@ class SlideYController extends TouchController {
       console.error('scale')
       return
     }
-    let offset = this.offset(event.targetTouches[0])
+    let offset = this.offset(event)
     let pad_y = Math.abs(offset.y)
     let isScrolling = pad_y > Math.abs(offset.x) ? 1 : 0  // 1 上下滚动，0 左右滑动
     if (isScrolling === 0) {
@@ -48,10 +48,11 @@ class SlideYController extends TouchController {
     let ele = event.currentTarget
     let next = ele.nextElementSibling
     let prev = ele.previousElementSibling
-    let offset = this.offset(event.changedTouches[0])
+    let offset = this.offset(event)
     let pad_y = Math.abs(offset.y)
     let isScrolling = pad_y > Math.abs(offset.x) ? 1 : 0  // 1 上下滑动，0 左右滑动
     if (isScrolling === 0) {
+      console.debug('not scrolling')
       return
     }
 
@@ -80,10 +81,10 @@ class SlideYController extends TouchController {
     } else {
       if (offset.y < 0) {
         if (next) {
-          this.closeToTop(ele)
+          this.closeToBottom(ele)
           this.toCurrent(ele)
 
-          this.awayFromBottom(next)
+          this.awayFromTop(next)
           this.beenCurrent(next)
         }
       } else if (offset.y > 0) {
@@ -100,9 +101,9 @@ class SlideYController extends TouchController {
 
   // 上滑
   slidingToTop(ele, next, pad) {
-    ele.style.top = pad + 'px'
+    ele.style.bottom = pad + 'px'
     next.style.zIndex = -1
-    next.style.bottom = (this.element.clientHeight - pad) + 'px'
+    next.style.top = (this.element.clientHeight - pad) + 'px'
   }
 
   // 下滑

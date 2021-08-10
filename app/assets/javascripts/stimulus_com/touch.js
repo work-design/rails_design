@@ -7,7 +7,7 @@ export default class TouchController extends Controller {
 
   // data-action="touchstart->slide#start:passive"
   start(event) {
-    let touch = event.targetTouches[0]
+    const touch = event.targetTouches[0]
     this.startPos = {
       x: touch.pageX,
       y: touch.pageY
@@ -30,13 +30,14 @@ export default class TouchController extends Controller {
     return isMore || speed > 0.1
   }
 
-  offset(touch) {
-    let offset = {
+  offset(event) {
+    const touch = event.changedTouches[0]
+    const offset = {
       x: touch.pageX - this.startPos.x,
       y: touch.pageY - this.startPos.y
     }
     if (this.hasDebugValue && this.debugValue) {
-      console.debug('offset:', offset)
+      console.debug(event.type, 'offset:', offset)
     }
 
     return offset
