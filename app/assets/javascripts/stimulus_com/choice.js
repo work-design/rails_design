@@ -1,7 +1,7 @@
 import { Controller } from 'stimulus'
 import Choices from 'choices.js'
 
-class ChoiceController extends Controller {
+export default class extends Controller {
 
   reload(element) {
     new Choices(element, {
@@ -17,5 +17,3 @@ class ChoiceController extends Controller {
   }
 
 }
-
-application.register('choice', ChoiceController)

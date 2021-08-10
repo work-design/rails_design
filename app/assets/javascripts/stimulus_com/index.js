@@ -1,5 +1,5 @@
-import './base'
-import './checkbox'
+import { Application, Controller } from 'stimulus'
+import CheckboxController from './checkbox'
 import './common'
 import './count_down'
 import './former'
@@ -25,8 +25,28 @@ import './visit'
 import './sortable' // dependent on sortable
 import './choice' // Dependent on Choices.js
 
+application.register('check', CheckController)
+application.register('choice', ChoiceController)
+application.register('common', CommonController)
+application.register('count-down', CountDownController)
 application.register('slide-y', SlideYController)
 
 // Dependent on Bulma CSS
 import './modal'
 import './modal_show'
+window.application = Application.start()
+
+Controller.prototype.submit = function(form) {
+  let evt = document.createEvent('Event')
+  evt.initEvent('submit', true, true)
+  form.dispatchEvent(evt)
+}
+
+Controller.prototype.csrfToken = function() {
+  let meta = document.querySelector('meta[name=csrf-token]')
+  return meta && meta.content
+}
+
+HTMLElement.prototype.controller = function(identifier) {
+  return application.getControllerForElementAndIdentifier(this, identifier)
+}

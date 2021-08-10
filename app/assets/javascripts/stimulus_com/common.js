@@ -1,7 +1,6 @@
 import { Controller } from 'stimulus'
 
-// data-controller="common"
-class CommonController extends Controller {
+export default class extends Controller {
   static values = {
     url: String,
     params: Object
@@ -55,5 +54,3 @@ class CommonController extends Controller {
   }
 
 }
-
-application.register('common', CommonController)

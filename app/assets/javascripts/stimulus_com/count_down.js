@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus'
 
-class CountDownController extends Controller {
+export default class extends Controller {
   static values = {
     time: Number
   }
@@ -25,7 +25,4 @@ class CountDownController extends Controller {
       }
     }, 1000, countdown, this.element)
   }
-
 }
-
-application.register('count-down', CountDownController)

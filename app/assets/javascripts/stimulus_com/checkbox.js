@@ -1,7 +1,7 @@
 import { Controller } from 'stimulus'
 
 // data-controller="check"
-class CheckController extends Controller {
+export default class extends Controller {
   static targets = ['added', 'moved']
 
   connect() {
@@ -79,5 +79,3 @@ class CheckController extends Controller {
     }
   }
 }
-
-application.register('check', CheckController)
