@@ -46,56 +46,67 @@ class SlideYController extends TouchController {
       return
     }
     let ele = event.currentTarget
-    let next = ele.nextElementSibling
-    let prev = ele.previousElementSibling
+
     let offset = this.offset(event)
     let pad_y = Math.abs(offset.y)
     let isScrolling = pad_y > Math.abs(offset.x) ? 1 : 0  // 1 上下滑动，0 左右滑动
     if (isScrolling === 0) {
       console.debug('not scrolling')
-      return
+      this.rollback(offset, ele)
     }
 
     if (this.effective(pad_y)) {
-      if (offset.y < 0) {
-        if (next) {
-          this.closeToTop(next)
-          next.style.zIndex = 0
-          this.toCurrent(next)
-
-          this.awayFromBottom(ele)
-          ele.style.zIndex = -1
-          this.beenCurrent(ele)
-        }
-      } else if (offset.y > 0) {
-        if (prev) {
-          this.closeToBottom(prev)
-          prev.style.zIndex = 0
-          this.toCurrent(prev)
-
-          this.awayFromTop(ele)
-          ele.style.zIndex = -1
-          this.beenCurrent(ele)
-        }
-      }
+      this.going(offset, ele)
     } else {
-      if (offset.y < 0) {
-        if (next) {
-          this.closeToBottom(ele)
-          this.toCurrent(ele)
+      this.rollback(offset, ele)
+    }
+  }
 
-          this.awayFromTop(next)
-          this.beenCurrent(next)
-        }
-      } else if (offset.y > 0) {
-        if (prev) {
-          this.closeToTop(ele)
-          this.toCurrent(ele)
+  // 执行翻页
+  going(offset, ele) {
+    const next = ele.nextElementSibling
+    const prev = ele.previousElementSibling
 
-          this.awayFromBottom(prev)
-          this.beenCurrent(prev)
-        }
-      }
+    if (offset.y < 0 && next) {
+      this.closeToTop(next)
+      next.style.zIndex = 0
+      this.toCurrent(next)
+
+      this.awayFromBottom(ele)
+      ele.style.zIndex = -1
+      this.beenCurrent(ele)
+    }
+
+    if (offset.y > 0 && prev) {
+      this.closeToBottom(prev)
+      prev.style.zIndex = 0
+      this.toCurrent(prev)
+
+      this.awayFromTop(ele)
+      ele.style.zIndex = -1
+      this.beenCurrent(ele)
+    }
+  }
+
+  // 回退到之前的状态
+  rollback(offset, ele) {
+    const next = ele.nextElementSibling
+    const prev = ele.previousElementSibling
+
+    if (offset.y < 0 && next) {
+      this.closeToBottom(ele)
+      this.toCurrent(ele)
+
+      this.awayFromTop(next)
+      this.beenCurrent(next)
+    }
+
+    if (offset.y > 0 && prev) {
+      this.closeToTop(ele)
+      this.toCurrent(ele)
+
+      this.awayFromBottom(prev)
+      this.beenCurrent(prev)
     }
   }
 
