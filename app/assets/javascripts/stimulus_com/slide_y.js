@@ -12,7 +12,7 @@ class SlideYController extends TouchController {
     }, { passive: true })
   }
 
-  // data-action="touchmove->slide#move:passive"
+  // data-action="touchmove->slide-y#move:passive"
   move(event) {
     let ele = event.currentTarget
     console.debug('touch moved by:', ele.dataset.index)
@@ -41,7 +41,7 @@ class SlideYController extends TouchController {
     }
   }
 
-  // data-action="touchend->slide#end:passive"
+  // data-action="touchend->slide-y#end:passive"
   end(event) {
     if (this.zoomed(event)) {
       return
@@ -50,49 +50,49 @@ class SlideYController extends TouchController {
     let next = ele.nextElementSibling
     let prev = ele.previousElementSibling
     let offset = this.offset(event.changedTouches[0])
-    let pad = Math.abs(offset.x)
-    let isScrolling = pad < Math.abs(offset.y) ? 1 : 0  // 1 上下滚动，0 左右滑动
+    let pad_y = Math.abs(offset.y)
+    let isScrolling = pad_y < Math.abs(offset.y) ? 1 : 0  // 1 上下滚动，0 左右滑动
     if (isScrolling !== 0) {
       return
     }
 
-    if (this.effective(pad)) {
-      if (offset.x < 0) {
+    if (this.effective(pad_y)) {
+      if (offset.y < 0) {
         if (next) {
-          this.closeToLeft(next)
+          this.closeToUp(next)
           next.style.zIndex = 0
           this.toCurrent(next)
 
-          this.awayFromRight(ele)
+          this.awayFromDown(ele)
           ele.style.zIndex = -1
           this.beenCurrent(ele)
         }
-      } else if (offset.x > 0) {
+      } else if (offset.y > 0) {
         if (prev) {
-          this.closeToRight(prev)
+          this.closeToDown(prev)
           prev.style.zIndex = 0
           this.toCurrent(prev)
 
-          this.awayFromLeft(ele)
+          this.awayFromUp(ele)
           ele.style.zIndex = -1
           this.beenCurrent(ele)
         }
       }
     } else {
-      if (offset.x < 0) {
+      if (offset.y < 0) {
         if (next) {
-          this.closeToRight(ele)
+          this.closeToUp(ele)
           this.toCurrent(ele)
 
-          this.awayFromLeft(next)
+          this.awayFromDown(next)
           this.beenCurrent(next)
         }
-      } else if (offset.x > 0) {
+      } else if (offset.y > 0) {
         if (prev) {
-          this.closeToLeft(ele)
+          this.closeToUp(ele)
           this.toCurrent(ele)
 
-          this.awayFromRight(prev)
+          this.awayFromDown(prev)
           this.beenCurrent(prev)
         }
       }
