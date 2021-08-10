@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus'
 
-class TreeRemoteController extends Controller {
+export default class extends Controller {
   static targets = ['item', 'checkbox']
   static values = {
     hide: Boolean
@@ -62,5 +62,3 @@ class TreeRemoteController extends Controller {
   }
 
 }
-
-application.register('tree-remote', TreeRemoteController)

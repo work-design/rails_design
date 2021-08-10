@@ -47,5 +47,3 @@ export default class extends Controller {
   }
 
 }
-
-application.register('taxon', TaxonController)

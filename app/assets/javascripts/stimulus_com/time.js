@@ -2,7 +2,7 @@ import { Controller } from 'stimulus'
 import moment from 'moment'
 
 // data-controller="time"
-class TimeController extends Controller {
+export default class extends Controller {
 
   connect() {
     console.debug('connected:', this.identifier)
@@ -18,5 +18,3 @@ class TimeController extends Controller {
   }
 
 }
-
-application.register('time', TimeController)

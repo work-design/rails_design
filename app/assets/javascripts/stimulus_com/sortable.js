@@ -1,7 +1,7 @@
 import { Controller } from 'stimulus'
 import Sortable from 'sortablejs'
 
-class SortableController extends Controller {
+export default class extends Controller {
 
   reload(element, controller) {
     Sortable.create(element, {
@@ -40,5 +40,3 @@ class SortableController extends Controller {
   }
 
 }
-
-application.register('sortable', SortableController)

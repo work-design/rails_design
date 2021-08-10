@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus'
 
-class NavbarController extends Controller {
+export default class extends Controller {
   static targets = ['menu']
 
   connect() {
@@ -13,5 +13,3 @@ class NavbarController extends Controller {
   }
 
 }
-
-application.register('navbar', NavbarController)

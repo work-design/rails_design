@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus'
 
-class FormerController extends Controller {
+export default class extends Controller {
   static values = {
     id: String,
     url: String
@@ -27,7 +27,4 @@ class FormerController extends Controller {
       Turbo.renderStreamMessage(body)
     })
   }
-
 }
-
-application.register('former', FormerController)

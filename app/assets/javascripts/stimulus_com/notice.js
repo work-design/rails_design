@@ -1,7 +1,7 @@
 import { Controller } from 'stimulus'
 
 // data-controller="notice"
-class NoticeController extends Controller {
+export default class extends Controller {
 
   connect() {
     console.debug('connected:', this.identifier)
@@ -12,5 +12,3 @@ class NoticeController extends Controller {
   }
 
 }
-
-application.register('notice', NoticeController)

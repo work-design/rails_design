@@ -1,6 +1,6 @@
 import TouchController from './touch'
 
-class SwipeController extends TouchController {
+export default class extends TouchController {
   static targets = ['open']
 
   connect() {
@@ -80,5 +80,3 @@ class SwipeController extends TouchController {
   }
 
 }
-
-application.register('swipe', SwipeController)

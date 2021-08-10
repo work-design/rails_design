@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus'
 
-class ShowController extends Controller {
+export default class extends Controller {
   static targets = ['src', 'item']
 
   connect() {
@@ -28,5 +28,3 @@ class ShowController extends Controller {
   }
 
 }
-
-application.register('show', ShowController)

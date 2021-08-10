@@ -2,7 +2,7 @@ import { DirectUploadController } from '@rails/activestorage/src/direct_upload_c
 import { Controller } from 'stimulus'
 
 // <input type="file" data-controller="picture">
-class PictureController extends Controller {
+export default class extends Controller {
   static targets = ['src', 'filename', 'preview', 'uploadDiv']
 
   connect() {
@@ -87,5 +87,3 @@ class PictureController extends Controller {
   }
 
 }
-
-application.register('picture', PictureController)

@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus'
 
-class HoverController extends Controller {
+export default class extends Controller {
   static targets = ['card']
   static values = {
     url: String
@@ -42,5 +42,3 @@ class HoverController extends Controller {
   }
 
 }
-
-application.register('hover', HoverController)

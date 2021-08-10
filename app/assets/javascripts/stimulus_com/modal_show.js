@@ -1,7 +1,7 @@
 import { Controller } from 'stimulus'
 
 // data-controller="modal_show"
-class ModalShowController extends Controller {
+export default class extends Controller {
 
   connect() {
     console.debug('connected:', this.identifier)
@@ -16,5 +16,3 @@ class ModalShowController extends Controller {
   }
 
 }
-
-application.register('modal-show', ModalShowController)

@@ -2,7 +2,7 @@ import stickybits from 'stickybits'
 import { Controller } from 'stimulus'
 
 // data-controller="menu"
-class StickyController extends Controller {
+export default class extends Controller {
 
   connect() {
     console.debug('connected:', this.identifier)
@@ -10,5 +10,3 @@ class StickyController extends Controller {
   }
 
 }
-
-application.register('sticky', StickyController)

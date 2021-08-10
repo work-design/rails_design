@@ -1,7 +1,7 @@
 import { Controller } from 'stimulus'
 
 // data-controller="modal"
-class ModalController extends Controller {
+export default class extends Controller {
   static values = {
     urls: Array,
     redirect: String
@@ -84,5 +84,3 @@ class ModalController extends Controller {
   }
 
 }
-
-application.register('modal', ModalController)

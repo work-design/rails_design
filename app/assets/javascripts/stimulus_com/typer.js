@@ -1,7 +1,7 @@
 import { Controller } from 'stimulus'
 
 // data-controller="typer"
-class TyperController extends Controller {
+export default class extends Controller {
   static targets = ['input', 'value']
 
   connect() {
@@ -40,5 +40,3 @@ class TyperController extends Controller {
   }
 
 }
-
-application.register('typer', TyperController)

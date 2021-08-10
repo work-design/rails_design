@@ -1,7 +1,7 @@
 import { Controller } from 'stimulus'
 
 // data-controller="visit"
-class VisitController extends Controller {
+export default class extends Controller {
   static values = {
     url: String,
     frame: String,
@@ -61,5 +61,3 @@ class VisitController extends Controller {
   }
 
 }
-
-application.register('visit', VisitController)

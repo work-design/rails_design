@@ -1,7 +1,7 @@
 import { Controller } from 'stimulus'
 
 // data-controller="input"
-class InputController extends Controller {
+export default class extends Controller {
   static targets = ['checkbox']
 
   connect() {
@@ -38,5 +38,3 @@ class InputController extends Controller {
   }
 
 }
-
-application.register('input', InputController)

@@ -3,7 +3,7 @@ import { Controller } from 'stimulus'
 // 商品橱窗展示，
 // 点击小图显示对应图片
 // 点击切换箭头，显示上一张或者下一张图片
-class ShowcaseController extends Controller {
+export default class extends Controller {
   static targets = [
     'window'
   ]
@@ -36,5 +36,3 @@ class ShowcaseController extends Controller {
   }
 
 }
-
-application.register('showcase', ShowcaseController)

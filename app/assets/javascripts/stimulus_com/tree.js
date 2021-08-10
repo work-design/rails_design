@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus'
 
-class TreeController extends Controller {
+export default class extends Controller {
 
   connect() {
     console.debug('connected:', this.identifier)
@@ -35,5 +35,3 @@ class TreeController extends Controller {
   }
 
 }
-
-application.register('tree', TreeController)
