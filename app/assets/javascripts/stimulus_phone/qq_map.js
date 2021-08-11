@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus'
 
-class QqMapController extends Controller {
+export default class extends Controller {
   static values = {
     name: String,
     index: Number
@@ -27,5 +27,3 @@ class QqMapController extends Controller {
   }
 
 }
-
-application.register('qq-map', QqMapController)

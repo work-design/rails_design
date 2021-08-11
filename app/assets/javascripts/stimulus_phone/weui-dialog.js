@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus'
 
-class WeuiDialogController extends Controller {
+export default class extends Controller {
   static targets = ['dialog']
 
   connect() {
@@ -22,5 +22,3 @@ class WeuiDialogController extends Controller {
   }
 
 }
-
-application.register('weui-dialog', WeuiDialogController)

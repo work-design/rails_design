@@ -1,4 +1,5 @@
-import { Application, Controller } from 'stimulus'
+import { application } from 'rails_ui/stimulus'
+
 import CheckboxController from './checkbox'
 import CommonController from './common'
 import CountDownController from './count_down'
@@ -29,7 +30,6 @@ import ChoiceController from './choice' // Dependent on Choices.js
 import ModalController from './modal'
 import ModalShowController from './modal_show'
 
-window.application = Application.start()
 application.register('check', CheckboxController)
 application.register('choice', ChoiceController)
 application.register('common', CommonController)
@@ -56,18 +56,3 @@ application.register('tree', TreeController)
 application.register('tree-remote', TreeRemoteController)
 application.register('typer', TyperController)
 application.register('visit', VisitController)
-
-Controller.prototype.submit = function(form) {
-  let evt = document.createEvent('Event')
-  evt.initEvent('submit', true, true)
-  form.dispatchEvent(evt)
-}
-
-Controller.prototype.csrfToken = function() {
-  let meta = document.querySelector('meta[name=csrf-token]')
-  return meta && meta.content
-}
-
-HTMLElement.prototype.controller = function(identifier) {
-  return application.getControllerForElementAndIdentifier(this, identifier)
-}

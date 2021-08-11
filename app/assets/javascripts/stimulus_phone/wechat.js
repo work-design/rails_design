@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus'
 
-class WechatController extends Controller {
+export default class extends Controller {
   static targets = ['preview', 'media']
 
   connect() {
@@ -78,5 +78,3 @@ class WechatController extends Controller {
   }
 
 }
-
-application.register('wechat', WechatController)

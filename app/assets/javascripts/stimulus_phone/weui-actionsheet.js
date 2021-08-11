@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus'
 
-class WeuiActionsheetController extends Controller {
+export default class extends Controller {
   static targets = ['mask', 'sheet']
   static values = {
     id: String
@@ -41,5 +41,3 @@ class WeuiActionsheetController extends Controller {
   }
 
 }
-
-application.register('weui-actionsheet', WeuiActionsheetController)

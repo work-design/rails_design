@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus'
 
-class WxpayController extends Controller {
+export default class extends Controller {
   static values = {
     params: Object
   }
@@ -27,5 +27,3 @@ class WxpayController extends Controller {
   }
 
 }
-
-application.register('wxpay', WxpayController)

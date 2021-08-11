@@ -1,7 +1,7 @@
 import { Controller } from 'stimulus'
 import weui from 'weui.js'
 
-class WeuiPickerController extends Controller {
+export default class extends Controller {
   static values = {
     id: String,
     url: String
@@ -52,5 +52,3 @@ class WeuiPickerController extends Controller {
   }
 
 }
-
-application.register('weui-picker', WeuiPickerController)

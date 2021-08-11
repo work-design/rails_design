@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus'
 
-class SearchController extends Controller {
+export default class extends Controller {
   static targets = ['input', 'label']
 
   connect() {
@@ -35,5 +35,3 @@ class SearchController extends Controller {
   }
 
 }
-
-application.register('search', SearchController)

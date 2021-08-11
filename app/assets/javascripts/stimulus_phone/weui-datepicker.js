@@ -1,7 +1,7 @@
 import { Controller } from 'stimulus'
 import weui from 'weui.js'
 
-class WeuiDatepickerController extends Controller {
+export default class extends Controller {
 
   connect() {
     console.debug('connected:', this.identifier)
@@ -36,5 +36,3 @@ class WeuiDatepickerController extends Controller {
   }
 
 }
-
-application.register('weui-datepicker', WeuiDatepickerController)
