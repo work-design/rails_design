@@ -1,4 +1,4 @@
-import { application } from 'rails_ui/stimulus'
+import { application } from '../rails_ui/stimulus'
 // dependent on Weui
 import QqMapController from './qq_map'
 import SearchController from './search'

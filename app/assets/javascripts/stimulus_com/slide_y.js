@@ -14,7 +14,7 @@ export default class extends TouchController {
 
   // data-action="touchmove->slide-y#move:passive"
   move(event) {
-    let ele = event.currentTarget
+    const ele = event.currentTarget
     console.debug('touch moved by:', ele.dataset.index)
     if (this.zoomed(event)) {
       console.error('scale')

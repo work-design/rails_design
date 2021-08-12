@@ -1,4 +1,4 @@
-import { application } from 'rails_ui/stimulus'
+import { application } from '../rails_ui/stimulus'
 
 import CheckboxController from './checkbox'
 import CommonController from './common'

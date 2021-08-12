@@ -14,7 +14,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 7fc0febef0c859540d88ea3d83937248279d92e0
+  revision: 19baf0a87f2ee91e12c823feb28aa8642044ba17
   specs:
     rails_com (1.2.9)
       acme-client
@@ -108,7 +108,7 @@ GEM
     default_where (2.2.0)
       activerecord (>= 4.0.0)
     erubi (1.10.0)
-    faraday (1.6.0)
+    faraday (1.7.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -129,9 +129,9 @@ GEM
     faraday-rack (1.0.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    http-2-next (0.4.3)
+    http-2-next (0.5.0)
     http-form_data (2.3.0)
-    httpx (0.16.0)
+    httpx (0.16.1)
       http-2-next (>= 0.4.1)
       timers
     i18n (1.8.10)
@@ -207,7 +207,7 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.1.0)
     timers (4.3.3)
-    turbo-rails (0.6.0)
+    turbo-rails (0.7.0)
       rails (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
