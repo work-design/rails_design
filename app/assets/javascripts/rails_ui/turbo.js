@@ -16,14 +16,20 @@ document.addEventListener('turbo:before-cache', event => {
 
 // 当 target 为 body 的时候，则不用 getElementById 的逻辑，而是直接使用body
 Object.defineProperties(customElements.get('turbo-stream').prototype, {
-  targetElement: {
+  targetElementsById: {
     get: function() {
+      let element
       if (this.target === 'body') {
-        return this.ownerDocument.body
+        element = this.ownerDocument.body
       } else if (this.target) {
-        return this.ownerDocument.getElementById(this.target)
+        element = this.ownerDocument.getElementById(this.target)
       }
-      this.raise('target attribute is missing')
+
+      if (element !== null) {
+        return [ element ]
+      } else {
+        return []
+      }
     }
   }
 })
