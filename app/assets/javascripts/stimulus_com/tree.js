@@ -1,14 +1,15 @@
 import { Controller } from 'stimulus'
 
 export default class extends Controller {
+  static targets = ['item']
 
   connect() {
     console.debug('connected:', this.identifier)
   }
 
   collapse(event) {
-    let ele = event.currentTarget
-    let par = ele.parentNode.parentNode
+    const ele = event.currentTarget
+    const par = this.itemTarget
 
     let el = par.nextElementSibling
     while (el && el.dataset['depth'] !== par.dataset['depth'] && par.dataset['depth'].endsWith(el.dataset['depth'])) {
@@ -21,8 +22,8 @@ export default class extends Controller {
   }
 
   expand(event) {
-    let ele = event.currentTarget
-    let par = ele.parentNode.parentNode
+    const ele = event.currentTarget
+    const par = this.itemTarget
 
     let el = par.nextElementSibling
     while (el && el.dataset['depth'] !== par.dataset['depth'] && par.dataset['depth'].endsWith(el.dataset['depth'])) {

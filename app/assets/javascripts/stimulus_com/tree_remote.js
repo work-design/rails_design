@@ -17,8 +17,9 @@ export default class extends Controller {
   collapseDirect() {
     let el = this.element.nextElementSibling
     while (el && el.id.startsWith(this.element.id)) {
+      let to_remove = el
       el = el.nextElementSibling
-      el.previousElementSibling.remove()
+      to_remove.remove()
     }
   }
 
@@ -37,9 +38,9 @@ export default class extends Controller {
 
     let el = par.nextElementSibling
     while (el && el.id.startsWith(par.id)) {
-      let to_move = el
+      let to_remove = el
       el = el.nextElementSibling
-      to_move.remove()
+      to_remove.remove()
     }
 
     this.collapseCheckbox()
@@ -48,7 +49,7 @@ export default class extends Controller {
   }
 
   expand(event) {
-    let ele = event.currentTarget
+    const ele = event.currentTarget
     ele.parentNode.removeEventListener('click', this.disableLink)
 
     ele.classList.replace('fa-caret-right', 'fa-caret-down')

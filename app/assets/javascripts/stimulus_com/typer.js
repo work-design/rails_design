@@ -10,7 +10,7 @@ export default class extends Controller {
   }
 
   initInput() {
-    let ele = this.inputTarget
+    const ele = this.inputTarget
     ele.addEventListener('input', this.form)
     ele.addEventListener('compositionstart', event => {
       event.target.removeEventListener('input', this.form)
@@ -22,19 +22,19 @@ export default class extends Controller {
   }
 
   form(event) {
-    let ele = event.currentTarget
+    const ele = event.currentTarget
     if (!ele.value) {
       return
     }
 
-    let evt = document.createEvent('Event')
+    const evt = document.createEvent('Event')
     evt.initEvent('submit', true, true)
     ele.form.dispatchEvent(evt)
   }
 
   // click->typer#choose
   choose(event) {
-    let ele = event.currentTarget
+    const ele = event.currentTarget
     this.valueTarget.value = ele.dataset['id']
     this.inputTarget.value = ele.dataset['name']
   }
