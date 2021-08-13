@@ -31,14 +31,15 @@ export default class extends Controller {
   }
 
   collapse(event) {
-    let ele = event.currentTarget
-    let par = this.itemTarget
+    const ele = event.currentTarget
+    const par = this.itemTarget
     ele.parentNode.addEventListener('click', this.disableLink)
 
     let el = par.nextElementSibling
     while (el && el.id.startsWith(par.id)) {
+      let to_move = el
       el = el.nextElementSibling
-      el.previousElementSibling.remove()
+      to_move.remove()
     }
 
     this.collapseCheckbox()
