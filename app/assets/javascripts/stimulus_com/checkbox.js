@@ -9,10 +9,10 @@ export default class extends Controller {
   }
 
   applyFor(event) {
-    let link = event.currentTarget
-    let url = new URL(link.href)
-    let added = this.addedIds()
-    let moved = this.movedIds()
+    const link = event.currentTarget
+    const url = new URL(link.href)
+    const added = this.addedIds()
+    const moved = this.movedIds()
     if (added.length > 0) {
       url.searchParams.set('add_ids', added)
     }
@@ -24,7 +24,7 @@ export default class extends Controller {
   }
 
   addedIds() {
-    let ids = []
+    const ids = []
     this.addedTargets.forEach(item => {
       ids.push(item.value)
     })
@@ -32,7 +32,7 @@ export default class extends Controller {
   }
 
   movedIds() {
-    let ids = []
+    const ids = []
     this.movedTargets.forEach(item => {
       ids.push(item.value)
     })
@@ -47,8 +47,8 @@ export default class extends Controller {
   // data-action="check#toggleAll"
   // value: 'xx'
   toggleAll(event) {
-    let element = event.currentTarget
-    let checkboxes = document.getElementsByName(element.value)
+    const element = event.currentTarget
+    const checkboxes = document.getElementsByName(element.value)
 
     for (let checkbox of checkboxes) {
       checkbox.checked = element.checked
@@ -57,8 +57,8 @@ export default class extends Controller {
   }
 
   toggleAllName(event) {
-    let element = event.currentTarget
-    let checkboxes = document.querySelectorAll(`input[data-name='${element.value}']`)
+    const element = event.currentTarget
+    const checkboxes = document.querySelectorAll(`input[data-name='${element.value}']`)
 
     for (let checkbox of checkboxes) {
       checkbox.checked = element.checked
@@ -67,7 +67,7 @@ export default class extends Controller {
   }
 
   doToggle(checkbox) {
-    let changed = checkbox.checked !== checkbox.defaultChecked
+    const changed = checkbox.checked !== checkbox.defaultChecked
 
     if (changed && checkbox.checked) {
       checkbox.dataset.add_target('check.added')

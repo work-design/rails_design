@@ -14,17 +14,17 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 19baf0a87f2ee91e12c823feb28aa8642044ba17
+  revision: 6842e1d2f4180f44592f095183b869c490ffb91d
   specs:
     rails_com (1.2.9)
       acme-client
       acts_as_list (>= 1.0)
-      closure_tree (>= 7.2)
+      closure_tree (>= 7.3)
       default_where (~> 2.2)
-      http-form_data (~> 2.2)
-      httpx (~> 0.8)
+      http-form_data (~> 2.3)
+      httpx (~> 0.16)
       kaminari
-      rails (~> 6.0)
+      rails (~> 6.1)
       turbo-rails
 
 PATH

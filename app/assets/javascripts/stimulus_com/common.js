@@ -18,8 +18,8 @@ export default class extends Controller {
   // 用于兼容 rails ujs data-method 的逻辑
   link(event) {
     event.preventDefault()
-    let ele = event.currentTarget
-    let method = (ele.dataset.method && ele.dataset.method.toUpperCase()) || 'GET'
+    const ele = event.currentTarget
+    const method = (ele.dataset.method && ele.dataset.method.toUpperCase()) || 'GET'
 
     fetch(ele.href, {
       method: method,
@@ -34,8 +34,8 @@ export default class extends Controller {
   }
 
   stream(event) {
-    let ele = event.currentTarget
-    let search_url = new URL(this.urlValue, location.origin)
+    const ele = event.currentTarget
+    const search_url = new URL(this.urlValue, location.origin)
     search_url.searchParams.set('node_id', ele.value)
     Object.keys(this.paramsValue).forEach(k => {
       search_url.searchParams.set(k, this.paramsValue[k])
