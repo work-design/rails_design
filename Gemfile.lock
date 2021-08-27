@@ -7,14 +7,14 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/viter.git
-  revision: a94cdf740dc1407cee3e1907e74df095d3e73512
+  revision: 997cbc807babe4380f76ad0051518de12135702e
   specs:
     viter (0.1.0)
       rails
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 14c232c75a35e8c92ce8ae98dfd951cdb9ce0dd0
+  revision: ac68923dbdba1aad39bbc68aa8bdca3e75a7cbf5
   specs:
     rails_com (1.2.9)
       acme-client
@@ -207,7 +207,7 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.1.0)
     timers (4.3.3)
-    turbo-rails (0.7.3)
+    turbo-rails (0.7.7)
       rails (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
