@@ -1,9 +1,6 @@
-$:.push File.expand_path('lib', __dir__)
-require_relative 'lib/rails_ui/version'
-
 Gem::Specification.new do |s|
   s.name = 'rails_ui'
-  s.version = RailsUi::VERSION
+  s.version = '0.0.1'
   s.authors = ['qinmingyuan']
   s.email = ['mingyuan0715@foxmail.com']
   s.homepage = 'https://github.com/work-design/rails_ui'
