@@ -1,4 +1,4 @@
-import { Controller } from 'stimulus'
+import { Controller } from '@hotwired/stimulus'
 
 // 商品橱窗展示，
 // 点击小图显示对应图片

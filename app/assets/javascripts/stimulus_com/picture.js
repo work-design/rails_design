@@ -1,5 +1,5 @@
 import { DirectUploadController } from '@rails/activestorage/src/direct_upload_controller'
-import { Controller } from 'stimulus'
+import { Controller } from '@hotwired/stimulus'
 
 // <input type="file" data-controller="picture">
 export default class extends Controller {
