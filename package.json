@@ -12,14 +12,14 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
-    "@hotwired/turbo": "^7.0.0-rc.1",
-    "@hotwired/turbo-rails": "^7.0.0-rc.1",
+    "@hotwired/stimulus": "^3.0.0-beta.1",
+    "@hotwired/turbo": "^7.0.0-rc.3",
+    "@hotwired/turbo-rails": "^7.0.0-rc.3",
     "@rails/activestorage": "^6.0.3-7",
     "choices.js": "^9.0.1",
     "moment": "^2.29.1",
     "sortablejs": "^1.13.0",
     "stickybits": "^3.7.9",
-    "stimulus": "^2.0.0",
     "weui": "^2.4.4",
     "weui.js": "^1.2.2"
   },

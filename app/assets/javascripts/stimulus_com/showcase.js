@@ -11,10 +11,6 @@ export default class extends Controller {
     'hover'
   ]
 
-  connect() {
-    console.debug('connected:', this.identifier)
-  }
-
   // data-action="mouseover->showcase#show"
   show(event) {
     let ele = event.currentTarget

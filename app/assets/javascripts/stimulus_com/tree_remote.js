@@ -7,8 +7,6 @@ export default class extends Controller {
   }
 
   connect() {
-    console.debug('connected:', this.identifier)
-
     if (this.hideValue) {
       this.collapseDirect()
     }

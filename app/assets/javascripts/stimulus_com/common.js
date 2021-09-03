@@ -6,10 +6,6 @@ export default class extends Controller {
     params: Object
   }
 
-  connect() {
-    console.debug('connected:', this.identifier)
-  }
-
   cancel(event) {
     event.preventDefault()
     Turbo.visit(location.href, { action: 'replace' })

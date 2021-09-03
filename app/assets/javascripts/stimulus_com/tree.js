@@ -3,10 +3,6 @@ import { Controller } from 'stimulus'
 export default class extends Controller {
   static targets = ['item']
 
-  connect() {
-    console.debug('connected:', this.identifier)
-  }
-
   collapse(event) {
     const ele = event.currentTarget
     const par = this.itemTarget

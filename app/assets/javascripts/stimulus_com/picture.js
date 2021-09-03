@@ -5,10 +5,6 @@ import { Controller } from 'stimulus'
 export default class extends Controller {
   static targets = ['src', 'filename', 'preview', 'uploadDiv']
 
-  connect() {
-    console.debug('connected:', this.identifier)
-  }
-
   /*
   * <input type="file" data-action="picture#upload">
   **/

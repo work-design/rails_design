@@ -8,10 +8,6 @@ export default class extends Controller {
     closeClass: String,
   }
 
-  connect() {
-    console.debug('connected:', this.identifier)
-  }
-
   toggle() {
     this.element.classList.toggle('is-active')
   }

@@ -3,10 +3,6 @@ import TouchController from './touch'
 export default class extends TouchController {
   static targets = ['open']
 
-  connect() {
-    console.debug('connected:', this.identifier)
-  }
-
   // data-action="touchstart->swipe#start:passive"
   start(event) {
     let touch = event.targetTouches[0]

@@ -4,10 +4,6 @@ import { Controller } from 'stimulus'
 export default class extends Controller {
   static targets = ['checkbox']
 
-  connect() {
-    console.debug('connected:', this.identifier)
-  }
-
   // <label data-action="click->input#check"></label>
   // label out of check
   check() {
@@ -18,7 +14,7 @@ export default class extends Controller {
   }
 
   form(event) {
-    let el = event.currentTarget
+    const el = event.currentTarget
 
     if (el.value.length > 0) {
       this.submit(event.currentTarget.form)
@@ -26,7 +22,7 @@ export default class extends Controller {
   }
 
   filter(event) {
-    let ele = event.currentTarget
+    const ele = event.currentTarget
     if (!ele.value) {
       return
     }

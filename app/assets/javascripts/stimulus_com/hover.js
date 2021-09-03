@@ -6,10 +6,6 @@ export default class extends Controller {
     url: String
   }
 
-  connect() {
-    console.debug('connected:', this.identifier)
-  }
-
   show(event) {
     let ele = event.currentTarget
     if (this.hasCardTarget) {

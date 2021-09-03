@@ -5,7 +5,6 @@ export default class extends Controller {
   static targets = ['input', 'value']
 
   connect() {
-    console.debug('connected:', this.identifier)
     this.initInput()
   }
 

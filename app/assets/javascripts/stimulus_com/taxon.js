@@ -7,10 +7,6 @@ export default class extends Controller {
     params: Object
   }
 
-  connect() {
-    console.debug('connected:', this.identifier)
-  }
-
   // change
   choose(event) {
     let ele = event.currentTarget

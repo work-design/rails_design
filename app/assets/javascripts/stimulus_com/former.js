@@ -6,10 +6,6 @@ export default class extends Controller {
     url: String
   }
 
-  connect() {
-    console.debug('connected:', this.identifier)
-  }
-
   submit() {
     let ele = document.getElementById(this.idValue)
     let data = new FormData(ele)

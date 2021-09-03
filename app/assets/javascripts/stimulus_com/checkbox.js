@@ -4,10 +4,6 @@ import { Controller } from 'stimulus'
 export default class extends Controller {
   static targets = ['added', 'moved']
 
-  connect() {
-    console.debug('connected:', this.identifier)
-  }
-
   applyFor(event) {
     const link = event.currentTarget
     const url = new URL(link.href)

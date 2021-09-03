@@ -12,7 +12,6 @@ export default class extends Controller {
   }
 
   connect() {
-    console.debug('connected:', this.identifier)
     this.reload(this.element)
   }
 

@@ -10,8 +10,6 @@ export default class extends Controller {
   }
 
   connect() {
-    console.debug('connected:', this.identifier)
-
     if (this.hasFrameValue) {
       this.visit()
     } else {

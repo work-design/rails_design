@@ -4,8 +4,6 @@ import { Controller } from 'stimulus'
 export default class extends Controller {
 
   connect() {
-    console.debug('connected:', this.identifier)
-
     this.modal.classList.add('is-active')
     document.documentElement.classList.add('is-clipped')
     this.element.remove()

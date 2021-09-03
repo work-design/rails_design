@@ -1,5 +1,6 @@
-import { Application, Controller } from 'stimulus'
+import { Application, Controller } from '@hotwired/stimulus'
 export const application = Application.start()
+application.debug = true
 window.application = application
 
 Controller.prototype.submit = function(form) {

@@ -8,7 +8,6 @@ export default class extends Controller {
   }
 
   connect() {
-    console.debug('connected:', this.identifier)
     console.debug('modal refer:', document.referrer)
     this.observer = new MutationObserver(this.loaded)
     this.observer.observe(this.modal, { childList: true })

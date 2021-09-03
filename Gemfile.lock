@@ -7,14 +7,14 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/viter.git
-  revision: 997cbc807babe4380f76ad0051518de12135702e
+  revision: a6c36456e695b32d427179c1bfc1c0df2c66792c
   specs:
-    viter (0.1.0)
+    viter (0.1)
       rails
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: ac68923dbdba1aad39bbc68aa8bdca3e75a7cbf5
+  revision: 8069ae5ec3f824154eaaff43d67714918bebbd8f
   specs:
     rails_com (1.2.9)
       acme-client
@@ -24,7 +24,7 @@ GIT
       http-form_data (~> 2.3)
       httpx (~> 0.16)
       kaminari
-      rails (~> 6.1)
+      rails (>= 6.1)
       turbo-rails
 
 PATH
@@ -36,7 +36,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    acme-client (2.0.8)
+    acme-client (2.0.9)
       faraday (>= 0.17, < 2.0.0)
     actioncable (6.1.4.1)
       actionpack (= 6.1.4.1)
@@ -108,7 +108,7 @@ GEM
     default_where (2.3.0)
       activerecord (>= 4.0, <= 7.0)
     erubi (1.10.0)
-    faraday (1.7.0)
+    faraday (1.7.1)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -131,7 +131,7 @@ GEM
       activesupport (>= 5.0)
     http-2-next (0.5.0)
     http-form_data (2.3.0)
-    httpx (0.16.1)
+    httpx (0.17.0)
       http-2-next (>= 0.4.1)
       timers
     i18n (1.8.10)
@@ -207,7 +207,7 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.1.0)
     timers (4.3.3)
-    turbo-rails (0.7.7)
+    turbo-rails (0.7.9)
       rails (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)

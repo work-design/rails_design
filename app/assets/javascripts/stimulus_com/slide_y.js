@@ -6,7 +6,6 @@ import TouchController from './touch'
 export default class extends TouchController {
 
   connect() {
-    console.debug('connected:', this.identifier)
     this.element.addEventListener('touchstart', (event) => {
       this.start(event)
     }, { passive: true })
