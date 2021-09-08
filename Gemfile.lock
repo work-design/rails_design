@@ -1,11 +1,4 @@
 GIT
-  remote: https://github.com/qinmingyuan/default_form.git
-  revision: 476ba7231079b1071415ad4e953b55ce16ae1d0d
-  specs:
-    default_form (1.5.1)
-      rails_com (~> 1.2)
-
-GIT
   remote: https://github.com/qinmingyuan/viter.git
   revision: a6c36456e695b32d427179c1bfc1c0df2c66792c
   specs:
@@ -14,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 8069ae5ec3f824154eaaff43d67714918bebbd8f
+  revision: 96b28af01b4a3aaca389ea4b44b33e869e01a67c
   specs:
     rails_com (1.2.9)
       acme-client
@@ -207,7 +200,7 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.1.0)
     timers (4.3.3)
-    turbo-rails (0.7.9)
+    turbo-rails (0.7.11)
       rails (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
@@ -222,7 +215,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  default_form!
   pg
   puma
   rails_com!
