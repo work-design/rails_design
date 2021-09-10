@@ -2,7 +2,7 @@
 
 require 'active_support/configurable'
 
-module RailsUi #:nodoc:
+module RailsDesign #:nodoc:
   include ActiveSupport::Configurable
 
 end

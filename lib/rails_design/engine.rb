@@ -1,4 +1,4 @@
-module RailsUi
+module RailsDesign
   class Engine < ::Rails::Engine
 
   end
