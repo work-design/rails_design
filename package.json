@@ -16,6 +16,7 @@
     "@hotwired/turbo": "^7.0.0-rc.3",
     "@hotwired/turbo-rails": "^7.0.0-rc.3",
     "@rails/activestorage": "^6.0.3-7",
+    "bulma": "^0.9.3",
     "choices.js": "^9.0.1",
     "moment": "^2.29.1",
     "sortablejs": "^1.13.0",
