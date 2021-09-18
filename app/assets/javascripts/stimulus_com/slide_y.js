@@ -1,9 +1,9 @@
-import TouchController from './touch'
+import SlideController from './slide'
 
 // z-index: 0, 当前显示的图片；
 // z-index: -1, 即将显示的图片，touch move 时动态设定；
 // z-index: -2, 未显示的图片；
-export default class extends TouchController {
+export default class extends SlideController {
 
   connect() {
     this.element.addEventListener('touchstart', (event) => {
