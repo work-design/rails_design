@@ -6,7 +6,7 @@ import SlideController from './slide'
 export default class extends SlideController {
 
   connect() {
-    super
+    super.connect()
   }
 
   // data-action="touchmove->slide-y#move:passive"
