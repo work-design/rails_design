@@ -6,9 +6,7 @@ import SlideController from './slide'
 export default class extends SlideController {
 
   connect() {
-    this.element.addEventListener('touchstart', (event) => {
-      this.start(event)
-    }, { passive: true })
+    super
   }
 
   // data-action="touchmove->slide-y#move:passive"
