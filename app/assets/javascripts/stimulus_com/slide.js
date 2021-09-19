@@ -70,6 +70,9 @@ export default class extends TouchController {
       next.style.zIndex = 0
       this.toCurrent(next)
 
+      //const observer = new MutationObserver(this.removeEvent)
+      //observer.observe(ele, { attributeFilter: ['style'], attributeOldValue: true })
+
       this.awayFromRight(ele)
       ele.style.zIndex = -1
       this.beenCurrent(ele)
@@ -122,33 +125,18 @@ export default class extends TouchController {
     prev.style.right = (this.element.clientWidth - pad) + 'px'
   }
 
-  // xx
-  resetIndex(event) {
-    ['left', 'right', 'transition-property', 'transition-duration'].forEach(rule => {
-      event.currentTarget.style.removeProperty(rule)
-    })
-    event.currentTarget.style.zIndex = -2
-  }
-
   // 不再展示
   beenCurrent(ele) {
     console.debug('add transition event listener for been', ele.dataset.index)
     ele.addEventListener('transitionend', this.resetIndex, { once: true })
-    ele.addEventListener('transitioncancel', (event) => {
-      this.resetIndex(event)
-      ele.removeEventListener('transitionend', this.resetIndex)
-    }, { once: true })
+    ele.addEventListener('transitioncancel', this.resetIndex, { once: true })
   }
 
   // 即将展示
   toCurrent(ele) {
     console.debug('add transition event listener for to', ele.dataset.index)
-    ele.addEventListener('transitionend', (event) => {
-      this.clearStyle(event.currentTarget)
-    }, { once: true })
-    ele.addEventListener('transitioncancel', (event) => {
-      this.clearStyle(event.currentTarget)
-    }, { once: true })
+    ele.addEventListener('transitionend', this.clearStyle, { once: true })
+    ele.addEventListener('transitioncancel', this.clearStyle, { once: true })
   }
 
   // 接近左侧
@@ -179,10 +167,37 @@ export default class extends TouchController {
     ele.style.transitionDuration = this.duration
   }
 
-  clearStyle(ele) {
-    ['left', 'right', 'transition-property', 'transition-duration'].forEach(rule => {
-      ele.style.removeProperty(rule)
+  // NOTICE: here this becomes observer
+  removeEvent(list, observer) {
+    list.forEach(mutation => {
+      switch(mutation.type) {
+        case 'attributes':
+          console.log('-------->', mutation.oldValue)
+          console.log(this)
+          console.log('-------->', mutation.target.style.cssText)
+
+          if (mutation.attributeName === 'style') {
+            let con = mutation.target.parentElement.controller('slide')
+            mutation.target.removeEventListener('transitionend', con.resetIndex)
+            mutation.target.removeEventListener('transitioncancel', con.resetIndex)
+          }
+      }
     })
+    observer.disconnect()
+  }
+
+  clearStyle(event) {
+    ['left', 'right', 'transition-property', 'transition-duration'].forEach(rule => {
+      event.currentTarget.style.removeProperty(rule)
+    })
+  }
+
+  // this become event.target
+  resetIndex(event) {
+    ['left', 'right', 'transition-property', 'transition-duration'].forEach(rule => {
+      event.currentTarget.style.removeProperty(rule)
+    })
+    event.currentTarget.style.zIndex = -2
   }
 
 }
