@@ -1,0 +1,169 @@
+@use './button';
+
+$progressHeight: 5px;
+
+.bespoke-marp-note,
+.bespoke-marp-osc,
+.bespoke-progress-parent {
+}
+
+@media screen {
+  // Common visibility control for slides
+  svg.bespoke-marp-slide {
+    content-visibility: hidden;
+    z-index: -1;
+
+    /* Fallback */
+    pointer-events: none;
+    opacity: 0;
+
+    &.bespoke-marp-active {
+      content-visibility: visible;
+      z-index: 0;
+
+      /* Fallback */
+      pointer-events: auto;
+      opacity: 1;
+
+      &.bespoke-marp-active-ready {
+        * {
+          /* Reset animation: "none" keyword does not reset animation in Firefox */
+          animation-name: __bespoke_marp__ !important;
+        }
+      }
+    }
+
+    @supports not (content-visibility: hidden) {
+      &[data-bespoke-marp-load='hideable'] {
+        display: none;
+
+        &.bespoke-marp-active {
+          display: block;
+        }
+      }
+    }
+  }
+
+  [data-bespoke-marp-fragment='inactive'] {
+    visibility: hidden;
+  }
+
+  // Normal view
+  .wrapper {
+    .bespoke-marp-parent {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      > .bespoke-marp-osc {
+        background: rgba(#000, 0.65);
+        border-radius: 7px;
+        bottom: 50px;
+        color: #fff;
+        contain: paint;
+        display: block;
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        left: 50%;
+        line-height: 0;
+        opacity: 1;
+        padding: 12px;
+        position: absolute;
+        touch-action: manipulation;
+        transform: translateX(-50%);
+        transition: opacity 0.2s linear;
+        user-select: none;
+        white-space: nowrap;
+        z-index: 1;
+
+        /* Hack for Chrome to show OSC overlay onto video correctly */
+        will-change: transform;
+
+        > * {
+          margin-left: 6px;
+
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+
+        > span {
+          opacity: 0.8;
+
+          &[data-bespoke-marp-osc='page'] {
+            display: inline-block;
+            min-width: 140px;
+            text-align: center;
+          }
+        }
+
+        > button {
+          @extend %button;
+
+          &[data-bespoke-marp-osc='prev'] {
+            @include button.button-icon(prev);
+          }
+
+          &[data-bespoke-marp-osc='next'] {
+            @include button.button-icon(next);
+          }
+
+          &[data-bespoke-marp-osc='fullscreen'] {
+            @include button.button-icon(fullscreen);
+          }
+
+          &[data-bespoke-marp-osc='presenter'] {
+            @include button.button-icon(presenter);
+          }
+        }
+      }
+
+      &.bespoke-marp-inactive {
+
+        > .bespoke-marp-osc {
+          opacity: 0;
+          pointer-events: none;
+        }
+      }
+    }
+
+    svg.bespoke-marp-slide {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  // Progress bar (Only for normal view)
+  .wrapper {
+    .bespoke-progress-parent {
+      background: #222;
+      display: flex;
+      height: $progressHeight;
+      width: 100%;
+
+      & + .bespoke-marp-parent {
+        top: $progressHeight;
+      }
+
+      .bespoke-progress-bar {
+        flex: 0 0 0;
+        background: #0288d1;
+        transition: flex-basis 0.2s cubic-bezier(0, 1, 1, 1);
+      }
+    }
+  }
+
+}
+
+@media print {
+  .bespoke-marp-presenter-next-container,
+  .bespoke-marp-presenter-note-container,
+  .bespoke-marp-presenter-info-container {
+    display: none;
+  }
+}
