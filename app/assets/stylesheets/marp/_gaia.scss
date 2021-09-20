@@ -70,6 +70,14 @@ $color-secondary: #81d4fa;
     margin: 1em 0 0 0;
   }
 
+  ul {
+    list-style-type: disc;
+    ul {
+      list-style-type: circle;
+      padding-left: revert;
+    }
+  }
+
   ul,
   ol {
     > li {
@@ -94,6 +102,7 @@ $color-secondary: #81d4fa;
   pre {
     display: block;
     margin: 1em 0 0 0;
+    padding: 0;
     min-height: 1em;
     overflow: visible;
 
