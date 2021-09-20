@@ -1,0 +1,122 @@
+.wrapper {
+  display: flex;
+  min-height: 100%;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.left-pointer,
+.right-pointer {
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 10%;
+  transition: 1s;
+}
+
+.main-block{
+  flex: 80%;
+  text-align: center;
+  background-color: #111;
+  display: flex;
+  align-items: center;
+}
+
+.containerx{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.slider-carousel{
+  max-width: 80%;
+  overflow: hidden;
+  margin-top: 400px;
+
+}
+.sliders{
+  width: 300%;
+  height: 100%;
+  display: flex;
+}
+
+
+.slide {
+  width: 33.333%;
+  transition: 0.8s;
+  text-align: center;
+  color: black;
+
+}
+.slide-header {
+  font-size: 40px;
+  margin: 10px 0 30px 0;
+
+
+}
+.slide-text {
+  margin: 30px ;
+  font-size: 20px;
+
+}
+
+.navigation {
+  display: flex;
+
+
+}
+.navigation-bar {
+  width: 20px;
+  height: 20px;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin: 6px;
+  cursor: pointer;
+  transition: 1s;
+  padding: 10px;
+
+}
+
+
+#slide1:checked ~ .main-block  .first {
+  margin-left: 0;
+
+}
+
+#slide2:checked ~ .main-block  .first {
+  margin-left: -33.333%;
+}
+#slide3:checked ~ .main-block  .first {
+  margin-left: -66.666%;
+}
+#slide1:checked ~ .main-block  #dot1,
+#slide2:checked ~ .main-block  #dot2,
+#slide3:checked ~ .main-block  #dot3 {
+  background: rgb(0, 0, 0);
+}
+
+
+.right-pointer label,
+.left-pointer label {
+  background-image: url("https://image.flaticon.com/icons/svg/130/130884.svg");
+  background-repeat: no-repeat;
+  display: block;
+  cursor: pointer;
+  background-position: center;
+  width: 50%;
+  height: 50%;
+}
+
+.left-pointer label {
+  background-image: url("https://image.flaticon.com/icons/svg/130/130882.svg");
+}
+
+.navigation-bar:hover{
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.left-pointer:hover,
+.right-pointer:hover{
+  background-color: rgba(0, 0, 0, 0.3);
+}
