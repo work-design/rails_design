@@ -7,7 +7,6 @@ export default class extends Controller {
   static targets = ['load']
 
   connect() {
-    console.debug('connected:', this.identifier)
     this.chooseWXPay()
   }
 

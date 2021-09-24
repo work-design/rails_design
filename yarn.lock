@@ -2513,19 +2513,19 @@ webidl-conversions@^6.1.0:
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-6.1.0.tgz#9111b4d7ea80acd40f5270d666621afa78b69514"
   integrity sha512-qBIvFLGiBpLjfwmYAaHPXsn+ho5xZnGvyGvsarywGNc8VyQJUMHJ8OBKGGrPER0okBeMDaan4mNBlgBROxuI8w==
 
-weui.js@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/weui.js/-/weui.js-1.2.2.tgz#bb8e37dce53b3132a2cc1a44d046f5e501df3530"
-  integrity sha512-Ii2YL6PKv+nF8fS7NdDQXmkSoqTLem/y5AQReHpQjKSY44DjGMKJ/9yEEoQiNaTEuArfh2omKfXM8LoU2/WRMw==
+weui.js@^1.2.8:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/weui.js/-/weui.js-1.2.8.tgz#1595b520ede78c925a1ab5b233b1fc9ace27a1d0"
+  integrity sha512-gwWcBs/KQKplMTiEj8CZaGLoy26CaCIiDfENlIgeC1ff7yTypy8kjo3lGFNbLrNNTcTB0PLXjIEWkdALmLrpGA==
   dependencies:
     balajs "^0.1.9"
     element-closest "^2.0.1"
     object-assign "^4.1.0"
 
-weui@^2.4.4:
-  version "2.4.4"
-  resolved "https://registry.yarnpkg.com/weui/-/weui-2.4.4.tgz#b8204ea420844eccc52fc0de8e50617091ce702a"
-  integrity sha512-rqxKAFaDBKkF6H1GzumDR/CLcGBxCzOZ1KUIXqOieZ316wbaxojgs/j1w9RrsjkCdH6zL1kLnr/elsDKB9pMdg==
+weui@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/weui/-/weui-2.5.0.tgz#f6c67c4a90a4d7e946678a0b68b55b60447e43e0"
+  integrity sha512-ZmlCu1Wbqm/QjITP7bPLXyV32Epuudy4tuZJagQi0ZXY9nquV9UKGJSUOCtTvrp+UWUEFZEPQuF3PfyUThrSmA==
 
 whatwg-encoding@^1.0.5:
   version "1.0.5"

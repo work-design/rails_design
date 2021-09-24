@@ -6,10 +6,6 @@ export default class extends Controller {
     id: String
   }
 
-  connect() {
-    console.debug('connected:', this.identifier)
-  }
-
   close() {
     let ele = this.maskTarget
     ele.style.display = 'none'

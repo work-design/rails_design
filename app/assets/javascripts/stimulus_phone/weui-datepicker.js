@@ -3,10 +3,6 @@ import weui from 'weui.js'
 
 export default class extends Controller {
 
-  connect() {
-    console.debug('connected:', this.identifier)
-  }
-
   // focus->weui#getFocus
   getFocus() {
     document.activeElement.blur()

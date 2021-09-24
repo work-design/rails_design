@@ -22,8 +22,8 @@
     "moment": "^2.29.1",
     "sortablejs": "^1.13.0",
     "stickybits": "^3.7.9",
-    "weui": "^2.4.4",
-    "weui.js": "^1.2.2"
+    "weui": "^2.5.0",
+    "weui.js": "^1.2.8"
   },
   "devDependencies": {
     "jest": "^27.0.6"

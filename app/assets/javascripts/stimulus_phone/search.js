@@ -4,7 +4,6 @@ export default class extends Controller {
   static targets = ['input', 'label']
 
   connect() {
-    console.debug('connected:', this.identifier)
     if (this.hasInputTarget && this.inputTarget.value.length > 0) {
       this.focus()
     }

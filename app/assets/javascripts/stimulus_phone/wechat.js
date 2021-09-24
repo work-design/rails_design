@@ -3,10 +3,6 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
   static targets = ['preview', 'media']
 
-  connect() {
-    console.debug('connected:', this.identifier)
-  }
-
   close() {
     wx.closeWindow()
   }

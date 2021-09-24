@@ -7,10 +7,6 @@ export default class extends Controller {
   }
   static targets = ['load']
 
-  connect() {
-    console.debug('connected:', this.identifier)
-  }
-
   selected(event) {
     let loc = event.data
     if (loc && loc.module === 'locationPicker') {

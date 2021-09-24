@@ -3,10 +3,6 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
   static targets = ['dialog']
 
-  connect() {
-    console.debug('connected:', this.identifier)
-  }
-
   close() {
     let ele = this.element
     ele.style.display = 'none'

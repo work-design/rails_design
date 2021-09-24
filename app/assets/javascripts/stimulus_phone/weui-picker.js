@@ -7,10 +7,6 @@ export default class extends Controller {
     url: String
   }
 
-  connect() {
-    console.debug('connected:', this.identifier)
-  }
-
   // focus->weui-picker#getData
   getData(event) {
     document.activeElement.blur()  // disable input
