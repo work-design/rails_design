@@ -5,3 +5,14 @@
 .weui-cells__group_form button.weui-vcode-btn[disabled] {
   color: var(--weui-BTN-DISABLED-FONT-COLOR);
 }
+
+.weui-btn_danger {
+  color: white;
+  background-color: var(--weui-RED);
+  &:not(.weui-btn_disabled):visited {
+    color: white;
+  }
+  &:not(.weui-btn_disabled):active {
+    background-color: var(--weui-BTN-DEFAULT-ACTIVE-BG);
+  }
+}
