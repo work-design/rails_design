@@ -11,8 +11,11 @@ form.button_to {
   input[type="submit"] {
     border: none;
     padding: 0;
-    background: none;
+    background: transparent;
     cursor: pointer;
+  }
+  i:before {
+    color: rgba(0, 0, 0, 0.8)
   }
   button:not(.button):focus,
   input[type="submit"]:focus {
