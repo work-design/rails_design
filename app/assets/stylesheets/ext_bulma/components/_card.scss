@@ -1,12 +1,20 @@
 .cards {
   display: grid;
-  grid-template-columns: repeat(2, 50%);
 
   .card {
     margin: 1rem;
   }
+}
 
-  .card + .card {
-    margin-top: 1rem;
-  }
+.cards.is-2 {
+  grid-template-columns: repeat(2, 50%);
+}
+
+.cards.is-4 {
+  grid-template-columns: repeat(4, 25%);
+}
+
+
+.card + .card {
+  margin-top: 1rem;
 }
