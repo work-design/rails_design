@@ -11,7 +11,7 @@ export default class extends Controller {
       if (res.miniprogram) {
         event.preventDefault()
         wx.miniProgram.navigateTo({
-          url: this.urlValue
+          url: this.urlValue  // url must begin with /pages
         })
       }
     })
