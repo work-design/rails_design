@@ -28,8 +28,7 @@ export default class extends Controller {
               document.getElementById('city_name').value = res.cityName
               document.getElementById('country_name').value = res.countryName
 
-              let dialog = document.getElementById('dialog')
-              application.getControllerForElementAndIdentifier(dialog, 'weui-dialog').show()
+              document.getElementById('dialog').controller('weui-dialog').show()
             }
           })
         }
