@@ -3,7 +3,8 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
   static targets = ['preview', 'media']
   static values = {
-    address: String
+    address: String,
+    url: String
   }
 
   close() {
@@ -20,15 +21,18 @@ export default class extends Controller {
         } else {
           wx.openAddress({
             success(res) {
-              document.getElementById('address_contact').value = res.userName
-              document.getElementById('address_tel').value = res.telNumber
-              document.getElementById('address_detail').value = res.detailInfo
-              document.getElementById('address_post_code').value = res.postalCode
-              document.getElementById('province_name').value = res.provinceName
-              document.getElementById('city_name').value = res.cityName
-              document.getElementById('country_name').value = res.countryName
-
-              document.getElementById('dialog').controller('weui-dialog').show()
+              fetch(this.urlValue, {
+                method: 'POST',
+                headers: {
+                  Accept: 'text/vnd.turbo-stream.html',
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(res)
+              }).then(response => {
+                return response.text()
+              }).then(body => {
+                Turbo.renderStreamMessage(body)
+              })
             }
           })
         }
