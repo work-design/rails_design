@@ -19,7 +19,7 @@ export default class extends Controller {
           })
         } else {
           wx.openAddress({
-            success: (res) => {
+            success(res) {
               document.getElementById('address_contact').value = res.userName
               document.getElementById('address_tel').value = res.telNumber
               document.getElementById('address_detail').value = res.detailInfo
@@ -41,7 +41,7 @@ export default class extends Controller {
     wx.ready(() => {
       wx.getLocation({
         type: 'gcj02',
-        success: (res) => {
+        success(res) {
           wx.openLocation({
             latitude: res.latitude,
             longitude: res.longitude,
@@ -61,7 +61,7 @@ export default class extends Controller {
     wx.ready(() => {
       wx.chooseImage({
         count: 1,
-        success: (res) => {
+        success(res) {
           let localId = res.localIds[0]
           this.previewTarget.src = localId
           wx.uploadImage({
@@ -78,7 +78,7 @@ export default class extends Controller {
 
   scan() {
     wx.scanQRCode({
-      success: function (res) {
+      success(res) {
         var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
       }
     })
