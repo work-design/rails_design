@@ -7,7 +7,6 @@ export default class extends Controller {
 
   link(event) {
     wx.miniProgram.getEnv(res => {
-      console.log(res)
       if (res.miniprogram) {
         event.preventDefault()
         wx.miniProgram.navigateTo({

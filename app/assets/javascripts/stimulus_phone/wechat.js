@@ -2,6 +2,9 @@ import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
   static targets = ['preview', 'media']
+  static values = {
+    address: String
+  }
 
   close() {
     wx.closeWindow()
@@ -9,18 +12,26 @@ export default class extends Controller {
 
   openAddress() {
     wx.ready(() => {
-      wx.openAddress({
-        success: (res) => {
-          document.getElementById('address_contact').value = res.userName
-          document.getElementById('address_tel').value = res.telNumber
-          document.getElementById('address_detail').value = res.detailInfo
-          document.getElementById('address_post_code').value = res.postalCode
-          document.getElementById('province_name').value = res.provinceName
-          document.getElementById('city_name').value = res.cityName
-          document.getElementById('country_name').value = res.countryName
+      wx.miniProgram.getEnv(res => {
+        if (res.miniprogram) {
+          wx.miniProgram.navigateTo({
+            url: this.addressValue  // url must begin with /pages
+          })
+        } else {
+          wx.openAddress({
+            success: (res) => {
+              document.getElementById('address_contact').value = res.userName
+              document.getElementById('address_tel').value = res.telNumber
+              document.getElementById('address_detail').value = res.detailInfo
+              document.getElementById('address_post_code').value = res.postalCode
+              document.getElementById('province_name').value = res.provinceName
+              document.getElementById('city_name').value = res.cityName
+              document.getElementById('country_name').value = res.countryName
 
-          let dialog = document.getElementById('dialog')
-          application.getControllerForElementAndIdentifier(dialog, 'weui-dialog').show()
+              let dialog = document.getElementById('dialog')
+              application.getControllerForElementAndIdentifier(dialog, 'weui-dialog').show()
+            }
+          })
         }
       })
     })
