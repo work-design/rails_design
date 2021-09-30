@@ -21,7 +21,7 @@ export default class extends Controller {
         } else {
           wx.openAddress({
             success(res) {
-              fetch(this.urlValue, {
+              fetch('profiled/my/addresses/fork', {
                 method: 'POST',
                 headers: {
                   Accept: 'text/vnd.turbo-stream.html',
