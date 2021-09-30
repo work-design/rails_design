@@ -22,7 +22,7 @@ export default class extends Controller {
           wx.openAddress({
             success(res) {
               const controller = document.getElementById('wechat_address').controller('wechat')
-              fetch(controller.url, {
+              fetch(controller.urlValue, {
                 method: 'POST',
                 headers: {
                   Accept: 'text/vnd.turbo-stream.html',
