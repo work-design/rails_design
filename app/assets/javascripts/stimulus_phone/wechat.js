@@ -21,7 +21,7 @@ export default class extends Controller {
         } else {
           wx.openAddress({
             success(res) {
-              const controller = document.getElementById('wechat_address').controller('wechat').urlValue
+              const controller = document.getElementById('wechat_address').controller('wechat')
               fetch(controller.url, {
                 method: 'POST',
                 headers: {
