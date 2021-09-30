@@ -21,7 +21,8 @@ export default class extends Controller {
         } else {
           wx.openAddress({
             success(res) {
-              fetch('profiled/my/addresses/fork', {
+              const url = document.getElementById('wechat_address').controller('wechat').urlValue
+              fetch(url, {
                 method: 'POST',
                 headers: {
                   Accept: 'text/vnd.turbo-stream.html',
