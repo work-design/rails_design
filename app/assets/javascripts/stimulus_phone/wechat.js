@@ -21,12 +21,13 @@ export default class extends Controller {
         } else {
           wx.openAddress({
             success(res) {
-              const url = document.getElementById('wechat_address').controller('wechat').urlValue
-              fetch(url, {
+              const controller = document.getElementById('wechat_address').controller('wechat').urlValue
+              fetch(controller.url, {
                 method: 'POST',
                 headers: {
                   Accept: 'text/vnd.turbo-stream.html',
-                  'Content-Type': 'application/json'
+                  'Content-Type': 'application/json',
+                  'X-CSRF-Token': controller.csrfToken()
                 },
                 body: JSON.stringify(res)
               }).then(response => {
