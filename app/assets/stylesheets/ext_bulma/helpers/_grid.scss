@@ -1,9 +1,12 @@
 .is-several {
   display: inline-flex;
+  align-items: center;
+  width: -moz-available;
+  width: -webkit-fill-available;
 }
 
 .is-several > * {
-  margin-left: .5em;
+  margin-left: 0.5em;
 }
 .is-several > *:first-child {
   margin-left: 0;
