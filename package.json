@@ -13,7 +13,6 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@hotwired/stimulus": "^3.0.0",
-    "@hotwired/turbo": "^7.0.1",
     "@hotwired/turbo-rails": "^7.0.1",
     "@rails/activestorage": "^7.0.0-alpha2",
     "bulma": "^0.9.3",

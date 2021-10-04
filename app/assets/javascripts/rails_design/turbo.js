@@ -1,5 +1,4 @@
-import * as Turbo from '@hotwired/turbo'
-window.Turbo = Turbo
+import '@hotwired/turbo-rails'
 
 document.addEventListener('turbo:before-fetch-request', event => {
   let xhr = event.detail.fetchOptions
