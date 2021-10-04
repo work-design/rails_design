@@ -2,9 +2,12 @@ import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
   static targets = ['dialog']
+  static values = {
+    id: String
+  }
 
   close() {
-    let ele = this.element
+    const ele = this.element
     ele.style.display = 'none'
     ele.style.opacity = 0
     ele.style.transition = 'opacity 2s'
@@ -12,9 +15,25 @@ export default class extends Controller {
   }
 
   show() {
-    let ele = this.element
+    const ele = this.element
     ele.style.display = 'block'
     ele.style.opacity = 1
+    ele.style.transition = 'opacity 2s'
+    this.dialogTarget.classList.add('weui-half-screen-dialog_show')
+  }
+
+  toggle() {
+    const x = this.target
+    if (x.dialogTarget.classList.contains('weui-half-screen-dialog_show')) {
+      x.close()
+    } else {
+      x.show()
+    }
+  }
+
+  get target() {
+    const ele = document.getElementById(this.idValue)
+    return ele.controller('weui-dialog')
   }
 
 }

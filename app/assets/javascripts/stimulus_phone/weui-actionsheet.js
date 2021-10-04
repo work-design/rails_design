@@ -7,7 +7,7 @@ export default class extends Controller {
   }
 
   close() {
-    let ele = this.maskTarget
+    const ele = this.maskTarget
     ele.style.display = 'none'
     ele.style.opacity = 0
     ele.style.transition = 'opacity 2s'
@@ -15,7 +15,7 @@ export default class extends Controller {
   }
 
   show() {
-    let ele = this.maskTarget
+    const ele = this.maskTarget
     ele.style.display = 'block'
     ele.style.opacity = 1
     ele.style.transition = 'opacity 2s'
@@ -23,7 +23,7 @@ export default class extends Controller {
   }
 
   toggle() {
-    let x = this.target
+    const x = this.target
     if (x.sheetTarget.classList.contains('weui-actionsheet_toggle')) {
       x.close()
     } else {
@@ -32,8 +32,8 @@ export default class extends Controller {
   }
 
   get target() {
-    let ele = document.getElementById(this.idValue)
-    return application.getControllerForElementAndIdentifier(ele, 'weui-actionsheet')
+    const ele = document.getElementById(this.idValue)
+    return ele.controller('weui-actionsheet')
   }
 
 }
