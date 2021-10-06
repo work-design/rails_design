@@ -1,8 +1,8 @@
 import TouchController from './touch'
 
-// z-index: 0, 当前显示的图片；
-// z-index: -1, 即将显示的图片，touch move 时动态设定；
-// z-index: -2, 未显示的图片；
+// z-index: 1, 当前显示的图片；
+// z-index: 0, 即将显示的图片，touch move 时动态设定；
+// z-index: -1, 未显示的图片；
 export default class extends TouchController {
 
   connect() {
@@ -13,15 +13,15 @@ export default class extends TouchController {
 
   // data-action="touchmove->slide#move:passive"
   move(event) {
-    let ele = event.currentTarget
+    const ele = event.currentTarget
     console.debug('touch moved by:', ele.dataset.index)
     if (this.zoomed(event)) {
       console.error('scale')
       return
     }
-    let offset = this.offset(event)
-    let pad = Math.abs(offset.x)
-    let isScrolling = pad > Math.abs(offset.y) ? 1 : 0  // 1 左右滑动，0 上下滑动
+    const offset = this.offset(event)
+    const pad = Math.abs(offset.x)
+    const isScrolling = pad > Math.abs(offset.y) ? 1 : 0  // 1 左右滑动，0 上下滑动
     if (isScrolling === 0) {
       return
     }
@@ -44,10 +44,10 @@ export default class extends TouchController {
     if (this.zoomed(event)) {
       return
     }
-    let ele = event.currentTarget
-    let offset = this.offset(event)
-    let pad = Math.abs(offset.x)
-    let isScrolling = pad > Math.abs(offset.y) ? 1 : 0  // 1 左右滑动，0 上下滑动
+    const ele = event.currentTarget
+    const offset = this.offset(event)
+    const pad = Math.abs(offset.x)
+    const isScrolling = pad > Math.abs(offset.y) ? 1 : 0  // 1 左右滑动，0 上下滑动
     if (isScrolling === 0) {
       console.debug('not scrolling')
       this.rollback(offset, ele)
@@ -67,24 +67,24 @@ export default class extends TouchController {
 
     if (offset.x < 0 && next) {
       this.closeToLeft(next)
-      next.style.zIndex = 0
+      next.style.zIndex = 1
       this.toCurrent(next)
 
       //const observer = new MutationObserver(this.removeEvent)
       //observer.observe(ele, { attributeFilter: ['style'], attributeOldValue: true })
 
       this.awayFromRight(ele)
-      ele.style.zIndex = -1
+      ele.style.zIndex = 0
       this.beenCurrent(ele)
     }
 
     if (offset.x > 0 && prev) {
       this.closeToRight(prev)
-      prev.style.zIndex = 0
+      prev.style.zIndex = 1
       this.toCurrent(prev)
 
       this.awayFromLeft(ele)
-      ele.style.zIndex = -1
+      ele.style.zIndex = 0
       this.beenCurrent(ele)
     }
   }
@@ -114,14 +114,14 @@ export default class extends TouchController {
   // 左滑
   slidingToLeft(ele, next, pad) {
     ele.style.right = pad + 'px'
-    next.style.zIndex = -1
+    next.style.zIndex = 0
     next.style.left = (this.element.clientWidth - pad) + 'px'
   }
 
   // 右滑
   slidingToRight(ele, prev, pad) {
     ele.style.left = pad + 'px'
-    prev.style.zIndex = -1
+    prev.style.zIndex = 0
     prev.style.right = (this.element.clientWidth - pad) + 'px'
   }
 
@@ -177,7 +177,7 @@ export default class extends TouchController {
           console.log('-------->', mutation.target.style.cssText)
 
           if (mutation.attributeName === 'style') {
-            let con = mutation.target.parentElement.controller('slide')
+            const con = mutation.target.parentElement.controller('slide')
             mutation.target.removeEventListener('transitionend', con.resetIndex)
             mutation.target.removeEventListener('transitioncancel', con.resetIndex)
           }
@@ -197,7 +197,7 @@ export default class extends TouchController {
     ['left', 'right', 'transition-property', 'transition-duration'].forEach(rule => {
       event.currentTarget.style.removeProperty(rule)
     })
-    event.currentTarget.style.zIndex = -2
+    event.currentTarget.style.zIndex = -1
   }
 
 }
