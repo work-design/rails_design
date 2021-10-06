@@ -2,3 +2,12 @@
   color: grey;
   font-weight: lighter;
 }
+
+.weui-panel__bd {
+  .weui-cells:first-child {
+    margin-top: 0;
+  }
+  .weui-cells:first-child:before {
+    display: none;
+  }
+}
