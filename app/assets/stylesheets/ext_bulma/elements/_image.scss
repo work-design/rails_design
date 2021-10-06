@@ -33,6 +33,6 @@ figure.image {
   }
   img, video {
     height: inherit;
-    object-fit: contain;
+    object-fit: cover;
   }
 }

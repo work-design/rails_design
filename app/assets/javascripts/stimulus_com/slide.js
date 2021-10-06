@@ -114,8 +114,11 @@ export default class extends TouchController {
   // 左滑
   slidingToLeft(ele, next, pad) {
     ele.style.right = pad + 'px'
+    //ele.style.marginLeft = -pad + 'px'
     next.style.zIndex = 0
     next.style.left = (this.element.clientWidth - pad) + 'px'
+    //next.style.marginLeft = (this.element.clientWidth - pad) + 'px'
+    //next.style.marginRight = (pad - this.element.clientWidth) + 'px'
   }
 
   // 右滑

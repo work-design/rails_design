@@ -2,6 +2,7 @@
   --height: 430px;
   position: relative;
   height: calc(var(--height) + 30px);
+  overflow: hidden;
   //margin-bottom: 27px;
 
   figure {
