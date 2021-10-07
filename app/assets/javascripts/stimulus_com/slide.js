@@ -6,7 +6,7 @@ import TouchController from './touch'
 export default class extends TouchController {
 
   connect() {
-    this.element.addEventListener('touchstart', (event) => {
+    this.element.addEventListener('touchstart', event => {
       this.start(event)
     }, { passive: true })
   }
@@ -114,7 +114,7 @@ export default class extends TouchController {
   // 左滑
   slidingToLeft(ele, next, pad) {
     ele.style.right = pad + 'px'
-    //ele.style.marginLeft = -pad + 'px'
+    ele.style.marginLeft = -pad + 'px'
     next.style.zIndex = 0
     next.style.left = (this.element.clientWidth - pad) + 'px'
     //next.style.marginLeft = (this.element.clientWidth - pad) + 'px'
@@ -190,17 +190,31 @@ export default class extends TouchController {
   }
 
   clearStyle(event) {
-    ['left', 'right', 'transition-property', 'transition-duration'].forEach(rule => {
+    ['left', 'right', 'margin-left', 'transition-property', 'transition-duration'].forEach(rule => {
       event.currentTarget.style.removeProperty(rule)
     })
+
+    const controller = event.target.parentElement.controller('slide')
+    if (event.type === 'transitionend') {
+      event.target.removeEventListener('transitioncancel', controller.clearStyle)
+    } else if (event.type === 'transitioncancel') {
+      event.target.removeEventListener('transitionend', controller.clearStyle)
+    }
   }
 
   // this become event.target
   resetIndex(event) {
-    ['left', 'right', 'transition-property', 'transition-duration'].forEach(rule => {
+    ['left', 'right', 'margin-left', 'transition-property', 'transition-duration'].forEach(rule => {
       event.currentTarget.style.removeProperty(rule)
     })
     event.currentTarget.style.zIndex = -1
+
+    const controller = event.target.parentElement.controller('slide')
+    if (event.type === 'transitionend') {
+      event.target.removeEventListener('transitioncancel', controller.resetIndex)
+    } else if (event.type === 'transitioncancel') {
+      event.target.removeEventListener('transitionend', controller.resetIndex)
+    }
   }
 
 }
