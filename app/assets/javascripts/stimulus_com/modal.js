@@ -38,7 +38,7 @@ export default class extends Controller {
 
   // NOTICE: here this becomes observer
   loaded(list, observer) {
-    let item = list[0]
+    const item = list[0]
     let ele = item.target.parentNode.parentNode
     let con = application.getControllerForElementAndIdentifier(ele, 'modal')
     switch(item.type) {

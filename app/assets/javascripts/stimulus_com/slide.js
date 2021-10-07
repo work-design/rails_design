@@ -70,9 +70,6 @@ export default class extends TouchController {
       next.style.zIndex = 1
       this.toCurrent(next)
 
-      //const observer = new MutationObserver(this.removeEvent)
-      //observer.observe(ele, { attributeFilter: ['style'], attributeOldValue: true })
-
       this.awayFromRight(ele)
       ele.style.zIndex = 0
       this.beenCurrent(ele)
@@ -170,29 +167,11 @@ export default class extends TouchController {
     ele.style.transitionDuration = this.duration
   }
 
-  // NOTICE: here this becomes observer
-  removeEvent(list, observer) {
-    list.forEach(mutation => {
-      switch(mutation.type) {
-        case 'attributes':
-          console.log('-------->', mutation.oldValue)
-          console.log(this)
-          console.log('-------->', mutation.target.style.cssText)
-
-          if (mutation.attributeName === 'style') {
-            const con = mutation.target.parentElement.controller('slide')
-            mutation.target.removeEventListener('transitionend', con.resetIndex)
-            mutation.target.removeEventListener('transitioncancel', con.resetIndex)
-          }
-      }
-    })
-    observer.disconnect()
-  }
-
   clearStyle(event) {
     ['left', 'right', 'margin-left', 'transition-property', 'transition-duration'].forEach(rule => {
       event.currentTarget.style.removeProperty(rule)
     })
+    console.debug(event.target.dataset.index, 'clear style by', event.type)
 
     const controller = event.target.parentElement.controller('slide')
     if (event.type === 'transitionend') {
@@ -208,6 +187,7 @@ export default class extends TouchController {
       event.currentTarget.style.removeProperty(rule)
     })
     event.currentTarget.style.zIndex = -1
+    console.debug(event.target.dataset.index, 'reset index by', event.type)
 
     const controller = event.target.parentElement.controller('slide')
     if (event.type === 'transitionend') {
