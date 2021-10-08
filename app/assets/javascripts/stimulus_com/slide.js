@@ -44,8 +44,8 @@ export default class extends TouchController {
     let next = ele.nextElementSibling || this.element.firstElementChild
     this.initStyle(ele, next)
 
-    ele.classList.replace('transition_later', 'transition_now')
-    next.classList.replace('transition_later', 'transition_now')
+    ele.classList.replace('transition_later', 'transition_none')
+    next.classList.replace('transition_later', 'transition_none')
     ele.removeEventListener('transitioncancel', this.resetIndex)
     ele.removeEventListener('transitionend', this.resetIndex)
   }
@@ -108,6 +108,8 @@ export default class extends TouchController {
   going(offset, ele) {
     const next = ele.nextElementSibling
     const prev = ele.previousElementSibling
+    ele.classList.replace('transition_none', 'transition_now')
+    next.classList.replace('transition_none', 'transition_now')
 
     if (offset.x < 0 && next) {
       this.playToLeft(ele, next)
