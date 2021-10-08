@@ -12,6 +12,18 @@
     text-align: center;
     background: black;
   }
+  .transition_later {
+    transition-delay: 100s;
+    transition-duration: 3s;
+    transition-property: left, right;
+    transition-timing-function: linear;
+    left: 0;
+  }
+  .transition_now {
+    transition-property: left, right;
+    transition-timing-function: linear;
+    left: 0;
+  }
 }
 
 .slide-y {

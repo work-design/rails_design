@@ -3,6 +3,7 @@ import TouchController from './touch'
 // z-index: 1, 当前显示的图片；
 // z-index: 0, 即将显示的图片，touch move 时动态设定；
 // z-index: -1, 未显示的图片；
+// left 的优先级高于 right
 export default class extends TouchController {
   static values = {
     play: Boolean
@@ -14,20 +15,38 @@ export default class extends TouchController {
     }, { passive: true })
 
     if (this.hasPlayValue && this.playValue) {
-      console.log('-------->')
-      let first = this.element.firstElementChild
-      this.autoPlay(first)
+      let ele = this.element.firstElementChild
+      let next = ele.nextElementSibling || this.element.firstElementChild
+      this.initStyle(ele, next)
+
+      this.playToLeft(ele, next)
     }
   }
 
   autoPlay(ele) {
     let next = ele.nextElementSibling || this.element.firstElementChild
-
-    ele.style.transitionDelay = '3s'
-    next.style.transitionDelay = '3s'
     this.playToLeft(ele, next)
 
-    autoPlay(next)
+    //autoPlay(next)
+  }
+
+  initStyle(ele, next) {
+    //next.style.zIndex = 0
+    ele.classList.add('transition_later')
+    next.style.left = next.clientWidth + 'px'
+    next.classList.add('transition_later')
+  }
+
+  start(event) {
+    this.initStatus(event)
+
+    const ele = event.target.closest('[data-index]')
+    let next = ele.nextElementSibling || this.element.firstElementChild
+    this.initStyle(ele, next)
+
+    ele.classList.replace('transition_later', 'transition_now')
+    ele.removeEventListener('transitioncancel', this.resetIndex)
+    ele.removeEventListener('transitionend', this.resetIndex)
   }
 
   // data-action="touchmove->slide#move:passive"
@@ -48,12 +67,17 @@ export default class extends TouchController {
     if (offset.x < 0) {  // offset.x < 0 表示向左滑动
       const next = ele.nextElementSibling
       if (next) {
-        this.slidingToLeft(ele, next, pad)
+        ele.style.left = -pad + 'px'
+        next.style.zIndex = 0
+        next.style.left = (this.element.clientWidth - pad) + 'px'
       }
     } else if (offset.x > 0) {  // offset.x > 0 表示向右滑动
       const prev = ele.previousElementSibling
       if (prev) {
-        this.slidingToRight(ele, prev, pad)
+        ele.style.left = pad + 'px'
+        prev.style.zIndex = 0
+        prev.style.right = (this.element.clientWidth - pad) + 'px'
+        //this.slidingToRight(ele, prev, pad)
       }
     }
   }
@@ -100,11 +124,20 @@ export default class extends TouchController {
   }
 
   playToLeft(ele, next) {
-    this.closeToLeft(next)
-    next.style.zIndex = 1
-    this.toCurrent(next)
+    ele.style.left = -this.element.clientWidth + 'px'
+    this.beenCurrent(ele)
 
-    this.awayFromRight(ele)
+    next.style.left = 0
+    next.style.zIndex = 0
+    this.toCurrent(next)
+  }
+
+  playToRight(ele, prev) {
+    this.closeToRight(prev)
+    prev.style.zIndex = 1
+    this.toCurrent(prev)
+
+    this.awayFromLeft(ele)
     ele.style.zIndex = 0
     this.beenCurrent(ele)
   }
@@ -165,8 +198,8 @@ export default class extends TouchController {
   // 接近左侧
   closeToLeft(ele) {
     ele.style.left = 0
-    ele.style.transitionProperty = 'left'
-    ele.style.transitionDuration = this.duration
+    //ele.style.transitionProperty = 'left'
+    //ele.style.transitionDuration = this.duration
   }
 
   // 接近右侧
@@ -179,8 +212,8 @@ export default class extends TouchController {
   // 远离右侧
   awayFromRight(ele) {
     ele.style.right = this.element.clientWidth + 'px'
-    ele.style.transitionProperty = 'right'
-    ele.style.transitionDuration = this.duration
+    //ele.style.transitionProperty = 'right'
+
   }
 
   // 远离左侧

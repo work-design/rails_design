@@ -6,7 +6,7 @@ export default class TouchController extends Controller {
   }
 
   // data-action="touchstart->slide#start:passive"
-  start(event) {
+  initStatus(event) {
     const touch = event.targetTouches[0]
     this.startPos = {
       x: touch.pageX,
