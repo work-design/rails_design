@@ -43,9 +43,7 @@ export default class extends TouchController {
     const ele = event.target.closest('[data-index]')
     let next = ele.nextElementSibling || this.element.firstElementChild
     this.initStyle(ele, next)
-
-    ele.classList.replace('transition_later', 'transition_none')
-    next.classList.replace('transition_later', 'transition_none')
+    this.transitionNone(ele, next)
     ele.removeEventListener('transitioncancel', this.resetIndex)
     ele.removeEventListener('transitionend', this.resetIndex)
   }
@@ -77,8 +75,7 @@ export default class extends TouchController {
       if (prev) {
         ele.style.left = pad + 'px'
         prev.style.zIndex = 0
-        prev.style.right = (this.element.clientWidth - pad) + 'px'
-        //this.slidingToRight(ele, prev, pad)
+        prev.style.left = (pad - this.element.clientWidth) + 'px'
       }
     }
   }
@@ -108,21 +105,16 @@ export default class extends TouchController {
   going(offset, ele) {
     const next = ele.nextElementSibling
     const prev = ele.previousElementSibling
-    ele.classList.replace('transition_none', 'transition_now')
-    next.classList.replace('transition_none', 'transition_now')
+    this.transitionNow(ele)
 
     if (offset.x < 0 && next) {
+      this.transitionNow(next)
       this.playToLeft(ele, next)
     }
 
     if (offset.x > 0 && prev) {
-      this.closeToRight(prev)
-      prev.style.zIndex = 1
-      this.toCurrent(prev)
-
-      this.awayFromLeft(ele)
-      ele.style.zIndex = 0
-      this.beenCurrent(ele)
+      this.transitionNow(prev)
+      this.playToRight(ele, prev)
     }
   }
 
@@ -136,11 +128,11 @@ export default class extends TouchController {
   }
 
   playToRight(ele, prev) {
-    this.closeToRight(prev)
+    prev.style.left = 0
     prev.style.zIndex = 1
     this.toCurrent(prev)
 
-    this.awayFromLeft(ele)
+    ele.style.left = this.element.clientWidth + 'px'
     ele.style.zIndex = 0
     this.beenCurrent(ele)
   }
@@ -151,37 +143,39 @@ export default class extends TouchController {
     const prev = ele.previousElementSibling
 
     if (offset.x < 0 && next) {
-      this.closeToRight(ele)
+      ele.style.right = 0
       this.toCurrent(ele)
 
-      this.awayFromLeft(next)
+      next.style.left = this.element.clientWidth + 'px'
       this.beenCurrent(next)
     }
 
     if (offset.x > 0 && prev) {
-      this.closeToLeft(ele)
+      ele.style.left = 0
       this.toCurrent(ele)
 
-      this.awayFromRight(prev)
+      prev.style.right = this.element.clientWidth + 'px'
       this.beenCurrent(prev)
     }
   }
 
-  // 左滑
-  slidingToLeft(ele, next, pad) {
-    ele.style.right = pad + 'px'
-    ele.style.marginLeft = -pad + 'px'
-    next.style.zIndex = 0
-    next.style.left = (this.element.clientWidth - pad) + 'px'
-    //next.style.marginLeft = (this.element.clientWidth - pad) + 'px'
-    //next.style.marginRight = (pad - this.element.clientWidth) + 'px'
+  //
+  transitionNone(...elements) {
+    elements.forEach(ele => {
+      if (ele.classList.contains('transition_later')) {
+        ele.classList.replace('transition_later', 'transition_none')
+      }
+    })
   }
 
-  // 右滑
-  slidingToRight(ele, prev, pad) {
-    ele.style.left = pad + 'px'
-    prev.style.zIndex = 0
-    prev.style.right = (this.element.clientWidth - pad) + 'px'
+  transitionNow(...elements) {
+    elements.forEach(ele => {
+      if (ele.classList.contains('transition_later')) {
+        ele.classList.replace('transition_later', 'transition_now')
+      } else if (ele.classList.contains('transition_none')) {
+        ele.classList.replace('transition_none', 'transition_now')
+      }
+    })
   }
 
   // 不再展示
@@ -198,38 +192,11 @@ export default class extends TouchController {
     ele.addEventListener('transitioncancel', this.clearStyle, { once: true })
   }
 
-  // 接近左侧
-  closeToLeft(ele) {
-    ele.style.left = 0
-    //ele.style.transitionProperty = 'left'
-    //ele.style.transitionDuration = this.duration
-  }
-
-  // 接近右侧
-  closeToRight(ele) {
-    ele.style.right = 0
-    ele.style.transitionProperty = 'right'
-    ele.style.transitionDuration = this.duration
-  }
-
-  // 远离右侧
-  awayFromRight(ele) {
-    ele.style.right = this.element.clientWidth + 'px'
-    //ele.style.transitionProperty = 'right'
-
-  }
-
-  // 远离左侧
-  awayFromLeft(ele) {
-    ele.style.left = this.element.clientWidth + 'px'
-    ele.style.transitionProperty = 'left'
-    ele.style.transitionDuration = this.duration
-  }
-
   clearStyle(event) {
-    ['left', 'right', 'margin-left', 'transition-property', 'transition-duration'].forEach(rule => {
+    ['left', 'right', 'transition-duration'].forEach(rule => {
       event.currentTarget.style.removeProperty(rule)
     })
+    event.currentTarget.classList.remove('transition_now')
     console.debug(event.target.dataset.index, 'clear style by', event.type)
 
     const controller = event.target.parentElement.controller('slide')
@@ -242,9 +209,10 @@ export default class extends TouchController {
 
   // this become event.target
   resetIndex(event) {
-    ['left', 'right', 'margin-left', 'transition-property', 'transition-duration'].forEach(rule => {
+    ['left', 'right', 'transition-duration'].forEach(rule => {
       event.currentTarget.style.removeProperty(rule)
     })
+    event.currentTarget.classList.remove('transition_now')
     event.currentTarget.style.zIndex = -1
     console.debug(event.target.dataset.index, 'reset index by', event.type)
 
