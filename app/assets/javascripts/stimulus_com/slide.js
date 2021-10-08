@@ -18,23 +18,14 @@ export default class extends TouchController {
       let ele = this.element.firstElementChild
       let next = ele.nextElementSibling || this.element.firstElementChild
       this.initStyle(ele, next)
-
       this.playToLeft(ele, next)
     }
   }
 
-  autoPlay(ele) {
-    let next = ele.nextElementSibling || this.element.firstElementChild
-    this.playToLeft(ele, next)
-
-    //autoPlay(next)
-  }
-
   initStyle(ele, next) {
     //next.style.zIndex = 0
-    ele.classList.add('transition_later')
     next.style.left = next.clientWidth + 'px'
-    next.classList.add('transition_later')
+    this.transitionLater(ele, next)
   }
 
   start(event) {
@@ -157,6 +148,14 @@ export default class extends TouchController {
       prev.style.right = this.element.clientWidth + 'px'
       this.beenCurrent(prev)
     }
+  }
+
+  transitionLater(...elements) {
+    elements.forEach(ele => {
+      if (!ele.classList.contains('transition_later')) {
+        ele.classList.add('transition_later')
+      }
+    })
   }
 
   //
