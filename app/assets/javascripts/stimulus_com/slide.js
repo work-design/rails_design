@@ -163,7 +163,7 @@ export default class extends TouchController {
   transitionNone(...elements) {
     elements.forEach(ele => {
       if (ele.classList.contains('transition_later')) {
-        ele.classList.replace('transition_later', 'transition_none')
+        ele.classList.remove('transition_later')
       }
     })
   }
@@ -172,8 +172,8 @@ export default class extends TouchController {
     elements.forEach(ele => {
       if (ele.classList.contains('transition_later')) {
         ele.classList.replace('transition_later', 'transition_now')
-      } else if (ele.classList.contains('transition_none')) {
-        ele.classList.replace('transition_none', 'transition_now')
+      } else if (!ele.classList.contains('transition_now')) {
+        ele.classList.add('transition_now')
       }
     })
   }
