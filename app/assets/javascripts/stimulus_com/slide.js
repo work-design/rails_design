@@ -4,11 +4,30 @@ import TouchController from './touch'
 // z-index: 0, 即将显示的图片，touch move 时动态设定；
 // z-index: -1, 未显示的图片；
 export default class extends TouchController {
+  static values = {
+    play: Boolean
+  }
 
   connect() {
     this.element.addEventListener('touchstart', event => {
       this.start(event)
     }, { passive: true })
+
+    if (this.hasPlayValue && this.playValue) {
+      console.log('-------->')
+      let first = this.element.firstElementChild
+      this.autoPlay(first)
+    }
+  }
+
+  autoPlay(ele) {
+    let next = ele.nextElementSibling || this.element.firstElementChild
+
+    ele.style.transitionDelay = '3s'
+    next.style.transitionDelay = '3s'
+    this.playToLeft(ele, next)
+
+    autoPlay(next)
   }
 
   // data-action="touchmove->slide#move:passive"
@@ -66,13 +85,7 @@ export default class extends TouchController {
     const prev = ele.previousElementSibling
 
     if (offset.x < 0 && next) {
-      this.closeToLeft(next)
-      next.style.zIndex = 1
-      this.toCurrent(next)
-
-      this.awayFromRight(ele)
-      ele.style.zIndex = 0
-      this.beenCurrent(ele)
+      this.playToLeft(ele, next)
     }
 
     if (offset.x > 0 && prev) {
@@ -84,6 +97,16 @@ export default class extends TouchController {
       ele.style.zIndex = 0
       this.beenCurrent(ele)
     }
+  }
+
+  playToLeft(ele, next) {
+    this.closeToLeft(next)
+    next.style.zIndex = 1
+    this.toCurrent(next)
+
+    this.awayFromRight(ele)
+    ele.style.zIndex = 0
+    this.beenCurrent(ele)
   }
 
   // 回退到之前的状态
