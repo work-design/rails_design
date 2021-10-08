@@ -45,6 +45,7 @@ export default class extends TouchController {
     this.initStyle(ele, next)
 
     ele.classList.replace('transition_later', 'transition_now')
+    next.classList.replace('transition_later', 'transition_now')
     ele.removeEventListener('transitioncancel', this.resetIndex)
     ele.removeEventListener('transitionend', this.resetIndex)
   }
