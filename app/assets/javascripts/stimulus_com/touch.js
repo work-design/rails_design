@@ -72,12 +72,4 @@ export default class TouchController extends Controller {
     this.data.set('startTime', time)
   }
 
-  get duration() {
-    let duration = this.data.get('duration')
-    if (!duration) {
-      duration = '1s'
-    }
-    return duration
-  }
-
 }
