@@ -94,6 +94,7 @@ export default class extends Controller {
       wx.showMenuItems({
         menuList: ['menuItem:copyUrl']
       })
+      wx.showOptionMenu()
     })
   }
 

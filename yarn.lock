@@ -781,11 +781,6 @@ babel-preset-jest@^27.0.6:
     babel-plugin-jest-hoist "^27.0.6"
     babel-preset-current-node-syntax "^1.0.0"
 
-balajs@^0.1.9:
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/balajs/-/balajs-0.1.9.tgz#e03d1e6fb88d53cc1a2591a7bfec70d1e52d8f00"
-  integrity sha1-4D0eb7iNU8waJZGnv+xw0eUtjwA=
-
 balanced-match@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
@@ -1055,11 +1050,6 @@ electron-to-chromium@^1.3.793:
   version "1.3.800"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.800.tgz#8efbb11e88b0a072d5c0250e6249123d3a76cb9a"
   integrity sha512-qagikPjZJSDWP85uWoxs32oK/xk/y3MhDZELfKRCWI7pBc0ZFlmjnXb+3+aNMaiqboeDJJa0v7CJd5cO1HKwEQ==
-
-element-closest@^2.0.1:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/element-closest/-/element-closest-2.0.2.tgz#72a740a107453382e28df9ce5dbb5a8df0f966ec"
-  integrity sha1-cqdAoQdFM4LijfnOXbtajfD5Zuw=
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -2034,11 +2024,6 @@ nwsapi@^2.2.0:
   resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.0.tgz#204879a9e3d068ff2a55139c2c772780681a38b7"
   integrity sha512-h2AatdwYH+JHiZpv7pt/gSX1XoRGb7L/qSIeuqA6GwYoF9w1vP1cw42TO0aI2pNyshRK5893hNSl+1//vHK7hQ==
 
-object-assign@^4.1.0:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
-  integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
-
 once@^1.3.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/once/-/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
@@ -2512,15 +2497,6 @@ webidl-conversions@^6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-6.1.0.tgz#9111b4d7ea80acd40f5270d666621afa78b69514"
   integrity sha512-qBIvFLGiBpLjfwmYAaHPXsn+ho5xZnGvyGvsarywGNc8VyQJUMHJ8OBKGGrPER0okBeMDaan4mNBlgBROxuI8w==
-
-weui.js@^1.2.8:
-  version "1.2.8"
-  resolved "https://registry.yarnpkg.com/weui.js/-/weui.js-1.2.8.tgz#1595b520ede78c925a1ab5b233b1fc9ace27a1d0"
-  integrity sha512-gwWcBs/KQKplMTiEj8CZaGLoy26CaCIiDfENlIgeC1ff7yTypy8kjo3lGFNbLrNNTcTB0PLXjIEWkdALmLrpGA==
-  dependencies:
-    balajs "^0.1.9"
-    element-closest "^2.0.1"
-    object-assign "^4.1.0"
 
 weui@^2.5.0:
   version "2.5.0"
