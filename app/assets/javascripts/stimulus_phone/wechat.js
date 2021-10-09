@@ -84,8 +84,16 @@ export default class extends Controller {
   scan() {
     wx.scanQRCode({
       success(res) {
-        var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+        const result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
       }
+    })
+  }
+
+  showMenu() {
+    wx.ready(() => {
+      wx.showMenuItems({
+        menuList: ['menuItem:copyUrl']
+      })
     })
   }
 
