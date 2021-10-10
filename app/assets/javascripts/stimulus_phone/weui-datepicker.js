@@ -1,5 +1,4 @@
 import { Controller } from '@hotwired/stimulus'
-import weui from 'weui.js'
 
 export default class extends Controller {
 
