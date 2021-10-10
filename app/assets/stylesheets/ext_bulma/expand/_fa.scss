@@ -1,11 +1,14 @@
 .fa-light + span,
 .fa-brands + span,
+.fa-regular + span,
 .fa-light + a,
-.fa-brands + a {
+.fa-brands + a,
+.fa-regular + a {
   padding-left: 0.25em;
 }
 
 span + .fa-light,
-span + .fa-brands {
+span + .fa-brands,
+span + .fa-regular {
   padding-left: 0.25em;
 }

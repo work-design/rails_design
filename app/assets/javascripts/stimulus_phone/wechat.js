@@ -8,7 +8,17 @@ export default class extends Controller {
   }
 
   close() {
-    wx.closeWindow()
+    wx.ready(() => {
+      wx.miniProgram.getEnv(res => {
+        if (res.miniprogram) {
+          wx.miniProgram.navigateTo({
+            url: this.addressValue  // url must begin with /pages
+          })
+        } else {
+          wx.closeWindow()
+        }
+      })
+    })
   }
 
   openAddress() {
