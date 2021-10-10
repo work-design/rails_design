@@ -3,3 +3,8 @@
 @import 'dot';
 @import 'drawable';
 @import 'grid';
+
+
+.is-bordered {
+  border: 1px solid darkgrey;
+}
