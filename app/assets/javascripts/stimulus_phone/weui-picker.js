@@ -14,12 +14,12 @@ export default class extends Controller {
     fetch(this.urlValue, {
       method: 'GET',
       headers: {
-        Accept: 'application/json'
+        Accept: 'text/vnd.turbo-stream.html'
       }
     }).then(response => {
-      return response.json()
+      return response.text()
     }).then(body => {
-      this.picker(body, ele)
+      Turbo.renderStreamMessage(body)
     })
   }
 
