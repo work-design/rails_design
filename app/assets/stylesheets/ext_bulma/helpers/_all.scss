@@ -4,11 +4,11 @@
 @import 'drawable';
 @import 'grid';
 
-
 .is-bordered {
   border: 1px solid darkgrey;
 }
 
 .is-cover {
-
+  background-size: cover;
+  background-repeat: no-repeat;
 }
