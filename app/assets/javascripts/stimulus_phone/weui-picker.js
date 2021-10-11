@@ -38,10 +38,20 @@ export default class extends Controller {
     }).then(response => {
       return response.text()
     }).then(body => {
+      const node = ele.parentNode.parentNode
+      this.clear(node)
       if (body.length > 0) {
-        ele.parentNode.parentNode.insertAdjacentHTML('afterend', body)
+        node.insertAdjacentHTML('afterend', body)
       }
     })
+  }
+
+  clear(node) {
+    let el = node.nextElementSibling
+    while (el) {
+      el.remove()
+      el = node.nextElementSibling
+    }
   }
 
 }
