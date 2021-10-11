@@ -46,6 +46,10 @@ export default class extends Controller {
     })
   }
 
+  setValue(event) {
+    document.getElementById('address_area_id').value = event.currentTarget.dataset.id
+  }
+
   clear(node) {
     let el = node.nextElementSibling
     while (el) {
