@@ -9,7 +9,6 @@ export default class extends Controller {
   // focus->weui-picker#getData
   getData(event) {
     document.activeElement.blur()  // disable input
-    const ele = event.currentTarget
 
     fetch(this.urlValue, {
       method: 'GET',
@@ -20,6 +19,28 @@ export default class extends Controller {
       return response.text()
     }).then(body => {
       Turbo.renderStreamMessage(body)
+    })
+  }
+
+  getNext(event) {
+    const ele = event.currentTarget
+
+    fetch(this.urlValue, {
+      method: 'POST',
+      headers: {
+        Accept: 'text/vnd.turbo-stream.html',
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': this.csrfToken()
+      },
+      body: JSON.stringify({
+        id: ele.dataset.id
+      })
+    }).then(response => {
+      return response.text()
+    }).then(body => {
+      if (body.length > 0) {
+        ele.parentNode.parentNode.insertAdjacentHTML('afterend', body)
+      }
     })
   }
 
