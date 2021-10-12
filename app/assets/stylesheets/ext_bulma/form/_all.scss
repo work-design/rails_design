@@ -14,7 +14,7 @@ form.button_to {
     background: transparent;
     cursor: pointer;
   }
-  i:before {
+  i:not(.fa-light):before {
     color: rgba(0, 0, 0, 0.8)
   }
   button:not(.button):focus,
