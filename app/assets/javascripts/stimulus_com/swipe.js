@@ -5,12 +5,7 @@ export default class extends TouchController {
 
   // data-action="touchstart->swipe#start:passive"
   start(event) {
-    let touch = event.targetTouches[0]
-    this.startPos = {
-      x: touch.pageX,
-      y: touch.pageY
-    }
-    this.startTime = new Date().getTime() // 毫秒，千分之一秒
+    this.initStatus(event)
     this.barWidth = this.element.clientWidth
     this.swiperWidth = this.openTarget.clientWidth
   }
@@ -20,21 +15,21 @@ export default class extends TouchController {
     if (this.zoomed(event)) {
       return
     }
-    let offset = this.offset(event.targetTouches[0])
-    let pad = Math.abs(offset.x)
-    let isScrolling = pad < Math.abs(offset.y) ? 1 : 0 // 1 上下滚动，0 左右滑动
-    if (isScrolling !== 0) {
+    const offset = this.offset(event)
+    const pad = Math.abs(offset.x)
+    const isScrolling = pad > Math.abs(offset.y) ? 1 : 0 // 1 上下滚动，0 左右滑动
+    if (isScrolling === 0) {
       return
     }
 
-    if (isScrolling === 0 && offset.x < 0) {
+    if (offset.x < 0) {
       this.openTarget.style.width = `${this.swiperWidth + pad}px`
       let styles = {
         width: `${this.barWidth - this.swiperWidth + this.openTarget.clientWidth}px`,
         left: `-${this.openTarget.clientWidth}px`
       }
       Object.assign(this.element.style, styles)
-    } else if (isScrolling === 0 && offset.x > 0) {
+    } else if (offset.x > 0) {
       let x = pad < this.swiperWidth ? this.swiperWidth - pad : 0
       this.openTarget.style.width = `${x}px`
       let styles = {
