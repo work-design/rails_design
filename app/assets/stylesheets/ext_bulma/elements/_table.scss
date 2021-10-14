@@ -3,7 +3,10 @@
     border: solid 1px $border;
   }
 
-  thead th, td {
+  thead td,
+  thead th,
+  tbody tr:last-child td,
+  tbody tr:last-child th {
     border-bottom-width: 1px;
   }
   tfoot td, th {
