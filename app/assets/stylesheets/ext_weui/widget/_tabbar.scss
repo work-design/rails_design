@@ -15,3 +15,29 @@
   margin-right: 8px;
   margin-left: 8px;
 }
+
+.weui-bar__item_on {
+  i {
+    font-weight: 900;
+  }
+}
+
+.weui-tabbar.weui-tabbar__primary {
+  background-color: #48c78e;
+
+  .weui-tabbar__item {
+    color: #fff;
+    weui-tabbar__icon {
+      color: #fff;
+    }
+  }
+  .weui-bar__item_on {
+    color: #730E15;
+    .weui-tabbar__label {
+      color: #fff;
+    }
+    i {
+      color: #fff;
+    }
+  }
+}
