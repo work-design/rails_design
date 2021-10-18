@@ -12,3 +12,11 @@
     display: none;
   }
 }
+
+.weui-tab__panel {
+  .weui-panel:first-child {
+    &:before {
+      border-top: none;
+    }
+  }
+}

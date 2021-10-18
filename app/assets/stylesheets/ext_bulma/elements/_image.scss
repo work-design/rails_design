@@ -15,10 +15,18 @@
   }
 }
 
-figure.is-flex {
+.is-avatar {
   display: flex;
-  flex-flow: column;
-  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: -32px auto 0;
+
+  .image {
+    height: 64px;
+    width: 64px;
+    border-radius: 9999px;
+  }
 }
 
 figure.image {
