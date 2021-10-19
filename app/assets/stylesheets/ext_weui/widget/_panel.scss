@@ -13,10 +13,11 @@
   }
 }
 
-.weui-tab__panel {
-  .weui-panel:first-child {
-    &:before {
-      border-top: none;
-    }
+.weui-panel.is-borderless {
+  &:before {
+    border-top: none;
+  }
+  .weui-panel__hd:after {
+    border-bottom: none;
   }
 }

@@ -1,13 +1,6 @@
 GIT
-  remote: https://github.com/qinmingyuan/viter.git
-  revision: a6c36456e695b32d427179c1bfc1c0df2c66792c
-  specs:
-    viter (0.1)
-      rails
-
-GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 8949509c4f26ecf76adecfdbb2e221535ee47ac0
+  revision: 1e2f7f62cb8223f0e9ceb679f1c9093d73c0501f
   specs:
     rails_com (1.2.9)
       acme-client
@@ -16,6 +9,7 @@ GIT
       default_where (~> 2.2)
       http-form_data (~> 2.3)
       httpx (~> 0.16)
+      jbuilder
       kaminari
       rails (>= 6.1)
       rails_extend
@@ -23,10 +17,17 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_extend.git
-  revision: 48e8b20f65097c981b8ecc3b9b35d2082512d9e8
+  revision: f339c960ec81768c1cc80190f0713f9766150082
   specs:
     rails_extend (1.0.0)
-      rails (>= 6.0)
+      rails (>= 5.0)
+
+GIT
+  remote: https://github.com/work-design/rails_vite.git
+  revision: 231c4cf7eb14fc610ffd8d36b686df8e5d2351cd
+  specs:
+    rails_vite (0.0.1)
+      rails
 
 PATH
   remote: .
@@ -101,7 +102,7 @@ GEM
     acts_as_list (1.0.4)
       activerecord (>= 4.2)
     builder (3.2.4)
-    closure_tree (7.3.0)
+    closure_tree (7.4.0)
       activerecord (>= 4.2.10)
       with_advisory_lock (>= 4.0.0)
     concurrent-ruby (1.1.9)
@@ -109,7 +110,7 @@ GEM
     default_where (2.3.0)
       activerecord (>= 4.0, <= 7.0)
     erubi (1.10.0)
-    faraday (1.7.1)
+    faraday (1.8.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -132,11 +133,12 @@ GEM
       activesupport (>= 5.0)
     http-2-next (0.5.0)
     http-form_data (2.3.0)
-    httpx (0.17.0)
+    httpx (0.18.0)
       http-2-next (>= 0.4.1)
-      timers
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
+    jbuilder (2.11.2)
+      activesupport (>= 5.0.0)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.1)
@@ -207,8 +209,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     thor (1.1.0)
-    timers (4.3.3)
-    turbo-rails (0.7.11)
+    turbo-rails (7.1.1)
       rails (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
@@ -228,7 +229,7 @@ DEPENDENCIES
   rails_com!
   rails_design!
   rails_extend!
-  viter!
+  rails_vite!
 
 BUNDLED WITH
    2.2.22
