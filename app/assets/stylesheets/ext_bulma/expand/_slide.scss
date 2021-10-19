@@ -24,6 +24,23 @@
     transition-property: left, right;
     left: 0;
   }
+
+  figure.image {
+    background-color: white;
+    opacity: 1;
+
+    figcaption {
+      background-color: #666;
+      color: #fff;
+      padding: 3px;
+      text-align: center;
+    }
+    img, video {
+      height: inherit;
+      object-fit: cover;
+    }
+  }
+
 }
 
 .slide-y {
