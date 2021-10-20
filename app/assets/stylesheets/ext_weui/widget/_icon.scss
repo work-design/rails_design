@@ -1,11 +1,10 @@
-.weui-tabbar__icon .weui-badge {
-  position: absolute;
-  top: -0.4em;
-  right: -0.4em;
-}
-
-.fa-cart-shopping.weui-tabbar__icon {
+.fa-bag-shopping {
   position: relative;
+  .weui-badge {
+    position: absolute;
+    top: 0.4em;
+    right: -0.8em;
+  }
 }
 
 i.weui-tabbar__icon {
