@@ -19,7 +19,6 @@
     "highlight.js": "^11.2.0",
     "moment": "^2.29.1",
     "sortablejs": "^1.13.0",
-    "stickybits": "^3.7.9",
     "weui": "^2.5.0"
   },
   "devDependencies": {

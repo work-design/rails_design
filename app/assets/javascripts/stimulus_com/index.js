@@ -14,7 +14,6 @@ import ShowController from './show'
 import ShowcaseController from './showcase'  // 点击小图，显示大图
 import SlideController from './slide'
 import SlideYController from './slide_y'
-import StickyController from './sticky'
 import SwipeController from './swipe'
 import TaxonController from './taxon'
 import TimeController from './time'  // 时间格式根据浏览器时区等进行转化
@@ -48,7 +47,6 @@ application.register('showcase', ShowcaseController)
 application.register('slide', SlideController)
 application.register('slide-y', SlideYController)
 application.register('sortable', SortableController)
-application.register('sticky', StickyController)
 application.register('swipe', SwipeController)
 application.register('taxon', TaxonController)
 application.register('time', TimeController)
