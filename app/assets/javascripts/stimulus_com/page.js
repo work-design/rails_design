@@ -1,7 +1,7 @@
 import TouchController from './touch'
 
 export default class extends TouchController {
-  static targets = ['paging']
+  static targets = ['paging', 'loading']
 
   connect() {
     this.element.addEventListener('touchstart', event => {
@@ -11,6 +11,14 @@ export default class extends TouchController {
 
   start(event) {
     this.initStatus(event)
+  }
+
+  move(event) {
+    const offset = this.offset(event)
+    const wrap = this.element.parentNode.parentNode
+    if (offset.y < 0 && wrap.scrollHeight === wrap.clientHeight + wrap.scrollTop && this.currentPage < this.totalPage) {
+      this.loadingTarget.style.display = 'flex'
+    }
   }
 
   end(event) {
