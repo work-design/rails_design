@@ -4,6 +4,10 @@
 @import 'drawable';
 @import 'grid';
 
+.is-sticky {
+  position: sticky;
+}
+
 .is-cover {
   background-size: cover;
   background-repeat: no-repeat;
