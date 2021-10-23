@@ -1,6 +1,6 @@
 import { Controller } from '@hotwired/stimulus'
 
-export default class TouchController extends Controller {
+export default class extends Controller {
   static values = {
     debug: Boolean
   }
