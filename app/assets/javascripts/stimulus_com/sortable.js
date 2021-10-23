@@ -10,8 +10,8 @@ export default class extends Controller {
         if (evt.oldIndex === evt.newIndex) {
           return
         }
-        let url = [element.dataset['src'], evt.item.dataset['id'], 'reorder'].join('/')
-        let body = {
+        const url = evt.item.dataset['url']
+        const body = {
           sort_array: this.toArray(),
           old_index: evt.oldIndex,
           new_index: evt.newIndex
@@ -36,6 +36,10 @@ export default class extends Controller {
 
   connect() {
     this.reload(this.element, this)
+  }
+
+  disconnect() {
+    //this.sortable.destroy()
   }
 
 }
