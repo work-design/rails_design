@@ -18,27 +18,26 @@ export default class extends TouchController {
     const wrap = this.element.parentNode.parentNode
     if (offset.y < 0 && wrap.scrollHeight === wrap.clientHeight + wrap.scrollTop && this.currentPage < this.totalPage) {
       this.loadingTarget.style.display = 'flex'
+      this.appendPage()
+    } else {
+      console.debug('不满足翻页条件')
     }
   }
 
-  end(event) {
-    const offset = this.offset(event)
-    const wrap = this.element.parentNode.parentNode
-    if (offset.y < 0 && wrap.scrollHeight === wrap.clientHeight + wrap.scrollTop && this.currentPage < this.totalPage) {
-      const url = new URL(location.href)
-      this.currentPage = this.currentPage + 1
-      url.searchParams.set('page', this.currentPage)
+  appendPage() {
+    const url = new URL(location.href)
+    this.currentPage = this.currentPage + 1
+    url.searchParams.set('page', this.currentPage)
 
-      fetch(url, {
-        headers: {
-          Accept: 'text/vnd.turbo-stream.html'
-        }
-      }).then(response => {
-        return response.text()
-      }).then(body => {
-        Turbo.renderStreamMessage(body)
-      })
-    }
+    fetch(url, {
+      headers: {
+        Accept: 'text/vnd.turbo-stream.html'
+      }
+    }).then(response => {
+      return response.text()
+    }).then(body => {
+      Turbo.renderStreamMessage(body)
+    })
   }
 
   get currentPage() {
