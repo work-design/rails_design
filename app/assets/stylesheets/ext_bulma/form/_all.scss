@@ -8,7 +8,7 @@
 form.button_to {
   display: inline;
   button:not(.button),
-  input[type="submit"] {
+  input[type="submit"]:not(.button) {
     border: none;
     padding: 0;
     background: transparent;
