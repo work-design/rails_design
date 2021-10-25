@@ -1,0 +1,9 @@
+.weui-navbar__item {
+  &:after {
+    content: unset;
+  }
+  &.weui-bar__item_on {
+    background-color: unset;
+    border-bottom: solid red 2px;
+  }
+}

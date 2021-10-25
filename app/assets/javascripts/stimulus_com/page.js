@@ -1,7 +1,7 @@
 import TouchController from './touch'
 
 export default class extends TouchController {
-  static targets = ['paging', 'loading']
+  static targets = ['paging', 'loading', 'tip']
 
   connect() {
     this.element.addEventListener('touchstart', event => {
@@ -15,12 +15,22 @@ export default class extends TouchController {
 
   move(event) {
     const offset = this.offset(event)
-    const wrap = this.element.parentNode.parentNode
-    if (offset.y < 0 && wrap.scrollHeight === wrap.clientHeight + wrap.scrollTop && this.currentPage < this.totalPage) {
+    if (offset.y < 0 && this.arriveBottom() && this.currentPage < this.totalPage) {
       this.loadingTarget.style.display = 'flex'
       this.appendPage()
     } else {
-      console.debug('不满足翻页条件')
+      console.log('未触发翻页')
+    }
+  }
+
+  arriveBottom() {
+    const wrap = this.element.parentNode.parentNode
+    const toBottom = wrap.scrollHeight - (wrap.clientHeight + wrap.scrollTop)
+    console.debug('to bottom', toBottom)
+    if (this.hasTipTarget) {
+      return toBottom < this.tipTarget.clientHeight
+    } else {
+      return false
     }
   }
 
