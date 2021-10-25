@@ -13,6 +13,15 @@
   }
 }
 
+.weui-panel__hd {
+  &.as-bar {
+    display: flex;
+  }
+  .weui-title {
+    flex-grow: 1;
+  }
+}
+
 .weui-panel.is-borderless {
   &:before {
     border-top: none;
