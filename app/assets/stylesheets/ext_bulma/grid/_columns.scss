@@ -11,3 +11,8 @@ main.columns.container {
   margin-right: auto;
   width: 100%;
 }
+
+.columns.is-flex-direction-column.is-variable > .column {
+  padding-top: var(--columnGap);
+  padding-bottom: var(--columnGap);
+}
