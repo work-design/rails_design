@@ -5,11 +5,5 @@
 .weui-tab__panel {
   overflow-y: scroll;
   overflow-x: hidden;
-  -webkit-overflow-scrolling: auto; // fix ios safari z-index with fixed bug
   background-color: var(--weui-BG-0);
-
-  // todo fixme
-  &:after {
-    min-height: calc(100% + 1px);
-  }
 }

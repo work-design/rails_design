@@ -32,22 +32,34 @@
   }
 }
 
-.weui-tabbar.weui-tabbar__primary {
-  background-color: #48c78e;
+i.weui-tabbar__icon {
+  font-size: 18px;
+}
 
-  .weui-tabbar__item {
-    color: #fff;
-    weui-tabbar__icon {
+.weui-tabbar {
+  touch-action: none;
+
+  &.weui-tabbar__primary {
+    background-color: #48c78e;
+
+    .weui-tabbar__item {
       color: #fff;
+
+      weui-tabbar__icon {
+        color: #fff;
+      }
     }
-  }
-  .weui-bar__item_on {
-    color: #730E15;
-    .weui-tabbar__label {
-      color: #fff;
-    }
-    i {
-      color: #fff;
+
+    .weui-bar__item_on {
+      color: #730E15;
+
+      .weui-tabbar__label {
+        color: #fff;
+      }
+
+      i {
+        color: #fff;
+      }
     }
   }
 }
