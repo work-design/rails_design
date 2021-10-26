@@ -38,6 +38,7 @@ i.weui-tabbar__icon {
 
 .weui-tabbar {
   touch-action: none;
+  padding-bottom: 0.5em;
 
   &.weui-tabbar__primary {
     background-color: #48c78e;
