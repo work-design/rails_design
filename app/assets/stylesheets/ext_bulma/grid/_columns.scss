@@ -16,3 +16,9 @@ main.columns.container {
   padding-top: var(--columnGap);
   padding-bottom: var(--columnGap);
 }
+
+.columns {
+  &.as-border > .column {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
