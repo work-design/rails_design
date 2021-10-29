@@ -39,8 +39,8 @@ export default class extends Controller {
   // NOTICE: here this becomes observer
   loaded(list, observer) {
     const item = list[0]
-    let ele = item.target.parentNode.parentNode
-    let con = application.getControllerForElementAndIdentifier(ele, 'modal')
+    const ele = item.target.parentNode.parentNode
+    const con = application.getControllerForElementAndIdentifier(ele, 'modal')
     switch(item.type) {
       case 'childList':
         if (typeof item.target.src === 'undefined' || item.target.src === null) {

@@ -6,6 +6,11 @@ export default class extends Controller {
     id: String
   }
 
+  connect() {
+    this.observer = new MutationObserver(this.loaded)
+    this.observer.observe(this.menu, { childList: true })
+  }
+
   close() {
     const ele = this.maskTarget
     ele.style.display = 'none'
@@ -29,6 +34,21 @@ export default class extends Controller {
     } else {
       x.show()
     }
+  }
+
+  // NOTICE: here this becomes observer
+  loaded(list, observer) {
+    const item = list[0]
+    const sheet = item.target.parentNode
+    const con = application.getControllerForElementAndIdentifier(sheet.parentNode, 'weui-actionsheet')
+    switch(item.type) {
+      case 'childList':
+        con.show()
+    }
+  }
+
+  get menu() {
+    return document.getElementById('actionsheet_menu')
   }
 
   get target() {
