@@ -16,3 +16,13 @@
     background-color: var(--weui-BTN-DEFAULT-ACTIVE-BG);
   }
 }
+
+form.weui-btn_cell {
+  padding: unset;
+  input {
+    border: none;
+    background: transparent;
+    font-size: inherit;
+    padding: 16px;
+  }
+}

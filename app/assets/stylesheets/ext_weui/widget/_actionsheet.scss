@@ -1,3 +1,14 @@
-.weui-actionsheet__cell button {
-  font-size: 17px;
+.weui-actionsheet__cell {
+  display: block;
+  button {
+    font-size: 17px;
+  }
+}
+
+form.weui-actionsheet__cell {
+  button {
+    border: none;
+    width: 100%;
+    background-color: unset;
+  }
 }
