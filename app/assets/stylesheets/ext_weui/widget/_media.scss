@@ -45,3 +45,12 @@
   display: none;
   transition: width 1s linear;
 }
+
+.weui-media-box__info {
+  display: flex;
+  align-items: center;
+}
+
+.weui-media-box__info__meta {
+  float: none;
+}

@@ -13,6 +13,7 @@ form.button_to {
     padding: 0;
     background: transparent;
     cursor: pointer;
+    line-height: inherit;
   }
   i:not(.fa-solid):before,
   i:not(.fa-regular):before,
