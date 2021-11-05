@@ -2,6 +2,7 @@
 
 @import 'widget/actionsheet';
 @import 'widget/article';
+@import 'widget/badge';
 @import 'widget/button';
 @import 'widget/cell';
 @import 'widget/form';
@@ -22,4 +23,10 @@ html, body {
 
 .weui-label {
   color: #666;
+}
+
+.weui-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
