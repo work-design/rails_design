@@ -18,7 +18,7 @@ main.columns.container {
 }
 
 .columns {
-  &.as-border > .column {
-    border: 1px solid rgba(0, 0, 0, 0.1);
+  &.as-border > .column + .column {
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
   }
 }
