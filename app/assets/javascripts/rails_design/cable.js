@@ -1,3 +1,3 @@
-import { createConsumer } from '@rails/actioncable'
+import { createConsumer } from '@rails/actioncable/src'
 
 export default createConsumer()
