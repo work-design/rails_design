@@ -1,4 +1,5 @@
-import '@hotwired/turbo-rails'
+import '@hotwired/turbo'
+import './cable_stream_source_element'
 
 document.addEventListener('turbo:before-fetch-request', event => {
   let xhr = event.detail.fetchOptions
