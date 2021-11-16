@@ -504,6 +504,11 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
+"@rails/actioncable@^7.0.0-alpha2":
+  version "7.0.0-alpha2"
+  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.0.0-alpha2.tgz#d061d902f0c214ecd668e52bc8eaf8c7e7373d45"
+  integrity sha512-4+AnqL38HYQLX9YrtJiQrEIlG6YmlxxJQd8NqkKDys/pCWaXV8FqK7PFbU8nkEfUxx8kkH/VDALFKPsV9R4xCA==
+
 "@rails/activestorage@^7.0.0-alpha2":
   version "7.0.0-alpha2"
   resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-7.0.0-alpha2.tgz#e69ff07113e8185c88f8bd8e7fabf984780a7532"
