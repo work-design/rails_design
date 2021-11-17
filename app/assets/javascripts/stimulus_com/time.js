@@ -1,5 +1,5 @@
 import { Controller } from '@hotwired/stimulus'
-import moment from 'moment'
+import { parseJSON, format } from 'date-fns'
 
 // data-controller="time"
 export default class extends Controller {
@@ -10,8 +10,9 @@ export default class extends Controller {
 
   parse() {
     if (this.element.textContent.length > 0) {
-      let format = this.element.dataset['format'] || 'YYYY-MM-DD HH:mm'
-      this.element.textContent = moment.utc(this.element.textContent).local().format(format)
+      const format_str = this.element.dataset['format'] || 'yyyy-MM-dd HH:mm'
+      const time = parseJSON(this.element.textContent)
+      this.element.textContent = format(time, format_str)
       this.element.dataset['localized'] = 'true'
     }
   }
