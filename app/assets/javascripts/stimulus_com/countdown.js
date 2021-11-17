@@ -19,10 +19,10 @@ export default class extends Controller {
       result = result.minus({ seconds: 1 })
       window.xxx = result
       if (result <= 0) {
-        this.element.textContent = result.toFormat('hh:mm:ss')
+        this.element.textContent = result.toFormat('d 天 h 时 mm 分 ss 秒')
         clearInterval(timer)
       } else {
-        this.element.textContent = result.toFormat('h 时 mm 分 ss 秒')
+        this.element.textContent = result.toFormat('d 天 h 时 mm 分 ss 秒')
       }
     }, 1000, result, this.element)
   }
