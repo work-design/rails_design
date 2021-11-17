@@ -17,8 +17,8 @@
     "@rails/activestorage": "^7.0.0-alpha2",
     "bulma": "^0.9.3",
     "choices.js": "^9.0.1",
-    "date-fns": "^2.25.0",
     "highlight.js": "^11.2.0",
+    "luxon": "^2.1.1",
     "sortablejs": "^1.13.0",
     "weui": "^2.5.0"
   },

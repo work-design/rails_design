@@ -9,6 +9,9 @@ application.register('common', CommonController)
 import CountDownController from './count_down'
 application.register('count-down', CountDownController)
 
+import CountdownController from './countdown'
+application.register('countdown', CountdownController)
+
 import FormerController from './former'
 application.register('former', FormerController)
 
