@@ -13,15 +13,16 @@ export default class extends Controller {
 
   countDown() {
     const time = DateTime.fromISO(this.timeValue)
-    let result = DateTime.now().diff(time, ['days', 'hours', 'minutes', 'seconds'])
+    let result = time.diff(DateTime.now(), ['days', 'hours', 'minutes', 'seconds'])
 
     let timer = setInterval(() => {
       result = result.minus({ seconds: 1 })
+      window.xxx = result
       if (result <= 0) {
         this.element.textContent = result.toFormat('hh:mm:ss')
         clearInterval(timer)
       } else {
-        this.element.textContent = result.toFormat('hh:mm:ss')
+        this.element.textContent = result.toFormat('h 时 mm 分 ss 秒')
       }
     }, 1000, result, this.element)
   }
