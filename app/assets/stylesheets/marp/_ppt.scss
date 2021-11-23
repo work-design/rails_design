@@ -1,0 +1,11 @@
+div.marpit {
+  position: relative;
+
+  & > svg > foreignObject > section.invert {
+    width: 100%;
+
+    &::after {
+      content: attr(data-marpit-pagination) '/' attr(data-marpit-pagination-total);
+    }
+  }
+}

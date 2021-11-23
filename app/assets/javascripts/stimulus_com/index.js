@@ -36,6 +36,9 @@ application.register('page', PageController)
 import PictureController from './picture'
 application.register('picture', PictureController)
 
+import MarpController from './marp'
+application.register('marp', MarpController)
+
 import ShowController from './show'
 application.register('show', ShowController)
 
