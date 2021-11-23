@@ -98,7 +98,7 @@
 
 .right-pointer label,
 .left-pointer label {
-  background-image: url("https://image.flaticon.com/icons/svg/130/130884.svg");
+  background-image: url('#{$marp-asset-path}/osc-next.svg');
   background-repeat: no-repeat;
   display: block;
   cursor: pointer;
@@ -108,7 +108,7 @@
 }
 
 .left-pointer label {
-  background-image: url("https://image.flaticon.com/icons/svg/130/130882.svg");
+  background-image: url('#{$marp-asset-path}/osc-prev.svg');
 }
 
 .navigation-bar:hover{
