@@ -52,7 +52,9 @@ export default class extends Controller {
           con.redirectValue = item.target.src
           con.addEvent()
         }
-        con.urlsValue = con.urlsValue.concat(item.target.src)
+        if (con.urlsValue[con.urlsValue.length - 1] !== item.target.src) {
+          con.urlsValue = con.urlsValue.concat(item.target.src)
+        }
     }
   }
 
