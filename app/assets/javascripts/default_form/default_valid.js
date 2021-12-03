@@ -86,8 +86,8 @@ export default class extends Controller {
   // submit->xx
   filter(event) {
     event.preventDefault()
-    let url = new URL(location)
-    let form = new FormData(event.currentTarget)
+    const url = new URL(location)
+    const form = new FormData(event.currentTarget)
 
     for (let el of form.entries()) {
       if (el[1].length > 0) {
