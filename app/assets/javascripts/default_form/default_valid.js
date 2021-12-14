@@ -10,9 +10,9 @@ export default class extends Controller {
       zh: {
         badInput: '{label}格式不正确',
         customError: '{label}输入错误',
-        patternMismatch: '非法的{label}',
-        rangeOverflow: '{label}输入错误',
-        rangeUnderflow: '{label}输入错误',
+        patternMismatch: '{label} 不符合格式要求',
+        rangeOverflow: '{label} 超出允许的最大值',
+        rangeUnderflow: '{label} 低于允许的最小值',
         stepMismatch: '{label}输入错误',
         tooLong: '{label}太长了',
         tooShort: '{label}太短了',
