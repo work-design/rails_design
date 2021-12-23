@@ -1,5 +1,8 @@
 import { application } from '../rails_design/stimulus'
 
+import AlertController from './alert'
+application.register('alert', AlertController)
+
 import CheckboxController from './checkbox'
 application.register('check', CheckboxController)
 
