@@ -18,6 +18,11 @@
     width: 1.25em;
     height: 1.25em;
   }
+
+  &.as-centered {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .is-avatar {
