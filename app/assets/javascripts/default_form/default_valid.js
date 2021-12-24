@@ -3,9 +3,8 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
 
   defaultValid(input) {
-    let label
-    let locale = document.querySelector('html').lang
-    let word
+    const locale = document.querySelector('html').lang
+    let label, word
     const i18ns = {
       zh: {
         badInput: '{label}格式不正确',
