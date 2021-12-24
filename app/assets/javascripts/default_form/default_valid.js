@@ -87,6 +87,7 @@ export default class extends Controller {
     event.preventDefault()
     const url = new URL(location)
     const form = new FormData(event.currentTarget)
+    url.searchParams.delete('page')
 
     for (let el of form.entries()) {
       if (el[1].length > 0) {
