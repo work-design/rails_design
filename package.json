@@ -13,7 +13,6 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.0.1",
     "@hotwired/turbo": "^7.1.0",
-    "@marp-team/marp-core": "^2.3.0",
     "@rails/actioncable": "^7.0.0-alpha2",
     "@rails/activestorage": "^7.0.0-alpha2",
     "bulma": "^0.9.3",
