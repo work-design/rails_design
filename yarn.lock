@@ -504,15 +504,15 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@rails/actioncable@^7.0.0-alpha2":
-  version "7.0.0-alpha2"
-  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.0.0-alpha2.tgz#d061d902f0c214ecd668e52bc8eaf8c7e7373d45"
-  integrity sha512-4+AnqL38HYQLX9YrtJiQrEIlG6YmlxxJQd8NqkKDys/pCWaXV8FqK7PFbU8nkEfUxx8kkH/VDALFKPsV9R4xCA==
+"@rails/actioncable@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.0.0.tgz#2bcb5ca5d7c1d8c32d53589579d2fc19c4864a04"
+  integrity sha512-uKOGaA8xMNuMwsQrH65l4LxLZ4RD2czP0MKBU7PHIbQS6XvYc6xV9HDveGfgumZSZJYJSfUIiKiqh5mjlCOxPA==
 
-"@rails/activestorage@^7.0.0-alpha2":
-  version "7.0.0-alpha2"
-  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-7.0.0-alpha2.tgz#e69ff07113e8185c88f8bd8e7fabf984780a7532"
-  integrity sha512-Sjvz6gy+j7thFfDDJ1kIIycJmC1nHtc4+tc5CZeg8B0d7YmzqusDIUILXqGanx2Z3BbeqqrEC2FvTmFFwYw80g==
+"@rails/activestorage@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-7.0.0.tgz#1d4391bae75693bcfa73fc220904b248de3dea06"
+  integrity sha512-9tE4P15DMgLhx/ILqvztepvu0YwtAyoYH1k25CrkkWphLNfu3HNbncfRgsJxmd9t8rMhZh8ZDEQchYrjuOL3hg==
   dependencies:
     spark-md5 "^3.0.1"
 
