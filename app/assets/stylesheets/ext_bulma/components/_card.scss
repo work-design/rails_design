@@ -1,19 +1,16 @@
 .cards {
   display: grid;
+  &.is-2 {
+    grid-template-columns: repeat(2, 50%);
+  }
+  &.is-4 {
+    grid-template-columns: repeat(4, 25%);
+  }
 
   .card {
     margin: 1rem;
   }
 }
-
-.cards.is-2 {
-  grid-template-columns: repeat(2, 50%);
-}
-
-.cards.is-4 {
-  grid-template-columns: repeat(4, 25%);
-}
-
 
 .card + .card {
   margin-top: 1rem;
