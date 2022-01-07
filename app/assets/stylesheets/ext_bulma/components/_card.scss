@@ -9,6 +9,13 @@
 
   .card {
     margin: 1rem;
+
+    .card-image > img {
+      width: 100%;
+    }
+    .card-content {
+      text-align: center;
+    }
   }
 }
 

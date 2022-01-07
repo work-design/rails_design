@@ -1,0 +1,11 @@
+.scroll {
+  scroll-snap-type: y mandatory;
+  white-space: nowrap;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch; // ios safari 设置才有效果
+  height: 100vh;
+}
+
+.scroll-item {
+  scroll-snap-align: center;
+}
