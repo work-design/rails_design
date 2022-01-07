@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: c7e606e34186d9249430cd754554bedfc3461cd2
+  revision: 61ce6a24aa1679010251ff7c80852c2a9d8369ae
   specs:
     rails_com (1.3.0)
       acme-client
@@ -118,25 +118,29 @@ GEM
       activerecord (>= 4.0, <= 7.0)
     digest (3.1.0)
     erubi (1.10.0)
-    faraday (1.8.0)
+    faraday (1.9.3)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
-      faraday-httpclient (~> 1.0.1)
+      faraday-httpclient (~> 1.0)
+      faraday-multipart (~> 1.0)
       faraday-net_http (~> 1.0)
-      faraday-net_http_persistent (~> 1.1)
+      faraday-net_http_persistent (~> 1.0)
       faraday-patron (~> 1.0)
       faraday-rack (~> 1.0)
-      multipart-post (>= 1.2, < 3)
+      faraday-retry (~> 1.0)
       ruby2_keywords (>= 0.0.4)
     faraday-em_http (1.0.0)
     faraday-em_synchrony (1.0.0)
     faraday-excon (1.1.0)
     faraday-httpclient (1.0.1)
+    faraday-multipart (1.0.2)
+      multipart-post (>= 1.2, < 3)
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
+    faraday-retry (1.0.3)
     globalid (1.0.0)
       activesupport (>= 5.0)
     http-2-next (0.5.0)
@@ -178,7 +182,7 @@ GEM
     net-http (0.2.0)
       net-protocol
       uri
-    net-imap (0.2.2)
+    net-imap (0.2.3)
       digest
       net-protocol
       strscan
