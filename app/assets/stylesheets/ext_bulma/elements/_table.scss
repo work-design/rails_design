@@ -57,3 +57,16 @@ table.as-search {
     width: 100%;
   }
 }
+
+td.has-inner-table {
+  padding: 0;
+
+  & > table {
+    tr {
+      background-color: transparent !important;
+    }
+    tr:last-child > td {
+      border-bottom: none;
+    }
+  }
+}
