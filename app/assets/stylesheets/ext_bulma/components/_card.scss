@@ -33,5 +33,11 @@
       bottom: 0;
       width: 100%;
     }
+    .card-footer:not(:empty) {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
   }
 }
