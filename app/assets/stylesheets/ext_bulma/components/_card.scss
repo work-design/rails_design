@@ -9,7 +9,6 @@
 
   .card {
     margin: 1rem;
-
     .card-image > img {
       width: 100%;
     }
@@ -21,4 +20,17 @@
 
 .card + .card {
   margin-top: 1rem;
+}
+
+.card {
+  &.is-wallet {
+    height: 0;
+    padding-bottom: 63%;
+
+    .card-footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  }
 }
