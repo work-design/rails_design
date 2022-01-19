@@ -1,5 +1,4 @@
 import { Controller } from '@hotwired/stimulus'
-import { Marp } from '@marp-team/marp-core'
 import hljs from 'highlight.js'
 
 export default class extends Controller {
@@ -18,10 +17,9 @@ export default class extends Controller {
     }).then(response => {
       return response.json()
     }).then(body => {
-      const { html, css, comments } = this.marp.render(body.results.markdown, { htmlAsArray: true })
-      this.installCss(css)
-      this.slides = html
-      this.comments = comments
+      this.installCss(body.css)
+      this.slides = body.html
+      this.comments = body.comments
       this.containerTarget.innerHTML = this.slides[0]
     })
   }
@@ -88,15 +86,6 @@ export default class extends Controller {
 
   get parser() {
     return new DOMParser
-  }
-
-  get marp() {
-    return new Marp({
-      markdown: {
-        html: true,
-        breaks: true
-      }
-    })
   }
 
 }
