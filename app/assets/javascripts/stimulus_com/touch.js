@@ -17,7 +17,11 @@ export default class extends Controller {
 
   // scale && scale !== 表示缩放了
   zoomed(event) {
-    return event.changedTouches.length > 1 || (event.scale && event.scale !== 1)
+    const result = event.changedTouches.length > 1 || (event.scale && event.scale !== 1)
+    if (result) {
+      console.error('是否缩放：', result)
+    }
+    return result
   }
 
   // 是否达到触发条件

@@ -44,7 +44,6 @@ export default class extends TouchController {
     const ele = event.currentTarget
     console.debug('touch moved by:', ele.dataset.index)
     if (this.zoomed(event)) {
-      console.error('scale')
       return
     }
     const offset = this.offset(event)
@@ -54,19 +53,9 @@ export default class extends TouchController {
     }
 
     if (offset.x < 0) {  // offset.x < 0 表示向左滑动
-      const next = ele.nextElementSibling
-      if (next) {
-        ele.style.left = -pad + 'px'
-        next.style.zIndex = 0
-        next.style.left = (this.element.clientWidth - pad) + 'px'
-      }
+      this.goingLeft(ele, pad)
     } else if (offset.x > 0) {  // offset.x > 0 表示向右滑动
-      const prev = ele.previousElementSibling
-      if (prev) {
-        ele.style.left = pad + 'px'
-        prev.style.zIndex = 0
-        prev.style.left = (pad - this.element.clientWidth) + 'px'
-      }
+      this.goingRight(ele, pad)
     }
   }
 
@@ -114,6 +103,26 @@ export default class extends TouchController {
     }
   }
 
+  // ele 向左滑出，滑出距离为 pad
+  goingLeft(ele, pad) {
+    const next = ele.nextElementSibling
+    if (next) {
+      ele.style.left = -pad + 'px'
+      next.style.zIndex = 0
+      next.style.left = (this.element.clientWidth - pad) + 'px'
+    }
+  }
+
+  // ele 向右滑出，滑出距离为 pad
+  goingRight(ele, pad) {
+    const prev = ele.previousElementSibling
+    if (prev) {
+      ele.style.left = pad + 'px'
+      prev.style.zIndex = 0
+      prev.style.left = (pad - this.element.clientWidth) + 'px'
+    }
+  }
+
   // ele 向左滑出
   goLeft(ele) {
     const next = ele.nextElementSibling
@@ -123,7 +132,7 @@ export default class extends TouchController {
     this.beenCurrent(ele)
 
     next.style.left = 0
-    next.style.zIndex = 0
+    next.style.zIndex = 1
     this.toCurrent(next)
   }
 
