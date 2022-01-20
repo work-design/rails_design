@@ -13,11 +13,10 @@
     background: black;
   }
   .transition_later {
-    transition-delay: 3s;
+    transition-delay: 10s;
     transition-duration: 1s;
     transition-property: left, right;
     transition-timing-function: linear;
-    left: 0;
   }
   .transition_now {
     transition-duration: 1s;
