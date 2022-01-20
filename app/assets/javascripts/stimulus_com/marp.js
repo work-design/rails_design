@@ -3,13 +3,16 @@ import hljs from 'highlight.js'
 
 export default class extends Controller {
   static targets = ['container']
+  static values = {
+    url: String
+  }
 
   connect() {
     this.link()
   }
 
   link() {
-    fetch(location.href, {
+    fetch(this.urlValue, {
       method: 'GET',
       headers: {
         Accept: 'application/json'
