@@ -126,28 +126,32 @@ export default class extends TouchController {
   // ele 向左滑出
   goLeft(ele) {
     const next = ele.nextElementSibling
-    this.transitionNow(ele, next)
+    if (next) {
+      this.transitionNow(ele, next)
 
-    ele.style.left = -this.element.clientWidth + 'px'
-    this.beenCurrent(ele)
+      ele.style.left = -this.element.clientWidth + 'px'
+      this.beenCurrent(ele)
 
-    next.style.left = 0
-    next.style.zIndex = 1
-    this.toCurrent(next)
+      next.style.left = 0
+      next.style.zIndex = 1
+      this.toCurrent(next)
+    }
   }
 
   // ele 向右滑出
   goRight(ele) {
     const prev = ele.previousElementSibling
-    this.transitionNow(ele, prev)
+    if (prev) {
+      this.transitionNow(ele, prev)
 
-    ele.style.left = this.element.clientWidth + 'px'
-    ele.style.zIndex = 0
-    this.beenCurrent(ele)
+      ele.style.left = this.element.clientWidth + 'px'
+      ele.style.zIndex = 0
+      this.beenCurrent(ele)
 
-    prev.style.left = 0
-    prev.style.zIndex = 1
-    this.toCurrent(prev)
+      prev.style.left = 0
+      prev.style.zIndex = 1
+      this.toCurrent(prev)
+    }
   }
 
   transitionLater(...elements) {
