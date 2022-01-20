@@ -93,20 +93,30 @@ export default class extends TouchController {
 
   // 执行翻页
   going(offset, ele) {
-    const next = ele.nextElementSibling
-    const prev = ele.previousElementSibling
+    if (offset.x < 0) {
+      this.playToLeft(ele)
+    }
+    if (offset.x > 0) {
+      this.playToRight(ele)
+    }
+  }
 
+  // 回退到之前的状态
+  rollback(offset, ele) {
+    const next = ele.nextElementSibling
     if (offset.x < 0 && next) {
-      this.playToLeft(ele, next)
+      this.playToRight(next)
     }
 
+    const prev = ele.previousElementSibling
     if (offset.x > 0 && prev) {
-      this.playToRight(ele, prev)
+      this.playToLeft(prev)
     }
   }
 
   // ele 向左滑出
-  playToLeft(ele, next) {
+  playToLeft(ele) {
+    const next = ele.nextElementSibling
     this.transitionNow(ele, next)
 
     ele.style.left = -this.element.clientWidth + 'px'
@@ -118,7 +128,8 @@ export default class extends TouchController {
   }
 
   // ele 向右滑出
-  playToRight(ele, prev) {
+  playToRight(ele) {
+    const prev = ele.previousElementSibling
     this.transitionNow(ele, prev)
 
     ele.style.left = this.element.clientWidth + 'px'
@@ -128,22 +139,6 @@ export default class extends TouchController {
     prev.style.left = 0
     prev.style.zIndex = 1
     this.toCurrent(prev)
-  }
-
-  // 回退到之前的状态
-  rollback(offset, ele) {
-    const next = ele.nextElementSibling
-    const prev = ele.previousElementSibling
-
-    //this.removeStyle(ele, ['left'])
-
-    if (offset.x < 0 && next) {
-      this.playToRight(next, ele)
-    }
-
-    if (offset.x > 0 && prev) {
-      this.playToLeft(prev, ele)
-    }
   }
 
   transitionLater(...elements) {
