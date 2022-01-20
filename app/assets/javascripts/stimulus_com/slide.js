@@ -6,8 +6,8 @@ import TouchController from './touch'
 // left 的优先级高于 right
 export default class extends TouchController {
   static values = {
-    play: Boolean,
-    circle: Boolean
+    play: Boolean, // 是否自动播放，true 为自动轮播
+    circle: Boolean, // 是否循环播放，true 为循环播放
   }
 
   connect() {
