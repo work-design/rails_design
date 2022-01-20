@@ -18,7 +18,7 @@ export default class extends TouchController {
       let ele = this.element.firstElementChild
       let next = ele.nextElementSibling || this.element.firstElementChild
       this.initStyle(ele, next)
-      this.playToLeft(ele, next)
+      this.toLeft(ele)
     }
   }
 
@@ -94,10 +94,10 @@ export default class extends TouchController {
   // 执行翻页
   going(offset, ele) {
     if (offset.x < 0) {
-      this.playToLeft(ele)
+      this.toLeft(ele)
     }
     if (offset.x > 0) {
-      this.playToRight(ele)
+      this.toRight(ele)
     }
   }
 
@@ -105,17 +105,17 @@ export default class extends TouchController {
   rollback(offset, ele) {
     const next = ele.nextElementSibling
     if (offset.x < 0 && next) {
-      this.playToRight(next)
+      this.toRight(next)
     }
 
     const prev = ele.previousElementSibling
     if (offset.x > 0 && prev) {
-      this.playToLeft(prev)
+      this.toLeft(prev)
     }
   }
 
   // ele 向左滑出
-  playToLeft(ele) {
+  toLeft(ele) {
     const next = ele.nextElementSibling
     this.transitionNow(ele, next)
 
@@ -128,7 +128,7 @@ export default class extends TouchController {
   }
 
   // ele 向右滑出
-  playToRight(ele) {
+  toRight(ele) {
     const prev = ele.previousElementSibling
     this.transitionNow(ele, prev)
 
