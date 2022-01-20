@@ -1,7 +1,7 @@
 .slide {
   --height: 430px;
   position: relative;
-  height: var(--height);
+  height: calc(var(--height) + 30px); // fixme 采用更科学的数值
   overflow: hidden;
   //margin-bottom: 27px;
 
