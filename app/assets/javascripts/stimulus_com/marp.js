@@ -34,9 +34,7 @@ export default class extends Controller {
     }
     this.containerTarget.innerHTML = this.slides[page]
     console.log(this.comments[page])
-    this.containerTarget.querySelectorAll('code').forEach(el => {
-      hljs.highlightElement(el)
-    })
+    this.highlight()
   }
 
   next() {
@@ -46,9 +44,7 @@ export default class extends Controller {
     }
     this.containerTarget.innerHTML = this.slides[page]
     console.log(this.comments[page])
-    this.containerTarget.querySelectorAll('code').forEach(el => {
-      hljs.highlightElement(el)
-    })
+    this.highlight()
   }
 
   keyboard(e) {
@@ -59,6 +55,12 @@ export default class extends Controller {
         return this.next()
       default: return
     }
+  }
+
+  highlight() {
+    this.containerTarget.querySelectorAll('code').forEach(el => {
+      hljs.highlightElement(el)
+    })
   }
 
   installCss(css) {
