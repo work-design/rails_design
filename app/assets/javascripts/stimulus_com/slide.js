@@ -6,7 +6,8 @@ import TouchController from './touch'
 // left 的优先级高于 right
 export default class extends TouchController {
   static values = {
-    play: Boolean
+    play: Boolean,
+    circle: Boolean
   }
 
   connect() {
@@ -16,23 +17,23 @@ export default class extends TouchController {
 
     if (this.hasPlayValue && this.playValue) {
       let ele = this.element.firstElementChild
-      let next = ele.nextElementSibling || this.element.firstElementChild
-      this.initStyle(ele, next)
-      this.goLeft(ele)
+      let next = this.next(ele)
+      next.style.left = next.clientWidth + 'px'
+
+      this.goLeft(ele, true)
     }
   }
 
   initStyle(ele, next) {
     //next.style.zIndex = 0
     next.style.left = next.clientWidth + 'px'
-    this.transitionLater(ele, next)
   }
 
   start(event) {
     this.initStatus(event)
-
     const ele = event.target.closest('[data-index]')
-    let next = ele.nextElementSibling || this.element.firstElementChild
+    const next = this.next(ele)
+
     this.initStyle(ele, next)
     this.transitionNone(ele, next)
     ele.removeEventListener('transitioncancel', this.resetIndex)
@@ -124,10 +125,14 @@ export default class extends TouchController {
   }
 
   // ele 向左滑出
-  goLeft(ele) {
+  goLeft(ele, later = false) {
     const next = ele.nextElementSibling
     if (next) {
-      this.transitionNow(ele, next)
+      if (later) {
+        this.transitionLater(ele, next)
+      } else {
+        this.transitionNow(ele, next)
+      }
 
       ele.style.left = -this.element.clientWidth + 'px'
       this.beenCurrent(ele)
@@ -224,6 +229,14 @@ export default class extends TouchController {
       event.target.removeEventListener('transitioncancel', controller.resetIndex)
     } else if (event.type === 'transitioncancel') {
       event.target.removeEventListener('transitionend', controller.resetIndex)
+    }
+  }
+
+  next(ele) {
+    if (this.hasCircleValue && this.playValue) {
+      return ele.nextElementSibling || this.element.firstElementChild
+    } else {
+      return ele.nextElementSibling
     }
   }
 
