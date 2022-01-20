@@ -126,7 +126,7 @@ export default class extends TouchController {
 
   // ele 向左滑出
   goLeft(ele, later = false) {
-    const next = ele.nextElementSibling
+    const next = this.next(ele)
     if (next) {
       if (later) {
         this.transitionLater(ele, next)
