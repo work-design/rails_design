@@ -17,9 +17,9 @@ export default class extends TouchController {
 
     if (this.hasPlayValue && this.playValue) {
       let ele = this.element.firstElementChild
-      let next = this.next(ele)
-      next.style.left = next.clientWidth + 'px'
 
+      const next = this.next(ele)
+      next.style.left = next.clientWidth + 'px'
       this.goLeft(ele, true)
     }
   }
@@ -188,47 +188,49 @@ export default class extends TouchController {
 
   // 不再展示
   beenCurrent(ele) {
-    console.debug('add transition event listener for been', ele.dataset.index)
+    console.debug('add transition event resetIndex for been', ele.dataset.index)
     ele.addEventListener('transitionend', this.resetIndex, { once: true })
     ele.addEventListener('transitioncancel', this.resetIndex, { once: true })
   }
 
   // 即将展示
   toCurrent(ele) {
-    console.debug('add transition event listener for to', ele.dataset.index)
+    console.debug('add transition event clearStyle for to', ele.dataset.index)
     ele.addEventListener('transitionend', this.clearStyle, { once: true })
     ele.addEventListener('transitioncancel', this.clearStyle, { once: true })
   }
 
   clearStyle(event) {
-    ['left', 'right', 'transition-duration'].forEach(rule => {
-      event.currentTarget.style.removeProperty(rule)
-    })
-    event.currentTarget.classList.remove('transition_now')
-    console.debug(event.target.dataset.index, 'clear style by', event.type)
+    const ele = event.currentTarget
+    const controller = ele.parentElement.controller('slide')
+    if (ele.classList.contains('transition_later')) {
+      const next = ele.nextElementSibling || ele.parentElement.firstElementChild
+      next.style.left = next.clientWidth + 'px'
+      controller.goLeft(ele, true)
+    }
 
-    const controller = event.target.parentElement.controller('slide')
+    //ele.classList.remove('transition_now', 'transition_later')
+    console.debug(ele.dataset.index, 'clear style by', event.type)
+
     if (event.type === 'transitionend') {
-      event.target.removeEventListener('transitioncancel', controller.clearStyle)
+      ele.removeEventListener('transitioncancel', controller.clearStyle)
     } else if (event.type === 'transitioncancel') {
-      event.target.removeEventListener('transitionend', controller.clearStyle)
+      ele.removeEventListener('transitionend', controller.clearStyle)
     }
   }
 
   // this become event.target
   resetIndex(event) {
-    ['left', 'right', 'transition-duration'].forEach(rule => {
-      event.currentTarget.style.removeProperty(rule)
-    })
-    event.currentTarget.classList.remove('transition_now')
-    event.currentTarget.style.zIndex = -1
-    console.debug(event.target.dataset.index, 'reset index by', event.type)
+    const ele = event.currentTarget
+    ele.classList.remove('transition_now', 'transition_later')
+    ele.style.zIndex = -1
+    console.debug(ele.dataset.index, 'reset index by', event.type)
 
-    const controller = event.target.parentElement.controller('slide')
+    const controller = ele.parentElement.controller('slide')
     if (event.type === 'transitionend') {
-      event.target.removeEventListener('transitioncancel', controller.resetIndex)
+      ele.removeEventListener('transitioncancel', controller.resetIndex)
     } else if (event.type === 'transitioncancel') {
-      event.target.removeEventListener('transitionend', controller.resetIndex)
+      ele.removeEventListener('transitionend', controller.resetIndex)
     }
   }
 
