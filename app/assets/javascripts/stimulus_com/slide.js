@@ -95,21 +95,20 @@ export default class extends TouchController {
   going(offset, ele) {
     const next = ele.nextElementSibling
     const prev = ele.previousElementSibling
-    this.transitionNow(ele)
 
     if (offset.x < 0 && next) {
-      this.transitionNow(next)
       this.playToLeft(ele, next)
     }
 
     if (offset.x > 0 && prev) {
-      this.transitionNow(prev)
       this.playToRight(ele, prev)
     }
   }
 
   // ele 向左滑出
   playToLeft(ele, next) {
+    this.transitionNow(ele, next)
+
     ele.style.left = -this.element.clientWidth + 'px'
     this.beenCurrent(ele)
 
@@ -120,13 +119,15 @@ export default class extends TouchController {
 
   // ele 向右滑出
   playToRight(ele, prev) {
-    prev.style.left = 0
-    prev.style.zIndex = 1
-    this.toCurrent(prev)
+    this.transitionNow(ele, prev)
 
     ele.style.left = this.element.clientWidth + 'px'
     ele.style.zIndex = 0
     this.beenCurrent(ele)
+
+    prev.style.left = 0
+    prev.style.zIndex = 1
+    this.toCurrent(prev)
   }
 
   // 回退到之前的状态
@@ -137,13 +138,11 @@ export default class extends TouchController {
     //this.removeStyle(ele, ['left'])
 
     if (offset.x < 0 && next) {
-      this.transitionNow(ele)
-      this.playToLeft(next, ele)
+      this.playToRight(next, ele)
     }
 
     if (offset.x > 0 && prev) {
-      this.transitionNow(ele)
-      this.playToRight(prev, ele)
+      this.playToLeft(prev, ele)
     }
   }
 
