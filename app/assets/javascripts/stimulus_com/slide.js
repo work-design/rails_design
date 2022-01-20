@@ -138,7 +138,7 @@ export default class extends TouchController {
       this.beenCurrent(ele)
 
       next.style.left = 0
-      next.style.zIndex = 1
+      next.style.zIndex = 0
       this.toCurrent(next)
     }
   }
