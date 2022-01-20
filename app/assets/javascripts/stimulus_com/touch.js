@@ -39,6 +39,14 @@ export default class extends Controller {
     return isMore || isFast
   }
 
+  isHorizontal(pad, offset) {
+    const isHorizontal = pad > Math.abs(offset.y)  // 1 左右滑动，0 上下滑动
+    if (this.hasDebugValue && this.debugValue) {
+      console.debug('是否左右滑动：', isHorizontal)
+    }
+    return isHorizontal
+  }
+
   offset(event) {
     const touch = event.changedTouches[0]
     const offset = {
@@ -50,6 +58,12 @@ export default class extends Controller {
     }
 
     return offset
+  }
+
+  removeStyle(ele, styles) {
+    styles.forEach(rule => {
+      ele.style.removeProperty(rule)
+    })
   }
 
   get startPos() {

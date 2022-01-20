@@ -49,8 +49,7 @@ export default class extends TouchController {
     }
     const offset = this.offset(event)
     const pad = Math.abs(offset.x)
-    const isScrolling = pad > Math.abs(offset.y) ? 1 : 0  // 1 左右滑动，0 上下滑动
-    if (isScrolling === 0) {
+    if (!this.isHorizontal(pad, offset)) {
       return
     }
 
@@ -79,8 +78,8 @@ export default class extends TouchController {
     const ele = event.currentTarget
     const offset = this.offset(event)
     const pad = Math.abs(offset.x)
-    const isScrolling = pad > Math.abs(offset.y) ? 1 : 0  // 1 左右滑动，0 上下滑动
-    if (isScrolling === 0) {
+
+    if (!this.isHorizontal(pad, offset)) {
       console.debug('not scrolling')
       this.rollback(offset, ele)
     }
@@ -109,6 +108,7 @@ export default class extends TouchController {
     }
   }
 
+  // ele 向左滑出
   playToLeft(ele, next) {
     ele.style.left = -this.element.clientWidth + 'px'
     this.beenCurrent(ele)
@@ -118,6 +118,7 @@ export default class extends TouchController {
     this.toCurrent(next)
   }
 
+  // ele 向右滑出
   playToRight(ele, prev) {
     prev.style.left = 0
     prev.style.zIndex = 1
@@ -133,20 +134,16 @@ export default class extends TouchController {
     const next = ele.nextElementSibling
     const prev = ele.previousElementSibling
 
-    if (offset.x < 0 && next) {
-      ele.style.right = 0
-      this.toCurrent(ele)
+    //this.removeStyle(ele, ['left'])
 
-      next.style.left = this.element.clientWidth + 'px'
-      this.beenCurrent(next)
+    if (offset.x < 0 && next) {
+      this.transitionNow(ele)
+      this.playToLeft(next, ele)
     }
 
     if (offset.x > 0 && prev) {
-      ele.style.left = 0
-      this.toCurrent(ele)
-
-      prev.style.right = this.element.clientWidth + 'px'
-      this.beenCurrent(prev)
+      this.transitionNow(ele)
+      this.playToRight(prev, ele)
     }
   }
 
