@@ -17,25 +17,16 @@ export default class extends TouchController {
 
     if (this.hasPlayValue && this.playValue) {
       let ele = this.element.firstElementChild
-
-      const next = this.next(ele)
-      next.style.left = next.clientWidth + 'px'
       this.goLeft(ele, true)
     }
-  }
-
-  initStyle(ele, next) {
-    //next.style.zIndex = 0
-    next.style.left = next.clientWidth + 'px'
   }
 
   start(event) {
     this.initStatus(event)
     const ele = event.target.closest('[data-index]')
     const next = this.next(ele)
-
-    this.initStyle(ele, next)
     this.transitionNone(ele, next)
+
     ele.removeEventListener('transitioncancel', this.resetIndex)
     ele.removeEventListener('transitionend', this.resetIndex)
   }
@@ -128,6 +119,8 @@ export default class extends TouchController {
   goLeft(ele, later = false) {
     const next = this.next(ele)
     if (next) {
+      next.style.left = next.clientWidth + 'px'
+
       if (later) {
         this.transitionLater(ele, next)
       } else {
