@@ -12,7 +12,4 @@
   * app/javascripts 下的文件进入
 
 ## 开发
-* 采用[viter](https://github.com/vitejs/vite)
-
-* 不再支持 [webpacker](https://github.com/rails/webpacker)
-* 不再支持 [sprockets](https://github.com/rails/sprockets)
+* 采用 [rails_vite](https://github.com/work-design/rails_design) ，基于 [vite](https://github.com/vitejs/vite)
