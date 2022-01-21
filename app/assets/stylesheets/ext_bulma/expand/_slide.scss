@@ -1,14 +1,12 @@
 .slide {
-  --height: 430px;
   position: relative;
-  height: calc(var(--height) + 30px); // fixme 采用更科学的数值
   overflow: hidden;
-  //margin-bottom: 27px;
+  height: 0;
+  padding-bottom: 45%;
 
   figure {
     position: absolute;
     width: 100%;
-    height: var(--height);
     text-align: center;
     background: black;
   }
@@ -30,9 +28,11 @@
 
     figcaption {
       background-color: #666;
-      color: #fff;
+      color: #eee;
       padding: 3px;
       text-align: center;
+      margin-top: -28.5px;
+      z-index: 2;
     }
     img, video {
       height: inherit;
