@@ -1,0 +1,8 @@
+.has-animate-scale {
+  transition: height;
+  transition-duration: 2s;
+}
+
+.has-animate-scale:hover {
+  transform: scaleY(1.05)
+}
