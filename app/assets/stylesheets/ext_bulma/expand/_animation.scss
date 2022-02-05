@@ -1,6 +1,7 @@
 .has-animate-scale {
   transition: height;
   transition-duration: 2s;
+  transition-timing-function: ease;
 }
 
 .has-animate-scale:hover {
