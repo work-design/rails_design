@@ -1,19 +1,25 @@
-.cards {
-  display: grid;
-  &.is-2 {
-    grid-template-columns: repeat(2, 50%);
-  }
-  &.is-4 {
-    grid-template-columns: repeat(4, 25%);
-  }
+@include desktop {
+  .cards {
+    display: grid;
 
-  .card {
-    margin: 1rem;
-    .card-image > img {
-      width: 100%;
+    &.is-2 {
+      grid-template-columns: repeat(2, 50%);
     }
-    .card-content {
-      text-align: center;
+
+    &.is-4 {
+      grid-template-columns: repeat(4, 25%);
+    }
+
+    .card {
+      margin: 1rem;
+
+      .card-image > img {
+        width: 100%;
+      }
+
+      .card-content {
+        text-align: center;
+      }
     }
   }
 }
