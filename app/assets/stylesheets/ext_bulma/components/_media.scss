@@ -9,6 +9,7 @@
     flex-direction: column;
     .media-content {
       margin-top: 2rem;
+      width: -webkit-fill-available;
     }
   }
 }
