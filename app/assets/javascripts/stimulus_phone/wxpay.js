@@ -1,6 +1,6 @@
-import { Controller } from '@hotwired/stimulus'
+import ConfigController from './config'
 
-export default class extends Controller {
+export default class extends ConfigController {
   static values = {
     params: Object
   }
