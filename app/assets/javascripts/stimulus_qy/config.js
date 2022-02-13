@@ -10,6 +10,7 @@ export default class extends Controller {
   connect() {
     const options = this.optionsValue
     wx.agentConfig({
+      debug: this.debugValue,
       corpid: options['corpid'],
       agentid: options['agentid'],
       timestamp: options['timestamp'],
