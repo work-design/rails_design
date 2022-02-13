@@ -32,10 +32,12 @@ export default class extends Controller {
         signature: options['signature'],
         jsApiList: this.apisValue,
         success: function(res) {
-          alert(res)
+          alert('success')
+          alert(JSON.stringify(res))
         },
         fail: function(res) {
-          alert(res)
+          alert('fail')
+          alert(JSON.stringify(res))
         }
       })
     })
