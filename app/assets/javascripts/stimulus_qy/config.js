@@ -1,5 +1,4 @@
 import { Controller } from '@hotwired/stimulus'
-import VConsole from 'vconsole'
 
 export default class extends Controller {
   static values = {
@@ -9,11 +8,7 @@ export default class extends Controller {
   }
 
   connect() {
-    if (this.debugValue) {
-      new VConsole()
-    }
     const options = this.optionsValue
-    
     wx.agentConfig({
       corpid: options['corpid'],
       agentid: options['agentid'],
