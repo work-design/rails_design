@@ -13,17 +13,31 @@ export default class extends Controller {
       new VConsole()
     }
     const options = this.optionsValue
-    wx.agentConfig({
+
+    wx.config({
+      beta: true,
       debug: this.debugValue,
-      corpid: options['corpid'],
-      agentid: options['agentid'],
+      appId: options['corpid'],
       timestamp: options['timestamp'],
       nonceStr: options['noncestr'],
       signature: options['signature'],
-      jsApiList: this.apisValue,
-      success: function(res) {
-        console.debug('res', res)
-      }
+      jsApiList: []
+    })
+    wx.ready(() => {
+      wx.agentConfig({
+        corpid: options['corpid'],
+        agentid: options['agentid'],
+        timestamp: options['timestamp'],
+        nonceStr: options['noncestr'],
+        signature: options['signature'],
+        jsApiList: this.apisValue,
+        success: function(res) {
+          alert(res)
+        },
+        fail: function(res) {
+          alert(res)
+        }
+      })
     })
   }
 
