@@ -1,23 +1,49 @@
-import ConfigController from './config'
+import { Controller } from '@hotwired/stimulus'
+import VConsole from 'vconsole'
 
-export default class extends ConfigController {
-  static targets = ['open']
+export default class extends Controller {
+  static values = {
+    options: Object,
+    debug: Boolean,
+    apis: Array
+  }
 
   connect() {
-    super.connect()
-
-    alert(WWOpenData)
-    if (WWOpenData.checkSession) {
-      WWOpenData.checkSession({
-        success() {
-          alert('有登录态')
-        },
-        fail() {
-          alert('登录态过期')
-        }
-      })
+    if (this.debugValue) {
+      this.vconsole = new VConsole()
     }
-    WWOpenData.bind(document.querySelector('ww-open-data'))
+    const options = this.optionsValue
+    wx.agentConfig({
+      corpid: options['corpid'],
+      agentid: options['agentid'],
+      timestamp: options['timestamp'],
+      nonceStr: options['noncestr'],
+      signature: options['signature'],
+      jsApiList: this.apisValue,
+      success: function(res) {
+        if (WWOpenData.checkSession) {
+          WWOpenData.checkSession({
+            success() {
+              console.log('有登录态')
+            },
+            fail() {
+              alert('登录态过期')
+            }
+          })
+        }
+        WWOpenData.bind(document.querySelector('ww-open-data'))
+      },
+      fail: function(res) {
+        alert('fail')
+        alert(JSON.stringify(res))
+      }
+    })
+  }
+
+  disconnect() {
+    if (this.debugValue) {
+      this.vconsole.destroy()
+    }
   }
 
 }
