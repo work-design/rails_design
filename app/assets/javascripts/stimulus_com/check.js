@@ -17,7 +17,7 @@ export default class extends Controller {
     }
   }
 
-  doSubmit() {
+  doSubmit(event) {
     const ids = []
     this.checkboxes.forEach(item => {
       if (item.checked) {
@@ -25,7 +25,7 @@ export default class extends Controller {
       }
     })
     this.idsTarget.value = ids.join(',')
-
+    event.preventDefault()
     this.submit(this.idsTarget.form)
   }
 
