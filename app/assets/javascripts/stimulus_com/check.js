@@ -20,7 +20,9 @@ export default class extends Controller {
   doSubmit() {
     const ids = []
     this.checkboxes.forEach(item => {
-      ids.push(item.value)
+      if (item.checked) {
+        ids.push(item.value)
+      }
     })
     this.idsTarget.value = ids.join(',')
 
