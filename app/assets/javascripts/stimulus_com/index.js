@@ -3,8 +3,8 @@ import { application } from '../rails_design/stimulus'
 import AlertController from './alert'
 application.register('alert', AlertController)
 
-import CheckboxController from './checkbox'
-application.register('check', CheckboxController)
+import CheckController from './check'
+application.register('check', CheckController)
 
 import CommonController from './common'
 application.register('common', CommonController)
