@@ -20,7 +20,7 @@ export default class extends ConfigController {
           this.loadTarget.style.removeProperty('display')
         },
         error: e => {
-          alert(e)
+          alert(JSON.stringify(e))
         }
       })
     })

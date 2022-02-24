@@ -69,8 +69,8 @@ export default class extends ConfigController {
             scale: 15
           })
         },
-        fail: function(res) {
-          alert(res)
+        fail(res) {
+          alert(JSON.stringify(res))
         }
       })
     })

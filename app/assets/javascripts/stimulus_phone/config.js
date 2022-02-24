@@ -19,7 +19,7 @@ export default class extends Controller {
       openTagList: ['wx-open-subscribe']
     })
     wx.error(res => {
-      alert(res)
+      alert(JSON.stringify(res))
     })
   }
 
