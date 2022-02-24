@@ -7,6 +7,7 @@ export default class extends ConfigController {
   static targets = ['load']
 
   connect() {
+    super.connect()
     this.chooseWXPay()
   }
 
@@ -14,11 +15,11 @@ export default class extends ConfigController {
     wx.ready(() => {
       wx.chooseWXPay({
         ...this.paramsValue,
-        success: (res) => {
+        success: res => {
           console.log(res)
           this.loadTarget.style.removeProperty('display')
         },
-        error: (e) => {
+        error: e => {
           alert(e)
         }
       })

@@ -18,6 +18,9 @@ export default class extends Controller {
       jsApiList: this.apisValue,
       openTagList: ['wx-open-subscribe']
     })
+    wx.error(res => {
+      alert(res)
+    })
   }
 
 }
