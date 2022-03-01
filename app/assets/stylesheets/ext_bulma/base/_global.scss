@@ -17,3 +17,8 @@ iframe {
     top: 0
   }
 }
+
+a[disabled=disabled] {
+  pointer-events: none;
+  opacity: 0.6;
+}
