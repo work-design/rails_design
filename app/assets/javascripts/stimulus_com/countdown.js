@@ -15,22 +15,22 @@ export default class extends Controller {
     const time = DateTime.fromISO(this.timeValue)
     let result = time.diff(DateTime.now(), ['days', 'hours', 'minutes', 'seconds'])
     let format = ['d天', 'h时', 'mm分', 'ss秒']
+    let result_format
 
     const timer = setInterval(() => {
       result = result.minus({ seconds: 1 })
-      window.xxx = result
       for (const [index, value] of Object.values(result.values).entries()) {
         if (value > 0) {
-          format = format.slice(index)
+          result_format = format.slice(index)
           break
         }
       }
 
       if (result <= 0) {
-        this.element.textContent = result.toFormat(format.join(''))
+        this.element.textContent = result.toFormat(result_format.join(''))
         clearInterval(timer)
       } else {
-        this.element.textContent = result.toFormat(format.join(''))
+        this.element.textContent = result.toFormat(result_format.join(''))
       }
     }, 1000, result, this.element)
   }
