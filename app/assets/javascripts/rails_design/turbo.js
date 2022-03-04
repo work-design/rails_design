@@ -8,7 +8,7 @@ document.addEventListener('turbo:before-fetch-request', event => {
 })
 
 document.addEventListener('turbo:before-cache', event => {
-  let modal = document.getElementById('modal')
+  const modal = document.getElementById('modal')
   if (modal) {
     modal.removeAttribute('src')
   }
