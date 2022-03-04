@@ -23,4 +23,15 @@ export default class extends Controller {
     })
   }
 
+  get script() {
+    const script = document.createElement('script')
+    script.setAttribute('src', 'https://res.wx.qq.com/open/js/jweixin-1.6.0.js')
+    document.head.appendChild(script)
+    return script
+  }
+
+  disconnect() {
+    document.head.removeChild(this.script)
+  }
+
 }
