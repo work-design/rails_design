@@ -15,15 +15,18 @@ export default class extends Controller {
 
   connect() {
     const options = this.optionsValue
+    const apis = this.apisValue
+    const debug = this.debugValue
     document.head.appendChild(this.script)
+
     this.script.addEventListener('load', event => {
       wx.config({
-        debug: this.debugValue,
+        debug: debug,
         appId: options['appid'],
         timestamp: options['timestamp'],
         nonceStr: options['noncestr'],
         signature: options['signature'],
-        jsApiList: this.apisValue,
+        jsApiList: apis,
         openTagList: ['wx-open-subscribe']
       })
       wx.error(res => {
