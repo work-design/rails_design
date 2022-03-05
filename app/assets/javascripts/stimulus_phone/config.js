@@ -30,7 +30,7 @@ export default class extends Controller {
         openTagList: ['wx-open-subscribe']
       })
       wx.ready(() => {
-        console('ready, ok')
+        console.debug('ready, ok')
       })
       wx.error(res => {
         if (debug) {
@@ -44,7 +44,7 @@ export default class extends Controller {
 
   disconnect() {
     this.script.remove()
-    window.wx = undefined  // todo should implement better
+    // window.wx = undefined  todo should implement better
   }
 
 }

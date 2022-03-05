@@ -34,7 +34,7 @@ export default class extends Controller {
         if (WWOpenData.checkSession) {
           WWOpenData.checkSession({
             success() {
-              console.log('有登录态')
+              console.debug('有登录态')
             },
             fail() {
               alert('登录态过期')
