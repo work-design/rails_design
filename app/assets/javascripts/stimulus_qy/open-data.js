@@ -8,6 +8,16 @@ export default class extends Controller {
     apis: Array
   }
 
+  initialize() {
+    this.script = document.createElement('script')
+    this.script.setAttribute('src', 'https://res.wx.qq.com/open/js/jweixin-1.2.0.js')
+    this.script.setAttribute('referrerpolicy', 'origin')
+
+    this.work_script = document.createElement('script')
+    this.work_script.setAttribute('src', 'https://open.work.weixin.qq.com/wwopen/js/jwxwork-1.0.0.js')
+    this.work_script.setAttribute('referrerpolicy', 'origin')
+  }
+
   connect() {
     if (this.debugValue) {
       this.vconsole = new VConsole()
@@ -44,6 +54,8 @@ export default class extends Controller {
     if (this.debugValue) {
       this.vconsole.destroy()
     }
+    this.script.remove()
+    this.work_script.remove()
   }
 
 }

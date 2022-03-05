@@ -29,14 +29,22 @@ export default class extends Controller {
         jsApiList: apis,
         openTagList: ['wx-open-subscribe']
       })
+      wx.ready(() => {
+        console('ready, ok')
+      })
       wx.error(res => {
-        alert(JSON.stringify(res))
+        if (debug) {
+          alert(JSON.stringify(res))
+        } else {
+          console.log(res)
+        }
       })
     })
   }
 
   disconnect() {
     this.script.remove()
+    window.wx = undefined  // todo should implement better
   }
 
 }
