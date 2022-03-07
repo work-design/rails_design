@@ -17,33 +17,26 @@ export default class extends Controller {
     const options = this.optionsValue
     const apis = this.apisValue
     const debug = this.debugValue
-    document.head.appendChild(this.script)
 
-    this.script.addEventListener('load', event => {
-      wx.config({
-        debug: debug,
-        appId: options['appid'],
-        timestamp: options['timestamp'],
-        nonceStr: options['noncestr'],
-        signature: options['signature'],
-        jsApiList: apis,
-        openTagList: ['wx-open-subscribe']
-      })
-      wx.ready(() => {
-        console.debug('ready, ok')
-      })
-      wx.error(res => {
-        if (debug) {
-          alert(JSON.stringify(res))
-        } else {
-          console.log(res)
-        }
-      })
+    wx.config({
+      debug: debug,
+      appId: options['appid'],
+      timestamp: options['timestamp'],
+      nonceStr: options['noncestr'],
+      signature: options['signature'],
+      jsApiList: apis,
+      openTagList: ['wx-open-subscribe']
+    })
+    wx.ready(() => {
+      console.debug('ready, ok')
+    })
+    wx.error(res => {
+      alert(JSON.stringify(res))
     })
   }
 
   disconnect() {
-    this.script.remove()
+    //this.script.remove()
     // window.wx = undefined  todo should implement better
   }
 
