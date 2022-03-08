@@ -27,7 +27,7 @@ export default class extends Controller {
 
   addEvent(headers) {
     document.addEventListener('turbo:before-fetch-request', event => {
-      let xhr = event.detail.fetchOptions
+      const xhr = event.detail.fetchOptions
       Object.assign(xhr.headers, headers)
     }, { once: true })
   }
