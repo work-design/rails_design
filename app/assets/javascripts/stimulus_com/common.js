@@ -49,4 +49,10 @@ export default class extends Controller {
     })
   }
 
+  // turbo:submit-start@window->common#submit
+  submit(event) {
+    const form = event.detail.formSubmission
+    form.mustRedirect = false  // 可以让 turbo 渲染 html 的内容
+  }
+
 }
