@@ -38,3 +38,9 @@
     border-radius: 9999px;
   }
 }
+
+.is-flex {
+  .image {
+    min-width: 0;
+  }
+}
