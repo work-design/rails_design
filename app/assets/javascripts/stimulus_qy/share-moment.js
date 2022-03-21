@@ -15,16 +15,17 @@ export default class extends AgentConfigController {
       text: {
         content: this.textValue
       },
-      attachments: [
-
-      ]
+      attachments: this.images
     })
   }
 
   get images() {
     return this.imagesValue.map(i => {
-      {
-
+      return {
+        msgtype: 'image',
+        image: {
+          imgUrl: i
+        }
       }
     })
   }
