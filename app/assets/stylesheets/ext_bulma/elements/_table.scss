@@ -2,6 +2,19 @@ th {
   text-align: left;
 }
 
+td.has-inner-table {
+  padding: 0;
+
+  & > table {
+    tr {
+      background-color: transparent !important;
+    }
+    tr:last-child > td {
+      border-bottom: none;
+    }
+  }
+}
+
 .table {
   &.is-border {
     border: solid 1px $border;
@@ -38,35 +51,31 @@ th {
       color: #888;
     }
   }
-}
 
-table.as-search {
-  th, td {
-    padding: 0 .5em .75em 0;
-    vertical-align: middle;
-  }
-  th {
-    text-align: right;
-    white-space: nowrap;
-  }
-  th::after {
-    content: ':';
-    color: #888;
-  }
-  td {
-    width: 100%;
-  }
-}
-
-td.has-inner-table {
-  padding: 0;
-
-  & > table {
-    tr {
-      background-color: transparent !important;
+  &.as-search {
+    th, td {
+      padding: 0 .5em .75em 0;
+      vertical-align: middle;
     }
-    tr:last-child > td {
-      border-bottom: none;
+
+    th {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    th::after {
+      content: ':';
+      color: #888;
+    }
+
+    td {
+      width: 100%;
+    }
+  }
+
+  &.is-borderless {
+    th, td {
+      border-bottom-width: 0;
     }
   }
 }
