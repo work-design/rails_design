@@ -21,11 +21,14 @@ export default class extends Controller {
       signature: options['signature'],
       jsApiList: this.apisValue,
       success: function(res) {
-        alert(JSON.stringify(res))
+        if (this.debugValue) {
+          alert(JSON.stringify(res))
+        }
       },
       fail: function(res) {
-        alert('fail')
-        alert(JSON.stringify(res))
+        if (this.debugValue) {
+          alert(JSON.stringify(res))
+        }
       }
     })
   }

@@ -20,7 +20,9 @@ export default class extends AgentConfigController {
         attachments: this.images
       },
       function(res) {
-        alert(JSON.stringify(res))
+        if (this.debugValue) {
+          alert(JSON.stringify(res))
+        }
       }
     )
   }
