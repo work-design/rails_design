@@ -11,12 +11,18 @@ export default class extends AgentConfigController {
   }
 
   shareImage() {
-    wx.invoke('shareToExternalMoments', {
-      text: {
-        content: this.textValue
+    wx.invoke(
+      'shareToExternalMoments',
+      {
+        text: {
+          content: this.textValue
+        },
+        attachments: this.images
       },
-      attachments: this.images
-    })
+      function(res) {
+        alert(JSON.stringify(res))
+      }
+    )
   }
 
   get images() {
