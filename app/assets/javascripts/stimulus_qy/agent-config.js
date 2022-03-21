@@ -20,19 +20,6 @@ export default class extends Controller {
       nonceStr: options['noncestr'],
       signature: options['signature'],
       jsApiList: this.apisValue,
-      success: function(res) {
-        if (WWOpenData.checkSession) {
-          WWOpenData.checkSession({
-            success() {
-              console.debug('有登录态')
-            },
-            fail() {
-              alert('登录态过期')
-            }
-          })
-        }
-        WWOpenData.bind(document.querySelector('ww-open-data'))
-      },
       fail: function(res) {
         alert('fail')
         alert(JSON.stringify(res))
