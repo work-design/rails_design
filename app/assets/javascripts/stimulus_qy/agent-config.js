@@ -13,6 +13,7 @@ export default class extends Controller {
       this.vconsole = new VConsole()
     }
     const options = this.optionsValue
+    const debug = this.debugValue
     wx.agentConfig({
       corpid: options['corpid'],
       agentid: options['agentid'],
@@ -21,12 +22,12 @@ export default class extends Controller {
       signature: options['signature'],
       jsApiList: this.apisValue,
       success: function(res) {
-        if (this.debugValue) {
+        if (debug) {
           alert(JSON.stringify(res))
         }
       },
       fail: function(res) {
-        if (this.debugValue) {
+        if (debug) {
           alert(JSON.stringify(res))
         }
       }

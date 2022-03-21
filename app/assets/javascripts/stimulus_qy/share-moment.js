@@ -11,6 +11,7 @@ export default class extends AgentConfigController {
   }
 
   shareImage() {
+    const debug = this.debugValue
     wx.invoke(
       'shareToExternalMoments',
       {
@@ -20,7 +21,7 @@ export default class extends AgentConfigController {
         attachments: this.images
       },
       function(res) {
-        if (this.debugValue) {
+        if (debug) {
           alert(JSON.stringify(res))
         }
       }
