@@ -20,6 +20,9 @@ export default class extends Controller {
       nonceStr: options['noncestr'],
       signature: options['signature'],
       jsApiList: this.apisValue,
+      success: function(res) {
+        alert(JSON.stringify(res))
+      },
       fail: function(res) {
         alert('fail')
         alert(JSON.stringify(res))
