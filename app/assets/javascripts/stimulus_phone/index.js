@@ -25,5 +25,8 @@ application.register('weui-picker', WeuiPickerController)
 import MiniProgramController from './mini-program'
 application.register('mini-program', MiniProgramController)
 
+import WxTimelineController from './wx-timeline'
+application.register('wx-timeline', WxTimelineController)
+
 import WxpayController from './wxpay'
 application.register('wxpay', WxpayController)

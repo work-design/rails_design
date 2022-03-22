@@ -26,7 +26,7 @@ td.has-inner-table {
   tbody tr:last-child th {
     border-bottom-width: 1px;
   }
-  tfoot td, th {
+  tfoot td {
     border-top-width: 1px;
   }
 
@@ -56,6 +56,7 @@ td.has-inner-table {
     th, td {
       padding: 0 .5em .75em 0;
       vertical-align: middle;
+      border-bottom-width: 0;
     }
 
     th {
