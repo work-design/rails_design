@@ -12,7 +12,6 @@ export default class extends ConfigController {
   connect() {
     super.connect()
     this.ready()
-    this.showMenu()
   }
 
   ready() {
@@ -37,6 +36,7 @@ export default class extends ConfigController {
     })
   }
 
+  // 实际测试不能正常工作，文档未说明
   showMenu() {
     wx.ready(() => {
       wx.hideAllNonBaseMenuItem()
