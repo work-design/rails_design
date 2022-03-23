@@ -7,8 +7,8 @@
 
 form.button_to {
   display: inline;
-  button:not(.button),
-  input[type="submit"]:not(.button) {
+  button:not(.button, .weui-btn),
+  input[type="submit"]:not(.button, .weui-btn) {
     border: none;
     padding: 0;
     background: transparent;
@@ -20,7 +20,7 @@ form.button_to {
   i:not(.fa-light):before {
     color: rgba(0, 0, 0, 0.8)
   }
-  button:not(.button):focus,
+  button:not(.button, .weui-btn):focus,
   input[type="submit"]:focus {
     outline: none;
   }
@@ -30,7 +30,7 @@ form.button_box {
   display: inline-block;
   width: 100%;
   height: 30px;
-  button:not(.button) {
+  button:not(.button, .weui-btn) {
     text-align: left;
     border: solid 1px transparent;
     box-shadow: inset 1px 1px 2px dimgrey;
