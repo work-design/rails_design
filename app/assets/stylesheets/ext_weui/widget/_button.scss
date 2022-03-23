@@ -6,6 +6,14 @@
   color: var(--weui-BTN-DISABLED-FONT-COLOR);
 }
 
+.weui-btn[disabled] {
+  opacity: 0.5;
+}
+
+.weui-btn.weui-btn_primary[disabled] {
+  background-color: var(--weui-BRAND);
+}
+
 .weui-btn_danger {
   color: white;
   background-color: var(--weui-RED);
