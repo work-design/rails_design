@@ -24,12 +24,6 @@ application.register('hover', HoverController)
 import InputController from './input'
 application.register('input', InputController)
 
-import MenuController from './menu'
-application.register('menu', MenuController)
-
-import NavbarController from './navbar'
-application.register('navbar', NavbarController)
-
 import NoticeController from './notice'
 application.register('notice', NoticeController)
 
