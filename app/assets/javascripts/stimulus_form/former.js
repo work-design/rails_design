@@ -11,17 +11,6 @@ export default class extends Controller {
     const ele = document.getElementById(this.idValue)
     const data = new FormData(ele)
 
-    fetch(this.urlValue, {
-      method: 'POST',
-      headers: {
-        Accept: 'text/vnd.turbo-stream.html',
-        'X-CSRF-Token': this.csrfToken()
-      },
-      body: data
-    }).then(response => {
-      return response.text()
-    }).then(body => {
-      Turbo.renderStreamMessage(body)
-    })
+    this.request(this.urlValue, 'POST', data)
   }
 }

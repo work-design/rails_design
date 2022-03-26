@@ -13,6 +13,35 @@ Controller.prototype.csrfToken = function() {
   return meta && meta.content
 }
 
+Controller.prototype.request = function(url, method, data) {
+  fetch(url, {
+    method: method,
+    headers: {
+      Accept: 'text/vnd.turbo-stream.html',
+      'X-CSRF-Token': this.csrfToken()
+    },
+    body: data
+  }).then(response => {
+    return response.text()
+  }).then(body => {
+    Turbo.renderStreamMessage(body)
+  })
+}
+
+Controller.prototype.get = function (url) {
+  fetch(url, {
+    method: 'GET',
+    headers: {
+      Accept: 'text/vnd.turbo-stream.html'
+    }
+  }).then(response => {
+    return response.text()
+  }).then(body => {
+    this.clear(this.element)
+    Turbo.renderStreamMessage(body)
+  })
+}
+
 HTMLElement.prototype.controller = function(identifier) {
   return application.getControllerForElementAndIdentifier(this, identifier)
 }

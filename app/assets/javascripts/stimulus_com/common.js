@@ -15,18 +15,8 @@ export default class extends Controller {
   link(event) {
     event.preventDefault()
     const ele = event.currentTarget
-    const method = (ele.dataset.method && ele.dataset.method.toUpperCase()) || 'GET'
 
-    fetch(ele.href, {
-      method: method,
-      headers: {
-        Accept: 'text/vnd.turbo-stream.html'
-      }
-    }).then(response => {
-      return response.text()
-    }).then(body => {
-      Turbo.renderStreamMessage(body)
-    })
+    this.get(ele.href)
   }
 
   stream(event) {
@@ -37,16 +27,7 @@ export default class extends Controller {
       search_url.searchParams.set(k, this.paramsValue[k])
     })
 
-    fetch(search_url, {
-      method: 'GET',
-      headers: {
-        Accept: 'text/vnd.turbo-stream.html'
-      }
-    }).then(response => {
-      return response.text()
-    }).then(body => {
-      Turbo.renderStreamMessage(body)
-    })
+    this.get(search_url)
   }
 
   // turbo:submit-start@window->common#submit

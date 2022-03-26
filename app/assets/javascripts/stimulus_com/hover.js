@@ -11,9 +11,8 @@ export default class extends Controller {
     if (this.hasCardTarget) {
       this.cardTarget.classList.remove('is-hidden')
     } else if (this.urlValue) {
-      Rails.ajax({
-        url: this.urlValue,
-        type: 'GET',
+      fetch(this.urlValue, {
+        method: 'GET',
         dataType: 'text/html',
         success: function(html) {
           ele.insertAdjacentHTML('beforebegin', html.body.innerHTML)
