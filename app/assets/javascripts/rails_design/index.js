@@ -1,5 +1,5 @@
 import '../stimulus_com'
 import '../stimulus_bulma'
-import '../default_form'
+import '../stimulus_form'
 import './dataset'
 import './turbo'

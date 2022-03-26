@@ -15,14 +15,8 @@ application.register('count-down', CountDownController)
 import CountdownController from './countdown'
 application.register('countdown', CountdownController)
 
-import FormerController from './former'
-application.register('former', FormerController)
-
 import HoverController from './hover'
 application.register('hover', HoverController)
-
-import InputController from './input'
-application.register('input', InputController)
 
 import NoticeController from './notice'
 application.register('notice', NoticeController)
@@ -49,9 +43,6 @@ application.register('slide-y', SlideYController)
 import SwipeController from './swipe'
 application.register('swipe', SwipeController)
 
-import TaxonController from './taxon'
-application.register('taxon', TaxonController)
-
 // 时间格式根据浏览器时区等进行转化
 import TimeController from './time'
 application.register('time', TimeController)
@@ -61,9 +52,6 @@ application.register('tree', TreeController)
 
 import TreeRemoteController from './tree_remote'
 application.register('tree-remote', TreeRemoteController)
-
-import TyperController from './typer'
-application.register('typer', TyperController)
 
 import VisitController from './visit'
 application.register('visit', VisitController)
