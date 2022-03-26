@@ -19,17 +19,7 @@ export default class extends Controller {
       const form = new FormData(this.checkboxTarget.form)
       form.append('checked', this.checkboxTarget.checked)
 
-      fetch(this.checkboxTarget.form.action, {
-        method: this.checkboxTarget.form.method,
-        headers: {
-          Accept: 'text/vnd.turbo-stream.html'
-        },
-        body: form
-      }).then(response => {
-        return response.text()
-      }).then(body => {
-        Turbo.renderStreamMessage(body)
-      })
+      this.request(this.checkboxTarget.form.action, this.checkboxTarget.form.method, form)
     }
   }
 
@@ -37,7 +27,7 @@ export default class extends Controller {
     const el = event.currentTarget
 
     if (el.value.length > 0) {
-      this.submit(event.currentTarget.form)
+      this.submit(el.form)
     }
   }
 

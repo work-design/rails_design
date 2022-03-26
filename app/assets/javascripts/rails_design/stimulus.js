@@ -13,14 +13,14 @@ Controller.prototype.csrfToken = function() {
   return meta && meta.content
 }
 
-Controller.prototype.request = function(url, method, data) {
+Controller.prototype.request = function(url, method, body) {
   fetch(url, {
     method: method,
     headers: {
       Accept: 'text/vnd.turbo-stream.html',
       'X-CSRF-Token': this.csrfToken()
     },
-    body: data
+    body: body
   }).then(response => {
     return response.text()
   }).then(body => {
