@@ -28,7 +28,7 @@ Controller.prototype.request = function(url, method, body) {
   })
 }
 
-Controller.prototype.get = function (url) {
+Controller.prototype.get = function(url) {
   fetch(url, {
     method: 'GET',
     headers: {
@@ -37,7 +37,6 @@ Controller.prototype.get = function (url) {
   }).then(response => {
     return response.text()
   }).then(body => {
-    this.clear(this.element)
     Turbo.renderStreamMessage(body)
   })
 }

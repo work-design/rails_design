@@ -3,6 +3,9 @@ import { Controller } from '@hotwired/stimulus'
 // data-controller="input"
 export default class extends Controller {
   static targets = ['checkbox']
+  static values = {
+    url: String
+  }
 
   // <label data-action="click->input#check"></label>
   // label out of check
@@ -21,6 +24,13 @@ export default class extends Controller {
 
       this.request(this.checkboxTarget.form.action, this.checkboxTarget.form.method, form)
     }
+  }
+
+  link(event) {
+    const ele = event.currentTarget
+    const search_url = new URL(this.urlValue, location.origin)
+    search_url.searchParams.set(ele.name, ele.value)
+    this.get(search_url)
   }
 
   form(event) {
