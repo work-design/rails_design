@@ -8,12 +8,12 @@ export default class extends Controller {
 
   // data-action="click->field#add"
   add(event) {
-    let el = this.element.cloneNode(true)
-    let label = el.querySelector('label')
+    const el = this.element.cloneNode(true)
+    const label = el.querySelector('label')
     if (label) {
       label.remove()
     }
-    let nextIndex = this.indexValue + Math.random()  // todo find an better implement
+    const nextIndex = this.indexValue + Math.random()  // todo find an better implement
     el.setAttribute('data-field-index-value', nextIndex)
     el.querySelectorAll('input, select').forEach(input => {
       input.name = input.name.replace(`[${this.indexValue}]`, `[${nextIndex}]`)
