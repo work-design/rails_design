@@ -1,5 +1,6 @@
 import { Controller } from '@hotwired/stimulus'
 
+// 用于对指定 form 的数据进行提交
 export default class extends Controller {
   static values = {
     id: String,
@@ -7,8 +8,8 @@ export default class extends Controller {
   }
 
   submit() {
-    let ele = document.getElementById(this.idValue)
-    let data = new FormData(ele)
+    const ele = document.getElementById(this.idValue)
+    const data = new FormData(ele)
 
     fetch(this.urlValue, {
       method: 'POST',
