@@ -2,10 +2,13 @@ import { Controller } from '@hotwired/stimulus'
 import Sortable from 'sortablejs'
 
 export default class extends Controller {
+  static values = {
+    handle: { type: String, default: '.is-drawable' }
+  }
 
   reload(element, controller) {
     Sortable.create(element, {
-      handle: '.is-drawable',
+      handle: controller.handleValue,
       onEnd: function(evt) {
         if (evt.oldIndex === evt.newIndex) {
           return

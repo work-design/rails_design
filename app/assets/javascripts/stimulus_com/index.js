@@ -60,6 +60,9 @@ application.register('visit', VisitController)
 import SortableController from './sortable'
 application.register('sortable', SortableController)
 
+import SortController from './sortable'
+application.register('sort', SortController)
+
 // Dependent on Choices.js
 import ChoiceController from './choice'
 application.register('choice', ChoiceController)
