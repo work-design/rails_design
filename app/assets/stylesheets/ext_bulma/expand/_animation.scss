@@ -7,3 +7,8 @@
 .has-animate-scale:hover {
   transform: scaleY(1.05)
 }
+
+.has-animate-color {
+  transition-property: color,background-color;
+  transition-duration: 0.3s;
+}

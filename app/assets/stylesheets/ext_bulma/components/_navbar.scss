@@ -7,3 +7,9 @@
 .navbar-brand + .navbar-menu {
   padding-left: 2em;
 }
+
+.navbar {
+  &.is-transparent {
+    background-color: transparent;
+  }
+}
