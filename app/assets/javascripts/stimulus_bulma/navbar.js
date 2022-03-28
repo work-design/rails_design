@@ -3,7 +3,7 @@ import { application } from '../rails_design/stimulus'
 
 export default class extends Controller {
   static targets = ['menu']
-  static classes = ['look']
+  static classes = ['old', 'new']
   static values = {
     scroll: Boolean
   }
@@ -16,9 +16,9 @@ export default class extends Controller {
     if (this.scrollValue) {
       document.addEventListener('scroll', () => {
         if (document.documentElement.scrollTop > 0) {
-          this.element.classList.add('is-dark')
+          this.element.classList.replace(this.oldClass, this.newClass)
         } else {
-          this.element.classList.remove('is-dark')
+          this.element.classList.replace(this.newClass, this.oldClass)
         }
       })
     }
