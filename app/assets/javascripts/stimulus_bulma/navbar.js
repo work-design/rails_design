@@ -1,5 +1,4 @@
 import { Controller } from '@hotwired/stimulus'
-import { application } from '../rails_design/stimulus'
 
 export default class extends Controller {
   static targets = ['menu']
@@ -13,9 +12,17 @@ export default class extends Controller {
   }
 
   scrollLook() {
+    let scrollEle, scrollEvent
+    if (this.element.parentNode === document.body) {
+      scrollEle = document.documentElement
+      scrollEvent = document
+    } else {
+      scrollEle = this.element.parentNode
+      scrollEvent = scrollEle
+    }
     if (this.scrollValue) {
-      document.addEventListener('scroll', () => {
-        if (document.documentElement.scrollTop > 0) {
+      scrollEvent.addEventListener('scroll', () => {
+        if (scrollEle.scrollTop > 0) {
           this.element.classList.replace(this.oldClass, this.newClass)
         } else {
           this.element.classList.replace(this.newClass, this.oldClass)
