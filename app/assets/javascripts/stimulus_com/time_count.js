@@ -34,4 +34,5 @@ export default class extends Controller {
       }
     }, 1000, result, this.element)
   }
+
 }

@@ -13,7 +13,7 @@ export default class extends Controller {
 
   // data-action="mouseover->showcase#show"
   show(event) {
-    let ele = event.currentTarget
+    const ele = event.currentTarget
     ele.classList.add(this.hoverClass)
     for (const el of ele.parentElement.children) {
       if (el !== ele) {
@@ -21,7 +21,7 @@ export default class extends Controller {
       }
     }
 
-    let target = this.windowTarget.querySelector(`[data-index="${ele.dataset.index}"`)
+    const target = this.windowTarget.querySelector(`[data-index="${ele.dataset.index}"`)
     target.style.zIndex = 1
 
     for (const el of this.windowTarget.children) {

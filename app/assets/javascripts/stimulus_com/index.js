@@ -12,8 +12,8 @@ application.register('common', CommonController)
 import CountDownController from './count_down'
 application.register('count-down', CountDownController)
 
-import CountdownController from './countdown'
-application.register('countdown', CountdownController)
+import CountUpController from './count_up'
+application.register('count-up', CountUpController)
 
 import HoverController from './hover'
 application.register('hover', HoverController)
@@ -46,6 +46,9 @@ application.register('swipe', SwipeController)
 // 时间格式根据浏览器时区等进行转化
 import TimeController from './time'
 application.register('time', TimeController)
+
+import TimeCountController from './time_count'
+application.register('time-count', TimeCountController)
 
 import TreeController from  './tree'
 application.register('tree', TreeController)
