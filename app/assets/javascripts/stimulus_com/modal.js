@@ -16,7 +16,7 @@ export default class extends Controller {
   close() {
     this.removeClass()
     this.urlsValue = this.urlsValue.slice(0, this.urlsValue.length - 1)
-    let url = this.urlsValue.pop()
+    const url = this.urlsValue.pop()
     if (url) {
       this.urlsValue = this.urlsValue.slice(0, this.urlsValue.length - 1)
       this.modal.src = url
