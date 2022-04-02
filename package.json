@@ -1,8 +1,11 @@
 {
   "name": "rails_design",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Rails Common Javascript",
-  "main": "app/assets/javascripts/rails_design/index.js",
+  "exports": {
+    ".": "./app/assets/javascripts/rails_design/index.js",
+    "./*": "./app/assets/javascripts/*"
+  },
   "files": [
     "app/assets/javascripts"
   ],
