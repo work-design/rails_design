@@ -3,8 +3,8 @@
   "version": "0.0.3",
   "description": "Rails Common Javascript",
   "exports": {
-    ".": "./app/assets/javascripts/rails_design/index.js",
-    "./*": "./app/assets/javascripts/*/index.js"
+    ".": "./app/javascripts/rails_design/index.js",
+    "./*": "./app/javascripts/*/index.js"
   },
   "files": [
     "app/assets/javascripts"
@@ -14,6 +14,7 @@
     "yarn": ">=1.0.0"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-pro": "^6.1.1",
     "@hotwired/stimulus": "^3.0.1",
     "@hotwired/turbo": "^7.1.0",
     "@rails/actioncable": "^7.0.0",

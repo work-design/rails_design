@@ -1,4 +1,13 @@
-@import 'ext_bulma';
-@import 'ext_choices';
-@import 'marp';
-@import 'ui_tooltip';
+@import '../../stylesheets/ext_bulma';
+@import '../../stylesheets/ext_choices';
+@import '../../stylesheets/marp';
+@import '../../stylesheets/ui_tooltip';
+
+$fa-font-path: '';
+@import '@fortawesome/fontawesome-pro/scss/brands.scss';
+@import '@fortawesome/fontawesome-pro/scss/duotone.scss';
+@import '@fortawesome/fontawesome-pro/scss/fontawesome.scss';
+@import '@fortawesome/fontawesome-pro/scss/light.scss';
+@import '@fortawesome/fontawesome-pro/scss/regular.scss';
+@import '@fortawesome/fontawesome-pro/scss/solid.scss';
+@import '@fortawesome/fontawesome-pro/scss/thin.scss';
