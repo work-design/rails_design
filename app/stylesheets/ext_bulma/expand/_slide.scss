@@ -4,12 +4,35 @@
   height: 0;
   padding-bottom: 45%;
 
+  &.is-1by1 {
+    padding-bottom: 100%;
+  }
+
   figure {
     position: absolute;
     width: 100%;
     text-align: center;
     background: black;
+
+    &.image {
+      background-color: white;
+      opacity: 1;
+
+      figcaption {
+        background-color: #666;
+        color: #eee;
+        padding: 3px;
+        text-align: center;
+        margin-top: -28.5px;
+        z-index: 2;
+      }
+      img, video {
+        height: inherit;
+        object-fit: cover;
+      }
+    }
   }
+
   .transition_later {
     transition-delay: 3s;
     transition-duration: 1s;
@@ -17,27 +40,10 @@
     transition-timing-function: linear;
     left: 0;
   }
+
   .transition_now {
     transition-duration: 1s;
     transition-property: left, right;
-  }
-
-  figure.image {
-    background-color: white;
-    opacity: 1;
-
-    figcaption {
-      background-color: #666;
-      color: #eee;
-      padding: 3px;
-      text-align: center;
-      margin-top: -28.5px;
-      z-index: 2;
-    }
-    img, video {
-      height: inherit;
-      object-fit: cover;
-    }
   }
 
 }
