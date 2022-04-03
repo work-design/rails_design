@@ -4,7 +4,10 @@
   "description": "Rails Common Javascript",
   "exports": {
     ".": "./app/javascripts/rails_design/index.js",
-    "./*": "./app/javascripts/*/index.js"
+    "./*": [
+      "./app/javascripts/*/index.js",
+      "./app/stylesheets/*/index.scss"
+    ]
   },
   "files": [
     "app/assets/javascripts"

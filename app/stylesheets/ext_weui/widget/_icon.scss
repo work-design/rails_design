@@ -1,5 +1,4 @@
-.fa-bag-shopping,
-.fa-cart-shopping {
+.fa-bag-shopping {
   position: relative;
   .weui-badge {
     position: absolute;
@@ -8,6 +7,15 @@
   }
 }
 
+.fa-cart-shopping {
+  position: relative;
+  .weui-badge {
+    position: absolute;
+    top: -0.4em;
+    right: 0.8em;
+  }
+}
+
 i.weui-tabbar__icon {
-  height: 1.2em;
+  height: 1em;
 }

@@ -1,8 +1,7 @@
 .is-several {
   display: inline-flex;
   align-items: center;
-  width: -moz-available;
-  width: -webkit-fill-available;
+  width: available;
 }
 
 .is-several > * {

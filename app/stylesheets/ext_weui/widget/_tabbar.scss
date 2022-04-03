@@ -9,7 +9,6 @@
   bottom: 10px;
   margin-left: 10px;
   margin-right: 10px;
-  width: -webkit-fill-available;
   width: available;
   border-radius: 100px;
 }
@@ -30,10 +29,6 @@
   i {
     font-weight: 900;
   }
-}
-
-i.weui-tabbar__icon {
-  font-size: 18px;
 }
 
 .weui-tabbar {
