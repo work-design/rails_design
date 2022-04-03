@@ -5,11 +5,9 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
   static targets = ['src', 'filename', 'preview', 'uploadDiv']
 
-  /*
-  * <input type="file" data-action="picture#upload">
-  **/
+  //<input type="file" data-action="picture#upload">
   upload(event) {
-    let input = event.currentTarget
+    const input = event.currentTarget
     let button = input.form.querySelector('input[type=submit], button[type=submit]')
     input.disabled = true
     button.disabled = true
@@ -41,15 +39,15 @@ export default class extends Controller {
   }
 
   pasteFile(event) {
-    var result = false,
-      clipboardData = event.clipboardData,
-      items
+    const result = false
+    const clipboardData = event.clipboardData
+    let items
 
     if (typeof clipboardData === 'object') {
       items = clipboardData.items || clipboardData.files || []
 
-      for (var i = 0; i < items.length; i++) {
-        var item = items[i]
+      for (let i = 0; i < items.length; i++) {
+        let item = items[i]
         console.debug('粘贴', item)
       }
     }
@@ -58,8 +56,8 @@ export default class extends Controller {
   }
 
   previewFile(file) {
-    let template = this.previewTarget
-    let cloned = template.cloneNode(true)
+    const template = this.previewTarget
+    const cloned = template.cloneNode(true)
     cloned.style.display = 'block'
 
     let img = cloned.querySelector('img')
@@ -73,11 +71,11 @@ export default class extends Controller {
   }
 
   removePreview(event) {
-    let wrap = event.currentTarget.parentNode.parentNode
+    const wrap = event.currentTarget.parentNode.parentNode
     wrap.style.display = 'none'
     wrap.querySelector('input').remove()
-    let up = this.uploadDivTarget
-    let input = up.querySelector('input[type=file]')
+    const up = this.uploadDivTarget
+    const input = up.querySelector('input[type=file]')
     up.style.display = 'block'
     input.disabled = false
   }
