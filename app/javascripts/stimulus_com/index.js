@@ -15,6 +15,9 @@ application.register('count-down', CountDownController)
 import CountUpController from './count_up'
 application.register('count-up', CountUpController)
 
+import CustomController from './custom'
+application.register('custom', CustomController)
+
 import HoverController from './hover'
 application.register('hover', HoverController)
 
