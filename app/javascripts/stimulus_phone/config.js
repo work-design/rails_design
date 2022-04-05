@@ -31,7 +31,7 @@ export default class extends Controller {
       console.debug('ready, ok')
     })
     wx.error(res => {
-      alert(JSON.stringify(res))
+      alert('wx.config: ' + JSON.stringify(res))
     })
   }
 
