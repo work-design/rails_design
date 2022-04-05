@@ -3,6 +3,10 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
   static targets = ['output']
   static classes = ['remove', 'add']
+  static values = {
+    order: Array,
+    one: Boolean
+  }
 
   toggle(event) {
     const checkbox = event.currentTarget
@@ -20,18 +24,9 @@ export default class extends Controller {
     cl.remove('weui-btn_default')
     cl.add('weui-btn_primary')
 
-    if (this.size >= this.range[1] && this.lastItem) {
-      this.toggleOff(this.lastItem)
+    if (this.oneValue) {
+      this.toggleOther(checkbox)
     }
-
-    let order = this.data.get('order')
-    if (order.length > 0) {
-      order = order.split(',')
-    } else {
-      order = []
-    }
-    order.push(checkbox.value)
-    this.data.set('order', order)
   }
 
   toggleOff(checkbox) {
@@ -43,18 +38,6 @@ export default class extends Controller {
     const cl = checkbox.parentElement.classList
     cl.remove('weui-btn_primary')
     cl.add('weui-btn_default')
-
-    let order = this.data.get('order')
-    if (order.length > 0) {
-      order = order.split(',')
-    } else {
-      order = []
-    }
-    let index = order.indexOf(checkbox.value)
-    if (index > -1) {
-      order.splice(index, 1)
-    }
-    this.data.set('order', order)
   }
 
   disable() {
@@ -63,21 +46,13 @@ export default class extends Controller {
     input.parentElement.parentElement.classList.add('weui-cell_disabled')
   }
 
-  get range() {
-    const arr = []
-    const r = this.data.get('range').split(',')
-    r.forEach(i => {
-      arr.push(parseInt(i))
+  toggleOther(checkbox) {
+    const items = checkbox.form.elements[checkbox.name]
+    items.forEach((i) => {
+      if (i.dataset.partTaxonId === checkbox.partTaxonId) {
+        this.toggleOff(i)
+      }
     })
-    return arr
   }
 
-  get size() {
-    return this.data.get('order').split(',').length
-  }
-
-  get lastItem() {
-    const id = this.data.get('order').split(',')[0]
-    return document.getElementById(`part_${id}`)
-  }
 }
