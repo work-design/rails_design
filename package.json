@@ -1,6 +1,6 @@
 {
   "name": "rails_design",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Rails Common Javascript",
   "exports": {
     ".": "./app/javascripts/rails_design/index.js",
