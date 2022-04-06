@@ -1,6 +1,6 @@
 {
   "name": "rails_design",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Rails Common Javascript",
   "exports": {
     ".": "./app/javascripts/rails_design/index.js",
@@ -10,7 +10,9 @@
     ]
   },
   "files": [
-    "app/assets/javascripts"
+    "app/assets",
+    "app/javascripts",
+    "app/stylesheets"
   ],
   "engines": {
     "node": ">=6.14.4",
