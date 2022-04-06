@@ -8,3 +8,5 @@ tmp/**/*.*
 !tmp/sockets/.keep
 
 *.gem
+app/assets/builds/*
+!app/assets/builds/.keep
