@@ -19,7 +19,6 @@
     "yarn": ">=1.0.0"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-pro": "^6.1.1",
     "@hotwired/stimulus": "^3.0.1",
     "@hotwired/turbo": "^7.1.0",
     "@rails/actioncable": "^7.0.0",

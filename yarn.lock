@@ -293,11 +293,6 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@fortawesome/fontawesome-pro@^6.1.1":
-  version "6.1.1"
-  resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-pro/-/6.1.1/fontawesome-pro-6.1.1.tgz#ff731c472fb4c93947e506806f3e1d7b2cd0a971"
-  integrity sha512-0w6GM8sCXNpcBLUz4bx61JvjjoCvfEIz5wBz2KjLNw9qk1F2XiUWuifXobvLbwaA7kqPGBRPo3U8Zw7zyaJ9sA==
-
 "@hotwired/stimulus@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@hotwired/stimulus/-/stimulus-3.0.1.tgz#141f15645acaa3b133b7c247cad58ae252ffae85"
