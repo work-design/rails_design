@@ -40,6 +40,10 @@
   border-top-right-radius: 6px;
 }
 
+.is-safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
 .is-avatar {
   width: 100%;
   max-height: 100%;
