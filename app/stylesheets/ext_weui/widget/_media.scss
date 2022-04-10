@@ -44,11 +44,16 @@
   transition: width 1s linear;
 }
 
-.weui-media-box__info {
+ul.weui-media-box__info {
   display: flex;
   align-items: center;
+
+  li {
+    padding-right: 0.5em;
+  }
+  li + li {
+    padding-left: 0.5em;
+    border-left: 1px solid var(--weui-FG-2);
+  }
 }
 
-.weui-media-box__info__meta {
-  float: none;
-}
