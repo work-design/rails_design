@@ -33,7 +33,7 @@
 
 .weui-tabbar {
   touch-action: none;
-  padding-bottom: 0.5em;
+  padding-bottom: env(safe-area-inset-bottom);
 
   &.weui-tabbar__primary {
     background-color: #48c78e;
@@ -41,7 +41,7 @@
     .weui-tabbar__item {
       color: #fff;
 
-      weui-tabbar__icon {
+      .weui-tabbar__icon {
         color: #fff;
       }
     }
