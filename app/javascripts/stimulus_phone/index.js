@@ -21,6 +21,9 @@ application.register('weui-dialog', WeuiDialogController)
 import WeuiPickerController from './weui-picker'
 application.register('weui-picker', WeuiPickerController)
 
+import MaskController from './mask'
+application.register('mask', MaskController)
+
 // dependent on weixin.js
 import MiniProgramController from './mini-program'
 application.register('mini-program', MiniProgramController)
