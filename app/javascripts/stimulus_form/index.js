@@ -1,5 +1,11 @@
 import { application } from '../rails_design/stimulus'
 
+import CoeffController from './coeff'
+application.register('coeff', CoeffController)
+
+import EqualController from './equal'
+application.register('equal', EqualController)
+
 import FormerController from './former'
 application.register('former', FormerController)
 
