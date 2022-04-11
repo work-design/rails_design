@@ -1,70 +1,8 @@
 @charset "utf-8";
 
+@import 'border';
 @import 'dot';
 @import 'drawable';
 @import 'grid';
-
-.is-sticky {
-  position: sticky;
-  top: 0;
-}
-
-.is-cover {
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.is-contain-x {
-  background-size: auto 100%;
-  background-repeat: repeat-x;
-}
-
-.is-bordered {
-  border: 1px solid darkgrey;
-}
-
-.has-border-bottom {
-  border-bottom: 0.5px solid #ececec;
-}
-
-.has-border-top {
-  border-top: 0.5px solid #ececec;
-}
-
-.is-radius {
-  border-radius: 6px;
-}
-
-.is-radius-top {
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-}
-
-.is-radius-left {
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-}
-
-.is-safe-bottom {
-  padding-bottom: env(safe-area-inset-bottom);
-}
-
-.is-avatar {
-  width: 100%;
-  max-height: 100%;
-  vertical-align: middle;
-  text-align: center;
-  background: darkseagreen;
-  color: white;
-  border-radius: 9999px;
-
-  .text {
-    font-size: 2rem;
-  }
-}
-
-.is-wrap {
-  word-wrap: break-word;
-  word-break: break-all;
-  overflow: hidden;
-}
+@import 'radius';
+@import 'utils';

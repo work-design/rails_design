@@ -1,0 +1,23 @@
+.is-radius {
+  border-radius: 6px;
+}
+
+.is-radius-top {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.is-radius-bottom {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.is-radius-left {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.is-radius-right {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
