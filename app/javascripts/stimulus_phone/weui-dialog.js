@@ -7,18 +7,12 @@ export default class extends Controller {
   }
 
   close() {
-    const ele = this.element
-    ele.style.display = 'none'
-    ele.style.opacity = 0
-    ele.style.transition = 'opacity 2s'
     this.dialogTarget.classList.remove('weui-half-screen-dialog_show')
+    this.maskTarget.classList.remove('weui-mask')
+    this.dialogTarget.replaceChildren()
   }
 
   show() {
-    const ele = this.element
-    ele.style.display = 'block'
-    ele.style.opacity = 1
-    ele.style.transition = 'opacity 2s'
     this.maskTarget.classList.add('weui-mask')
     this.dialogTarget.classList.add('weui-half-screen-dialog_show')
   }
