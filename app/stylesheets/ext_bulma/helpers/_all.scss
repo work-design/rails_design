@@ -40,6 +40,11 @@
   border-top-right-radius: 6px;
 }
 
+.is-radius-left {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
 .is-safe-bottom {
   padding-bottom: env(safe-area-inset-bottom);
 }
