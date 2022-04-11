@@ -69,7 +69,9 @@ export default class extends Controller {
         }
       }
     }
-    toRemove.remove()
+    if (toRemove) {
+      toRemove.remove()
+    }
   }
 
 }
