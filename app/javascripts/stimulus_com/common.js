@@ -16,7 +16,11 @@ export default class extends Controller {
     event.preventDefault()
     const ele = event.currentTarget
 
-    this.get(ele.href)
+    if (ele.dataset.method) {
+      this.request(ele.href, ele.dataset.method)
+    } else {
+      this.get(ele.href)
+    }
   }
 
   stream(event) {

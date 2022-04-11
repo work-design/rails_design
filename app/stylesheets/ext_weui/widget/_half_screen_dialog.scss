@@ -2,9 +2,15 @@
   background-color: var(--weui-BG-3);
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  transform: translateY(100%);
+  transition: transform 0.5s;
 }
 
 .weui-half-screen-dialog__bd .weui-form {
   background-color: unset;
   padding-top: 0;
+}
+
+.weui-half-screen-dialog_show {
+  transform: translateY(0);
 }

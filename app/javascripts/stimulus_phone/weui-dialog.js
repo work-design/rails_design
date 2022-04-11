@@ -1,7 +1,7 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static targets = ['dialog']
+  static targets = ['dialog', 'mask']
   static values = {
     id: String
   }
@@ -19,6 +19,7 @@ export default class extends Controller {
     ele.style.display = 'block'
     ele.style.opacity = 1
     ele.style.transition = 'opacity 2s'
+    this.maskTarget.classList.add('weui-mask')
     this.dialogTarget.classList.add('weui-half-screen-dialog_show')
   }
 
@@ -29,6 +30,10 @@ export default class extends Controller {
     } else {
       x.show()
     }
+  }
+
+  loaded(event) {
+    this.show()
   }
 
   get target() {
