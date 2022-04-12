@@ -1,5 +1,4 @@
 import { Controller } from '@hotwired/stimulus'
-import { application } from '../rails_design/stimulus'
 
 export default class extends Controller {
   static targets = ['dialog', 'mask']
@@ -15,7 +14,7 @@ export default class extends Controller {
   close() {
     this.dialogTarget.classList.remove('weui-half-screen-dialog_show')
     this.maskTarget.classList.remove('weui-mask')
-    //this.dialogTarget.replaceChildren()
+    this.dialogTarget.replaceChildren()
   }
 
   show() {
@@ -34,13 +33,16 @@ export default class extends Controller {
 
   // NOTICE: here this becomes observer
   loaded(list, observer) {
-    const item = list[0]
-    const sheet = item.target.parentNode
-    const con = sheet.controller('weui-dialog')
-    switch(item.type) {
-      case 'childList':
-        con.show()
-    }
+    list.forEach((item) => {
+      const sheet = item.target.parentNode
+      const con = sheet.controller('weui-dialog')
+      switch(item.type) {
+        case 'childList':
+          if (item.addedNodes.length > 0) {
+            con.show()
+          }
+      }
+    })
   }
 
   get target() {

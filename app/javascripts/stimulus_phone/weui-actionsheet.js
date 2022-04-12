@@ -38,13 +38,16 @@ export default class extends Controller {
 
   // NOTICE: here this becomes observer
   loaded(list, observer) {
-    const item = list[0]
-    const sheet = item.target.parentNode
-    const con = application.getControllerForElementAndIdentifier(sheet.parentNode, 'weui-actionsheet')
-    switch(item.type) {
-      case 'childList':
-        con.show()
-    }
+    list.forEach((item) => {
+      const sheet = item.target.parentNode
+      const con = sheet.controller('weui-actionsheet')
+      switch(item.type) {
+        case 'childList':
+          if (item.addedNodes.length > 0) {
+            con.show()
+          }
+      }
+    })
   }
 
   get menu() {
