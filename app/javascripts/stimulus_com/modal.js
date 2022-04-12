@@ -31,7 +31,6 @@ export default class extends Controller {
   }
 
   disconnect() {
-    console.debug('disconnected:', this.identifier)
     this.observer.disconnect()
     delete this.observer
   }
@@ -68,9 +67,9 @@ export default class extends Controller {
 
   // NOTICE: here this become document
   addHeader(event) {
-    let xhr = event.detail.fetchOptions
-    let ele = document.getElementById('modal').parentNode.parentNode
-    let con = application.getControllerForElementAndIdentifier(ele, 'modal')
+    const xhr = event.detail.fetchOptions
+    const ele = document.getElementById('modal').parentNode.parentNode
+    const con = ele.controller('modal')
     console.debug('add redirect headers')
     xhr.headers['Redirect'] = con.redirectValue
   }
