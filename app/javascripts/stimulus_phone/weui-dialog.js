@@ -12,13 +12,17 @@ export default class extends Controller {
   }
 
   close() {
+    if (this.hasMaskTarget) {
+      this.maskTarget.classList.remove('weui-mask')
+    }
     this.dialogTarget.classList.remove('weui-half-screen-dialog_show')
-    this.maskTarget.classList.remove('weui-mask')
     this.dialogTarget.replaceChildren()
   }
 
   show() {
-    this.maskTarget.classList.add('weui-mask')
+    if (this.hasMaskTarget) {
+      this.maskTarget.classList.add('weui-mask')
+    }
     this.dialogTarget.classList.add('weui-half-screen-dialog_show')
   }
 
