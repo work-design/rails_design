@@ -3,12 +3,16 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
   static targets = ['dialog', 'mask']
   static values = {
-    id: String
+    id: String,
+    observable: Boolean,
+    clear: Boolean
   }
 
   connect() {
-    this.observer = new MutationObserver(this.loaded)
-    this.observer.observe(this.dialogTarget, { childList: true })
+    if (this.observableValue) {
+      this.observer = new MutationObserver(this.loaded)
+      this.observer.observe(this.dialogTarget, {childList: true})
+    }
   }
 
   close() {
@@ -16,7 +20,9 @@ export default class extends Controller {
       this.maskTarget.classList.remove('weui-mask')
     }
     this.dialogTarget.classList.remove('weui-half-screen-dialog_show')
-    this.dialogTarget.replaceChildren()
+    if (this.clearValue) {
+      this.dialogTarget.replaceChildren()
+    }
   }
 
   show() {
