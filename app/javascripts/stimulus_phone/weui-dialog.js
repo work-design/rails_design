@@ -1,4 +1,5 @@
 import { Controller } from '@hotwired/stimulus'
+import { application } from '../rails_design/stimulus'
 
 export default class extends Controller {
   static targets = ['dialog', 'mask']
@@ -6,10 +7,15 @@ export default class extends Controller {
     id: String
   }
 
+  connect() {
+    this.observer = new MutationObserver(this.loaded)
+    this.observer.observe(this.dialogTarget, { childList: true })
+  }
+
   close() {
     this.dialogTarget.classList.remove('weui-half-screen-dialog_show')
     this.maskTarget.classList.remove('weui-mask')
-    this.dialogTarget.replaceChildren()
+    //this.dialogTarget.replaceChildren()
   }
 
   show() {
@@ -26,8 +32,15 @@ export default class extends Controller {
     }
   }
 
-  loaded(event) {
-    this.show()
+  // NOTICE: here this becomes observer
+  loaded(list, observer) {
+    const item = list[0]
+    const sheet = item.target.parentNode
+    const con = sheet.controller('weui-dialog')
+    switch(item.type) {
+      case 'childList':
+        con.show()
+    }
   }
 
   get target() {
