@@ -4,9 +4,9 @@ export default class extends Controller {
 
   // data-action="datetime#default"
   default(event) {
-    let el = event.currentTarget
-    let date = new Date(el.value)
-    let form = el.form
+    const el = event.currentTarget
+    const date = new Date(el.value)
+    const form = el.form
 
     this.append(form, el.name.replace('(date)', '(1i)'), date.getFullYear())
     this.append(form, el.name.replace('(date)', '(2i)'), date.getMonth() + 1)
