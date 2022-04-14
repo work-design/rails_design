@@ -5,6 +5,13 @@
 .is-radius-top {
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+
+  &.is-radius-4 {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
 }
 
 .is-radius-bottom {
