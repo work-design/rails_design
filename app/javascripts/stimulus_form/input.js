@@ -29,15 +29,7 @@ export default class extends Controller {
 
   link(event) {
     const ele = event.currentTarget
-    const search_url = new URL(this.urlValue, location.origin)
-    if (this.hasMethodValue) {
-      const body = new FormData()
-      body.append(ele.name, ele.value)
-      this.request(search_url, this.methodValue, data)
-    } else {
-      search_url.searchParams.set(ele.name, ele.value)
-      this.get(search_url)
-    }
+    this.doRequest(ele)
   }
 
   form(event) {

@@ -41,6 +41,18 @@ Controller.prototype.get = function(url) {
   })
 }
 
+Controller.prototype.doRequest = function(input) {
+  const url = new URL(this.urlValue, location.origin)
+  if (this.hasMethodValue) {
+    const body = new FormData()
+    body.append(input.name, input.value)
+    this.request(url, this.methodValue, body)
+  } else {
+    url.searchParams.set(input.name, input.value)
+    this.get(url)
+  }
+}
+
 HTMLElement.prototype.controller = function(identifier) {
   return application.getControllerForElementAndIdentifier(this, identifier)
 }

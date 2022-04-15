@@ -20,28 +20,20 @@ export default class extends Controller {
     })
     ele.addEventListener('compositionend', event => {
       event.target.addEventListener('input', this.form)
-      this.form(event)
     })
   }
 
-  form(event) {
-    const ele = event.currentTarget
-    if (!ele.value) {
+  // NOTICE  here this becomes ele, who call addEventListener
+  form() {
+    const con = this.closest('[data-controller~=typer]').controller('typer')
+    if (!this.value) {
       return
     }
 
-    if (this.hasUrlValue) {
-      const search_url = new URL(this.urlValue, location.origin)
-      if (this.hasMethodValue) {
-        const body = new FormData()
-        body.append(ele.name, ele.value)
-        this.request(search_url, this.methodValue, data)
-      } else {
-        search_url.searchParams.set(ele.name, ele.value)
-        this.get(search_url)
-      }
+    if (con.hasUrlValue) {
+      con.doRequest(this)
     } else {
-      this.submit(ele.form)
+      con.submit(this.form)
     }
   }
 
@@ -50,6 +42,7 @@ export default class extends Controller {
     const ele = event.currentTarget
     this.valueTarget.value = ele.dataset['id']
     this.inputTarget.value = ele.dataset['name']
+    ele.parentNode.replaceChildren()
   }
 
 }
