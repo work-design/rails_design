@@ -15,7 +15,7 @@ Controller.prototype.csrfToken = function() {
 
 Controller.prototype.request = function(url, method, body) {
   fetch(url, {
-    method: method,
+    method: method.toUpperCase(),
     headers: {
       Accept: 'text/vnd.turbo-stream.html',
       'X-CSRF-Token': this.csrfToken()
