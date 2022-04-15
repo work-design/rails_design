@@ -26,9 +26,7 @@ export default class extends Controller {
       return
     }
 
-    const evt = document.createEvent('Event')
-    evt.initEvent('submit', true, true)
-    ele.form.dispatchEvent(evt)
+    this.submit(ele.form)
   }
 
   // click->typer#choose
