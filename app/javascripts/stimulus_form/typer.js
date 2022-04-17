@@ -20,6 +20,7 @@ export default class extends Controller {
     })
     ele.addEventListener('compositionend', event => {
       event.target.addEventListener('input', this.form)
+      this.conForm(ele)
     })
   }
 
@@ -34,6 +35,18 @@ export default class extends Controller {
       con.doRequest(this)
     } else {
       con.submit(this.form)
+    }
+  }
+
+  conForm(ele) {
+    if (!ele.value) {
+      return
+    }
+
+    if (this.hasUrlValue) {
+      this.doRequest(ele)
+    } else {
+      this.submit(ele.form)
     }
   }
 
