@@ -11,22 +11,15 @@ document.addEventListener('turbo:before-cache', event => {
   }
 })
 
-// 当 target 为 body 的时候，则不用 getElementById 的逻辑，而是直接使用body
-Object.defineProperties(customElements.get('turbo-stream').prototype, {
-  targetElementsById: {
-    get: function() {
-      let element
-      if (this.target === 'body') {
-        element = this.ownerDocument.body
-      } else if (this.target) {
-        element = this.ownerDocument.getElementById(this.target)
-      }
-
-      if (element !== null) {
-        return [ element ]
-      } else {
-        return []
-      }
+document.addEventListener('turbo:frame-render', event => {
+  event.detail.fetchResponse.responseHTML.then(body => {
+    const container = new DOMParser().parseFromString(body, 'text/html')
+    const title = container.querySelector('turbo-frame')?.dataset?.title
+    const titleEle = document.getElementById('modal_title')
+    if (titleEle && title) {
+      titleEle.innerText = title
+    } else if (titleEle) {
+      titleEle.innerText = ''
     }
-  }
+  })
 })
