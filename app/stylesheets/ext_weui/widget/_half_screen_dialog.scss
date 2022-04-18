@@ -12,3 +12,8 @@
 .weui-half-screen-dialog_show {
   transform: translateY(0);
 }
+
+.weui-mask {
+  transition-property: background-color;
+  transition-duration: 0.3s;
+}
