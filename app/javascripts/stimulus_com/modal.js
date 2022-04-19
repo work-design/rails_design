@@ -2,6 +2,7 @@ import { Controller } from '@hotwired/stimulus'
 
 // data-controller="modal"
 export default class extends Controller {
+  static targets = ['background']
   static values = {
     urls: Array,
     redirect: String
@@ -46,6 +47,7 @@ export default class extends Controller {
           break
         }
         ele.classList.add('is-active')
+        con.backgroundTarget.classList.replace('has-background-white', 'modal-background')
         document.documentElement.classList.add('is-clipped')
         if (con.urlsValue.length > 0 && !con.hasRedirectValue) {
           con.redirectValue = item.target.src
@@ -76,6 +78,7 @@ export default class extends Controller {
 
   removeClass() {
     this.element.classList.remove('is-active')
+    this.backgroundTarget.classList.replace('modal-background', 'has-background-white')
     document.documentElement.classList.remove('is-clipped')
   }
 
