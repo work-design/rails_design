@@ -16,6 +16,7 @@ export default class extends Controller {
 
   close() {
     this.removeClass()
+    sessionStorage.removeItem('scrollTop')
     this.urlsValue = this.urlsValue.slice(0, this.urlsValue.length - 1)
     const url = this.urlsValue.pop()
     if (url) {
