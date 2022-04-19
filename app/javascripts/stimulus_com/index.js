@@ -30,6 +30,9 @@ application.register('page', PageController)
 import PictureController from './picture'
 application.register('picture', PictureController)
 
+import ScrollController from './scroll'
+application.register('scroll', ScrollController)
+
 import ShowController from './show'
 application.register('show', ShowController)
 
