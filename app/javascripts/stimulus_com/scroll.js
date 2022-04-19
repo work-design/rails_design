@@ -8,16 +8,9 @@ export default class extends Controller {
 
   scroll() {
     if (sessionStorage.getItem('scrollTop')) {
-      if (sessionStorage.getItem('scrollTopItem')) {
-        const ele = document.getElementById(sessionStorage.getItem('scrollTopItem'))
-        ele.scrollTo(0, sessionStorage.getItem('scrollTop'))
-      } else {
-        document.scrollingElement.scrollTo(0, sessionStorage.getItem('scrollTop'))
-      }
+      this.element.scrollTo(0, sessionStorage.getItem('scrollTop'))
+      sessionStorage.removeItem('scrollTop')
     }
-
-    sessionStorage.removeItem('scrollTop')
-    sessionStorage.removeItem('scrollTopItem')
   }
 
 }

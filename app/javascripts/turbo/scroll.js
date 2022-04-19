@@ -8,9 +8,9 @@ window.addEventListener('turbo:click', event => {
 
 window.addEventListener('turbo:submit-start', event => {
   if (event.target.dataset.turboScroll === 'true') {
-    if (event.target.dataset.turboScrollItem) {
-      const ele = document.getElementById(event.target.dataset.turboScrollItem)
-      sessionStorage.setItem('scrollTopItem', event.target.dataset.turboScrollItem)
+    if (event.target.dataset.turboScrollContainer) {
+      sessionStorage.setItem('scrollContainer', event.target.dataset.turboScrollContainer)
+      const ele = document.getElementById(event.target.dataset.turboScrollContainer)
       sessionStorage.setItem('scrollTop', ele.scrollTop)
     } else {
       sessionStorage.setItem('scrollTop', document.scrollingElement.scrollTop)
@@ -22,16 +22,15 @@ window.addEventListener('turbo:submit-start', event => {
 
 window.addEventListener('turbo:render', event => {
   if (sessionStorage.getItem('scrollTop')) {
-    if (sessionStorage.getItem('scrollTopItem')) {
-      const ele = document.getElementById(sessionStorage.getItem('scrollTopItem'))
+    if (sessionStorage.getItem('scrollContainer')) {
+      const ele = document.getElementById(sessionStorage.getItem('scrollContainer'))
       ele.scrollTo(0, sessionStorage.getItem('scrollTop'))
+      sessionStorage.removeItem('scrollContainer')
     } else {
       document.scrollingElement.scrollTo(0, sessionStorage.getItem('scrollTop'))
     }
 
     Turbo.navigator.currentVisit.scrolled = true
+    sessionStorage.removeItem('scrollTop')
   }
-
-  sessionStorage.removeItem('scrollTop')
-  sessionStorage.removeItem('scrollTopItem')
 })
