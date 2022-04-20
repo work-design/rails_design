@@ -17,3 +17,15 @@
   transition-property: background-color;
   transition-duration: 0.3s;
 }
+
+.weui-dialog__wrap {
+  opacity: 0;
+  display: none;
+  transition-property: opacity;
+  transition-duration: 2s;
+
+  &.weui-dialog__wrap_show {
+    opacity: 1;
+    display: block;
+  }
+}

@@ -20,6 +20,7 @@ export default class extends Controller {
       this.maskTarget.classList.remove('weui-mask')
     }
     this.dialogTarget.classList.remove('weui-half-screen-dialog_show')
+    this.element.classList.remove('weui-dialog__wrap_show')
     if (this.clearValue) {
       this.dialogTarget.replaceChildren()
     }
@@ -30,6 +31,7 @@ export default class extends Controller {
       this.maskTarget.classList.add('weui-mask')
     }
     this.dialogTarget.classList.add('weui-half-screen-dialog_show')
+    this.element.classList.add('weui-dialog__wrap_show')
   }
 
   toggle() {
