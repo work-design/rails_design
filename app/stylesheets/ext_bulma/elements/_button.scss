@@ -12,3 +12,9 @@
     background: transparent;
   }
 }
+
+.weui-check:checked + .button {
+  background-color: #00c4a7;
+  border-color: transparent;
+  color: #fff;
+}
