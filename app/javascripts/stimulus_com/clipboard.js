@@ -8,7 +8,7 @@ export default class extends Controller {
   }
 
   copy() {
-    navigator.clipboard.writeText(this.sourceTarget.textContent)
+    navigator.clipboard?.writeText(this.sourceTarget.textContent)
     if (this.hasToastTarget) {
       this.toastTarget.classList.add('weui-toast__wrap_show')
       this.toastTarget.addEventListener('animationend', (event) => {
