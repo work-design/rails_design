@@ -9,6 +9,9 @@ application.register('check', CheckController)
 import CommonController from './common'
 application.register('common', CommonController)
 
+import ClipboardController from './clipboard'
+application.register('clipboard', ClipboardController)
+
 import CountDownController from './count_down'
 application.register('count-down', CountDownController)
 
