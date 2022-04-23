@@ -15,6 +15,9 @@ application.register('input', InputController)
 import TaxonController from './taxon'
 application.register('taxon', TaxonController)
 
+import TimeRangeController from './time-range'
+application.register('time-range', TimeRangeController)
+
 import TyperController from './typer'
 application.register('typer', TyperController)
 
