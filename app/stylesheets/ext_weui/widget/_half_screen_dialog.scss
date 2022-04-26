@@ -9,9 +9,8 @@
   padding-top: 0;
 }
 
-// translateZ 修复 safari 下 z-index 的bug
 .weui-half-screen-dialog_show {
-  transform: translateY(0) translateZ(1px);
+  transform: translateY(0);
 }
 
 .weui-mask {
