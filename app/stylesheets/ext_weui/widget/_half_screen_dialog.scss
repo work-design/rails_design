@@ -11,7 +11,7 @@
 
 // translateZ 修复 safari 下 z-index 的bug
 .weui-half-screen-dialog_show {
-  transform: translateY(0) translateZ(1px);
+  transform: translate3d(0, 0, 1px);
 }
 
 .weui-mask {
