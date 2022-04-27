@@ -2493,7 +2493,7 @@ webidl-conversions@^6.1.0:
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-6.1.0.tgz#9111b4d7ea80acd40f5270d666621afa78b69514"
   integrity sha512-qBIvFLGiBpLjfwmYAaHPXsn+ho5xZnGvyGvsarywGNc8VyQJUMHJ8OBKGGrPER0okBeMDaan4mNBlgBROxuI8w==
 
-weui@^2.5.0:
+weui@^2.5.4:
   version "2.5.4"
   resolved "https://registry.yarnpkg.com/weui/-/weui-2.5.4.tgz#374ee1f7a69e8c76f9fef3e05670a03de225587f"
   integrity sha512-N3VyhScMUXU3deOhusfxyUSTkVnat7vMgcd96seqd1xnKUc7/6vt7eDKbw+McG/pPduQYp2bZ1JdG8UxjFq0KQ==
