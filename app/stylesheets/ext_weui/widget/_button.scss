@@ -2,6 +2,11 @@
   font-weight: lighter;
 }
 
+.weui-btn_mini,
+.weui-btn_xmini {
+  position: static;
+}
+
 .weui-cells__group_form button.weui-vcode-btn[disabled] {
   color: var(--weui-BTN-DISABLED-FONT-COLOR);
 }
