@@ -6,5 +6,6 @@
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: var(--weui-BG-0);
+  // tabbar 与 dialog 搭配使用时会有bug
   -webkit-overflow-scrolling: auto;
 }
