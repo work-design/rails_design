@@ -10,11 +10,11 @@
   border-top: 0.5px solid #ececec;
 }
 
-.has-border-top-arc {
+.has-border-bottom-arc {
   position: relative;
 }
 
-.has-border-top-arc:before {
+.has-border-bottom-arc:after {
   width: 140%;
   height: 200px;
   position: absolute;
