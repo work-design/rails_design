@@ -1,6 +1,6 @@
 .slide {
-  position: relative;
   overflow: hidden;
+  position: relative;
   height: 0;
   padding-bottom: 45%;
 
@@ -46,4 +46,11 @@
     transition-property: left, right;
   }
 
+}
+
+.slide-dot {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
