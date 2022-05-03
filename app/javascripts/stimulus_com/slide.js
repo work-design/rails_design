@@ -183,6 +183,7 @@ export default class extends TouchController {
   // 不再展示
   beenCurrent(ele) {
     console.debug('add transition event resetIndex for been', ele.dataset.index)
+    this.darken(ele)
     ele.addEventListener('transitionend', this.resetIndex, { once: true })
     ele.addEventListener('transitioncancel', this.resetIndex, { once: true })
   }
@@ -190,6 +191,7 @@ export default class extends TouchController {
   // 即将展示
   toCurrent(ele) {
     console.debug('add transition event clearStyle for to', ele.dataset.index)
+    this.lighten(ele)
     ele.addEventListener('transitionend', this.clearStyle, { once: true })
     ele.addEventListener('transitioncancel', this.clearStyle, { once: true })
   }
@@ -233,6 +235,20 @@ export default class extends TouchController {
       return ele.nextElementSibling || this.containerTarget.firstElementChild
     } else {
       return ele.nextElementSibling
+    }
+  }
+
+  darken(ele) {
+    if (this.hasDotTarget) {
+      const dot = this.dotTarget.children[ele.dataset.index]
+      dot.classList.replace('has-text-white', 'has-text-black')
+    }
+  }
+
+  lighten(ele) {
+    if (this.hasDotTarget) {
+      const dot = this.dotTarget.children[ele.dataset.index]
+      dot.classList.replace('has-text-black', 'has-text-white')
     }
   }
 
