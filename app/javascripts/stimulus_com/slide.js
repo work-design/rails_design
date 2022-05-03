@@ -196,7 +196,7 @@ export default class extends TouchController {
 
   clearStyle(event) {
     const ele = event.currentTarget
-    const controller = ele.parentElement.controller('slide')
+    const controller = ele.closest('[data-controller~=slide]').controller('slide')
     if (ele.classList.contains('transition_later')) {
       const next = ele.nextElementSibling || ele.parentElement.firstElementChild
       next.style.left = next.clientWidth + 'px'
@@ -220,7 +220,7 @@ export default class extends TouchController {
     ele.style.zIndex = -1
     console.debug(ele.dataset.index, 'reset index by', event.type)
 
-    const controller = ele.parentElement.controller('slide')
+    const controller = ele.closest('[data-controller~=slide]').controller('slide')
     if (event.type === 'transitionend') {
       ele.removeEventListener('transitioncancel', controller.resetIndex)
     } else if (event.type === 'transitioncancel') {
