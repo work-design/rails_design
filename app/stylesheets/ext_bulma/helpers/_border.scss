@@ -9,3 +9,18 @@
 .has-border-top {
   border-top: 0.5px solid #ececec;
 }
+
+.has-border-top-arc {
+  position: relative;
+}
+
+.has-border-top-arc:before {
+  width: 140%;
+  height: 200px;
+  position: absolute;
+  left: -20%;
+  top: -200px;
+  content: '';
+  border-radius: 0 0 50% 50%;
+  background-color: white;
+}
