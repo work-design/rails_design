@@ -9,6 +9,7 @@ export default class extends TouchController {
     play: Boolean, // 是否自动播放，true 为自动轮播
     circle: Boolean, // 是否循环播放，true 为循环播放
   }
+  static targets = ['container']
 
   connect() {
     this.element.addEventListener('touchstart', event => {
@@ -16,7 +17,7 @@ export default class extends TouchController {
     }, { passive: true })
 
     if (this.hasPlayValue && this.playValue) {
-      let ele = this.element.firstElementChild
+      let ele = this.containerTarget.firstElementChild
       this.goLeft(ele, true)
     }
   }
@@ -229,10 +230,14 @@ export default class extends TouchController {
 
   next(ele) {
     if (this.hasCircleValue && this.playValue) {
-      return ele.nextElementSibling || this.element.firstElementChild
+      return ele.nextElementSibling || this.containerTarget.firstElementChild
     } else {
       return ele.nextElementSibling
     }
+  }
+
+  disconnect() {
+
   }
 
 }
