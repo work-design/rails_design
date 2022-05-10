@@ -16,9 +16,7 @@ form.button_to {
     line-height: inherit;
     font-size: initial; // 修复 safari fa 图标显示问题
   }
-  i:not(.fa-solid):before,
-  i:not(.fa-regular):before,
-  i:not(.fa-light):before {
+  i:not(.fa-solid):not(.fa-regular):not(.fa-light):before {
     color: rgba(0, 0, 0, 0.8)
   }
   button:not(.button, .weui-btn):focus,
