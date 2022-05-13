@@ -11,17 +11,9 @@
 }
 
 .has-border-bottom-arc {
-  position: relative;
-}
-
-.has-border-bottom-arc:after {
-  width: 140%;
+  width: 100%;
   height: 200px;
-  position: absolute;
-  left: -20%;
-  right: -20%;
-  top: -200px;
-  content: '';
+  transform: scaleX(1.4);
   border-radius: 0 0 50% 50%;
   background-color: white;
 }
