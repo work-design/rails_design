@@ -27,6 +27,11 @@ export default class extends Controller {
     }
   }
 
+  // 关闭前检查下有没有未提交的表单
+  closeCheck() {
+
+  }
+
   reloadClose() {
     this.removeClass()
     Turbo.visit(location.href, { action: 'replace' })
