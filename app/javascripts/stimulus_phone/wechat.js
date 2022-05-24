@@ -95,14 +95,6 @@ export default class extends ConfigController {
     })
   }
 
-  scan() {
-    wx.scanQRCode({
-      success(res) {
-        const result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
-      }
-    })
-  }
-
   showMenu() {
     wx.ready(() => {
       wx.showMenuItems({

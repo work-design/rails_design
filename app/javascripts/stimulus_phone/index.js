@@ -3,6 +3,9 @@ import { application } from '../rails_design/stimulus'
 import QqMapController from './qq-map'
 application.register('qq-map', QqMapController)
 
+import ScanController from './scan'
+application.register('scan', ScanController)
+
 import SearchController from './search'
 application.register('search', SearchController)
 
