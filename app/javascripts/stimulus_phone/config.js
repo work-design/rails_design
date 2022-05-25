@@ -34,7 +34,7 @@ export default class extends Controller {
       if (debug) {
         alert('wx.config: ' + JSON.stringify(res))
       } else {
-        console('wx.config:', res)
+        console.debug('wx.config:', res)
       }
     })
   }

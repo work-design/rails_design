@@ -10,7 +10,7 @@ export default class extends ConfigController {
     super.connect()
   }
 
-  scan() {
+  report(event) {
     wx.scanQRCode({
       needResult: 1,
       success(res) {
