@@ -11,12 +11,19 @@ export default class extends ConfigController {
   }
 
   report(event) {
+    const ele = event.currentTarget
+    const controller = this
+    const body = new FormData()
+    if (this.hasParamsValue) {
+      Object.keys(this.paramsValue).forEach(k => {
+        body.append(k, this.paramsValue[k])
+      })
+    }
     wx.scanQRCode({
       needResult: 1,
       success(res) {
-        const result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
-        alert(JSON.stringify(res))
-        this.request(this.urlValue, 'POST', data)
+        body.append('result', res.resultStr)
+        controller.request(ele.dataset.reportUrl, 'POST', body)
       }
     })
   }
