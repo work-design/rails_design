@@ -71,6 +71,7 @@ export default class extends Controller {
     event.currentTarget.checkValidity()
   }
 
+  // data-action="input->default_valid#clear"
   clear(event) {
     this.defaultClear(event.currentTarget)
   }
