@@ -13,20 +13,23 @@ export default class extends Controller {
 
     for (let checkbox of this.checkboxes) {
       checkbox.checked = element.checked
-      this.doToggle(checkbox)
     }
   }
 
   doSubmit(event) {
+    event.preventDefault()
+
     const ids = []
     this.checkboxes.forEach(item => {
       if (item.checked) {
         ids.push(item.value)
       }
     })
-    this.idsTarget.value = ids.join(',')
-    event.preventDefault()
-    this.submit(this.idsTarget.form)
+
+    if (ids.length > 0) {
+      this.idsTarget.value = ids
+      this.submit(this.idsTarget.form)
+    }
   }
 
   get checkboxes() {

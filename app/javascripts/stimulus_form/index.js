@@ -1,5 +1,8 @@
 import { application } from '../rails_design/stimulus'
 
+import CheckController from './check'
+application.register('check', CheckController)
+
 import CoeffController from './coeff'
 application.register('coeff', CoeffController)
 
