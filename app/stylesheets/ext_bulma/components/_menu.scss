@@ -3,6 +3,7 @@
   flex-direction: column;
   padding: 0;
   color: grey;
+
   .menu-label {
     order: 1;
     font-size: 1em;
@@ -18,6 +19,7 @@
       content: '\f0d9';
     }
   }
+
   .menu-list {
     order: 2;
     display: none;
