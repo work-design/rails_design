@@ -1,4 +1,5 @@
 .breadcrumb {
+  user-select: auto;
   &:not(:last-child) {
     margin-bottom: 0.75em;
   }
