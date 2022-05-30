@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: f32172766730963f267131a3b590bb94c99e6778
+  revision: 03d6f866d6229d5d2b6b5d214a99e9dceccb4481
   specs:
     rails_com (1.3.0)
       acme-client
@@ -8,19 +8,16 @@ GIT
       closure_tree (>= 7.3)
       default_where (~> 2.2)
       http-form_data (~> 2.3)
-      httpx (~> 0.16)
+      httpx
       kaminari
       net-http
-      net-imap
-      net-pop
-      net-smtp
-      rails (>= 6.1)
+      rails (>= 7.0)
       rails_extend
       turbo-rails
 
 GIT
   remote: https://github.com/work-design/rails_extend.git
-  revision: 4dd6986bf4c2397b1fb79a4f12d0bdefdef3849f
+  revision: 1fd5b79b9b81d775486fa3f3976ffb64010bc66f
   specs:
     rails_extend (1.0.1)
       rails (>= 5.0)
