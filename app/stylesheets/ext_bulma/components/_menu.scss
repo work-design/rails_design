@@ -52,27 +52,24 @@
 }
 
 .menu {
-  @each $name, $pair in $colors {
-    $color: nth($pair, 1);
-    $color-invert: nth($pair, 2);
-    &.is-#{$name} {
-      background-color: $color;
-      .menu-label {
-        border-bottom: solid 1px $color;
-        color: $color-invert;
+  &.is-dark {
+    background-color: #2d3a4b;
+    .menu-label {
+      border-bottom: solid 1px #0e1e31;
+      color: #fff;
+    }
+    .menu-list {
+      background-color: #0e1e31;
+      a {
+        color: #fff;
       }
-      .menu-list {
-        background-color: findDarkColor($color);
-        a {
-          color: $color-invert;
-        }
-        &:hover {
-          color: $color-invert;
-        }
-        &.is-active {
-          color: $color-invert;
-        }
+      &:hover {
+        color: #fff;
+      }
+      &.is-active {
+        color: #fff;
       }
     }
   }
+
 }
