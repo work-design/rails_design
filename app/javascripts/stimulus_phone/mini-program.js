@@ -2,7 +2,8 @@ import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
   static values = {
-    url: String
+    url: String,
+    data: Object
   }
   static classes = [ 'pt' ]
 
@@ -20,7 +21,10 @@ export default class extends Controller {
       if (res.miniprogram) {
         event.preventDefault()
         wx.miniProgram.navigateTo({
-          url: this.urlValue  // url must begin with /pages
+          url: this.urlValue,  // url must begin with /pages
+          success: (res) => {
+            res.eventChannel.emit('acceptDataFromOpenerPage', { data: this.dataValue })
+          }
         })
       }
     })
