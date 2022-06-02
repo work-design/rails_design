@@ -24,7 +24,7 @@ export default class extends Controller {
         let url = this.urlValue
         if (query.length > 0) {
           url = this.urlValue.concat('?').concat(query)
-        } 
+        }
         wx.miniProgram.navigateTo({
           url: url  // url must begin with /pages
         })
