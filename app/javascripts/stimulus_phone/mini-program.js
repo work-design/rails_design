@@ -8,12 +8,15 @@ export default class extends Controller {
 
   connect() {
     if (window.__wxjs_environment === 'miniprogram') {
-      this.element.classList.add(this.ptClass)
+      if (this.hasPtClass) {
+        this.element.classList.add(this.ptClass)
+      }
     }
   }
 
   link(event) {
     wx.miniProgram.getEnv(res => {
+      console.debug('mini program env:', res)
       if (res.miniprogram) {
         event.preventDefault()
         wx.miniProgram.navigateTo({
