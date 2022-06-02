@@ -20,11 +20,13 @@ export default class extends Controller {
       console.debug('mini program env:', res)
       if (res.miniprogram) {
         event.preventDefault()
+        const query = new URLSearchParams(this.dataValue).toString()
+        let url = this.urlValue
+        if (query.length > 0) {
+          url = this.urlValue.concat('?').concat(query)
+        } 
         wx.miniProgram.navigateTo({
-          url: this.urlValue,  // url must begin with /pages
-          success: (res) => {
-            res.eventChannel.emit('acceptDataFromOpenerPage', { data: this.dataValue })
-          }
+          url: url  // url must begin with /pages
         })
       }
     })
