@@ -23,7 +23,11 @@ export default class extends Controller {
         const query = new URLSearchParams(this.dataValue).toString()
         let url = this.urlValue
         if (query.length > 0) {
-          url = this.urlValue.concat('?').concat(query)
+          if (this.urlValue.includes('?')) {
+            url = this.urlValue.concat('&').concat(query)
+          } else {
+            url = this.urlValue.concat('?').concat(query)
+          }
         }
         wx.miniProgram.navigateTo({
           url: url  // url must begin with /pages
