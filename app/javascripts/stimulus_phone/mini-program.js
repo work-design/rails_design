@@ -8,6 +8,7 @@ export default class extends Controller {
   static classes = [ 'pt' ]
 
   connect() {
+    console.debug('miniprogram: ', window.__wxjs_environment)
     if (window.__wxjs_environment === 'miniprogram') {
       if (this.hasPtClass) {
         this.element.classList.add(this.ptClass)
