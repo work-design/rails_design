@@ -11,7 +11,7 @@ export default class extends Controller {
 
     iframe.src = this.urlValue
     iframe.name = 'pdf'
-    iframe.hidden = this.hiddenValue
+    iframe.hidden = true
     iframe.onload = () => {
       const pdfFrame = window.frames['pdf']
       pdfFrame.focus()
