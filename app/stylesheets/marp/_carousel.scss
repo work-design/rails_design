@@ -97,7 +97,7 @@
 
 .right-pointer label,
 .left-pointer label {
-  background-image: url('#{$marp-asset-path}/osc-next.svg');
+  background-image: url('marp/osc-next.svg');
   background-repeat: no-repeat;
   display: block;
   cursor: pointer;
@@ -107,7 +107,7 @@
 }
 
 .left-pointer label {
-  background-image: url('#{$marp-asset-path}/osc-prev.svg');
+  background-image: url('marp/osc-prev.svg');
 }
 
 .navigation-bar:hover{

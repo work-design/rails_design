@@ -51,22 +51,22 @@
 
   // Use placeholder selectors to prevent multi time definitions of image data URI
   %button-prev {
-    @include _button-icon('assets/osc-prev.svg');
+    @include _button-icon('marp/osc-prev.svg');
   }
 
   %button-next {
-    @include _button-icon('assets/osc-next.svg');
+    @include _button-icon('marp/osc-next.svg');
   }
 
   %button-fullscreen {
-    @include _button-icon('assets/osc-fullscreen.svg');
+    @include _button-icon('marp/osc-fullscreen.svg');
 
     &.exit {
-      background-image: url('assets/osc-fullscreen-exit.svg');
+      background-image: url('marp/osc-fullscreen-exit.svg');
     }
   }
 
   %button-presenter {
-    @include _button-icon('assets/osc-presenter.svg');
+    @include _button-icon('marp/osc-presenter.svg');
   }
 }
