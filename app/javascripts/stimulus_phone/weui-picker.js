@@ -9,17 +9,8 @@ export default class extends Controller {
   // focus->weui-picker#getData
   getData(event) {
     document.activeElement.blur()  // disable input
-
-    fetch(this.urlValue, {
-      method: 'GET',
-      headers: {
-        Accept: 'text/vnd.turbo-stream.html'
-      }
-    }).then(response => {
-      return response.text()
-    }).then(body => {
-      Turbo.renderStreamMessage(body)
-    })
+    console.log(event)
+    this.get(this.urlValue)
   }
 
   getNext(event) {
