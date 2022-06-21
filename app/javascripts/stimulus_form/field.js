@@ -3,14 +3,15 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
   static targets = ['node']
   static values = {
-    index: Number
+    index: Number,
+    label: Boolean
   }
 
   // data-action="click->field#add"
   add() {
     const el = this.element.cloneNode(true)
     const label = el.querySelector('label')
-    if (label) {
+    if (!this.labelValue && label) {
       label.remove()
     }
     const next = this.element.nextElementSibling
