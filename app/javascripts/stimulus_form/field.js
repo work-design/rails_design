@@ -7,22 +7,32 @@ export default class extends Controller {
   }
 
   // data-action="click->field#add"
-  add(event) {
+  add() {
     const el = this.element.cloneNode(true)
     const label = el.querySelector('label')
     if (label) {
       label.remove()
     }
-    const nextIndex = this.indexValue + Math.random()  // todo find an better implement
+    const next = this.element.nextElementSibling
+    let addIndex
+    if (next) {
+      addIndex = (next.controller('field').indexValue - this.indexValue) / 2
+    } else {
+      addIndex = 1
+    }
+
+    const nextIndex = this.indexValue + addIndex
     el.setAttribute('data-field-index-value', nextIndex)
     el.querySelectorAll('input, select').forEach(input => {
       input.name = input.name.replace(`[${this.indexValue}]`, `[${nextIndex}]`)
-      input.id = input.id.replace(`${this.indexValue}`, `${nextIndex}`)
-      input.value = null
+      if (input.id) {
+        input.id = input.id.replace(`${this.indexValue}`, `${nextIndex}`)
+      }
+      input.value = input.defaultValue
     })
 
     if (this.element.parentNode) {
-      this.element.parentNode.insertBefore(el, this.element.nextSibling)
+      this.element.parentNode.insertBefore(el, next)
     }
   }
 
