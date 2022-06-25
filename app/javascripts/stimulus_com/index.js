@@ -33,6 +33,9 @@ application.register('picture', PictureController)
 import PrintController from './print'
 application.register('print', PrintController)
 
+import QyLoginController from './qy-login'
+application.register('qy-login', QyLoginController)
+
 import ScrollController from './scroll'
 application.register('scroll', ScrollController)
 
