@@ -15,6 +15,7 @@ export default class extends Controller {
 
   getNext(event) {
     const ele = event.currentTarget
+    const option = ele.selectedOptions[0]
 
     fetch(this.urlValue, {
       method: 'POST',
@@ -24,12 +25,12 @@ export default class extends Controller {
         'X-CSRF-Token': this.csrfToken()
       },
       body: JSON.stringify({
-        id: ele.dataset.id
+        id: option.dataset.id
       })
     }).then(response => {
       return response.text()
     }).then(body => {
-      const node = ele.parentNode.parentNode
+      const node = ele.parentNode
       this.clear(node)
       if (body.length > 0) {
         node.insertAdjacentHTML('afterend', body)
