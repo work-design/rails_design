@@ -5,6 +5,7 @@ export default class extends Controller {
     id: String,
     url: String
   }
+  static targets = ['select']
 
   // focus->weui-picker#getData
   getData(event) {
@@ -39,7 +40,25 @@ export default class extends Controller {
   }
 
   setValue(event) {
-    document.getElementById('address_area_id').value = event.currentTarget.dataset.id
+    document.getElementById(this.idValue).value = event.currentTarget.selectedOptions[0].dataset.id
+  }
+
+  confirmValue() {
+    const last = this.selectTargets[this.selectTargets.length - 1]
+    const input = document.getElementById(this.idValue)
+
+    if (last && input) {
+      input.value = last.selectedOptions[0].dataset.id
+      if (input.nextElementSibling) {
+        input.nextElementSibling.value = last.selectedOptions[0].value
+      }
+    }
+
+  }
+
+  close() {
+    this.confirmValue()
+    this.element.remove()
   }
 
   clear(node) {

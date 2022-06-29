@@ -2,6 +2,10 @@
   background-color: var(--weui-BG-3);
   transform: translateY(100%);
   transition: transform 0.3s;
+
+  &.is-dark {
+    background-color: var(--weui-YELLOW);
+  }
 }
 
 .weui-half-screen-dialog__bd .weui-form {
