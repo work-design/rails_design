@@ -13,10 +13,10 @@ export default class extends Controller {
   }
 
   parse() {
-    if (this.element.textContent.length > 0 && this.localizedValue !== true) {
+    if (this.element.innerText.length > 0 && this.localizedValue !== true) {
       const format_str = this.element.dataset['format'] || 'yyyy-MM-dd HH:mm'
-      const time = DateTime.fromISO(this.element.textContent)
-      this.element.textContent = time.toFormat(format_str)
+      const time = DateTime.fromISO(this.element.innerText)
+      this.element.innerText = time.toFormat(format_str)
       this.localizedValue = true
     }
   }
