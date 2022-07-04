@@ -29,7 +29,7 @@
     "luxon": "^2.1.1",
     "sortablejs": "^1.13.0",
     "vconsole": "^3.11.2",
-    "weui": "^2.5.4"
+    "weui": "^2.5.9"
   },
   "devDependencies": {
     "jest": "^27.0.6"
