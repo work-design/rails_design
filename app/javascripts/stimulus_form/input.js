@@ -5,7 +5,8 @@ export default class extends Controller {
   static targets = ['checkbox']
   static values = {
     url: String,
-    method: String
+    method: String,
+    force: Boolean
   }
 
   // <label data-action="click->input#check"></label>
@@ -35,7 +36,7 @@ export default class extends Controller {
   form(event) {
     const el = event.currentTarget
 
-    if (el.value.length > 0) {
+    if (el.value.length > 0 || this.forceValue) {
       this.submit(el.form)
     }
   }
