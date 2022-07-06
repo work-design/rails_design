@@ -21,6 +21,9 @@ application.register('custom', CustomController)
 import HoverController from './hover'
 application.register('hover', HoverController)
 
+import EmptyController from './empty'
+application.register('empty', EmptyController)
+
 import NoticeController from './notice'
 application.register('notice', NoticeController)
 
