@@ -15,6 +15,9 @@ application.register('former', FormerController)
 import InputController from './input'
 application.register('input', InputController)
 
+import ModifyController from './modify'
+application.register('modify', ModifyController)
+
 import TaxonController from './taxon'
 application.register('taxon', TaxonController)
 

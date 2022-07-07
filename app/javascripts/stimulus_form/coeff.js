@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = ['quantity', 'budget', 'price']
 
   updatePrice(event) {
-    let price = event.currentTarget
+    const price = event.currentTarget
     let quantity = document.getElementById(price.id.replace('price', 'quantity'))
     let result = (price.value * quantity.value).toFixed(2)
 
