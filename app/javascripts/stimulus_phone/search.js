@@ -22,7 +22,6 @@ export default class extends Controller {
   }
 
   clear() {
-    Turbo.visit(location.pathname, { action: 'replace' })
     this.inputTarget.value = ''
     this.inputTarget.focus()
   }
