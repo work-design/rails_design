@@ -31,6 +31,8 @@ export default class extends Controller {
     if (ids.length > 0) {
       this.idsTarget.value = ids
       this.submit(this.idsTarget.form)
+    } else {
+      alert('no need commit')
     }
   }
 
