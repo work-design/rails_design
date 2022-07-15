@@ -12,7 +12,9 @@ export default class extends Controller {
     const element = event.currentTarget
 
     for (let checkbox of this.checkboxes) {
-      checkbox.checked = element.checked
+      if (!checkbox.disabled) {
+        checkbox.checked = element.checked
+      }
     }
   }
 
@@ -21,7 +23,7 @@ export default class extends Controller {
 
     const ids = []
     this.checkboxes.forEach(item => {
-      if (item.checked) {
+      if (item.checked && !item.disabled) {
         ids.push(item.value)
       }
     })
