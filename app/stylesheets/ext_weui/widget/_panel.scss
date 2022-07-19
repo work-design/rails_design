@@ -8,7 +8,7 @@
   .weui-cells:first-child {
     margin-top: 0;
   }
-  .weui-cells:first-child:before {
+  .weui-cells:first-child::before {
     display: none;
   }
 }
@@ -23,11 +23,17 @@
   }
 }
 
-.weui-panel.is-borderless {
-  &:before {
+.weui-panel.is-borderless-top {
+  &::before {
     border-top: none;
   }
-  .weui-panel__hd:after {
+}
+
+.weui-panel.is-borderless {
+  &::before {
+    border-top: none;
+  }
+  .weui-panel__hd::after {
     border-bottom: none;
   }
 }
