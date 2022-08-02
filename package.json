@@ -19,6 +19,7 @@
     "yarn": ">=1.0.0"
   },
   "dependencies": {
+    "@antv/g2plot": "^2.4.20",
     "@hotwired/stimulus": "^3.0.1",
     "@hotwired/turbo": "^7.1.0",
     "@rails/actioncable": "^7.0.3",
