@@ -18,6 +18,7 @@ Controller.prototype.request = function(url, method, body) {
     method: method.toUpperCase(),
     headers: {
       Accept: 'text/vnd.turbo-stream.html',
+      'Content-Type': 'application/json',
       'X-CSRF-Token': this.csrfToken()
     },
     body: body
