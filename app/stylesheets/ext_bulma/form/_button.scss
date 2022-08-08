@@ -17,7 +17,7 @@ form.button_to {
     outline: none;
   }
   button[type=submit] {
-    color: currentcolor;
+    color: currentcolor; // ios safari 默认 为 白色
   }
 }
 
