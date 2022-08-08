@@ -6,13 +6,17 @@ export default class extends Controller {
     url: String,
     frame: String,
     reload: Boolean,
+    method: String,
+    params: Object,
     headers: Object
   }
 
   connect() {
     if (this.hasFrameValue) {
       this.visit()
-    } else {
+    } else if (this.hasMethodValue) {
+      this.request(this.urlValue, this.methodValue, this.paramsValue)
+    }else {
       this.addEvent(this.headersValue)
       this.topVisit()
     }
