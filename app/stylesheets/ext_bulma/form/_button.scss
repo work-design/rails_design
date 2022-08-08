@@ -13,8 +13,11 @@ form.button_to {
     color: rgba(0, 0, 0, 0.8)
   }
   button:not(.button, .weui-btn):focus,
-  input[type="submit"]:focus {
+  input[type=submit]:focus {
     outline: none;
+  }
+  button[type=submit] {
+    color: currentcolor;
   }
 }
 
