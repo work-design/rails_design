@@ -14,14 +14,14 @@ export default class extends Controller {
   connect() {
     if (this.hasFrameValue) {
       this.visit()
-    } else if (this.hasMethodValue && this.methodValue.toUpperCase() !== 'GET') {
+    } else if (this.hasMethodValue && this.methodValue && this.methodValue.toUpperCase() !== 'GET') {
       this.request(
         this.urlValue,
         this.methodValue,
         JSON.stringify(this.paramsValue),
         { 'Content-Type': 'application/json' }
       )
-    }else {
+    } else {
       this.addEvent(this.headersValue)
       this.topVisit()
     }
