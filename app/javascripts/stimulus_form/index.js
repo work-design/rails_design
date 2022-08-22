@@ -6,6 +6,9 @@ application.register('check', CheckController)
 import CoeffController from './coeff'
 application.register('coeff', CoeffController)
 
+import EnterController from './enter'
+application.register('enter', EnterController)
+
 import EqualController from './equal'
 application.register('equal', EqualController)
 
