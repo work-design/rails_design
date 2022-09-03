@@ -1,0 +1,8 @@
+.counter-section {
+  counter-reset: section;
+}
+
+.counter-section-item::after {
+  counter-increment: section;
+  content: counter(section);
+}
