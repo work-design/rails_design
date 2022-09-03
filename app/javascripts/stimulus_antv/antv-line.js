@@ -8,48 +8,21 @@ export default class extends Controller {
 
   connect() {
     this.line = new Line(this.element, {
-      data: this.defaultData(),
       xField: 'year',
       yField: 'value',
-      seriesField: 'category',
       yAxis: {
         label: {
           formatter: (v) => `${v}`.replace(/\d{1,3}(?=(\d{3})+$)/g, (s) => `${s},`)
-        },
+        }
       }
     })
-    this.line.render()
-    //this.xx(this.line)
-  }
-
-  defaultData() {
-    return [{
-      year: '2022',
-      value: 1,
-      category: 'xxx'
-    }, {
-      year: '2023',
-      value: 2,
-      category: 'xxx'
-    }]
+    this.xx(this.line)
   }
 
   xx(line) {
-    fetch(this.urlValue)
-      .then(res => res.json())
-      .then(data => {
-        line.update({
-          data,
-          xAxis: {
-            type: 'time',
-          },
-          yAxis: {
-            label: {
-              formatter: (v) => `${v}`.replace(/\d{1,3}(?=(\d{3})+$)/g, (s) => `${s},`)
-            },
-          },
-        })
-      })
+    fetch(this.urlValue).then(res => res.json()).then(data => {
+      line.update({data: data})
+    })
   }
 
   disconnect() {
