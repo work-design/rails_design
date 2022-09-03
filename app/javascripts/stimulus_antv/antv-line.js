@@ -30,6 +30,10 @@ export default class extends Controller {
       year: '2022',
       value: 1,
       category: 'xxx'
+    }, {
+      year: '2023',
+      value: 2,
+      category: 'xxx'
     }]
   }
 
