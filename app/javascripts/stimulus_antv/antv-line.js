@@ -12,9 +12,6 @@ export default class extends Controller {
       xField: 'year',
       yField: 'value',
       seriesField: 'category',
-      xAxis: {
-        type: 'time',
-      },
       yAxis: {
         label: {
           formatter: (v) => `${v}`.replace(/\d{1,3}(?=(\d{3})+$)/g, (s) => `${s},`)
@@ -43,9 +40,6 @@ export default class extends Controller {
       .then(data => {
         line.update({
           data,
-          xField: 'year',
-          yField: 'value',
-          seriesField: 'category',
           xAxis: {
             type: 'time',
           },
