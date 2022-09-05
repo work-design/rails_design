@@ -13,7 +13,7 @@ Controller.prototype.csrfToken = function() {
   return meta && meta.content
 }
 
-Controller.prototype.request = function(url, method, body, ...headers) {
+Controller.prototype.request = function(url, method, body, headers) {
   fetch(url, {
     method: method.toUpperCase(),
     headers: {
