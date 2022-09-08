@@ -9,9 +9,9 @@ export default class extends Controller {
       zh: {
         badInput: '{label}格式不正确',
         customError: '{label}输入错误',
-        patternMismatch: '{label} 不符合格式要求',
-        rangeOverflow: '{label} 超出允许的最大值',
-        rangeUnderflow: '{label} 低于允许的最小值',
+        patternMismatch: '{label}不符合格式要求',
+        rangeOverflow: '{label}超出允许的最大值',
+        rangeUnderflow: '{label}低于允许的最小值',
         stepMismatch: '{label}输入错误',
         tooLong: '{label}太长了',
         tooShort: '{label}太短了',
@@ -43,7 +43,7 @@ export default class extends Controller {
     if (input.labels.length > 0) {
       label = input.labels[0].innerText
     } else {
-      label = input.dataset['label']
+      label = input.dataset['label'] || ''
     }
     let text = word.replace('{label}', label)
 
