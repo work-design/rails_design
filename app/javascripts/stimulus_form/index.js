@@ -21,9 +21,6 @@ application.register('input', InputController)
 import ModifyController from './modify'
 application.register('modify', ModifyController)
 
-import QuotientController from './quotient'
-application.register('quotient', QuotientController)
-
 import TaxonController from './taxon'
 application.register('taxon', TaxonController)
 
