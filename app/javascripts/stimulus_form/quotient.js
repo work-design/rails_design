@@ -1,8 +1,11 @@
 import { Controller } from '@hotwired/stimulus'
 
-// 根据数量，计算价格
+// 根据总额，价格，计算可买数量
 export default class extends Controller {
   static targets = ['quantity', 'budget', 'price']
+  static values = {
+    total: Number
+  }
 
   updatePrice(event) {
     const price = event.currentTarget
@@ -26,15 +29,9 @@ export default class extends Controller {
     }
   }
 
-  updateBudgetAmount(event) {
-    let budget = event.currentTarget
-    let quantity = document.getElementById(budget.id.replace('budget_amount', 'quantity'))
-    let result = (budget.value / quantity.value).toFixed(2)
-
-    let price = document.getElementById(budget.id.replace('budget_amount', 'price'))
-    if (price) {
-      price.value = result
-    }
+  divide(event) {
+    console.log('ssssss')
+    this.quantityTarget.innerText = Math.floor(this.totalValue / event.currentTarget.value)
   }
 
 }
