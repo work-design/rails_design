@@ -486,10 +486,10 @@
   resolved "https://registry.yarnpkg.com/@hotwired/stimulus/-/stimulus-3.1.0.tgz#20215251e5afe6e0a3787285181ba1bfc9097df0"
   integrity sha512-iDMHUhiEJ1xFeicyHcZQQgBzhtk5mPR0QZO3L6wtqzMsJEk2TKECuCQTGKjm+KJTHVY0dKq1dOOAWvODjpd2Mg==
 
-"@hotwired/turbo@^7.1.0":
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-7.1.0.tgz#27e44e0e3dc5bd1d4bda0766d579cf5a14091cd7"
-  integrity sha512-Q8kGjqwPqER+CtpQudbH+3Zgs2X4zb6pBAlr6NsKTXadg45pAOvxI9i4QpuHbwSzR2+x87HUm+rot9F/Pe8rxA==
+"@hotwired/turbo@^7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-7.2.0.tgz#4ff90d80fda17e69b04a12bbf0a42f09953504f6"
+  integrity sha512-CYr6N9NfqsjhmZx1xVQ8zYcDo4hTm7sTUpJydbNgMRyG+YfF/9ADIQQ2TtcBdkl2zi/12a3OTWX0UMzNZnAK9w==
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
@@ -716,15 +716,15 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@rails/actioncable@^7.0.3":
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.0.3.tgz#71f08e958883af64f6a20489318b5e95d2c6dc5b"
-  integrity sha512-Iefl21FZD+ck1di6xSHMYzSzRiNJTHV4NrAzCfDfqc/wPz4xncrP8f2/fJ+2jzwKIaDn76UVMsALh7R5OzsF8Q==
+"@rails/actioncable@^7.0.4":
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.0.4.tgz#70a3ca56809f7aaabb80af2f9c01ae51e1a8ed41"
+  integrity sha512-tz4oM+Zn9CYsvtyicsa/AwzKZKL+ITHWkhiu7x+xF77clh2b4Rm+s6xnOgY/sGDWoFWZmtKsE95hxBPkgQQNnQ==
 
-"@rails/activestorage@^7.0.3":
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-7.0.3.tgz#516770d49f702bb2b746a826779465a513804003"
-  integrity sha512-pdIoQUNcimjbSlhUgnRyFimVvsp/J9C1yTxV3P40oQrRU81f3uM9tT4IY/wMfe691Zj7tJBiqsbThUoPT88TAA==
+"@rails/activestorage@^7.0.4":
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-7.0.4.tgz#56bc3052f60e8867b40a87ed5ff3c0afe536643e"
+  integrity sha512-K2fV9C0z88fapu58nt9uHzMylsmJWUFuaIFvuZQEf1WTiPMsgTsj1bf8+cD81zXfTXYMZDQNRq4164JmuBKD3A==
   dependencies:
     spark-md5 "^3.0.1"
 
@@ -2536,10 +2536,10 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
-luxon@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/luxon/-/luxon-2.4.0.tgz#9435806545bb32d4234dab766ab8a3d54847a765"
-  integrity sha512-w+NAwWOUL5hO0SgwOHsMBAmZ15SoknmQXhSO0hIbJCAmPKSsGeK8MlmhYh2w6Iib38IxN2M+/ooXWLbeis7GuA==
+luxon@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-3.0.3.tgz#573e65531efd3d92265feb640f02ba7a192e2388"
+  integrity sha512-+EfHWnF+UT7GgTnq5zXg3ldnTKL2zdv7QJgsU5bjjpbH17E3qi/puMhQyJVYuCq+FRkogvB5WB6iVvUr+E4a7w==
 
 make-dir@^3.0.0:
   version "3.1.0"
@@ -3352,10 +3352,10 @@ webidl-conversions@^6.1.0:
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-6.1.0.tgz#9111b4d7ea80acd40f5270d666621afa78b69514"
   integrity sha512-qBIvFLGiBpLjfwmYAaHPXsn+ho5xZnGvyGvsarywGNc8VyQJUMHJ8OBKGGrPER0okBeMDaan4mNBlgBROxuI8w==
 
-weui@^2.5.9:
-  version "2.5.9"
-  resolved "https://registry.yarnpkg.com/weui/-/weui-2.5.9.tgz#f625dfbc0bd55ec432b359bcf07827db634a8af2"
-  integrity sha512-53D9X8U/mA9Kd7DM5zOCZ521UGNbzKDuLDVCcpFXO1KJk/GCEDpanL2rkgC8iLE1MUBGBmGzr6bSnKtXAD9hkQ==
+weui@^2.5.14:
+  version "2.5.14"
+  resolved "https://registry.yarnpkg.com/weui/-/weui-2.5.14.tgz#5624c7a1ceb25df008d42a120136593ed495aa48"
+  integrity sha512-TtwQHgJgpBCd0erJ7b7BI2HlALFwRYRoycmoIG+NvoUNP+a3/bPlza3O38J2OZiSBVSBcel7Ye5D+ic0y65tsQ==
 
 whatwg-encoding@^1.0.5:
   version "1.0.5"

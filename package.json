@@ -1,6 +1,6 @@
 {
   "name": "rails_design",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Rails Common Javascript",
   "exports": {
     ".": "./app/javascripts/rails_design/index.js",
@@ -21,16 +21,16 @@
   "dependencies": {
     "@antv/g2plot": "^2.4.20",
     "@hotwired/stimulus": "^3.1.0",
-    "@hotwired/turbo": "^7.1.0",
-    "@rails/actioncable": "^7.0.3",
-    "@rails/activestorage": "^7.0.3",
+    "@hotwired/turbo": "^7.2.0",
+    "@rails/actioncable": "^7.0.4",
+    "@rails/activestorage": "^7.0.4",
     "bulma": "^0.9.4",
     "choices.js": "^10.1.0",
     "highlight.js": "^11.5.1",
-    "luxon": "^2.4.0",
+    "luxon": "^3.0.3",
     "sortablejs": "^1.15.0",
     "vconsole": "^3.11.2",
-    "weui": "^2.5.9"
+    "weui": "^2.5.14"
   },
   "devDependencies": {
     "jest": "^27.0.6"
