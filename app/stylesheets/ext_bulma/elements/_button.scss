@@ -11,6 +11,9 @@
     border-width: 0;
     background: transparent;
   }
+  &.is-block {
+    height: auto;
+  }
 }
 
 .weui-check:checked + .button {
