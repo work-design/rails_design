@@ -20,6 +20,15 @@ td.has-inner-table {
     border: solid 1px $border;
   }
 
+  thead {
+    &.is-low {
+      th {
+        font-weight: normal;
+        color: $grey;
+      }
+    }
+  }
+
   thead td,
   thead th,
   tbody tr:last-child td,
