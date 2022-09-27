@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 89ba263609ea9e2b02162dd31bb23592c16f0e13
+  revision: 604cd5c614b512d5f1787ffe53b2620d29331bd0
   specs:
     rails_com (1.3.0)
       acme-client
@@ -21,13 +21,6 @@ GIT
   specs:
     rails_extend (1.0.1)
       rails (>= 5.0)
-
-GIT
-  remote: https://github.com/work-design/rails_vite.git
-  revision: d565f52c196db60c161cf1e71308d75c89b77f23
-  specs:
-    rails_vite (0.0.1)
-      rails
 
 PATH
   remote: .
@@ -244,7 +237,6 @@ DEPENDENCIES
   rails_com!
   rails_design!
   rails_extend!
-  rails_vite!
 
 BUNDLED WITH
    2.3.3
