@@ -16,6 +16,27 @@
   }
 }
 
+.buttons {
+  &.is-space-around {
+    justify-content: space-around;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  &.is-flex-end {
+    justify-content: flex-end;
+  }
+
+  &.is-flex-end,
+  &.is-space-around {
+    .button:not(.is-normal):not(.is-medium):not(.is-large):not(.is-small) {
+      border-radius: 6px;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
 .weui-check:checked + .button {
   background-color: #00c4a7;
   border-color: transparent;
