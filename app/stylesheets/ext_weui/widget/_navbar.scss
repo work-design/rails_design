@@ -1,9 +1,12 @@
 .weui-navbar__item {
+  color: var(--weui-FG-HALF);
   &:after {
     content: unset;
   }
   &.weui-bar__item_on {
     background-color: unset;
-    border-bottom: solid mediumseagreen 2px;
+    border-bottom: solid 2px var(--weui-BRAND);
+    color: var(--weui-BRAND);
+    font-weight: bold;
   }
 }
