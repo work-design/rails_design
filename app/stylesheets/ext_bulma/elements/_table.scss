@@ -88,5 +88,10 @@ td.has-inner-table {
     th, td {
       border-bottom-width: 0;
     }
+    tr:last-child {
+      th, td {
+        border-bottom-width: 0;
+      }
+    }
   }
 }
