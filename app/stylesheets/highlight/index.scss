@@ -11,10 +11,6 @@
     background-color: #272822;
   }
 
-  span {
-    display: block;
-  }
-
   .hll {
     background-color: #272822;
   }
@@ -330,9 +326,6 @@ code.language-ruby .ss {
   color: #e240d3;
 }
 
-/* Literal.String.Symbol */
-.css .o,
-.css .o + .nt,
-.css .nt + .nt {
-  color: #999;
+td.rouge-gutter {
+  width: 2em;
 }
