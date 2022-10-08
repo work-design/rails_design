@@ -10,6 +10,11 @@
   border-top: 1px solid #ececec;
 }
 
+.has-border-left-primary {
+  border-left: 4px solid $primary;
+  padding-left: 0.25em;
+}
+
 .has-border-bottom-arc {
   width: 100%;
   transform: scaleX(1.4);
