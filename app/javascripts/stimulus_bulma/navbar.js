@@ -1,7 +1,7 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static targets = ['menu']
+  static targets = ['menu', 'old', 'new']
   static classes = ['old', 'new']
   static values = {
     scroll: Boolean
@@ -24,8 +24,12 @@ export default class extends Controller {
       scrollEvent.addEventListener('scroll', () => {
         if (scrollEle.scrollTop > 0) {
           this.element.classList.replace(this.oldClass, this.newClass)
+          this.oldTargets.forEach(el => { el.classList.add('is-hidden') })
+          this.newTargets.forEach(el => { el.classList.remove('is-hidden') })
         } else {
           this.element.classList.replace(this.newClass, this.oldClass)
+          this.newTargets.forEach(el => { el.classList.add('is-hidden') })
+          this.oldTargets.forEach(el => { el.classList.remove('is-hidden') })
         }
       })
     }
