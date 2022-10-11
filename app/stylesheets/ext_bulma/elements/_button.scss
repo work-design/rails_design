@@ -19,8 +19,9 @@
 .buttons {
   &.is-space-around {
     justify-content: space-around;
-    margin-top: 0.5rem;
+    padding-top: 0.5rem;
     margin-bottom: 0;
+    border-top: solid 1px $primary;
   }
 
   &.is-flex-end {
