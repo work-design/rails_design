@@ -13,6 +13,12 @@
   background-repeat: repeat-x;
 }
 
+.is-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .is-safe-bottom {
   padding-bottom: env(safe-area-inset-bottom);
 }
