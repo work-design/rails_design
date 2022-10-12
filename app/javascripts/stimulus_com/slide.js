@@ -208,7 +208,7 @@ export default class extends TouchController {
       controller.shiftLeft(ele, true)
     }
 
-    ele.classList.remove('transition_now', 'transition_later')
+    ele.classList.remove('transition_now')
     console.debug(ele.dataset.index, 'clear style by', event.type)
 
     if (event.type === 'transitionend') {
@@ -221,7 +221,7 @@ export default class extends TouchController {
   // this become event.target
   resetIndex(event) {
     const ele = event.currentTarget
-    ele.classList.remove('transition_now', 'transition_later')
+    ele.classList.remove('transition_now')
     ele.style.zIndex = -1
     // 结束轮播之后，将 left 重置，最终 style 只保留 index
     ele.style.removeProperty('left')
