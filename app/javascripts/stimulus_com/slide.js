@@ -80,7 +80,7 @@ export default class extends TouchController {
       this.shiftLeft(ele)
     }
     if (offset.x > 0) {
-      this.goRight(ele)
+      this.shiftRight(ele)
     }
   }
 
@@ -88,7 +88,7 @@ export default class extends TouchController {
   rollback(offset, ele) {
     const next = ele.nextElementSibling
     if (offset.x < 0 && next) {
-      this.goRight(next)
+      this.shiftRight(next)
     }
 
     const prev = ele.previousElementSibling
@@ -139,7 +139,7 @@ export default class extends TouchController {
   }
 
   // ele 向右滑出
-  goRight(ele) {
+  shiftRight(ele) {
     const prev = ele.previousElementSibling
     if (prev) {
       this.transitionNow(ele, prev)
@@ -149,7 +149,7 @@ export default class extends TouchController {
       this.beenCurrent(ele)
 
       prev.style.left = 0
-      prev.style.zIndex = 1
+      prev.style.zIndex = 0
       this.toCurrent(prev)
     }
   }
