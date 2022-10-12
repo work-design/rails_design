@@ -17,8 +17,8 @@ export default class extends TouchController {
     }, { passive: true })
 
     if (this.hasPlayValue && this.playValue) {
-      let ele = this.containerTarget.firstElementChild
-      this.goLeft(ele, true)
+      const ele = this.containerTarget.firstElementChild
+      this.shiftLeft(ele, true)
     }
   }
 
@@ -76,7 +76,7 @@ export default class extends TouchController {
   // 执行翻页
   going(offset, ele) {
     if (offset.x < 0) {
-      this.goLeft(ele)
+      this.shiftLeft(ele)
     }
     if (offset.x > 0) {
       this.goRight(ele)
@@ -92,7 +92,7 @@ export default class extends TouchController {
 
     const prev = ele.previousElementSibling
     if (offset.x > 0 && prev) {
-      this.goLeft(prev)
+      this.shiftLeft(prev)
     }
   }
 
@@ -117,7 +117,7 @@ export default class extends TouchController {
   }
 
   // ele 向左滑出
-  goLeft(ele, later = false) {
+  shiftLeft(ele, later = false) {
     const next = this.next(ele)
     if (next) {
       next.style.left = next.clientWidth + 'px'
@@ -196,6 +196,8 @@ export default class extends TouchController {
 
   clearStyle(event) {
     const ele = event.currentTarget
+    // 结束轮播之后，将 left 重置，最终 style 只保留 index
+    ele.style.removeProperty('left')
     const controller = ele.closest('[data-controller~=slide]').controller('slide')
     if (!controller) {
       return
@@ -204,7 +206,7 @@ export default class extends TouchController {
     if (ele.classList.contains('transition_later')) {
       const next = ele.nextElementSibling || ele.parentElement.firstElementChild
       next.style.left = next.clientWidth + 'px'
-      controller.goLeft(ele, true)
+      controller.shiftLeft(ele, true)
     }
 
     //ele.classList.remove('transition_now', 'transition_later')
@@ -222,6 +224,8 @@ export default class extends TouchController {
     const ele = event.currentTarget
     ele.classList.remove('transition_now', 'transition_later')
     ele.style.zIndex = -1
+    // 结束轮播之后，将 left 重置，最终 style 只保留 index
+    ele.style.removeProperty('left')
     console.debug(ele.dataset.index, 'reset index by', event.type)
 
     const controller = ele.closest('[data-controller~=slide]').controller('slide')
@@ -237,7 +241,7 @@ export default class extends TouchController {
   }
 
   next(ele) {
-    if (this.hasCircleValue && this.playValue) {
+    if (this.hasCircleValue && this.circleValue) {
       return ele.nextElementSibling || this.containerTarget.firstElementChild
     } else {
       return ele.nextElementSibling
