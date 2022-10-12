@@ -98,7 +98,7 @@ export default class extends TouchController {
 
   // ele 向左滑出，滑出距离为 pad
   goingLeft(ele, pad) {
-    const next = ele.nextElementSibling
+    const next = this.next(ele)
     if (next) {
       ele.style.left = -pad + 'px'
       next.style.zIndex = 0
