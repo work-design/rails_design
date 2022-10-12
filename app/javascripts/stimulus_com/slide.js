@@ -117,12 +117,12 @@ export default class extends TouchController {
   }
 
   // ele 向左滑出
-  shiftLeft(ele, later = false) {
+  shiftLeft(ele, play = false) {
     const next = this.next(ele)
     if (next) {
       next.style.left = next.clientWidth + 'px'
 
-      if (later) {
+      if (play) {
         this.transitionLater(ele, next)
       } else {
         this.transitionNow(ele, next)
@@ -186,38 +186,6 @@ export default class extends TouchController {
     ele.addEventListener('transitioncancel', this.resetIndex, { once: true })
   }
 
-  // 即将展示
-  toCurrent(ele) {
-    console.debug('add transition event clearStyle for to', ele.dataset.index)
-    ele.addEventListener('transitionend', this.clearStyle, { once: true })
-    ele.addEventListener('transitioncancel', this.clearStyle, { once: true })
-  }
-
-  clearStyle(event) {
-    const ele = event.currentTarget
-    // 结束轮播之后，将 left 重置，最终 style 只保留 index
-    ele.style.removeProperty('left')
-    const controller = ele.closest('[data-controller~=slide]').controller('slide')
-    if (!controller) {
-      return
-    }
-    controller.lighten(ele)
-    if (ele.classList.contains('transition_later')) {
-      const next = ele.nextElementSibling || ele.parentElement.firstElementChild
-      next.style.left = next.clientWidth + 'px'
-      controller.shiftLeft(ele, true)
-    }
-
-    ele.classList.remove('transition_now')
-    console.debug(ele.dataset.index, 'clear style by', event.type)
-
-    if (event.type === 'transitionend') {
-      ele.removeEventListener('transitioncancel', controller.clearStyle)
-    } else if (event.type === 'transitioncancel') {
-      ele.removeEventListener('transitionend', controller.clearStyle)
-    }
-  }
-
   // this become event.target
   resetIndex(event) {
     const ele = event.currentTarget
@@ -237,6 +205,42 @@ export default class extends TouchController {
     } else if (event.type === 'transitioncancel') {
       ele.removeEventListener('transitionend', controller.resetIndex)
     }
+  }
+
+  // 即将展示
+  toCurrent(ele) {
+    console.debug('add transition event toCurrentAfter for to', ele.dataset.index)
+    ele.addEventListener('transitionend', this.toCurrentAfter, { once: true })
+    ele.addEventListener('transitioncancel', this.toCurrentAfter, { once: true })
+  }
+
+  toCurrentAfter(event) {
+    const ele = event.currentTarget
+    // 结束轮播之后，将 left 重置，最终 style 只保留 index
+    ele.style.removeProperty('left')
+    const controller = ele.closest('[data-controller~=slide]').controller('slide')
+    if (!controller) {
+      return
+    }
+    controller.lighten(ele)
+    if (ele.classList.contains('transition_later')) {
+      const next = ele.nextElementSibling || ele.parentElement.firstElementChild
+      next.style.left = next.clientWidth + 'px'
+      controller.shiftLeft(ele, true)
+    }
+
+    ele.classList.remove('transition_now')
+    console.debug(ele.dataset.index, 'clear style by', event.type)
+
+    if (event.type === 'transitionend') {
+      ele.removeEventListener('transitioncancel', controller.toCurrentAfter)
+    } else if (event.type === 'transitioncancel') {
+      ele.removeEventListener('transitionend', controller.toCurrentAfter)
+    }
+  }
+
+  xx(ele) {
+
   }
 
   next(ele) {
