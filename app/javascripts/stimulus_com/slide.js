@@ -24,9 +24,10 @@ export default class extends TouchController {
 
   start(event) {
     this.initStatus(event)
+    window.xxx = event.target
+    // 对于自动轮播中的图片，当有 touch 动作时，暂停自动轮播
     const ele = event.target.closest('[data-index]')
-    const next = this.next(ele)
-    this.transitionNone(ele, next)
+    this.transitionNone(...this.containerTarget.children)
 
     ele.removeEventListener('transitioncancel', this.resetIndex)
     ele.removeEventListener('transitionend', this.resetIndex)
@@ -161,7 +162,6 @@ export default class extends TouchController {
     })
   }
 
-  //
   transitionNone(...elements) {
     elements.forEach(ele => {
       if (ele.classList.contains('transition_later')) {
@@ -209,7 +209,7 @@ export default class extends TouchController {
       controller.shiftLeft(ele, true)
     }
 
-    //ele.classList.remove('transition_now', 'transition_later')
+    ele.classList.remove('transition_now', 'transition_later')
     console.debug(ele.dataset.index, 'clear style by', event.type)
 
     if (event.type === 'transitionend') {
