@@ -1,7 +1,6 @@
 import TouchController from './touch'
 
-// z-index: 1, 当前显示的图片；
-// z-index: 0, 即将显示的图片，touch move 时动态设定；
+// z-index: 0, 当前显示的图片/即将显示的图片，touch move 时动态设定；
 // z-index: -1, 未显示的图片；
 // left 的优先级高于 right
 export default class extends TouchController {
