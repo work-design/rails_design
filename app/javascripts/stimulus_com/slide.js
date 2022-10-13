@@ -57,10 +57,21 @@ export default class extends TouchController {
       return
     }
 
-    if (offset.x < 0) {  // offset.x < 0 表示向左滑动
-      this.goingLeft(ele, pad)
-    } else if (offset.x > 0) {  // offset.x > 0 表示向右滑动
-      this.goingRight(ele, pad)
+    // offset.x < 0 表示向左滑动，反之 offset.x > 0 表示向右滑动
+    if (offset.x < 0) {
+      const next = this.next(ele)
+      if (next) {
+        ele.style.left = -pad + 'px'
+        next.classList.add('is-active')
+        next.style.left = (this.containerTarget.clientWidth - pad) + 'px'
+      }
+    } else if (offset.x > 0) {
+      const prev = this.prev(ele)
+      if (prev) {
+        ele.style.left = pad + 'px'
+        prev.classList.add('is-active')
+        prev.style.left = (pad - this.containerTarget.clientWidth) + 'px'
+      }
     }
   }
 
@@ -109,26 +120,6 @@ export default class extends TouchController {
     }
   }
 
-  // ele 向左滑出，滑出距离为 pad
-  goingLeft(ele, pad) {
-    const next = this.next(ele)
-    if (next) {
-      ele.style.left = -pad + 'px'
-      next.classList.add('is-active')
-      next.style.left = (this.element.clientWidth - pad) + 'px'
-    }
-  }
-
-  // ele 向右滑出，滑出距离为 pad
-  goingRight(ele, pad) {
-    const prev = this.prev(ele)
-    if (prev) {
-      ele.style.left = pad + 'px'
-      prev.classList.add('is-active')
-      prev.style.left = (pad - this.element.clientWidth) + 'px'
-    }
-  }
-
   // ele 向左滑出
   shiftLeft(ele) {
     const next = this.next(ele)
@@ -148,7 +139,6 @@ export default class extends TouchController {
       ele.classList.add('transition')
       this.beenCurrent(ele, this.element.clientWidth + 'px')
 
-      //prev.style.left = 0
       prev.classList.add('transition')
       this.toCurrent(prev)
     }
