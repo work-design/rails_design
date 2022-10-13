@@ -215,6 +215,7 @@ export default class extends TouchController {
   resetStyle(ele) {
     // 结束轮播之后，将 left 重置，最终 style 只保留 index
     ele.style.removeProperty('left')
+    ele.classList.remove('transition')
   }
 
   next(ele) {
