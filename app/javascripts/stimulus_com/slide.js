@@ -3,6 +3,7 @@ import TouchController from './touch'
 // z-index: 0, 当前显示的图片/即将显示的图片，touch move 时动态设定；
 // z-index: -1, 未显示的图片；
 // left 的优先级高于 right
+// transition 动画应在 touch end 的时候添加
 export default class extends TouchController {
   static values = {
     delay: { type: Number, default: 0 }, // 延迟时间，单位为秒
