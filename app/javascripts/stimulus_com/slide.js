@@ -114,12 +114,14 @@ export default class extends TouchController {
 
     if (this.effective(pad)) {
       this.going(offset, ele)
-    } else if (this.direction === 'left') {
-      this.shiftLeft(ele)
-    } else if (this.direction === 'right') {
-      this.shiftRight(ele)
     } else {
-      this.rollback(offset, ele)
+      if (this.direction === 'left') {
+        this.shiftLeft(ele)
+      } else if (this.direction === 'right') {
+        this.shiftRight(ele)
+      } else {
+        this.rollback(offset, ele)
+      }
     }
   }
 
@@ -129,7 +131,11 @@ export default class extends TouchController {
       this.shiftLeft(ele)
     }
     if (offset.x > 0) {
-      this.shiftRight(ele)
+      if (this.direction === 'left') {
+        this.shiftRight(this.next(ele), ele)
+      } else {
+        this.shiftRight(ele)
+      }
     }
   }
 
@@ -148,30 +154,28 @@ export default class extends TouchController {
   }
 
   // ele 向左滑出
-  shiftLeft(ele) {
-    const next = this.next(ele)
-    if (next) {
+  shiftLeft(left, right = this.next(left)) {
+    if (right) {
       this.direction = 'left'
 
-      ele.classList.add('transition')
-      this.beenCurrent(ele)
+      left.classList.add('transition')
+      this.beenCurrent(left)
 
-      next.classList.add('transition')
-      this.toCurrent(next)
+      right.classList.add('transition')
+      this.toCurrent(right)
     }
   }
 
   // ele 向右滑出
-  shiftRight(ele) {
-    const prev = this.prev(ele)
-    if (prev) {
+  shiftRight(right, left = this.prev(right)) {
+    if (left) {
       this.direction = 'right'
 
-      ele.classList.add('transition')
-      this.beenCurrent(ele, this.element.clientWidth + 'px')
+      left.classList.add('transition')
+      this.toCurrent(left)
 
-      prev.classList.add('transition')
-      this.toCurrent(prev)
+      right.classList.add('transition')
+      this.beenCurrent(right, this.element.clientWidth + 'px')
     }
   }
 
