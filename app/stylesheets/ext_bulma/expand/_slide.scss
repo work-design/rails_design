@@ -31,15 +31,14 @@
         object-fit: cover;
       }
     }
-  }
 
-  figure:first-child {
-    left: 0;
-    z-index: 0;
-  }
+    &.is-active {
+      z-index: 0;
+    }
 
-  figure:not(:first-child) {
-    z-index: -1;
+    &:not(.is-active) {
+      z-index: -1;
+    }
   }
 
   .slide-next {

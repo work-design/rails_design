@@ -15,12 +15,14 @@ export default class extends TouchController {
       this.start(event)
     }, { passive: true })
 
+    const ele = this.containerTarget.firstElementChild
+    ele.classList.add('is-active')
     if (this.hasDelayValue && this.delayValue > 0) {
-      this.mode()
+      this.mode(ele)
     }
   }
 
-  mode(ele = this.containerTarget.firstElementChild) {
+  mode(ele) {
     this.timer = setTimeout(() => {
       this.shiftLeft(ele)
       clearTimeout(this.timer)
@@ -101,7 +103,7 @@ export default class extends TouchController {
       this.shiftRight(next)
     }
 
-    const prev = ele.previousElementSibling
+    const prev = this.prev(ele)
     if (offset.x > 0 && prev) {
       this.shiftLeft(prev)
     }
@@ -112,17 +114,17 @@ export default class extends TouchController {
     const next = this.next(ele)
     if (next) {
       ele.style.left = -pad + 'px'
-      next.style.zIndex = 0
+      next.classList.add('is-active')
       next.style.left = (this.element.clientWidth - pad) + 'px'
     }
   }
 
   // ele 向右滑出，滑出距离为 pad
   goingRight(ele, pad) {
-    const prev = ele.previousElementSibling
+    const prev = this.prev(ele)
     if (prev) {
       ele.style.left = pad + 'px'
-      prev.style.zIndex = 0
+      prev.classList.add('is-active')
       prev.style.left = (pad - this.element.clientWidth) + 'px'
     }
   }
@@ -141,14 +143,12 @@ export default class extends TouchController {
 
   // ele 向右滑出
   shiftRight(ele) {
-    const prev = ele.previousElementSibling
+    const prev = this.prev(ele)
     if (prev) {
-      //ele.style.zIndex = 0
       ele.classList.add('transition')
       this.beenCurrent(ele, this.element.clientWidth + 'px')
 
       //prev.style.left = 0
-      //prev.style.zIndex = 0
       prev.classList.add('transition')
       this.toCurrent(prev)
     }
@@ -165,8 +165,7 @@ export default class extends TouchController {
   // this become event.target
   beenCurrentAfter(event) {
     const ele = event.currentTarget
-    ele.style.zIndex = -1
-
+    ele.classList.remove('is-active')
     console.debug(ele.dataset.index, 'reset index by', event.type)
 
     const controller = ele.closest('[data-controller~=slide]').controller('slide')
@@ -185,7 +184,7 @@ export default class extends TouchController {
 
   // 即将展示
   toCurrent(ele) {
-    ele.style.zIndex = 0
+    ele.classList.add('is-active')
     ele.style.left = 0
     console.debug('add transition event toCurrentAfter for to', ele.dataset.index)
     ele.addEventListener('transitionend', this.toCurrentAfter, { once: true })
@@ -227,6 +226,14 @@ export default class extends TouchController {
       return ele.nextElementSibling || this.containerTarget.firstElementChild
     } else {
       return ele.nextElementSibling
+    }
+  }
+
+  prev(ele) {
+    if (this.hasCircleValue && this.circleValue) {
+      return ele.previousElementSibling || this.containerTarget.lastElementChild
+    } else {
+      return ele.previousElementSibling
     }
   }
 
