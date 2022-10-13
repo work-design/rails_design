@@ -39,13 +39,19 @@ export default class extends TouchController {
       clearTimeout(this.timer)
     }
 
+    console.log('---------', this.direction)
     const ele = event.target.closest('[data-index]')
-    ele.style.left = ele.getBoundingClientRect().x + 'px'
+    ele.style.left = this.left + 'px'
     ele.classList.remove('transition')
-    const next = this.next(ele)
-    if (next) {
-      next.style.left = next.getBoundingClientRect().x + 'px'
+
+    if (this.direction === 'left') {
+      const next = this.next(ele)
+      next.style.left = this.containerTarget.clientWidth + this.left + 'px'
       next.classList.remove('transition')
+    } else if (this.direction === 'right') {
+      const prev = this.prev(ele)
+      prev.style.left = this.left - this.containerTarget.clientWidth + 'px'
+      prev.classList.remove('transition')
     }
 
     ele.removeEventListener('transitioncancel', this.beenCurrentAfter)
@@ -66,16 +72,30 @@ export default class extends TouchController {
     }
 
     // offset.x < 0 表示向左滑动，反之 offset.x > 0 表示向右滑动
+    ele.style.left = this.left + offset.x + 'px'
     let along
     if (offset.x < 0) {
       along = this.next(ele)
+      if (this.direction === 'left') {
+        along.style.left = (this.containerTarget.clientWidth + this.left + offset.x) + 'px'
+      } else if (this.direction === 'right') {
+        along.style.left = (this.containerTarget.clientWidth + this.left + offset.x) + 'px'
+      } else {
+        along.style.left = (this.containerTarget.clientWidth + this.left + offset.x) + 'px'
+      }
     } else if (offset.x > 0) {
       along = this.prev(ele)
+      if (this.direction === 'left') {
+        along.style.left = (this.containerTarget.clientWidth + this.left + offset.x) + 'px'
+      } else if (this.direction === 'right') {
+        along.style.left = (-this.containerTarget.clientWidth + this.left + offset.x) + 'px'
+      } else {
+        along.style.left = (-this.containerTarget.clientWidth + this.left + offset.x) + 'px'
+      }
     }
+
     if (along) {
-      ele.style.left = this.left + offset.x + 'px'
       along.classList.add('is-active')
-      along.style.left = (this.containerTarget.clientWidth + this.left + offset.x) + 'px'
     }
   }
 
@@ -107,11 +127,9 @@ export default class extends TouchController {
   // 执行翻页
   going(offset, ele) {
     if (offset.x < 0) {
-      this.direction = 'left'
       this.shiftLeft(ele)
     }
     if (offset.x > 0) {
-      this.direction = 'right'
       this.shiftRight(ele)
     }
   }
@@ -134,6 +152,8 @@ export default class extends TouchController {
   shiftLeft(ele) {
     const next = this.next(ele)
     if (next) {
+      this.direction = 'left'
+
       ele.classList.add('transition')
       this.beenCurrent(ele)
 
@@ -146,6 +166,8 @@ export default class extends TouchController {
   shiftRight(ele) {
     const prev = this.prev(ele)
     if (prev) {
+      this.direction = 'right'
+
       ele.classList.add('transition')
       this.beenCurrent(ele, this.element.clientWidth + 'px')
 

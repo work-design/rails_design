@@ -8,7 +8,9 @@ export default class extends Controller {
   // data-action="touchstart->slide#start:passive"
   initStatus(event) {
     const ele = event.target.closest('[data-index]')
+    window.xxx = ele
     this.left = ele.getBoundingClientRect().x
+    console.log('zzzzzzz', this.left, ele.getBoundingClientRect())
 
     const touch = event.targetTouches[0]
     this.startPos = {
