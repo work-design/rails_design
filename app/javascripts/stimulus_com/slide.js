@@ -66,21 +66,16 @@ export default class extends TouchController {
     }
 
     // offset.x < 0 表示向左滑动，反之 offset.x > 0 表示向右滑动
+    let along
     if (offset.x < 0) {
-      const next = this.next(ele)
-      if (next) {
-        ele.style.left = this.left + offset.x + 'px'
-        //ele.style.left = offset.x + 'px'
-        next.classList.add('is-active')
-        next.style.left = (this.containerTarget.clientWidth + this.left + offset.x) + 'px'
-      }
+      along = this.next(ele)
     } else if (offset.x > 0) {
-      const prev = this.prev(ele)
-      if (prev) {
-        ele.style.left = pad + 'px'
-        prev.classList.add('is-active')
-        prev.style.left = (pad - this.containerTarget.clientWidth) + 'px'
-      }
+      along = this.prev(ele)
+    }
+    if (along) {
+      ele.style.left = this.left + offset.x + 'px'
+      along.classList.add('is-active')
+      along.style.left = (this.containerTarget.clientWidth + this.left + offset.x) + 'px'
     }
   }
 
