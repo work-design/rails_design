@@ -40,7 +40,17 @@ export default class extends TouchController {
       clearTimeout(this.timer)
     }
 
+    console.log('xxx', this.direction)
+
     const ele = event.target.closest('[data-index]')
+    ele.style.left = ele.getBoundingClientRect().x + 'px'
+    ele.classList.remove('transition')
+    const next = this.next(ele)
+    if (next) {
+      next.style.left = next.getBoundingClientRect().x + 'px'
+      next.classList.remove('transition')
+    }
+
     ele.removeEventListener('transitioncancel', this.beenCurrentAfter)
     ele.removeEventListener('transitionend', this.beenCurrentAfter)
   }
@@ -86,12 +96,16 @@ export default class extends TouchController {
     const pad = Math.abs(offset.x)
 
     if (!this.isHorizontal(pad, offset)) {
-      console.debug('not scrolling')
+      console.debug('not scrolling', offset)
       this.rollback(offset, ele)
     }
 
     if (this.effective(pad)) {
       this.going(offset, ele)
+    } else if (this.direction === 'left') {
+      this.shiftLeft(ele)
+    } else if (this.direction === 'right') {
+      this.shiftRight(ele)
     } else {
       this.rollback(offset, ele)
     }
@@ -100,9 +114,11 @@ export default class extends TouchController {
   // 执行翻页
   going(offset, ele) {
     if (offset.x < 0) {
+      this.direction = 'left'
       this.shiftLeft(ele)
     }
     if (offset.x > 0) {
+      this.direction = 'right'
       this.shiftRight(ele)
     }
   }
@@ -163,10 +179,11 @@ export default class extends TouchController {
     if (!controller) {
       return
     }
-    controller.resetStyle(ele)
     controller.darken(ele)
 
     if (event.type === 'transitionend') {
+      ele.style.removeProperty('left')
+      ele.classList.remove('transition')
       ele.removeEventListener('transitioncancel', controller.beenCurrentAfter)
     } else if (event.type === 'transitioncancel') {
       ele.removeEventListener('transitionend', controller.beenCurrentAfter)
@@ -191,25 +208,14 @@ export default class extends TouchController {
       return
     }
     controller.lighten(ele)
-    controller.resetStyle(ele)
-
-    const next = controller.next(ele)
-    if (ele.classList.contains('transition_later') && next) {
-      next.style.left = next.clientWidth + 'px'
-      controller.shiftLeft(ele, true)
-    }
 
     if (event.type === 'transitionend') {
+      ele.style.removeProperty('left')
+      ele.classList.remove('transition')
       ele.removeEventListener('transitioncancel', controller.toCurrentAfter)
     } else if (event.type === 'transitioncancel') {
       ele.removeEventListener('transitionend', controller.toCurrentAfter)
     }
-  }
-
-  resetStyle(ele) {
-    // 结束轮播之后，将 left 重置，最终 style 只保留 index
-    ele.style.removeProperty('left')
-    ele.classList.remove('transition')
   }
 
   next(ele) {
