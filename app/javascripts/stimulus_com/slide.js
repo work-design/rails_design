@@ -5,7 +5,7 @@ import TouchController from './touch'
 // left 的优先级高于 right
 export default class extends TouchController {
   static values = {
-    play: Boolean, // 是否自动播放，true 为自动轮播
+    delay: { type: Number, default: 0 }, // 延迟时间，单位为秒
     circle: Boolean, // 是否循环播放，true 为循环播放
   }
   static targets = ['container', 'dot']
@@ -15,10 +15,21 @@ export default class extends TouchController {
       this.start(event)
     }, { passive: true })
 
-    if (this.hasPlayValue && this.playValue) {
-      const ele = this.containerTarget.firstElementChild
-      this.shiftLeft(ele, true)
+    if (this.hasDelayValue && this.delayValue > 0) {
+      //this.transitionLater(...this.containerTarget.children)
+      this.mode()
+    } else {
+     // this.transitionNow(...this.containerTarget.children)
     }
+  }
+
+  mode(ele = this.containerTarget.firstElementChild) {
+    const timer = setTimeout(() => {
+      this.shiftLeft(ele)
+      clearTimeout(timer)
+      const next = this.next(ele)
+      this.mode(next)
+    }, this.delayValue * 1000, ele)
   }
 
   start(event) {
@@ -35,7 +46,7 @@ export default class extends TouchController {
   // data-action="touchmove->slide#move:passive"
   move(event) {
     const ele = event.currentTarget
-    console.debug('touch moved by:', ele.dataset.index)
+    console.debug('touch moved by element:', ele.dataset.index)
     if (this.zoomed(event)) {
       return
     }
@@ -117,23 +128,12 @@ export default class extends TouchController {
   }
 
   // ele 向左滑出
-  shiftLeft(ele, play = false) {
+  shiftLeft(ele) {
     const next = this.next(ele)
     if (next) {
-      next.style.left = next.clientWidth + 'px'
-
-      if (play) {
-        this.transitionLater(ele, next)
-      } else {
-        this.transitionNow(ele, next)
-      }
-
-      ele.style.left = -this.element.clientWidth + 'px'
-      this.beenCurrent(ele)
-
-      next.style.left = 0
-      next.style.zIndex = 0
+      this.transitionLater(...this.containerTarget.children)
       this.toCurrent(next)
+      this.beenCurrent(ele)
     }
   }
 
@@ -141,14 +141,11 @@ export default class extends TouchController {
   shiftRight(ele) {
     const prev = ele.previousElementSibling
     if (prev) {
-      this.transitionNow(ele, prev)
+      //ele.style.zIndex = 0
+      this.beenCurrent(ele, this.element.clientWidth + 'px')
 
-      ele.style.left = this.element.clientWidth + 'px'
-      ele.style.zIndex = 0
-      this.beenCurrent(ele)
-
-      prev.style.left = 0
-      prev.style.zIndex = 0
+      //prev.style.left = 0
+      //prev.style.zIndex = 0
       this.toCurrent(prev)
     }
   }
@@ -180,8 +177,9 @@ export default class extends TouchController {
   }
 
   // 不再展示
-  beenCurrent(ele) {
+  beenCurrent(ele, left = -this.element.clientWidth + 'px') {
     console.debug('add transition event beenCurrentAfter for been', ele.dataset.index)
+    ele.style.left = left
     ele.addEventListener('transitionend', this.beenCurrentAfter, { once: true })
     ele.addEventListener('transitioncancel', this.beenCurrentAfter, { once: true })
   }
@@ -189,16 +187,15 @@ export default class extends TouchController {
   // this become event.target
   beenCurrentAfter(event) {
     const ele = event.currentTarget
-    ele.classList.remove('transition_now')
     ele.style.zIndex = -1
-    // 结束轮播之后，将 left 重置，最终 style 只保留 index
-    ele.style.removeProperty('left')
+
     console.debug(ele.dataset.index, 'reset index by', event.type)
 
     const controller = ele.closest('[data-controller~=slide]').controller('slide')
     if (!controller) {
       return
     }
+    controller.resetStyle(ele)
     controller.darken(ele)
 
     if (event.type === 'transitionend') {
@@ -210,6 +207,8 @@ export default class extends TouchController {
 
   // 即将展示
   toCurrent(ele) {
+    ele.style.zIndex = 0
+    ele.style.left = 0
     console.debug('add transition event toCurrentAfter for to', ele.dataset.index)
     ele.addEventListener('transitionend', this.toCurrentAfter, { once: true })
     ele.addEventListener('transitioncancel', this.toCurrentAfter, { once: true })
@@ -217,21 +216,20 @@ export default class extends TouchController {
 
   toCurrentAfter(event) {
     const ele = event.currentTarget
+    console.debug(ele.dataset.index, 'to Current after', event.type)
 
     const controller = ele.closest('[data-controller~=slide]').controller('slide')
     if (!controller) {
       return
     }
     controller.lighten(ele)
+    controller.resetStyle(ele)
 
     const next = controller.next(ele)
     if (ele.classList.contains('transition_later') && next) {
       next.style.left = next.clientWidth + 'px'
       controller.shiftLeft(ele, true)
     }
-
-
-    console.debug(ele.dataset.index, 'to Current after', event.type)
 
     if (event.type === 'transitionend') {
       ele.removeEventListener('transitioncancel', controller.toCurrentAfter)
@@ -240,10 +238,9 @@ export default class extends TouchController {
     }
   }
 
-  xx(ele) {
+  resetStyle(ele) {
     // 结束轮播之后，将 left 重置，最终 style 只保留 index
     ele.style.removeProperty('left')
-    ele.classList.remove('transition_now')
   }
 
   next(ele) {

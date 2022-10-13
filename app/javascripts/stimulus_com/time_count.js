@@ -32,7 +32,7 @@ export default class extends Controller {
       } else {
         this.element.textContent = result.toFormat(result_format.join(''))
       }
-    }, 1000, result, this.element)
+    }, 1000, result)
   }
 
 }

@@ -2,7 +2,7 @@ import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
   static values = {
-    time: Number
+    time: { type: Number, default: 60 }
   }
 
   connect() {
@@ -10,7 +10,7 @@ export default class extends Controller {
   }
 
   countDown() {
-    let countdown = this.timeValue || 60
+    let countdown = this.timeValue
     this.element.innerText = '重新发送(' + countdown + ')'
 
     let timer = setInterval(() => {
@@ -22,6 +22,6 @@ export default class extends Controller {
       } else {
         this.element.innerText = '重新发送(' + countdown + ')'
       }
-    }, 1000, countdown, this.element)
+    }, 1000, countdown)
   }
 }

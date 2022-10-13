@@ -33,15 +33,20 @@
     }
   }
 
-  .transition_later {
-    transition-delay: 3s;
-    transition-duration: 1s;
-    transition-property: left, right;
-    transition-timing-function: linear;
+  figure:first-child {
     left: 0;
+    z-index: 0;
   }
 
-  .transition_now {
+  figure:not(:first-child) {
+    z-index: -1;
+  }
+
+  .slide-next {
+    left: 100%;
+  }
+
+  .transition {
     transition-duration: 1s;
     transition-property: left, right;
   }
