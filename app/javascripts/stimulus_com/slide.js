@@ -39,7 +39,6 @@ export default class extends TouchController {
       clearTimeout(this.timer)
     }
 
-    console.log('---------', this.direction)
     const ele = event.target.closest('[data-index]')
     ele.style.left = this.left + 'px'
     ele.classList.remove('transition')
@@ -261,9 +260,6 @@ export default class extends TouchController {
       const dot = this.dotTarget.children[ele.dataset.index]
       dot.classList.replace('has-text-black', 'has-text-white')
     }
-  }
-
-  disconnect() {
   }
 
 }
