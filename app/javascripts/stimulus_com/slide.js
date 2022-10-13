@@ -34,13 +34,10 @@ export default class extends TouchController {
 
   start(event) {
     this.initStatus(event)
-    window.xxx = event.target
     // 对于自动轮播中的图片，当有 touch 动作时，暂停自动轮播
     if (this.timer) {
       clearTimeout(this.timer)
     }
-
-    console.log('xxx', this.direction)
 
     const ele = event.target.closest('[data-index]')
     ele.style.left = ele.getBoundingClientRect().x + 'px'
@@ -72,9 +69,10 @@ export default class extends TouchController {
     if (offset.x < 0) {
       const next = this.next(ele)
       if (next) {
-        ele.style.left = -pad + 'px'
+        ele.style.left = this.left + offset.x + 'px'
+        //ele.style.left = offset.x + 'px'
         next.classList.add('is-active')
-        next.style.left = (this.containerTarget.clientWidth - pad) + 'px'
+        next.style.left = (this.containerTarget.clientWidth + this.left + offset.x) + 'px'
       }
     } else if (offset.x > 0) {
       const prev = this.prev(ele)
