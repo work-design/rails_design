@@ -16,17 +16,14 @@ export default class extends TouchController {
     }, { passive: true })
 
     if (this.hasDelayValue && this.delayValue > 0) {
-      //this.transitionLater(...this.containerTarget.children)
       this.mode()
-    } else {
-     // this.transitionNow(...this.containerTarget.children)
     }
   }
 
   mode(ele = this.containerTarget.firstElementChild) {
-    const timer = setTimeout(() => {
+    this.timer = setTimeout(() => {
       this.shiftLeft(ele)
-      clearTimeout(timer)
+      clearTimeout(this.timer)
       const next = this.next(ele)
       this.mode(next)
     }, this.delayValue * 1000, ele)
@@ -36,9 +33,11 @@ export default class extends TouchController {
     this.initStatus(event)
     window.xxx = event.target
     // 对于自动轮播中的图片，当有 touch 动作时，暂停自动轮播
-    const ele = event.target.closest('[data-index]')
-    this.transitionNone(...this.containerTarget.children)
+    if (this.timer) {
+      clearTimeout(this.timer)
+    }
 
+    const ele = event.target.closest('[data-index]')
     ele.removeEventListener('transitioncancel', this.beenCurrentAfter)
     ele.removeEventListener('transitionend', this.beenCurrentAfter)
   }
@@ -131,7 +130,8 @@ export default class extends TouchController {
   shiftLeft(ele) {
     const next = this.next(ele)
     if (next) {
-      this.transitionLater(...this.containerTarget.children)
+      ele.classList.add('transition')
+      next.classList.add('transition')
       this.toCurrent(next)
       this.beenCurrent(ele)
     }
@@ -148,32 +148,6 @@ export default class extends TouchController {
       //prev.style.zIndex = 0
       this.toCurrent(prev)
     }
-  }
-
-  transitionLater(...elements) {
-    elements.forEach(ele => {
-      if (!ele.classList.contains('transition_later')) {
-        ele.classList.add('transition_later')
-      }
-    })
-  }
-
-  transitionNone(...elements) {
-    elements.forEach(ele => {
-      if (ele.classList.contains('transition_later')) {
-        ele.classList.remove('transition_later')
-      }
-    })
-  }
-
-  transitionNow(...elements) {
-    elements.forEach(ele => {
-      if (ele.classList.contains('transition_later')) {
-        ele.classList.replace('transition_later', 'transition_now')
-      } else if (!ele.classList.contains('transition_now')) {
-        ele.classList.add('transition_now')
-      }
-    })
   }
 
   // 不再展示
