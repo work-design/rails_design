@@ -95,7 +95,8 @@ export default class extends TouchController {
 
   // 回退到之前的状态
   rollback(offset, ele) {
-    const next = ele.nextElementSibling
+    const next = this.next(ele)
+
     if (offset.x < 0 && next) {
       this.shiftRight(next)
     }
@@ -131,9 +132,10 @@ export default class extends TouchController {
     const next = this.next(ele)
     if (next) {
       ele.classList.add('transition')
+      this.beenCurrent(ele)
+
       next.classList.add('transition')
       this.toCurrent(next)
-      this.beenCurrent(ele)
     }
   }
 
@@ -142,10 +144,12 @@ export default class extends TouchController {
     const prev = ele.previousElementSibling
     if (prev) {
       //ele.style.zIndex = 0
+      ele.classList.add('transition')
       this.beenCurrent(ele, this.element.clientWidth + 'px')
 
       //prev.style.left = 0
       //prev.style.zIndex = 0
+      prev.classList.add('transition')
       this.toCurrent(prev)
     }
   }
