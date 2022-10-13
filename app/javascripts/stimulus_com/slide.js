@@ -1,4 +1,5 @@
 import TouchController from './touch'
+import { DateTime } from 'luxon'
 
 // z-index: 0, 当前显示的图片/即将显示的图片，touch move 时动态设定；
 // z-index: -1, 未显示的图片；
@@ -19,15 +20,18 @@ export default class extends TouchController {
     const ele = this.containerTarget.firstElementChild
     ele.classList.add('is-active')
     if (this.hasDelayValue && this.delayValue > 0) {
+      ele.style.left = '0'
       this.mode(ele)
     }
   }
 
   mode(ele) {
-    this.timer = setTimeout(() => {
+    const next = this.next(ele)
+    next.style.left = this.containerTarget.clientWidth + 'px'
+    this.timer = setInterval(() => {
       this.shiftLeft(ele)
-      clearTimeout(this.timer)
-      const next = this.next(ele)
+      console.log('Time:', DateTime.now().toFormat('TT'), 'Timer Id:', this.timer)
+      clearInterval(this.timer)
       this.mode(next)
     }, this.delayValue * 1000, ele)
   }
@@ -36,7 +40,7 @@ export default class extends TouchController {
     this.initStatus(event)
     // 对于自动轮播中的图片，当有 touch 动作时，暂停自动轮播
     if (this.timer) {
-      clearTimeout(this.timer)
+      clearInterval(this.timer)
     }
 
     const ele = event.target.closest('[data-index]')
@@ -175,12 +179,12 @@ export default class extends TouchController {
       this.toCurrent(left)
 
       right.classList.add('transition')
-      this.beenCurrent(right, this.element.clientWidth + 'px')
+      this.beenCurrent(right, this.containerTarget.clientWidth + 'px')
     }
   }
 
   // 不再展示
-  beenCurrent(ele, left = -this.element.clientWidth + 'px') {
+  beenCurrent(ele, left = -this.containerTarget.clientWidth + 'px') {
     console.debug('add transition event beenCurrentAfter for been', ele.dataset.index)
     ele.style.left = left
     ele.addEventListener('transitionend', this.beenCurrentAfter, { once: true })
