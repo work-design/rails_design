@@ -17,19 +17,28 @@ export default class extends Controller {
     if (this.localizedValue) {
       return
     }
-    let str
-    if (this.hasDatetimeValue && this.datetimeValue) {
-      str = this.datetimeValue
-    } else if (this.element.innerText.length > 0) {
-      str = this.element.innerText
-    } else {
-      return
-    }
 
-    const format_str = this.element.dataset['format'] || 'yyyy-MM-dd HH:mm'
-    const time = DateTime.fromISO(str)
-    this.element.innerText = time.toFormat(format_str)
+    const time = DateTime.fromISO(this.str)
+    this.element.innerText = time.toFormat(this.format)
     this.localizedValue = true
+  }
+
+  get str() {
+    if (this.hasDatetimeValue && this.datetimeValue) {
+      return this.datetimeValue
+    } else if (this.element.innerText.length > 0) {
+      return this.element.innerText
+    }
+  }
+
+  // xx => 'yyyy-MM-dd HH:mm:ss'
+  get format() {
+    let fmt = this.element.dataset['format']
+    if (fmt === 'human') {
+      return 'yyyy-MM-dd HH:mm:ss'
+    } else {
+      return fmt || 'yyyy-MM-dd HH:mm'
+    }
   }
 
 }
