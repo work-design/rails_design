@@ -197,14 +197,13 @@ export default class extends TouchController {
   // this become event.target
   beenCurrentAfter(event) {
     const ele = event.currentTarget
-    ele.classList.remove('is-active')
     console.debug(ele.dataset.index, 'reset index by', event.type)
+    ele.classList.remove('is-active')
 
     const controller = ele.closest('[data-controller~=slide]').controller('slide')
     if (!controller) {
       return
     }
-
     if (event.type === 'transitionend') {
       ele.style.removeProperty('left')
       ele.classList.remove('transition')
@@ -218,6 +217,7 @@ export default class extends TouchController {
   toCurrent(ele) {
     ele.classList.add('is-active')
     ele.style.left = 0
+
     if (this.hasDotTarget) {
       const dot = this.dotTarget.children[ele.dataset.index]
       dot.classList.replace('has-text-black', 'has-text-white')
@@ -230,7 +230,6 @@ export default class extends TouchController {
   toCurrentAfter(event) {
     const ele = event.currentTarget
     console.debug(ele.dataset.index, 'to Current after', event.type)
-
     const controller = ele.closest('[data-controller~=slide]').controller('slide')
     if (!controller) {
       return
