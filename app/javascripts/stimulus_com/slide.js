@@ -30,7 +30,7 @@ export default class extends TouchController {
     next.style.left = this.containerTarget.clientWidth + 'px'
     this.timerId = setTimeout(() => {
       this.shiftLeft(ele)
-      console.log('Time:', DateTime.now().toFormat('TT'), 'Timer Id:', this.timerId)
+      console.debug('Time:', DateTime.now().toFormat('TT'), 'Timer Id:', this.timerId)
     }, this.delayValue * 1000, ele)
   }
 
