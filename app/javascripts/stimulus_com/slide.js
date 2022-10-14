@@ -21,26 +21,25 @@ export default class extends TouchController {
     ele.classList.add('is-active')
     if (this.hasDelayValue && this.delayValue > 0) {
       ele.style.left = '0'
+      const next = this.next(ele)
+      next.style.left = this.containerTarget.clientWidth + 'px'
       this.mode(ele)
     }
   }
 
   mode(ele) {
-    const next = this.next(ele)
-    next.style.left = this.containerTarget.clientWidth + 'px'
-    this.timer = setInterval(() => {
-      this.shiftLeft(ele)
-      console.log('Time:', DateTime.now().toFormat('TT'), 'Timer Id:', this.timer)
-      clearInterval(this.timer)
-      this.mode(next)
-    }, this.delayValue * 1000, ele)
+    this.timerId = setTimeout(function ship(ele, con) {
+      con.shiftLeft(ele)
+
+      console.log('Time:', DateTime.now().toFormat('TT'))
+    }, this.delayValue * 1000, ele, this)
   }
 
   start(event) {
     this.initStatus(event)
     // 对于自动轮播中的图片，当有 touch 动作时，暂停自动轮播
-    if (this.timer) {
-      clearInterval(this.timer)
+    if (this.timerId) {
+      clearTimeout(this.timerId)
     }
 
     const ele = event.target.closest('[data-index]')
@@ -187,6 +186,7 @@ export default class extends TouchController {
   beenCurrent(ele, left = -this.containerTarget.clientWidth + 'px') {
     console.debug('add transition event beenCurrentAfter for been', ele.dataset.index)
     ele.style.left = left
+    this.darken(ele)
     ele.addEventListener('transitionend', this.beenCurrentAfter, { once: true })
     ele.addEventListener('transitioncancel', this.beenCurrentAfter, { once: true })
   }
@@ -201,7 +201,6 @@ export default class extends TouchController {
     if (!controller) {
       return
     }
-    controller.darken(ele)
 
     if (event.type === 'transitionend') {
       ele.style.removeProperty('left')
@@ -216,6 +215,7 @@ export default class extends TouchController {
   toCurrent(ele) {
     ele.classList.add('is-active')
     ele.style.left = 0
+    this.lighten(ele)
     console.debug('add transition event toCurrentAfter for to', ele.dataset.index)
     ele.addEventListener('transitionend', this.toCurrentAfter, { once: true })
     ele.addEventListener('transitioncancel', this.toCurrentAfter, { once: true })
@@ -229,7 +229,6 @@ export default class extends TouchController {
     if (!controller) {
       return
     }
-    controller.lighten(ele)
 
     if (event.type === 'transitionend') {
       ele.style.removeProperty('left')
