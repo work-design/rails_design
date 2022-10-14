@@ -14,7 +14,7 @@ export default class extends Controller {
   countUp() {
     const time = DateTime.fromISO(this.timeValue)
     let result = DateTime.now().diff(time, ['days', 'hours', 'minutes', 'seconds'])
-    let format = ['d天', 'h时', 'mm分', 'ss秒']
+    let format = ['d天', 'h时', 'm分', 's秒']
     let result_format
 
     const timer = setInterval(() => {
