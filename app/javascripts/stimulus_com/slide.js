@@ -186,7 +186,10 @@ export default class extends TouchController {
   beenCurrent(ele, left = -this.containerTarget.clientWidth + 'px') {
     console.debug('add transition event beenCurrentAfter for been', ele.dataset.index)
     ele.style.left = left
-    this.darken(ele)
+    if (this.hasDotTarget) {
+      const dot = this.dotTarget.children[ele.dataset.index]
+      dot.classList.replace('has-text-white', 'has-text-black')
+    }
     ele.addEventListener('transitionend', this.beenCurrentAfter, { once: true })
     ele.addEventListener('transitioncancel', this.beenCurrentAfter, { once: true })
   }
@@ -215,7 +218,10 @@ export default class extends TouchController {
   toCurrent(ele) {
     ele.classList.add('is-active')
     ele.style.left = 0
-    this.lighten(ele)
+    if (this.hasDotTarget) {
+      const dot = this.dotTarget.children[ele.dataset.index]
+      dot.classList.replace('has-text-black', 'has-text-white')
+    }
     console.debug('add transition event toCurrentAfter for to', ele.dataset.index)
     ele.addEventListener('transitionend', this.toCurrentAfter, { once: true })
     ele.addEventListener('transitioncancel', this.toCurrentAfter, { once: true })
@@ -252,20 +258,6 @@ export default class extends TouchController {
       return ele.previousElementSibling || this.containerTarget.lastElementChild
     } else {
       return ele.previousElementSibling
-    }
-  }
-
-  darken(ele) {
-    if (this.hasDotTarget) {
-      const dot = this.dotTarget.children[ele.dataset.index]
-      dot.classList.replace('has-text-white', 'has-text-black')
-    }
-  }
-
-  lighten(ele) {
-    if (this.hasDotTarget) {
-      const dot = this.dotTarget.children[ele.dataset.index]
-      dot.classList.replace('has-text-black', 'has-text-white')
     }
   }
 
