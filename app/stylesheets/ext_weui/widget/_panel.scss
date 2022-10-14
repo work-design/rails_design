@@ -24,6 +24,10 @@
   }
 }
 
+a.weui-panel__hd:active {
+  background-color: hsl(0, 0%, 98%);
+}
+
 .weui-panel.is-borderless-top {
   &::before {
     border-top: none;

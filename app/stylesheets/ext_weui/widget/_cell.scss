@@ -19,3 +19,7 @@
 .weui-cell__hd + .weui-cell__bd {
   padding-left: .25em;
 }
+
+a.weui-cell_link:active {
+  background-color: hsl(0, 0%, 98%);
+}
