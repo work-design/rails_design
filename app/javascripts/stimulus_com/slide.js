@@ -20,19 +20,18 @@ export default class extends TouchController {
     const ele = this.containerTarget.firstElementChild
     ele.classList.add('is-active')
     if (this.hasDelayValue && this.delayValue > 0) {
-      ele.style.left = '0'
-      const next = this.next(ele)
-      next.style.left = this.containerTarget.clientWidth + 'px'
+      ele.style.left = 0
       this.mode(ele)
     }
   }
 
   mode(ele) {
-    this.timerId = setTimeout(function ship(ele, con) {
-      con.shiftLeft(ele)
-
-      console.log('Time:', DateTime.now().toFormat('TT'))
-    }, this.delayValue * 1000, ele, this)
+    const next = this.next(ele)
+    next.style.left = this.containerTarget.clientWidth + 'px'
+    this.timerId = setTimeout(() => {
+      this.shiftLeft(ele)
+      console.log('Time:', DateTime.now().toFormat('TT'), 'Timer Id:', this.timerId)
+    }, this.delayValue * 1000, ele)
   }
 
   start(event) {
@@ -197,7 +196,7 @@ export default class extends TouchController {
   // this become event.target
   beenCurrentAfter(event) {
     const ele = event.currentTarget
-    console.debug(ele.dataset.index, 'reset index by', event.type)
+    console.debug(ele.dataset.index, 'been Current After', event.type)
     ele.classList.remove('is-active')
 
     const controller = ele.closest('[data-controller~=slide]').controller('slide')
@@ -205,7 +204,7 @@ export default class extends TouchController {
       return
     }
     if (event.type === 'transitionend') {
-      ele.style.removeProperty('left')
+      //ele.style.left = 0
       ele.classList.remove('transition')
       ele.removeEventListener('transitioncancel', controller.beenCurrentAfter)
     } else if (event.type === 'transitioncancel') {
@@ -236,8 +235,11 @@ export default class extends TouchController {
     }
 
     if (event.type === 'transitionend') {
-      ele.style.removeProperty('left')
+      //ele.style.left = 0
       ele.classList.remove('transition')
+      if (controller.hasDelayValue && controller.delayValue > 0) {
+        controller.mode(ele)
+      }
       ele.removeEventListener('transitioncancel', controller.toCurrentAfter)
     } else if (event.type === 'transitioncancel') {
       ele.removeEventListener('transitionend', controller.toCurrentAfter)
