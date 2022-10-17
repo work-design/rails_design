@@ -1,7 +1,3 @@
-th {
-  text-align: left;
-}
-
 td.has-inner-table {
   padding: 0;
 
@@ -20,13 +16,11 @@ td.has-inner-table {
     border: solid 1px $border;
   }
 
-  thead {
-    &.is-low {
-      th {
-        font-weight: normal;
-        color: $grey;
-      }
-    }
+  th {
+    text-align: left;
+    font-size: 0.9em;
+    font-weight: normal;
+    color: $grey;
   }
 
   thead td,
