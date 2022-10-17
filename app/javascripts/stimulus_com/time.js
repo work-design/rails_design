@@ -5,8 +5,7 @@ window.DateTime = DateTime
 // data-controller="time"
 export default class extends Controller {
   static values = {
-    localized: Boolean,
-    datetime: String
+    localized: Boolean
   }
 
   connect() {
@@ -26,8 +25,9 @@ export default class extends Controller {
   }
 
   get str() {
-    if (this.hasDatetimeValue && this.datetimeValue) {
-      return this.datetimeValue
+    const value = this.element.dataset['value']
+    if (value) {
+      return value
     } else if (this.element.innerText.length > 0) {
       return this.element.innerText
     }
