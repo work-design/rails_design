@@ -16,7 +16,7 @@ td.has-inner-table {
     border: solid 1px $border;
   }
 
-  th {
+  thead th {
     text-align: left;
     font-size: 0.9em;
     font-weight: normal;
@@ -51,7 +51,7 @@ td.has-inner-table {
     tbody td:first-child::after {
       content: ':';
       padding-left: .25em;
-      color: #888;
+      color: $grey-light;
     }
   }
 
@@ -70,7 +70,7 @@ td.has-inner-table {
 
     th::after {
       content: ':';
-      color: #888;
+      color: $grey-light;
     }
 
     td {
