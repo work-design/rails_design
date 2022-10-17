@@ -18,9 +18,11 @@ export default class extends Controller {
       return
     }
 
-    const time = DateTime.fromISO(this.str)
-    this.element.innerText = time.toFormat(this.format)
-    this.localizedValue = true
+    if (this.str) {
+      const time = DateTime.fromISO(this.str)
+      this.element.innerText = time.toFormat(this.format)
+      this.localizedValue = true
+    }
   }
 
   get str() {
