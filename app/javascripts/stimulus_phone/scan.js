@@ -3,8 +3,7 @@ import ConfigController from './config'
 export default class extends ConfigController {
   static values = {
     url: String,
-    params: Object,
-    debug: Boolean
+    params: Object
   }
 
   connect() {
