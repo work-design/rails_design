@@ -3,7 +3,8 @@ import ConfigController from './config'
 export default class extends ConfigController {
   static values = {
     url: String,
-    params: Object
+    params: Object,
+    debug: Boolean
   }
 
   connect() {
@@ -32,7 +33,13 @@ export default class extends ConfigController {
 
   invoke() {
     wx.ready(() => {
-      wx.scanQRCode()
+      wx.scanQRCode({
+        success: (res) => {
+          if (this.hasDebugValue && this.debugValue) {
+            alert(JSON.stringify(res))
+          }
+        }
+      })
     })
   }
 
