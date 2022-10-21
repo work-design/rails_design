@@ -4,7 +4,7 @@ export default class extends Controller {
   static values = {
     options: Object,
     debug: Boolean,
-    apis: Array
+    apis: { type: Array, default: [] }
   }
 
   initialize() {
@@ -15,24 +15,22 @@ export default class extends Controller {
 
   connect() {
     const options = this.optionsValue
-    const apis = this.apisValue
-    const debug = this.debugValue
 
     wx.config({
-      debug: debug,
+      debug: this.debugValue,
       appId: options['appid'],
       timestamp: options['timestamp'],
       nonceStr: options['noncestr'],
       signature: options['signature'],
-      jsApiList: apis,
+      jsApiList: this.apisValue,
       openTagList: ['wx-open-subscribe']
     })
     wx.ready(() => {
       console.debug('ready, ok')
     })
     wx.error(res => {
-      if (debug) {
-        alert('wx.config: ' + JSON.stringify(res))
+      if (this.debugValue) {
+        alert('wx.config: ' + JSON.stringify(res) + '\n' + `location: ${location.href}`)
       } else {
         console.debug('wx.config:', res)
       }
