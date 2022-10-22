@@ -8,7 +8,6 @@ export default class extends Controller {
 
   report(event) {
     const ele = event.currentTarget
-    const controller = this
     const body = new FormData()
     if (this.hasParamsValue) {
       Object.keys(this.paramsValue).forEach(k => {
@@ -18,9 +17,9 @@ export default class extends Controller {
     wx.ready(() => {
       wx.scanQRCode({
         needResult: 1,
-        success(res) {
+        success: (res) => {
           body.append('result', res.resultStr)
-          controller.request(ele.dataset.reportUrl, 'POST', body)
+          this.request(ele.dataset.reportUrl, 'POST', body)
         }
       })
     })
@@ -29,7 +28,7 @@ export default class extends Controller {
   invoke() {
     wx.ready(() => {
       wx.scanQRCode({
-        success: (res) => {
+        complete: (res) => {
           if (this.hasDebugValue && this.debugValue) {
             alert(JSON.stringify(res))
           }
