@@ -4,7 +4,6 @@ window.application = application
 
 Controller.prototype.submit = function(form) {
   const evt = document.createEvent('Event')
-  evt.initEvent('submit', true, true)
   form.dispatchEvent(evt)
 }
 

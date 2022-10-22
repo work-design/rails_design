@@ -1,7 +1,8 @@
 const weixin_script = document.getElementById('weixin_script')
 
 if (weixin_script) {
-  weixin_script.addEventListener('load', () => {
+  weixin_script.addEventListener('load', (event) => {
+    console.debug('weixin script load trigger', event)
     fetch('/wechat/js', {
       method: 'POST',
       headers: {
