@@ -2,7 +2,7 @@ import ConfigController from './config'
 
 export default class extends ConfigController {
   static values = {
-    url: String,
+    debug: Boolean,
     params: Object
   }
 
