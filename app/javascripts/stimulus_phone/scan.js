@@ -1,13 +1,9 @@
-import ConfigController from './config'
+import { Controller } from '@hotwired/stimulus'
 
-export default class extends ConfigController {
+export default class extends Controller {
   static values = {
     debug: Boolean,
     params: Object
-  }
-
-  connect() {
-    super.connect()
   }
 
   report(event) {

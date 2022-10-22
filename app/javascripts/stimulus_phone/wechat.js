@@ -1,14 +1,10 @@
-import ConfigController from './config'
+import { Controller } from '@hotwired/stimulus'
 
-export default class extends ConfigController {
+export default class extends Controller {
   static targets = ['preview', 'media']
   static values = {
     address: String,
     url: String
-  }
-
-  connect() {
-    super.connect()
   }
 
   close() {

@@ -1,13 +1,12 @@
-import ConfigController from './config'
+import { Controller } from '@hotwired/stimulus'
 
-export default class extends ConfigController {
+export default class extends Controller {
   static values = {
     params: Object
   }
   static targets = ['load']
 
   connect() {
-    super.connect()
     this.chooseWXPay()
   }
 
