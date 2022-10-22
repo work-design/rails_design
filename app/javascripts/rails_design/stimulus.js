@@ -13,28 +13,22 @@ Controller.prototype.csrfToken = function() {
   return meta && meta.content
 }
 
+Controller.prototype.get = function(url) {
+  this.request(url, 'GET')
+}
+
+Controller.prototype.post = function(url, body) {
+  this.request(url, 'POST', body, { 'X-CSRF-Token': this.csrfToken() })
+}
+
 Controller.prototype.request = function(url, method, body, headers) {
   fetch(url, {
     method: method.toUpperCase(),
     headers: {
       Accept: 'text/vnd.turbo-stream.html',
-      'X-CSRF-Token': this.csrfToken(),
       ...headers
     },
     body: body
-  }).then(response => {
-    return response.text()
-  }).then(body => {
-    Turbo.renderStreamMessage(body)
-  })
-}
-
-Controller.prototype.get = function(url) {
-  fetch(url, {
-    method: 'GET',
-    headers: {
-      Accept: 'text/vnd.turbo-stream.html'
-    }
   }).then(response => {
     return response.text()
   }).then(body => {
