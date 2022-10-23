@@ -20,6 +20,10 @@
   align-items: center;
 }
 
+.is-fullwidth {
+  width: 100% !important;
+}
+
 .is-safe-bottom {
   padding-bottom: env(safe-area-inset-bottom);
 }
