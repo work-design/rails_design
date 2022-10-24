@@ -6,7 +6,8 @@
     ".": "./app/javascripts/rails_design/index.js",
     "./*": [
       "./app/javascripts/*/index.js",
-      "./app/stylesheets/*/index.scss"
+      "./app/stylesheets/*/index.scss",
+      "./app/assets/stylesheets/*"
     ]
   },
   "files": [
