@@ -9,17 +9,13 @@ export default class extends Controller {
     image: String
   }
 
-  connect() {
-    this.ready()
-  }
-
   ready() {
     wx.ready(() => {
       wx.updateTimelineShareData({
         title: this.titleValue,
         link: this.linkValue,
         imgUrl: this.imageValue,
-        success: function(res) {
+        success: (res) => {
           console.debug('timeline', res)
         }
       })
@@ -28,7 +24,7 @@ export default class extends Controller {
         desc: this.descValue,
         link: this.linkValue,
         imgUrl: this.imageValue,
-        success: function() {
+        success: (res) => {
           console.debug('message', res)
         }
       })
