@@ -14,7 +14,7 @@ export default class extends Controller {
   check() {
     if (this.hasCheckboxTarget) {
       this.checkboxTarget.checked = !this.checkboxTarget.checked
-      this.submit(this.checkboxTarget.form)
+      this.checkboxTarget.form.requestSubmit()
     }
   }
 
@@ -37,7 +37,7 @@ export default class extends Controller {
     const el = event.currentTarget
 
     if (el.value.length > 0 || this.forceValue) {
-      this.submit(el.form)
+      el.form.requestSubmit()
     }
   }
 
@@ -46,7 +46,7 @@ export default class extends Controller {
     if (!ele.value) {
       return
     }
-    this.submit(ele.form)
+    ele.form.requestSubmit()
   }
 
   remove() {

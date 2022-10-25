@@ -83,7 +83,7 @@ export default class extends Controller {
             localId: localId,
             success: (res) => {
               this.mediaTarget.value = res.serverId
-              this.submit(this.mediaTarget.form)
+              this.mediaTarget.form.requestSubmit()
             }
           })
         }

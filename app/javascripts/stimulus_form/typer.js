@@ -34,7 +34,7 @@ export default class extends Controller {
     if (con.hasUrlValue) {
       con.doRequest(this)
     } else {
-      con.submit(this.form)
+      this.form.requestSubmit()
     }
   }
 
@@ -46,7 +46,7 @@ export default class extends Controller {
     if (this.hasUrlValue) {
       this.doRequest(ele)
     } else {
-      this.submit(ele.form)
+      ele.form.requestSubmit()
     }
   }
 

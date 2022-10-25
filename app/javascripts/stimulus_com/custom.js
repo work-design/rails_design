@@ -15,7 +15,7 @@ export default class extends Controller {
       this.toggleOffCss(checkbox)
     }
 
-    this.submit(checkbox.form)
+    checkbox.form.requestSubmit()
   }
 
   toggleOn(checkbox) {
