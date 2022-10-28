@@ -8,7 +8,7 @@ export default class extends Controller {
   static targets = ['load']
 
   selected(event) {
-    let loc = event.data
+    const loc = event.data
     if (loc && loc.module === 'locationPicker') {
       document.getElementById(`${this.nameValue}_${this.indexValue}_lat`).value = loc.latlng.lat
       document.getElementById(`${this.nameValue}_${this.indexValue}_lng`).value = loc.latlng.lng
