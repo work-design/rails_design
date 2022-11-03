@@ -2,6 +2,7 @@ import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
   static values = {
+    appid: String,
     params: Object
   }
   static targets = ['load']
@@ -11,6 +12,7 @@ export default class extends Controller {
   }
 
   chooseWXPay() {
+    weixin_fetch(this.appidValue)
     wx.ready(() => {
       wx.chooseWXPay({
         ...this.paramsValue,
