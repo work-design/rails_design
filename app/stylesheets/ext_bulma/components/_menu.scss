@@ -51,7 +51,7 @@
   }
 }
 
-.menu {
+.menu-wrap {
   &.is-dark {
     height: 100%;
     background-color: #2d3a4b;
@@ -73,4 +73,17 @@
     }
   }
 
+}
+
+.menu-brand {
+  a {
+    display: block;
+    padding: $menu-list-link-padding;
+    color: #00b2ff;
+  }
+  img {
+    width: 64px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
