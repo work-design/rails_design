@@ -1,3 +1,9 @@
+.button_tos {
+  .button_to:not(:first-child) {
+    padding-left: 1em;
+  }
+}
+
 form.button_to {
   display: inline;
   button:not(.button, .weui-btn),
