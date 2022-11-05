@@ -24,6 +24,7 @@ form.button_to {
   }
   button[type=submit] {
     color: currentcolor; // ios safari 默认 为 白色
+    text-align: left;
   }
 }
 
