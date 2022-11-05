@@ -1,5 +1,5 @@
 import './dataset'
-import './wechat_js'
+import './weixin_script'
 
 import '../stimulus_com'
 import '../stimulus_antv'
