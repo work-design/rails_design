@@ -10,14 +10,20 @@ export default class extends Controller {
   static classes = [ 'pt' ]
 
   connect() {
-    console.debug('miniprogram: ', window.__wxjs_environment)
-    if (window.__wxjs_environment === 'miniprogram') {
-      if (this.hasPtClass) {
-        this.element.classList.add(this.ptClass)
-      }
-      if (this.directValue) {
-        this.navTo()
-      }
+    const weixin_script = document.getElementById('weixin_script')
+    if (weixin_script) {
+      weixin_script.addEventListener('load', (event) => {
+        console.debug('weixin script load mini program', event)
+        console.debug('miniprogram: ', window.__wxjs_environment)
+        if (window.__wxjs_environment === 'miniprogram') {
+          if (this.hasPtClass) {
+            this.element.classList.add(this.ptClass)
+          }
+          if (this.directValue) {
+            this.navTo()
+          }
+        }
+      })
     }
   }
 
