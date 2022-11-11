@@ -4,7 +4,8 @@ export default class extends Controller {
   static values = {
     url: String,
     data: Object,
-    direct: Boolean
+    direct: Boolean,
+    debug: Boolean
   }
   static classes = [ 'pt' ]
 
@@ -29,6 +30,9 @@ export default class extends Controller {
       } else {
         url = this.urlValue.concat('?').concat(query)
       }
+    }
+    if (this.debugValue) {
+      alert(url)
     }
     wx.miniProgram.navigateTo({
       url: url  // url must begin with /pages
