@@ -21,6 +21,9 @@ application.register('input', InputController)
 import ModifyController from './modify'
 application.register('modify', ModifyController)
 
+import QqMapController from './qq-map'
+application.register('qq-map', QqMapController)
+
 import TaxonController from './taxon'
 application.register('taxon', TaxonController)
 

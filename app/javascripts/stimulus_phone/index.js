@@ -1,7 +1,4 @@
 import { application } from '../rails_design/stimulus'
-// dependent on Weui
-import QqMapController from './qq-map'
-application.register('qq-map', QqMapController)
 
 import ScanController from './scan'
 application.register('scan', ScanController)
@@ -12,6 +9,7 @@ application.register('search', SearchController)
 import WechatController from './wechat'
 application.register('wechat', WechatController)
 
+// dependent on Weui
 import WeuiActionsheetController from './weui-actionsheet'
 application.register('weui-actionsheet', WeuiActionsheetController)
 
