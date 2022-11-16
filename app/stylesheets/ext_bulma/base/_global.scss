@@ -16,6 +16,9 @@ iframe {
     position: fixed;
     top: 0
   }
+  &.is-fullheight {
+    height: 100%;
+  }
 }
 
 a[disabled=disabled] {
