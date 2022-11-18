@@ -32,10 +32,10 @@ Controller.prototype.request = function(url, method, body, headers) {
 
 Controller.prototype.doRequest = function(input) {
   const url = new URL(this.urlValue, location.origin)
-  if (this.hasMethodValue) {
+  if (this.hasMethodValue && ['POST', 'PUT', 'PATCH'].includes(this.methodValue.toUpperCase())) {
     const body = new FormData()
     body.append(input.name, input.value)
-    this.request(url, this.methodValue, body)
+    this.request(url, this.methodValue, body, { 'X-CSRF-Token': this.csrfToken() })
   } else {
     url.searchParams.set(input.name, input.value)
     this.get(url)

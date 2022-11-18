@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: cc430346c255a2cf7e468f221408aff186898da6
+  revision: 51c1b6b757601d8dafb1e3dcdd3ce8f3c74d27dd
   specs:
     rails_com (1.3.0)
       acme-client
@@ -113,7 +113,7 @@ GEM
     default_where (2.2.0)
       activerecord (>= 4.0.0)
     erubi (1.11.0)
-    faraday (2.6.0)
+    faraday (2.7.0)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
