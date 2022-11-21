@@ -30,13 +30,12 @@ const wxwork_fetch = function(body = { url: location.href }) {
           })
         }
         if (body['debug']) {
-          alert(JSON.stringify(res))
+          alert('wx.agentConfig success', JSON.stringify(res))
         }
         WWOpenData.bind(document.querySelector('ww-open-data'))
       },
       fail: (res) => {
-        alert('fail')
-        alert(JSON.stringify(res))
+        alert('wx.agentConfig fail', JSON.stringify(res))
       }
     })
     wx.ready(() => {
@@ -44,9 +43,9 @@ const wxwork_fetch = function(body = { url: location.href }) {
     })
     wx.error(res => {
       if (body['debug']) {
-        alert('wx.config: ' + JSON.stringify(res) + '\n' + `location: ${location.href}`)
+        alert('wx.agentConfig error' + JSON.stringify(res) + '\n' + `location: ${location.href}`)
       } else {
-        console.debug('wx.config:', res)
+        console.debug('wx.agentConfig:', res)
       }
     })
   })
