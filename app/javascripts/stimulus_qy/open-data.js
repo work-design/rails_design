@@ -20,7 +20,7 @@ export default class extends Controller {
       nonceStr: options['noncestr'],
       signature: options['signature'],
       jsApiList: this.apisValue,
-      success: function(res) {
+      success: res => {
         if (WWOpenData.checkSession) {
           WWOpenData.checkSession({
             success() {
