@@ -29,9 +29,12 @@ const wxwork_fetch = function(body = { url: location.href }) {
             }
           })
         }
+        if (body['debug']) {
+          alert(JSON.stringify(res))
+        }
         WWOpenData.bind(document.querySelector('ww-open-data'))
       },
-      fail: function(res) {
+      fail: (res) => {
         alert('fail')
         alert(JSON.stringify(res))
       }
