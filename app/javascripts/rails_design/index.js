@@ -1,6 +1,5 @@
 import './dataset'
 import './weixin_script'
-import './wxwork_script'
 
 import '../stimulus_com'
 import '../stimulus_antv'
