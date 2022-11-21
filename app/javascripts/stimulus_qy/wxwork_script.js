@@ -1,7 +1,7 @@
 const wxwork_script = document.getElementById('wxwork_script')
 const wxwork_fetch = function(body = { url: location.href }) {
   console.debug('=====', body)
-  fetch('/wechat/js', {
+  fetch('/wechat/agent_js', {
     method: 'POST',
     headers: {
       Accept: 'application/json',
