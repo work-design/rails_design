@@ -29,7 +29,7 @@ const wxwork_fetch = function(body = { url: location.href }) {
             }
           })
         }
-        if (body['debug']) {
+        if (true) {
           alert('wx.agentConfig success', JSON.stringify(res))
         }
         WWOpenData.bind(document.querySelector('ww-open-data'))

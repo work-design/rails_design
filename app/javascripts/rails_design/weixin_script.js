@@ -11,7 +11,7 @@ const weixin_fetch = function(body = { url: location.href }) {
   }).then(response => {
     return response.json()
   }).then(body => {
-    wx.config({
+    let config = {
       debug: body['debug'],
       appId: body['appid'],
       timestamp: body['timestamp'],
@@ -19,7 +19,11 @@ const weixin_fetch = function(body = { url: location.href }) {
       signature: body['signature'],
       jsApiList: body['apis'],
       openTagList: ['wx-open-subscribe']
-    })
+    }
+    if (body['beta']) {
+      Object.assign(config, { beta: true })
+    }
+    wx.config(config)
     wx.ready(() => {
       console.debug('ready, ok')
     })
