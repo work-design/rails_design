@@ -13,6 +13,8 @@ export default class extends Controller {
           alert('登录态过期')
         }
       })
+    } else {
+      alert('WWOpenData fail')
     }
   }
 
