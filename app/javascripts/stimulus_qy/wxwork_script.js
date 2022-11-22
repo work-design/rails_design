@@ -10,7 +10,6 @@ const wxwork_fetch = function(body = { url: location.href }) {
   }).then(response => {
     return response.json()
   }).then(body => {
-    alert('test config body' + JSON.stringify(body))
     wx.agentConfig({
       corpid: body['corpid'],
       agentid: body['agentid'],
