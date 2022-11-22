@@ -14,6 +14,7 @@ export default class extends Controller {
           alert('登录态过期')
         }
       })
+      alert('connected')
     } else {
       alert('WWOpenData fail')
     }
