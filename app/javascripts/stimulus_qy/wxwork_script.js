@@ -35,6 +35,9 @@ const wxwork_fetch = function(body = { url: location.href }) {
       },
       fail: (res) => {
         alert('wx.agentConfig fail ' + JSON.stringify(res))
+      },
+      complete: (res) => {
+        alert('wx.agentConfig res' + JSON.stringify(res))
       }
     })
     wx.ready(() => {
