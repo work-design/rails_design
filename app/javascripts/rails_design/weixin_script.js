@@ -28,7 +28,11 @@ const weixin_fetch = function(body = { url: location.href }) {
     }
     wx.config(config)
     wx.ready(() => {
-      console.debug('ready, ok')
+      if (body['debug']) {
+        alert('wx.config ready')
+      } else {
+        console.debug('ready, ok')
+      }
     })
     wx.error(res => {
       if (body['debug']) {

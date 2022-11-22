@@ -1,6 +1,5 @@
 const wxwork_script = document.getElementById('wxwork_script')
 const wxwork_fetch = function(body = { url: location.href }) {
-  console.debug('=====', body)
   fetch('/wechat/agent_js', {
     method: 'POST',
     headers: {
@@ -29,7 +28,7 @@ const wxwork_fetch = function(body = { url: location.href }) {
             }
           })
         }
-        if (true) {
+        if (body['debug']) {
           alert('wx.agentConfig success' + JSON.stringify(res))
         }
         WWOpenData.bind(document.querySelector('ww-open-data'))
@@ -39,7 +38,11 @@ const wxwork_fetch = function(body = { url: location.href }) {
       }
     })
     wx.ready(() => {
-      console.debug('ready, ok')
+      if (body['debug']) {
+        alert('wx.agentConfig ok')
+      } else {
+        console.debug('ready, ok')
+      }
     })
     wx.error(res => {
       if (body['debug']) {
