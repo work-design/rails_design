@@ -10,6 +10,7 @@ const wxwork_fetch = function(body = { url: location.href }) {
   }).then(response => {
     return response.json()
   }).then(body => {
+    alert('test config body' + JSON.stringify(body))
     wx.agentConfig({
       corpid: body['corpid'],
       agentid: body['agentid'],
@@ -34,7 +35,7 @@ const wxwork_fetch = function(body = { url: location.href }) {
         WWOpenData.bind(document.querySelector('ww-open-data'))
       },
       fail: (res) => {
-        alert('wx.agentConfig fail' + JSON.stringify(res))
+        alert('wx.agentConfig fail ' + JSON.stringify(res))
       }
     })
     wx.ready(() => {
