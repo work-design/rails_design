@@ -18,26 +18,17 @@ const wxwork_fetch = function(body = { url: location.href }) {
       signature: body['signature'],
       jsApiList: body['apis'],
       success: (res) => {
-        if (WWOpenData.checkSession) {
-          WWOpenData.checkSession({
-            success() {
-              console.debug('有登录态')
-            },
-            fail() {
-              alert('登录态过期')
-            }
-          })
-        }
         if (body['debug']) {
           alert('wx.agentConfig success' + JSON.stringify(res))
         }
-        WWOpenData.bind(document.querySelector('ww-open-data'))
       },
       fail: (res) => {
         alert('wx.agentConfig fail ' + JSON.stringify(res))
       },
       complete: (res) => {
-        alert('wx.agentConfig complete' + JSON.stringify(res))
+        if (body['debug']) {
+          alert('wx.agentConfig complete' + JSON.stringify(res))
+        }
       }
     })
     wx.ready(() => {
