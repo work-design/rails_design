@@ -6,8 +6,9 @@ export default class extends Controller {
     if (WWOpenData.checkSession) {
       WWOpenData.checkSession({
         success() {
-          WWOpenData.bind(this.element)
+          WWOpenData.bindAll(this.element.children)
           console.debug('有登录态')
+          alert('open data success')
         },
         fail() {
           alert('登录态过期')
