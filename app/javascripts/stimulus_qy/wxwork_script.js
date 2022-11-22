@@ -30,12 +30,12 @@ const wxwork_fetch = function(body = { url: location.href }) {
           })
         }
         if (true) {
-          alert('wx.agentConfig success', JSON.stringify(res))
+          alert('wx.agentConfig success' + JSON.stringify(res))
         }
         WWOpenData.bind(document.querySelector('ww-open-data'))
       },
       fail: (res) => {
-        alert('wx.agentConfig fail', JSON.stringify(res))
+        alert('wx.agentConfig fail' + JSON.stringify(res))
       }
     })
     wx.ready(() => {
