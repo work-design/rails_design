@@ -24,7 +24,7 @@ const weixin_fetch = function(body = { url: location.href }) {
       Object.assign(config, { beta: true })
     }
     if (body['debug']) {
-      alert('body is:' + JSON.stringify(body))
+      alert('body is:' + JSON.stringify(config))
     }
     wx.config(config)
     wx.ready(() => {
