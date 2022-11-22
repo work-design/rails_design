@@ -3,7 +3,6 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
 
   connect() {
-    alert('open data' + JSON.stringify(WWOpenData))
     if (typeof(WWOpenData) === 'object' && WWOpenData.checkSession) {
       WWOpenData.checkSession({
         success() {
@@ -17,7 +16,7 @@ export default class extends Controller {
       })
       alert('connected')
     } else {
-      alert('WWOpenData fail')
+      //alert('WWOpenData fail')
       wxwork_fetch()
     }
   }
