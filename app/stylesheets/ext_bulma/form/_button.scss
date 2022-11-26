@@ -29,9 +29,11 @@ form.button_to {
 }
 
 form.button_column {
+  button {
+    width: 100%;
+  }
   button:not(.button, .weui-btn) {
     border: 0;
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
