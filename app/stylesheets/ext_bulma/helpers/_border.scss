@@ -2,6 +2,10 @@
   border: 1px solid darkgrey;
 }
 
+.has-border-primary {
+  border: 1px solid $primary;
+}
+
 .has-border-bottom {
   border-bottom: 1px solid #ececec;
 }

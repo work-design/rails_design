@@ -27,4 +27,11 @@ main.columns.container {
   &.is-fullheight {
     height: 100%;
   }
+
+  .column_box {
+    border: 1px solid $primary;
+    box-shadow: $shadow;
+    border-radius: 6px;
+    height: 100%;
+  }
 }
