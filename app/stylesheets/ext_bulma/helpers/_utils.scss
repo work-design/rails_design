@@ -20,8 +20,18 @@
   align-items: center;
 }
 
+.is-space {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .is-fullwidth {
   width: 100% !important;
+}
+
+.is-fullheight {
+  height: 100%;
 }
 
 .is-safe-bottom {
