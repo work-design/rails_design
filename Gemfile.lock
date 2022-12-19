@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: c7ff18fdfbc4be028290a679698b91e98a7adeb1
+  revision: 7aa498428c7b9bd0303d6af8a8aea6f271a778de
   specs:
     rails_com (1.3.0)
       acme-client
@@ -113,7 +113,7 @@ GEM
     default_where (2.2.0)
       activerecord (>= 4.0.0)
     erubi (1.11.0)
-    faraday (2.7.1)
+    faraday (2.7.2)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
@@ -151,7 +151,7 @@ GEM
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
     minitest (5.16.3)
-    net-http (0.3.0)
+    net-http (0.3.1)
       uri
     net-imap (0.3.1)
       net-protocol
@@ -210,7 +210,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
-    uri (0.11.0)
+    uri (0.12.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)

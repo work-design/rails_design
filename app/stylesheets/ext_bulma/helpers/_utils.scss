@@ -57,3 +57,10 @@
   word-break: break-all;
   overflow: hidden;
 }
+
+.is-text {
+  display: inline-block;
+  text-overflow: ellipsis;
+  word-break: keep-all;
+  overflow: hidden;
+}
