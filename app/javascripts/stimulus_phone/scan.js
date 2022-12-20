@@ -19,7 +19,7 @@ export default class extends Controller {
         needResult: 1,
         success: (res) => {
           body.append('result', res.resultStr)
-          this.request(ele.dataset.reportUrl, 'POST', body)
+          this.post(ele.dataset.reportUrl, body)
         }
       })
     })
