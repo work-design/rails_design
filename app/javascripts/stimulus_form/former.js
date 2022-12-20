@@ -11,6 +11,6 @@ export default class extends Controller {
     const ele = document.getElementById(this.idValue)
     const data = new FormData(ele)
 
-    this.request(this.urlValue, 'POST', data)
+    this.post(this.urlValue, data)
   }
 }
