@@ -6,6 +6,10 @@
       grid-template-columns: repeat(2, 50%);
     }
 
+    &.is-3 {
+      grid-template-columns: repeat(3, 33%);
+    }
+
     &.is-4 {
       grid-template-columns: repeat(4, 25%);
     }
@@ -36,6 +40,17 @@
       p:not(:last-child) {
         margin-bottom: 0.5rem;
       }
+    }
+  }
+
+  &.is-animate-scale {
+    .card {
+      transition: height;
+      transition-duration: 2s;
+      transition-timing-function: ease;
+    }
+    .card:hover {
+      transform: translate3d(0, -2%, 0);
     }
   }
 }
