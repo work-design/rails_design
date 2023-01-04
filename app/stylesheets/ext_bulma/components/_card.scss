@@ -33,8 +33,16 @@
 
       h1, h2, h3 {
         font-weight: bold;
-        font-size: 1.5rem;
         margin-bottom: 0.5rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      h3 {
+        font-size: 1.25rem;
       }
 
       p:not(:last-child) {
