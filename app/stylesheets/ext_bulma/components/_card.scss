@@ -42,8 +42,13 @@
         font-size: 1.25rem;
       }
 
-      p:not(:last-child) {
+      p:not(:last-child), ul:not(:last-child) {
         margin-bottom: 0.5rem;
+      }
+
+      ul {
+        list-style-image: url(check.svg);
+        margin-left: 1rem;
       }
     }
   }
