@@ -27,11 +27,8 @@
 .cards {
   .card {
     .card-content {
-      :not(ul, li) {
-        text-align: center;
-      }
-
       h1, h2, h3 {
+        text-align: center;
         font-weight: bold;
         margin-bottom: 0.5rem;
       }
