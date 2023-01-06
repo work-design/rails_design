@@ -47,17 +47,17 @@
       }
 
       ul {
+        list-style-image: url(check.svg);
         padding-left: 1rem;
-
-        li::marker {
-          font-family: "Font Awesome 6 Free";
-          content: "\f14a";
-          color: darkred;
-        }
 
         li {
           padding-left: 0.5rem;
         }
+      }
+
+      li::marker {
+        color: darkred;
+        font-weight: bold;
       }
     }
   }
