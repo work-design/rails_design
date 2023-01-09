@@ -11,8 +11,8 @@ Controller.prototype.get = function(url) {
   this.request(url, 'GET')
 }
 
-Controller.prototype.post = function(url, body) {
-  this.request(url, 'POST', body, { 'X-CSRF-Token': this.csrfToken() })
+Controller.prototype.post = function(url, body, headers) {
+  this.request(url, 'POST', body, { 'X-CSRF-Token': this.csrfToken(), ...headers })
 }
 
 Controller.prototype.request = function(url, method, body, headers) {

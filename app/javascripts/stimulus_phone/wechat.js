@@ -29,22 +29,10 @@ export default class extends Controller {
             url: this.addressValue  // url must begin with /pages
           })
         } else {
+          alert(this.urlValue)
           wx.openAddress({
-            success(res) {
-              const controller = document.getElementById('wechat_address').controller('wechat')
-              fetch(controller.urlValue, {
-                method: 'POST',
-                headers: {
-                  Accept: 'text/vnd.turbo-stream.html',
-                  'Content-Type': 'application/json',
-                  'X-CSRF-Token': controller.csrfToken()
-                },
-                body: JSON.stringify(res)
-              }).then(response => {
-                return response.text()
-              }).then(body => {
-                Turbo.renderStreamMessage(body)
-              })
+            success: res => {
+              this.post(this.urlValue, JSON.stringify(res), { 'Content-Type': 'application/json' })
             }
           })
         }
