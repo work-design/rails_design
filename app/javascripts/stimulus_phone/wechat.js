@@ -29,7 +29,6 @@ export default class extends Controller {
             url: this.addressValue  // url must begin with /pages
           })
         } else {
-          alert(this.urlValue)
           wx.openAddress({
             success: res => {
               this.post(this.urlValue, JSON.stringify(res), { 'Content-Type': 'application/json' })
@@ -64,7 +63,7 @@ export default class extends Controller {
     wx.ready(() => {
       wx.chooseImage({
         count: 1,
-        success(res) {
+        success: res => {
           let localId = res.localIds[0]
           this.previewTarget.src = localId
           wx.uploadImage({
