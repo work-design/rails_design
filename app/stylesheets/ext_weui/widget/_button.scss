@@ -19,9 +19,13 @@
   background-color: var(--weui-BRAND);
 }
 
-.weui-btn_danger {
+input[type="submit"].weui-btn_primary {
   color: white;
+}
+
+.weui-btn_danger {
   background-color: var(--weui-RED);
+  color: white;
   &:not(.weui-btn_disabled):visited {
     color: white;
   }
