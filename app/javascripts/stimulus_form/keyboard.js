@@ -11,9 +11,17 @@ export default class extends Controller {
     this.input.value = this.input.value.concat(element.innerText)
   }
 
-  backspace(event) {
-    const element = event.currentTarget
+  dot() {
+    if (this.input.value.includes('.')) {
 
+    } else if (this.input.value === '') {
+      this.input.value = '0.'
+    } else {
+      this.input.value = this.input.value.concat('.')
+    }
+  }
+
+  backspace() {
     this.input.value = this.input.value.slice(0, -1)
   }
 
