@@ -29,7 +29,7 @@ export default class extends Controller {
   }
 
   doDivide(value) {
-    if (value != 0) {
+    if (value !== 0) {
       this.quantity.innerText = Math.floor(this.totalValue / value)
     }
   }

@@ -18,6 +18,9 @@ application.register('former', FormerController)
 import InputController from './input'
 application.register('input', InputController)
 
+import KeyboardController from './keyboard'
+application.register('keyboard', KeyboardController)
+
 import ModifyController from './modify'
 application.register('modify', ModifyController)
 
