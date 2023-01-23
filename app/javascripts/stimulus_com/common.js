@@ -17,7 +17,7 @@ export default class extends Controller {
     const ele = event.currentTarget
 
     if (ele.dataset.method) {
-      this.request(ele.href, ele.dataset.method)
+      this.request(ele.href, ele.dataset.method, null, { 'X-CSRF-Token': this.csrfToken() })
     } else {
       this.get(ele.href)
     }
