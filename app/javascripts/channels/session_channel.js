@@ -1,4 +1,5 @@
 import consumer from './cable'
+window.consumer = consumer
 
 consumer.subscriptions.create({channel: 'Com::SessionChannel', room: 'room'}, {
 

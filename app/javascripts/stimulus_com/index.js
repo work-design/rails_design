@@ -3,6 +3,9 @@ import { application } from '../rails_design/stimulus'
 import AlertController from './alert'
 application.register('alert', AlertController)
 
+import CableController from './cable'
+application.register('cable', CableController)
+
 import CommonController from './common'
 application.register('common', CommonController)
 
