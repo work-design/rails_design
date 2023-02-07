@@ -2,19 +2,23 @@
 .money-currency-symbol {
   font-family: monospace;
   font-size: 0.75em;
+  align-self: baseline;
 }
 
 .money-whole {
   font-family: monospace;
   font-size: 1em;
+  align-self: baseline;
 }
 
 .money-decimal-mark {
   text-decoration: none;
   font-size: 1em;
+  align-self: baseline;
 }
 
 .money-decimal {
   font-family: monospace;
   font-size: 0.75em;
+  align-self: baseline;
 }
