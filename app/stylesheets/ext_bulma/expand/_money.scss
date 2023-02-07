@@ -22,3 +22,10 @@
   font-size: 0.75em;
   align-self: baseline;
 }
+
+.has-text-through {
+  display: inline-flex;
+  background: linear-gradient(grey, grey) no-repeat;
+  background-size: 100% 1px;
+  background-position: 0 0.6em;
+}
