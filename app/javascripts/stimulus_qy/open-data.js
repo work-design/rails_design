@@ -26,9 +26,8 @@ export default class extends Controller {
     if (WWOpenData.checkSession) {
       WWOpenData.checkSession({
         success: () => {
-          const x = this.element.querySelector('ww-open-data')
-          WWOpenData.bind(x)
-          alert(`open data success ${x.getAttribute('openid')}`)
+          const x = this.element.querySelectorAll('ww-open-data')
+          WWOpenData.bindAll(x)
         },
         fail: () => {
           alert('登录态过期')
