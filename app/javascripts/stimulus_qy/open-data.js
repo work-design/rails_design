@@ -5,12 +5,13 @@ export default class extends Controller {
   connect() {
     if (typeof(WWOpenData) === 'object' && WWOpenData.checkSession) {
       WWOpenData.checkSession({
-        success() {
-          WWOpenData.bind(this.element.querySelector('ww-open-data'))
+        success: () => {
+          const x = this.element.querySelector('ww-open-data')
+          WWOpenData.bind(x)
           console.debug('有登录态')
-          alert('open data success')
+          alert(`open data success ${x.getAttribute('openid')}`)
         },
-        fail() {
+        fail: () => {
           alert('登录态过期')
         }
       })
