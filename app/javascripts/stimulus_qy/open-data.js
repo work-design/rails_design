@@ -11,7 +11,7 @@ export default class extends Controller {
             type: 1,
             userid: this.openid
           }, (res) => {
-            alert(res)
+            alert(JSON.stringify(res))
           })
         })
       }
