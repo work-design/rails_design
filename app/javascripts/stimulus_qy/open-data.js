@@ -7,6 +7,12 @@ export default class extends Controller {
       if (WWOpenData.on) {
         WWOpenData.on('error', (event) => {
           alert(`error ${JSON.stringify(event)}`)
+          wx.invoke('openUserProfile', {
+            type: 1,
+            userid: this.openid
+          }, (res) => {
+            alert(res)
+          })
         })
       }
       if (WWOpenData.checkSession) {
@@ -25,6 +31,11 @@ export default class extends Controller {
       alert('WWOpenData fail')
       wxwork_fetch()
     }
+  }
+
+  get openid() {
+    const x = this.element.querySelector('ww-open-data')
+    return x.getAttribute('openid')
   }
 
 }
