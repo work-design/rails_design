@@ -4,32 +4,36 @@ export default class extends Controller {
 
   connect() {
     if (typeof(WWOpenData) === 'object') {
-      if (WWOpenData.on) {
-        WWOpenData.on('error', (event) => {
-          alert(`error ${JSON.stringify(event)}`)
-          wx.invoke('openUserProfile', {
-            type: 1,
-            userid: this.openid
-          }, (res) => {
-            alert(JSON.stringify(res))
-          })
-        })
-      }
-      if (WWOpenData.checkSession) {
-        WWOpenData.checkSession({
-          success: () => {
-            const x = this.element.querySelector('ww-open-data')
-            WWOpenData.bind(x)
-            alert(`open data success ${x.getAttribute('openid')}`)
-          },
-          fail: () => {
-            alert('登录态过期')
-          }
-        })
-      }
+      this.xx()
     } else {
       alert('WWOpenData fail')
       wxwork_fetch()
+    }
+  }
+
+  xx() {
+    if (WWOpenData.on) {
+      WWOpenData.on('error', (event) => {
+        alert(`error ${JSON.stringify(event)}`)
+        wx.invoke('openUserProfile', {
+          type: 1,
+          userid: this.openid
+        }, (res) => {
+          alert(`res ${JSON.stringify(res)}`)
+        })
+      })
+    }
+    if (WWOpenData.checkSession) {
+      WWOpenData.checkSession({
+        success: () => {
+          const x = this.element.querySelector('ww-open-data')
+          WWOpenData.bind(x)
+          alert(`open data success ${x.getAttribute('openid')}`)
+        },
+        fail: () => {
+          alert('登录态过期')
+        }
+      })
     }
   }
 
