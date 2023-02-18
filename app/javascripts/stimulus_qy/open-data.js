@@ -6,7 +6,7 @@ export default class extends Controller {
     if (typeof(WWOpenData) === 'object' && WWOpenData.checkSession) {
       WWOpenData.checkSession({
         success() {
-          WWOpenData.bindAll(this.element.children)
+          WWOpenData.bind(this.element.querySelector('ww-open-data'))
           console.debug('有登录态')
           alert('open data success')
         },
@@ -16,7 +16,7 @@ export default class extends Controller {
       })
       alert('connected')
     } else {
-      //alert('WWOpenData fail')
+      alert('WWOpenData fail')
       wxwork_fetch()
     }
   }
