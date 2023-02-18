@@ -5,10 +5,8 @@ export default class extends Controller {
   connect() {
     if (typeof(WWOpenData) === 'object') {
       if (WWOpenData.on) {
-        WWOpenData.on({
-          error: (event) => {
-            alert(`error ${JSON.stringify(event)}`)
-          }
+        WWOpenData.on('error', (event) => {
+          alert(`error ${JSON.stringify(event)}`)
         })
       }
       if (WWOpenData.checkSession) {
