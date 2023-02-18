@@ -22,6 +22,9 @@ export default class extends Controller {
           alert(`res ${JSON.stringify(res)}`)
         })
       })
+      WWOpenData.on('update', (event) => {
+        alert(`update ${JSON.stringify(event)}`)
+      })
     }
     if (WWOpenData.checkSession) {
       WWOpenData.checkSession({
