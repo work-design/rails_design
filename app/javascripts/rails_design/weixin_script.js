@@ -52,12 +52,10 @@ const wxwork_script = document.getElementById('wxwork_script')
 
 if (weixin_script && wxwork_script) {
   weixin_script.addEventListener('load', (event) => {
-    alert('wxwork script load trigger', event)
     weixin_fetch({ success: wxwork_fetch })
   })
 } else if (wxwork_script) {
   wxwork_script.addEventListener('load', event => {
-    console.debug('weixin script load trigger', event)
     weixin_fetch()
   })
 }
