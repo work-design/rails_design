@@ -5,8 +5,8 @@ export default class extends Controller {
 
   connect() {
     const vConsole = new VConsole();
+    wxwork_fetch({ success: this.xx })
     if (typeof(WWOpenData) === 'object') {
-      this.xx()
     } else {
       alert('WWOpenData fail')
     }
@@ -21,7 +21,6 @@ export default class extends Controller {
     if (WWOpenData.on) {
       WWOpenData.on('error', (event) => {
         alert(`error ${JSON.stringify(event)}`)
-        wxwork_fetch({ success: this.xxx })
       })
       WWOpenData.on('update', (event) => {
         alert(`update ${JSON.stringify(event)}`)
