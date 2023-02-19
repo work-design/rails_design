@@ -1,5 +1,5 @@
 const weixin_script = document.getElementById('weixin_script')
-const weixin_fetch = function({ url = location.href }) {
+const weixin_fetch = function({ url = location.href, success }) {
   fetch('/wechat/js', {
     method: 'POST',
     headers: {
@@ -31,6 +31,9 @@ const weixin_fetch = function({ url = location.href }) {
         alert('wx.config ready')
       } else {
         console.debug('ready, ok')
+      }
+      if (success) {
+        success()
       }
     })
     wx.error(res => {
