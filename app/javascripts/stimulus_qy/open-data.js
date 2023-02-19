@@ -21,12 +21,16 @@ export default class extends Controller {
     if (WWOpenData.on) {
       WWOpenData.on('error', (event) => {
         alert(`error ${JSON.stringify(event)}`)
-        wxwork_fetch()
+        wxwork_fetch({ success: this.xxx })
       })
       WWOpenData.on('update', (event) => {
         alert(`update ${JSON.stringify(event)}`)
       })
     }
+    this.xxx()
+  }
+
+  xxx() {
     if (WWOpenData.checkSession) {
       WWOpenData.checkSession({
         success: () => {
