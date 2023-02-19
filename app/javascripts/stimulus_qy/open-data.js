@@ -1,13 +1,19 @@
 import { Controller } from '@hotwired/stimulus'
+import VConsole from 'vconsole'
 
 export default class extends Controller {
 
   connect() {
+    const vConsole = new VConsole();
     if (typeof(WWOpenData) === 'object') {
       this.xx()
     } else {
       alert('WWOpenData fail')
     }
+  }
+
+  disconnect() {
+
   }
 
   xx() {
@@ -36,6 +42,8 @@ export default class extends Controller {
           alert('登录态过期')
         }
       })
+    } else {
+      alert(`check session: ${WWOpenData.checkSession}`)
     }
   }
 

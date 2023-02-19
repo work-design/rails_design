@@ -30,7 +30,7 @@
     "highlight.js": "^11.5.1",
     "luxon": "^3.0.3",
     "sortablejs": "^1.15.0",
-    "vconsole": "^3.11.2",
+    "vconsole": "^3.15.0",
     "weui": "^2.5.14"
   },
   "devDependencies": {
