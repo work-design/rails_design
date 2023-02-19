@@ -1,4 +1,4 @@
-const wxwork_fetch = function({ url = location.href, success }) {
+const wxwork_fetch = function({ url = location.href, success } = {}) {
   fetch('/wechat/agent_js', {
     method: 'POST',
     headers: {

@@ -1,5 +1,5 @@
 const weixin_script = document.getElementById('weixin_script')
-const weixin_fetch = function({ url = location.href, success }) {
+const weixin_fetch = function({ url = location.href, success } = {}) {
   fetch('/wechat/js', {
     method: 'POST',
     headers: {
