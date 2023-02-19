@@ -1,4 +1,3 @@
-const wxwork_script = document.getElementById('wxwork_script')
 const wxwork_fetch = function({ url = location.href, success }) {
   fetch('/wechat/agent_js', {
     method: 'POST',
@@ -44,7 +43,9 @@ const wxwork_fetch = function({ url = location.href, success }) {
   })
 }
 window.wxwork_fetch = wxwork_fetch
+const wxwork_script = document.getElementById('wxwork_script')
 if (wxwork_script) {
+  alert('wxwork script loaded')
   wxwork_script.addEventListener('load', (event) => {
     console.debug('wxwork script load trigger', event)
     wxwork_fetch()
