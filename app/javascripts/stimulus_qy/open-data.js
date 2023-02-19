@@ -7,11 +7,11 @@ export default class extends Controller {
       this.xx()
     } else {
       alert('WWOpenData fail')
-      wxwork_fetch({ success: this.xx })
     }
   }
 
   xx() {
+    alert(`wwopen ${JSON.stringify(WWOpenData)}`)
     if (WWOpenData.on) {
       WWOpenData.on('error', (event) => {
         alert(`error ${JSON.stringify(event)}`)
