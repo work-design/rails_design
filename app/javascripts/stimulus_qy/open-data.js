@@ -17,13 +17,12 @@ export default class extends Controller {
   }
 
   xx() {
-    alert(`wwopen ${JSON.stringify(WWOpenData)}`)
     if (WWOpenData.on) {
       WWOpenData.on('error', (event) => {
         alert(`error ${JSON.stringify(event)}`)
       })
       WWOpenData.on('update', (event) => {
-        alert(`update ${JSON.stringify(event)}`)
+        console.debug(`update ${JSON.stringify(event)}`)
       })
     }
     this.xxx()
@@ -41,11 +40,6 @@ export default class extends Controller {
         }
       })
     }
-  }
-
-  get openid() {
-    const x = this.element.querySelector('ww-open-data')
-    return x.getAttribute('openid')
   }
 
 }
