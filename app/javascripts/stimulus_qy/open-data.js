@@ -21,12 +21,7 @@ export default class extends Controller {
     if (WWOpenData.on) {
       WWOpenData.on('error', (event) => {
         alert(`error ${JSON.stringify(event)}`)
-        wx.invoke('openUserProfile', {
-          type: 1,
-          userid: this.openid
-        }, (res) => {
-          alert(`res ${JSON.stringify(res)}`)
-        })
+        wxwork_fetch()
       })
       WWOpenData.on('update', (event) => {
         alert(`update ${JSON.stringify(event)}`)
@@ -42,8 +37,6 @@ export default class extends Controller {
           alert('登录态过期')
         }
       })
-    } else {
-      alert(`check session: ${WWOpenData.checkSession}`)
     }
   }
 
