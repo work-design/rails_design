@@ -1,13 +1,12 @@
 const weixin_script = document.getElementById('weixin_script')
-const weixin_fetch = function(body = { url: location.href }) {
-  console.debug('=====', body)
+const weixin_fetch = function({ url = location.href }) {
   fetch('/wechat/js', {
     method: 'POST',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(body)
+    body: JSON.stringify({ url: url })
   }).then(response => {
     return response.json()
   }).then(body => {
