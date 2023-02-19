@@ -45,10 +45,4 @@ const wxwork_fetch = function({ url = location.href, success } = {}) {
   })
 }
 window.wxwork_fetch = wxwork_fetch
-const wxwork_script = document.getElementById('wxwork_script')
-if (wxwork_script) {
-  wxwork_script.addEventListener('load', (event) => {
-    alert('wxwork script load trigger', event)
-    wxwork_fetch()
-  })
-}
+

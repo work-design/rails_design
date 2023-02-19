@@ -1,4 +1,4 @@
-const weixin_script = document.getElementById('weixin_script')
+import './wxwork_script'
 const weixin_fetch = function({ url = location.href, success } = {}) {
   fetch('/wechat/js', {
     method: 'POST',
@@ -46,8 +46,17 @@ const weixin_fetch = function({ url = location.href, success } = {}) {
   })
 }
 window.weixin_fetch = weixin_fetch
-if (weixin_script) {
+
+const weixin_script = document.getElementById('weixin_script')
+const wxwork_script = document.getElementById('wxwork_script')
+
+if (weixin_script && wxwork_script) {
   weixin_script.addEventListener('load', (event) => {
+    alert('wxwork script load trigger', event)
+    weixin_fetch({ success: wxwork_fetch })
+  })
+} else if (wxwork_script) {
+  wxwork_script.addEventListener('load', event => {
     console.debug('weixin script load trigger', event)
     weixin_fetch()
   })
