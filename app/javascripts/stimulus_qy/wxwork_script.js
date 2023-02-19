@@ -20,7 +20,9 @@ const wxwork_fetch = function({ url = location.href, success }) {
         if (body['debug']) {
           alert('wx.agentConfig success' + JSON.stringify(res))
         }
-        success(res)
+        if (success) {
+          success(res)
+        }
       },
       fail: res => {
         alert('wx.agentConfig fail ' + JSON.stringify(res))
@@ -45,9 +47,8 @@ const wxwork_fetch = function({ url = location.href, success }) {
 window.wxwork_fetch = wxwork_fetch
 const wxwork_script = document.getElementById('wxwork_script')
 if (wxwork_script) {
-  alert('wxwork script loaded')
   wxwork_script.addEventListener('load', (event) => {
-    console.debug('wxwork script load trigger', event)
+    alert('wxwork script load trigger', event)
     wxwork_fetch()
   })
 }
