@@ -1,12 +1,12 @@
 const wxwork_script = document.getElementById('wxwork_script')
-const wxwork_fetch = function(body = { url: location.href }) {
+const wxwork_fetch = function({ url = location.href, success }) {
   fetch('/wechat/agent_js', {
     method: 'POST',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(body)
+    body: JSON.stringify({ url: url })
   }).then(response => {
     return response.json()
   }).then(body => {
@@ -21,14 +21,10 @@ const wxwork_fetch = function(body = { url: location.href }) {
         if (body['debug']) {
           alert('wx.agentConfig success' + JSON.stringify(res))
         }
+        success(res)
       },
       fail: res => {
         alert('wx.agentConfig fail ' + JSON.stringify(res))
-      },
-      complete: res => {
-        if (body['debug']) {
-          alert('wx.agentConfig complete' + JSON.stringify(res))
-        }
       }
     })
     wx.ready(() => {
