@@ -17,15 +17,15 @@ const wxwork_fetch = function(body = { url: location.href }) {
       nonceStr: body['noncestr'],
       signature: body['signature'],
       jsApiList: body['apis'],
-      success: (res) => {
+      success: res => {
         if (body['debug']) {
           alert('wx.agentConfig success' + JSON.stringify(res))
         }
       },
-      fail: (res) => {
+      fail: res => {
         alert('wx.agentConfig fail ' + JSON.stringify(res))
       },
-      complete: (res) => {
+      complete: res => {
         if (body['debug']) {
           alert('wx.agentConfig complete' + JSON.stringify(res))
         }

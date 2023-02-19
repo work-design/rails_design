@@ -7,7 +7,7 @@ export default class extends Controller {
       this.xx()
     } else {
       alert('WWOpenData fail')
-      wxwork_fetch()
+      const promise = wxwork_fetch()
     }
   }
 
