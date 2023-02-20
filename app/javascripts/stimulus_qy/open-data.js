@@ -5,10 +5,10 @@ export default class extends Controller {
 
   connect() {
     const vConsole = new VConsole();
-    // wxwork_fetch({ success: this.xx })
+    wxwork_fetch({ success: this.xx })
     wx.ready(() => {
       if (typeof(WWOpenData) === 'object') {
-        this.xx()
+        //this.xx()
       } else {
         alert('WWOpenData fail')
       }
@@ -22,7 +22,7 @@ export default class extends Controller {
   xx() {
     if (WWOpenData.on) {
       WWOpenData.on('error', (event) => {
-        alert(`error ${JSON.stringify(event)}`)
+        console.debug(`error ${JSON.stringify(event)}`)
       })
       WWOpenData.on('update', (event) => {
         console.debug(`update ${JSON.stringify(event)}`)
@@ -36,6 +36,7 @@ export default class extends Controller {
       WWOpenData.checkSession({
         success: () => {
           const x = this.element.querySelectorAll('ww-open-data')
+          console.debug('ww-open-data count', x.length)
           WWOpenData.bindAll(x)
         },
         fail: () => {
