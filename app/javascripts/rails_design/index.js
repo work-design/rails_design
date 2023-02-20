@@ -1,4 +1,6 @@
 import './dataset'
+
+import './wxwork_script'
 import './weixin_script'
 
 import '../stimulus_com'

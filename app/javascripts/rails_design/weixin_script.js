@@ -50,11 +50,11 @@ const weixin_script = document.getElementById('weixin_script')
 const wxwork_script = document.getElementById('wxwork_script')
 
 if (weixin_script && wxwork_script) {
-  weixin_script.addEventListener('load', event => {
+  wxwork_script.addEventListener('load', event => {
     wxwork_fetch()
   })
 } else if (wxwork_script) {
-  wxwork_script.addEventListener('load', event => {
+  weixin_script.addEventListener('load', event => {
     weixin_fetch()
   })
 }

@@ -51,4 +51,3 @@ const wxwork_fetch = function({ url = location.href, success } = {}) {
   })
 }
 window.wxwork_fetch = wxwork_fetch
-

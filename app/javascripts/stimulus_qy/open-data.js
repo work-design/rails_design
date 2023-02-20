@@ -5,11 +5,14 @@ export default class extends Controller {
 
   connect() {
     const vConsole = new VConsole();
-    wxwork_fetch({ success: this.xx })
-    if (typeof(WWOpenData) === 'object') {
-    } else {
-      alert('WWOpenData fail')
-    }
+    // wxwork_fetch({ success: this.xx })
+    wx.ready(() => {
+      if (typeof(WWOpenData) === 'object') {
+        this.xx()
+      } else {
+        alert('WWOpenData fail')
+      }
+    })
   }
 
   disconnect() {
