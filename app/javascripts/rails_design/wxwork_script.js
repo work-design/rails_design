@@ -32,20 +32,6 @@ const wxwork_fetch = function({ url = location.href, success } = {}) {
             alert('wx.agentConfig fail ' + JSON.stringify(res))
           }
         })
-        wx.ready(() => {
-          if (body['debug']) {
-            alert('wx.agentConfig ok' + JSON.stringify(WWOpenData))
-          } else {
-            console.debug('agent ready, ok')
-          }
-        })
-        wx.error(res => {
-          if (body['debug']) {
-            alert('wx.agentConfig error' + JSON.stringify(res) + '\n' + `location: ${location.href}`)
-          } else {
-            console.debug('wx.agentConfig:', res)
-          }
-        })
       })
     }
   })

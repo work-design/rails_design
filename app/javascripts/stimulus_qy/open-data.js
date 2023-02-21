@@ -6,24 +6,35 @@ export default class extends Controller {
   connect() {
     this.vConsole = new VConsole()
 
-    wxwork_fetch({ success: this.xx })
+    (async () => {
+      await config()
+      this.xx()
+    })()
   }
 
   disconnect() {
     this.vConsole.destroy()
+    if (WWOpenData.off) {
+      WWOpenData.off('update', this.getUpdate)
+      WWOpenData.off('error', this.getError)
+    }
+  }
+
+  config() {
+    return new Promise((resolve, reject) => {
+      wxwork_fetch()
+      wx.ready(resolve)
+      wx.error(reject)
+    })
   }
 
   xx(res) {
     console.debug('xx res:', JSON.stringify(res))
     if (WWOpenData.on) {
-      WWOpenData.on('error', (event) => {
-        console.debug(`error ${JSON.stringify(event)}`)
-      })
-      WWOpenData.on('update', (event) => {
-        console.debug(`update ${JSON.stringify(event)}`)
-      })
+      WWOpenData.on('error', this.getError)
+      WWOpenData.on('update', this.getUpdate)
     }
-    if (WWOpenData.checkSession) {
+    if (WWOpenData.checkSession && false) {
       WWOpenData.checkSession({
         success: () => {
           const x = document.querySelectorAll('ww-open-data')
@@ -35,6 +46,14 @@ export default class extends Controller {
         }
       })
     }
+  }
+
+  getUpdate(event) {
+    console.debug(`update ${JSON.stringify(event)}`)
+  }
+
+  getError(event) {
+    console.debug(`error ${JSON.stringify(event)}`)
   }
 
 }
