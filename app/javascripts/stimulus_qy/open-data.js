@@ -2,6 +2,7 @@ import { Controller } from '@hotwired/stimulus'
 import VConsole from 'vconsole'
 
 export default class extends Controller {
+  static targets = ['tag']
   static values = {
     url: String
   }
@@ -14,17 +15,19 @@ export default class extends Controller {
     }
 
     if (location.href === this.urlValue) {
-      this.xx({ element: this.element })
+      this.xx({ controller: this })
     } else {
-      wxwork_fetch({ success: this.xx, element: this.element })
+      wxwork_fetch({ success: this.xx, controller: this })
     }
   }
 
   xx(args) {
-    args.element.insertAdjacentHTML(
-      'beforeend',
-      `<ww-open-data type="${args.element.getAttribute('type')}" openid="${args.element.getAttribute('openid')}"></ww-open-data>`
-    )
+    args.controller.tagTargets.forEach((tag) => {
+      tag.insertAdjacentHTML(
+        'beforeend',
+        `<ww-open-data type="${tag.getAttribute('type')}" openid="${tag.getAttribute('openid')}"></ww-open-data>`
+      )
+    })
   }
 
   disconnect() {
