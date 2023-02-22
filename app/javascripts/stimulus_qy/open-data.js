@@ -17,11 +17,10 @@ export default class extends Controller {
   xx(res, args) {
     console.debug('res:', res)
     console.debug('res:', args)
-
-    const openTag = document.createElement('ww-open-data')
-    openTag.setAttribute('type', args.element.getAttribute('type'))
-    openTag.setAttribute('openid', args.element.getAttribute('openid'))
-    args.element.appendChild(openTag)
+    args.element.insertAdjacentHTML(
+      'beforeend',
+      `<ww-open-data type="${args.element.getAttribute('type')}" openid="${args.element.getAttribute('openid')}"></ww-open-data>`
+    )
 
     if (WWOpenData.checkSession && false) {
       WWOpenData.checkSession({
