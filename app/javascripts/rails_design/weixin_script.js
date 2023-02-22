@@ -53,7 +53,7 @@ if (weixin_script && wxwork_script) {
   wxwork_script.addEventListener('load', event => {
     wxwork_fetch()
   })
-} else if (wxwork_script) {
+} else if (weixin_script) {
   weixin_script.addEventListener('load', event => {
     weixin_fetch()
   })
