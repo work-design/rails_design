@@ -1,5 +1,4 @@
 import { Controller } from '@hotwired/stimulus'
-import VConsole from 'vconsole'
 
 export default class extends Controller {
   static targets = ['tag']
@@ -8,7 +7,6 @@ export default class extends Controller {
   }
 
   connect() {
-    this.vConsole = new VConsole()
     if (WWOpenData.on) {
       WWOpenData.on('error', this.getError)
       WWOpenData.on('update', this.getUpdate)
@@ -31,7 +29,6 @@ export default class extends Controller {
   }
 
   disconnect() {
-    this.vConsole.destroy()
     if (WWOpenData.off) {
       WWOpenData.off('update', this.getUpdate)
       WWOpenData.off('error', this.getError)
