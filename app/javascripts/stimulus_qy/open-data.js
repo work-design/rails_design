@@ -5,16 +5,22 @@ export default class extends Controller {
 
   connect() {
     this.vConsole = new VConsole()
-    this.xx()
-  }
-
-  async xx() {
-    await wxwork_fetch()
-    //console.debug('this:', JSON.stringify(this))
     if (WWOpenData.on) {
       WWOpenData.on('error', this.getError)
       WWOpenData.on('update', this.getUpdate)
     }
+
+    wxwork_fetch({ success: this.xx, element: this.element })
+  }
+
+  xx(res, ...args) {
+    console.debug('res:', JSON.stringify(res))
+
+    const openTag = document.createElement('ww-open-data')
+    openTag.setAttribute('type', args.element.getAttribute('type'))
+    openTag.setAttribute('openid', args.element.getAttribute('openid'))
+    args.element.appendChild(openTag)
+
     if (WWOpenData.checkSession && false) {
       WWOpenData.checkSession({
         success: () => {
@@ -35,14 +41,6 @@ export default class extends Controller {
       WWOpenData.off('update', this.getUpdate)
       WWOpenData.off('error', this.getError)
     }
-  }
-
-  config() {
-    return new Promise((resolve, reject) => {
-      wxwork_fetch()
-      //wx.ready(resolve)
-      //wx.error(reject)
-    })
   }
 
   getUpdate(event) {
