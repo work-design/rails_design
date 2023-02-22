@@ -14,8 +14,6 @@ export default class extends Controller {
   }
 
   xx(res, args) {
-    console.debug('res:', res)
-    console.debug('res:', args)
     args.element.insertAdjacentHTML(
       'beforeend',
       `<ww-open-data type="${args.element.getAttribute('type')}" openid="${args.element.getAttribute('openid')}"></ww-open-data>`
