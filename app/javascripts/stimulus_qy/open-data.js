@@ -2,6 +2,9 @@ import { Controller } from '@hotwired/stimulus'
 import VConsole from 'vconsole'
 
 export default class extends Controller {
+  static values = {
+    url: String
+  }
 
   connect() {
     this.vConsole = new VConsole()
@@ -10,10 +13,14 @@ export default class extends Controller {
       WWOpenData.on('update', this.getUpdate)
     }
 
-    wxwork_fetch({ success: this.xx, element: this.element })
+    if (location.href === this.urlValue) {
+      this.xx({ element: this.element })
+    } else {
+      wxwork_fetch({ success: this.xx, element: this.element })
+    }
   }
 
-  xx(res, args) {
+  xx(args) {
     args.element.insertAdjacentHTML(
       'beforeend',
       `<ww-open-data type="${args.element.getAttribute('type')}" openid="${args.element.getAttribute('openid')}"></ww-open-data>`

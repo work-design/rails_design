@@ -9,7 +9,7 @@ const wxwork_fetch = function({ url = location.href, success, ...args } = {}) {
           Accept: 'application/json',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({url: url})
+        body: JSON.stringify({ url: url })
       }).then(response => {
         return response.json()
       }).then(body => {
@@ -27,7 +27,7 @@ const wxwork_fetch = function({ url = location.href, success, ...args } = {}) {
               console.debug('wx.agentConfig success', JSON.stringify(res))
             }
             if (success) {
-              success(res, args)
+              success(args)
             }
           },
           fail: res => {
