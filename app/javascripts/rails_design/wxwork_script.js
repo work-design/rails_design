@@ -23,9 +23,11 @@ const wxwork_fetch = function({ url = location.href, success, ...args } = {}) {
           success: res => {
             if (body['debug']) {
               alert('wx.agentConfig success' + JSON.stringify(res))
+            } else {
+              console.debug('wx.agentConfig success', JSON.stringify(res))
             }
             if (success) {
-              success(res, ...args)
+              success(res, args)
             }
           },
           fail: res => {

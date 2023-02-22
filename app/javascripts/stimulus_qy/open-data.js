@@ -10,11 +10,13 @@ export default class extends Controller {
       WWOpenData.on('update', this.getUpdate)
     }
 
+    console.debug('element', this.element)
     wxwork_fetch({ success: this.xx, element: this.element })
   }
 
-  xx(res, ...args) {
-    console.debug('res:', JSON.stringify(res))
+  xx(res, args) {
+    console.debug('res:', res)
+    console.debug('res:', args)
 
     const openTag = document.createElement('ww-open-data')
     openTag.setAttribute('type', args.element.getAttribute('type'))
