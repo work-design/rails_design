@@ -10,7 +10,6 @@ export default class extends Controller {
       WWOpenData.on('update', this.getUpdate)
     }
 
-    console.debug('element', this.element)
     wxwork_fetch({ success: this.xx, element: this.element })
   }
 
@@ -21,19 +20,6 @@ export default class extends Controller {
       'beforeend',
       `<ww-open-data type="${args.element.getAttribute('type')}" openid="${args.element.getAttribute('openid')}"></ww-open-data>`
     )
-
-    if (WWOpenData.checkSession && false) {
-      WWOpenData.checkSession({
-        success: () => {
-          const x = document.querySelectorAll('ww-open-data')
-          console.debug('ww-open-data count', x.length)
-          WWOpenData.bindAll(x)
-        },
-        fail: () => {
-          alert('登录态过期')
-        }
-      })
-    }
   }
 
   disconnect() {
