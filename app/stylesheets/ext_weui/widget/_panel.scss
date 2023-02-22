@@ -1,3 +1,26 @@
+.weui-panel {
+  &.is-borderless-top {
+    &::before {
+      border-top: none;
+    }
+  }
+
+  &.is-borderless {
+    &::before {
+      border-top: none;
+    }
+    .weui-panel__hd::after {
+      border-bottom: none;
+    }
+  }
+
+  &.is-box {
+    border-radius: 6px;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+  }
+}
+
 .weui-panel__extra {
   color: grey;
   font-weight: lighter;
@@ -26,19 +49,4 @@
 
 a.weui-panel__hd:active {
   background-color: hsl(0, 0%, 98%);
-}
-
-.weui-panel.is-borderless-top {
-  &::before {
-    border-top: none;
-  }
-}
-
-.weui-panel.is-borderless {
-  &::before {
-    border-top: none;
-  }
-  .weui-panel__hd::after {
-    border-bottom: none;
-  }
 }
