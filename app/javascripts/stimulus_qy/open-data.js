@@ -5,31 +5,12 @@ export default class extends Controller {
 
   connect() {
     this.vConsole = new VConsole()
-
-    (async () => {
-      await config()
-      this.xx()
-    })()
+    this.xx()
   }
 
-  disconnect() {
-    this.vConsole.destroy()
-    if (WWOpenData.off) {
-      WWOpenData.off('update', this.getUpdate)
-      WWOpenData.off('error', this.getError)
-    }
-  }
-
-  config() {
-    return new Promise((resolve, reject) => {
-      wxwork_fetch()
-      wx.ready(resolve)
-      wx.error(reject)
-    })
-  }
-
-  xx(res) {
-    console.debug('xx res:', JSON.stringify(res))
+  async xx() {
+    await wxwork_fetch()
+    //console.debug('this:', JSON.stringify(this))
     if (WWOpenData.on) {
       WWOpenData.on('error', this.getError)
       WWOpenData.on('update', this.getUpdate)
@@ -46,6 +27,22 @@ export default class extends Controller {
         }
       })
     }
+  }
+
+  disconnect() {
+    this.vConsole.destroy()
+    if (WWOpenData.off) {
+      WWOpenData.off('update', this.getUpdate)
+      WWOpenData.off('error', this.getError)
+    }
+  }
+
+  config() {
+    return new Promise((resolve, reject) => {
+      wxwork_fetch()
+      //wx.ready(resolve)
+      //wx.error(reject)
+    })
   }
 
   getUpdate(event) {

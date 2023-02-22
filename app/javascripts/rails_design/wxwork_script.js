@@ -29,7 +29,7 @@ const wxwork_fetch = function({ url = location.href, success } = {}) {
             }
           },
           fail: res => {
-            alert('wx.agentConfig fail ' + JSON.stringify(res))
+            new Error('wx.agentConfig fail ' + JSON.stringify(res))
           }
         })
       })
