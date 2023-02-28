@@ -4,7 +4,7 @@ export default class extends Controller {
   static values = {
     options: Object,
     params: Object,
-    debug: { type: Boolean, default: false }
+    debug: { type: Boolean, default: false },
     auto: { type: Boolean, default: false }
   }
   static targets = ['load']
