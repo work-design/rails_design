@@ -19,7 +19,6 @@ export default class extends Controller {
       jsApiList: ['chooseWXPay'],
       openTagList: ['wx-open-subscribe']
     })
-    this.chooseWXPay()
   }
 
   chooseWXPay() {
@@ -27,8 +26,10 @@ export default class extends Controller {
       wx.chooseWXPay({
         ...this.paramsValue,
         success: res => {
-          console.log(res)
-          this.loadTarget.style.removeProperty('display')
+          console.debug('chooseWXPay success', res)
+          if (this.hasLoadTarget) {
+            this.loadTarget.style.removeProperty('display')
+          }
         },
         error: e => {
           alert(JSON.stringify(e))
