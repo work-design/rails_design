@@ -5,6 +5,7 @@ export default class extends Controller {
     options: Object,
     params: Object,
     debug: { type: Boolean, default: false }
+    auto: { type: Boolean, default: false }
   }
   static targets = ['load']
 
@@ -19,6 +20,10 @@ export default class extends Controller {
       jsApiList: ['chooseWXPay'],
       openTagList: ['wx-open-subscribe']
     })
+
+    if (this.autoValue) {
+      this.chooseWXPay()
+    }
   }
 
   chooseWXPay() {
