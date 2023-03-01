@@ -24,6 +24,10 @@
       text-align: center;
     }
 
+    & > .keyboard-button {
+      padding: 0;
+    }
+
     &.width-1x {
       width: calc(100% / 3);
     }
@@ -43,6 +47,5 @@
 
   .keyboard-button > input {
     height: 100%;
-    width: 100%;
   }
 }
