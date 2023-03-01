@@ -2,13 +2,28 @@ import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
   static values = {
-    id: String
+    id: String,
+    digit: Number
   }
 
   enter(event) {
     const element = event.currentTarget
+    const value = this.input.value.concat(element.innerText)
 
-    this.input.value = this.input.value.concat(element.innerText)
+    if (this.hasDigitValue) {
+      if (value.includes('.')) {
+        let [left, right] = value.split('.')
+        if (right.length > this.digitValue) {
+          this.input.value = [left, right.slice(0, this.digitValue)].join('.')
+        } else {
+          this.input.value = value
+        }
+      } else {
+        this.input.value = value
+      }
+    } else {
+      this.input.value = value
+    }
   }
 
   dot() {
