@@ -1,7 +1,5 @@
 import { Controller } from '@hotwired/stimulus'
-
 export default class extends Controller {
-
   defaultValid(input) {
     const locale = document.querySelector('html').lang
     let label, word
