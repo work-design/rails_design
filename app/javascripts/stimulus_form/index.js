@@ -42,8 +42,8 @@ application.register('field', FieldController)
 import DatetimeController from './datetime'
 application.register('datetime', DatetimeController)
 
-import DefaultValidController from './default_valid'
-application.register('default_valid', DefaultValidController)
+import DefaultValidController from './default-valid'
+application.register('default-valid', DefaultValidController)
 
 import WeuiFormController from './valid_weui'
 application.register('weui_form', WeuiFormController)

@@ -1,5 +1,9 @@
 import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
+  static values = {
+    css: { type: String, default: 'is-danger' }
+  }
+
   defaultValid(input) {
     const locale = document.querySelector('html').lang
     let label, word
@@ -45,10 +49,10 @@ export default class extends Controller {
     }
     let text = word.replace('{label}', label)
 
-    input.classList.add('is-danger')
+    input.classList.add(this.cssValue)
     if (!input.parentNode.nextElementSibling) {
       let help = document.createElement('p')
-      help.classList.add('help', 'is-danger')
+      help.classList.add('help', this.cssValue)
       help.innerText = text
       input.parentNode.after(help)
     }
@@ -56,9 +60,9 @@ export default class extends Controller {
 
   defaultClear(input) {
     if (input.validity.valid) {
-      input.classList.remove('is-danger')
+      input.classList.remove(this.cssValue)
       let help = input.parentNode.nextElementSibling
-      if (help && help.classList.contains('help') && help.classList.contains('is-danger')) {
+      if (help && help.classList.contains('help') && help.classList.contains(this.cssValue)) {
         help.remove()
       }
     }
