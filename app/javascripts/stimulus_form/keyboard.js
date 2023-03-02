@@ -3,12 +3,20 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
   static values = {
     id: String,
+    dot: String,
     digit: Number
   }
 
   enter(event) {
     const element = event.currentTarget
-    const value = this.input.value.concat(element.innerText)
+    let value
+
+    if (this.dotElement.hidden) {
+      value = this.input.value.concat(element.innerText)
+    } else {
+      value = this.input.value.concat('.', element.innerText)
+      this.dotElement.hidden = true
+    }
 
     if (this.hasDigitValue) {
       if (value.includes('.')) {
@@ -30,9 +38,10 @@ export default class extends Controller {
     if (this.input.value.includes('.')) {
 
     } else if (this.input.value === '') {
-      this.input.value = '0.'
+      this.input.value = '0'
+      this.dotElement.hidden = false
     } else {
-      this.input.value = this.input.value.concat('.')
+      this.dotElement.hidden = false
     }
   }
 
@@ -42,5 +51,9 @@ export default class extends Controller {
 
   get input() {
     return document.getElementById(this.idValue)
+  }
+
+  get dotElement() {
+    return document.getElementById(this.dotValue)
   }
 }
