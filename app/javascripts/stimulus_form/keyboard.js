@@ -32,6 +32,7 @@ export default class extends Controller {
     } else {
       this.input.value = value
     }
+    this.input.dispatchEvent(new Event('input'))
   }
 
   dot() {
