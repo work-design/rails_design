@@ -3,12 +3,18 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
   static values = {
     debug: Boolean,
-    params: Object
+    params: Object,
+    form: String
   }
 
   report(event) {
     const ele = event.currentTarget
-    const body = new FormData()
+    let body
+    if (this.hasFormValue) {
+      body = new FormData(document.getElementById(this.formValue))
+    } else {
+      body = new FormData()
+    }
     if (this.hasParamsValue) {
       Object.keys(this.paramsValue).forEach(k => {
         body.append(k, this.paramsValue[k])
