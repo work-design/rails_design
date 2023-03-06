@@ -7,7 +7,7 @@ export default class extends Controller {
     direct: Boolean,
     debug: Boolean
   }
-  static classes = [ 'pt' ]
+  static classes = ['pt']
 
   connect() {
     const weixin_script = document.getElementById('weixin_script')
