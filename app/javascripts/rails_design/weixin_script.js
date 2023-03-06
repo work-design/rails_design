@@ -1,4 +1,4 @@
-const weixin_fetch = function({ url = location.href, success } = {}) {
+const weixin_fetch = function({ url = location.href, success, ...args } = {}) {
   fetch('/wechat/js', {
     method: 'POST',
     headers: {
@@ -32,7 +32,7 @@ const weixin_fetch = function({ url = location.href, success } = {}) {
         console.debug('ready, ok')
       }
       if (success) {
-        success()
+        success(args)
       }
     })
     wx.error(res => {
