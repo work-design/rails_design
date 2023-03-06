@@ -10,28 +10,21 @@ export default class extends Controller {
   static classes = ['pt']
 
   connect() {
-    const weixin_script = document.getElementById('weixin_script')
-    if (typeof(wx) === 'undefined' && weixin_script) {
-      weixin_script.addEventListener('load', (event) => {
-        console.debug('weixin script load mini program', event)
-        console.debug('miniprogram: ', window.__wxjs_environment)
-        if (window.__wxjs_environment === 'miniprogram') {
-          if (this.hasPtClass) {
-            this.element.classList.add(this.ptClass)
-          }
-          if (this.directValue) {
-            this.navTo()
-          }
-        }
-      })
+    if (typeof(wx) === 'undefined') {
+      weixin_fetch({ success: this.xx, controller: this })
     } else {
-      if (window.__wxjs_environment === 'miniprogram') {
-        if (this.hasPtClass) {
-          this.element.classList.add(this.ptClass)
-        }
-        if (this.directValue) {
-          this.navTo()
-        }
+      this.xx({ controller: this })
+    }
+  }
+
+  xx(args) {
+    const controller = args.controller
+    if (window.__wxjs_environment === 'miniprogram') {
+      if (controller.hasPtClass) {
+        controller.element.classList.add(controller.ptClass)
+      }
+      if (controller.directValue) {
+        controller.navTo()
       }
     }
   }
