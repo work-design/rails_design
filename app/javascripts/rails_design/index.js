@@ -1,3 +1,5 @@
+import '@hotwired/turbo-rails'
+
 import './dataset'
 
 import './wxwork_script'
