@@ -1,4 +1,4 @@
-import { application } from '../rails_design/stimulus'
+import { application } from '../stimulus_base'
 
 import ScanController from './scan'
 application.register('scan', ScanController)

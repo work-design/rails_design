@@ -1,4 +1,4 @@
-import { application } from '../rails_design/stimulus'
+import { application } from '../stimulus_base'
 
 import AlertController from './alert'
 application.register('alert', AlertController)
