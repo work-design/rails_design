@@ -1,6 +1,4 @@
-import { Application, Controller } from '@hotwired/stimulus'
-export const application = Application.start()
-window.application = application
+import { Controller } from '@hotwired/stimulus'
 
 Controller.prototype.csrfToken = function() {
   const meta = document.querySelector('meta[name=csrf-token]')
@@ -40,8 +38,4 @@ Controller.prototype.doRequest = function(input) {
     url.searchParams.set(input.name, input.value)
     this.get(url)
   }
-}
-
-HTMLElement.prototype.controller = function(identifier) {
-  return application.getControllerForElementAndIdentifier(this, identifier)
 }
