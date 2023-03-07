@@ -1,4 +1,5 @@
 import { Application } from '@hotwired/stimulus'
+import './request'
 
 export const application = Application.start()
 window.application = application
