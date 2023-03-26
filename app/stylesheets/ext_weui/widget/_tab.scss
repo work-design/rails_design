@@ -1,4 +1,4 @@
-.weui-tab > :last-child {
+.weui-tab > :last-child:not(.weui-tabbar) {
   padding-bottom: env(safe-area-inset-bottom);
 }
 
