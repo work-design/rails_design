@@ -1,3 +1,7 @@
+.weui-tab {
+  margin-bottom: env(safe-area-inset-bottom);
+}
+
 .weui-tab__panel > :first-child {
   margin-top: 0;
 }
