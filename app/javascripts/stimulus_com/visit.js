@@ -8,7 +8,7 @@ export default class extends Controller {
     reload: Boolean,
     method: String,
     params: Object,
-    headers: Object
+    headers: { type: Object, default: {} }
   }
 
   connect() {
@@ -19,7 +19,7 @@ export default class extends Controller {
         this.urlValue,
         this.methodValue,
         JSON.stringify(this.paramsValue),
-        { 'Content-Type': 'application/json' }
+        ...this.headersValue
       )
     } else {
       this.addEvent(this.headersValue)
