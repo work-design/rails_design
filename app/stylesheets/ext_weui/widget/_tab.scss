@@ -1,5 +1,5 @@
-.weui-tab {
-  margin-bottom: env(safe-area-inset-bottom);
+.weui-tab > :last-child {
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .weui-tab__panel > :first-child {
