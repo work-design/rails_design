@@ -15,6 +15,7 @@ Controller.prototype.post = function(url, body, headers) {
 
 Controller.prototype.request = function(url, method, body, headers) {
   fetch(url, {
+    credentials: 'include',
     method: method.toUpperCase(),
     headers: {
       Accept: 'text/vnd.turbo-stream.html',
