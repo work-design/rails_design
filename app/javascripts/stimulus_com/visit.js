@@ -19,7 +19,7 @@ export default class extends Controller {
         this.urlValue,
         this.methodValue,
         JSON.stringify(this.paramsValue),
-        ...this.headersValue
+        { 'Content-Type': 'application/json', 'X-CSRF-Token': this.csrfToken(), ...this.headersValue }
       )
     } else {
       this.addEvent(this.headersValue)
