@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 269db6e3a8e61d2e5dbf61024fd79556a6777582
+  revision: 0ad63ae76e92685ad48b9db25130f4a68d95b589
   specs:
     rails_com (1.3.0)
       acme-client
@@ -209,7 +209,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    uri (0.12.0)
+    uri (0.12.1)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)

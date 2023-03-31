@@ -1,6 +1,11 @@
-.weui-media-box_appmsg {
-  .weui-media-box__hd {
-    height: auto;
+.weui-media-box__hd {
+  &.as-logo {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    box-shadow: 1px 1px;
+    color: lightgrey;
   }
 }
 

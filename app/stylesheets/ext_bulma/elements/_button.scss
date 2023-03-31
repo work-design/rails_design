@@ -15,6 +15,9 @@
   &.is-block {
     height: auto;
   }
+  &.is-radius {
+    border-radius: 6px;
+  }
 }
 
 .buttons {
