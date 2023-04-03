@@ -18,6 +18,9 @@
   &.is-radius {
     border-radius: 6px;
   }
+  &.is-small.is-radius {
+    border-radius: 5px;
+  }
 }
 
 .buttons {
