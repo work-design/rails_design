@@ -1,10 +1,3 @@
-.has-block-centered {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
 .has-text-mono {
   font-family: monospace;
 }
@@ -13,8 +6,37 @@
   font-size: 0.9rem;
 }
 
+.has-block-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 .has-inline-centered {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+}
+
+.has-block-right {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.is-several {
+  display: inline-flex;
+  align-items: center;
+  width: available;
+}
+
+.has-block-right > *,
+.is-several > * {
+  margin-left: 0.5em;
+}
+
+.has-block-right > *:first-child,
+.is-several > *:first-child {
+  margin-left: 0;
 }

@@ -9,6 +9,9 @@
     &::before {
       border-top: none;
     }
+    &::after {
+      border-bottom: none;
+    }
     .weui-panel__hd::after {
       border-bottom: none;
     }
