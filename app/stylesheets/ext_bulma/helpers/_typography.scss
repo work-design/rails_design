@@ -25,18 +25,25 @@
   align-items: center;
 }
 
+.has-block-left {
+  display: flex;
+  align-items: center;
+}
+
 .is-several {
   display: inline-flex;
   align-items: center;
   width: available;
 }
 
-.has-block-right > *,
-.is-several > * {
-  margin-left: 0.5em;
-}
+.has-block-left,
+.has-block-right,
+.is-several {
+  & > * {
+    margin-left: 0.5em;
+  }
 
-.has-block-right > *:first-child,
-.is-several > *:first-child {
-  margin-left: 0;
+  & > *:first-child {
+    margin-left: 0;
+  }
 }
