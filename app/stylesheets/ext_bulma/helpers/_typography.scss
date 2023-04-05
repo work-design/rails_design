@@ -30,6 +30,18 @@
   align-items: center;
 }
 
+.has-block-space-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.has-block-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .is-several {
   display: inline-flex;
   align-items: center;
