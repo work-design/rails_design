@@ -10,24 +10,37 @@ export default class extends Controller {
   }
 
   ready() {
-    wx.ready(() => {
-      wx.updateTimelineShareData({
-        title: this.titleValue,
-        link: this.linkValue,
-        imgUrl: this.imageValue,
-        success: (res) => {
-          console.debug('timeline', res)
-        }
-      })
-      wx.updateAppMessageShareData({
-        title: this.titleValue,
-        desc: this.descValue,
-        link: this.linkValue,
-        imgUrl: this.imageValue,
-        success: (res) => {
-          console.debug('message', res)
-        }
-      })
+    this.updateTimeline()
+    this.updateShare()
+  }
+
+  updateTimeline() {
+    wx.updateTimelineShareData({
+      title: this.titleValue,
+      link: this.linkValue,
+      imgUrl: this.imageValue,
+      success: (res) => {
+        console.debug('timeline', res)
+      },
+      fail: res => {
+        weixin_fetch({ success: this.updateTimeline, controller: this })
+      }
+    })
+
+  }
+
+  updateShare() {
+    wx.updateAppMessageShareData({
+      title: this.titleValue,
+      desc: this.descValue,
+      link: this.linkValue,
+      imgUrl: this.imageValue,
+      success: (res) => {
+        console.debug('message', res)
+      },
+      fail: res => {
+        weixin_fetch({ success: this.updateShare, controller: this })
+      }
     })
   }
 
