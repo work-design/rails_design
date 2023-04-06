@@ -9,6 +9,9 @@ export default class extends Controller {
 
   connect() {
     wx.ready()
+    wx.error(res => {
+      alert(`connect error ${res}`)
+    })
   }
 
   close() {
@@ -29,6 +32,9 @@ export default class extends Controller {
     wx.openAddress({
       success: res => {
         this.post(this.urlValue, JSON.stringify(res), { 'Content-Type': 'application/json' })
+      },
+      fail: res => {
+        alert(`open fail ${res}`)
       }
     })
   }
