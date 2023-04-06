@@ -7,6 +7,10 @@ export default class extends Controller {
     url: String
   }
 
+  connect() {
+    wx.ready()
+  }
+
   close() {
     wx.ready(() => {
       wx.miniProgram.getEnv(res => {
@@ -22,17 +26,19 @@ export default class extends Controller {
   }
 
   openAddress() {
+    wx.openAddress({
+      success: res => {
+        this.post(this.urlValue, JSON.stringify(res), { 'Content-Type': 'application/json' })
+      }
+    })
+  }
+
+  programAddress() {
     wx.ready(() => {
       wx.miniProgram.getEnv(res => {
         if (res.miniprogram) {
           wx.miniProgram.navigateTo({
             url: this.addressValue  // url must begin with /pages
-          })
-        } else {
-          wx.openAddress({
-            success: res => {
-              this.post(this.urlValue, JSON.stringify(res), { 'Content-Type': 'application/json' })
-            }
           })
         }
       })
