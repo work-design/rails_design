@@ -7,13 +7,6 @@ export default class extends Controller {
     url: String
   }
 
-  connect() {
-    wx.ready()
-    wx.error(res => {
-      alert(`connect error ${res}`)
-    })
-  }
-
   close() {
     wx.ready(() => {
       wx.miniProgram.getEnv(res => {
@@ -34,7 +27,6 @@ export default class extends Controller {
         this.post(this.urlValue, JSON.stringify(res), { 'Content-Type': 'application/json' })
       },
       fail: res => {
-        alert(`open fail ${JSON.stringify(res)}`)
         weixin_fetch({ success: this.openAddress, controller: this })
       }
     })
