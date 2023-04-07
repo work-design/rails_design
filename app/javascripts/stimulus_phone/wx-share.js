@@ -19,14 +19,10 @@ export default class extends Controller {
       title: this.titleValue,
       link: this.linkValue,
       imgUrl: this.imageValue,
-      success: (res) => {
-        console.debug('timeline', res)
-      },
-      fail: res => {
+      fail: () => {
         weixin_fetch({ success: this.updateTimeline, controller: this })
       }
     })
-
   }
 
   updateShare() {
@@ -35,10 +31,7 @@ export default class extends Controller {
       desc: this.descValue,
       link: this.linkValue,
       imgUrl: this.imageValue,
-      success: (res) => {
-        console.debug('message', res)
-      },
-      fail: res => {
+      fail: () => {
         weixin_fetch({ success: this.updateShare, controller: this })
       }
     })
