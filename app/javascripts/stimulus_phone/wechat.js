@@ -33,14 +33,12 @@ export default class extends Controller {
   }
 
   programAddress() {
-    wx.ready(() => {
-      wx.miniProgram.getEnv(res => {
-        if (res.miniprogram) {
-          wx.miniProgram.navigateTo({
-            url: this.addressValue  // url must begin with /pages
-          })
-        }
-      })
+    wx.miniProgram.getEnv(res => {
+      if (res.miniprogram) {
+        wx.miniProgram.navigateTo({
+          url: this.addressValue  // url must begin with /pages
+        })
+      }
     })
   }
 
@@ -56,8 +54,8 @@ export default class extends Controller {
           scale: 15
         })
       },
-      fail(res) {
-        alert(JSON.stringify(res))
+      fail: () => {
+        weixin_fetch({ success: this.location, controller: this })
       }
     })
   }
@@ -70,11 +68,14 @@ export default class extends Controller {
         this.previewTarget.src = localId
         wx.uploadImage({
           localId: localId,
-          success: (res) => {
+          success: res => {
             this.mediaTarget.value = res.serverId
             this.mediaTarget.form.requestSubmit()
           }
         })
+      },
+      fail: () => {
+        weixin_fetch({ success: this.chooseImage, controller: this })
       }
     })
   }
