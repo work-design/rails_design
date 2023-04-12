@@ -1,4 +1,7 @@
 const weixin_fetch = function({ url = location.href, success, ...args } = {}) {
+  if (typeof wx === 'undefined') {
+    return
+  }
   fetch('/wechat/js', {
     method: 'POST',
     headers: {
