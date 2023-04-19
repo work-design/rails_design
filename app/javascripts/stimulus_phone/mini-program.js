@@ -42,7 +42,7 @@ export default class extends Controller {
     if (this.debugValue) {
       alert(url)
     }
-    wx.miniProgram.navigateTo({
+    wx.miniProgram.redirectTo({
       url: url  // url must begin with /pages
     })
   }
