@@ -40,9 +40,7 @@ export default class extends Controller {
         url = this.urlValue.concat('?').concat(query)
       }
     }
-    if (this.debugValue) {
-      alert(url)
-    }
+    console.debug(url)
     if (this.lanuchValue) {
       wx.miniProgram.reLanuch({
         url: url
