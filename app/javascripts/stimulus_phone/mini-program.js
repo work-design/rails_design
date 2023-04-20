@@ -11,15 +11,14 @@ export default class extends Controller {
   static classes = ['pt']
 
   connect() {
-    if (typeof(wx) === 'undefined') {
-      weixin_fetch({ success: this.xx, controller: this })
-    } else {
+    wx.ready(()=> {
       this.xx({ controller: this })
-    }
+    })
   }
 
   xx(args) {
     const controller = args.controller
+    console.debug('window', window.__wxjs_environment)
     if (window.__wxjs_environment === 'miniprogram') {
       if (controller.hasPtClass) {
         controller.element.classList.add(controller.ptClass)
@@ -40,7 +39,7 @@ export default class extends Controller {
         url = this.urlValue.concat('?').concat(query)
       }
     }
-    console.debug(url)
+    console.debug('mini program nav url:', url)
     if (this.lanuchValue) {
       wx.miniProgram.reLanuch({
         url: url
