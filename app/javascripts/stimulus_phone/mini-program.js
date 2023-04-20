@@ -5,6 +5,7 @@ export default class extends Controller {
     url: String,
     data: Object,
     direct: Boolean,
+    launch: Boolean,
     debug: Boolean
   }
   static classes = ['pt']
@@ -42,9 +43,15 @@ export default class extends Controller {
     if (this.debugValue) {
       alert(url)
     }
-    wx.miniProgram.redirectTo({
-      url: url  // url must begin with /pages
-    })
+    if (this.lanuchValue) {
+      wx.miniProgram.reLanuch({
+        url: url
+      })
+    } else {
+      wx.miniProgram.redirectTo({
+        url: url  // url must begin with /pages
+      })
+    }
   }
 
   link(event) {
