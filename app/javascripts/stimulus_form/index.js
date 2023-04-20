@@ -44,6 +44,3 @@ application.register('datetime', DatetimeController)
 
 import DefaultValidController from './default-valid'
 application.register('default-valid', DefaultValidController)
-
-import WeuiFormController from './valid_weui'
-application.register('weui_form', WeuiFormController)

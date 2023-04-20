@@ -12,19 +12,15 @@ export default class extends Controller {
 
   connect() {
     wx.ready(()=> {
-      this.xx()
+      if (window.__wxjs_environment === 'miniprogram') {
+        if (this.hasPtClass) {
+          this.element.classList.add(this.ptClass)
+        }
+        if (this.directValue) {
+          this.navTo()
+        }
+      }
     })
-  }
-
-  xx() {
-    if (window.__wxjs_environment === 'miniprogram') {
-      if (this.hasPtClass) {
-        this.element.classList.add(this.ptClass)
-      }
-      if (this.directValue) {
-        this.navTo()
-      }
-    }
   }
 
   navTo() {
