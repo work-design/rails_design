@@ -12,19 +12,17 @@ export default class extends Controller {
 
   connect() {
     wx.ready(()=> {
-      this.xx({ controller: this })
+      this.xx()
     })
   }
 
-  xx(args) {
-    const controller = args.controller
-    console.debug('window', window.__wxjs_environment)
+  xx() {
     if (window.__wxjs_environment === 'miniprogram') {
-      if (controller.hasPtClass) {
-        controller.element.classList.add(controller.ptClass)
+      if (this.hasPtClass) {
+        this.element.classList.add(this.ptClass)
       }
-      if (controller.directValue) {
-        controller.navTo()
+      if (this.directValue) {
+        this.navTo()
       }
     }
   }
