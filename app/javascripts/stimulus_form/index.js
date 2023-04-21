@@ -1,5 +1,3 @@
-import { application } from '../stimulus_base'
-
 import CheckController from './check'
 application.register('check', CheckController)
 

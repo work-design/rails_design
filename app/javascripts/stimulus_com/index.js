@@ -1,5 +1,3 @@
-import { application } from '../stimulus_base'
-
 import AlertController from './alert'
 application.register('alert', AlertController)
 

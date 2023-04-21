@@ -1,6 +1,3 @@
-import { application } from '../stimulus_base'
-// dependent on weixin.js
-
 import MiniProgramController from './mini-program'
 application.register('mini-program', MiniProgramController)
 

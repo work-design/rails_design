@@ -1,8 +1,7 @@
 import { Application } from '@hotwired/stimulus'
 import './request'
 
-export const application = Application.start()
-window.application = application
+window.application = Application.start()
 
 HTMLElement.prototype.controller = function(identifier) {
   return application.getControllerForElementAndIdentifier(this, identifier)

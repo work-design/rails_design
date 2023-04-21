@@ -1,6 +1,3 @@
-import { application } from '../stimulus_base'
-
-// dependent on Weui
 import MaskController from './weui-mask'
 application.register('mask', MaskController)
 
