@@ -7,3 +7,25 @@
     line-height: 1.125;
   }
 }
+
+.card-content {
+  h3::before {
+    font-family: 'Font Awesome 6 Free';
+    content: "\f10d";
+    color: hsl(347, 90%, 96%);
+    padding-right: 0.5rem;
+  }
+}
+
+.card-footer {
+  p {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  a {
+    background-color: $danger;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    color: $white;
+  }
+}
