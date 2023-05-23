@@ -24,7 +24,8 @@ export default class extends Controller {
       success: res => {
         this.post(this.urlValue, JSON.stringify(res), { 'Content-Type': 'application/json' })
       },
-      fail: () => {
+      fail: res => {
+        alert(JSON.stringify(res))
         weixin_fetch({ success: this.openAddress, controller: this })
       }
     })
