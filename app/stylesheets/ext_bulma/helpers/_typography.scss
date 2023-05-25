@@ -6,6 +6,17 @@
   font-size: 0.9rem;
 }
 
+.has-inline-centered {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.has-v-centered {
+  display: flex;
+  align-items: center;
+}
+
 .has-block-centered {
   display: flex;
   flex-direction: column;
@@ -13,20 +24,14 @@
   text-align: center;
 }
 
-.has-inline-centered {
-  display: inline-flex;
-  justify-content: center;
+.has-block-left {
+  display: flex;
   align-items: center;
 }
 
 .has-block-right {
   display: flex;
   justify-content: end;
-  align-items: center;
-}
-
-.has-block-left {
-  display: flex;
   align-items: center;
 }
 
