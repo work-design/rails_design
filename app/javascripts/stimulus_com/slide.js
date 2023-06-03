@@ -126,7 +126,6 @@ export default class extends TouchController {
       if (this.effective(pad)) {
         this.going(offset, ele)
       } else {
-
         if (this.direction === 'left') {
           this.shiftLeft(ele)
         } else if (this.direction === 'right') {
@@ -210,6 +209,7 @@ export default class extends TouchController {
     ele.classList.remove('is-active')
 
     const controller = ele.closest('[data-controller~=slide]').controller('slide')
+    controller.direction = null
     if (!controller) {
       return
     }
@@ -240,6 +240,7 @@ export default class extends TouchController {
     const ele = event.currentTarget
     console.debug(ele.dataset.index, 'to Current after', event.type)
     const controller = ele.closest('[data-controller~=slide]').controller('slide')
+    controller.direction = null
     if (!controller) {
       return
     }
