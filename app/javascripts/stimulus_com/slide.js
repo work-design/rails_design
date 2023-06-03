@@ -48,12 +48,16 @@ export default class extends TouchController {
 
     if (this.direction === 'left') {
       const next = this.next(ele)
-      next.style.left = this.containerTarget.clientWidth + this.left + 'px'
-      next.classList.remove('transition')
+      if (next) {
+        next.style.left = this.containerTarget.clientWidth + this.left + 'px'
+        next.classList.remove('transition')
+      }
     } else if (this.direction === 'right') {
       const prev = this.prev(ele)
-      prev.style.left = this.left - this.containerTarget.clientWidth + 'px'
-      prev.classList.remove('transition')
+      if (prev) {
+        prev.style.left = this.left - this.containerTarget.clientWidth + 'px'
+        prev.classList.remove('transition')
+      }
     }
 
     ele.removeEventListener('transitioncancel', this.beenCurrentAfter)
@@ -78,21 +82,25 @@ export default class extends TouchController {
     let along
     if (offset.x < 0) {
       along = this.next(ele)
-      if (this.direction === 'left') {
-        along.style.left = (this.containerTarget.clientWidth + this.left + offset.x) + 'px'
-      } else if (this.direction === 'right') {
-        along.style.left = (this.containerTarget.clientWidth + this.left + offset.x) + 'px'
-      } else {
-        along.style.left = (this.containerTarget.clientWidth + this.left + offset.x) + 'px'
+      if (along) {
+        if (this.direction === 'left') {
+          along.style.left = (this.containerTarget.clientWidth + this.left + offset.x) + 'px'
+        } else if (this.direction === 'right') {
+          along.style.left = (this.containerTarget.clientWidth + this.left + offset.x) + 'px'
+        } else {
+          along.style.left = (this.containerTarget.clientWidth + this.left + offset.x) + 'px'
+        }
       }
     } else if (offset.x > 0) {
       along = this.prev(ele)
-      if (this.direction === 'left') {
-        along.style.left = (this.containerTarget.clientWidth + this.left + offset.x) + 'px'
-      } else if (this.direction === 'right') {
-        along.style.left = (-this.containerTarget.clientWidth + this.left + offset.x) + 'px'
-      } else {
-        along.style.left = (-this.containerTarget.clientWidth + this.left + offset.x) + 'px'
+      if (along) {
+        if (this.direction === 'left') {
+          along.style.left = (this.containerTarget.clientWidth + this.left + offset.x) + 'px'
+        } else if (this.direction === 'right') {
+          along.style.left = (-this.containerTarget.clientWidth + this.left + offset.x) + 'px'
+        } else {
+          along.style.left = (-this.containerTarget.clientWidth + this.left + offset.x) + 'px'
+        }
       }
     }
 
