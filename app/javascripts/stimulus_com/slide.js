@@ -29,6 +29,7 @@ export default class extends TouchController {
     const next = this.next(ele)
     next.style.left = this.containerTarget.clientWidth + 'px'
     this.timerId = setTimeout(() => {
+      this.direction = 'left'
       this.shiftLeft(ele)
       console.debug('Time:', DateTime.now().toFormat('TT'), 'Timer Id:', this.timerId)
     }, this.delayValue * 1000, ele)
@@ -121,17 +122,18 @@ export default class extends TouchController {
     if (!this.isHorizontal(pad, offset)) {
       console.debug('not scrolling', offset)
       this.rollback(offset, ele)
-    }
-
-    if (this.effective(pad)) {
-      this.going(offset, ele)
     } else {
-      if (this.direction === 'left') {
-        this.shiftLeft(ele)
-      } else if (this.direction === 'right') {
-        this.shiftRight(ele)
+      if (this.effective(pad)) {
+        this.going(offset, ele)
       } else {
-        this.rollback(offset, ele)
+
+        if (this.direction === 'left') {
+          this.shiftLeft(ele)
+        } else if (this.direction === 'right') {
+          this.shiftRight(ele)
+        } else {
+          this.rollback(offset, ele)
+        }
       }
     }
   }
@@ -139,12 +141,15 @@ export default class extends TouchController {
   // 执行翻页
   going(offset, ele) {
     if (offset.x < 0) {
+      this.direction = 'left'
       this.shiftLeft(ele)
     }
     if (offset.x > 0) {
       if (this.direction === 'left') {
+        this.direction = 'right'
         this.shiftRight(this.next(ele), ele)
       } else {
+        this.direction = 'right'
         this.shiftRight(ele)
       }
     }
@@ -167,7 +172,7 @@ export default class extends TouchController {
   // ele 向左滑出
   shiftLeft(left, right = this.next(left)) {
     if (right) {
-      this.direction = 'left'
+
 
       left.classList.add('transition')
       this.beenCurrent(left)
@@ -180,8 +185,6 @@ export default class extends TouchController {
   // ele 向右滑出
   shiftRight(right, left = this.prev(right)) {
     if (left) {
-      this.direction = 'right'
-
       left.classList.add('transition')
       this.toCurrent(left)
 
