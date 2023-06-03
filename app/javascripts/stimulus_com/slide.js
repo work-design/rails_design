@@ -172,8 +172,6 @@ export default class extends TouchController {
   // ele 向左滑出
   shiftLeft(left, right = this.next(left)) {
     if (right) {
-
-
       left.classList.add('transition')
       this.beenCurrent(left)
 
