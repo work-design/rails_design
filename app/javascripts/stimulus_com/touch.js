@@ -9,7 +9,10 @@ export default class extends Controller {
   initStatus(event) {
     let touch
     if (event.type === 'dragstart') {
-      //event.preventDefault()
+      window.xxx = event
+      const img = new Image()
+      img.src = 'https://nong-images.work.design/images/57sepakc4arx8xjpp66k77hsioq3'
+      event.dataTransfer.setDragImage(img, 0, 0)
       touch = event
     } else {
       touch = event.targetTouches[0]
