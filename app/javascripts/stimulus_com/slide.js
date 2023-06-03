@@ -15,6 +15,9 @@ export default class extends TouchController {
     this.element.addEventListener('touchstart', event => {
       this.start(event)
     }, { passive: true })
+    this.element.addEventListener('dragstart', event => {
+      this.start(event)
+    })
 
     const ele = this.containerTarget.firstElementChild
     ele.classList.add('is-active')
@@ -65,6 +68,7 @@ export default class extends TouchController {
   }
 
   // data-action="touchmove->slide#move:passive"
+  // data-action="onmousemove->slide"
   move(event) {
     const ele = event.currentTarget
     console.debug('touch moved by element:', ele.dataset.index)

@@ -7,7 +7,13 @@ export default class extends Controller {
 
   // data-action="touchstart->slide#start:passive"
   initStatus(event) {
-    const touch = event.targetTouches[0]
+    let touch
+    if (event.type === 'dragstart') {
+      touch = event
+    } else {
+      touch = event.targetTouches[0]
+    }
+
     this.startPos = {
       x: touch.pageX,
       y: touch.pageY
