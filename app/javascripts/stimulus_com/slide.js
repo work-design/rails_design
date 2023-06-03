@@ -7,8 +7,7 @@ import { DateTime } from 'luxon'
 // transition 动画应在 touch end 的时候添加
 export default class extends TouchController {
   static values = {
-    delay: { type: Number, default: 0 }, // 延迟时间，单位为秒
-    circle: Boolean, // 是否循环播放，true 为循环播放
+    delay: { type: Number, default: 0 } // 是否循环播放，延迟时间，单位为秒
   }
   static targets = ['container', 'dot']
 
@@ -264,7 +263,7 @@ export default class extends TouchController {
   }
 
   next(ele) {
-    if (this.hasCircleValue && this.circleValue) {
+    if (this.hasDelayValue) {
       return ele.nextElementSibling || this.containerTarget.firstElementChild
     } else {
       return ele.nextElementSibling
@@ -272,7 +271,7 @@ export default class extends TouchController {
   }
 
   prev(ele) {
-    if (this.hasCircleValue && this.circleValue) {
+    if (this.hasDelayValue) {
       return ele.previousElementSibling || this.containerTarget.lastElementChild
     } else {
       return ele.previousElementSibling
