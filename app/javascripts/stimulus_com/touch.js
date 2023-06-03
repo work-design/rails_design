@@ -9,6 +9,7 @@ export default class extends Controller {
   initStatus(event) {
     let touch
     if (event.type === 'dragstart') {
+      //event.preventDefault()
       touch = event
     } else {
       touch = event.targetTouches[0]
@@ -24,6 +25,7 @@ export default class extends Controller {
   // scale && scale !== 表示缩放了
   zoomed(event) {
     if (['drag', 'dragend'].includes(event.type)) {
+      event.preventDefault()
       return false
     }
     const result = event.changedTouches.length > 1 || (event.scale && event.scale !== 1)

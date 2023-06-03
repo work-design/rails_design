@@ -71,7 +71,7 @@ export default class extends TouchController {
   // data-action="onmousemove->slide"
   move(event) {
     const ele = event.currentTarget
-    console.debug('touch moved by element:', ele.dataset.index)
+    console.debug('moved by element:', ele.dataset.index)
     if (this.zoomed(event)) {
       return
     }
