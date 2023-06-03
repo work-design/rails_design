@@ -23,6 +23,9 @@ export default class extends Controller {
 
   // scale && scale !== 表示缩放了
   zoomed(event) {
+    if (['drag', 'dragend'].includes(event.type)) {
+      return false
+    }
     const result = event.changedTouches.length > 1 || (event.scale && event.scale !== 1)
     if (result) {
       console.error('是否缩放：', result)
@@ -58,7 +61,13 @@ export default class extends Controller {
   }
 
   offset(event) {
-    const touch = event.changedTouches[0]
+    let touch
+    if (['drag', 'dragend'].includes(event.type)) {
+      touch = event
+    } else {
+      touch = event.changedTouches[0]
+    }
+
     const offset = {
       x: touch.pageX - this.startPos.x,
       y: touch.pageY - this.startPos.y
