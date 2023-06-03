@@ -176,6 +176,9 @@ export default class extends TouchController {
 
       right.classList.add('transition')
       this.toCurrent(right)
+    } else {
+      left.classList.add('transition')
+      this.toCurrent(left)
     }
   }
 
@@ -187,6 +190,9 @@ export default class extends TouchController {
 
       right.classList.add('transition')
       this.beenCurrent(right, this.containerTarget.clientWidth + 'px')
+    } else {
+      right.classList.add('transition')
+      this.toCurrent(right)
     }
   }
 
