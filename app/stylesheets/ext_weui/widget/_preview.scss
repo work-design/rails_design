@@ -8,3 +8,12 @@
   text-align-last: auto;
   width: auto;
 }
+
+.weui-form-preview {
+  &.is-box {
+    border-radius: 6px;
+    margin-top: 0.75rem;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+  }
+}
