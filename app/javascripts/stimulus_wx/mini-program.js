@@ -6,6 +6,7 @@ export default class extends Controller {
     data: Object,
     direct: Boolean,
     launch: Boolean,
+    nav: Boolean,
     debug: Boolean
   }
   static classes = ['pt']
@@ -44,6 +45,10 @@ export default class extends Controller {
     console.debug('mini program nav url:', url)
     if (this.lanuchValue) {
       wx.miniProgram.reLanuch({
+        url: url
+      })
+    } else if (this.navValue) {
+      wx.miniProgram.navigateTo({
         url: url
       })
     } else {
