@@ -11,14 +11,22 @@ export default class extends Controller {
   static classes = ['pt']
 
   connect() {
-    wx.ready(()=> {
-      if (window.__wxjs_environment === 'miniprogram') {
-        if (this.hasPtClass) {
-          this.element.classList.add(this.ptClass)
-        }
-        if (this.directValue) {
-          this.navTo()
-        }
+    if (window.__wxjs_environment === 'miniprogram') {
+      if (this.hasPtClass) {
+        this.element.classList.add(this.ptClass)
+      }
+      if (this.directValue) {
+        this.navTo()
+      }
+    }
+  }
+
+  link(event) {
+    wx.miniProgram.getEnv(res => {
+      console.debug('mini program env:', res)
+      if (res.miniprogram) {
+        event.preventDefault()
+        this.navTo()
       }
     })
   }
@@ -43,16 +51,6 @@ export default class extends Controller {
         url: url  // url must begin with /pages
       })
     }
-  }
-
-  link(event) {
-    wx.miniProgram.getEnv(res => {
-      console.debug('mini program env:', res)
-      if (res.miniprogram) {
-        event.preventDefault()
-        this.navTo()
-      }
-    })
   }
 
 }
