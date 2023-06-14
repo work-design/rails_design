@@ -1,0 +1,20 @@
+.weui-menu {
+  display: flex;
+  flex-grow: 1;
+}
+
+
+.weui-menu-sidebar {
+  height: 100%;
+  background-color: #fff;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.weui-menu-content {
+  flex-grow: 1;
+
+  .weui-media-box:first-child {
+    margin-top: 0;
+  }
+}
