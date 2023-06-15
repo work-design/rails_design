@@ -12,10 +12,8 @@
 }
 
 .weui-menu-content {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
   overflow: hidden;
-
-  .weui-media-box:first-child {
-    margin-top: 0;
-  }
 }
