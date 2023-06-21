@@ -62,7 +62,7 @@
       }
 
       ul {
-        list-style-image: url(check.svg);
+        list-style-image: url(icons/check.svg);
       }
 
       ol, ul {
@@ -70,6 +70,10 @@
 
         li {
           padding-left: 0.5rem;
+
+          ul {
+            list-style-image: url(icons/minus.svg);
+          }
         }
 
         li::marker {
