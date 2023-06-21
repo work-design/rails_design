@@ -6,6 +6,10 @@
     font-weight: bold;
     line-height: 1.125;
   }
+
+  h2 + .cards {
+    margin-top: 1rem;
+  }
 }
 
 .card-content {

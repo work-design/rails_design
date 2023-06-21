@@ -63,16 +63,19 @@
 
       ul {
         list-style-image: url(check.svg);
+      }
+
+      ol, ul {
         padding-left: 1rem;
 
         li {
           padding-left: 0.5rem;
         }
-      }
 
-      li::marker {
-        color: darkred;
-        font-weight: bold;
+        li::marker {
+          color: darkred;
+          font-weight: bold;
+        }
       }
     }
   }
