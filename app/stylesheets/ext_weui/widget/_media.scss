@@ -20,20 +20,18 @@
     align-items: center;
     margin-right: 0;
     padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 }
 
 .weui-media-box__bd {
-  padding-right: 16px;
-
   &.as-body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     height: 100%;
-    padding-left: 16px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px;
   }
 }
 
