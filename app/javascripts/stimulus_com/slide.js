@@ -38,6 +38,9 @@ export default class extends TouchController {
   }
 
   start(event) {
+    if (this.containerTarget.childElementCount <= 1) {
+      return
+    }
     this.initStatus(event)
     // 对于自动轮播中的图片，当有 touch 动作时，暂停自动轮播
     if (this.timerId) {
@@ -72,7 +75,7 @@ export default class extends TouchController {
   move(event) {
     const ele = event.currentTarget
     console.debug('moved by element:', ele.dataset.index)
-    if (this.zoomed(event)) {
+    if (this.zoomed(event) || this.containerTarget.childElementCount <= 1) {
       return
     }
     const offset = this.offset(event)
@@ -115,7 +118,7 @@ export default class extends TouchController {
 
   // data-action="touchend->slide#end:passive"
   end(event) {
-    if (this.zoomed(event)) {
+    if (this.zoomed(event) || this.containerTarget.childElementCount <= 1) {
       return
     }
     const ele = event.currentTarget
