@@ -44,9 +44,23 @@
   .cards {
     .card:nth-child(odd) {
       background-color: hsl(347, 90%, 96%);
+
+      h3::before {
+        font-family: 'Font Awesome 6 Free';
+        content: "\21";
+        color: hsl(348, 86%, 43%);
+        padding-right: 0.5rem;
+      }
     }
     .card:nth-child(even) {
       background-color: hsl(171, 100%, 96%);
+
+      h3::before {
+        font-family: 'Font Awesome 6 Free';
+        content: "\f00c";
+        color: hsl(171, 100%, 29%);
+        padding-right: 0.5rem;
+      }
     }
   }
 }
