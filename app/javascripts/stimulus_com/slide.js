@@ -21,7 +21,7 @@ export default class extends TouchController {
 
     const ele = this.containerTarget.firstElementChild
     ele.classList.add('is-active')
-    if (this.hasDelayValue && this.delayValue > 0) {
+    if (this.containerTarget.childElementCount > 1 && this.hasDelayValue && this.delayValue > 0) {
       ele.style.left = 0
       this.mode(ele)
     }
