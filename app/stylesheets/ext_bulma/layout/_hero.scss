@@ -39,3 +39,14 @@
     background-color: hsl(0, 0%, 96%);
   }
 }
+
+.point_layout {
+  .cards {
+    .card:nth-child(odd) {
+      background-color: hsl(347, 90%, 96%);
+    }
+    .card:nth-child(even) {
+      background-color: hsl(171, 100%, 96%);
+    }
+  }
+}
