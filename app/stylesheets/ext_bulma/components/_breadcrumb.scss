@@ -9,6 +9,10 @@
     padding-bottom: 0.5em;
   }
 
+  ul, ol {
+    align-items: center;
+  }
+
   li {
     &.is-active::before {
       padding-right: 0.75em;
