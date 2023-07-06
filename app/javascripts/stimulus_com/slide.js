@@ -48,7 +48,7 @@ export default class extends TouchController {
     }
 
     const ele = event.target.closest('[data-index]')
-    this.left = ele.getBoundingClientRect().x
+    this.left = ele.offsetLeft
     ele.style.left = this.left + 'px'
     ele.classList.remove('transition')
 
