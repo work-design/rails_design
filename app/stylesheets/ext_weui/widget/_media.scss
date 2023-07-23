@@ -60,6 +60,12 @@
   }
 }
 
+
+.weui-media-box__title {
+  display: inline-flex;
+  font-size: 16px;
+}
+
 ul.weui-media-box__info {
   display: flex;
   align-items: center;
@@ -72,4 +78,3 @@ ul.weui-media-box__info {
     border-left: 1px solid var(--weui-FG-2);
   }
 }
-
