@@ -48,6 +48,7 @@ td.has-inner-table {
     td:first-child {
       width: 33%;
       color: $grey;
+      text-align: right;
     }
     tbody td:first-child::after {
       content: ':';
