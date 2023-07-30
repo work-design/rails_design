@@ -47,6 +47,7 @@ td.has-inner-table {
   &.as-show {
     td:first-child {
       width: 33%;
+      color: $grey;
     }
     tbody td:first-child::after {
       content: ':';
