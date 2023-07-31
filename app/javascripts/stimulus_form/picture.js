@@ -8,7 +8,7 @@ export default class extends Controller {
   //<input type="file" data-action="picture#upload">
   upload(event) {
     const input = event.currentTarget
-    let button = input.form.querySelector('input[type=submit], button[type=submit]')
+    const button = input.form.querySelector('input[type=submit], button[type=submit]')
     input.disabled = true
     button.disabled = true
     Array.from(input.files).forEach(file => {
@@ -17,15 +17,13 @@ export default class extends Controller {
       this.previewFile(file)
       let controller = new DirectUploadController(input, file)
       controller.start(error => {
-        if (error) {
-          input.disabled = false
-          callback(error)
-          this.dispatch('end')
-        }
+        console.debug('upload,er', error)
         input.disabled = false
         button.disabled = false
       })
     })
+
+    input.value = null
   }
 
   dropFile(event) {
