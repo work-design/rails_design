@@ -3,10 +3,12 @@
     position: absolute;
     top: 0;
     right: 0;
+    height: auto;
     border-radius: 0;
     border-width: 0;
     z-index: 1;
-    background-color: currentColor;
+    padding: 5px;
+    background-color: unset;
   }
   &.is-borderless {
     border-width: 0;
