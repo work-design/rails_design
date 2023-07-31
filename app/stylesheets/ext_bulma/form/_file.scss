@@ -16,6 +16,10 @@ input[type="file"]::-webkit-file-upload-button {
 
 .file.is-boxed .file-cta {
   height: 100%;
+
+  .file-icon {
+    margin-right: 0;
+  }
 }
 
 .file-name {
