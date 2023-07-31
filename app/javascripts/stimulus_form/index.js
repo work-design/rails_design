@@ -22,6 +22,9 @@ application.register('keyboard', KeyboardController)
 import ModifyController from './modify'
 application.register('modify', ModifyController)
 
+import PictureController from './picture'
+application.register('picture', PictureController)
+
 import QqMapController from './qq-map'
 application.register('qq-map', QqMapController)
 

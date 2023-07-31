@@ -16,16 +16,15 @@ export default class extends Controller {
       // todo file is image
       this.previewFile(file)
       let controller = new DirectUploadController(input, file)
-      if (controller) {
-        controller.start(error => {
-          if (error) {
-            input.disabled = false
-            callback(error)
-            this.dispatch('end')
-          }
-          button.disabled = false
-        })
-      }
+      controller.start(error => {
+        if (error) {
+          input.disabled = false
+          callback(error)
+          this.dispatch('end')
+        }
+        input.disabled = false
+        button.disabled = false
+      })
     })
   }
 
