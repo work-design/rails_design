@@ -2,7 +2,7 @@ import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
   static values = {
-    url: String,
+    url: String, // url must begin with /pages
     data: Object,
     direct: Boolean,
     launch: Boolean,
@@ -43,18 +43,12 @@ export default class extends Controller {
       }
     }
     console.debug('mini program nav url:', url)
-    if (this.lanuchValue) {
-      wx.miniProgram.reLanuch({
-        url: url
-      })
+    if (this.launchValue) {
+      wx.miniProgram.reLaunch({ url: url })
     } else if (this.navValue) {
-      wx.miniProgram.navigateTo({
-        url: url
-      })
+      wx.miniProgram.navigateTo({ url: url })
     } else {
-      wx.miniProgram.redirectTo({
-        url: url  // url must begin with /pages
-      })
+      wx.miniProgram.redirectTo({ url: url })
     }
   }
 
