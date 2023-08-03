@@ -19,7 +19,7 @@ const weixin_fetch = function({ url = location.href, success, ...args } = {}) {
       nonceStr: body['noncestr'],
       signature: body['signature'],
       jsApiList: body['apis'],
-      openTagList: ['wx-open-subscribe']
+      openTagList: body['open_tags']
     }
     if (body['beta']) {
       Object.assign(config, { beta: true })
