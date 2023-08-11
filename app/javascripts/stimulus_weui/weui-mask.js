@@ -13,7 +13,8 @@ export default class extends Controller {
     ele.style.transition = 'opacity 2s'
   }
 
-  show() {
+  show(event) {
+    event.preventDefault()
     const ele = this.target.element
     ele.style.display = 'block'
     ele.style.opacity = 0.95
