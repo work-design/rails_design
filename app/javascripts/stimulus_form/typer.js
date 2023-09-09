@@ -32,6 +32,7 @@ export default class extends Controller {
     }
 
     if (con.hasUrlValue) {
+      con.valueTarget.removeAttribute('value')
       con.doRequest(this)
     } else {
       this.form.requestSubmit()
@@ -44,6 +45,7 @@ export default class extends Controller {
     }
 
     if (this.hasUrlValue) {
+      this.valueTarget.removeAttribute('value')
       this.doRequest(ele)
     } else {
       ele.form.requestSubmit()
