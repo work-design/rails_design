@@ -2,7 +2,7 @@ import { Controller } from '@hotwired/stimulus'
 
 // data-controller="typer"
 export default class extends Controller {
-  static targets = ['input', 'value']
+  static targets = ['input', 'value', 'content']
   static values = {
     url: String,
     method: String
@@ -21,6 +21,11 @@ export default class extends Controller {
     ele.addEventListener('compositionend', event => {
       event.target.addEventListener('input', this.form)
       this.conForm(ele)
+    })
+    ele.addEventListener('blur', () => {
+      Array.from(this.contentTarget.children).forEach(child => {
+        child.remove()
+      })
     })
   }
 
