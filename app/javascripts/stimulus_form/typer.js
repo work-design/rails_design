@@ -27,12 +27,12 @@ export default class extends Controller {
   // NOTICE  here this becomes ele, who call addEventListener
   form() {
     const con = this.closest('[data-controller~=typer]').controller('typer')
+    con.valueTarget.removeAttribute('value')
     if (!this.value) {
       return
     }
 
     if (con.hasUrlValue) {
-      con.valueTarget.removeAttribute('value')
       con.doRequest(this)
     } else {
       this.form.requestSubmit()
@@ -40,12 +40,12 @@ export default class extends Controller {
   }
 
   conForm(ele) {
+    this.valueTarget.removeAttribute('value')
     if (!ele.value) {
       return
     }
 
     if (this.hasUrlValue) {
-      this.valueTarget.removeAttribute('value')
       this.doRequest(ele)
     } else {
       ele.form.requestSubmit()
