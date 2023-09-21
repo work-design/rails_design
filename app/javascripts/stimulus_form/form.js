@@ -1,4 +1,32 @@
 import { Controller } from '@hotwired/stimulus'
+const I18n = {
+  zh: {
+    badInput: '{label}格式不正确',
+    customError: '{label}输入错误',
+    patternMismatch: '{label}不符合格式要求',
+    rangeOverflow: '{label}超出允许的最大值',
+    rangeUnderflow: '{label}低于允许的最小值',
+    stepMismatch: '{label}输入错误',
+    tooLong: '{label}太长了',
+    tooShort: '{label}太短了',
+    typeMismatch: '{label}输入错误',
+    valid: '{label}为非法值',
+    valueMissing: '请输入{label}'
+  },
+  en: {
+    badInput: 'Bad Input: {label}',
+    customError: 'Custom Error: {label}',
+    patternMismatch: 'Invalid Input: {label}',
+    rangeOverflow: 'Range Over Flow: {label}',
+    rangeUnderflow: 'Range Under Flow: {label}',
+    stepMismatch: 'Step Mismatch',
+    tooLong: '{label} is too long',
+    tooShort: '{label} is Too Short',
+    typeMismatch: '{label} Type Mismatch',
+    valid: '{label} is not valid',
+    valueMissing: 'Please enter: {label}'
+  }
+}
 export default class extends Controller {
   static values = {
     css: { type: String, default: 'is-danger' }
@@ -7,38 +35,10 @@ export default class extends Controller {
   defaultValid(input) {
     const locale = document.querySelector('html').lang
     let label, word
-    const i18ns = {
-      zh: {
-        badInput: '{label}格式不正确',
-        customError: '{label}输入错误',
-        patternMismatch: '{label}不符合格式要求',
-        rangeOverflow: '{label}超出允许的最大值',
-        rangeUnderflow: '{label}低于允许的最小值',
-        stepMismatch: '{label}输入错误',
-        tooLong: '{label}太长了',
-        tooShort: '{label}太短了',
-        typeMismatch: '{label}输入错误',
-        valid: '{label}为非法值',
-        valueMissing: '请输入{label}'
-      },
-      en: {
-        badInput: 'Bad Input: {label}',
-        customError: 'Custom Error: {label}',
-        patternMismatch: 'Invalid Input: {label}',
-        rangeOverflow: 'Range Over Flow: {label}',
-        rangeUnderflow: 'Range Under Flow: {label}',
-        stepMismatch: 'Step Mismatch',
-        tooLong: '{label} is too long',
-        tooShort: '{label} is Too Short',
-        typeMismatch: '{label} Type Mismatch',
-        valid: '{label} is not valid',
-        valueMissing: 'Please enter: {label}'
-      }
-    }
 
     for (let key in input.validity) {
       if (input.validity[key]) {
-        word = i18ns[locale][key]
+        word = I18N[locale][key]
       }
     }
 
@@ -47,11 +47,11 @@ export default class extends Controller {
     } else {
       label = input.dataset['label'] || ''
     }
-    let text = word.replace('{label}', label)
+    const text = word.replace('{label}', label)
 
     input.classList.add(this.cssValue)
     if (!input.parentNode.nextElementSibling) {
-      let help = document.createElement('p')
+      const help = document.createElement('p')
       help.classList.add('help', this.cssValue)
       help.innerText = text
       input.parentNode.after(help)
