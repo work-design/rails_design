@@ -13,6 +13,9 @@ application.register('equal', EqualController)
 import FormerController from './former'
 application.register('former', FormerController)
 
+import FormController from './form'
+application.register('form', FormController)
+
 import InputController from './input'
 application.register('input', InputController)
 
@@ -42,6 +45,3 @@ application.register('field', FieldController)
 
 import DatetimeController from './datetime'
 application.register('datetime', DatetimeController)
-
-import DefaultValidController from './default-valid'
-application.register('default-valid', DefaultValidController)

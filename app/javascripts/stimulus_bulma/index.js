@@ -1,5 +1,5 @@
-import MenuController from './menu'
+import MenuController from './bulma_menu'
 application.register('menu', MenuController)
 
-import NavbarController from './navbar'
+import NavbarController from './bulma_navbar'
 application.register('navbar', NavbarController)
