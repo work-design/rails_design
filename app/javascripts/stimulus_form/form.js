@@ -1,5 +1,5 @@
 import { Controller } from '@hotwired/stimulus'
-const I18n = {
+const I18N = {
   zh: {
     badInput: '{label}格式不正确',
     customError: '{label}输入错误',

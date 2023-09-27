@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 6975fa8ff1024aea0f0c8f87dfda9461f1688a21
+  revision: 527beb1d39b745ae02ccf75b8d7af169b790c496
   specs:
     rails_com (1.3.0)
       acme-client
@@ -11,13 +11,13 @@ GIT
       httpx
       kaminari
       net-http
-      rails (>= 7.0)
+      rails (~> 7.0)
       rails_extend
       turbo-rails
 
 GIT
   remote: https://github.com/work-design/rails_extend.git
-  revision: befb1bb3af72b243ed0e0c157fa49db42e3de7c3
+  revision: 95b09550e37d56a7fbd1591bf495ead17cd34640
   specs:
     rails_extend (1.0.1)
       rails (>= 5.0)
