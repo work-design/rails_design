@@ -12,10 +12,6 @@ td.has-inner-table {
 }
 
 .table {
-  &.is-border {
-    border: solid 1px $border;
-  }
-
   thead th {
     text-align: left;
     font-size: 0.9em;
@@ -42,6 +38,15 @@ td.has-inner-table {
 
   th, td {
     vertical-align: middle;
+  }
+
+  td > p + p,
+  td > div + div {
+    margin-top: 0.5em;
+  }
+
+  &.is-border {
+    border: solid 1px $border;
   }
 
   &.as-show {

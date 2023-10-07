@@ -28,6 +28,13 @@
   align-items: center;
 }
 
+.has-page-centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
 .has-block-left {
   display: flex;
   align-items: center;
