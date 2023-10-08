@@ -8,6 +8,10 @@ main {
   flex-grow: 1;
 }
 
+main.container {
+  width: 100%;
+}
+
 .as-vertical-middle {
   display: flex;
   flex-direction: column;
