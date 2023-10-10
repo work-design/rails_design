@@ -48,12 +48,12 @@ td.has-inner-table {
   }
 
   &.as-show {
-    td:first-child {
+    td:first-child:not([colspan]) {
       width: 33%;
       color: $grey;
       text-align: right;
     }
-    tbody td:first-child::after {
+    tbody td:first-child:not([colspan])::after {
       content: ':';
       padding-left: .25em;
       color: $grey-light;
