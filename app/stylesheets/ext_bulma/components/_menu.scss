@@ -52,15 +52,34 @@
 }
 
 .menu-wrap {
+  height: 100%;
+
   &.is-dark {
-    height: 100%;
     background-color: #2d3a4b;
     .menu-label {
       border-bottom: solid 1px #0e1e31;
-      color: #fff;
     }
     .menu-list {
       background-color: #0e1e31;
+    }
+  }
+
+  &.is-danger {
+    background-color: $danger;
+    .menu-label {
+      border-bottom: solid 1px $danger-dark;
+    }
+    .menu-list {
+      background-color: $danger-dark;
+    }
+  }
+
+  &.is-dark,
+  &.is-danger {
+    .menu-label {
+      color: #fff;
+    }
+    .menu-list {
       a {
         color: #fff;
       }
@@ -72,7 +91,6 @@
       }
     }
   }
-
 }
 
 .menu-brand {
