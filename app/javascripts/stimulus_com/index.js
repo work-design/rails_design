@@ -19,11 +19,14 @@ application.register('count-up', CountUpController)
 import CustomController from './custom'
 application.register('custom', CustomController)
 
-import HoverController from './hover'
-application.register('hover', HoverController)
-
 import EmptyController from './empty'
 application.register('empty', EmptyController)
+
+import EnterSectionController from './enter-section'
+application.register('enter-section', EnterSectionController)
+
+import HoverController from './hover'
+application.register('hover', HoverController)
 
 import NoticeController from './notice'
 application.register('notice', NoticeController)
