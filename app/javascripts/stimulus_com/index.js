@@ -31,6 +31,9 @@ application.register('notice', NoticeController)
 import PageController from './page'
 application.register('page', PageController)
 
+import PlayerController from './player'
+application.register('player', PlayerController)
+
 import PrintController from './print'
 application.register('print', PrintController)
 

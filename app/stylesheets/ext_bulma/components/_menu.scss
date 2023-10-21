@@ -64,18 +64,18 @@
     }
   }
 
-  &.is-danger {
-    background-color: $danger;
+  &.is-primary {
+    background-color: $primary;
     .menu-label {
-      border-bottom: solid 1px $danger-dark;
+      border-bottom: solid 1px $primary-dark;
     }
     .menu-list {
-      background-color: $danger-dark;
+      background-color: $primary-dark;
     }
   }
 
   &.is-dark,
-  &.is-danger {
+  &.is-primary {
     .menu-label {
       color: #fff;
     }
