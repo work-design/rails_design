@@ -1,7 +1,11 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static targets = ['media', 'progress']
+  static targets = [
+    'media',
+    'progress',
+    'cover'
+  ]
 
   connect() {
     if (this.mediaTarget.duration) {
@@ -24,9 +28,11 @@ export default class extends Controller {
     if (this.mediaTarget.played.length === 0 || this.mediaTarget.paused) {
       this.mediaTarget.play()
       ele.children[0].classList.replace('fa-play', 'fa-pause')
+      this.coverTarget.style.animationPlayState = 'running'
     } else {
       this.mediaTarget.pause()
       ele.children[0].classList.replace('fa-pause', 'fa-play')
+      this.coverTarget.style.animationPlayState = 'paused'
     }
   }
 
