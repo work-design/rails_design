@@ -5,3 +5,83 @@
 .is-flex-auto {
   flex: auto;
 }
+
+.has-page-centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.is-space {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.has-block-left {
+  display: flex;
+  align-items: center;
+}
+
+.has-block-right {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.has-block-space-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.has-block-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.has-block-centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.is-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.is-several {
+  display: inline-flex;
+  align-items: center;
+  width: available;
+}
+
+.has-inline-centered {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.has-v-centered {
+  display: flex;
+  align-items: center;
+}
+
+
+.has-block-left,
+.has-block-right,
+.is-several {
+  & > * {
+    margin-left: 0.5em;
+  }
+
+  & > *:first-child {
+    margin-left: 0;
+  }
+}
