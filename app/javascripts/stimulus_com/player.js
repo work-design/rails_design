@@ -19,17 +19,15 @@ export default class extends Controller {
     })
   }
 
-  play() {
-    this.mediaTarget.play()
-  }
-
-  pause() {
-    this.mediaTarget.pause()
-  }
-
-  timeupdate() {
-
-    //progressBar.style.width = Math.floor((video.currentTime / video.duration) * 100) + '%';
+  toggle(e) {
+    const ele = e.currentTarget
+    if (this.mediaTarget.played.length === 0 || this.mediaTarget.paused) {
+      this.mediaTarget.play()
+      ele.children[0].classList.replace('fa-play', 'fa-pause')
+    } else {
+      this.mediaTarget.pause()
+      ele.children[0].classList.replace('fa-pause', 'fa-play')
+    }
   }
 
 }
