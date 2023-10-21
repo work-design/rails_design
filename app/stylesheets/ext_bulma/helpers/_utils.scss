@@ -13,17 +13,8 @@
   background-repeat: repeat-x;
 }
 
-.is-middle {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.is-space {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.has-box-square {
+  aspect-ratio: 1/1;
 }
 
 .is-fullwidth {

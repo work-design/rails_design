@@ -28,11 +28,24 @@
   align-items: center;
 }
 
+.is-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .has-page-centered {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100%;
+}
+
+.is-space {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .has-block-left {
