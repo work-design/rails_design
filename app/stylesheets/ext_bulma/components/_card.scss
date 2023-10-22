@@ -86,7 +86,7 @@
 
   &.is-animate-scale {
     .card {
-      transition: height;
+      transition: height, opacity, transform;
       transition-duration: 2s;
       transition-timing-function: ease;
     }

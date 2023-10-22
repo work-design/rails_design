@@ -1,6 +1,7 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
+  static targets = ['order']
   static values = {
     threshold: { type: Number, default: 0.35 }
   }
@@ -11,11 +12,14 @@ export default class extends Controller {
         entries.forEach(el => {
           console.debug(el)
           if (el.isIntersecting) {
-            el.target.classList.add('has-animate-fadeInUp')
-            this.element.style.opacity = 1
+            Array.from(el.target.children).forEach((child, index) => {
+              child.style.transitionDelay = `${(index + 1) * 0.2}s`
+              child.classList.replace('has-fade-init', 'has-fade-up')
+            })
           } else {
-            el.target.classList.remove('has-animate-fadeInUp')
-            this.element.style.opacity = 0
+            Array.from(el.target.children).forEach(child => {
+              child.classList.replace('has-fade-up', 'has-fade-init')
+            })
           }
         })
       },
@@ -23,7 +27,6 @@ export default class extends Controller {
         threshold: this.thresholdValue
       }
     )
-    this.element.style.opacity = 0
     this.observer.observe(this.element)
   }
 
