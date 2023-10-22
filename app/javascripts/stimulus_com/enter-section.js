@@ -14,6 +14,7 @@ export default class extends Controller {
             el.target.classList.add('has-animate-fadeInUp')
             this.element.style.opacity = 1
           } else {
+            el.target.classList.remove('has-animate-fadeInUp')
             this.element.style.opacity = 0
           }
         })
