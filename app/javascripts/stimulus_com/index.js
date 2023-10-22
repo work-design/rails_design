@@ -46,6 +46,9 @@ application.register('qy-login', QyLoginController)
 import ScrollController from './scroll'
 application.register('scroll', ScrollController)
 
+import ScrollNextController from './scroll-next'
+application.register('scroll-next', ScrollNextController)
+
 import ShowController from './show'
 application.register('show', ShowController)
 
