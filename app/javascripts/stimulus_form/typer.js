@@ -22,9 +22,6 @@ export default class extends Controller {
       event.target.addEventListener('input', this.form)
       this.conForm(ele)
     })
-    ele.addEventListener('blur', () => {
-      this.clear()
-    })
   }
 
   // NOTICE  here this becomes ele, who call addEventListener
