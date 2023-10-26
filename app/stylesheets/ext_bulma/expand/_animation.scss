@@ -40,5 +40,6 @@
 
 .has-fade-up {
   opacity: 1;
-  transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
+  transition-duration: 1s;
 }

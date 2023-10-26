@@ -23,9 +23,7 @@ export default class extends Controller {
       this.conForm(ele)
     })
     ele.addEventListener('blur', () => {
-      Array.from(this.contentTarget.children).forEach(child => {
-        child.remove()
-      })
+      this.clear()
     })
   }
 
@@ -34,6 +32,7 @@ export default class extends Controller {
     const con = this.closest('[data-controller~=typer]').controller('typer')
     con.valueTarget.removeAttribute('value')
     if (!this.value) {
+      con.clear()
       return
     }
 
@@ -47,6 +46,7 @@ export default class extends Controller {
   conForm(ele) {
     this.valueTarget.removeAttribute('value')
     if (!ele.value) {
+      this.clear()
       return
     }
 
@@ -55,6 +55,12 @@ export default class extends Controller {
     } else {
       ele.form.requestSubmit()
     }
+  }
+
+  clear() {
+    Array.from(this.contentTarget.children).forEach(child => {
+      child.remove()
+    })
   }
 
   // click->typer#choose

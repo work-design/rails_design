@@ -13,11 +13,12 @@ export default class extends Controller {
           console.debug(el)
           if (el.isIntersecting) {
             Array.from(el.target.children).forEach((child, index) => {
-              child.style.transitionDelay = `${(index + 1) * 0.2}s`
+              child.style.transitionDelay = `${index * 0.2}s`
               child.classList.replace('has-fade-init', 'has-fade-up')
             })
           } else {
             Array.from(el.target.children).forEach(child => {
+              child.style.removeProperty('transition-delay')
               child.classList.replace('has-fade-up', 'has-fade-init')
             })
           }
