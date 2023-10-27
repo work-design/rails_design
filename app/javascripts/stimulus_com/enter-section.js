@@ -3,7 +3,8 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
   static targets = ['order']
   static values = {
-    threshold: { type: Number, default: 0.35 }
+    threshold: { type: Number, default: 0.35 },
+    delay: { type: Number, default: 0.2 }
   }
 
   connect() {
@@ -13,7 +14,7 @@ export default class extends Controller {
           console.debug(el)
           if (el.isIntersecting) {
             Array.from(el.target.children).forEach((child, index) => {
-              child.style.transitionDelay = `${index * 0.2}s`
+              child.style.transitionDelay = `${index * this.delayValue}s`
               child.classList.replace('has-fade-init', 'has-fade-up')
               child.addEventListener('transitionend', event => {
                 event.target.classList.remove('has-fade-up')
