@@ -15,6 +15,10 @@ export default class extends Controller {
             Array.from(el.target.children).forEach((child, index) => {
               child.style.transitionDelay = `${index * 0.2}s`
               child.classList.replace('has-fade-init', 'has-fade-up')
+              child.addEventListener('transitionend', event => {
+                event.target.classList.remove('has-fade-up')
+                event.target.style.removeProperty('transition-delay')
+              })
             })
           } else {
             Array.from(el.target.children).forEach(child => {

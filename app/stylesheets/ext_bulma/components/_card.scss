@@ -85,10 +85,6 @@
   }
 
   &.is-animate-scale {
-    .card {
-      transition-property: opacity, transform;
-      transition-timing-function: ease;
-    }
     .card:hover {
       transform: translate3d(0, -10px, 0);
     }
