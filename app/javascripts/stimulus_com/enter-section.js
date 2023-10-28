@@ -20,7 +20,7 @@ export default class extends Controller {
               child.addEventListener('transitionend', this.xx)
               child.addEventListener('transitioncancel', this.xx)
             })
-          } else {
+          } else if (!el.isIntersecting && el.boundingClientRect.top > 0) {
             Array.from(el.target.children).forEach((child, index) => {
               child.style.transitionDelay = `${index * this.delayValue}s`
               child.classList.add('has-fade-animate')
