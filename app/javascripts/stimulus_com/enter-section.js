@@ -15,16 +15,18 @@ export default class extends Controller {
           if (el.isIntersecting) {
             Array.from(el.target.children).forEach((child, index) => {
               child.style.transitionDelay = `${index * this.delayValue}s`
-              child.classList.replace('has-fade-init', 'has-fade-up')
-              child.addEventListener('transitionend', event => {
-                event.target.classList.remove('has-fade-up')
-                event.target.style.removeProperty('transition-delay')
-              })
+              child.classList.add('has-fade-animate')
+              child.classList.replace('has-fade-start', 'has-fade-end')
+              child.addEventListener('transitionend', this.xx)
+              child.addEventListener('transitioncancel', this.xx)
             })
           } else {
-            Array.from(el.target.children).forEach(child => {
-              child.style.removeProperty('transition-delay')
-              child.classList.replace('has-fade-up', 'has-fade-init')
+            Array.from(el.target.children).forEach((child, index) => {
+              child.style.transitionDelay = `${index * this.delayValue}s`
+              child.classList.add('has-fade-animate')
+              child.classList.replace('has-fade-end', 'has-fade-start')
+              child.addEventListener('transitionend', this.xx)
+              child.addEventListener('transitioncancel', this.xx)
             })
           }
         })
@@ -34,6 +36,11 @@ export default class extends Controller {
       }
     )
     this.observer.observe(this.element)
+  }
+
+  xx(event) {
+    event.target.classList.remove('has-fade-animate')
+    event.target.style.removeProperty('transition-delay')
   }
 
   disconnect() {

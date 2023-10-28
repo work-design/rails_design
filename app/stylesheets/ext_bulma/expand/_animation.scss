@@ -33,14 +33,17 @@
   }
 }
 
-.has-fade-init {
+.has-fade-start {
   opacity: 0;
   transform: translate3d(0, 100px, 0);
 }
 
-.has-fade-up {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
+.has-fade-animate {
   transition-property: opacity, transform;
   transition-duration: 0.5s;
+}
+
+.has-fade-end {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
