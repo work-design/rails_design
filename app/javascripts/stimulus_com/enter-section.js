@@ -17,16 +17,16 @@ export default class extends Controller {
               child.style.transitionDelay = `${index * this.delayValue}s`
               child.classList.add('has-fade-animate')
               child.classList.replace('has-fade-start', 'has-fade-end')
-              child.addEventListener('transitionend', this.xx)
-              child.addEventListener('transitioncancel', this.xx)
+              child.addEventListener('transitionend', this.endXx, { once: true })
+              child.addEventListener('transitioncancel', this.cancelXx, { once: true })
             })
           } else if (!el.isIntersecting && el.boundingClientRect.top > 0) {
             Array.from(el.target.children).forEach((child, index) => {
               child.style.transitionDelay = `${index * this.delayValue}s`
               child.classList.add('has-fade-animate')
               child.classList.replace('has-fade-end', 'has-fade-start')
-              child.addEventListener('transitionend', this.xx)
-              child.addEventListener('transitioncancel', this.xx)
+              child.addEventListener('transitionend', this.endXx, { once: true })
+              child.addEventListener('transitioncancel', this.cancelXx, { once: true })
             })
           }
         })
@@ -38,9 +38,21 @@ export default class extends Controller {
     this.observer.observe(this.element)
   }
 
-  xx(event) {
-    event.target.classList.remove('has-fade-animate')
-    event.target.style.removeProperty('transition-delay')
+  endXx(event) {
+    const controller = event.target.closest('[data-controller~=enter-section]').controller('enter-section')
+    controller.xx(event.target)
+    event.target.removeEventListener('transitioncancel', controller.cancelXx)
+  }
+
+  cancelXx(event) {
+    const controller = event.target.closest('[data-controller~=enter-section]').controller('enter-section')
+    controller.xx(event.target)
+    event.target.removeEventListener('transitionend', controller.endXx)
+  }
+
+  xx(target) {
+    target.classList.remove('has-fade-animate')
+    target.style.removeProperty('transition-delay')
   }
 
   disconnect() {
