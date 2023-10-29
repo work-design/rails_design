@@ -1,7 +1,7 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static targets = ['order']
+  static targets = ['order', 'children']
   static values = {
     threshold: { type: Number, default: 0.35 },
     delay: { type: Number, default: 0.2 }
@@ -13,21 +13,27 @@ export default class extends Controller {
         entries.forEach(el => {
           console.debug(el)
           if (el.isIntersecting) {
-            Array.from(el.target.children).forEach((child, index) => {
-              child.style.transitionDelay = `${index * this.delayValue}s`
-              child.classList.add('has-fade-animate')
-              child.classList.replace('has-fade-start', 'has-fade-end')
-              child.addEventListener('transitionend', this.endXx, { once: true })
-              child.addEventListener('transitioncancel', this.cancelXx, { once: true })
-            })
+            if (this.hasChildrenTarget) {
+              Array.from(this.childrenTarget.children).forEach((child, index) => {
+                child.style.transitionDelay = `${index * this.delayValue}s`
+                this.zz(child)
+                child.addEventListener('transitionend', this.endXx, {once: true})
+                child.addEventListener('transitioncancel', this.cancelXx, {once: true})
+              })
+            } else {
+              this.zz(el.target)
+            }
           } else if (!el.isIntersecting && el.boundingClientRect.top > 0) {
-            Array.from(el.target.children).forEach((child, index) => {
-              child.style.transitionDelay = `${index * this.delayValue}s`
-              child.classList.add('has-fade-animate')
-              child.classList.replace('has-fade-end', 'has-fade-start')
-              child.addEventListener('transitionend', this.endXx, { once: true })
-              child.addEventListener('transitioncancel', this.cancelXx, { once: true })
-            })
+            if (this.hasChildrenTarget) {
+              Array.from(this.childrenTarget.children).forEach((child, index) => {
+                child.style.transitionDelay = `${index * this.delayValue}s`
+                this.zzz(child)
+                child.addEventListener('transitionend', this.endXx, {once: true})
+                child.addEventListener('transitioncancel', this.cancelXx, {once: true})
+              })
+            } else {
+              this.zzz(el.target)
+            }
           }
         })
       },
@@ -36,6 +42,16 @@ export default class extends Controller {
       }
     )
     this.observer.observe(this.element)
+  }
+
+  zz(ele) {
+    ele.classList.add('has-fade-animate')
+    ele.classList.replace('has-fade-start', 'has-fade-end')
+  }
+
+  zzz(ele) {
+    ele.classList.add('has-fade-animate')
+    ele.classList.replace('has-fade-end', 'has-fade-start')
   }
 
   endXx(event) {
