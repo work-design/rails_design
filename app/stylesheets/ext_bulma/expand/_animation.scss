@@ -47,3 +47,16 @@
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
+
+.has-animate-autoFade {
+  animation-name: autoFade;
+  animation-fill-mode: forwards;
+}
+
+@keyframes autoFade {
+  to {
+    opacity: 0.5;
+    display: none;
+  }
+}
+
