@@ -28,3 +28,8 @@
     padding-left: .25em;
   }
 }
+
+input.has-text-centered::-webkit-outer-spin-button,
+input.has-text-centered::-webkit-inner-spin-button {
+  display: none;
+}
