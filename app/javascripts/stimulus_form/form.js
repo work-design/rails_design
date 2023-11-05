@@ -32,6 +32,12 @@ export default class extends Controller {
     css: { type: String, default: 'is-danger' }
   }
 
+  connect() {
+    const labels = Array.from(this.element.getElementsByTagName('label'))
+    const max = Math.max.apply(null, labels.map(i => i.innerText.length))
+    console.debug('-----------',max)
+  }
+
   defaultValid(input) {
     const locale = document.querySelector('html').lang
     let label, word
