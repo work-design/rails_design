@@ -35,7 +35,6 @@ export default class extends Controller {
   connect() {
     const labels = Array.from(this.element.getElementsByTagName('label'))
     const max = Math.max.apply(null, labels.map(i => i.innerText.length))
-    console.debug('-----------',max)
     Array.from(this.element.getElementsByClassName('field-label')).forEach(i => {
       i.style.minWidth = `${max}ch`
     })
