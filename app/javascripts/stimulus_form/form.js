@@ -36,6 +36,9 @@ export default class extends Controller {
     const labels = Array.from(this.element.getElementsByTagName('label'))
     const max = Math.max.apply(null, labels.map(i => i.innerText.length))
     console.debug('-----------',max)
+    labels.forEach(i => {
+      i.style.minWidth = `${max}ch`
+    })
   }
 
   defaultValid(input) {
