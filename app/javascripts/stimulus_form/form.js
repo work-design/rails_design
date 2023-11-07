@@ -33,7 +33,7 @@ export default class extends Controller {
   }
 
   connect() {
-    const labels = Array.from(this.element.getElementsByTagName('label'))
+    const labels = Array.from(this.element.querySelectorAll('.field-label > label.label'))
     const lengths = labels.map(i => i.innerText.length)
     console.debug('lengths', lengths)
     const max = Math.max.apply(null, lengths)
