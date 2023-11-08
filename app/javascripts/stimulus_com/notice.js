@@ -9,15 +9,17 @@ export default class extends Controller {
 
   connect() {
     this.element.style.animationDuration = `${this.durationValue}s`
-    let count = 100
-    const rate = this.durationValue * 1000 / count
-    this.timer = setInterval(() => {
-      count--
-      this.progressTarget.value = count
-      if (count <= 0) {
-        clearInterval(this.timer)
-      }
-    }, rate)
+    if (this.hasProgressTarget) {
+      let count = 100
+      const rate = this.durationValue * 1000 / count
+      this.timer = setInterval(() => {
+        count--
+        this.progressTarget.value = count
+        if (count <= 0) {
+          clearInterval(this.timer)
+        }
+      }, rate)
+    }
   }
 
   close() {
@@ -25,7 +27,9 @@ export default class extends Controller {
   }
 
   disconnect() {
-    clearInterval(this.timer)
+    if (this.timer) {
+      clearInterval(this.timer)
+    }
   }
 
 }
