@@ -11,17 +11,21 @@ export default class extends Controller {
     this.element.style.animationDuration = `${this.durationValue}s`
     let count = 100
     const rate = this.durationValue * 1000 / count
-    const timer = setInterval(() => {
+    this.timer = setInterval(() => {
       count--
       this.progressTarget.value = count
       if (count <= 0) {
-        clearInterval(timer)
+        clearInterval(this.timer)
       }
     }, rate)
   }
 
   close() {
     this.element.remove()
+  }
+
+  disconnect() {
+    clearInterval(this.timer)
   }
 
 }
