@@ -9,12 +9,18 @@ export default class extends Controller {
   }
 
   connect() {
-    console.debug('modal refer:', document.referrer)
-    this.observer = new MutationObserver(this.loaded)
-    this.observer.observe(this.modal, { childList: true })
+    this.addClass()
   }
 
   close() {
+    this.element.remove()
+  }
+
+  disconnect() {
+    document.documentElement.classList.remove('is-clipped')
+  }
+
+  xclose() {
     this.removeClass()
     sessionStorage.removeItem('scrollTop')
     this.urlsValue = this.urlsValue.slice(0, this.urlsValue.length - 1)
@@ -37,33 +43,7 @@ export default class extends Controller {
     Turbo.visit(location.href, { action: 'replace' })
   }
 
-  disconnect() {
-    this.observer.disconnect()
-    delete this.observer
-  }
 
-  // NOTICE: here this becomes observer
-  loaded(list, observer) {
-    const item = list[0]
-    const ele = item.target.parentNode.parentNode
-    const con = application.getControllerForElementAndIdentifier(ele, 'modal')
-    switch(item.type) {
-      case 'childList':
-        if (typeof item.target.src === 'undefined' || item.target.src === null) {
-          break
-        }
-        ele.classList.add('is-active')
-        con.backgroundTarget.classList.replace('has-background-white', 'modal-background')
-        document.documentElement.classList.add('is-clipped')
-        if (con.urlsValue.length > 0 && !con.hasRedirectValue) {
-          con.redirectValue = item.target.src
-          con.addEvent()
-        }
-        if (con.urlsValue[con.urlsValue.length - 1] !== item.target.src) {
-          con.urlsValue = con.urlsValue.concat(item.target.src)
-        }
-    }
-  }
 
   addEvent() {
     document.addEventListener('turbo:before-fetch-request', this.addHeader)
@@ -86,6 +66,32 @@ export default class extends Controller {
     this.element.classList.remove('is-active')
     this.backgroundTarget.classList.replace('modal-background', 'has-background-white')
     document.documentElement.classList.remove('is-clipped')
+  }
+
+  addClass() {
+    this.element.classList.add('is-active')
+    this.backgroundTarget.classList.replace('has-background-white', 'modal-background')
+    document.documentElement.classList.add('is-clipped')
+  }
+
+  loaded() {
+    const item = list[0]
+    const ele = item.target.parentNode.parentNode
+    const con = application.getControllerForElementAndIdentifier(ele, 'modal')
+    switch(item.type) {
+      case 'childList':
+        if (typeof item.target.src === 'undefined' || item.target.src === null) {
+          break
+        }
+
+        if (con.urlsValue.length > 0 && !con.hasRedirectValue) {
+          con.redirectValue = item.target.src
+          con.addEvent()
+        }
+        if (con.urlsValue[con.urlsValue.length - 1] !== item.target.src) {
+          con.urlsValue = con.urlsValue.concat(item.target.src)
+        }
+    }
   }
 
   get modal() {
