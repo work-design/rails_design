@@ -4,12 +4,16 @@ export default class extends Controller {
   static targets = ['input']
   static values = {
     step: { type: Number, default: 1 },
+    submit: { type: Boolean, default: false },
     total: Number,
     quantity: String
   }
 
   plus() {
     this.inputTarget.value = Number(parseFloat(this.inputTarget.value || 0) + this.step).toFixed(this.digit)
+    if (this.submitValue) {
+      this.inputTarget.form.requestSubmit()
+    }
     if (this.hasQuantityValue) {
       this.doDivide(this.inputTarget.value)
     }

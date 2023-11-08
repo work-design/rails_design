@@ -4,17 +4,9 @@
   }
 }
 
-form.button_to {
+.button_to {
   display: inline;
-  button:not(.button, .weui-btn),
-  input[type="submit"]:not(.button, .weui-btn) {
-    border: none;
-    padding: 0;
-    background: transparent;
-    cursor: pointer;
-    line-height: inherit;
-    font-size: initial; // 修复 safari fa 图标显示问题
-  }
+
   i:not(.fa-solid, .fa-light):before {
     color: rgba(0, 0, 0, 0.8)
   }
@@ -26,6 +18,18 @@ form.button_to {
     text-align: left;
   }
 }
+
+.button_to button:not(.button, .weui-btn),
+.button_to input[type="submit"]:not(.button, .weui-btn),
+button.button_to {
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  line-height: inherit;
+  font-size: initial; // 修复 safari fa 图标显示问题
+}
+
 
 form.button_column {
   button {
