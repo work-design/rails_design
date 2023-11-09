@@ -95,6 +95,3 @@ application.register('choice', ChoiceController)
 // Dependent on Bulma CSS
 import ModalController from './modal'
 application.register('modal', ModalController)
-
-import ModalShowController from './modal_show'
-application.register('modal-show', ModalShowController)
