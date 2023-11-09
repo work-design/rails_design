@@ -2,7 +2,6 @@ import { Controller } from '@hotwired/stimulus'
 
 // data-controller="modal"
 export default class extends Controller {
-  static targets = ['background']
 
   connect() {
     document.documentElement.classList.add('is-clipped')

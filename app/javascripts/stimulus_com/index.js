@@ -91,7 +91,3 @@ application.register('sort', SortController)
 // Dependent on Choices.js
 import ChoiceController from './choice'
 application.register('choice', ChoiceController)
-
-// Dependent on Bulma CSS
-import ModalController from './modal'
-application.register('modal', ModalController)
