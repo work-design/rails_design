@@ -11,6 +11,14 @@ export default class extends Controller {
     this.element.classList.toggle('is-active')
   }
 
+  enter(event) {
+    const ele = event.currentTarget
+    Array.from(ele.parentNode.children).filter(el => el.classList.contains('is-active')).forEach(i => {
+      i.classList.remove('is-active')
+    })
+    ele.classList.add('is-active')
+  }
+
   expand(event) {
     let expander = event.currentTarget
     if (expander.nextElementSibling !== null) {
