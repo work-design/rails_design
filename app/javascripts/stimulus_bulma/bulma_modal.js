@@ -8,7 +8,11 @@ export default class extends Controller {
   }
 
   close() {
-    this.element.remove()
+    const label = this.closeCheck()
+
+    if (!label || confirm(`${label} is changed, Are You Sure?`)) {
+      this.element.remove()
+    }
   }
 
   disconnect() {
@@ -17,6 +21,9 @@ export default class extends Controller {
 
   // 关闭前检查下有没有未提交的表单
   closeCheck() {
+    return Array.from(this.element.getElementsByTagName('input')).reduce((str, el) => {
+      return (el.value !== el.defaultValue) ? str.concat(', ', el.labels[0]?.innerText) : str
+    }, '')
   }
 
 }
