@@ -94,6 +94,16 @@ export default class extends Controller {
     this.defaultValid(event.currentTarget)
   }
 
+  // data-action="change->form#xx"
+  tip(event) {
+    const ele = event.currentTarget
+    if (ele.defaultValue !== ele.value) {
+      ele.classList.add('is-warning')
+    } else {
+      ele.classList.remove('is-warning')
+    }
+  }
+
   // form[method="get"]
   // submit->xx
   filter(event) {
