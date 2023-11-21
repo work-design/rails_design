@@ -36,6 +36,14 @@ td.has-inner-table {
 
   th, td {
     vertical-align: middle;
+
+    &.is-borderless {
+      border-bottom-width: 0;
+    }
+
+    &.is-empty {
+      padding: 0;
+    }
   }
 
   td > p + p,
