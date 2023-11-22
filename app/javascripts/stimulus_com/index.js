@@ -19,6 +19,9 @@ application.register('count-up', CountUpController)
 import CustomController from './custom'
 application.register('custom', CustomController)
 
+import DrawLineController from './draw-line'
+application.register('draw-line', DrawLineController)
+
 import EmptyController from './empty'
 application.register('empty', EmptyController)
 
