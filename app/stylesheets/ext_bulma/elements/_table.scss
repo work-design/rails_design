@@ -106,6 +106,9 @@ td.has-inner-table {
         border-bottom-width: 0;
       }
     }
+    tfoot td {
+      border-top-width: 0;
+    }
   }
 
   &.is-sticky {
