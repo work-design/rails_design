@@ -68,6 +68,10 @@ application.register('slide-y', SlideYController)
 import SwipeController from './swipe'
 application.register('swipe', SwipeController)
 
+// 切换元素的显示状态
+import SwitchController from './switch'
+application.register('switch', SwitchController)
+
 // 时间格式根据浏览器时区等进行转化
 import TimeController from './time'
 application.register('time', TimeController)
