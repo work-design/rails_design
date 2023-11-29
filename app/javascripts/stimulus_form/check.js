@@ -2,14 +2,14 @@ import { Controller } from '@hotwired/stimulus'
 
 // data-controller="check"
 export default class extends Controller {
-  static targets = ['ids']
+  static targets = ['ids', 'all']
   static values = {
     name: String
   }
 
   connect() {
     for (const ingredient of this.checkboxes) {
-      ingredient.dataset.id = this.element.id
+      ingredient.dataset.id = this.allTarget.id
       ingredient.addEventListener('click', this.updateDisplay)
     }
   }
@@ -68,7 +68,7 @@ export default class extends Controller {
   }
 
   get checkboxes() {
-    return document.querySelectorAll(`input[type=checkbox][name='${this.element.value}']`)
+    return document.querySelectorAll(`input[type=checkbox][name='${this.allTarget.value}']`)
   }
 
 }
