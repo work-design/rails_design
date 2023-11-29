@@ -7,11 +7,17 @@ export default class extends Controller {
     name: String
   }
 
+  connect() {
+    for (const ingredient of this.checkboxes) {
+      ingredient.addEventListener('click', this.updateDisplay)
+    }
+  }
+
   // checkbox data-action="check#toggleAll"
   toggleAll(event) {
     const element = event.currentTarget
 
-    for (let checkbox of this.checkboxes) {
+    for (const checkbox of this.checkboxes) {
       if (!checkbox.disabled) {
         checkbox.checked = element.checked
       }
@@ -36,7 +42,27 @@ export default class extends Controller {
     }
   }
 
+  updateDisplay() {
+    let checkedCount = 0
+    for (const ingredient of this.checkboxes) {
+      if (ingredient.checked) {
+        checkedCount++
+      }
+    }
+
+    if (checkedCount === 0) {
+      this.element.checked = false
+      this.element.indeterminate = false
+    } else if (checkedCount === this.checkboxes.length) {
+      this.element.checked = true
+      this.element.indeterminate = false
+    } else {
+      this.element.checked = false
+      this.element.indeterminate = true
+    }
+  }
+
   get checkboxes() {
-    return document.querySelectorAll(`input[type=checkbox][name='${this.nameValue}']`)
+    return document.querySelectorAll(`input[type=checkbox][name='${this.element.value}']`)
   }
 }
