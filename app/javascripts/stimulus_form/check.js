@@ -9,6 +9,7 @@ export default class extends Controller {
 
   connect() {
     for (const ingredient of this.checkboxes) {
+      ingredient.dataset.id = this.element.id
       ingredient.addEventListener('click', this.updateDisplay)
     }
   }
@@ -42,27 +43,32 @@ export default class extends Controller {
     }
   }
 
-  updateDisplay() {
+  // NOTICE: this become event
+  updateDisplay(event) {
     let checkedCount = 0
-    for (const ingredient of this.checkboxes) {
+    const ele = event.currentTarget
+    const ingredients = document.querySelectorAll(`input[type=checkbox][name='${ele.name}']`)
+    const element = document.getElementById(ele.dataset.id)
+    for (const ingredient of ingredients) {
       if (ingredient.checked) {
-        checkedCount++
+        checkedCount++;
       }
     }
 
     if (checkedCount === 0) {
-      this.element.checked = false
-      this.element.indeterminate = false
-    } else if (checkedCount === this.checkboxes.length) {
-      this.element.checked = true
-      this.element.indeterminate = false
+      element.checked = false
+      element.indeterminate = false
+    } else if (checkedCount === ingredients.length) {
+      element.checked = true
+      element.indeterminate = false
     } else {
-      this.element.checked = false
-      this.element.indeterminate = true
+      element.checked = false
+      element.indeterminate = true
     }
   }
 
   get checkboxes() {
     return document.querySelectorAll(`input[type=checkbox][name='${this.element.value}']`)
   }
+
 }
