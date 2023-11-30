@@ -1,11 +1,7 @@
 import { Controller } from '@hotwired/stimulus'
 
-// data-controller="check"
 export default class extends Controller {
-  static targets = ['ids', 'all']
-  static values = {
-    name: String
-  }
+  static targets = ['ids', 'all', 'form']
 
   connect() {
     for (const ingredient of this.checkboxes) {
@@ -22,24 +18,6 @@ export default class extends Controller {
       if (!checkbox.disabled) {
         checkbox.checked = element.checked
       }
-    }
-  }
-
-  doSubmit(event) {
-    event.preventDefault()
-
-    const ids = []
-    this.checkboxes.forEach(item => {
-      if (item.checked && !item.disabled) {
-        ids.push(item.value)
-      }
-    })
-
-    if (ids.length > 0) {
-      this.idsTarget.value = ids
-      this.idsTarget.form.requestSubmit()
-    } else {
-      alert('no need commit')
     }
   }
 

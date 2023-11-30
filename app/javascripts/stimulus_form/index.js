@@ -1,6 +1,9 @@
 import CheckController from './check'
 application.register('check', CheckController)
 
+import CheckCommitController from './check-commit'
+application.register('check-commit', CheckCommitController)
+
 import CoeffController from './coeff'
 application.register('coeff', CoeffController)
 
