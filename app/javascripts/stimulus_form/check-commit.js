@@ -3,10 +3,6 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
   static targets = ['ids']
   static outlets = ['check']
-  static values = {
-    name: String
-  }
-
 
   doSubmit(event) {
     event.preventDefault()
