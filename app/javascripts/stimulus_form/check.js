@@ -1,7 +1,7 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static targets = ['ids', 'all', 'form']
+  static targets = ['all']
 
   connect() {
     for (const ingredient of this.checkboxes) {

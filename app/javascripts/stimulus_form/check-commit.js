@@ -1,6 +1,8 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
+  static targets = ['ids']
+  static outlets = ['check']
   static values = {
     name: String
   }
@@ -10,7 +12,7 @@ export default class extends Controller {
     event.preventDefault()
 
     const ids = []
-    this.checkboxes.forEach(item => {
+    this.checkOutlet.checkboxes.forEach(item => {
       if (item.checked && !item.disabled) {
         ids.push(item.value)
       }
