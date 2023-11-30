@@ -26,7 +26,7 @@ export default class extends Controller {
     let checkedCount = 0
     const ele = event.currentTarget
     const ingredients = document.querySelectorAll(`input[type=checkbox][name='${ele.name}']`)
-    const element = document.getElementById(ele.dataset.id)
+    const overall = document.getElementById(ele.dataset.id)
     for (const ingredient of ingredients) {
       if (ingredient.checked) {
         checkedCount++;
@@ -34,14 +34,14 @@ export default class extends Controller {
     }
 
     if (checkedCount === 0) {
-      element.checked = false
-      element.indeterminate = false
+      overall.checked = false
+      overall.indeterminate = false
     } else if (checkedCount === ingredients.length) {
-      element.checked = true
-      element.indeterminate = false
+      overall.checked = true
+      overall.indeterminate = false
     } else {
-      element.checked = false
-      element.indeterminate = true
+      overall.checked = false
+      overall.indeterminate = true
     }
   }
 
