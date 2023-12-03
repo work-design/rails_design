@@ -1,1 +1,10 @@
+.level {
+  .buttons {
+    margin-bottom: 0;
+  }
 
+  .buttons + .button_to,
+  .buttons + .button {
+    margin-left: 0.5rem;
+  }
+}
