@@ -2,7 +2,7 @@ import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
   static outlets = ['check-commit']
-  static targets = ['all']
+  static targets = ['all', 'total']
 
   connect() {
     for (const ingredient of this.checkboxes) {
@@ -14,29 +14,36 @@ export default class extends Controller {
   // checkbox data-action="check#toggleAll"
   toggleAll(event) {
     const element = event.currentTarget
-    if (element.checked) {
-      this.showCommits()
-    } else {
-      this.hiddenCommits()
-    }
 
     for (const checkbox of this.checkboxes) {
       if (!checkbox.disabled) {
         checkbox.checked = element.checked
       }
     }
+
+    if (element.checked) {
+      this.showCommits(this.checkboxes.length)
+    } else {
+      this.hiddenCommits()
+    }
   }
 
-  showCommits() {
+  showCommits(total) {
     this.checkCommitOutletElements.forEach(el => {
       el.classList.remove('is-hidden')
     })
+    if (this.hasTotalTarget) {
+      this.totalTarget.innerText = `${total} Selected`
+    }
   }
 
   hiddenCommits() {
     this.checkCommitOutletElements.forEach(el => {
       el.classList.add('is-hidden')
     })
+    if (this.hasTotalTarget) {
+      this.totalTarget.innerText = ''
+    }
   }
 
   // NOTICE: this become event
@@ -59,11 +66,11 @@ export default class extends Controller {
     } else if (checkedCount === ingredients.length) {
       overall.checked = true
       overall.indeterminate = false
-      con.showCommits()
+      con.showCommits(checkedCount)
     } else {
       overall.checked = false
       overall.indeterminate = true
-      con.showCommits()
+      con.showCommits(checkedCount)
     }
   }
 
