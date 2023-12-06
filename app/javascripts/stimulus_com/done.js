@@ -7,7 +7,7 @@ export default class extends Controller {
   }
 
   connect() {
-    consumer.subscriptions.create({channel: 'Datum::DoneChannel'}, {
+    this.subscription = consumer.subscriptions.create({channel: 'Datum::DoneChannel'}, {
       received(data) {
         Turbo.renderStreamMessage(data)
       },
@@ -23,7 +23,7 @@ export default class extends Controller {
   }
 
   disconnect() {
-
+    this.subscription.unsubscribe()
   }
 
 }
