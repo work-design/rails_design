@@ -1970,9 +1970,9 @@ iconv-lite@^0.6.3:
   dependencies:
     safer-buffer ">= 2.1.2 < 3.0.0"
 
-"idiomorph@git+https://github.com/basecamp/idiomorph.git#rollout-build":
+"idiomorph@https://github.com/basecamp/idiomorph#rollout-build":
   version "0.0.8"
-  resolved "git+https://github.com/basecamp/idiomorph.git#e906820368e4c9c52489a3336b8c3826b1bf6de5"
+  resolved "https://github.com/basecamp/idiomorph#e906820368e4c9c52489a3336b8c3826b1bf6de5"
 
 image-size@~0.5.0:
   version "0.5.5"
