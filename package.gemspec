@@ -1,11 +1,11 @@
 Gem::Specification.new do |s|
   s.name = 'rails_design'
   s.version = '0.0.1'
-  s.authors = ['qinmingyuan']
+  s.authors = ['Mingyuan Qin']
   s.email = ['mingyuan0715@foxmail.com']
   s.homepage = 'https://github.com/work-design/rails_design'
   s.summary = 'Work Design UI Project'
-  s.description = 'Description of RailsUi.'
+  s.description = 'Description of RailsDesign'
   s.license = 'MIT'
 
   s.metadata['homepage_uri'] = s.homepage
