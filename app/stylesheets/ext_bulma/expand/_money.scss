@@ -6,6 +6,9 @@
 }
 
 .money-whole {
+  display: inline-block;
+  width: var(--money-width);
+  text-align: right;
   font-family: monospace;
   font-size: 1em;
   align-self: baseline;
