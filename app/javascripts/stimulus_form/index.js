@@ -16,6 +16,9 @@ application.register('equal', EqualController)
 import FormerController from './former'
 application.register('former', FormerController)
 
+import IndeterminateController from './indeterminate'
+application.register('indeterminate', IndeterminateController)
+
 import FormController from './form'
 application.register('form', FormController)
 
