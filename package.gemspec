@@ -3,14 +3,8 @@ Gem::Specification.new do |s|
   s.version = '0.0.1'
   s.authors = ['Mingyuan Qin']
   s.email = ['mingyuan0715@foxmail.com']
-  s.homepage = 'https://github.com/work-design/rails_design'
   s.summary = 'Work Design UI Project'
   s.description = 'Description of RailsDesign'
-  s.license = 'MIT'
-
-  s.metadata['homepage_uri'] = s.homepage
-  s.metadata['source_code_uri'] = 'https://github.com/work-design/rails_design'
-  s.metadata['changelog_uri'] = 'https://github.com/work-design/rails_design'
 
   s.files = Dir[
     '{app,config,db,lib}/**/*',
