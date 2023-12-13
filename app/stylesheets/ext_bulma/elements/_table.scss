@@ -122,4 +122,8 @@ td.has-inner-table {
       background-color: lightseagreen;
     }
   }
+
+  &.is-boxed {
+    border-radius: 6px;
+  }
 }
