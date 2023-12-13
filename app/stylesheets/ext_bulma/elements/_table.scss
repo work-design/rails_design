@@ -134,5 +134,12 @@ td.has-inner-table {
       border-top-left-radius: 6px;
       border-top-right-radius: 6px;
     }
+
+    tr:nth-last-child(-n + 2) {
+      td[rowspan],
+      th[rowspan] {
+        border-bottom-width: 0;
+      }
+    }
   }
 }
