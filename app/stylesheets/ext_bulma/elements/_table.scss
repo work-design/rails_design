@@ -125,5 +125,12 @@ td.has-inner-table {
 
   &.is-boxed {
     border-radius: 6px;
+    border: solid 1px #eee;
+    box-shadow: $shadow;
+
+    thead {
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
   }
 }
