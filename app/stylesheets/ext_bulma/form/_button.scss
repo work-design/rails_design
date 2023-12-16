@@ -7,6 +7,9 @@
 .button_to {
   display: inline;
 
+  i {
+    line-height: 1;
+  }
   i:not(.fa-solid, .fa-light):before {
     color: rgba(0, 0, 0, 0.8)
   }
