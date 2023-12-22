@@ -121,4 +121,10 @@ export default class extends Controller {
     Turbo.visit(url.href)
   }
 
+  // focus->form#blank
+  blank(event) {
+    const ele = event.currentTarget
+    ele.value = ''
+  }
+
 }
