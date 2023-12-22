@@ -1,13 +1,12 @@
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: da0cab3804503367f766b1bbd4eb47190072f7a8
+  revision: 21b5fce4f5b2a1a15f69eb6e074abd0484b569ba
   specs:
     rails_com (1.3.0)
       acme-client
       acts_as_list (>= 1.0)
       closure_tree (>= 7.3)
       default_where (~> 2.2)
-      good_job
       http-form_data (~> 2.3)
       httpx
       kaminari
@@ -19,7 +18,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_extend.git
-  revision: 1b219ff1db4f48a8d2f69d92be30f64b0ba99542
+  revision: a0db47e1edc3eefabb3bedf8111fc3397fe459a1
   specs:
     rails_extend (1.0.1)
       rails (>= 5.0)
@@ -130,8 +129,6 @@ GEM
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
-    et-orbi (1.2.7)
-      tzinfo
     faraday (2.7.12)
       base64
       faraday-net_http (>= 2.0, < 3.1)
@@ -139,18 +136,8 @@ GEM
     faraday-net_http (3.0.2)
     faraday-retry (2.2.0)
       faraday (~> 2.0)
-    fugit (1.9.0)
-      et-orbi (~> 1, >= 1.2.7)
-      raabro (~> 1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    good_job (3.21.5)
-      activejob (>= 6.0.0)
-      activerecord (>= 6.0.0)
-      concurrent-ruby (>= 1.0.2)
-      fugit (>= 1.1)
-      railties (>= 6.0.0)
-      thor (>= 0.14.1)
     http-2-next (1.0.2)
     http-form_data (2.3.0)
     httpx (1.2.0)
@@ -215,7 +202,6 @@ GEM
       stringio
     puma (6.4.0)
       nio4r (~> 2.0)
-    raabro (1.4.0)
     racc (1.7.3)
     rack (3.0.8)
     rack-session (2.0.0)
@@ -316,13 +302,10 @@ CHECKSUMS
   default_where (2.2.0) sha256=77f54769256ad5d961c44a6dd88d8d485a1c4487a549d2c178da9101f6fed0a0
   drb (2.2.0) sha256=e9e4af1cded3306cfe37e064a0086e302d5f40df9cb4d161d059a6bb3a75d40f
   erubi (1.12.0) sha256=27bedb74dfb1e04ff60674975e182d8ca787f2224f2e8143268c7696f42e4723
-  et-orbi (1.2.7) sha256=3b693d47f94a4060ccc07e60adda488759b1e8b9228a633ebbad842dfc245fb4
   faraday (2.7.12) sha256=ed38dcd396d2defcf8a536bbf7ef45e6385392ab815fe087df46777be3a781a7
   faraday-net_http (3.0.2) sha256=6882929abed8094e1ee30344a3369e856fe34530044630d1f652bf70ebd87e8d
   faraday-retry (2.2.0) sha256=80824a5454dd0ce7d8074013454d163569b909001a64bdb3499c9968df4f41c5
-  fugit (1.9.0) sha256=e92ae18828a094afdd753e42ded0b83ad3449d79adddc5d1ab88e28dbfedd221
   globalid (1.2.1) sha256=70bf76711871f843dbba72beb8613229a49429d1866828476f9c9d6ccc327ce9
-  good_job (3.21.5)
   http-2-next (1.0.2)
   http-form_data (2.3.0) sha256=cc4eeb1361d9876821e31d7b1cf0b68f1cf874b201d27903480479d86448a5f3
   httpx (1.2.0)
@@ -353,7 +336,6 @@ CHECKSUMS
   pg (1.5.4) sha256=04f7b247151c639a0b955d8e5a9a41541343f4640aa3c2bdf749a872c339d25d
   psych (5.1.1.1) sha256=44b0d1823629ac815f1f470af642dc7261489d67feb622a3f5573aa9f5cc5f72
   puma (6.4.0) sha256=d5dda11362744df9f4694708a62e3cfddf72eba7498c16016ebbb30f106712f9
-  raabro (1.4.0) sha256=d4fa9ff5172391edb92b242eed8be802d1934b1464061ae5e70d80962c5da882
   racc (1.7.3) sha256=b785ab8a30ec43bce073c51dbbe791fd27000f68d1c996c95da98bf685316905
   rack (3.0.8) sha256=9c2c912fb7bb367ddeea98193fc51f2aa526733066d0846911aaddb13a457248
   rack-session (2.0.0) sha256=db04b2063e180369192a9046b4559af311990af38c6a93d4c600cee4eb6d4e81
