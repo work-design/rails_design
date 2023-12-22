@@ -3,7 +3,7 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
   static targets = ['input']
   static values = {
-    step: { type: Number, default: 1 },
+    step: Number,
     submit: { type: Boolean, default: false },
     total: Number,
     quantity: String
@@ -46,7 +46,11 @@ export default class extends Controller {
   }
 
   get step() {
-    return parseFloat(this.inputTarget.step) || this.stepValue
+    if (this.hasStepValue) {
+      return this.stepValue
+    } else {
+      return parseFloat(this.inputTarget.step)
+    }
   }
 
   get digit() {
