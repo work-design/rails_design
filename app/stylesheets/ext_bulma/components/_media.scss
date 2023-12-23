@@ -4,6 +4,18 @@
   }
 }
 
+.media-left {
+  &.as-logo {
+    align-self: center;
+  }
+}
+
+.media-right {
+  &.as-x {
+    align-self: center;
+  }
+}
+
 @include mobile {
   .media {
     .media-content {
