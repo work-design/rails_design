@@ -49,6 +49,13 @@
   align-items: center;
 }
 
+.xx {
+  form:not(:first-child),
+  button:not(:first-child) {
+    margin-top: 5px;
+  }
+}
+
 .has-column-space-between {
   display: flex;
   flex-direction: column;
