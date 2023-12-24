@@ -13,14 +13,14 @@
   height: 100%;
 }
 
-.is-space {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 .has-block-left {
   display: flex;
+  align-items: center;
+}
+
+.has-block-centered {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -42,18 +42,17 @@
   align-items: center;
 }
 
-.has-block-centered {
+.has-column-centered {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.is-middle {
+.has-column-space-between {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
 }
 
 .is-several {
@@ -68,17 +67,10 @@
   align-items: center;
 }
 
-.has-flex-centered {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .has-v-centered {
   display: flex;
   align-items: center;
 }
-
 
 .has-block-left,
 .has-block-right,
