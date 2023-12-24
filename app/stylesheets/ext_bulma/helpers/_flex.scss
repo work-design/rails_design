@@ -50,8 +50,8 @@
 }
 
 .xx {
-  form:not(:first-child),
-  button:not(:first-child) {
+  & > form:not(:first-child),
+  & > button:not(:first-child) {
     margin-top: 5px;
   }
 }
