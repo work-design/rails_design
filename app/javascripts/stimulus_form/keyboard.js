@@ -1,6 +1,7 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
+  static targets = ['submit']
   static values = {
     id: String,
     dot: String,
@@ -32,7 +33,16 @@ export default class extends Controller {
     } else {
       this.input.value = value
     }
+
+    if (this.input.valueAsNumber > 0) {
+      this.submitTarget.disabled = false
+    }
+
     this.input.dispatchEvent(new Event('input'))
+  }
+
+  zeroEnter(event) {
+    this.enter(event)
   }
 
   dot() {
@@ -48,6 +58,9 @@ export default class extends Controller {
 
   backspace() {
     this.input.value = this.input.value.slice(0, -1)
+    if (this.input.value === '') {
+      this.dotElement.hidden = true
+    }
   }
 
   get input() {
