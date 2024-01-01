@@ -62,6 +62,12 @@
   justify-content: space-between;
 }
 
+.has-column-space-around {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .is-several {
   display: inline-flex;
   align-items: center;
