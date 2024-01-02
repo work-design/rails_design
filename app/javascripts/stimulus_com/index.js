@@ -88,6 +88,9 @@ application.register('tree', TreeController)
 import TreeRemoteController from './tree_remote'
 application.register('tree-remote', TreeRemoteController)
 
+import VideoController from './video'
+application.register('video', VideoController)
+
 import VisitController from './visit'
 application.register('visit', VisitController)
 
