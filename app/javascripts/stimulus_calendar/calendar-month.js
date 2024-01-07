@@ -12,6 +12,7 @@ export default class extends Controller {
       plugins: [dayGridPlugin],
       initialView: 'dayGridMonth'
     })
+    this.calendar.render()
   }
 
   disconnect() {
