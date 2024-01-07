@@ -10,7 +10,12 @@ export default class extends Controller {
   connect() {
     this.calendar = new Calendar(this.element, {
       plugins: [dayGridPlugin],
-      initialView: 'dayGridMonth'
+      initialView: 'dayGridMonth',
+      eventSources: [
+        {
+          url: '/events'
+        }
+      ]
     })
     this.calendar.render()
   }
