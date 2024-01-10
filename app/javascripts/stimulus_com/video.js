@@ -5,14 +5,12 @@ export default class extends Controller {
 
   connect() {
     if (this.video.autoplay) {
-      console.debug('ended event added')
       this.video.addEventListener('ended', this.enableLink)
     }
   }
 
   disconnect() {
-    console.debug('ddd', this.video)
-    this.video.remove()
+    this.element.querySelectorAll('audio, video').forEach(el => el.remove())
   }
 
   enableLink(event) {

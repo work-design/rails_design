@@ -1,13 +1,8 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static targets = ['next', 'video', 'play']
 
   connect() {
-    if (this.video.autoplay) {
-      console.debug('ended event added')
-      this.video.addEventListener('ended', this.playNext)
-    }
   }
 
   disconnect() {
@@ -16,14 +11,11 @@ export default class extends Controller {
 
   playNext(event) {
     const ele = event.currentTarget
-    const con = ele.closest('[data-controller~=video-next]').controller('video-next')
+    const nextEle = ele.parentElement.nextElementSibling
+
     ele.style.display = 'none'
-    con.nextTargets.forEach(el => {
-      el.style.removeProperty('display')
-    })
-    con.playTargets.forEach(el => {
-      el.play()
-    })
+    nextEle.style.removeProperty('display')
+    nextEle.querySelectorAll('audio, video').forEach(el => el.play())
   }
 
   get video() {
