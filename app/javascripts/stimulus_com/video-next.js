@@ -6,12 +6,14 @@ export default class extends Controller {
   }
 
   disconnect() {
-    this.element.querySelectorAll('audio, video').forEach(el => el.pause())
+    this.element.querySelectorAll('audio, video').forEach(el => el.remove())
   }
 
   playNext(event) {
     let ele = event.currentTarget
-    let nextEle = ele.nextElementSibing
+    let nextEle = ele.nextElementSibling
+
+    console.debug('first', nextEle)
 
     while (true) {
       if (nextEle && nextEle.style.display === 'none') {
@@ -31,7 +33,11 @@ export default class extends Controller {
 
     ele.style.display = 'none'
     nextEle.style.removeProperty('display')
-    nextEle.querySelectorAll('audio, video').forEach(el => el.play())
+    if (['VIDEO', 'AUDIO'].includes(nextEle.tagName)) {
+      nextEle.play()
+    } else {
+      nextEle.querySelectorAll('audio, video').forEach(el => el.play())
+    }
   }
 
 }
