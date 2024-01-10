@@ -6,16 +6,15 @@ export default class extends Controller {
   connect() {
     if (this.video.autoplay) {
       console.debug('ended event added')
-      this.video.addEventListener('ended', this.enableLink)
+      this.video.addEventListener('ended', this.playNext)
     }
   }
 
   disconnect() {
-    console.debug('ddd', this.video)
-    this.video.remove()
+    this.element.querySelectorAll('audio, video').forEach(el => el.remove())
   }
 
-  enableLink(event) {
+  playNext(event) {
     const ele = event.currentTarget
     const con = ele.closest('[data-controller~=video-next]').controller('video-next')
     ele.style.display = 'none'

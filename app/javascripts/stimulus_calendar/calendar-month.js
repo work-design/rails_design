@@ -11,6 +11,7 @@ export default class extends Controller {
     this.calendar = new Calendar(this.element, {
       plugins: [dayGridPlugin],
       initialView: 'dayGridMonth',
+      fixedWeekCount: false,
       eventSources: [
         {
           url: '/events'
