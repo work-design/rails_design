@@ -6,24 +6,32 @@ export default class extends Controller {
   }
 
   disconnect() {
-    this.element.querySelectorAll('audio, video').forEach(el => el.remove())
+    this.element.querySelectorAll('audio, video').forEach(el => el.pause())
   }
 
   playNext(event) {
-    const ele = event.currentTarget
-    const nextEle = ele.parentElement.nextElementSibling
+    let ele = event.currentTarget
+    let nextEle = ele.nextElementSibing
+
+    while (true) {
+      if (nextEle && nextEle.style.display === 'none') {
+        break
+      }
+
+      ele = ele.parentElement
+      if (!ele) {
+        break
+      }
+
+      nextEle = ele.nextElementSibling
+
+      console.debug('ele', ele)
+      console.debug('next', nextEle)
+    }
 
     ele.style.display = 'none'
     nextEle.style.removeProperty('display')
     nextEle.querySelectorAll('audio, video').forEach(el => el.play())
-  }
-
-  get video() {
-    if (this.hasVideoTarget) {
-      return this.videoTarget
-    } else {
-      return this.element
-    }
   }
 
 }
