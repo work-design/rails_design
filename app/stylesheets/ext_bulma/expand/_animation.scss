@@ -24,15 +24,6 @@
   animation-iteration-count: infinite;
 }
 
-@keyframes anticlockwise {
-  0% {
-    transform: rotate(0deg)
-  }
-  100% {
-    transform: rotate(-360deg)
-  }
-}
-
 .has-fade-start {
   opacity: 0;
   transform: translate3d(0, 100px, 0);
@@ -53,6 +44,20 @@
   animation-fill-mode: forwards;
 }
 
+.has-animate-fade-out {
+  animation-name: fadeIn;
+  animation-duration: 3s;
+}
+
+@keyframes anticlockwise {
+  0% {
+    transform: rotate(0deg)
+  }
+  100% {
+    transform: rotate(-360deg)
+  }
+}
+
 @keyframes autoFade {
   to {
     opacity: 0.5;
@@ -60,3 +65,11 @@
   }
 }
 
+@keyframes fadeOut {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
