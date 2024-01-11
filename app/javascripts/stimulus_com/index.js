@@ -91,9 +91,6 @@ application.register('tree-remote', TreeRemoteController)
 import VideoController from './video'
 application.register('video', VideoController)
 
-import VideoNextController from './video-next'
-application.register('video-next', VideoNextController)
-
 import VisitController from './visit'
 application.register('visit', VisitController)
 
