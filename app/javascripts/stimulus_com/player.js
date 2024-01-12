@@ -58,7 +58,7 @@ export default class extends Controller {
       if (['VIDEO', 'AUDIO'].includes(this.element.tagName)) {
         show.play()
       } else {
-        show.querySelectorAll('audio, video').forEach(el => el.play())
+        show.querySelector('audio, video')?.play()
       }
     }
   }
