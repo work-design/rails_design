@@ -44,7 +44,7 @@ export default class extends Controller {
 
   play() {
     if (this.mediaTarget.played.length === 0 || this.mediaTarget.paused) {
-      this.mediaTarget.play()
+      this.playVideo(this.mediaTarget)
     }
   }
 
@@ -60,6 +60,14 @@ export default class extends Controller {
       } else {
         show.querySelector('audio, video')?.play()
       }
+    }
+  }
+
+  async playVideo(audio) {
+    try {
+      await audio.play()
+    } catch(err) {
+      console.debug(err)
     }
   }
 
