@@ -2,6 +2,20 @@ import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
 
+  connect() {
+    if (['VIDEO', 'AUDIO'].includes(this.element.tagName) && this.element.autoplay) {
+      if (this.element.played.length === 0) {
+        this.element.play()
+      }
+    } else {
+      this.element.querySelectorAll('audio[autoplay=autoplay], video[autoplay=autoplay]').forEach(el => {
+        if (el.played.length === 0) {
+          el.played()
+        }
+      })
+    }
+  }
+
   disconnect() {
     if (['VIDEO', 'AUDIO'].includes(this.element.tagName)) {
       this.element.remove()
