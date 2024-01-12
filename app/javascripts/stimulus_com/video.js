@@ -10,7 +10,7 @@ export default class extends Controller {
     } else {
       this.element.querySelectorAll('audio[autoplay=autoplay], video[autoplay=autoplay]').forEach(el => {
         if (el.played.length === 0) {
-          el.played()
+          el.play()
         }
       })
     }
