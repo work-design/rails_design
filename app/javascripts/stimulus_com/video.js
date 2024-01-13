@@ -60,10 +60,8 @@ export default class extends AudioPlayerController {
       nextEle.play()
     } else {
       nextEle.querySelector('video, audio')?.play()
-      console.debug('ddddddd')
       nextEle.querySelectorAll('[data-url]').forEach(el => {
-        console.debug('ddddd', el)
-        this.playAudio(el.dataset.url, this.playNext)
+        this.playAudio(el.dataset.url, this.playNext, false)
       })
     }
   }
