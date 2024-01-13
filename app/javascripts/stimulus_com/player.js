@@ -13,8 +13,6 @@ export default class extends Controller {
   }
 
   connect() {
-    this.audio = new AudioContext
-
     if (this.hasMediaTarget && this.mediaTarget.duration && this.hasProgressTarget) {
       this.progressTarget.setAttribute('max', this.mediaTarget.duration)
     } else if (this.hasMediaTarget && this.hasProgressTarget) {
@@ -49,6 +47,7 @@ export default class extends Controller {
     if (this.hasMediaTarget && (this.mediaTarget.played.length === 0 || this.mediaTarget.paused)) {
       this.mediaTarget.play()
     } else if (this.hasUrlValue) {
+      this.audio = new AudioContext
       this.playData(this.urlValue)
     }
   }
@@ -68,22 +67,23 @@ export default class extends Controller {
     }
   }
 
-  audioPlayer() {
-
+  disconnect() {
+    this.source.stop()
   }
 
   async playData(url) {
     try {
       const response = await fetch(url)
-      const source = this.audio.createBufferSource()
-      source.buffer = await this.audio.decodeAudioData(await response.arrayBuffer())
-      source.connect(this.audio.destination)
-      source.loop = true
-      console.log(source)
-      source.start()
+      this.source = this.audio.createBufferSource()
+      this.source.buffer = await this.audio.decodeAudioData(await response.arrayBuffer())
+      this.source.connect(this.audio.destination)
+      this.source.loop = true
+      console.log(this.source)
+      this.source.start()
     } catch (err) {
       console.error(`Unable to fetch the audio file. Error: ${err.message}`)
     }
   }
+
 
 }
