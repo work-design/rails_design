@@ -1,6 +1,6 @@
-import { Controller } from '@hotwired/stimulus'
+import { AudioPlayerController } from './audio_player'
 
-export default class extends Controller {
+export default class extends AudioPlayerController {
 
   connect() {
     if (['VIDEO', 'AUDIO'].includes(this.element.tagName) && this.element.autoplay) {

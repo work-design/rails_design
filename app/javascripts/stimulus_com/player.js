@@ -1,6 +1,6 @@
-import { Controller } from '@hotwired/stimulus'
+import { AudioPlayerController } from './audio_player'
 
-export default class extends Controller {
+export default class extends AudioPlayerController {
   static targets = [
     'media',
     'progress',
@@ -70,20 +70,5 @@ export default class extends Controller {
   disconnect() {
     this.source.stop()
   }
-
-  async playData(url) {
-    try {
-      const response = await fetch(url)
-      this.source = this.audio.createBufferSource()
-      this.source.buffer = await this.audio.decodeAudioData(await response.arrayBuffer())
-      this.source.connect(this.audio.destination)
-      this.source.loop = true
-      console.log(this.source)
-      this.source.start()
-    } catch (err) {
-      console.error(`Unable to fetch the audio file. Error: ${err.message}`)
-    }
-  }
-
 
 }
