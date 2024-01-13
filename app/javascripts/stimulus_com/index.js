@@ -1,6 +1,9 @@
 import AlertController from './alert'
 application.register('alert', AlertController)
 
+import AudioPlayerController from './audio_player'
+application.register('audio-player', AudioPlayerController)
+
 import CableController from './cable'
 application.register('cable', CableController)
 

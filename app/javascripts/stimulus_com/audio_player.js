@@ -1,6 +1,16 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
+  static values = {
+    auto: String,
+    loop: String
+  }
+
+  connect() {
+    if (this.hasAutoValue) {
+      this.playAudio(this.autoValue)
+    }
+  }
 
   async playAudio(url, callback, nextEle, loop = true) {
     try {
