@@ -58,7 +58,7 @@ export default class extends AudioPlayerController {
     if (['VIDEO', 'AUDIO'].includes(nextEle.tagName)) {
       nextEle.play()
     } else {
-      nextEle.querySelectorAll('audio, video').forEach(el => el.play())
+      nextEle.querySelector('video, audio')?.play()
     }
   }
 

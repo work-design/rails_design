@@ -47,8 +47,7 @@ export default class extends AudioPlayerController {
     if (this.hasMediaTarget && (this.mediaTarget.played.length === 0 || this.mediaTarget.paused)) {
       this.mediaTarget.play()
     } else if (this.hasUrlValue) {
-      this.audio = new AudioContext
-      this.playData(this.urlValue)
+      this.playAudio(this.urlValue)
     }
   }
 
@@ -62,7 +61,7 @@ export default class extends AudioPlayerController {
       if (['VIDEO', 'AUDIO'].includes(show.tagName)) {
         show.play()
       } else {
-        show.querySelector('audio, video')?.play()
+        show.querySelector('video, audio')?.play()
       }
     }
   }
