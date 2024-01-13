@@ -6,7 +6,7 @@ export default class extends Controller {
     try {
       this.audio = new AudioContext
       this.source = this.audio.createBufferSource()
-      const response = await fetch(url, { mode: 'no-cors' })
+      const response = await fetch(url)
 
       this.source.buffer = await this.audio.decodeAudioData(await response.arrayBuffer())
       this.source.connect(this.audio.destination)
