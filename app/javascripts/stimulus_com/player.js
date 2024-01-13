@@ -8,13 +8,16 @@ export default class extends Controller {
     'hide'
   ]
   static values = {
-    show: String
+    show: String,
+    url: String
   }
 
   connect() {
-    if (this.mediaTarget.duration && this.hasProgressTarget) {
+    this.audio = new AudioContext
+
+    if (this.hasMediaTarget && this.mediaTarget.duration && this.hasProgressTarget) {
       this.progressTarget.setAttribute('max', this.mediaTarget.duration)
-    } else if (this.hasProgressTarget) {
+    } else if (this.hasMediaTarget && this.hasProgressTarget) {
       this.mediaTarget.addEventListener('loadedmetadata', (e) => {
         this.progressTarget.setAttribute('max', e.currentTarget.duration)
       })
@@ -43,8 +46,10 @@ export default class extends Controller {
   }
 
   play() {
-    if (this.mediaTarget.played.length === 0 || this.mediaTarget.paused) {
-      this.playVideo(this.mediaTarget)
+    if (this.hasMediaTarget && (this.mediaTarget.played.length === 0 || this.mediaTarget.paused)) {
+      this.mediaTarget.play()
+    } else if (this.hasUrlValue) {
+      this.playData(this.urlValue)
     }
   }
 
@@ -55,7 +60,7 @@ export default class extends Controller {
     if (this.hasShowValue) {
       const show = document.getElementById(this.showValue)
       show.style.removeProperty('display')
-      if (['VIDEO', 'AUDIO'].includes(this.element.tagName)) {
+      if (['VIDEO', 'AUDIO'].includes(show.tagName)) {
         show.play()
       } else {
         show.querySelector('audio, video')?.play()
@@ -63,11 +68,21 @@ export default class extends Controller {
     }
   }
 
-  async playVideo(audio) {
+  audioPlayer() {
+
+  }
+
+  async playData(url) {
     try {
-      await audio.play()
-    } catch(err) {
-      console.debug(err)
+      const response = await fetch(url)
+      const source = this.audio.createBufferSource()
+      source.buffer = await this.audio.decodeAudioData(await response.arrayBuffer())
+      source.connect(this.audio.destination)
+      source.loop = true
+      console.log(source)
+      source.start()
+    } catch (err) {
+      console.error(`Unable to fetch the audio file. Error: ${err.message}`)
     }
   }
 
