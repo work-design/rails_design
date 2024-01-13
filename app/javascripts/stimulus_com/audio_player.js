@@ -1,7 +1,7 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  async playAudio(url) {
+  async playAudio(url, loop = true) {
     try {
       this.audio = new AudioContext
       this.source = this.audio.createBufferSource()
@@ -9,7 +9,7 @@ export default class extends Controller {
 
       this.source.buffer = await this.audio.decodeAudioData(await response.arrayBuffer())
       this.source.connect(this.audio.destination)
-      this.source.loop = true
+      this.source.loop = loop
       console.log(this.source)
       this.source.start()
     } catch (err) {
