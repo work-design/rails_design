@@ -32,6 +32,10 @@ export default class extends AudioPlayerController {
     }
   }
 
+  stop() {
+
+  }
+
   playNext(event) {
     let ele = event.currentTarget
     let nextEle = ele.nextElementSibling

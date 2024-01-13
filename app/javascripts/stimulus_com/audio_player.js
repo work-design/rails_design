@@ -12,6 +12,10 @@ export default class extends Controller {
     }
   }
 
+  stop() {
+    this.source.stop()
+  }
+
   async playAudio(url, callback, nextEle, loop = true) {
     try {
       this.audio = new AudioContext
