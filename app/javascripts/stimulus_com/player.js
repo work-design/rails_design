@@ -1,4 +1,4 @@
-import { AudioPlayerController } from './audio_player'
+import AudioPlayerController from './audio_player'
 
 export default class extends AudioPlayerController {
   static targets = [
@@ -67,7 +67,7 @@ export default class extends AudioPlayerController {
   }
 
   disconnect() {
-    this.source.stop()
+    this.source?.stop()
   }
 
 }

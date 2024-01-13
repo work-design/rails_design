@@ -1,4 +1,4 @@
-import { AudioPlayerController } from './audio_player'
+import AudioPlayerController from './audio_player'
 
 export default class extends AudioPlayerController {
 
@@ -22,6 +22,7 @@ export default class extends AudioPlayerController {
     } else {
       this.element.querySelectorAll('audio, video').forEach(el => el.remove())
     }
+    this.source?.stop()
   }
 
   enableLink(event) {
@@ -59,6 +60,11 @@ export default class extends AudioPlayerController {
       nextEle.play()
     } else {
       nextEle.querySelector('video, audio')?.play()
+      console.debug('ddddddd')
+      nextEle.querySelectorAll('[data-url]').forEach(el => {
+        console.debug('ddddd', el)
+        this.playAudio(el.dataset.url, this.playNext)
+      })
     }
   }
 
