@@ -8,7 +8,9 @@ export default class extends Controller {
 
   connect() {
     if (this.hasAutoValue) {
-      this.playAudio(this.autoValue)
+      this.doPlay(this.autoValue, false)
+    } else if (this.hasLoopValue) {
+      this.doPlay(this.loopValue)
     }
   }
 
@@ -16,18 +18,20 @@ export default class extends Controller {
     this.source.stop()
   }
 
-  async playAudio(url, callback, nextEle, loop = true) {
+  async doPlay(url, loop = true) {
+    this.audio = new AudioContext
+    this.source = this.audio.createBufferSource()
+    const response = await fetch(url)
+    this.source.buffer = await this.audio.decodeAudioData(await response.arrayBuffer())
+    this.source.connect(this.audio.destination)
+    this.source.loop = loop
+    console.log(this.source)
+    this.source.start()
+  }
+
+  playAudio(url, callback, nextEle, loop = true) {
     try {
-      this.audio = new AudioContext
-      this.source = this.audio.createBufferSource()
-      const response = await fetch(url)
-
-      this.source.buffer = await this.audio.decodeAudioData(await response.arrayBuffer())
-      this.source.connect(this.audio.destination)
-      this.source.loop = loop
-      console.log(this.source)
-      this.source.start()
-
+      this.doPlay(url, loop)
       this.source.nextEle = nextEle
       this.source.addEventListener('ended', callback)
     } catch (err) {
