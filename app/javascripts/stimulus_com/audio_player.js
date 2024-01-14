@@ -33,8 +33,15 @@ export default class extends Controller {
     try {
       if (nextEle.dataset.url) {
         this.doPlay(nextEle.dataset.url, loop)
-        this.source.nextEle = nextEle
-        this.source.addEventListener('ended', callback)
+
+        if (nextEle.dataset.link) {
+          this.source.addEventListener('ended', e => {
+            Turbo.visit(nextEle.dataset.link)
+          })
+        } else {
+          this.source.nextEle = nextEle
+          this.source.addEventListener('ended', callback)
+        }
       }
     } catch (err) {
       console.error(`Unable to fetch the audio file. Error: ${err.message}`)

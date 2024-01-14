@@ -100,7 +100,6 @@ export default class extends AudioPlayerController {
   }
 
   linkNext(e) {
-
   }
 
 }
