@@ -47,7 +47,7 @@ export default class extends AudioPlayerController {
     if (this.hasMediaTarget && (this.mediaTarget.played.length === 0 || this.mediaTarget.paused)) {
       this.mediaTarget.play()
     } else if (this.hasUrlValue) {
-      this.playAudio(this.urlValue)
+      this.doPlay(this.urlValue)
     }
   }
 

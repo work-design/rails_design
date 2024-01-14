@@ -64,40 +64,38 @@ export default class extends AudioPlayerController {
       nextEle.play()
     } else {
       nextEle.querySelector('video, audio')?.play()
-      nextEle.querySelectorAll('[data-url]').forEach(el => {
-        this.playAudio(el.dataset.url, this.playNextA, nextEle, false)
-      })
+      this.playAudio(nextEle, this.playNextA, false)
     }
   }
 
   playNextA(event) {
     const that = event.currentTarget
     let ele = that.nextEle
-    let nextEle = ele.nextElementSibling
-    const con = ele.closest('[data-controller~=video]').controller('video')
+    if (ele) {
+      let nextEle = ele.nextElementSibling
+      const con = ele.closest('[data-controller~=video]').controller('video')
 
-    while (true) {
-      if (nextEle && nextEle.style.display === 'none') {
-        break
+      while (true) {
+        if (nextEle && nextEle.style.display === 'none') {
+          break
+        }
+
+        ele = ele.parentElement
+        if (!ele) {
+          break
+        }
+
+        nextEle = ele.nextElementSibling
       }
 
-      ele = ele.parentElement
-      if (!ele) {
-        break
+      ele.style.display = 'none'
+      nextEle.style.removeProperty('display')
+      if (['VIDEO', 'AUDIO'].includes(nextEle.tagName)) {
+        nextEle.play()
+      } else {
+        nextEle.querySelector('video, audio')?.play()
+        con.playAudio(nextEle, con.playNextA, false)
       }
-
-      nextEle = ele.nextElementSibling
-    }
-
-    ele.style.display = 'none'
-    nextEle.style.removeProperty('display')
-    if (['VIDEO', 'AUDIO'].includes(nextEle.tagName)) {
-      nextEle.play()
-    } else {
-      nextEle.querySelector('video, audio')?.play()
-      nextEle.querySelectorAll('[data-url]').forEach(el => {
-        con.playAudio(el.dataset.url, con.playNextA, nextEle, false)
-      })
     }
   }
 

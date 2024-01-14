@@ -29,11 +29,13 @@ export default class extends Controller {
     this.source.start()
   }
 
-  playAudio(url, callback, nextEle, loop = true) {
+  playAudio(nextEle, callback, loop = true) {
     try {
-      this.doPlay(url, loop)
-      this.source.nextEle = nextEle
-      this.source.addEventListener('ended', callback)
+      if (nextEle.dataset.url) {
+        this.doPlay(nextEle.dataset.url, loop)
+        this.source.nextEle = nextEle
+        this.source.addEventListener('ended', callback)
+      }
     } catch (err) {
       console.error(`Unable to fetch the audio file. Error: ${err.message}`)
     }
