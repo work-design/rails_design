@@ -6,6 +6,10 @@ export default class extends Controller {
     loop: String
   }
 
+  initialize() {
+    window.audioContext ||= new AudioContext
+  }
+
   connect() {
     if (this.hasAutoValue) {
       this.doPlay(this.autoValue, false)
@@ -19,11 +23,10 @@ export default class extends Controller {
   }
 
   async doPlay(url, loop = true) {
-    this.audio = new AudioContext
-    this.source = this.audio.createBufferSource()
+    this.source = audioContext.createBufferSource()
     const response = await fetch(url)
-    this.source.buffer = await this.audio.decodeAudioData(await response.arrayBuffer())
-    this.source.connect(this.audio.destination)
+    this.source.buffer = await audioContext.decodeAudioData(await response.arrayBuffer())
+    this.source.connect(audioContext.destination)
     this.source.loop = loop
     console.log(this.source)
     this.source.start()
