@@ -46,7 +46,7 @@ export default class extends Controller {
       })
     } else if (this.nextValue) {
       this.source.nextEle = this.element
-      this.source.addEventListener('ended', this.playNextA)
+      this.source.addEventListener('ended', this.playNext)
     }
   }
 
