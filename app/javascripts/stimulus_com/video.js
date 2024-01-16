@@ -63,8 +63,7 @@ export default class extends AudioPlayerController {
     if (['VIDEO', 'AUDIO'].includes(nextEle.tagName)) {
       nextEle.play()
     } else {
-      nextEle.querySelector('video, audio')?.play()
-      this.playAudio(nextEle, this.playNextA, false)
+      nextEle.dataset.add('controller', 'audio-player')
     }
   }
 
@@ -93,8 +92,8 @@ export default class extends AudioPlayerController {
       if (['VIDEO', 'AUDIO'].includes(nextEle.tagName)) {
         nextEle.play()
       } else {
-        nextEle.querySelector('video, audio')?.play()
-        con.playAudio(nextEle, con.playNextA, false)
+        nextEle.dataset.add('controller', 'audio-player')
+        con.playAudio(nextEle, con.playNextA)
       }
     }
   }

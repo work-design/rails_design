@@ -8,8 +8,7 @@ export default class extends AudioPlayerController {
     'hide'
   ]
   static values = {
-    show: String,
-    url: String
+    show: String
   }
 
   connect() {
@@ -46,8 +45,6 @@ export default class extends AudioPlayerController {
   play() {
     if (this.hasMediaTarget && (this.mediaTarget.played.length === 0 || this.mediaTarget.paused)) {
       this.mediaTarget.play()
-    } else if (this.hasUrlValue) {
-      this.doPlay(this.urlValue)
     }
   }
 
