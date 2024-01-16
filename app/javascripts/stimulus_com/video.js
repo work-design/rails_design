@@ -35,28 +35,17 @@ export default class extends AudioPlayerController {
   playNext(event) {
     let ele = event.currentTarget
     let nextEle = ele.nextElementSibling
-    console.debug('first', nextEle)
 
-    while (true) {
-      if (nextEle && nextEle.style.display === 'none') {
-        break
-      }
-
-      ele = ele.parentElement
-      if (!ele) {
-        break
-      }
-      nextEle = ele.nextElementSibling
-
-      console.debug('ele', ele)
-      console.debug('next', nextEle)
-    }
-
-    ele.style.display = 'none'
-    nextEle.style.removeProperty('display')
-    if (['VIDEO', 'AUDIO'].includes(nextEle.tagName)) {
+    if (nextEle && nextEle.tagName === 'VIDEO') {
+      ele.style.display = 'none'
+      nextEle.style.removeProperty('display')
       nextEle.play()
     } else {
+      ele = ele.parentElement
+      nextEle = ele.nextElementSibling
+
+      ele.style.display = 'none'
+      nextEle.style.removeProperty('display')
       nextEle.dataset.add('controller', 'audio-player')
     }
   }

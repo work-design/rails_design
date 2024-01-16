@@ -45,37 +45,20 @@ export default class extends Controller {
         Turbo.visit(this.linkValue)
       })
     } else if (this.nextValue) {
-      this.source.nextEle = this.element
+      this.source.currentEle = this.element
       this.source.addEventListener('ended', this.playNext)
     }
   }
 
   playNext(event) {
     const that = event.currentTarget
-    let ele = that.nextEle
+    let ele = that.currentEle
     if (ele) {
       let nextEle = ele.nextElementSibling
 
-      while (true) {
-        if (nextEle && nextEle.style.display === 'none') {
-          break
-        }
-
-        ele = ele.parentElement
-        if (!ele) {
-          break
-        }
-
-        nextEle = ele.nextElementSibling
-      }
-
       ele.style.display = 'none'
       nextEle.style.removeProperty('display')
-      if (['VIDEO', 'AUDIO'].includes(nextEle.tagName)) {
-        nextEle.play()
-      } else {
-        nextEle.dataset.add('controller', 'audio-player')
-      }
+      nextEle.dataset.add('controller', 'audio-player')
     }
   }
 
