@@ -14,7 +14,7 @@ export default class extends Controller {
 
   connect() {
     if (this.hasAutoValue) {
-      this.doPlay
+      this.doPlay(this.autoValue)
     }
     this.element.querySelector(':scope > video:first-child')?.play()
   }
@@ -28,10 +28,10 @@ export default class extends Controller {
   }
 
   play(event) {
-    this.doPlay()
+    this.doPlay(this.autoValue)
   }
 
-  async doPlay(url = this.autoValue) {
+  async doPlay(url) {
     this.source = audioContext.createBufferSource()
     const response = await fetch(url)
     this.source.buffer = await audioContext.decodeAudioData(await response.arrayBuffer())
@@ -50,7 +50,7 @@ export default class extends Controller {
     }
   }
 
-  playNextA(event) {
+  playNext(event) {
     const that = event.currentTarget
     let ele = that.nextEle
     if (ele) {
@@ -76,35 +76,6 @@ export default class extends Controller {
       } else {
         nextEle.dataset.add('controller', 'audio-player')
       }
-    }
-  }
-
-  playNext(event) {
-    let ele = event.currentTarget
-    let nextEle = ele.nextElementSibling
-    console.debug('first', nextEle)
-
-    while (true) {
-      if (nextEle && nextEle.style.display === 'none') {
-        break
-      }
-
-      ele = ele.parentElement
-      if (!ele) {
-        break
-      }
-      nextEle = ele.nextElementSibling
-
-      console.debug('ele', ele)
-      console.debug('next', nextEle)
-    }
-
-    ele.style.display = 'none'
-    nextEle.style.removeProperty('display')
-    if (['VIDEO', 'AUDIO'].includes(nextEle.tagName)) {
-      nextEle.play()
-    } else {
-      nextEle.dataset.add('controller', 'audio-player')
     }
   }
 
