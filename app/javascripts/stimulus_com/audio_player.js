@@ -13,10 +13,10 @@ export default class extends Controller {
   }
 
   connect() {
+    this.autoPlay()
     if (this.hasAutoValue) {
       this.doPlay(this.autoValue)
     }
-    this.element.querySelector(':scope > video:first-child')?.play()
   }
 
   disconnect() {
@@ -29,6 +29,10 @@ export default class extends Controller {
 
   play(event) {
     this.doPlay(this.autoValue)
+  }
+
+  async autoPlay() {
+    await this.element.querySelector(':scope > video:first-child')?.play()
   }
 
   async doPlay(url) {
