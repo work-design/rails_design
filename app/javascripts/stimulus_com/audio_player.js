@@ -19,6 +19,10 @@ export default class extends Controller {
     this.element.querySelector(':scope > video:first-child')?.play()
   }
 
+  disconnect() {
+    this.source?.stop()
+  }
+
   stop() {
     this.source.stop()
   }
@@ -38,11 +42,69 @@ export default class extends Controller {
 
     if (this.linkValue) {
       this.source.addEventListener('ended', e => {
-        Turbo.visit(nextEle.dataset.link)
+        Turbo.visit(this.linkValue)
       })
     } else if (this.nextValue) {
-      this.source.nextEle = nextEle
-      this.source.addEventListener('ended', callback)
+      this.source.nextEle = this.element
+      this.source.addEventListener('ended', this.playNextA)
+    }
+  }
+
+  playNextA(event) {
+    const that = event.currentTarget
+    let ele = that.nextEle
+    if (ele) {
+      let nextEle = ele.nextElementSibling
+
+      while (true) {
+        if (nextEle && nextEle.style.display === 'none') {
+          break
+        }
+
+        ele = ele.parentElement
+        if (!ele) {
+          break
+        }
+
+        nextEle = ele.nextElementSibling
+      }
+
+      ele.style.display = 'none'
+      nextEle.style.removeProperty('display')
+      if (['VIDEO', 'AUDIO'].includes(nextEle.tagName)) {
+        nextEle.play()
+      } else {
+        nextEle.dataset.add('controller', 'audio-player')
+      }
+    }
+  }
+
+  playNext(event) {
+    let ele = event.currentTarget
+    let nextEle = ele.nextElementSibling
+    console.debug('first', nextEle)
+
+    while (true) {
+      if (nextEle && nextEle.style.display === 'none') {
+        break
+      }
+
+      ele = ele.parentElement
+      if (!ele) {
+        break
+      }
+      nextEle = ele.nextElementSibling
+
+      console.debug('ele', ele)
+      console.debug('next', nextEle)
+    }
+
+    ele.style.display = 'none'
+    nextEle.style.removeProperty('display')
+    if (['VIDEO', 'AUDIO'].includes(nextEle.tagName)) {
+      nextEle.play()
+    } else {
+      nextEle.dataset.add('controller', 'audio-player')
     }
   }
 
