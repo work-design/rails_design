@@ -4,7 +4,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 
 export default class extends Controller {
   static values = {
-    url: String
+    url: { type: String, default: '/events' }
   }
 
   connect() {
@@ -14,9 +14,16 @@ export default class extends Controller {
       fixedWeekCount: false,
       eventSources: [
         {
-          url: '/events'
+          url: this.urlValue
         }
-      ]
+      ],
+      eventDidMount: (info) => {
+        console.debug(',,,', info)
+        let url = info.event.extendedProps.img
+        if (url) {
+          info.el.style.backgroundImage = `url(${url})`
+        }
+      }
     })
     this.calendar.render()
   }
