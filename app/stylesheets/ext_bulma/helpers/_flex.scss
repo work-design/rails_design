@@ -80,6 +80,18 @@
   align-items: center;
 }
 
+.has-inline-space-between {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.has-inline-space-around {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-around;
+}
+
 .has-v-centered {
   display: flex;
   align-items: center;

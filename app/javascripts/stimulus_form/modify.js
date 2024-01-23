@@ -3,7 +3,7 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
   static targets = ['input']
   static values = {
-    step: Number,
+    step: { type: Number, default: 1 },
     submit: { type: Boolean, default: false },
     total: Number,
     quantity: String
