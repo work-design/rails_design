@@ -11,7 +11,7 @@ export default class extends Controller {
         this.element.style.display = 'none'
         let nextEle = this.element.nextElementSibling
         nextEle.style.removeProperty('display')
-        nextEle.dataset.add('controller', 'gif')
+        nextEle.dataset.add('controller', this.identifier)
       }, this.durationValue)
     }
   }
