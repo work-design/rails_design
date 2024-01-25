@@ -13,6 +13,10 @@
   background-repeat: no-repeat;
 }
 
+.is-contain {
+  background-size: contain;
+}
+
 .is-contain-x {
   background-size: auto 100%;
   background-repeat: repeat-x;

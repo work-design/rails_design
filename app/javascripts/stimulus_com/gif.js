@@ -8,12 +8,20 @@ export default class extends Controller {
   connect() {
     if (this.hasDurationValue) {
       setTimeout(() => {
-        this.element.style.display = 'none'
-        let nextEle = this.element.nextElementSibling
-        nextEle.style.removeProperty('display')
-        nextEle.dataset.add('controller', this.identifier)
+        this.shownNext(this.element, this.identifier)
       }, this.durationValue)
     }
+  }
+
+  showNext(event) {
+    this.shownNext(this.element, this.identifier)
+  }
+
+  shownNext(ele, identifier) {
+    ele.style.display = 'none'
+    let nextEle = ele.nextElementSibling
+    nextEle.style.removeProperty('display')
+    nextEle.dataset.add('controller', identifier)
   }
 
 }
