@@ -13,10 +13,6 @@ export default class extends Controller {
   }
 
   connect() {
-    WeixinJSBridge.on('onPageStateChange', res => {
-      console.log('res is active', res.active)
-      this.element.querySelector(':scope > video:first-child')?.play()
-    })
     if (this.hasAutoValue) {
       this.doPlay(this.autoValue)
     }

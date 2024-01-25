@@ -44,9 +44,11 @@
   animation-fill-mode: forwards;
 }
 
-.has-animate-fade-out {
+.has-animate-fade-in {
+  opacity: 0;
   animation-name: fadeIn;
   animation-duration: 3s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes anticlockwise {

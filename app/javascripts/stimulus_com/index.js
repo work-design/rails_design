@@ -37,6 +37,9 @@ application.register('enter-section', EnterSectionController)
 import HoverController from './hover'
 application.register('hover', HoverController)
 
+import GifController from './gif'
+application.register('gif', GifController)
+
 import NoticeController from './notice'
 application.register('notice', NoticeController)
 
