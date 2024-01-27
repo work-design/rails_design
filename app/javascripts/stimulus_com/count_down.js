@@ -2,7 +2,8 @@ import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
   static values = {
-    time: { type: Number, default: 60 }
+    time: { type: Number, default: 60 },
+    get: { type: String, default: '获取验证码' }
   }
   static targets = ['count']
 
@@ -18,7 +19,7 @@ export default class extends Controller {
       countdown--
       if (countdown <= 0) {
         this.element.removeAttribute('disabled')
-        this.element.innerText = '获取验证码'
+        this.countTarget.innerText = this.getValue
         clearInterval(timer)
       } else {
         this.countTarget.innerText = countdown
