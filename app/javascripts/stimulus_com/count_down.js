@@ -4,6 +4,7 @@ export default class extends Controller {
   static values = {
     time: { type: Number, default: 60 }
   }
+  static targets = ['count']
 
   connect() {
     this.countDown()
@@ -11,7 +12,7 @@ export default class extends Controller {
 
   countDown() {
     let countdown = this.timeValue
-    this.element.innerText = '重新发送(' + countdown + ')'
+    this.countTarget.innerText = countdown
 
     let timer = setInterval(() => {
       countdown--
@@ -20,7 +21,7 @@ export default class extends Controller {
         this.element.innerText = '获取验证码'
         clearInterval(timer)
       } else {
-        this.element.innerText = '重新发送(' + countdown + ')'
+        this.countTarget.innerText = countdown
       }
     }, 1000, countdown)
   }
