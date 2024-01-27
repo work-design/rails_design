@@ -8,7 +8,7 @@ export default class extends Controller {
   connect() {
     if (this.hasDurationValue) {
       setTimeout(() => {
-        this.shownNext(this.element, this.identifier)
+        this.shownNext(this.element, this.element.nextElementSibling, this.identifier)
       }, this.durationValue)
     }
   }
@@ -16,27 +16,25 @@ export default class extends Controller {
   showNext(event) {
     const ele = event.currentTarget
     const nextEle = document.getElementById(ele.dataset.next)
+    let hidden
+
     if (ele.dataset.hidden) {
-      const hidden = document.getElementById(ele.dataset.hidden)
-      hidden.style.display = 'none'
+      hidden = document.getElementById(ele.dataset.hidden)
     } else {
-      ele.style.display = 'none'
+      hidden = ele
     }
-    const xx = ele.closest('[data-controller~=dispatch]')
-    if (xx) {
-      xx.style.display = 'none'
-    }
-    nextEle.style.removeProperty('display')
-    nextEle.dataset.add('controller', this.identifier)
+
+    this.shownNext(hidden, nextEle, this.identifier)
   }
 
-  shownNext(ele, identifier) {
+  shownNext(ele, nextEle, identifier) {
     ele.style.display = 'none'
-    let nextEle = ele.nextElementSibling
+
     nextEle.style.removeProperty('display')
     if (nextEle.dataset.controller?.includes('dispatch')) {
-      nextEle.controller('dispatch').controlTargets.forEach(el => {
-        el.dataset.add('controller', identifier)
+      const dispatch = nextEle.controller('dispatch')
+      dispatch.controlTargets.forEach(el => {
+        el.dataset.add('controller', dispatch.controlValue)
       })
     } else {
       nextEle.dataset.add('controller', identifier)
