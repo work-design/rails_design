@@ -1,4 +1,4 @@
-import '../stimulus_base'
+import '../stimulus_base/request'
 
 import MiniProgramController from './mini-program'
 application.register('mini-program', MiniProgramController)
