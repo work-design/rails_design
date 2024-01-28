@@ -33,7 +33,7 @@ export default class extends Controller {
     nextEle.style.removeProperty('display')
     if (nextEle.dataset.controller?.includes('dispatch')) {
       const dispatch = nextEle.controller('dispatch')
-      console.debug('dispatch ele', dispatch)
+      console.debug('dispatch ele', nextEle)
       dispatch.controlTargets.forEach(el => {
         el.dataset.add('controller', dispatch.controlValue)
       })
