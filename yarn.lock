@@ -548,18 +548,18 @@
   resolved "https://registry.yarnpkg.com/@hotwired/strada/-/strada-1.0.0-beta1.tgz#95506e76d77cab389eb4315845673f5e8a758802"
   integrity sha512-3J9Rc/qnWvnTnl9zD4l2ZHQQ3QbZANiKCh+AiYW2Lak+7JHx/U0AU+eoA4QDVlVylNFmKbxo3HTLCjEx9txqjA==
 
-"@hotwired/turbo-rails@^8.0.0-beta.2":
-  version "8.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@hotwired/turbo-rails/-/turbo-rails-8.0.0-beta.2.tgz#691f8e05ad97f4c192953c4d14d5c288badb3498"
-  integrity sha512-t/e2FvOrhkDOWygsxqJ/drCz74j16hfq3wobzST9qFp7wBZXbGuw0dxB7sPpC+4I9s726KKR5ZaN+D8zaaGfPg==
+"@hotwired/turbo-rails@^8.0.0-beta.4":
+  version "8.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo-rails/-/turbo-rails-8.0.0-beta.4.tgz#1d643dcb2c9963aef17f2b043e3ac8344c2b8810"
+  integrity sha512-/szhdPUURNjs8FUK/HfdDeD9LJyq2JQ6o3RHe/9KrXZrztzAMlV9eI0r0uCeildDbKtDKH1zZv3WM+mDRhI9DA==
   dependencies:
-    "@hotwired/turbo" "^8.0.0-beta.2"
+    "@hotwired/turbo" "^8.0.0-beta.4"
     "@rails/actioncable" "^7.0"
 
-"@hotwired/turbo@^8.0.0-beta.2":
-  version "8.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-8.0.0-beta.2.tgz#f9d01a0ca788ed5bf78a1746e06c3244af2b7535"
-  integrity sha512-Ewdz4m+rlBXiqU8hXC9qjrA6/gaYlwUWbab8M/+/PW3KEoZ36pqvLt4l7wEXELPk699bRXVFS08mt3icJ0idfg==
+"@hotwired/turbo@^8.0.0-beta.4":
+  version "8.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-8.0.0-beta.4.tgz#7f5b5df871a9faaa75d135439b26c6d224779a82"
+  integrity sha512-TumUvbUCofb/Ep3BH0p0SIRiWxvKIY1BFQlVnwxAs896dnwkmWYAhNQtVihg32PrhoeYdyYQarsurROnp1r+CA==
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
