@@ -15,25 +15,25 @@ export default class extends Controller {
 
   showNext(event) {
     const ele = event.currentTarget
-    const nextEle = document.getElementById(ele.dataset.next)
-    let hidden
 
-    if (ele.dataset.hidden) {
-      hidden = document.getElementById(ele.dataset.hidden)
-    } else {
-      hidden = ele
+    let nextEle = ele.nextElementSibling
+    if (ele.dataset.next) {
+      nextEle = document.getElementById(ele.dataset.next)
     }
 
-    this.shownNext(hidden, nextEle, this.identifier)
+    let hiddenEle = ele
+    if (ele.dataset.hidden) {
+      hiddenEle = document.getElementById(ele.dataset.hidden)
+    }
+
+    this.shownNext(hiddenEle, nextEle, this.identifier)
   }
 
-  shownNext(ele, nextEle, identifier) {
-    ele.style.display = 'none'
-
+  shownNext(hiddenEle, nextEle, identifier) {
+    hiddenEle.style.display = 'none'
     nextEle.style.removeProperty('display')
     if (nextEle.dataset.controller?.includes('dispatch')) {
       const dispatch = nextEle.controller('dispatch')
-      console.debug('dispatch ele', nextEle)
       dispatch.controlTargets.forEach(el => {
         el.dataset.add('controller', dispatch.controlValue)
       })
