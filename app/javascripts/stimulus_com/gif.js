@@ -19,10 +19,6 @@ export default class extends Controller {
   }
 
   innerShowNext(ele, identifier) {
-    let nextEles = [ele.nextElementSibling]
-    if (ele.dataset.next) {
-      nextEles = document.querySelectorAll(ele.dataset.next)
-    }
     if (ele.dataset.hidden) {
       const hiddenEles = document.querySelectorAll(ele.dataset.hidden)
       hiddenEles.forEach(el => {
@@ -30,9 +26,17 @@ export default class extends Controller {
       })
     }
 
+    let nextEles = [ele.nextElementSibling]
+    if (ele.dataset.next) {
+      nextEles = document.querySelectorAll(ele.dataset.next)
+    }
+    let nextCon = identifier
+    if (ele.dataset.nextController) {
+      nextCon = ele.dataset.nextController
+    }
     nextEles.forEach(el => {
       el.style.removeProperty('display')
-      el.dataset.add('controller', identifier)
+      el.dataset.add('controller', nextCon)
     })
   }
 
