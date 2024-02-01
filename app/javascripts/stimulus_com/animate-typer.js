@@ -15,7 +15,6 @@ export default class extends Controller {
     const ele = event.currentTarget
     let nextEle = ele.nextElementSibling
     while (nextEle) {
-      console.debug('ddddd',nextEle.innerText)
       if (nextEle.innerHTML) {
         nextEle.dataset.add('controller', 'animate-typer')
         break
