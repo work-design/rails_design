@@ -8,14 +8,20 @@ export default class extends Controller {
     ele.classList.remove('is-invisible')
     ele.style.animationDuration = `${ele.innerText.length * 200}ms`
     ele.classList.add('has-animate-typer')
-    ele.addEventListener('animationend', this.xx, { once: true })
+    ele.addEventListener('animationend', this.typeNext, { once: true })
   }
 
-  xx(event) {
+  typeNext(event) {
     const ele = event.currentTarget
-    const nextEle = ele.nextElementSibling
-    if (nextEle) {
-      nextEle.dataset.add('controller', 'animate-typer')
+    let nextEle = ele.nextElementSibling
+    while (nextEle) {
+      console.debug('ddddd',nextEle.innerText)
+      if (nextEle.innerHTML) {
+        nextEle.dataset.add('controller', 'animate-typer')
+        break
+      } else {
+        nextEle = nextEle.nextElementSibling
+      }
     }
   }
 
