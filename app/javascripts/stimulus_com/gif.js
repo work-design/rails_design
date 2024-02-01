@@ -23,17 +23,16 @@ export default class extends Controller {
     if (ele.dataset.next) {
       nextEles = document.querySelectorAll(ele.dataset.next)
     }
-    let hiddenEles = [ele]
     if (ele.dataset.hidden) {
-      hiddenEles = document.querySelectorAll(ele.dataset.hidden)
+      const hiddenEles = document.querySelectorAll(ele.dataset.hidden)
+      hiddenEles.forEach(el => {
+        el.style.display = 'none'
+      })
     }
 
     nextEles.forEach(el => {
       el.style.removeProperty('display')
       el.dataset.add('controller', identifier)
-    })
-    hiddenEles.forEach(el => {
-      el.style.display = 'none'
     })
   }
 
