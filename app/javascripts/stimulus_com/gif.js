@@ -19,25 +19,22 @@ export default class extends Controller {
   }
 
   innerShowNext(ele, identifier) {
-    let nextEle = ele.nextElementSibling
+    let nextEles = [ele.nextElementSibling]
     if (ele.dataset.next) {
-      nextEle = document.getElementById(ele.dataset.next)
+      nextEles = document.querySelectorAll(ele.dataset.next)
     }
-    let hiddenEle = ele
+    let hiddenEles = [ele]
     if (ele.dataset.hidden) {
-      hiddenEle = document.getElementById(ele.dataset.hidden)
+      hiddenEles = document.querySelectorAll(ele.dataset.hidden)
     }
 
-    hiddenEle.style.display = 'none'
-    nextEle.style.removeProperty('display')
-    if (nextEle.dataset.controller?.includes('dispatch')) {
-      const dispatch = nextEle.controller('dispatch')
-      dispatch.controlTargets.forEach(el => {
-        el.dataset.add('controller', dispatch.controlValue)
-      })
-    } else {
-      nextEle.dataset.add('controller', identifier)
-    }
+    nextEles.forEach(el => {
+      el.style.removeProperty('display')
+      el.dataset.add('controller', identifier)
+    })
+    hiddenEles.forEach(el => {
+      el.style.display = 'none'
+    })
   }
 
 }
