@@ -15,6 +15,13 @@ export default class extends Controller {
   connect() {
     if (this.hasAutoValue) {
       this.doPlay(this.autoValue)
+      if (window.__wxjs_environment === 'miniprogram') {
+        WeixinJSBridge.on('onPageStateChange', res => {
+          if (res.active === 'true' || res.active === true) {
+            this.stop()
+          }
+        })
+      }
     }
     this.autoPlay()
   }
