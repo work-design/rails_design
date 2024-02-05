@@ -3,6 +3,7 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
   static values = {
     auto: String,
+    url: String,
     link: String,
     loop: { type: Boolean, default: false },
     next: { type: Boolean, default: true }
@@ -35,7 +36,11 @@ export default class extends Controller {
   }
 
   play(event) {
-    this.doPlay(this.autoValue)
+    if (this.hasAutoValue) {
+      this.doPlay(this.autoValue)
+    } else if (this.hasUrlValue) {
+      this.doPlay(this.urlValue)
+    }
   }
 
   autoPlay() {
