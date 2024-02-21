@@ -4,9 +4,6 @@
 [submodule "docker"]
   path = docker
   url = git@github.com:work-design/docker.git
-[submodule "weui"]
-  path = weui
-  url = git@github.com:Tencent/weui.git
 [submodule "bulma"]
   path = bulma
   url = git@github.com:jgthms/bulma.git
