@@ -6,17 +6,16 @@ export default class extends Controller {
     id: String
   }
 
-  connect() {
-    this.observer = new MutationObserver(this.loaded)
-    this.observer.observe(this.menu, { childList: true })
-  }
-
   close() {
     const ele = this.maskTarget
     ele.style.display = 'none'
     ele.style.opacity = 0
     ele.style.transition = 'opacity 2s'
     this.sheetTarget.classList.remove('weui-actionsheet_toggle')
+  }
+
+  remove() {
+    this.element.remove()
   }
 
   show() {
