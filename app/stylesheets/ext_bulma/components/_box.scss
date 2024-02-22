@@ -13,3 +13,12 @@
     box-shadow: 1px 1px;
   }
 }
+
+.box {
+  &.is-narrow {
+    padding: 0.5rem 1rem;
+  }
+  &.is-padding-less {
+    padding: 6px;
+  }
+}
