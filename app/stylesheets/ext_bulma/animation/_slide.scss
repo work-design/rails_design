@@ -1,0 +1,55 @@
+@keyframes slideUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+.has-animate-slide-up {
+  animation-name: slideUp;
+  animation-fill-mode: forwards;
+  animation-duration: 0.3s;
+}
+
+.has-animate-slide-down {
+  animation-name: slideDown;
+  animation-fill-mode: forwards;
+  animation-duration: 0.3s;
+}
+
+// transition
+//模态弹窗/提示组件通用显示
+.weui-transition {
+  &.weui-mask {
+    transition: opacity 0.3s, visibility 0.3s;
+    opacity: 0;
+    visibility: hidden;
+  }
+  &.weui-half-screen-dialog {
+    transition: transform 0.3s;
+    transform: translateY(100%);
+  }
+}
+.weui-transition_show {
+  &.weui-mask {
+    opacity: 1;
+    visibility: visible;
+  }
+  &.weui-half-screen-dialog {
+    transform: translateY(0);
+  }
+}
+

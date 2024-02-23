@@ -1,0 +1,44 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes autoFade {
+  to {
+    opacity: 0.5;
+    display: none;
+  }
+}
+
+.has-animate-fade-in {
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+.has-animate-fade-out {
+  opacity: 0;
+  animation-name: fadeOut;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+.has-animate-auto-fade {
+  animation-name: autoFade;
+  animation-fill-mode: forwards;
+}
