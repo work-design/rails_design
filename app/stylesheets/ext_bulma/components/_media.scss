@@ -20,11 +20,3 @@
   }
 }
 
-@include mobile {
-  .media {
-    .media-content {
-      margin-top: 2rem;
-      width: -webkit-fill-available;
-    }
-  }
-}
