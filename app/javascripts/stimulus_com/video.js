@@ -52,7 +52,7 @@ export default class extends AudioPlayerController {
           nextEle.play()
         } else {
           const nextVideo = document.querySelector('video')
-          nextVideo.play()
+          nextVideo?.play()
         }
       })
     }
