@@ -23,6 +23,13 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  &.is-24-h {
+    height: 24px;
+  }
+  &.is-36-h {
+    height: 36px;
+  }
 }
 
 .is-avatar-center {
