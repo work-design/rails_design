@@ -15,4 +15,21 @@ export default class extends Controller {
     })
   }
 
+  queryShow(event) {
+    const ele = event.currentTarget
+    if (ele.dataset.hidden) {
+      const hiddenEles = document.querySelectorAll(ele.dataset.hidden)
+      hiddenEles.forEach(el => {
+        el.style.display = 'none'
+      })
+    }
+
+    if (ele.dataset.next) {
+      const nextEles = document.querySelectorAll(ele.dataset.next)
+      nextEles.forEach(el => {
+        el.style.removeProperty('display')
+      })
+    }
+  }
+
 }
