@@ -7,16 +7,7 @@ export default class extends Controller {
 
   // data-action="touchstart->slide#start:passive"
   initStatus(event) {
-    let touch
-    if (event.type === 'dragstart') {
-      window.xxx = event
-      const img = new Image()
-      img.src = 'https://nong-images.work.design/images/57sepakc4arx8xjpp66k77hsioq3'
-      event.dataTransfer.setDragImage(img, 0, 0)
-      touch = event
-    } else {
-      touch = event.targetTouches[0]
-    }
+    const touch = event.targetTouches[0]
 
     this.startPos = {
       x: touch.pageX,
@@ -27,10 +18,6 @@ export default class extends Controller {
 
   // scale && scale !== 表示缩放了
   zoomed(event) {
-    if (['drag', 'dragend'].includes(event.type)) {
-      event.preventDefault()
-      return false
-    }
     const result = event.changedTouches.length > 1 || (event.scale && event.scale !== 1)
     if (result) {
       console.error('是否缩放：', result)
@@ -66,12 +53,7 @@ export default class extends Controller {
   }
 
   offset(event) {
-    let touch
-    if (['drag', 'dragend'].includes(event.type)) {
-      touch = event
-    } else {
-      touch = event.changedTouches[0]
-    }
+    const touch = event.changedTouches[0]
 
     const offset = {
       x: touch.pageX - this.startPos.x,
