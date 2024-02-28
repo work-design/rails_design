@@ -39,6 +39,14 @@ export default class extends AudioPlayerController {
       const hiddenEles = document.querySelectorAll(ele.dataset.hidden)
       hiddenEles.forEach(el => {
         el.style.display = 'none'
+
+        if (['VIDEO', 'AUDIO'].includes(el.tagName)) {
+          el.pause()
+        } else {
+          el.querySelectorAll('video, audio').forEach(hideVideo => {
+            hideVideo.pause()
+          })
+        }
       })
     }
 
@@ -48,11 +56,12 @@ export default class extends AudioPlayerController {
       nextEles.forEach(nextEle => {
         nextEle.style.removeProperty('display')
 
-        if (nextEle.tagName === 'VIDEO') {
+        if (['VIDEO', 'AUDIO'].includes(nextEle.tagName)) {
           nextEle.play()
         } else {
-          const nextVideo = document.querySelector('video')
-          nextVideo?.play()
+          nextEle.querySelectorAll('video, audio').forEach(nextVideo => {
+            nextVideo.play()
+          })
         }
       })
     }
