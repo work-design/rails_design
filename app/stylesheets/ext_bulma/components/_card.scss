@@ -1,40 +1,38 @@
-@include desktop {
-  .cards {
-    display: grid;
+.cards {
+  display: grid;
 
-    &.is-2, &.is-3, &.is-4 {
-      .card {
-        display: flex;
-        flex-direction: column;
-
-        .card-content {
-          flex-grow: 1;
-        }
-
-        .card-footer {
-          justify-content: center;
-        }
-      }
-    }
-
-    &.is-2 {
-      grid-template-columns: repeat(2, 50%);
-    }
-
-    &.is-3 {
-      grid-template-columns: repeat(3, 33%);
-    }
-
-    &.is-4 {
-      grid-template-columns: repeat(4, 25%);
-    }
-
+  &.is-2, &.is-3, &.is-4 {
     .card {
-      margin: 1rem;
+      display: flex;
+      flex-direction: column;
 
-      .card-image > img {
-        width: 100%;
+      .card-content {
+        flex-grow: 1;
       }
+
+      .card-footer {
+        justify-content: center;
+      }
+    }
+  }
+
+  &.is-2 {
+    grid-template-columns: repeat(2, 50%);
+  }
+
+  &.is-3 {
+    grid-template-columns: repeat(3, 33%);
+  }
+
+  &.is-4 {
+    grid-template-columns: repeat(4, 25%);
+  }
+
+  .card {
+    margin: 1rem;
+
+    .card-image > img {
+      width: 100%;
     }
   }
 }

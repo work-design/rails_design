@@ -68,15 +68,15 @@
     }
   }
 
-  &.is-primary {
-    background-color: $primary;
-    .menu-label {
-      border-bottom: solid 1px $primary-dark;
-    }
-    .menu-list {
-      background-color: $primary-dark;
-    }
-  }
+  //&.is-primary {
+  //  background-color: $primary;
+  //  .menu-label {
+  //    border-bottom: solid 1px $primary-dark;
+  //  }
+  //  .menu-list {
+  //    background-color: $primary-dark;
+  //  }
+  //}
 
   &.is-dark,
   &.is-primary {
@@ -100,7 +100,7 @@
 .menu-brand {
   a {
     display: block;
-    padding: $menu-list-link-padding;
+    //padding: $menu-list-link-padding;
     color: #00b2ff;
   }
   img {

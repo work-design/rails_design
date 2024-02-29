@@ -1,9 +1,7 @@
-@include mobile {
-  .pagination {
-    margin: 0;
-  }
-  .pagination-previous,
-  .pagination-next {
-    flex-grow: 0
-  }
+.pagination {
+  margin: 0;
+}
+.pagination-previous,
+.pagination-next {
+  flex-grow: 0
 }

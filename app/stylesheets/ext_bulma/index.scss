@@ -1,16 +1,9 @@
 @charset "utf-8";
 
-@import 'bulma/sass/utilities/all';
 
-$table-head-background-color: $white-ter;
+//$table-head-background-color: $white-ter;
 
-@import 'bulma/sass/base/all';
-@import 'bulma/sass/elements/all';
-@import 'bulma/sass/form/all';
-@import 'bulma/sass/components/all';
-@import 'bulma/sass/grid/all';
-@import 'bulma/sass/helpers/_all';
-@import 'bulma/sass/layout/all';
+@import '../bulma/index';
 
 @import 'base/all';
 @import 'animation/all';
