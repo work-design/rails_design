@@ -5,5 +5,5 @@
   path = docker
   url = git@github.com:work-design/docker.git
 [submodule "bulma"]
-	path = bulma
-	url = git@github.com:meal-design/bulma.git
+  path = bulma
+  url = git@github.com:meal-design/bulma.git
