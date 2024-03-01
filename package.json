@@ -26,7 +26,7 @@
     "@hotwired/strada": "^1.0.0-beta1",
     "@hotwired/turbo-rails": "^8.0.3",
     "@rails/activestorage": "^7.1.2",
-    "bulma": "git+https://github.com/meal.design/bulma.git",
+    "bulma": "git@github.com:meal-design/bulma.git",
     "choices.js": "^10.2.0",
     "fullcalendar": "^6.1.10",
     "highlight.js": "^11.5.1",
