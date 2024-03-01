@@ -1,5 +1,6 @@
 {
   "name": "rails_design",
+  "private": true,
   "version": "0.0.8",
   "description": "Rails Common Javascript",
   "exports": {
@@ -13,9 +14,9 @@
   "files": [
     "app/assets",
     "app/javascripts",
-    "app/stylesheets",
-    "bulma"
+    "app/stylesheets"
   ],
+  "workspaces": ["bulma"],
   "engines": {
     "node": ">=6.14.4",
     "yarn": ">=1.0.0"
