@@ -4,7 +4,8 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 
 export default class extends Controller {
   static values = {
-    url: { type: String, default: '/events' }
+    url: { type: String, default: '/events' },
+    urls: { type: Array }
   }
 
   connect() {
@@ -15,7 +16,10 @@ export default class extends Controller {
       eventSources: [
         {
           url: this.urlValue
-        }
+        },
+        ...this.urlsValue.map(i => {
+          return { url: i }
+        })
       ],
       eventDidMount: (info) => {
         console.debug(',,,', info)
