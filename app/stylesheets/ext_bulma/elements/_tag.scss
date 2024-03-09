@@ -16,6 +16,12 @@
   }
 }
 
+.tags-group {
+  .tags + .tags {
+    margin-top: 0.5rem;
+  }
+}
+
 .is-flex {
   .tags {
     margin-bottom: 0;

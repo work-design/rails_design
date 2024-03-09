@@ -13,6 +13,7 @@
   &.is-borderless {
     border-width: 0;
     background-color: transparent;
+    box-shadow: none;
   }
   &.is-block {
     height: auto;
