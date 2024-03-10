@@ -1,4 +1,4 @@
-import AudioPlayerController from './audio_player'
+import AudioPlayerController from './audio-player'
 
 export default class extends AudioPlayerController {
   static targets = [

@@ -1,4 +1,4 @@
-import AudioPlayerController from './audio_player'
+import AudioPlayerController from './audio-player'
 
 export default class extends AudioPlayerController {
 
@@ -58,6 +58,8 @@ export default class extends AudioPlayerController {
 
         if (['VIDEO', 'AUDIO'].includes(nextEle.tagName)) {
           nextEle.play()
+        } else if (nextEle.controller('audio-player')) {
+          nextEle.controller('audio-player').play()
         } else {
           nextEle.querySelectorAll('video, audio').forEach(nextVideo => {
             nextVideo.play()

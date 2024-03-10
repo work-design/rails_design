@@ -16,10 +16,10 @@ application.register('common', CommonController)
 import ClipboardController from './clipboard'
 application.register('clipboard', ClipboardController)
 
-import CountDownController from './count_down'
+import CountDownController from './count-down'
 application.register('count-down', CountDownController)
 
-import CountUpController from './count_up'
+import CountUpController from './count-up'
 application.register('count-up', CountUpController)
 
 import CustomController from './custom'
