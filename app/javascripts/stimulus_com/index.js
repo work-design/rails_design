@@ -91,7 +91,7 @@ application.register('switch', SwitchController)
 import TimeController from './time'
 application.register('time', TimeController)
 
-import TimeCountController from './time_count'
+import TimeCountController from './time-count'
 application.register('time-count', TimeCountController)
 
 import TreeController from  './tree'
