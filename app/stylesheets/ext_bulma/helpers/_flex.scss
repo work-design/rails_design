@@ -6,13 +6,6 @@
   flex: auto;
 }
 
-.has-page-centered {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-}
-
 .has-block-left {
   display: flex;
   align-items: center;
@@ -54,6 +47,18 @@
   & > button:not(:first-child) {
     margin-top: 5px;
   }
+}
+
+.has-column-normal {
+  display: flex;
+  flex-direction: column;
+}
+
+.has-page-centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 
 .has-column-space-between {
