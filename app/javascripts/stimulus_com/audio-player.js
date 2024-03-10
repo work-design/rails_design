@@ -61,21 +61,55 @@ export default class extends Controller {
         Turbo.visit(this.linkValue)
       })
     } else if (this.nextValue) {
-      this.source.currentEle = this.element
-      this.source.addEventListener('ended', this.playNext)
+      this.source.that = this
+      this.source.addEventListener('ended', this.goPlayNext)
     }
   }
 
   playNext(event) {
-    const that = event.currentTarget
-    let ele = that.currentEle
-    if (ele) {
-      let nextEle = ele.nextElementSibling
+    let ele = event.currentTarget
+    const controller = event.target.closest('[data-controller~=audio-player]').controller('audio-player')
+    controller.playAnd(ele)
+  }
 
-      ele.style.display = 'none'
-      nextEle.style.removeProperty('display')
-      nextEle.dataset.add('controller', 'audio-player')
+  playAnd(ele) {
+    if (ele.dataset.hidden) {
+      const hiddenEles = document.querySelectorAll(ele.dataset.hidden)
+      hiddenEles.forEach(el => {
+        el.style.display = 'none'
+
+        if (['VIDEO', 'AUDIO'].includes(el.tagName)) {
+          el.pause()
+        } else {
+          el.querySelectorAll('video, audio').forEach(hideVideo => {
+            hideVideo.pause()
+          })
+        }
+      })
     }
+
+    if (ele.dataset.next) {
+      const nextEles = document.querySelectorAll(ele.dataset.next)
+
+      nextEles.forEach(nextEle => {
+        nextEle.style.removeProperty('display')
+
+        if (['VIDEO', 'AUDIO'].includes(nextEle.tagName)) {
+          nextEle.play()
+        } else if (nextEle.controller('audio-player')) {
+          nextEle.controller('audio-player').play()
+        } else {
+          nextEle.querySelectorAll('video, audio').forEach(nextVideo => {
+            nextVideo.play()
+          })
+        }
+      })
+    }
+  }
+
+  goPlayNext(event) {
+    const tar = event.currentTarget
+    tar.that.playAnd(tar.that.element)
   }
 
 }

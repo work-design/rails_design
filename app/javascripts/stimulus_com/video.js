@@ -34,39 +34,7 @@ export default class extends AudioPlayerController {
 
   playNext(event) {
     let ele = event.currentTarget
-
-    if (ele.dataset.hidden) {
-      const hiddenEles = document.querySelectorAll(ele.dataset.hidden)
-      hiddenEles.forEach(el => {
-        el.style.display = 'none'
-
-        if (['VIDEO', 'AUDIO'].includes(el.tagName)) {
-          el.pause()
-        } else {
-          el.querySelectorAll('video, audio').forEach(hideVideo => {
-            hideVideo.pause()
-          })
-        }
-      })
-    }
-
-    if (ele.dataset.next) {
-      const nextEles = document.querySelectorAll(ele.dataset.next)
-
-      nextEles.forEach(nextEle => {
-        nextEle.style.removeProperty('display')
-
-        if (['VIDEO', 'AUDIO'].includes(nextEle.tagName)) {
-          nextEle.play()
-        } else if (nextEle.controller('audio-player')) {
-          nextEle.controller('audio-player').play()
-        } else {
-          nextEle.querySelectorAll('video, audio').forEach(nextVideo => {
-            nextVideo.play()
-          })
-        }
-      })
-    }
+    const controller = event.target.closest('[data-controller~=video]').controller('video')
+    controller.playAnd(ele)
   }
-
 }
