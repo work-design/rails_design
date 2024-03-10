@@ -11,7 +11,6 @@ export default class extends Controller {
     this.observer = new IntersectionObserver(
       entries => {
         entries.forEach(el => {
-          console.debug(el)
           if (el.isIntersecting) {
             if (this.hasChildrenTarget) {
               Array.from(this.childrenTarget.children).forEach((child, index) => {
