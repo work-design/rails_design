@@ -34,11 +34,11 @@
     border-top: solid 1px $primary;
   }
 
-  &.is-flex-end {
+  &.flex-end {
     justify-content: flex-end;
   }
 
-  &.is-flex-end,
+  &.flex-end,
   &.is-space-around {
     .button:not(.is-normal):not(.is-medium):not(.is-large):not(.is-small) {
       border-radius: 6px;
