@@ -17,7 +17,7 @@ export default class extends Controller {
       this.previewFile(file)
       let controller = new DirectUploadController(input, file)
       controller.start(error => {
-        console.debug('upload,er', error)
+        console.error('upload,er', error)
         input.disabled = false
         button.disabled = false
       })
