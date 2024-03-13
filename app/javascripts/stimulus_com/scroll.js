@@ -2,26 +2,19 @@ import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
 
-  connect() {
-  }
-
   preserve(event) {
-    let scrollTop
-    let scrollContainer
-    let ele = event.target.parentElement
-    while (ele) {
-      if (ele.scrollTop > 0) {
-        scrollTop = ele.scrollTop
-        scrollContainer = ele
+    let oldContainer = event.target.parentElement
+    while (oldContainer) {
+      if (oldContainer.scrollTop > 0) {
         break
       }
-      ele = ele.parentElement
+      oldContainer = oldContainer.parentElement
     }
 
     window.addEventListener('turbo:render', ev => {
-      const ele = document.getElementById(scrollContainer.id) || document.scrollingElement
-      console.debug('------------------------', ele, scrollTop)
-      ele.scrollTo(0, scrollTop)
+      const newContainer = document.getElementById(oldContainer.id) || document.scrollingElement
+      console.debug('old container scroll top', oldContainer.scrollTop)
+      newContainer.scrollTo(0, oldContainer.scrollTop)
     }, { once: true })
   }
 
