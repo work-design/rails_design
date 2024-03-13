@@ -1,0 +1,15 @@
+.tabs {
+  &.is-fullwidth {
+    background-color: #f7f7f7;
+    --bulma-tabs-toggle-link-radius: 0;
+    //--bulma-tabs-toggle-link-border-width: 0;
+
+    a {
+      flex-direction: column;
+
+      i + span {
+        margin-top: 2px;
+      }
+    }
+  }
+}
