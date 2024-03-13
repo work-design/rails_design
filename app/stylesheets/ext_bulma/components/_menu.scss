@@ -68,15 +68,15 @@
     }
   }
 
-  //&.is-primary {
-  //  background-color: $primary;
-  //  .menu-label {
-  //    border-bottom: solid 1px $primary-dark;
-  //  }
-  //  .menu-list {
-  //    background-color: $primary-dark;
-  //  }
-  //}
+  &.is-primary {
+    background-color: var(--bulma-primary);
+    .menu-label {
+      border-bottom: solid 1px var(--bulma-primary-dark);
+    }
+    .menu-list {
+      background-color: var(--bulma-primary-dark);
+    }
+  }
 
   &.is-dark,
   &.is-primary {
