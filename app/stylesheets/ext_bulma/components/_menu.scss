@@ -65,6 +65,16 @@
     }
     .menu-list {
       background-color: #0e1e31;
+      a {
+        color: #fff;
+        background-color: #0e1e31;
+      }
+      &:hover {
+        color: #fff;
+      }
+      &.is-active {
+        color: #fff;
+      }
     }
   }
 
@@ -75,15 +85,9 @@
     }
     .menu-list {
       background-color: var(--bulma-primary-dark);
-    }
-  }
-
-  &.is-dark,
-  &.is-primary {
-    .menu-list {
       a {
         color: #fff;
-        background-color: #0e1e31;
+        background-color: var(--bulma-primary-dark);
       }
       &:hover {
         color: #fff;
