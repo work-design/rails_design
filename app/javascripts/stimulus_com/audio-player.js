@@ -28,6 +28,7 @@ export default class extends Controller {
   }
 
   disconnect() {
+    this.disconnected = true
     this.source?.stop()
   }
 
@@ -58,7 +59,9 @@ export default class extends Controller {
       this.source.connect(audioContext.destination)
       this.source.loop = this.loopValue
       console.log(this.source)
-      this.source.start()
+      if (!this.disconnected) {
+        this.source.start()
+      }
 
       if (this.linkValue) {
         this.source.addEventListener('ended', e => {
