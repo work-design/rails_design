@@ -47,23 +47,28 @@ export default class extends Controller {
     this.element.querySelector(':scope > video:first-child')?.play()
   }
 
-  async doPlay(url) {
-    this.source = audioContext.createBufferSource()
-    const response = await fetch(url)
-    this.source.buffer = await audioContext.decodeAudioData(await response.arrayBuffer())
-    this.source.connect(audioContext.destination)
-    this.source.loop = this.loopValue
-    console.log(this.source)
-    this.source.start()
+  doPlay(url) {
+    fetch(url).then(response => {
+      return response.arrayBuffer()
+    }).then(buffer => {
+      return audioContext.decodeAudioData(buffer)
+    }).then(decodeData => {
+      this.source = audioContext.createBufferSource()
+      this.source.buffer = decodeData
+      this.source.connect(audioContext.destination)
+      this.source.loop = this.loopValue
+      console.log(this.source)
+      this.source.start()
 
-    if (this.linkValue) {
-      this.source.addEventListener('ended', e => {
-        Turbo.visit(this.linkValue)
-      })
-    } else if (this.nextValue) {
-      this.source.that = this
-      this.source.addEventListener('ended', this.goPlayNext)
-    }
+      if (this.linkValue) {
+        this.source.addEventListener('ended', e => {
+          Turbo.visit(this.linkValue)
+        })
+      } else if (this.nextValue) {
+        this.source.that = this
+        this.source.addEventListener('ended', this.goPlayNext)
+      }
+    })
   }
 
   playNext(event) {
