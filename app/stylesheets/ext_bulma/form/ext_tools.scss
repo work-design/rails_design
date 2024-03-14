@@ -12,10 +12,6 @@
     align-items: center;
     justify-content: space-around;
   }
-
-  &.is-horizontal + &.is-horizontal {
-    margin-top: 1rem;
-  }
 }
 
 .checkbox + .checkbox {
