@@ -3,7 +3,7 @@
 }
 
 .has-border-primary {
-  border: 1px solid $primary;
+  border: 1px solid var(--bulma-primary);
 }
 
 .has-border-bottom {
@@ -15,7 +15,7 @@
 }
 
 .has-border-left-primary {
-  border-left: 4px solid $primary;
+  border-left: 4px solid var(--bulma-primary);
   padding-left: 0.5em;
 }
 

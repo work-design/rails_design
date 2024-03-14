@@ -37,7 +37,7 @@ main.columns {
   }
 
   .column_box {
-    border: 1px solid $primary;
+    border: 1px solid var(--bulma-primary);
     //box-shadow: $shadow;
     border-radius: 6px;
     background-color: transparent;

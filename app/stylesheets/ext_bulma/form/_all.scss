@@ -1,6 +1,6 @@
-@import 'button';
-@import 'checkbox';
-@import 'file';
-@import 'select';
-//@import 'switch';
-@import 'tools';
+@forward 'button';
+@forward 'checkbox';
+@forward 'file';
+@forward 'select';
+//@forward 'switch';
+@forward 'tools';

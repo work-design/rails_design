@@ -1,5 +1,5 @@
-@import 'base';
-@import 'fade';
-@import 'rotate';
-@import 'slide';
-@import 'typer';
+@forward 'base';
+@forward 'fade';
+@forward 'rotate';
+@forward 'slide';
+@forward 'typer';

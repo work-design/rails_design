@@ -1,18 +1,18 @@
 @charset "utf-8";
 
-
 //$table-head-background-color: $white-ter;
-$helpers-prefix: '';
 
-@use '../../../bulma/sass';
+@use '../../../bulma/sass' with (
+  $helpers-prefix: ''
+);
 
-@import 'base/all';
-@import 'animation/all';
-@import 'components/all';
-@import 'elements/all';
-@import 'form/all';
-@import 'grid/all';
-@import 'helpers/all';
-@import 'layout/all';
-@import 'utilities/all';
-@import 'expand/all';
+@forward 'base/all';
+@forward 'animation/all';
+@forward 'components/all';
+@forward 'elements/all';
+@forward 'form/all';
+@forward 'grid/all';
+@forward 'helpers/all';
+@forward 'layout/all';
+@forward 'utilities/all';
+@forward 'expand/all';
