@@ -10,8 +10,8 @@
     display: block;
     margin-top: 0;
     margin-bottom: 0;
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
     padding-right: 0.75em;
     padding-left: 1.5em;
     .dropdown {
@@ -43,7 +43,6 @@
   &.is-active {
     .menu-label {
       border-bottom: none;
-      padding-bottom: 0.5em;
       .dropdown:before {
         content: '\f0d7';
       }
