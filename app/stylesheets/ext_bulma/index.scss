@@ -4,7 +4,7 @@
 //$table-head-background-color: $white-ter;
 $helpers-prefix: '';
 
-@import '../../../bulma/sass/index';
+@use '../../../bulma/sass';
 
 @import 'base/all';
 @import 'animation/all';

@@ -1,13 +1,13 @@
 @use "../../../../bulma/sass/utilities/derived-variables" as dv;
-$switch-background: $grey-light !default;
+$switch-background: var(--bulma-text-dark) !default;
 $switch-border: .1rem solid transparent !default;
-$switch-background-active: $primary !default;
-$switch-radius: $radius !default;
-$switch-paddle-background: $white !default;
-$switch-paddle-background-active: $primary !default;
+$switch-background-active: var(--bulma-primary) !default;
+$switch-radius: var(--bulma-radius) !default;
+$switch-paddle-background: var(--bulma-white) !default;
+$switch-paddle-background-active: var(--bulma-primary) !default;
 $switch-paddle-offset: 0.25rem !default;
 $switch-paddle-transition: all 0.25s ease-out !default;
-$switch-focus: 1px dotted $grey-light !default;
+$switch-focus: 1px dotted var(--bulma-text-dark) !default;
 $colors: dv.$colors;
 
 @mixin switch-size($size) {
@@ -133,7 +133,7 @@ $colors: dv.$colors;
       }
       &::after,
       &:after {
-        box-shadow: 0 0 3px $grey;
+        box-shadow: 0 0 3px var(--bulma-text-dark);
       }
     }
   }
@@ -142,7 +142,7 @@ $colors: dv.$colors;
     + label {
       &::before,
       &:before {
-        border-radius: $radius-large * 4;
+        border-radius: var(--bulma-radius-large) * 4;
       }
       &::after,
       &:after {
@@ -186,15 +186,15 @@ $colors: dv.$colors;
     }
   }
 
-  @include switch-size($size-normal);
+  @include switch-size(var(--bulma-size-normal));
   &.is-small {
-    @include switch-size($size-small);
+    @include switch-size(var(--bulma-size-small));
   }
   &.is-medium {
-    @include switch-size($size-medium);
+    @include switch-size(var(--bulma-size-medium));
   }
   &.is-large {
-    @include switch-size($size-large);
+    @include switch-size(var(--bulma-size-large));
   }
 
   @each $name, $pair in $colors {

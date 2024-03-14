@@ -16,7 +16,7 @@ td.has-inner-table {
     text-align: left;
     font-size: 0.9em;
     font-weight: normal;
-    color: $grey;
+    color: var(--bulma-text-light);
   }
 
   thead td,
@@ -52,13 +52,13 @@ td.has-inner-table {
   }
 
   &.is-border {
-    border: solid 1px $border;
+    border: solid 1px var(--bulma-text-light);
   }
 
   &.as-show {
     td:first-child:not([colspan]) {
       width: 33%;
-      color: $grey;
+      color: var(--bulma-text-light);
     }
     td:last-child:not([colspan]) {
       text-align: right;
@@ -79,13 +79,13 @@ td.has-inner-table {
     th {
       text-align: right;
       white-space: nowrap;
-      color: $grey;
+      color: var(--bulma-text-light);
       font-size: 0.75em;
     }
 
     th::after {
       content: ':';
-      color: $grey-light;
+      color: var(--bulma-text-light)-light;
     }
 
     td {

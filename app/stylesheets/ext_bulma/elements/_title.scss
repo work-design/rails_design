@@ -1,9 +1,9 @@
 .title-edit {
   font-size: 1rem;
   font-weight: normal;
-  color: $grey-light;
+  color: var(--bulma-text-light);
 }
 
 .title-edit:hover {
-  color: $grey;
+  color: var(--bulma-text-dark);
 }
