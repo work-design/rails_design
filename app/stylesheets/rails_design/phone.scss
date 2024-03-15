@@ -1,6 +1,6 @@
-@import '../../../stylesheets/ext_weui';
-@import '../../../stylesheets/ext_bulma';
-@import '../../../stylesheets/phone_bulma';
-@import '../../../stylesheets/ext_choices';
-@import '../../../stylesheets/marp';
-@import '../../../stylesheets/ui_tooltip';
+@use '../ext_weui';
+@use '../ext_bulma';
+@use '../phone_bulma';
+@use '../ext_choices';
+@use '../marp';
+@use '../ui_tooltip';
