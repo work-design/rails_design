@@ -1,10 +1,8 @@
 @charset "utf-8";
 
 //$table-head-background-color: $white-ter;
-
-@use '../../../bulma/sass' with (
-  $helpers-prefix: ''
-);
+$helpers-prefix: '';
+@use '../../../bulma/sass' as *;
 
 @forward 'base/all';
 @forward 'animation/all';
