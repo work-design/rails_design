@@ -2,6 +2,10 @@ del {
   color: red;
 }
 
+input {
+  line-height: inherit;
+}
+
 iframe {
   &.as-top {
     width: 100%;
