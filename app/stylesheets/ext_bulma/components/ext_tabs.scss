@@ -1,6 +1,7 @@
 .tabs {
   &.is-fullwidth {
     background-color: #f7f7f7;
+    overflow: visible;
     --bulma-tabs-toggle-link-radius: 0;
     //--bulma-tabs-toggle-link-border-width: 0;
 

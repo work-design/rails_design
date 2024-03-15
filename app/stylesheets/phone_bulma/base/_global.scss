@@ -5,3 +5,11 @@ html, body {
 html {
   overflow-y: auto;
 }
+
+main {
+  background-color: #ededed;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
