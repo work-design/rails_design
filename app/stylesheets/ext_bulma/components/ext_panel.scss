@@ -1,5 +1,11 @@
-.panel-block.is-flex-direction-column {
+.panel-block.flex-direction-column {
   .control + .control {
     padding-top: 1em;
+  }
+}
+
+.panel-block {
+  .media {
+    width: 100%;
   }
 }
