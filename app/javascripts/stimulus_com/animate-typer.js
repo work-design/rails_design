@@ -5,7 +5,7 @@ export default class extends Controller {
 
   connect() {
     const ele = this.element
-    ele.classList.remove('is-invisible')
+    ele.classList.remove('invisible')
     ele.style.animationDuration = `${ele.innerText.length * 200}ms`
     ele.classList.add('has-animate-typer')
     ele.addEventListener('animationend', this.typeNext, { once: true })
