@@ -8,8 +8,19 @@
     a {
       flex-direction: column;
 
+      span {
+        color: var(--bulma-grey);
+      }
       i + span {
         margin-top: 2px;
+      }
+    }
+
+    li.is-active {
+      a {
+        span {
+          color: var(--bulma-tabs-link-active-color);
+        }
       }
     }
   }
