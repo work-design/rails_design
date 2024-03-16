@@ -19,6 +19,10 @@
     padding: 0.5rem 1rem;
   }
   &.is-padding-less {
-    padding: 6px;
+    --bulma-box-padding: 0;
+
+    table {
+      border-radius: var(--bulma-box-radius);
+    }
   }
 }
