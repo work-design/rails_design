@@ -17,6 +17,9 @@
 .media-right {
   &.as-x {
     align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 
