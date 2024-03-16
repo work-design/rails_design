@@ -4,6 +4,14 @@
   }
 }
 
+.panel {
+  &.is-white {
+    .panel-block {
+      background-color: white;
+    }
+  }
+}
+
 .panel-block {
   .media {
     width: 100%;
