@@ -2,8 +2,8 @@ html {
   height: 100%;
 }
 
-html {
-  overflow-y: auto;
+:root {
+  --bulma-body-overflow-y: auto;
 }
 
 main {
