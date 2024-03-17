@@ -1,7 +1,7 @@
 @use "../../../../bulma/sass/utilities/derived-variables" as dv;
 @use "../../../../bulma/sass/utilities/initial-variables" as iv;
 
-$switch-background: var(--bulma-text-dark) !default;
+$switch-background: var(--bulma-grey-light) !default;
 $switch-border: .1rem solid transparent !default;
 $switch-background-active: var(--bulma-primary) !default;
 $switch-radius: var(--bulma-radius) !default;
