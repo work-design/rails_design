@@ -22,14 +22,27 @@
   &.is-border {
     --bulma-box-padding: 0;
 
-    table {
+    > :only-child {
       border-radius: var(--bulma-box-radius);
     }
   }
 
   &.is-border {
+    margin-top: 0.75rem;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
     > :not(:last-child) {
       border-bottom: 1px solid hsl(0deg, 0%, 93%)
+    }
+  }
+
+  &.as-bar {
+    display: flex;
+    align-items: center;
+
+    .weui-title {
+      flex-grow: 1;
+      text-align: center;
     }
   }
 }

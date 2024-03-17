@@ -41,14 +41,8 @@
 
 .weui-panel__hd {
   color: var(--weui-FG-1);
-  &.as-bar {
-    display: flex;
-    align-items: center;
-  }
-  .weui-title {
-    flex-grow: 1;
-    text-align: center;
-  }
+
+
 }
 
 a.weui-panel__hd:active {
