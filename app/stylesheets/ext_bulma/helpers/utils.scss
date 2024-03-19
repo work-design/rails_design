@@ -3,6 +3,16 @@
   top: 0;
 }
 
+.sticky-bottom {
+  position: sticky;
+  bottom: 0;
+}
+
+.absolute-bottom {
+  position: absolute;
+  bottom: 0;
+}
+
 .is-opacity-1 {
   opacity: 1 !important;
 }

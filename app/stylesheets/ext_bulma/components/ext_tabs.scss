@@ -24,4 +24,9 @@
       }
     }
   }
+
+  &.absolute-bottom {
+    --bulma-tabs-border-bottom-width: 0;
+    background-color: transparent;
+  }
 }
