@@ -220,7 +220,7 @@ export default class extends TouchController {
     console.debug(ele.dataset.index, 'been Current After', event.type)
     ele.classList.remove('is-active')
 
-    const controller = ele.closest('[data-controller~=slide]').controller('slide')
+    const controller = ele.closest('[data-controller~=slide]').getController('slide')
     controller.direction = null
     if (!controller) {
       return
@@ -251,7 +251,7 @@ export default class extends TouchController {
   toCurrentAfter(event) {
     const ele = event.currentTarget
     console.debug(ele.dataset.index, 'to Current after', event.type)
-    const controller = ele.closest('[data-controller~=slide]').controller('slide')
+    const controller = ele.closest('[data-controller~=slide]').getController('slide')
     controller.direction = null
     if (!controller) {
       return

@@ -51,7 +51,7 @@ export default class extends Controller {
     let checkedCount = 0
     const ele = event.currentTarget
     const ingredients = document.querySelectorAll(`input[type=checkbox][name='${ele.name}']`)
-    const con = document.getElementById(ele.dataset.id).controller('check')
+    const con = document.getElementById(ele.dataset.id).getController('check')
     const overall = con.allTarget
     for (const ingredient of ingredients) {
       if (ingredient.checked) {

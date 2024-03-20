@@ -32,7 +32,7 @@ export default class extends Controller {
 
   get target() {
     const ele = document.getElementById(this.idValue)
-    return ele.controller('mask')
+    return ele.getController('mask')
   }
 
 }

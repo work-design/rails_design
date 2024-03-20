@@ -12,7 +12,7 @@ export default class extends Controller {
   }
 
   get outlet() {
-    return document.getElementById(this.idValue).controller(this.controllerValue)
+    return document.getElementById(this.idValue).getController(this.controllerValue)
   }
 
 }

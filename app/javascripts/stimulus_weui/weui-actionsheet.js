@@ -38,7 +38,7 @@ export default class extends Controller {
   // NOTICE: here this becomes observer
   loaded(list, observer) {
     list.forEach((item) => {
-      const con = item.target.closest('[data-controller~=weui-actionsheet]').controller('weui-actionsheet')
+      const con = item.target.closest('[data-controller~=weui-actionsheet]').getController('weui-actionsheet')
       switch(item.type) {
         case 'childList':
           if (item.addedNodes.length > 0) {
@@ -54,7 +54,7 @@ export default class extends Controller {
 
   get target() {
     const ele = document.getElementById(this.idValue)
-    return ele.controller('weui-actionsheet')
+    return ele.getController('weui-actionsheet')
   }
 
 }

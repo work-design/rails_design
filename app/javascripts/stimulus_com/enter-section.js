@@ -54,13 +54,13 @@ export default class extends Controller {
   }
 
   endXx(event) {
-    const controller = event.target.closest('[data-controller~=enter-section]').controller('enter-section')
+    const controller = event.target.closest('[data-controller~=enter-section]').getController('enter-section')
     controller.xx(event.target)
     event.target.removeEventListener('transitioncancel', controller.cancelXx)
   }
 
   cancelXx(event) {
-    const controller = event.target.closest('[data-controller~=enter-section]').controller('enter-section')
+    const controller = event.target.closest('[data-controller~=enter-section]').getController('enter-section')
     controller.xx(event.target)
     event.target.removeEventListener('transitionend', controller.endXx)
   }

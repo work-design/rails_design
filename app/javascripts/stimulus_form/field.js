@@ -17,7 +17,7 @@ export default class extends Controller {
     const next = this.element.nextElementSibling
     let addIndex
     if (next) {
-      const nextItem = next.controller('field')
+      const nextItem = next.getController(this.identifier)
       if (nextItem && nextItem.indexValue > this.indexValue) {
         addIndex = (nextItem.indexValue - this.indexValue) / 2
       } else {

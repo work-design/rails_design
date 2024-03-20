@@ -47,7 +47,7 @@ export default class extends Controller {
   loaded(list, observer) {
     list.forEach((item) => {
       const sheet = item.target.parentNode
-      const con = sheet.controller('weui-dialog')
+      const con = sheet.getController('weui-dialog')
       switch(item.type) {
         case 'childList':
           if (item.addedNodes.length > 0) {
@@ -59,7 +59,7 @@ export default class extends Controller {
 
   get target() {
     const ele = document.getElementById(this.idValue)
-    return ele.controller('weui-dialog')
+    return ele.getController('weui-dialog')
   }
 
 }

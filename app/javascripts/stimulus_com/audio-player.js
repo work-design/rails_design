@@ -76,7 +76,7 @@ export default class extends Controller {
 
   playNext(event) {
     let ele = event.currentTarget
-    const controller = event.target.closest('[data-controller~=audio-player]').controller('audio-player')
+    const controller = event.target.closest('[data-controller~=audio-player]').getController('audio-player')
     controller.playAnd(ele)
   }
 
@@ -104,8 +104,8 @@ export default class extends Controller {
 
         if (['VIDEO', 'AUDIO'].includes(nextEle.tagName)) {
           nextEle.play()
-        } else if (nextEle.controller('audio-player')) {
-          nextEle.controller('audio-player').play()
+        } else if (nextEle.getController('audio-player')) {
+          nextEle.getController('audio-player').play()
         } else {
           nextEle.querySelectorAll('video, audio').forEach(nextVideo => {
             nextVideo.play()

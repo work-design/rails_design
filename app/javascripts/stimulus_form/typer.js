@@ -26,7 +26,7 @@ export default class extends Controller {
 
   // NOTICE  here this becomes ele, who call addEventListener
   form() {
-    const con = this.closest('[data-controller~=typer]').controller('typer')
+    const con = this.closest('[data-controller~=typer]').getController('typer')
     con.valueTarget.removeAttribute('value')
     if (!this.value) {
       con.clear()

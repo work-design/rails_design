@@ -34,7 +34,8 @@ export default class extends AudioPlayerController {
 
   playNext(event) {
     let ele = event.currentTarget
-    const controller = event.target.closest('[data-controller~=video]').controller('video')
+    console.debug(ele)
+    const controller = ele.closest('[data-controller~=video]').getController('video')
     controller.playAnd(ele)
   }
 }
