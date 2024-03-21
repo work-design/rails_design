@@ -1,6 +1,9 @@
 import '@hotwired/turbo-rails'
+import { Idiomorph } from 'idiomorph/dist/idiomorph.esm'
+window.Idiomorph = Idiomorph
 
 import './dataset'
+import './utils'
 
 import './wxwork_script'
 import './weixin_script'
