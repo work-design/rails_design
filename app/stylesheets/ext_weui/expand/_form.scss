@@ -2,3 +2,10 @@
   flex-grow: 1;
   margin: 0.75rem;
 }
+
+.form-fields {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
