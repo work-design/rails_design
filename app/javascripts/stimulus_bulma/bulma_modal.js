@@ -16,6 +16,7 @@ export default class extends Controller {
   hide() {
     if (this.closeCheck()) {
       this.element.classList.remove('is-active')
+      document.documentElement.classList.remove('is-clipped')
     }
   }
 
