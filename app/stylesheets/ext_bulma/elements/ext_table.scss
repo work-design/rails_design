@@ -57,7 +57,6 @@ td.has-inner-table {
 
   &.as-show {
     td:first-child:not([colspan]) {
-      width: 33%;
       color: var(--bulma-text-60);
       font-size: 0.9em;
     }
