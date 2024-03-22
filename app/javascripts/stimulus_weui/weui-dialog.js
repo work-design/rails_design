@@ -26,14 +26,6 @@ export default class extends Controller {
     }
   }
 
-  show() {
-    if (this.hasMaskTarget) {
-      this.maskTarget.classList.add('weui-mask')
-    }
-    this.dialogTarget.classList.add('weui-half-screen-dialog_show')
-    this.element.classList.add('weui-dialog__wrap_show')
-  }
-
   toggle() {
     const x = this.target
     if (x.dialogTarget.classList.contains('weui-half-screen-dialog_show')) {

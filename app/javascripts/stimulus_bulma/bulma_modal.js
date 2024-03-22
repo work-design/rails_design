@@ -8,11 +8,19 @@ export default class extends Controller {
   }
 
   close() {
-    const label = this.closeCheck()
-
-    if (!label || confirm(`${label} is changed, Are You Sure?`)) {
+    if (this.closeCheck()) {
       this.element.remove()
     }
+  }
+
+  hide() {
+    if (this.closeCheck()) {
+      this.element.classList.remove('is-active')
+    }
+  }
+
+  show() {
+    this.element.classList.add('is-active')
   }
 
   disconnect() {
@@ -28,7 +36,7 @@ export default class extends Controller {
       }
     })
 
-    return arr.join(',')
+    return arr.length === 0 || confirm(`${arr.join(',')} is changed, Are You Sure?`)
   }
 
 }

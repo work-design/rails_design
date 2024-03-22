@@ -1,0 +1,12 @@
+.modal {
+  &.is-mobile {
+    .modal-card {
+      position: fixed;
+      bottom: 0;
+    }
+    .modal-card-foot {
+      border-end-start-radius: 0;
+      border-end-end-radius: 0;
+    }
+  }
+}
