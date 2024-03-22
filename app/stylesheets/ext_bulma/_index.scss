@@ -2,11 +2,9 @@
 
 //$table-head-background-color: $white-ter;
 
-
-@use '../../../bulma/sass/utilities' with (
+@use 'bulma/sass' with (
   $helpers-prefix: ''
 );
-@use '../../../bulma/sass';
 
 @forward 'base/all';
 @forward 'animation/all';
