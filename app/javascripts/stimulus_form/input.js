@@ -56,15 +56,16 @@ export default class extends Controller {
   // focus->form#blank
   blank(event) {
     const ele = event.currentTarget
+    ele.lastValue = ele.value
     ele.value = ''
 
-    ele.addEventListener('blur', this.restoreDefaultValue, { once: true })
+    ele.addEventListener('blur', this.restoreLastValue, { once: true })
   }
 
-  restoreDefaultValue(event) {
+  restoreLastValue(event) {
     const ele = event.currentTarget
     if (isNaN(ele.valueAsNumber)) {
-      ele.value = ele.defaultValue
+      ele.value = ele.lastValue
     }
   }
 
