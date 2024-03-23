@@ -24,6 +24,14 @@ export default class extends Controller {
     this.element.classList.add('is-active')
   }
 
+  toggle() {
+    if (this.element.classList.contains('is-active')) {
+      this.close()
+    } else {
+      this.show()
+    }
+  }
+
   disconnect() {
     document.documentElement.classList.remove('is-clipped')
   }

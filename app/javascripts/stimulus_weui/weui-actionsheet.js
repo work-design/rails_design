@@ -48,9 +48,7 @@ export default class extends Controller {
     })
   }
 
-  get menu() {
-    return document.getElementById('actionsheet_menu')
-  }
+
 
   get target() {
     const ele = document.getElementById(this.idValue)
