@@ -11,6 +11,7 @@ export default class extends Controller {
 
   plus() {
     this.inputTarget.value = Number(parseFloat(this.inputTarget.value || 0) + this.step).toFixed(this.digit)
+    this.inputTarget.dispatchEvent(new Event('change'))
     if (this.submitValue) {
       this.inputTarget.form.requestSubmit()
     }
@@ -22,6 +23,7 @@ export default class extends Controller {
   minus() {
     if (this.inputTarget.value >= this.step) {
       this.inputTarget.value = Number(parseFloat(this.inputTarget.value || 0) - this.step).toFixed(this.digit)
+      this.inputTarget.dispatchEvent(new Event('change'))
       if (this.submitValue) {
         this.inputTarget.form.requestSubmit()
       }
