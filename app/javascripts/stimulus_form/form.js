@@ -121,19 +121,4 @@ export default class extends Controller {
     Turbo.visit(url.href)
   }
 
-  // focus->form#blank
-  blank(event) {
-    const ele = event.currentTarget
-    ele.value = ''
-
-    ele.addEventListener('blur', this.restoreDefaultValue, { once: true })
-  }
-
-  restoreDefaultValue(event) {
-    const ele = event.currentTarget
-    if (isNaN(ele.valueAsNumber)) {
-      ele.value = ele.defaultValue
-    }
-  }
-
 }

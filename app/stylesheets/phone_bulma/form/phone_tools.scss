@@ -1,0 +1,9 @@
+.label:not(:last-child) {
+  margin-bottom: 0.25rem;
+  font-size: var(--bulma-size-small);
+  font-weight: var(--bulma-weight-light);
+}
+
+.field {
+  --bulma-block-spacing: 1rem;
+}
