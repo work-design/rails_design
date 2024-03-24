@@ -17,7 +17,7 @@ export default class extends Controller {
     if (this.hasAutoValue) {
       this.doPlay(this.autoValue)
     } else if (this.hasUrlValue) {
-      this.xx()
+      this.doFetch(this.urlValue)
     }
     this.autoPlay()
 
@@ -53,6 +53,7 @@ export default class extends Controller {
 
   doPlay(url) {
     this.doFetch(url)
+    this.doStart()
   }
 
   doFetch(url) {
