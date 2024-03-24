@@ -16,15 +16,18 @@ export default class extends Controller {
   connect() {
     if (this.hasAutoValue) {
       this.doPlay(this.autoValue)
-      if (window.__wxjs_environment === 'miniprogram') {
-        WeixinJSBridge.on('onPageStateChange', res => {
-          if (res.active === 'true' || res.active === true) {
-            this.stop()
-          }
-        })
-      }
+    } else if (this.hasUrlValue) {
+      this.xx()
     }
     this.autoPlay()
+
+    if (window.__wxjs_environment === 'miniprogram') {
+      WeixinJSBridge.on('onPageStateChange', res => {
+        if (res.active === 'true' || res.active === true) {
+          this.stop()
+        }
+      })
+    }
   }
 
   disconnect() {
@@ -49,6 +52,10 @@ export default class extends Controller {
   }
 
   doPlay(url) {
+    this.doFetch(url)
+  }
+
+  doFetch(url) {
     fetch(url).then(response => {
       return response.arrayBuffer()
     }).then(buffer => {
@@ -59,19 +66,22 @@ export default class extends Controller {
       this.source.connect(audioContext.destination)
       this.source.loop = this.loopValue
       console.log(this.source)
-      if (!this.disconnected) {
-        this.source.start()
-      }
-
-      if (this.linkValue) {
-        this.source.addEventListener('ended', e => {
-          Turbo.visit(this.linkValue)
-        })
-      } else if (this.nextValue) {
-        this.source.that = this
-        this.source.addEventListener('ended', this.goPlayNext)
-      }
     })
+  }
+
+  doStart() {
+    if (!this.disconnected) {
+      this.source.start()
+    }
+
+    if (this.linkValue) {
+      this.source.addEventListener('ended', e => {
+        Turbo.visit(this.linkValue)
+      })
+    } else if (this.nextValue) {
+      this.source.that = this
+      this.source.addEventListener('ended', this.goPlayNext)
+    }
   }
 
   playNext(event) {
