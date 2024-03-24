@@ -19,7 +19,6 @@ export default class extends Controller {
     } else if (this.hasUrlValue) {
       this.doFetch(this.urlValue)
     }
-    this.autoPlay()
 
     if (window.__wxjs_environment === 'miniprogram') {
       WeixinJSBridge.on('onPageStateChange', res => {
