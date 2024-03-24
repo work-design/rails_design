@@ -50,37 +50,35 @@ export default class extends Controller {
     this.element.querySelector(':scope > video:first-child')?.play()
   }
 
-  doPlay(url) {
-    this.doFetch(url)
-    this.doStart()
+  async doPlay(url) {
+    await this.doFetch(url, this.doStart)
   }
 
-  doFetch(url) {
-    fetch(url).then(response => {
-      return response.arrayBuffer()
-    }).then(buffer => {
-      return audioContext.decodeAudioData(buffer)
-    }).then(decodeData => {
+  async doFetch(url, callback) {
+    const response = await fetch(url)
+    audioContext.decodeAudioData(await response.arrayBuffer(), (decodeData) => {
       this.source = audioContext.createBufferSource()
       this.source.buffer = decodeData
       this.source.connect(audioContext.destination)
       this.source.loop = this.loopValue
       console.log(this.source)
+      callback(this)
     })
   }
 
-  doStart() {
-    if (!this.disconnected) {
-      this.source.start()
+  doStart(that = this) {
+    console.debug('---------------', that)
+    if (!that.disconnected) {
+      that.source.start()
     }
 
-    if (this.linkValue) {
-      this.source.addEventListener('ended', e => {
-        Turbo.visit(this.linkValue)
+    if (that.linkValue) {
+      that.source.addEventListener('ended', e => {
+        Turbo.visit(that.linkValue)
       })
-    } else if (this.nextValue) {
-      this.source.that = this
-      this.source.addEventListener('ended', this.goPlayNext)
+    } else if (that.nextValue) {
+      that.source.that = that
+      that.source.addEventListener('ended', that.goPlayNext)
     }
   }
 
@@ -115,7 +113,7 @@ export default class extends Controller {
         if (['VIDEO', 'AUDIO'].includes(nextEle.tagName)) {
           nextEle.play()
         } else if (nextEle.getController('audio-player')) {
-          nextEle.getController('audio-player').play()
+          nextEle.getController('audio-player').doStart()
         } else {
           nextEle.querySelectorAll('video, audio').forEach(nextVideo => {
             nextVideo.play()
