@@ -5,7 +5,16 @@
 
 .sticky-bottom {
   position: sticky;
-  bottom: 0;
+  bottom: -1px;
+  transition-duration: 1s;
+  transition-property: background-color;
+
+  &.is-active {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    background-color: var(--bulma-success-light);
+    transition-property: padding-bottom, padding-top;
+  }
 }
 
 .absolute-bottom {
