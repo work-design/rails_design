@@ -5,7 +5,7 @@ export default class extends Controller {
 
   toggle(event) {
     this.srcTargets.forEach(el => {
-      el.classList.toggle('is-hidden')
+      el.classList.toggle('display-none')
     })
   }
 

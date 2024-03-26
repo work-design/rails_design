@@ -30,7 +30,7 @@ export default class extends Controller {
 
   showCommits(total) {
     this.checkCommitOutletElements.forEach(el => {
-      el.classList.remove('is-hidden')
+      el.classList.remove('display-none')
     })
     if (this.hasTotalTarget) {
       this.totalTarget.innerText = `${total} Selected`
@@ -39,7 +39,7 @@ export default class extends Controller {
 
   hiddenCommits() {
     this.checkCommitOutletElements.forEach(el => {
-      el.classList.add('is-hidden')
+      el.classList.add('display-none')
     })
     if (this.hasTotalTarget) {
       this.totalTarget.innerText = ''

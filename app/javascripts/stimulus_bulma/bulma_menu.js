@@ -22,7 +22,7 @@ export default class extends Controller {
   expand(event) {
     let expander = event.currentTarget
     if (expander.nextElementSibling !== null) {
-      expander.nextElementSibling.classList.toggle('is-hidden')
+      expander.nextElementSibling.classList.toggle('display-none')
     }
     if (expander.lastElementChild !== null) {
       expander.lastElementChild.classList.toggle(this.closeClass)

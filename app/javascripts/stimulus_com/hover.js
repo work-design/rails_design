@@ -9,7 +9,7 @@ export default class extends Controller {
   show(event) {
     let ele = event.currentTarget
     if (this.hasCardTarget) {
-      this.cardTarget.classList.remove('is-hidden')
+      this.cardTarget.classList.remove('display-none')
     } else if (this.urlValue) {
       fetch(this.urlValue, {
         method: 'GET',
@@ -26,7 +26,7 @@ export default class extends Controller {
 
   hide() {
     if (this.hasCardTarget) {
-      this.cardTarget.classList.add('is-hidden')
+      this.cardTarget.classList.add('display-none')
     }
   }
 
