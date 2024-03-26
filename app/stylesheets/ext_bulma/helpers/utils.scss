@@ -3,17 +3,19 @@
   top: 0;
 }
 
+.my-neg-3 {
+  margin-top: -0.75rem !important;
+  margin-bottom: -0.75rem !important;
+}
+
 .sticky-bottom {
   position: sticky;
   bottom: -1px;
-  transition-duration: 1s;
+  transition-duration: 0.3s;
   transition-property: background-color;
 
   &.is-active {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
     background-color: var(--bulma-success-light);
-    transition-property: padding-bottom, padding-top;
   }
 }
 
