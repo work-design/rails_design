@@ -11,6 +11,7 @@ export default class extends Controller {
     this.observer = new IntersectionObserver(
       entries => {
         entries.forEach(el => {
+          console.debug('--------', el.intersectionRatio)
           el.target.classList.toggle('is-active', el.intersectionRatio < 1)
         })
       },
