@@ -1,12 +1,16 @@
 .tabs {
-  &.is-fullwidth {
+  &.as-bottom {
+    --bulma-tabs-toggle-link-radius: 0;
+
     background-color: #f7f7f7;
     overflow: visible;
-    --bulma-tabs-toggle-link-radius: 0;
+    justify-content: space-around;
     //--bulma-tabs-toggle-link-border-width: 0;
 
     a {
       flex-direction: column;
+      flex-grow: 1;
+      flex-shrink: 0;
 
       span {
         color: var(--bulma-grey);
