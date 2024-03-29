@@ -4,27 +4,20 @@
 
     background-color: #f7f7f7;
     overflow: visible;
-    justify-content: space-around;
     //--bulma-tabs-toggle-link-border-width: 0;
 
     a {
       flex-direction: column;
       flex-grow: 1;
       flex-shrink: 0;
+      color: var(--bulma-grey);
 
-      span {
-        color: var(--bulma-grey);
+      &.is-active {
+        color: var(--bulma-tabs-link-active-color);
       }
+
       i + span {
         margin-top: 2px;
-      }
-    }
-
-    li.is-active {
-      a {
-        span {
-          color: var(--bulma-tabs-link-active-color);
-        }
       }
     }
   }
