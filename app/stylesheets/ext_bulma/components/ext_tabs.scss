@@ -4,6 +4,7 @@
 
     background-color: #f7f7f7;
     overflow: visible;
+    padding-bottom: env(safe-area-inset-bottom);
     //--bulma-tabs-toggle-link-border-width: 0;
 
     a {
