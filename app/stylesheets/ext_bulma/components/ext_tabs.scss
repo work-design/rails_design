@@ -23,6 +23,21 @@
     }
   }
 
+  &.as-navbar {
+    --bulma-tabs-border-bottom-width: 0;
+
+    justify-content: space-around;
+    background-color: #f7f7f7;
+    z-index: 2;
+    padding: 0.25rem 0.75rem;
+
+    a {
+      &.is-active {
+        color: var(--bulma-tabs-link-active-color);
+      }
+    }
+  }
+
   &.absolute-bottom {
     --bulma-tabs-border-bottom-width: 0;
   }
