@@ -14,7 +14,7 @@
       color: var(--bulma-grey);
 
       &.is-active {
-        color: var(--bulma-tabs-link-active-color);
+        color: var(--bulma-primary);
       }
 
       i + span {
@@ -33,7 +33,7 @@
 
     a {
       &.is-active {
-        color: var(--bulma-tabs-link-active-color);
+        color: var(--bulma-primary);
       }
     }
   }
