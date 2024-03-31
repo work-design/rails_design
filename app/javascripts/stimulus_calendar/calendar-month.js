@@ -22,7 +22,6 @@ export default class extends Controller {
         })
       ],
       eventDidMount: (info) => {
-        console.debug(',,,', info)
         let url = info.event.extendedProps.img
         if (url) {
           info.el.style.backgroundImage = `url(${url})`
