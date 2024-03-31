@@ -1,5 +1,3 @@
-@use 'bulma/sass/utilities/mixins' as mx;
-
 .box-cell {
   display: flex;
   padding: 0.75rem;
@@ -10,11 +8,6 @@
   }
 
   .box-cell-footer {
-    position: relative;
-  }
-  .box-cell-footer::after {
-    @include mx.arrow(grey);
-    transform: rotate(-135deg);
-    right: 0.75rem;
+    text-align: right;
   }
 }

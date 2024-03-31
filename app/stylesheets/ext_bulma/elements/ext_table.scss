@@ -57,6 +57,7 @@ td.has-inner-table {
 
   &.as-show {
     --bulma-table-cell-padding: 0.25em 1em;
+    width: 100%;
 
     td:first-child:not([colspan]) {
       color: var(--bulma-text-60);
