@@ -49,11 +49,9 @@ export default class extends Controller {
   // NOTICE: this become event
   updateDisplay(event) {
     let checkedCount = 0
-    const ele = event.currentTarget
-    const ingredients = document.querySelectorAll(`input[type=checkbox][name='${ele.name}']`)
-    const con = document.getElementById(ele.dataset.id).getController('check')
+    const con = document.getElementById(event.currentTarget.dataset.id).getController('check')
     const overall = con.allTarget
-    for (const ingredient of ingredients) {
+    for (const ingredient of con.checkboxes) {
       if (ingredient.checked) {
         checkedCount++;
       }
@@ -63,7 +61,7 @@ export default class extends Controller {
       overall.checked = false
       overall.indeterminate = false
       con.hiddenCommits()
-    } else if (checkedCount === ingredients.length) {
+    } else if (checkedCount === con.checkboxes.length) {
       overall.checked = true
       overall.indeterminate = false
       con.showCommits(checkedCount)
@@ -75,7 +73,7 @@ export default class extends Controller {
   }
 
   get checkboxes() {
-    return document.querySelectorAll(`input[type=checkbox][name='${this.allTarget.value}']`)
+    return document.querySelectorAll(`input[type=checkbox][name^='${this.allTarget.value}']`)
   }
 
 }
