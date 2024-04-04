@@ -19,17 +19,17 @@ export default class extends Controller {
     const ele = event.currentTarget
     if (ele.checked) {
       this.checkTargets.forEach(el => {
-        el.classList.remove('visibility-hidden')
+        el.classList.remove('display-none')
       })
       this.hiddenTargets.forEach(el => {
-        el.classList.add('visibility-hidden')
+        el.classList.add('display-none')
       })
     } else {
       this.checkTargets.forEach(el => {
-        el.classList.add('visibility-hidden')
+        el.classList.add('display-none')
       })
       this.hiddenTargets.forEach(el => {
-        el.classList.remove('visibility-hidden')
+        el.classList.remove('display-none')
       })
     }
   }
