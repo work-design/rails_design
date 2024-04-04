@@ -1,18 +1,31 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static targets = ['src', 'item']
+  static targets = ['src', 'item', 'check']
 
   show() {
     this.itemTargets.forEach(el => {
-      el.style.visibility = 'visible'
+      el.classList.remove('visibility-hidden')
     })
   }
 
   hide() {
     this.itemTargets.forEach(el => {
-      el.style.visibility = 'hidden'
+      el.classList.add('visibility-hidden')
     })
+  }
+
+  toggle(event) {
+    const ele = event.currentTarget
+    if (ele.checked) {
+      this.checkTargets.forEach(el => {
+        el.classList.remove('visibility-hidden')
+      })
+    } else {
+      this.checkTargets.forEach(el => {
+        el.classList.add('visibility-hidden')
+      })
+    }
   }
 
   queryShow(event) {
