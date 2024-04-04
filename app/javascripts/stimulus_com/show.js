@@ -1,7 +1,7 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static targets = ['src', 'item', 'check']
+  static targets = ['src', 'item', 'check', 'hidden']
 
   show() {
     this.itemTargets.forEach(el => {
@@ -21,9 +21,15 @@ export default class extends Controller {
       this.checkTargets.forEach(el => {
         el.classList.remove('visibility-hidden')
       })
+      this.hiddenTargets.forEach(el => {
+        el.classList.add('visibility-hidden')
+      })
     } else {
       this.checkTargets.forEach(el => {
         el.classList.add('visibility-hidden')
+      })
+      this.hiddenTargets.forEach(el => {
+        el.classList.remove('visibility-hidden')
       })
     }
   }
