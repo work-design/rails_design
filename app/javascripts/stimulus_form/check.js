@@ -3,6 +3,9 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
   static outlets = ['check-commit']
   static targets = ['all', 'total']
+  static values = {
+    container: { type: String }
+  }
 
   connect() {
     for (const ingredient of this.checkboxes) {
@@ -53,7 +56,7 @@ export default class extends Controller {
     const overall = con.allTarget
     for (const ingredient of con.checkboxes) {
       if (ingredient.checked) {
-        checkedCount++;
+        checkedCount++
       }
     }
 
@@ -73,7 +76,8 @@ export default class extends Controller {
   }
 
   get checkboxes() {
-    return document.querySelectorAll(`input[type=checkbox][name^='${this.allTarget.value}']`)
+    const container = document.getElementById(this.containerValue)
+    return container.querySelectorAll(`input[type=checkbox][name^='${this.allTarget.value}']`)
   }
 
 }
