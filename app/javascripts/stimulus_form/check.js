@@ -4,7 +4,8 @@ export default class extends Controller {
   static outlets = ['check-commit']
   static targets = ['all', 'total']
   static values = {
-    container: { type: String, default: 'tbody' }
+    container: String,
+    range: String
   }
 
   connect() {
@@ -21,6 +22,7 @@ export default class extends Controller {
     for (const checkbox of this.checkboxes) {
       if (!checkbox.disabled) {
         checkbox.checked = element.checked
+        checkbox.dispatchEvent(new Event('input'))
       }
     }
 
@@ -76,8 +78,14 @@ export default class extends Controller {
   }
 
   get checkboxes() {
-    const container = document.getElementById(this.containerValue)
-    return container.querySelectorAll(`input[type=checkbox][name^='${this.allTarget.value}']`)
+    if (this.hasContainerValue) {
+      const container = document.getElementById(this.containerValue)
+      return container.querySelectorAll(`input[type=checkbox][name^='${this.allTarget.value}']`)
+    } else if (this.hasRangeValue) {
+      return document.querySelectorAll(`[id^=${this.rangeValue}] input[type=checkbox][name^='${this.allTarget.value}']`)
+    } else {
+      return document.querySelectorAll(`input[type=checkbox][name^='${this.allTarget.value}']`)
+    }
   }
 
 }
