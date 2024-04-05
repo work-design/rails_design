@@ -4,7 +4,7 @@ export default class extends Controller {
   static outlets = ['check-commit']
   static targets = ['all', 'total']
   static values = {
-    container: { type: String }
+    container: { type: String, default: 'tbody' }
   }
 
   connect() {
