@@ -41,4 +41,8 @@
   &.absolute-bottom {
     --bulma-tabs-border-bottom-width: 0;
   }
+
+  &.is-centered {
+    justify-content: center;
+  }
 }
