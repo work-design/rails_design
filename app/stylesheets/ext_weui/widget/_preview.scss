@@ -1,19 +1,22 @@
-.weui-form-preview__item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+dl.as-show {
 
-.weui-form-preview__label {
-  text-align-last: auto;
-  width: auto;
-}
+  div {
+    display: flex;
+    padding: 0.25em 1em;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-.weui-form-preview {
-  &.is-box {
-    border-radius: 6px;
-    margin-top: 0.75rem;
-    margin-left: 0.75rem;
-    margin-right: 0.75rem;
+  dt {
+    color: var(--bulma-text-60);
+    font-size: 0.9em;
+    text-align-last: auto;
+    width: auto;
+  }
+  dd {
+    text-align: right;
+    img {
+      float: right;
+    }
   }
 }

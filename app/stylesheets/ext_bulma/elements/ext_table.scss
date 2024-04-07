@@ -55,21 +55,6 @@ td.has-inner-table {
     border: solid 1px var(--bulma-text-light);
   }
 
-  &.as-show {
-    --bulma-table-cell-padding: 0.25em 1em;
-
-    td:first-child:not([colspan]) {
-      color: var(--bulma-text-60);
-      font-size: 0.9em;
-    }
-    td:last-child:not([colspan]) {
-      text-align: right;
-      img {
-        float: right;
-      }
-    }
-  }
-
   &.as-search {
     margin-bottom: 0.5rem;
 
