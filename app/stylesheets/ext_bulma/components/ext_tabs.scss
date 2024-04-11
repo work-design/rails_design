@@ -45,4 +45,18 @@
   &.is-centered {
     justify-content: center;
   }
+
+  &.is-boxed {
+    a {
+      &.is-active {
+        background-color: var(--bulma-tabs-boxed-link-active-background-color);
+        border-color: var(--bulma-tabs-boxed-link-active-border-color);
+        border-bottom-color: var(--bulma-tabs-boxed-link-active-border-bottom-color) !important;
+      }
+    }
+
+    & + .box {
+      border-top-left-radius: 0;
+    }
+  }
 }
