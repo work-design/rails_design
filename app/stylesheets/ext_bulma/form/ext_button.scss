@@ -15,6 +15,11 @@
 .button_to {
   display: inline;
 
+  main > & {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
   i {
     line-height: 1;
   }

@@ -68,3 +68,7 @@ a.box-header {
   display: flex;
   justify-content: space-between;
 }
+
+main > .box:first-child:not(.as-bar) {
+  margin-top: 0.75rem;
+}
