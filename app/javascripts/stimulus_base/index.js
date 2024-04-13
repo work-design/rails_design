@@ -1,5 +1,4 @@
 import { Application } from '@hotwired/stimulus'
-import './request'
 
 window.application = Application.start()
 

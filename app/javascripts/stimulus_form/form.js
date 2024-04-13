@@ -1,4 +1,4 @@
-import { Controller } from '@hotwired/stimulus'
+import BaseController from '../base_controller'
 const I18N = {
   zh: {
     badInput: '{label}格式不正确',
@@ -27,7 +27,8 @@ const I18N = {
     valueMissing: 'Please enter: {label}'
   }
 }
-export default class extends Controller {
+
+export default class extends BaseController {
   static values = {
     css: { type: String, default: 'is-danger' }
   }
@@ -43,12 +44,11 @@ export default class extends Controller {
   }
 
   defaultValid(input) {
-    const locale = document.querySelector('html').lang
     let label, word
 
     for (let key in input.validity) {
       if (input.validity[key]) {
-        word = I18N[locale][key]
+        word = I18N[this.locale][key]
       }
     }
 
