@@ -1,7 +1,11 @@
-import { Controller } from '@hotwired/stimulus'
+import BaseController from '../base_controller'
+const I18N = {
+  zh: '已改变，确认关闭？',
+  en: ' is changed, Are You Sure?'
+}
 
 // data-controller="modal"
-export default class extends Controller {
+export default class extends BaseController {
 
   connect() {
     document.documentElement.classList.add('is-clipped')
@@ -45,7 +49,7 @@ export default class extends Controller {
       }
     })
 
-    return arr.length === 0 || confirm(`${arr.join(',')} is changed, Are You Sure?`)
+    return arr.length === 0 || confirm(`${arr.join(',')}${I18N[this.locale]}`)
   }
 
 }
