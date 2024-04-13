@@ -1,7 +1,7 @@
-import { Controller } from '@hotwired/stimulus'
+import BaseController from '../base_controller'
 
 // data-controller="visit"
-export default class extends Controller {
+export default class extends BaseController {
   static values = {
     url: String,
     frame: String,
