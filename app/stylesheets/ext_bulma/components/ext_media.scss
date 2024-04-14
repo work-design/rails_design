@@ -8,15 +8,13 @@
   }
 }
 
-.media-left {
-  &.as-logo {
-    align-self: center;
-  }
+.media-left,
+.media-right{
+  align-self: center;
 }
 
 .media-right {
   &.as-x {
-    align-self: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
