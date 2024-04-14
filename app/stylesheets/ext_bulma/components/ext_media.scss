@@ -1,4 +1,17 @@
 .media {
+  .box > & {
+    --bulma-media-spacing: 0.75rem;
+
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  .box > &:first-child {
+    padding-top: var(--bulma-media-spacing);
+  }
+  .box > &:last-child {
+    padding-bottom: var(--bulma-media-spacing);
+  }
+
   &.is-middle {
     align-items: center;
   }
