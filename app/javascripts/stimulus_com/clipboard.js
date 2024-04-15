@@ -10,9 +10,9 @@ export default class extends Controller {
   copy() {
     navigator.clipboard?.writeText(this.sourceTarget.textContent)
     if (this.hasToastTarget) {
-      this.toastTarget.classList.add('weui-toast__wrap_show')
+      this.toastTarget.classList.remove('display-none')
       this.toastTarget.addEventListener('animationend', (event) => {
-        event.currentTarget.classList.remove('weui-toast__wrap_show')
+        event.currentTarget.classList.add('display-none')
       }, { once: true })
     }
   }
