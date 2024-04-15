@@ -32,5 +32,10 @@
     flex-direction: column;
     justify-content: center;
   }
+
+  .fa-chevron-right,
+  .fa-qrcode {
+    color: var(--bulma-grey);
+  }
 }
 
