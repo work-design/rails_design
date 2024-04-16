@@ -1,7 +1,6 @@
 .dropdown + .dropdown,
 .dropdown + .field,
 .button + .dropdown,
-.button_to + .dropdown,
-.button + .button_to {
+.button_to + .dropdown {
   margin-left: 0.75rem;
 }

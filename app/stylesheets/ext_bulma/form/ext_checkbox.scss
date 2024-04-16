@@ -1,5 +1,11 @@
-input[type="checkbox"] + label {
-  padding-left: 0.25em;
+input[type="checkbox"] {
+  & + label {
+    padding-left: 0.25em;
+  }
+  &.xl {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
 }
 
 .labels {
@@ -7,3 +13,4 @@ input[type="checkbox"] + label {
     display: block;
   }
 }
+
