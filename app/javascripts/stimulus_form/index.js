@@ -31,6 +31,9 @@ application.register('keyboard', KeyboardController)
 import ModifyController from './modify'
 application.register('modify', ModifyController)
 
+import PickerController from './picker'
+application.register('picker', PickerController)
+
 import PictureController from './picture'
 application.register('picture', PictureController)
 

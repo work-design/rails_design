@@ -26,7 +26,9 @@ export default class extends BaseController {
   stream(event) {
     const ele = event.currentTarget
     const search_url = new URL(this.urlValue, location.origin)
-    search_url.searchParams.set('node_id', ele.value)
+    if (ele.value) {
+      search_url.searchParams.set('node_id', ele.value)
+    }
     Object.keys(this.paramsValue).forEach(k => {
       search_url.searchParams.set(k, this.paramsValue[k])
     })

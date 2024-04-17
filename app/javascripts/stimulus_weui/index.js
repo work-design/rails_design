@@ -13,8 +13,5 @@ application.register('weui-datepicker', WeuiDatepickerController)
 import WeuiDialogController from './weui-dialog'
 application.register('weui-dialog', WeuiDialogController)
 
-import WeuiPickerController from './weui-picker'
-application.register('weui-picker', WeuiPickerController)
-
 import WeuiFormController from './weui-form'
 application.register('weui-form', WeuiFormController)
