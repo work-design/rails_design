@@ -23,6 +23,12 @@ export default class extends BaseController {
     }
   }
 
+  streamPost(event) {
+    const ele = event.currentTarget
+    const search_url = new URL(ele.dataset.url, location.origin)
+    this.post(search_url)
+  }
+
   stream(event) {
     const ele = event.currentTarget
     let search_url
