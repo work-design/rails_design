@@ -25,7 +25,13 @@ export default class extends BaseController {
 
   stream(event) {
     const ele = event.currentTarget
-    const search_url = new URL(this.urlValue, location.origin)
+    let search_url
+    if (ele.dataset.url) {
+      search_url = new URL(ele.dataset.url, location.origin)
+    } else {
+      search_url = new URL(this.urlValue, location.origin)
+    }
+
     if (ele.value) {
       search_url.searchParams.set('node_id', ele.value)
     }
