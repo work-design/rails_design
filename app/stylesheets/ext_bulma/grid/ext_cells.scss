@@ -1,0 +1,18 @@
+.grid {
+  &.as-actions {
+    place-items: center;
+
+    .cell {
+      i {
+        font-size: 1.5em;
+      }
+      span,
+      strong {
+        font-size: 0.8em;
+      }
+      i + span, strong {
+        margin-top: 0.25rem;
+      }
+    }
+  }
+}
