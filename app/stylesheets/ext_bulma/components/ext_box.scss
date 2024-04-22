@@ -69,6 +69,6 @@ a.box-header {
   justify-content: space-between;
 }
 
-main > .box:first-child:not(.as-bar) {
+main > .box:first-child:not(.as-bar, .radiusless) {
   margin-top: 0.75rem;
 }
