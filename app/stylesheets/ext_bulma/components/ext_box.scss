@@ -18,6 +18,9 @@
   &.is-narrow {
     padding: 0.5rem 1rem;
   }
+  &.is-normal {
+    padding: 1rem;
+  }
   &.is-padding-less,
   &.is-border {
     --bulma-box-padding: 0;
