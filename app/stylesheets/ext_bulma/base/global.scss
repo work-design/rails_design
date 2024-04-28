@@ -6,18 +6,16 @@ input {
   line-height: inherit;
 }
 
-iframe {
-  &.as-top {
-    width: 100%;
-    height: 100%;
-    border: none;
-    position: fixed;
-    top: 0
-  }
-  &.is-fullheight {
-    height: 100%;
-  }
+
+.as-top {
+  width: 100%;
+  height: 100vh;
+  border: none;
+  position: fixed;
+  top: 0;
+  z-index: 41;
 }
+
 
 a[disabled=disabled] {
   pointer-events: none;

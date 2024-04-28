@@ -3,13 +3,22 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
   static values = {
     name: String,
-    index: Number
+    index: Number,
+    key: String
   }
   static targets = ['load']
 
+  connect() {
+    const center = new TMap.LatLng(39.984120, 116.307484)
+    this.map = new TMap.Map(this.element, {
+      center: center,
+      zoom: 17.2
+    })
+  }
+
   selected(event) {
     this.doSelected(event)
-    this.element.remove()
+    //this.element.remove()
   }
 
   select(event) {
@@ -17,6 +26,7 @@ export default class extends Controller {
   }
 
   doSelected(event) {
+    console.log('selected', event)
     const loc = event.data
     if (loc && loc.module === 'locationPicker') {
       if (this.hasIndexValue) {
