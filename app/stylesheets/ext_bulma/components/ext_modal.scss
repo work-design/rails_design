@@ -9,3 +9,7 @@
     border-start-end-radius: var(--bulma-modal-card-head-radius);
   }
 }
+
+.modal-card-foot {
+  padding-bottom: env(safe-area-inset-bottom);
+}
