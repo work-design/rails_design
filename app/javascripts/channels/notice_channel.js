@@ -5,7 +5,7 @@ consumer.subscriptions.create({ channel: 'Notice::ReceiverChannel', room: 'room'
   received(data) {
     Turbo.renderStreamMessage(data)
 
-    document.getElementById('notice_show').classList.add('has-text-danger')
+    document.getElementById('notice_show').classList.add('color-danger')
   },
 
   connected() {
