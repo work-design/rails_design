@@ -73,6 +73,7 @@ export default class extends TouchController {
   // data-action="touchmove->slide#move:passive"
   // data-action="onmousemove->slide"
   move(event) {
+    event.stopPropagation()
     const ele = event.currentTarget
     console.debug('moved by element:', ele.dataset.index)
     if (this.zoomed(event) || this.containerTarget.childElementCount <= 1) {
