@@ -20,11 +20,10 @@
 }
 
 .has-border-bottom-arc {
-  width: 100%;
-  transform: scaleX(1.4);
-  border-radius: 0 0 50% 50%;
+  border-radius: 0 0 80% 80%;
   background-color: white;
-  padding: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   display: flex;
   justify-content: center;
 }
