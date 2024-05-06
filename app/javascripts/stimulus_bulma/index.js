@@ -1,8 +1,11 @@
-import MenuController from './bulma_menu'
+import MenuController from './bulma-menu'
 application.register('menu', MenuController)
 
-import ModalController from './bulma_modal'
+import ModalController from './bulma-modal'
 application.register('modal', ModalController)
 
-import NavbarController from './bulma_navbar'
+import NavbarController from './bulma-navbar'
 application.register('navbar', NavbarController)
+
+import SkeletonController from './bulma-skeleton'
+application.register('skeleton', SkeletonController)
