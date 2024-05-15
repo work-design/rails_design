@@ -49,6 +49,12 @@
     }
   }
 
+  &.no-disabled {
+    .button[disabled] {
+      opacity: unset;
+    }
+  }
+
   .button_to .button {
     margin-bottom: 0;
   }
