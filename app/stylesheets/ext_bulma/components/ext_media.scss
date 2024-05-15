@@ -40,3 +40,18 @@
   }
 }
 
+ul.media-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 0.8em;
+
+  li {
+    padding-right: 0.5em;
+  }
+  li + li {
+    padding-left: 0.5em;
+    border-left: 1px solid var(--bulma-grey);
+  }
+}
+
