@@ -38,10 +38,8 @@
 }
 
 .is-fixed-bottom {
-  position: fixed;
+  position: sticky;
   bottom: 0;
-  width: -moz-available;
-  width: -webkit-fill-available;
 }
 
 .has-box-square {
