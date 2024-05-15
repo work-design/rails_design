@@ -26,7 +26,7 @@
     "@hotwired/turbo": "github:qinmingyuan/turbo",
     "@hotwired/turbo-rails": "^8.0.4",
     "@rails/activestorage": "^7.1.2",
-    "bulma": "^1.0.0",
+    "bulma": "github:jgthms/bulma",
     "choices.js": "^10.2.0",
     "fullcalendar": "^6.1.10",
     "highlight.js": "^11.5.1",
