@@ -126,4 +126,15 @@ td.has-inner-table {
       }
     }
   }
+
+  &.is-embed {
+    --bulma-table-color: var(--bulma-grey);
+    background-color: transparent;
+
+    td {
+      border-bottom-width: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
 }
