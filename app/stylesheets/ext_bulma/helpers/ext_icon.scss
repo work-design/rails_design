@@ -1,0 +1,11 @@
+.fa-weui-badge {
+  position: relative;
+  padding-right: 0.8em;
+
+  .weui-badge {
+    position: absolute;
+    top: -0.4em;
+    right: 0;
+    width: max-content;
+  }
+}
