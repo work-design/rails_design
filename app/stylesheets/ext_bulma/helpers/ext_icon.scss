@@ -9,3 +9,15 @@
     width: max-content;
   }
 }
+
+.weui-badge {
+  display: inline-block;
+  padding: 0.15em 0.4em;
+  border-radius: 18px;
+  background-color: var(--bulma-danger);
+  color: #fff;
+  line-height: 1.2;
+  text-align: center;
+  font-size: 12px;
+  vertical-align: middle;
+}
