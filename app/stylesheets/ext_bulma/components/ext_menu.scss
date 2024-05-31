@@ -7,7 +7,8 @@
   .menu-label {
     order: 1;
     font-size: 1em;
-    display: block;
+    display: flex;
+    justify-content: space-between;
     margin-top: 0;
     margin-bottom: 0;
     padding-top: 0.5em;
