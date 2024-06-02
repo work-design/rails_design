@@ -16,8 +16,8 @@
     align-items: center;
   }
 
-  &.is-box {
-    margin-bottom: 1rem;
+  &.is-box + &.is-box {
+    margin-top: 0;
   }
 }
 
