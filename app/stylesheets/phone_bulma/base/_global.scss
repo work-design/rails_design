@@ -8,11 +8,14 @@ html {
 
 main {
   background-color: #ededed;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
 
   > :last-child {
     margin-bottom: var(--bulma-block-spacing);
   }
+}
+
+#weui-tab__panel {
+  overflow-y: auto;
 }
