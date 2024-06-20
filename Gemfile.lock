@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 5d1481b79a9645729ac4920e56935b41f18e5e11
+  revision: 414ee51668b162b0a150b22ed66f463bb3a4ded1
   specs:
     rails_com (1.3.0)
       acme-client
@@ -13,6 +13,7 @@ GIT
       money-rails (~> 1.15)
       mutex_m
       net-http
+      net-pop
       ostruct
       rails (~> 7.0)
       turbo-rails
