@@ -42,7 +42,6 @@
     "sass": "^1.55.0"
   },
   "scripts": {
-    "preinstall": "git submodule update -i",
     "test": "jest",
     "lint": "eslint package/"
   },
