@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 414ee51668b162b0a150b22ed66f463bb3a4ded1
+  revision: 39377332b43bd34f591449940756b7a1aa4ed4dc
   specs:
     rails_com (1.3.0)
       acme-client
@@ -27,7 +27,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    acme-client (2.0.17)
+    acme-client (2.0.18)
       faraday (>= 1.0, < 3.0.0)
       faraday-retry (>= 1.0, < 3.0.0)
     actioncable (7.1.3.3)
@@ -124,7 +124,7 @@ GEM
       activerecord (>= 4.0.0)
     drb (2.2.1)
     erubi (1.12.0)
-    faraday (2.9.1)
+    faraday (2.9.2)
       faraday-net_http (>= 2.0, < 3.2)
     faraday-net_http (3.1.0)
       net-http
@@ -134,7 +134,7 @@ GEM
       activesupport (>= 6.1)
     http-2-next (1.0.3)
     http-form_data (2.3.0)
-    httpx (1.2.5)
+    httpx (1.2.6)
       http-2-next (>= 1.0.3)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
@@ -270,7 +270,7 @@ DEPENDENCIES
   rails_design!
 
 CHECKSUMS
-  acme-client (2.0.17) sha256=ee54f5b7a896bcc9fe3d2a360e0fcf62c5f99b1f47e0134170cde07413828265
+  acme-client (2.0.18) sha256=3feab341926ffc16eb65babe51ba4dad8180c13e21e774871344e0b3502ef275
   actioncable (7.1.3.3) sha256=57323cda266c950b18d67b3a751ba388dc7e0615fde48eb17400fa785a61adcf
   actionmailbox (7.1.3.3) sha256=7525d8476412f98df445a5be07ca72366168dc16316e88609a7f0184cb20a663
   actionmailer (7.1.3.3) sha256=6bf548313f189f0cb54077c7d0682c2b93f7ed4dd8de16f9a58475530f575216
@@ -295,13 +295,13 @@ CHECKSUMS
   default_where (2.2.0) sha256=77f54769256ad5d961c44a6dd88d8d485a1c4487a549d2c178da9101f6fed0a0
   drb (2.2.1) sha256=e9d472bf785f558b96b25358bae115646da0dbfd45107ad858b0bc0d935cb340
   erubi (1.12.0) sha256=27bedb74dfb1e04ff60674975e182d8ca787f2224f2e8143268c7696f42e4723
-  faraday (2.9.1) sha256=8ffbc8aaa28509dc31edd57f27a9e49250a283caf0d04090667a3264895b168a
+  faraday (2.9.2) sha256=6595edbe3b4663223e52a315f6bf2bca97ea1527bab7e02a926bf8afcf7423a4
   faraday-net_http (3.1.0) sha256=1627be414960d0131691190ff524506ba6607402a50fb6eccda9e64ca60f859f
   faraday-retry (2.2.1) sha256=4146fed14549c0580bf14591fca419a40717de0dd24f267a8ec2d9a728677608
   globalid (1.2.1) sha256=70bf76711871f843dbba72beb8613229a49429d1866828476f9c9d6ccc327ce9
   http-2-next (1.0.3) sha256=7df55ef84e9a66f71b260c497414983a3ba787e0d92cc38391a70fe63f5d5fc5
   http-form_data (2.3.0) sha256=cc4eeb1361d9876821e31d7b1cf0b68f1cf874b201d27903480479d86448a5f3
-  httpx (1.2.5) sha256=8a291a68cd6eafdbce30d7e64f957853abfcab978ee158afea46e35312fbeb9d
+  httpx (1.2.6) sha256=352a4e6593a5172a0fb2909b4d44e7425aedbdea8a20e8ce5381b394ffea2bd7
   i18n (1.14.5) sha256=26dcbc05e364b57e27ab430148b3377bc413987d34cc042336271d8f42e9d1b9
   io-console (0.7.2) sha256=f0dccff252f877a4f60d04a4dc6b442b185ebffb4b320ab69212a92b48a7a221
   irb (1.13.1) sha256=aa552f30b33f15615cff4ca8d04bace0bdd442777efb5187d9a621707889f292

@@ -36,6 +36,8 @@ td.has-inner-table {
 
   th, td {
     vertical-align: middle;
+    max-width: 20em;
+    overflow-wrap: break-word;
 
     &.is-borderless {
       border-bottom-width: 0;
