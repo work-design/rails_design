@@ -5,7 +5,6 @@
   color: grey;
 
   .menu-label {
-    order: 1;
     font-size: 1em;
     display: flex;
     justify-content: space-between;
@@ -26,7 +25,6 @@
   }
 
   .menu-list {
-    order: 2;
     display: none;
     padding-left: 1.5em;
     a {
