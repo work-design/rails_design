@@ -31,6 +31,8 @@
     padding-left: 1.5em;
     a {
       font-size: .9em;
+      background-color: transparent;
+      color: #fff;
     }
     a.is-active,
     a:hover {
@@ -65,16 +67,6 @@
     }
     .menu-list {
       background-color: #0e1e31;
-      a {
-        color: #fff;
-        background-color: #0e1e31;
-      }
-      &:hover {
-        color: #fff;
-      }
-      &.is-active {
-        color: #fff;
-      }
     }
   }
 
@@ -85,16 +77,6 @@
     }
     .menu-list {
       background-color: var(--bulma-primary-dark);
-      a {
-        color: #fff;
-        background-color: var(--bulma-primary-dark);
-      }
-      &:hover {
-        color: #fff;
-      }
-      &.is-active {
-        color: #fff;
-      }
     }
   }
 }
