@@ -1,3 +1,5 @@
+@use '../utilities/color' as cv;
+
 .ex-accordion {
   display: flex;
   flex-direction: column;
@@ -51,22 +53,12 @@
   height: 100%;
 
   &.is-dark {
-    background-color: var(--admin-menu, #2d3a4b);
+    background-color: var(--admin-menu);
     .menu-label {
-      border-bottom: solid 1px #0e1e31;
+      //border-bottom: solid 1px darken(#2d3a4b, 30%);
     }
     .menu-list {
-      background-color: #0e1e31;
-    }
-  }
-
-  &.is-primary {
-    background-color: var(--bulma-primary);
-    .menu-label {
-      border-bottom: solid 1px var(--bulma-primary-dark);
-    }
-    .menu-list {
-      background-color: var(--bulma-primary-dark);
+      background-color: var(--admin-menu);
     }
   }
 }

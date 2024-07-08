@@ -7,6 +7,9 @@ application.register('check-commit', CheckCommitController)
 import CoeffController from './coeff'
 application.register('coeff', CoeffController)
 
+import ColorRangeController from './color-range'
+application.register('color-range', ColorRangeController)
+
 import EnterController from './enter'
 application.register('enter', EnterController)
 
