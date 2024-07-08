@@ -1,26 +1,28 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static targets = ['color']
+  static targets = ['hue', 'saturation', 'lightness']
+  static values = {
+    id: String
+  }
   // data-action="click->field#add"
-  hue(e) {
-    const ele = e.currentTarget
-    this.colorTargets.forEach(el => {
-      el.setAttribute('style', `background-color: hsl(${ele.value}, 50%, 50%)`)
-    })
+  hue() {
+    this.changeAll()
   }
 
-  saturation(e) {
-    const ele = e.currentTarget
-    this.colorTargets.forEach(el => {
-      el.setAttribute('style', `background-color: hsl(${ele.value}, 50%, 50%)`)
-    })
+  saturation() {
+    this.changeAll()
   }
 
-  luminance() {
-    const ele = e.currentTarget
-    this.colorTargets.forEach(el => {
-      el.setAttribute('style', `background-color: hsl(${ele.value}, 50%, 50%)`)
+  lightness() {
+    this.changeAll()
+  }
+
+  changeAll() {
+    [this.hueTarget, this.saturationTarget, this.lightnessTarget].forEach(el => {
+      const color = `hsl(${this.hueTarget.value}, ${this.saturationTarget.value}%, ${this.lightnessTarget.value}%)`
+      el.setAttribute('style', `background-color: ${color}`)
+      document.getElementById(this.idValue).setAttribute('style', `--admin-menu: ${color}`)
     })
   }
 
