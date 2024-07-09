@@ -51,15 +51,12 @@
 
 .menu-wrap {
   height: 100%;
-
-  &.is-dark {
-    background-color: var(--admin-menu, #123);
-    .menu-label {
-      border-bottom: solid 1px var(--admin-menu-darker, #123);
-    }
-    .menu-list {
-      background-color: var(--admin-menu-darker, #123);
-    }
+  background-color: var(--admin-menu, #123);
+  .menu-label {
+    border-bottom: solid 1px var(--admin-menu-darker, #143);
+  }
+  .menu-list {
+    background-color: var(--admin-menu-darker, #143);
   }
 }
 
