@@ -1,5 +1,5 @@
 .color-input {
-  input {
-    background-color: red;
+  input[data-color-range-target="hue"] {
+    background-image: linear-gradient(to right, red, #ff0, #0f0, #0ff, #00f, #f0f, red)
   }
 }
