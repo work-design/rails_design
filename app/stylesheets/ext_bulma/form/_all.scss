@@ -4,3 +4,20 @@
 @forward 'ext_select';
 @forward 'ext_switch';
 @forward 'ext_tools';
+
+.required.field>.checkbox:after,
+.required.field>label:after,
+.required.fields.grouped>label:after,
+.required.fields:not(.grouped)>.field>.checkbox:after,
+.required.fields:not(.grouped)>.field>label:after {
+  margin: -.2em 0 0 .2em;
+  content: '*';
+  color: #db2828
+}
+
+.required.field>label:after,
+.required.fields.grouped>label:after,
+.required.fields:not(.grouped)>.field>label:after {
+  /* display:inline-block; */
+  vertical-align: top;
+}
