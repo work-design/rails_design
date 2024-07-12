@@ -1,6 +1,7 @@
 @forward 'ext_button';
 @forward 'ext_checkbox';
 @forward 'ext_file';
+@forward 'ext_general';
 @forward 'ext_select';
 @forward 'ext_switch';
 @forward 'ext_tools';
@@ -18,6 +19,6 @@
 .required.field>label:after,
 .required.fields.grouped>label:after,
 .required.fields:not(.grouped)>.field>label:after {
-  /* display:inline-block; */
+  display:inline-block;
   vertical-align: top;
 }
