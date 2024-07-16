@@ -19,13 +19,14 @@ export default class extends Controller {
   }
 
   changeAll() {
-    [this.hueTarget, this.saturationTarget, this.lightnessTarget].forEach(el => {
-      const color = `hsl(${this.hueTarget.value}, ${this.saturationTarget.value}%, ${this.lightnessTarget.value}%)`
-      const darker = (this.lightnessTarget.value * 0.8).toFixed()
-      const colorDarker = `hsl(${this.hueTarget.value}, ${this.saturationTarget.value}%, ${darker}%)`
-      el.setAttribute('style', `background-color: ${color}`)
-      document.getElementById(this.idValue).setAttribute('style', `--admin-menu: ${color}; --admin-menu-darker: ${colorDarker}`)
-    })
+    const color = `hsl(${this.hueTarget.value}, ${this.saturationTarget.value}%, ${this.lightnessTarget.value}%)`
+    const darker = (this.lightnessTarget.value * 0.8).toFixed()
+    const colorDarker = `hsl(${this.hueTarget.value}, ${this.saturationTarget.value}%, ${darker}%)`
+
+    this.saturationTarget.setAttribute('style', `background-image: linear-gradient(to right, hsl(${this.hueTarget.value}, 0%, ${this.lightnessTarget.value}%), hsl(${this.hueTarget.value}, 50%, ${this.lightnessTarget.value}%), hsl(${this.hueTarget.value}, 100%, ${this.lightnessTarget.value}%))`)
+    this.lightnessTarget.setAttribute('style', `background-image: linear-gradient(to right, hsl(${this.hueTarget.value}, ${this.saturationTarget.value}%, 0%), hsl(${this.hueTarget.value}, ${this.saturationTarget.value}%, 50%), hsl(${this.hueTarget.value}, ${this.saturationTarget.value}%, 100%))`)
+
+    document.getElementById(this.idValue).setAttribute('style', `--admin-menu: ${color}; --admin-menu-darker: ${colorDarker}`)
   }
 
 }
