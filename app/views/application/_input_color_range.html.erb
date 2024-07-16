@@ -1,5 +1,5 @@
 <div data-controller="color-range" data-color-range-id-value="admin_menu" class="color-input">
   <%= f.range_field :hue, min: 0, max: 360, data: { color_range_target: 'hue', action: 'color-range#hue' } %>
-  <%= f.range_field :saturation, min: 0, max: 100, data: { color_range_target: 'saturation', action: 'color-range#saturation' }, style: "background-color: hsl(#{f.object.hue}, #{f.object.saturation}%, #{f.object.lightness}%)" %>
-  <%= f.range_field :lightness, min: 0, max: 100, data: { color_range_target: 'lightness', action: 'color-range#lightness' }, style: "background-color: hsl(#{f.object.hue}, #{f.object.saturation}%, #{f.object.lightness}%)" %>
+  <%= f.range_field :saturation, min: 0, max: 100, data: { color_range_target: 'saturation', action: 'color-range#saturation' }, style: "background-image: linear-gradient(to right, hsl(#{f.object.hue}, 0%, #{f.object.lightness}%), hsl(#{f.object.hue}, 100%, #{f.object.lightness}%))" %>
+  <%= f.range_field :lightness, min: 0, max: 100, data: { color_range_target: 'lightness', action: 'color-range#lightness' }, style: "background-image: linear-gradient(to right, hsl(#{f.object.hue}, #{f.object.saturation}%, 0%), hsl(#{f.object.hue}, #{f.object.saturation}%, 100%))" %>
 </div>

@@ -3,9 +3,9 @@
     background-image: linear-gradient(to right, red, #ff0, #0f0, #0ff, #00f, #f0f, red);
   }
   input[data-color-range-target="saturation"] {
-    background-image: linear-gradient(to right, hsl(171deg, 0%, 43%), hsl(171deg, 100%, 43%), hsl(171deg, 100%, 43%));
+    background-image: linear-gradient(to right, hsl(171deg, 0%, 43%), hsl(171deg, 100%, 43%));
   }
   input[data-color-range-target="lightness"] {
-    background-image: linear-gradient(to right, hsl(171deg,0%, 43%), hsl(171deg, 100%, 43%), hsl(171deg,100%, 43%));
+    background-image: linear-gradient(to right, hsl(171deg,0%, 43%), hsl(171deg,100%, 43%));
   }
 }
