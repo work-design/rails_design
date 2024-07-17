@@ -8,7 +8,7 @@ const I18N = {
 export default class extends BaseController {
 
   connect() {
-    document.documentElement.classList.add('is-clipped')
+    document.documentElement.classList.add('clipped')
   }
 
   close() {
@@ -20,7 +20,7 @@ export default class extends BaseController {
   hide() {
     if (this.closeCheck()) {
       this.element.classList.remove('is-active')
-      document.documentElement.classList.remove('is-clipped')
+      document.documentElement.classList.remove('clipped')
     }
   }
 
@@ -37,7 +37,7 @@ export default class extends BaseController {
   }
 
   disconnect() {
-    document.documentElement.classList.remove('is-clipped')
+    document.documentElement.classList.remove('clipped')
   }
 
   // 关闭前检查下有没有未提交的表单
