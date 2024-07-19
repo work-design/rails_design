@@ -34,13 +34,7 @@ export default class extends BaseController {
   }
 
   connect() {
-    const labels = Array.from(this.element.querySelectorAll('.field-label > label.label'))
-    const lengths = labels.map(i => i.innerText.length)
-    console.debug('lengths', lengths)
-    const max = Math.max.apply(null, lengths)
-    Array.from(this.element.getElementsByClassName('field-label')).forEach(i => {
-      i.style.minWidth = `${max}ch`
-    })
+    this.setMinLength()
   }
 
   defaultValid(input) {
@@ -119,6 +113,22 @@ export default class extends BaseController {
     }
 
     Turbo.visit(url.href)
+  }
+
+  setAutoFocus() {
+    const item = this.element.querySelector('input[autofocus]')
+    if (item) {
+      item.focus()
+    }
+  }
+
+  setMinLength() {
+    const labels = Array.from(this.element.querySelectorAll('.field-label > label.label'))
+    const lengths = labels.map(i => i.innerText.length)
+    const max = Math.max.apply(null, lengths)
+    Array.from(this.element.getElementsByClassName('field-label')).forEach(i => {
+      i.style.minWidth = `${max}ch`
+    })
   }
 
 }
