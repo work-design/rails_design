@@ -12,6 +12,10 @@ main.container {
   width: 100%;
 }
 
+#body {
+  overflow-x: auto;
+}
+
 .as-vertical-middle {
   display: flex;
   flex-direction: column;
