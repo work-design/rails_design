@@ -117,7 +117,7 @@ export default class extends BaseController {
 
   focusEnd(event) {
     const ele = event.currentTarget
-    ele.setSelectionRange(ele.value.length, ele.value.length)
+    ele.setSelectionRange(0, ele.value.length)
   }
 
   setMinLength() {
