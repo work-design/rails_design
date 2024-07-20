@@ -115,11 +115,9 @@ export default class extends BaseController {
     Turbo.visit(url.href)
   }
 
-  setAutoFocus() {
-    const item = this.element.querySelector('input[autofocus]')
-    if (item) {
-      item.focus()
-    }
+  focusEnd(event) {
+    const ele = event.currentTarget
+    ele.setSelectionRange(ele.value.length, ele.value.length)
   }
 
   setMinLength() {
