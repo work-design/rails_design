@@ -1,5 +1,11 @@
 @use '../utilities/color' as cv;
 
+.menu-list {
+  a {
+    background-color: transparent;
+  }
+}
+
 .ex-accordion {
   display: flex;
   flex-direction: column;
