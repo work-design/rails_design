@@ -1,7 +1,7 @@
 @use '../utilities/color' as cv;
 
 .menu-list {
-  a {
+  a:not(.is-active) {
     background-color: transparent;
   }
 }
