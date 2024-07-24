@@ -32,7 +32,7 @@
     "highlight.js": "^11.5.1",
     "idiomorph": "^0.3.0",
     "luxon": "^3.4.3",
-    "sortablejs": "^1.15.0",
+    "sortablejs": "^1.15.2",
     "vconsole": "^3.15.0",
     "weui": "^2.6.7"
   },

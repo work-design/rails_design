@@ -1,15 +1,15 @@
-import { Controller } from '@hotwired/stimulus'
+import { BaseController } from '../base_controller'
 import Sortable from 'sortablejs'
 
-export default class extends Controller {
+export default class extends BaseController {
   static values = {
     handle: { type: String, default: '.is-drawable' }
   }
 
-  reload(element, controller) {
-    Sortable.create(element, {
-      handle: controller.handleValue,
-      onEnd: function(evt) {
+  connect() {
+    Sortable.create(this.element, {
+      handle: this.handleValue,
+      onEnd: evt => {
         if (evt.oldIndex === evt.newIndex) {
           return
         }
@@ -20,25 +20,9 @@ export default class extends Controller {
           new_index: evt.newIndex
         }
 
-        fetch(url, {
-          method: 'PATCH',
-          headers: {
-            Accept: 'text/vnd.turbo-stream.html',
-            'Content-Type': 'application/json',
-            'X-CSRF-Token': controller.csrfToken()
-          },
-          body: JSON.stringify(body)
-        }).then(response => {
-          return response.text()
-        }).then(body => {
-          Turbo.renderStreamMessage(body)
-        })
+        this.request(url, 'PATCH', JSON.stringify(body), { 'Content-Type': 'application/json' })
       }
     })
-  }
-
-  connect() {
-    this.reload(this.element, this)
   }
 
   disconnect() {
