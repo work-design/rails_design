@@ -17,7 +17,7 @@ export default class extends BaseController {
         }
         const url = evt.item.dataset['url']
         const body = {
-          //sort_array: this.toArray(),
+          prior_id: evt.item.previousElementSibling.dataset.id,
           old_index: evt.oldIndex,
           new_index: evt.newIndex
         }
