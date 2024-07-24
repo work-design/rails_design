@@ -1,10 +1,9 @@
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 9ccbdae61a3d196e64d7a9b3c500f1bd0423c86d
+  revision: b73e7c99f9192c069f3ec7f592731bd47a6a41fd
   specs:
     rails_com (1.3.0)
       acme-client
-      acts_as_list (>= 1.0)
       closure_tree (>= 7.3)
       default_where (~> 2.2)
       http-form_data (~> 2.3)
@@ -15,6 +14,7 @@ GIT
       net-http
       net-pop
       ostruct
+      positioning
       rails (~> 7.0)
       turbo-rails
 
@@ -104,9 +104,6 @@ GEM
       minitest (>= 5.1)
       mutex_m
       tzinfo (~> 2.0)
-    acts_as_list (1.2.2)
-      activerecord (>= 6.1)
-      activesupport (>= 6.1)
     base64 (0.2.0)
     bigdecimal (3.1.8)
     builder (3.2.4)
@@ -194,6 +191,9 @@ GEM
       racc (~> 1.4)
     ostruct (0.6.0)
     pg (1.5.6)
+    positioning (0.2.3)
+      activerecord (>= 6.1)
+      activesupport (>= 6.1)
     psych (5.1.2)
       stringio
     puma (6.4.2)
@@ -244,7 +244,7 @@ GEM
     stringio (3.1.1)
     thor (1.3.1)
     timeout (0.4.1)
-    turbo-rails (2.0.5)
+    turbo-rails (2.0.6)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
@@ -284,7 +284,6 @@ CHECKSUMS
   activerecord (7.1.3.3) sha256=3de333d49d84f7f03895de12f71e6e0a6e7df5fd9c80eea7e8b40ce04b4535c9
   activestorage (7.1.3.3) sha256=ba08fd11fea0ab0c72de6de3bb0f386feb8a45bfd969f630ba1da0ceaf02a142
   activesupport (7.1.3.3) sha256=f1147f1eedff05b7816b48d0aa89c912b83fed3f245d7ed3cf33a55ffbf3137d
-  acts_as_list (1.2.2)
   base64 (0.2.0) sha256=0f25e9b21a02a0cc0cea8ef92b2041035d39350946e8789c562b2d1a3da01507
   bigdecimal (3.1.8) sha256=a89467ed5a44f8ae01824af49cbc575871fa078332e8f77ea425725c1ffe27be
   builder (3.2.4) sha256=99caf08af60c8d7f3a6b004029c4c3c0bdaebced6c949165fe98f1db27fbbc10
@@ -331,6 +330,7 @@ CHECKSUMS
   nokogiri (1.16.5) sha256=ec36162c68984fa0a90a5c4ae7ab7759460639e716cc1ce75f34c3cb54158ad2
   ostruct (0.6.0) sha256=3b1736c99f4d985de36bde1155be5e22aaf6e564b30ff9bd481e2ef7c2d9ba85
   pg (1.5.6) sha256=4bc3ad2438825eea68457373555e3fd4ea1a82027b8a6be98ef57c0d57292b1c
+  positioning (0.2.3) sha256=71bb40a5ad81c52cd10c0ce2fe8b61b128516273467688b59e93a254e9080c9a
   psych (5.1.2) sha256=337322f58fc2bf24827d2b9bd5ab595f6a72971867d151bb39980060ea40a368
   puma (6.4.2) sha256=3eb41999d00733280be3faeb00d610331b6965a537a8cd3d905f316c38575b44
   racc (1.8.0) sha256=09349a65c37c4fe710a435f25c9f1652e39f29ad6b1fa08d4a8d30c0553d3a08
@@ -350,7 +350,7 @@ CHECKSUMS
   stringio (3.1.1) sha256=53456e14175c594e0e8eb2206a1be33f3974d4fe21c131e628908b05c8c2ae1e
   thor (1.3.1) sha256=fa7e3471d4f6a27138e3d9c9b0d4daac9c3d7383927667ae83e9ab42ae7401ef
   timeout (0.4.1) sha256=6f1f4edd4bca28cffa59501733a94215407c6960bd2107331f0280d4abdebb9a
-  turbo-rails (2.0.5) sha256=cef775349c24734e52937997c2c4582a95966b3f81a173a9bcf037074a766229
+  turbo-rails (2.0.6) sha256=e5fd7b2fd11d24f202c5d33597d291767491b9938563d4edbd4a174166eba35b
   tzinfo (2.0.6) sha256=8daf828cc77bcf7d63b0e3bdb6caa47e2272dcfaf4fbfe46f8c3a9df087a829b
   uri (0.13.0) sha256=26553c2a9399762e1e8bebd4444b4361c4b21298cf1c864b22eeabc9c4998f24
   webrick (1.8.1) sha256=19411ec6912911fd3df13559110127ea2badd0c035f7762873f58afc803e158f
