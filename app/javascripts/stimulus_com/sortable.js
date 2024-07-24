@@ -10,13 +10,7 @@ export default class extends BaseController {
     Sortable.create(this.element, {
       handle: this.handleValue,
       onEnd: evt => {
-        console.debug('-----', evt)
-        window.xxx = evt
-        const body = {
-          old_index: evt.oldIndex,
-          new_index: evt.newIndex
-        }
-
+        const body = {}
         if (evt.newIndex === evt.oldIndex) {
           return
         } else if (evt.newIndex > evt.oldIndex) { // 向下移动
