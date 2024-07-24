@@ -12,16 +12,20 @@ export default class extends BaseController {
       onEnd: evt => {
         console.debug('-----', evt)
         window.xxx = evt
-        if (evt.oldIndex === evt.newIndex) {
-          return
-        }
-        const url = evt.item.dataset['url']
         const body = {
-          prior_id: evt.item.previousElementSibling.dataset.id,
           old_index: evt.oldIndex,
           new_index: evt.newIndex
         }
 
+        if (evt.newIndex === evt.oldIndex) {
+          return
+        } else if (evt.newIndex > evt.oldIndex) { // 向下移动
+          body.prior_id = evt.item.previousElementSibling.dataset.id
+        } else {
+          body.subsequent_id = evt.item.nextElementSibling.dataset.id
+        }
+
+        const url = evt.item.dataset['url']
         this.patch(url, JSON.stringify(body), { 'Content-Type': 'application/json' })
       }
     })
