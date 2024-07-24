@@ -15,6 +15,10 @@ export default class extends Controller {
     this.request(url, 'POST', body, {'X-CSRF-Token': this.csrfToken(), ...headers})
   }
 
+  patch(url, body, headers) {
+    this.request(url, 'PATCH', body, {'X-CSRF-Token': this.csrfToken(), ...headers})
+  }
+
   request(url, method, body, headers) {
     fetch(url, {
       credentials: 'include',
