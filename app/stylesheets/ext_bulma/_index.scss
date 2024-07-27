@@ -3,7 +3,8 @@
 //$table-head-background-color: $white-ter;
 
 @use 'bulma/sass' with (
-  $helpers-prefix: ''
+  $helpers-prefix: '',
+  $helpers-has-prefix: ''
 );
 
 @forward 'base/all';
