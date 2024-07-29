@@ -1,5 +1,5 @@
 import { Controller } from '@hotwired/stimulus'
-import { Line } from '@antv/g2plot'
+import { Chart } from '@antv/g2'
 
 export default class extends Controller {
   static values = {
@@ -7,26 +7,29 @@ export default class extends Controller {
   }
 
   connect() {
-    this.line = new Line(this.element, {
-      xField: 'year',
-      yField: 'value',
-      yAxis: {
-        label: {
-          formatter: (v) => `${v}`.replace(/\d{1,3}(?=(\d{3})+$)/g, (s) => `${s},`)
-        }
+    this.chart = new Chart({
+      container: this.element,
+      autoFit: true
+    })
+    this.chart.options({
+      data: {
+        type: 'fetch',
+        value: this.urlValue,
+        format: 'json'
+      },
+      encode: {
+        x: 'year',
+        y: 'value'
       }
     })
-    this.xx(this.line)
-  }
-
-  xx(line) {
-    fetch(this.urlValue).then(res => res.json()).then(data => {
-      line.update({data: data})
-    })
+    this.chart.axis('y', { labelFormatter: (v) => `${v}`.replace(/\d{1,3}(?=(\d{3})+$)/g, (s) => `${s},`) });
+    this.chart.line().encode('shape', 'smooth');
+    this.chart.point().encode('shape', 'point').tooltip(false);
+    this.chart.render()
   }
 
   disconnect() {
-    this.line.destroy()
+    this.chart.destroy()
   }
 
 }
