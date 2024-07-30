@@ -98,23 +98,6 @@ export default class extends BaseController {
     }
   }
 
-  // form[method="get"]
-  // submit->xx
-  filter(event) {
-    event.preventDefault()
-    const url = new URL(location)
-    const form = new FormData(event.currentTarget)
-    url.searchParams.delete('page')
-
-    for (let el of form.entries()) {
-      if (el[1].length > 0) {
-        url.searchParams.set(el[0], el[1])
-      }
-    }
-
-    Turbo.visit(url.href)
-  }
-
   focusEnd(event) {
     const ele = event.currentTarget
     ele.setSelectionRange(0, ele.value.length)
