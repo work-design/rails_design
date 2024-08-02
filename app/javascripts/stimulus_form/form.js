@@ -98,6 +98,19 @@ export default class extends BaseController {
     }
   }
 
+  // form[method="get"]
+  // submit->xx
+  filter(event) {
+    const ele = event.currentTarget
+
+    for (let el of ele.form.elements) {
+      if (el.value) {
+      } else {
+        el.disabled = true
+      }
+    }
+  }
+
   focusEnd(event) {
     const ele = event.currentTarget
     ele.setSelectionRange(0, ele.value.length)
