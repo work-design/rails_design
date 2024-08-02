@@ -7,6 +7,10 @@ export default class extends Controller {
     navigator.clipboard.writeText(this.sourceTarget.value)
   }
 
+  copyInner() {
+    navigator.clipboard.writeText(this.sourceTarget.innerText)
+  }
+
   copy() {
     navigator.clipboard?.writeText(this.sourceTarget.textContent)
     if (this.hasToastTarget) {
