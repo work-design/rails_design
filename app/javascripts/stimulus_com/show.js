@@ -24,6 +24,10 @@ export default class extends Controller {
       this.hiddenTargets.forEach(el => {
         el.classList.add('display-none')
       })
+
+      document.querySelectorAll(`[name^="${ele.name.replace('xx]', '')}"]`).forEach(ele => {
+        ele.disabled = false
+      })
     } else {
       this.checkTargets.forEach(el => {
         el.classList.add('display-none')
