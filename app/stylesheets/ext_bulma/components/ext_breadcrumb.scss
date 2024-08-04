@@ -20,6 +20,9 @@
     &:empty + li::before {
       display: none;
     }
+    .navbar-dropdown {
+      padding-top: 1rem;
+    }
   }
 
   li:last-child {

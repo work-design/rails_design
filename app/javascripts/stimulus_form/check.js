@@ -54,7 +54,7 @@ export default class extends Controller {
   // NOTICE: this become event
   updateDisplay(event) {
     let checkedCount = 0
-    const con = document.getElementById(event.currentTarget.dataset.id).getController('check')
+    const con = document.getElementById(event.currentTarget.dataset.all).getController('check')
     const overall = con.allTarget
     for (const ingredient of con.checkboxes) {
       if (ingredient.checked) {
