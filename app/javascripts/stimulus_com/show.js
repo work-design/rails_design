@@ -24,7 +24,7 @@ export default class extends Controller {
       this.hiddenTargets.forEach(el => {
         el.classList.add('display-none')
       })
-      document.querySelectorAll(`[name^="${ele.name.replace('xx]', '')}"]`).forEach(ele => {
+      document.querySelectorAll(`[name^="${ele.name.replace('xx]', '')}"]:not(#${ele.id})`).forEach(ele => {
         ele.disabled = false
       })
     } else {
@@ -34,7 +34,7 @@ export default class extends Controller {
       this.hiddenTargets.forEach(el => {
         el.classList.remove('display-none')
       })
-      document.querySelectorAll(`[name^="${ele.name.replace('xx]', '')}"]`).forEach(ele => {
+      document.querySelectorAll(`[name^="${ele.name.replace('xx]', '')}"]:not(#${ele.id})`).forEach(ele => {
         ele.disabled = true
       })
     }
