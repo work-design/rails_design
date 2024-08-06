@@ -15,7 +15,7 @@ export default class extends Controller {
       } else {
         ingredient.dataset.all = `#${this.element.id}`
       }
-      ingredient.addEventListener('click', this.updateDisplay)
+      ingredient.addEventListener('change', this.updateDisplay)
     }
   }
 
@@ -27,6 +27,14 @@ export default class extends Controller {
       if (!checkbox.disabled) {
         checkbox.checked = element.checked
         checkbox.dispatchEvent(new Event('input'))
+        const all = checkbox.dataset.all.split(', ').filter(el => el !== `#${this.element.id}`)
+        if (all) {
+          const cons = document.querySelectorAll(all)
+          cons.forEach(ele => {
+            const con = ele.getController('check')
+            con.computeDisplay()
+          })
+        }
       }
     }
 
@@ -59,29 +67,33 @@ export default class extends Controller {
   updateDisplay(event) {
     const cons = document.querySelectorAll(event.currentTarget.dataset.all)
     cons.forEach(ele => {
-      let checkedCount = 0
       const con = ele.getController('check')
-      const overall = con.allTarget
-      for (const ingredient of con.checkboxes) {
-        if (ingredient.checked) {
-          checkedCount++
-        }
-      }
-
-      if (checkedCount === 0) {
-        overall.checked = false
-        overall.indeterminate = false
-        con.hiddenCommits()
-      } else if (checkedCount === con.checkboxes.length) {
-        overall.checked = true
-        overall.indeterminate = false
-        con.showCommits(checkedCount)
-      } else {
-        overall.checked = false
-        overall.indeterminate = true
-        con.showCommits(checkedCount)
-      }
+      con.computeDisplay()
     })
+  }
+
+  computeDisplay() {
+    let checkedCount = 0
+    const overall = this.allTarget
+    for (const ingredient of this.checkboxes) {
+      if (ingredient.checked) {
+        checkedCount++
+      }
+    }
+
+    if (checkedCount === 0) {
+      overall.checked = false
+      overall.indeterminate = false
+      this.hiddenCommits()
+    } else if (checkedCount === this.checkboxes.length) {
+      overall.checked = true
+      overall.indeterminate = false
+      this.showCommits(checkedCount)
+    } else {
+      overall.checked = false
+      overall.indeterminate = true
+      this.showCommits(checkedCount)
+    }
   }
 
   get checkboxes() {
