@@ -10,7 +10,11 @@ export default class extends Controller {
 
   connect() {
     for (const ingredient of this.checkboxes) {
-      ingredient.dataset.id = this.element.id
+      if (ingredient.dataset.all) {
+        ingredient.dataset.all= ingredient.dataset.all.concat(`, #${this.element.id}`)
+      } else {
+        ingredient.dataset.all = `#${this.element.id}`
+      }
       ingredient.addEventListener('click', this.updateDisplay)
     }
   }
@@ -53,28 +57,31 @@ export default class extends Controller {
 
   // NOTICE: this become event
   updateDisplay(event) {
-    let checkedCount = 0
-    const con = document.getElementById(event.currentTarget.dataset.all).getController('check')
-    const overall = con.allTarget
-    for (const ingredient of con.checkboxes) {
-      if (ingredient.checked) {
-        checkedCount++
+    const cons = document.querySelectorAll(event.currentTarget.dataset.all)
+    cons.forEach(ele => {
+      let checkedCount = 0
+      const con = ele.getController('check')
+      const overall = con.allTarget
+      for (const ingredient of con.checkboxes) {
+        if (ingredient.checked) {
+          checkedCount++
+        }
       }
-    }
 
-    if (checkedCount === 0) {
-      overall.checked = false
-      overall.indeterminate = false
-      con.hiddenCommits()
-    } else if (checkedCount === con.checkboxes.length) {
-      overall.checked = true
-      overall.indeterminate = false
-      con.showCommits(checkedCount)
-    } else {
-      overall.checked = false
-      overall.indeterminate = true
-      con.showCommits(checkedCount)
-    }
+      if (checkedCount === 0) {
+        overall.checked = false
+        overall.indeterminate = false
+        con.hiddenCommits()
+      } else if (checkedCount === con.checkboxes.length) {
+        overall.checked = true
+        overall.indeterminate = false
+        con.showCommits(checkedCount)
+      } else {
+        overall.checked = false
+        overall.indeterminate = true
+        con.showCommits(checkedCount)
+      }
+    })
   }
 
   get checkboxes() {
