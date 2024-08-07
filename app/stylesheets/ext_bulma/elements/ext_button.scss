@@ -28,6 +28,8 @@
 }
 
 .buttons {
+  row-gap: 0.5rem;
+
   &.as-bottom {
     justify-content: space-around;
     padding-top: 0.5rem;
