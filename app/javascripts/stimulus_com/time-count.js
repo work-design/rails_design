@@ -15,7 +15,7 @@ export default class extends Controller {
     const time = DateTime.fromISO(this.timeValue)
     let result = time.diff(DateTime.now(), ['days', 'hours', 'minutes', 'seconds'])
     let format = ['d天', 'h时', 'mm分', 'ss秒']
-    let result_format
+    let result_format = ['d天', 'h时', 'mm分', 'ss秒']
 
     const timer = setInterval(() => {
       result = result.minus({ seconds: 1 })
@@ -25,7 +25,7 @@ export default class extends Controller {
           break
         }
       }
-      console.log('---------', result, result_format)
+      console.log('---------', result.toObject(), result_format)
 
       if (result <= 0) {
         this.element.textContent = result.toFormat(result_format.join(''))
