@@ -25,6 +25,7 @@ export default class extends Controller {
           break
         }
       }
+      console.log('---------', result, result_format)
 
       if (result <= 0) {
         this.element.textContent = result.toFormat(result_format.join(''))
