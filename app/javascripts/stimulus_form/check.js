@@ -27,8 +27,9 @@ export default class extends Controller {
       if (!checkbox.disabled) {
         checkbox.checked = element.checked
         checkbox.dispatchEvent(new Event('input'))
-        const all = checkbox.dataset.all.split(', ').filter(el => el !== `#${this.element.id}`)
+        const all = checkbox.dataset.all.split(', ').filter(el => el !== `#${this.element.id}`).join(', ')
         if (all) {
+          console.debug(all)
           const cons = document.querySelectorAll(all)
           cons.forEach(ele => {
             const con = ele.getController('check')
