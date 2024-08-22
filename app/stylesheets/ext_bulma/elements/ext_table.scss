@@ -119,20 +119,6 @@ td.has-inner-table {
       border-top-left-radius: 6px;
       border-top-right-radius: 6px;
     }
-
-    tr:nth-last-child(3) {
-      td[rowspan="3"],
-      th[rowspan="3"] {
-        border-bottom-width: 0;
-      }
-    }
-    
-    tr:nth-last-child(2) {
-      td[rowspan="2"],
-      th[rowspan="2"] {
-        border-bottom-width: 0;
-      }
-    }
   }
 
   &.is-embed {
@@ -143,6 +129,20 @@ td.has-inner-table {
       border-bottom-width: 0;
       padding-top: 0;
       padding-bottom: 0;
+    }
+  }
+
+  tr:nth-last-child(3) {
+    td[rowspan="3"],
+    th[rowspan="3"] {
+      border-bottom-width: 0;
+    }
+  }
+
+  tr:nth-last-child(2) {
+    td[rowspan="2"],
+    th[rowspan="2"] {
+      border-bottom-width: 0;
     }
   }
 }
