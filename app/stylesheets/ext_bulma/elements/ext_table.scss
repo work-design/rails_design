@@ -112,7 +112,7 @@ td.has-inner-table {
     border-collapse: separate;
     border-spacing: 0;
     border-radius: 6px;
-    border: solid 1px #eee;
+    border: solid 1px var(--bulma-border);
     box-shadow: var(--bulma-shadow);
 
     thead {
