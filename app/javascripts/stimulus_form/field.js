@@ -4,15 +4,15 @@ export default class extends Controller {
   static targets = ['node']
   static values = {
     index: Number,
-    label: Boolean
+    label: { type: String, default: 'label.field_label' }
   }
 
   // data-action="click->field#add"
   add() {
     const el = this.element.cloneNode(true)
-    const label = el.querySelector('label')
-    if (!this.labelValue && label) {
-      label.remove()
+    const label = el.querySelector(this.labelValue)
+    if (label) {
+      label.innerText = ''
     }
     const next = this.element.nextElementSibling
     let addIndex
@@ -35,6 +35,8 @@ export default class extends Controller {
         input.id = input.id.replace(`${this.indexValue}`, `${nextIndex}`)
       }
       input.value = input.defaultValue
+      input.autofocus = true
+      input.setSelectionRange(0, input.value.length)
     })
 
     if (this.element.parentNode) {
