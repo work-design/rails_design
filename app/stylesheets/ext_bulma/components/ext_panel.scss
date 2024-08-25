@@ -5,6 +5,8 @@
 }
 
 .panel {
+  width: fit-content;
+
   &.is-white {
     .panel-block {
       background-color: white;
