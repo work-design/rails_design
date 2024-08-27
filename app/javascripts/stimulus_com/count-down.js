@@ -5,7 +5,7 @@ export default class extends Controller {
     time: { type: Number, default: 60 },
     get: { type: String, default: '获取验证码' }
   }
-  static targets = ['count', 'hidden', 'disable']
+  static targets = ['count', 'hidden', 'disabled']
 
   connect() {
     this.countDown()
@@ -18,8 +18,8 @@ export default class extends Controller {
     let timer = setInterval(() => {
       countdown--
       if (countdown <= 0) {
-        if (this.hasDisableTarget) {
-          this.disableTarget.removeAttribute('disabled')
+        if (this.hasDisabledTarget) {
+          this.disabledTarget.removeAttribute('disabled')
         }
         this.countTarget.innerText = this.getValue
         this.hiddenTargets.forEach(el => { el.remove() })
