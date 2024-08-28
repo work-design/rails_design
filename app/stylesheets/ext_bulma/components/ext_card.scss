@@ -22,20 +22,21 @@
   }
 
   &.is-2 {
-    grid-template-columns: repeat(2, 50%);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   &.is-3 {
-    grid-template-columns: repeat(3, 33%);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   &.is-4 {
-    grid-template-columns: repeat(4, 25%);
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .card {
     .card-image > img {
-      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 }
