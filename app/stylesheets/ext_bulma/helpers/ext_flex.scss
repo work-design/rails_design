@@ -54,6 +54,12 @@
   flex-direction: column;
 }
 
+.has-column-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .has-page-centered {
   display: flex;
   flex-direction: column;
