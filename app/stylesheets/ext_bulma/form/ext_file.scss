@@ -10,6 +10,10 @@ input[type="file"]::-webkit-file-upload-button {
   border: none;
 }
 
+input[type=number]::-webkit-inner-spin-button {
+  display: none;
+}
+
 .file-label {
   height: 100%;
 }
