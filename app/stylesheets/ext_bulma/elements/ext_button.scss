@@ -33,7 +33,7 @@
   &.as-bottom {
     justify-content: space-around;
     padding-top: 0.5rem;
-    padding-bottom: env(safe-area-inset-bottom, 0.5rem);
+    padding-bottom: 0.5rem;
     margin-bottom: 0;
     border-top: solid 1px var(--bulma-primary);
   }
