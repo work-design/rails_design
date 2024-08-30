@@ -109,8 +109,11 @@
 }
 
 .has-block-left,
-.has-block-right,
+.has-block-right {
+  column-gap: 0.5em; 
+}
+
 .has-inline-centered,
 .is-several {
-  column-gap: 0.5em;
+  column-gap: 0.25em;
 }
