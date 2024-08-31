@@ -6,8 +6,11 @@ html {
   --bulma-body-overflow-y: auto;
 }
 
-main {
+body {
   background-color: #ededed;
+}
+
+main {
   display: flex;
   flex-direction: column;
 
