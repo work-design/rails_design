@@ -15,7 +15,7 @@
     .modal-card-foot {
       border-end-start-radius: 0;
       border-end-end-radius: 0;
-      padding-bottom: env(safe-area-inset-bottom, 2rem);
+      padding-bottom: max(env(safe-area-inset-bottom), var(--bulma-modal-card-head-padding));
     }
   }
 }
