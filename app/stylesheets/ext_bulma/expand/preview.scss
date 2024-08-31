@@ -1,7 +1,8 @@
 dl.as-show {
   margin-bottom: var(--bulma-block-spacing);
 
-  div, a {
+  & > div,
+  & > a {
     display: flex;
     padding-top: 0.25em;
     padding-bottom: 0.25em;
