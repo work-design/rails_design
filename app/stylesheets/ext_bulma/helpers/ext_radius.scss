@@ -3,7 +3,7 @@
 }
 
 .is-shadow {
-  //box-shadow: $shadow;
+  box-shadow: var(--bulma-shadow);
 }
 
 .is-radius-top {
