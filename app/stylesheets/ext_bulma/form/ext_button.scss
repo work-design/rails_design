@@ -31,8 +31,13 @@
     outline: none;
   }
   button[type=submit] {
-    height: 100%;
     text-align: left;
+  }
+
+  .control > & {
+    button[type=submit] {
+      height: 100%;
+    }
   }
 }
 

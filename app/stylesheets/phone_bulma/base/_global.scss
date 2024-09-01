@@ -20,7 +20,8 @@ main {
 
   & > .box:first-child:not(.as-bar),
   & > .media:first-child,
-  & > .fixed-grid {
+  & > .fixed-grid,
+  & > .as-show {
     margin-top: 0.75rem;
   }
 }
