@@ -19,7 +19,8 @@ main {
   }
 
   & > .box:first-child:not(.as-bar),
-  & > .media:first-child {
+  & > .media:first-child,
+  & > .fixed-grid {
     margin-top: 0.75rem;
   }
 }
