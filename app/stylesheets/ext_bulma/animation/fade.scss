@@ -25,14 +25,12 @@
 }
 
 .has-animate-fade-in {
-  opacity: 0;
   animation-name: fadeIn;
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
 
 .has-animate-fade-out {
-  opacity: 0;
   animation-name: fadeOut;
   animation-duration: 1s;
   animation-fill-mode: forwards;
