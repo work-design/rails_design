@@ -15,15 +15,6 @@
   flex-direction: column;
   flex-grow: 1;
   overflow: hidden;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
 
-  .is-box {
-    padding: 0.75rem;
-  }
 
-  .media + .media {
-    margin-top: 0;
-    padding-top: 0.75rem;
-  }
 }
