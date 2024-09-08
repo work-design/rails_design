@@ -33,6 +33,12 @@
   align-self: center;
 }
 
+.media-left {
+  &.as-logo {
+    margin-inline-end: 0.75rem;
+  }
+}
+
 .media-right {
   &.as-x {
     display: flex;
