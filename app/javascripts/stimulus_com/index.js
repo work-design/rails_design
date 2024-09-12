@@ -19,9 +19,6 @@ application.register('clipboard', ClipboardController)
 import CountDownController from './count-down'
 application.register('count-down', CountDownController)
 
-import CountUpController from './count-up'
-application.register('count-up', CountUpController)
-
 import CustomController from './custom'
 application.register('custom', CustomController)
 
@@ -97,8 +94,11 @@ application.register('switch', SwitchController)
 import TimeController from './time'
 application.register('time', TimeController)
 
-import TimeCountController from './time-count'
-application.register('time-count', TimeCountController)
+import TimeComingController from './time-coming'
+application.register('time-coming', TimeComingController)
+
+import TimeGoingController from './time-going'
+application.register('time-going', TimeGoingController)
 
 import TreeController from  './tree'
 application.register('tree', TreeController)
