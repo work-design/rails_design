@@ -4,17 +4,34 @@ window.Duration = Duration
 
 export default class extends Controller {
   static values = {
-    time: String
+    time: String,
+    xx: { type: Object, default: ['days', 'hours', 'minutes', 'seconds'] }
   }
 
-  count(start, finish) {
-    const xx = ['days', 'hours', 'minutes', 'seconds']
-    let result = start.diff(finish, xx)
+  connect() {
+    this.count()
+  }
+
+  count() {
+    const time = DateTime.fromISO(this.timeValue)
+    let result
+    if (time > DateTime.now()) {
+      result = time.diff(finish, this.xxValue)
+    } else {
+      result = x
+    }
+
     let format = ['d天', 'h时', 'mm分', 'ss秒']
     let result_format = ['d天', 'h时', 'mm分', 'ss秒']
 
     const timer = setInterval(() => {
-      result = result.plus({ seconds: 1 })
+      let step
+      if (result > 0) {
+        step = 1
+      } else {
+        step = -1
+      }
+      result = result.plus({ seconds: step })
       for (const [index, value] of Object.values(result.values).entries()) {
         if (value > 0) {
           result_format = format.slice(index)
@@ -28,6 +45,6 @@ export default class extends Controller {
       } else {
         this.element.textContent = result.toFormat(result_format.join(''))
       }
-    }, 1000, result, this.element)
+    }, 1000, result)
   }
 }
