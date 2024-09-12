@@ -1,8 +1,6 @@
-import { Controller } from '@hotwired/stimulus'
-import { DateTime, Duration } from 'luxon'
-window.Duration = Duration
+import TimeCountController from './time-count'
 
-export default class extends Controller {
+export default class extends TimeCountController {
   static values = {
     time: String
   }
