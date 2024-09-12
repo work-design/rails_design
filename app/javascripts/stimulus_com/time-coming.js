@@ -1,4 +1,5 @@
 import TimeCountController from './time-count'
+import {DateTime} from "luxon";
 window.Duration = Duration
 
 export default class extends TimeCountController {
@@ -12,9 +13,7 @@ export default class extends TimeCountController {
 
   countDown() {
     const time = DateTime.fromISO(this.timeValue)
-    let result = time.diff(DateTime.now(), ['days', 'hours', 'minutes', 'seconds'])
-    let format = ['d天', 'h时', 'mm分', 'ss秒']
-    let result_format = ['d天', 'h时', 'mm分', 'ss秒']
+    this.count(time, DateTime.now())
 
     const timer = setInterval(() => {
       result = result.minus({ seconds: 1 })

@@ -1,4 +1,5 @@
 import TimeCountController from './time-count'
+import {DateTime} from "luxon";
 
 export default class extends TimeCountController {
   static values = {
@@ -10,6 +11,8 @@ export default class extends TimeCountController {
   }
 
   countUp() {
-    this.count()
+    const time = DateTime.fromISO(this.timeValue)
+
+    this.count(DateTime.now(), time)
   }
 }

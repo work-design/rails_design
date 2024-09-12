@@ -7,11 +7,11 @@ export default class extends Controller {
     time: String
   }
 
-  count() {
-    const time = DateTime.fromISO(this.timeValue)
-    let result = DateTime.now().diff(time, ['days', 'hours', 'minutes', 'seconds'])
+  count(start, finish) {
+    const xx = ['days', 'hours', 'minutes', 'seconds']
+    let result = start.diff(finish, xx)
     let format = ['d天', 'h时', 'mm分', 'ss秒']
-    let result_format
+    let result_format = ['d天', 'h时', 'mm分', 'ss秒']
 
     const timer = setInterval(() => {
       result = result.plus({ seconds: 1 })
