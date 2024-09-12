@@ -5,7 +5,7 @@ window.Duration = Duration
 export default class extends Controller {
   static values = {
     time: String,
-    xx: { type: Object, default: ['days', 'hours', 'minutes', 'seconds'] }
+    diff: { type: Array, default: ['years', 'months', 'days', 'hours', 'minutes', 'seconds'] }
   }
 
   connect() {
@@ -14,15 +14,15 @@ export default class extends Controller {
 
   count() {
     const time = DateTime.fromISO(this.timeValue)
+    const now = DateTime.now()
     let result
-    if (time > DateTime.now()) {
-      result = time.diff(finish, this.xxValue)
+    if (time > now) {
+      result = time.diff(now, this.diffValue)
     } else {
-      result = x
+      result = now.diff(time, this.diffValue)
     }
-
-    let format = ['d天', 'h时', 'mm分', 'ss秒']
-    let result_format = ['d天', 'h时', 'mm分', 'ss秒']
+    let format = ['y年', 'M月', 'd天', 'h时', 'mm分', 'ss秒']
+    let result_format
 
     const timer = setInterval(() => {
       let step
