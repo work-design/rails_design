@@ -7,7 +7,7 @@ export default class extends Controller {
     time: String
   }
 
-  countUp() {
+  count() {
     const time = DateTime.fromISO(this.timeValue)
     let result = DateTime.now().diff(time, ['days', 'hours', 'minutes', 'seconds'])
     let format = ['d天', 'h时', 'mm分', 'ss秒']
