@@ -24,6 +24,18 @@
   }
 }
 
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .has-animate-fade-in {
   animation-name: fadeIn;
   animation-duration: 1s;
@@ -38,5 +50,10 @@
 
 .has-animate-auto-fade {
   animation-name: autoFade;
+  animation-fill-mode: forwards;
+}
+
+.has-animate-fade-in-out {
+  animation-name: fadeInOut;
   animation-fill-mode: forwards;
 }
