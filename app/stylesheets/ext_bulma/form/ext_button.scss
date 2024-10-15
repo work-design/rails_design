@@ -50,7 +50,7 @@ label.button_to {
   background: transparent;
   cursor: pointer;
   line-height: inherit;
-  font-size: initial; // 修复 safari fa 图标显示问题
+  font-size: var(--bulma-body-font-size); // 修复 safari fa 图标显示问题
 }
 
 
