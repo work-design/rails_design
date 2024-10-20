@@ -1,10 +1,24 @@
-.fa-weui-badge {
+.left-badge,
+.right-badge {
   position: relative;
-  transform: translateX(-5px);
 
   .weui-badge {
     position: absolute;
     top: -0.4em;
+  }
+}
+
+.left-badge {
+  .weui-badge {
+    width: max-content;
+    left: 1.5em;
+  }
+}
+
+.right-badge {
+  transform: translateX(-5px);
+
+  .weui-badge {
     right: -5px;
   }
 }
