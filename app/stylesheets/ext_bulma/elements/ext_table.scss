@@ -126,6 +126,14 @@ td.has-inner-table {
     }
   }
 
+  &.is-interval {
+    tr + tr {
+      td {
+        border-top-width: 1px;
+      }
+    }
+  }
+
   tr:nth-last-child(2) {
     td[rowspan="2"],
     th[rowspan="2"] {
