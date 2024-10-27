@@ -5,20 +5,6 @@
     gap: 0.75rem;
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
-
-    .card {
-      margin-bottom: 0;
-      display: flex;
-      flex-direction: column;
-
-      .card-content {
-        flex-grow: 1;
-      }
-
-      .card-footer {
-        justify-content: center;
-      }
-    }
   }
 
   &.is-2 {
@@ -34,9 +20,21 @@
   }
 
   .card {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+
     .card-image > img {
       margin-left: auto;
       margin-right: auto;
+    }
+
+    .card-content {
+      flex-grow: 1;
+    }
+
+    .card-footer {
+      justify-content: center;
     }
   }
 }
