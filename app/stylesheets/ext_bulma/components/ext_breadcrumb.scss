@@ -25,6 +25,14 @@
     }
   }
 
+  li.is-active {
+    a.tag {
+      cursor: pointer;
+      pointer-events: auto;
+      color: white;
+    }
+  }
+
   li:last-child {
     span {
       font-weight: bold;
