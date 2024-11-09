@@ -5,7 +5,9 @@
 }
 
 .panel {
-  width: fit-content;
+  &.is-fit {
+    width: fit-content;
+  }
 
   &.is-white {
     .panel-block {
