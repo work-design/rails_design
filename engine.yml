@@ -1,11 +1,11 @@
-name: Git Collect
+name: Engine Collect
 on:
   push:
     branches:
       - main
 jobs:
   build:
-    name: Git Collect
+    name: Engine Collect
     environment: dev
     runs-on: ubuntu-latest
     steps:
