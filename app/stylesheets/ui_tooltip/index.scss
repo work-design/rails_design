@@ -1,5 +1,5 @@
-@import './variables';
-@import './mixins';
+@use './variables';
+@use './mixins';
 
 :root {
   --tip-color: #{$tip-bg};
