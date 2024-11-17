@@ -1,4 +1,4 @@
-@use './mixins';
+@use 'mixins' as mx;
 
 $tip-arrow-size: 0 !default;
 
@@ -17,8 +17,8 @@ $tip-arrow-size: 0 !default;
   cursor: pointer;
 
   &:after {
-    @include base-effects();
-    @include normalized-text();
+    @include mx.base-effects();
+    @include mx.normalized-text();
 
     background: var(--tip-color);
     border-radius: 2px;
@@ -32,8 +32,8 @@ $tip-arrow-size: 0 !default;
   }
 
   &:before {
-    @include arrow-down();
-    @include base-effects();
+    @include mx.arrow-down();
+    @include mx.base-effects();
 
     background: var(--tip-color);
     content: '';
@@ -72,7 +72,7 @@ $tip-arrow-size: 0 !default;
   &[data-tip_blunt] {
     &:before,
     &:after {
-      @include no-effects();
+      @include mx.no-effects();
     }
   }
   &:after {
@@ -157,7 +157,7 @@ $tip-arrow-size: 0 !default;
       transform: translate(-50%, calc(var(--tip-move) * -1));
     }
     &:before {
-      @include arrow-up();
+      @include mx.arrow-up();
       left: 50%;
       top: 100%;
       transform: translate(-50%, calc(var(--tip-move) * -1));
@@ -181,7 +181,7 @@ $tip-arrow-size: 0 !default;
       transform: translate(0, calc(var(--tip-move) * -1));
     }
     &:before {
-      @include arrow-up();
+      @include mx.arrow-up();
       left: 5px;
       top: 100%;
       transform: translate(0, calc(var(--tip-move) * -1));
@@ -205,7 +205,7 @@ $tip-arrow-size: 0 !default;
       transform: translate(0, calc(var(--tip-move) * -1));
     }
     &:before {
-      @include arrow-up();
+      @include mx.arrow-up();
       right: 5px;
       top: 100%;
       transform: translate(0, calc(var(--tip-move) * -1));
@@ -229,7 +229,7 @@ $tip-arrow-size: 0 !default;
       transform: translate(var(--tip-move), -50%);
     }
     &:before {
-      @include arrow-right();
+      @include mx.arrow-right();
       right: 100%;
       top: 50%;
       transform: translate(var(--tip-move), -50%);
@@ -252,7 +252,7 @@ $tip-arrow-size: 0 !default;
       transform: translate(calc(var(--tip-move) * -1), -50%);
     }
     &:before {
-      @include arrow-left();
+      @include mx.arrow-left();
       left: 100%;
       top: 50%;
       transform: translate(calc(var(--tip-move) * -1), -50%);
