@@ -8,6 +8,8 @@
     border-width: 0;
     z-index: 1;
     padding: 5px;
+  }
+  &.is-unset {
     background-color: unset;
   }
   &.is-borderless {
