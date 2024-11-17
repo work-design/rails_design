@@ -1,18 +1,12 @@
-@use './variables';
 @use './mixins';
 
-:root {
-  --tip-color: #{$tip-bg};
-  --tip-font: #{$tip-font};
-  --tip-font-size: #{$tip-base-size};
-  --tip-move: #{$tip-move};
-}
+$tip-arrow-size: 0 !default;
 
-// IE 11 button bugfix
-button[aria-label] {
-  &[data-tip_pos] {
-    overflow: visible;
-  }
+:root {
+  --tip-color: fade-out(#fff, 0.05);
+  --tip-font: invert(--tip-color);
+  --tip-font-size: 12px;
+  --tip-move: 4px;
 }
 
 [aria-label] {
