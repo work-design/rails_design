@@ -33,6 +33,20 @@
   background: transparent;
 }
 
+.button,
+.tag {
+  &.as-corner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: auto;
+    border-radius: 0;
+    border-width: 0;
+    z-index: 1;
+    padding: 5px;
+  }
+}
+
 .is-opacity-1 {
   opacity: 1 !important;
 }
