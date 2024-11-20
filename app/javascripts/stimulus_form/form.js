@@ -113,7 +113,10 @@ export default class extends BaseController {
 
   focusEnd(event) {
     const ele = event.currentTarget
-    ele.setSelectionRange(0, ele.value.length)
+    if (ele.type === 'number') {
+    } else {
+      ele.setSelectionRange(0, ele.value.length)
+    }
   }
 
   setMinLength() {
