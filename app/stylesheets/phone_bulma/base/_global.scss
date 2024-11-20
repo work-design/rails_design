@@ -21,7 +21,7 @@ main {
   & > .box:first-child:not(.as-bar),
   & > .media:first-child,
   & > .fixed-grid,
-  & > .as-show {
+  & > .as-show:first-child {
     margin-top: 0.75rem;
   }
 }
