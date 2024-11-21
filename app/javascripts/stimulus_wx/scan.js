@@ -9,9 +9,12 @@ export default class extends BaseController {
 
   report(event) {
     const ele = event.currentTarget
+    let url = ele.dataset.reportUrl
     let body
     if (this.hasFormValue) {
-      body = new FormData(document.getElementById(this.formValue))
+      const form = document.getElementById(this.formValue)
+      body = new FormData(form)
+      url = form.action
     } else {
       body = new FormData()
     }
@@ -25,7 +28,7 @@ export default class extends BaseController {
         needResult: 1,
         success: (res) => {
           body.append('result', res.resultStr)
-          this.post(ele.dataset.reportUrl, body)
+          this.post(url, body)
         }
       })
     })
