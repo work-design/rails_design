@@ -16,11 +16,13 @@ dl.as-show {
     font-size: 0.9em;
     text-align-last: auto;
     width: auto;
+    align-self: start;
+    flex-shrink: 0;
   }
   dd {
+    margin-left: 2rem;
     text-align: right;
     overflow-x: auto;
-    flex-shrink: 0;
     img {
       float: right;
     }
