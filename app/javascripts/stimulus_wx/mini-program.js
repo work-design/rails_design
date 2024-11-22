@@ -9,13 +9,9 @@ export default class extends Controller {
     nav: Boolean,
     debug: Boolean
   }
-  static classes = ['pt']
 
   connect() {
     if (window.__wxjs_environment === 'miniprogram') {
-      if (this.hasPtClass) {
-        this.element.classList.add(this.ptClass)
-      }
       if (this.directValue) {
         this.navTo()
       }
