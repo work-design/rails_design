@@ -52,6 +52,9 @@ application.register('taxon', TaxonController)
 import TimeRangeController from './time-range'
 application.register('time-range', TimeRangeController)
 
+import TotalController from './total'
+application.register('total', TotalController)
+
 import TyperController from './typer'
 application.register('typer', TyperController)
 
