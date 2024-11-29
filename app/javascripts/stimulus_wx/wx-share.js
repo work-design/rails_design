@@ -15,13 +15,15 @@ export default class extends Controller {
   }
 
   updateTimeline() {
-    wx.updateTimelineShareData({
-      title: this.titleValue,
-      link: this.linkValue,
-      imgUrl: this.imageValue,
-      fail: () => {
-        weixin_fetch({ success: this.updateTimeline, controller: this })
-      }
+    wx.ready(() => {
+      wx.updateTimelineShareData({
+        title: this.titleValue,
+        link: this.linkValue,
+        imgUrl: this.imageValue,
+        fail: () => {
+          weixin_fetch({ success: this.updateTimeline, controller: this })
+        }
+      })
     })
   }
 
