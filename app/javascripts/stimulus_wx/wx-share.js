@@ -33,6 +33,9 @@ export default class extends Controller {
       imgUrl: this.imageValue,
       fail: () => {
         weixin_fetch({ success: this.updateShare, controller: this })
+      },
+      success: (res) => {
+        console.debug(res, '设置消息成功')
       }
     })
   }
