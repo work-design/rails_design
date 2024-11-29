@@ -9,7 +9,7 @@ export default class extends Controller {
     image: String
   }
 
-  ready() {
+  connect() {
     this.updateTimeline()
     this.updateShare()
   }
