@@ -26,17 +26,19 @@ export default class extends Controller {
   }
 
   updateShare() {
-    wx.updateAppMessageShareData({
-      title: this.titleValue,
-      desc: this.descValue,
-      link: this.linkValue,
-      imgUrl: this.imageValue,
-      fail: () => {
-        weixin_fetch({ success: this.updateShare, controller: this })
-      },
-      success: (res) => {
-        console.debug(res, '设置消息成功')
-      }
+    wx.ready(() => {
+      wx.updateAppMessageShareData({
+        title: this.titleValue,
+        desc: this.descValue,
+        link: this.linkValue,
+        imgUrl: this.imageValue,
+        fail: () => {
+          weixin_fetch({ success: this.updateShare, controller: this })
+        },
+        success: (res) => {
+          console.debug(res, '设置消息成功')
+        }
+      })
     })
   }
 
