@@ -1,0 +1,16 @@
+.weui-mask-share {
+  background-image: url(/share.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: rgb(95, 95, 95);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+main > .weui-mask-share {
+  margin-bottom: 0;
+}
