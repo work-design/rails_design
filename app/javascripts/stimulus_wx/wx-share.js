@@ -14,6 +14,11 @@ export default class extends Controller {
     this.updateShare()
   }
 
+  ready() {
+    this.updateTimeline()
+    this.updateShare()
+  }
+
   updateTimeline() {
     wx.ready(() => {
       wx.updateTimelineShareData({
