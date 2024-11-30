@@ -36,7 +36,9 @@ export default class extends Controller {
       }
       input.value = input.defaultValue
       input.autofocus = true
-      input.setSelectionRange(0, input.value.length)
+      if (input.type === 'text') {
+        input.setSelectionRange(0, input.value.length)
+      }
     })
 
     if (this.element.parentNode) {
