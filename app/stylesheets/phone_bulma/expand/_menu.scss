@@ -1,14 +1,13 @@
 .weui-menu {
   display: flex;
   flex-grow: 1;
-  margin-left: -0.75rem;
-  margin-right: -0.75rem;
 }
 
 .weui-menu-sidebar {
   height: 100%;
   background-color: #fff;
   border-top-right-radius: 6px;
+  margin-left: 0.75rem;
 }
 
 .weui-menu-content {
@@ -17,5 +16,4 @@
   flex-grow: 1;
   overflow: hidden;
   padding-left: 0.75rem;
-  padding-right: 0.75rem;
 }
