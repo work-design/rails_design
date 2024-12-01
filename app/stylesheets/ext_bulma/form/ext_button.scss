@@ -34,10 +34,6 @@
       height: 100%;
     }
   }
-
-  &:not(:last-child) {
-    margin-bottom: var(--bulma-block-spacing);
-  }
 }
 
 .button_to button:not(.button),
