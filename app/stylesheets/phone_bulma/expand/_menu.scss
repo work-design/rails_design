@@ -1,6 +1,8 @@
 .weui-menu {
   display: flex;
   flex-grow: 1;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
 }
 
 .weui-menu-sidebar {
@@ -14,4 +16,6 @@
   flex-direction: column;
   flex-grow: 1;
   overflow: hidden;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }

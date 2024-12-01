@@ -31,8 +31,6 @@
   }
 
   &.is-border {
-    margin-left: 0.75rem;
-    margin-right: 0.75rem;
     > :not(:last-child) {
       border-bottom: 1px solid hsl(0deg, 0%, 93%)
     }

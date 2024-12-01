@@ -15,11 +15,6 @@
 .button_to {
   display: inline;
 
-  main > & {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-  }
-
   i {
     line-height: 1;
   }
@@ -38,6 +33,10 @@
     button[type=submit] {
       height: 100%;
     }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: var(--bulma-block-spacing);
   }
 }
 
