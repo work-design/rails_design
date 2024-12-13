@@ -29,22 +29,6 @@ export default class extends Controller {
     )
   }
 
-  request(url, method, body, headers) {
-    fetch(url, {
-      credentials: 'include',
-      method: method.toUpperCase(),
-      headers: {
-        Accept: 'text/vnd.turbo-stream.html',
-        ...headers
-      },
-      body: body
-    }).then(response => {
-      return response.text()
-    }).then(body => {
-      Turbo.renderStreamMessage(body)
-    })
-  }
-
   formPost(form) {
     this.request(
       this.urlValue,
@@ -69,6 +53,22 @@ export default class extends Controller {
     const url = new URL(this.urlValue, location.origin)
     url.searchParams.set(input.name, input.value)
     this.get(url)
+  }
+
+  request(url, method, body, headers) {
+    fetch(url, {
+      credentials: 'include',
+      method: method.toUpperCase(),
+      headers: {
+        Accept: 'text/vnd.turbo-stream.html',
+        ...headers
+      },
+      body: body
+    }).then(response => {
+      return response.text()
+    }).then(body => {
+      Turbo.renderStreamMessage(body)
+    })
   }
 
   get locale() {
