@@ -12,11 +12,21 @@ export default class extends Controller {
   }
 
   post(url, body, headers) {
-    this.request(url, 'POST', body, {'X-CSRF-Token': this.csrfToken(), ...headers})
+    this.request(
+      url,
+      'POST',
+      body,
+      { 'Content-Type': 'application/json', 'X-CSRF-Token': this.csrfToken(), ...headers }
+    )
   }
 
   patch(url, body, headers) {
-    this.request(url, 'PATCH', body, {'X-CSRF-Token': this.csrfToken(), ...headers})
+    this.request(
+      url,
+      'PATCH',
+      body,
+      { 'Content-Type': 'application/json', 'X-CSRF-Token': this.csrfToken(), ...headers }
+    )
   }
 
   request(url, method, body, headers) {
@@ -35,16 +45,30 @@ export default class extends Controller {
     })
   }
 
-  doRequest(input) {
+  formPost(form) {
+    this.request(
+      this.urlValue,
+      'POST',
+      new FormData(form),
+      { 'X-CSRF-Token': this.csrfToken() }
+    )
+  }
+
+  inputPost(input) {
+    const body = new FormData()
+    body.append(input.name, input.value)
+    this.request(
+      this.urlValue,
+      'POST',
+      body,
+      { 'X-CSRF-Token': this.csrfToken() }
+    )
+  }
+
+  inputGet(input) {
     const url = new URL(this.urlValue, location.origin)
-    if (this.hasMethodValue && ['POST', 'PUT', 'PATCH'].includes(this.methodValue.toUpperCase())) {
-      const body = new FormData()
-      body.append(input.name, input.value)
-      this.request(url, this.methodValue, body, {'X-CSRF-Token': this.csrfToken()})
-    } else {
-      url.searchParams.set(input.name, input.value)
-      this.get(url)
-    }
+    url.searchParams.set(input.name, input.value)
+    this.get(url)
   }
 
   get locale() {

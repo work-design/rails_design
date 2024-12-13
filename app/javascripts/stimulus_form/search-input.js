@@ -3,8 +3,7 @@ import BaseController from '../base_controller'
 export default class extends BaseController {
   static targets = ['input', 'content']
   static values = {
-    url: String,
-    method: { type: String, default: 'POST' }
+    url: String
   }
 
   connect() {
@@ -28,7 +27,7 @@ export default class extends BaseController {
     const con = this.closest('[data-controller~=search-input]').getController('search-input')
 
     if (con.hasUrlValue) {
-      con.doRequest(this)
+      con.inputPost(this)
     } else {
       this.form.requestSubmit()
     }
@@ -36,7 +35,7 @@ export default class extends BaseController {
 
   conForm(ele) {
     if (this.hasUrlValue) {
-      this.doRequest(ele)
+      this.inputPost(ele)
     } else {
       ele.form.requestSubmit()
     }

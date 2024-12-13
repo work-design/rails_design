@@ -22,7 +22,7 @@ export default class extends BaseController {
   openAddress() {
     wx.openAddress({
       success: res => {
-        this.post(this.urlValue, JSON.stringify(res), { 'Content-Type': 'application/json' })
+        this.post(this.urlValue, JSON.stringify(res))
       },
       fail: res => {
         weixin_fetch({ success: this.openAddress, controller: this })

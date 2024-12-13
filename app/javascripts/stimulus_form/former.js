@@ -9,8 +9,6 @@ export default class extends BaseController {
 
   submit() {
     const ele = document.getElementById(this.idValue)
-    const data = new FormData(ele)
-
-    this.post(this.urlValue, data)
+    this.formPost(ele)
   }
 }

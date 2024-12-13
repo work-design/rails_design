@@ -3,6 +3,7 @@ import BaseController from '../base_controller'
 export default class extends BaseController {
   static values = {
     url: String,
+    body: String,
     params: Object
   }
 
@@ -11,22 +12,12 @@ export default class extends BaseController {
     Turbo.visit(location.href, { action: 'replace' })
   }
 
-  // 用于兼容 rails ujs data-method 的逻辑
-  link(event) {
-    event.preventDefault()
-    const ele = event.currentTarget
-
-    if (ele.dataset.method) {
-      this.request(ele.href, ele.dataset.method, null, { 'X-CSRF-Token': this.csrfToken() })
-    } else {
-      this.get(ele.href)
-    }
+  link() {
+    this.post(this.urlValue, this.bodyValue)
   }
 
   streamPost(event) {
-    const ele = event.currentTarget
-    const search_url = new URL(ele.dataset.url, location.origin)
-    this.post(search_url)
+    this.post(this.urlValue, this.bodyValue)
   }
 
   stream(event) {

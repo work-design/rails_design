@@ -5,7 +5,6 @@ export default class extends BaseController {
   static targets = ['checkbox']
   static values = {
     url: String,
-    method: String,
     force: Boolean
   }
 
@@ -30,7 +29,7 @@ export default class extends BaseController {
 
   link(event) {
     const ele = event.currentTarget
-    this.doRequest(ele)
+    this.inputGet(ele)
   }
 
   form(event) {

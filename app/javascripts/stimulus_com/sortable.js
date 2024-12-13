@@ -24,7 +24,7 @@ export default class extends BaseController {
         }
 
         const url = evt.item.dataset['url']
-        this.patch(url, JSON.stringify(body), { 'Content-Type': 'application/json' })
+        this.patch(url, JSON.stringify(body))
       }
     })
   }

@@ -4,8 +4,7 @@ import BaseController from '../base_controller'
 export default class extends BaseController {
   static targets = ['input', 'value', 'content']
   static values = {
-    url: String,
-    method: String
+    url: String
   }
 
   connect() {
@@ -37,7 +36,7 @@ export default class extends BaseController {
     }
 
     if (con.hasUrlValue) {
-      con.doRequest(this)
+      con.inputPost(this)
     } else {
       this.form.requestSubmit()
     }
@@ -51,7 +50,7 @@ export default class extends BaseController {
     }
 
     if (this.hasUrlValue) {
-      this.doRequest(ele)
+      this.inputPost(ele)
     } else {
       ele.form.requestSubmit()
     }
