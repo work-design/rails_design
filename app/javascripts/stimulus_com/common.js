@@ -2,9 +2,7 @@ import BaseController from '../base_controller'
 
 export default class extends BaseController {
   static values = {
-    url: String,
-    body: String,
-    params: Object
+    body: String
   }
 
   cancel(event) {

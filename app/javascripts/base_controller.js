@@ -1,6 +1,11 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
+  static values = {
+    url: String,
+    input: String,
+    params: Object
+  }
 
   csrfToken() {
     const meta = document.querySelector('meta[name=csrf-token]')
@@ -40,12 +45,19 @@ export default class extends Controller {
 
   inputPost(input) {
     const body = new FormData()
-    body.append(input.name, input.value)
+
+    if (this.hasInputValue) {
+      body.append(this.inputValue, input.value)
+    } else {
+      body.append(input.name, input.value)
+    }
+
     if (this.hasParamsValue) {
       Object.keys(this.paramsValue).forEach(k => {
         body.append(k, this.paramsValue[k])
       })
     }
+    
     this.request(
       this.urlValue,
       'POST',
@@ -62,7 +74,12 @@ export default class extends Controller {
       url = new URL(this.urlValue, location.origin)
     }
 
-    url.searchParams.set(input.name, input.value)
+    if (this.hasInputValue) {
+      url.searchParams.set(this.inputValue, input.value)
+    } else {
+      url.searchParams.set(input.name, input.value)
+    }
+
     if (this.hasParamsValue) {
       Object.keys(this.paramsValue).forEach(k => {
         url.searchParams.set(k, this.paramsValue[k])
