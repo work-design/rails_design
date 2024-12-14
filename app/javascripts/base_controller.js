@@ -50,8 +50,20 @@ export default class extends Controller {
   }
 
   inputGet(input) {
-    const url = new URL(this.urlValue, location.origin)
+    let url
+    if (input.dataset.url) {
+      url = new URL(input.dataset.url, location.origin)
+    } else {
+      url = new URL(this.urlValue, location.origin)
+    }
+
     url.searchParams.set(input.name, input.value)
+    if (this.hasParamsValue) {
+      Object.keys(this.paramsValue).forEach(k => {
+        url.searchParams.set(k, this.paramsValue[k])
+      })
+    }
+
     this.get(url)
   }
 
