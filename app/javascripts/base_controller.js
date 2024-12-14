@@ -57,7 +57,7 @@ export default class extends Controller {
         body.append(k, this.paramsValue[k])
       })
     }
-    
+
     this.request(
       this.urlValue,
       'POST',
