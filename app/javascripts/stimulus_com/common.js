@@ -25,6 +25,11 @@ export default class extends BaseController {
     this.inputGet(ele)
   }
 
+  postInput(event) {
+    const ele = event.currentTarget
+    this.inputPost(ele)
+  }
+
   // turbo:submit-start@window->common#submit
   submit(event) {
     const form = event.detail.formSubmission
