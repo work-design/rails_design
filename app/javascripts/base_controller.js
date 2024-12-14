@@ -41,6 +41,11 @@ export default class extends Controller {
   inputPost(input) {
     const body = new FormData()
     body.append(input.name, input.value)
+    if (this.hasParamsValue) {
+      Object.keys(this.paramsValue).forEach(k => {
+        body.append(k, this.paramsValue[k])
+      })
+    }
     this.request(
       this.urlValue,
       'POST',
