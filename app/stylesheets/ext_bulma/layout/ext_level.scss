@@ -14,3 +14,9 @@
   }
 }
 
+nav.level {
+  .level-left {
+    flex-shrink: 1;
+    align-items: flex-start;
+  }
+}
