@@ -1,7 +1,7 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static outlets = ['check-commit']
+  static outlets = ['form']
   static targets = ['all', 'total']
   static values = {
     container: String,
@@ -47,10 +47,14 @@ export default class extends Controller {
   }
 
   showCommits(ids) {
-    this.checkCommitOutlets.forEach(el => {
+    this.formOutlets.forEach(el => {
       if (ids.length > 0) {
-        el.submitTarget.disabled = false
-        el.idsTarget.value = ids
+        if (el.hasSubmitTarget) {
+          el.submitTarget.disabled = false
+        }
+        if (el.hasIdsTarget) {
+          el.idsTarget.value = ids
+        }
       }
     })
     if (this.hasTotalTarget) {
@@ -59,9 +63,13 @@ export default class extends Controller {
   }
 
   hiddenCommits() {
-    this.checkCommitOutlets.forEach(el => {
-      el.submitTarget.disabled = true
-      el.idsTarget.value = ''
+    this.formOutlets.forEach(el => {
+      if (el.hasSubmitTarget) {
+        el.submitTarget.disabled = true
+      }
+      if (el.hasIdsTarget) {
+        el.idsTarget.value = ''
+      }
     })
     if (this.hasTotalTarget) {
       this.totalTarget.innerText = ''

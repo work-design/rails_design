@@ -29,6 +29,7 @@ const I18N = {
 }
 
 export default class extends BaseController {
+  static targets = ['ids', 'submit']
   static values = {
     css: { type: String, default: 'is-danger' }
   }
