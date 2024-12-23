@@ -40,24 +40,28 @@ export default class extends Controller {
     }
 
     if (element.checked) {
-      this.showCommits(this.checkboxes.length)
+      this.showCommits(this.checkboxes)
     } else {
       this.hiddenCommits()
     }
   }
 
-  showCommits(total) {
-    this.checkCommitOutletElements.forEach(el => {
-      el.classList.remove('display-none')
+  showCommits(ids) {
+    this.checkCommitOutlets.forEach(el => {
+      if (ids.length > 0) {
+        el.submitTarget.disabled = false
+        el.idsTarget.value = ids
+      }
     })
     if (this.hasTotalTarget) {
-      this.totalTarget.innerText = `${total} Selected`
+      this.totalTarget.innerText = `${ids.length} Selected`
     }
   }
 
   hiddenCommits() {
-    this.checkCommitOutletElements.forEach(el => {
-      el.classList.add('display-none')
+    this.checkCommitOutlets.forEach(el => {
+      el.submitTarget.disabled = true
+      el.idsTarget.value = ''
     })
     if (this.hasTotalTarget) {
       this.totalTarget.innerText = ''
@@ -75,10 +79,12 @@ export default class extends Controller {
 
   computeDisplay() {
     let checkedCount = 0
+    const ids = []
     const overall = this.allTarget
     for (const ingredient of this.checkboxes) {
       if (ingredient.checked) {
         checkedCount++
+        ids.push(ingredient.value)
       }
     }
 
@@ -89,11 +95,11 @@ export default class extends Controller {
     } else if (checkedCount === this.checkboxes.length) {
       overall.checked = true
       overall.indeterminate = false
-      this.showCommits(checkedCount)
+      this.showCommits(ids)
     } else {
       overall.checked = false
       overall.indeterminate = true
-      this.showCommits(checkedCount)
+      this.showCommits(ids)
     }
   }
 
