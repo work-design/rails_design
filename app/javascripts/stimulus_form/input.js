@@ -4,7 +4,6 @@ import BaseController from '../base_controller'
 export default class extends BaseController {
   static targets = ['checkbox']
   static values = {
-    url: String,
     force: Boolean
   }
 
