@@ -22,9 +22,11 @@ export default class extends Controller {
   // checkbox data-action="check#toggleAll"
   toggleAll(event) {
     const element = event.currentTarget
+    const ids = []
 
     for (const checkbox of this.checkboxes) {
       if (!checkbox.disabled) {
+        ids.push(checkbox.value)
         checkbox.checked = element.checked
         checkbox.dispatchEvent(new Event('input'))
         const all = checkbox.dataset.all.split(', ').filter(el => el !== `#${this.element.id}`).join(', ')
@@ -40,7 +42,7 @@ export default class extends Controller {
     }
 
     if (element.checked) {
-      this.showCommits(this.checkboxes)
+      this.showCommits(ids)
     } else {
       this.hiddenCommits()
     }
