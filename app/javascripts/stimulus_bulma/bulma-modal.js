@@ -17,6 +17,14 @@ export default class extends BaseController {
     }
   }
 
+  submitClose(e) {
+    const ele = e.currentTarget
+    if (this.closeCheck()) {
+      ele.form.requestSubmit()
+      this.element.remove()
+    }
+  }
+
   hide() {
     if (this.closeCheck()) {
       this.element.classList.remove('is-active')
