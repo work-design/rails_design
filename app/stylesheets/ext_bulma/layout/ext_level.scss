@@ -17,9 +17,9 @@
 nav.level {
   .level-left {
     flex-shrink: 1;
-    align-items: flex-start;
-  }
-  .level-right {
-    align-items: flex-start;
+
+    .buttons {
+      align-items: center;
+    }
   }
 }
