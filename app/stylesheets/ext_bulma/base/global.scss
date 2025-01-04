@@ -11,6 +11,11 @@ time {
   font-size: 14px;
 }
 
+a[disabled=disabled] {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
 .as-top {
   width: 100%;
   height: 100vh;
@@ -20,8 +25,13 @@ time {
   z-index: 41;
 }
 
+.as-attached-top {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-bottom: 0;
 
-a[disabled=disabled] {
-  pointer-events: none;
-  opacity: 0.6;
+  & + .table {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
 }
