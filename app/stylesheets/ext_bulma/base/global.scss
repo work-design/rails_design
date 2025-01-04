@@ -25,7 +25,7 @@ a[disabled=disabled] {
   z-index: 41;
 }
 
-.as-attached-top {
+.as-attached-top:not(:last-child) {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   margin-bottom: 0;
