@@ -1,11 +1,16 @@
-import { Controller } from '@hotwired/stimulus'
+import BaseController from '../base_controller'
+const I18N = {
+  zh: '已选择 {value}',
+  en: '{value} Selected'
+}
 
-export default class extends Controller {
+export default class extends BaseController {
   static outlets = ['form']
-  static targets = ['all', 'total']
+  static targets = ['all']
   static values = {
     container: String,
-    range: String
+    range: String,
+    total: { type: String, default: 'check_total' }
   }
 
   connect() {
@@ -59,8 +64,9 @@ export default class extends Controller {
         }
       }
     })
-    if (this.hasTotalTarget) {
-      this.totalTarget.innerText = `${ids.length} Selected`
+    if (this.totalContainer) {
+      const word = I18N[this.locale]
+      this.totalContainer.innerText = word.replace('{value}', ids.length)
     }
   }
 
@@ -73,8 +79,8 @@ export default class extends Controller {
         el.idsTarget.value = ''
       }
     })
-    if (this.hasTotalTarget) {
-      this.totalTarget.innerText = ''
+    if (this.totalContainer) {
+      this.totalContainer.innerText = ''
     }
   }
 
@@ -122,6 +128,10 @@ export default class extends Controller {
     } else {
       return document.querySelectorAll(`input[type=checkbox][name^='${this.allTarget.value}']`)
     }
+  }
+
+  get totalContainer() {
+    return document.getElementById(this.totalValue)
   }
 
 }
