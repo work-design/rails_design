@@ -16,11 +16,11 @@
     align-items: center;
   }
 
-  &.is-boxed {
+  &.as-boxed {
     padding: 1rem;
   }
 
-  &.is-boxed + &.is-boxed {
+  &.as-boxed + &.as-boxed {
     margin-top: 0;
   }
 }
