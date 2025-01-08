@@ -3,7 +3,7 @@
 $tip-arrow-size: 0 !default;
 
 :root {
-  --tip-color: fade-out(#fff, 0.05);
+  --tip-color: hsl(221, 14%, 95%);
   --tip-font: invert(--tip-color);
   --tip-font-size: 12px;
   --tip-move: 4px;
