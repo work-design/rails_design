@@ -14,7 +14,7 @@ export default class extends Controller {
   countDown() {
     let countdown = this.timeValue
     let value
-    if (this.countTarget.tagName === 'INPUT') {
+    if (this.countTarget.tagName instanceof HTMLInputElement) {
       value = this.countTarget.value
     } else {
       value = ''
@@ -37,7 +37,7 @@ export default class extends Controller {
   }
 
   setCount(text, countdown) {
-    if (this.countTarget.tagName === 'INPUT') {
+    if (this.countTarget instanceof HTMLInputElement) {
       this.countTarget.value = `${text} ${countdown}`
     } else {
       this.countTarget.innerText = countdown
