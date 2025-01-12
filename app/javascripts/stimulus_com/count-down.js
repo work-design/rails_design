@@ -13,7 +13,13 @@ export default class extends Controller {
 
   countDown() {
     let countdown = this.timeValue
-    this.countTarget.innerText = countdown
+    let value
+    if (this.countTarget.tagName === 'INPUT') {
+      value = this.countTarget.value
+    } else {
+      value = ''
+    }
+    this.setCount(value, countdown)
 
     let timer = setInterval(() => {
       countdown--
@@ -21,12 +27,20 @@ export default class extends Controller {
         if (this.hasDisabledTarget) {
           this.disabledTarget.removeAttribute('disabled')
         }
-        this.countTarget.innerText = this.getValue
+        this.setCount(value, this.getValue)
         this.hiddenTargets.forEach(el => { el.remove() })
         clearInterval(timer)
       } else {
-        this.countTarget.innerText = countdown
+        this.setCount(value, countdown)
       }
     }, 1000, countdown)
+  }
+
+  setCount(text, countdown) {
+    if (this.countTarget.tagName === 'INPUT') {
+      this.countTarget.value = `${text} ${countdown}`
+    } else {
+      this.countTarget.innerText = countdown
+    }
   }
 }
