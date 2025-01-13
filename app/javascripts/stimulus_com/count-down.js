@@ -38,7 +38,7 @@ export default class extends Controller {
 
   setCount(text, countdown) {
     if (this.countTarget instanceof HTMLInputElement) {
-      this.countTarget.value = `${text} ${countdown}`
+      this.countTarget.value = `${text} ${countdown}秒`
     } else {
       this.countTarget.innerText = countdown
     }
