@@ -10,7 +10,7 @@ export default class extends Controller {
   toggle(event) {
     const checkbox = event.currentTarget
     if (checkbox.checked) {
-      //this.toggleOn(checkbox)
+      this.toggleOn(checkbox)
     } else if (!checkbox.checked) {
       this.toggleOffCss(checkbox)
     }
