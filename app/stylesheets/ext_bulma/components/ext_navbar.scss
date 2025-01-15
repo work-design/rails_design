@@ -15,12 +15,17 @@
 .navbar-breadcrumb {
   display: flex;
   justify-content: space-between;
-  margin-left: -0.75rem;
-  margin-right: -0.75rem;
 
   .breadcrumb {
     flex-grow: 1;
     padding: 0.75rem;
     margin-bottom: 0;
+  }
+}
+
+.column {
+  .navbar-breadcrumb {
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
   }
 }
