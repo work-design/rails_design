@@ -10,7 +10,7 @@ export default class extends Controller {
   toggle(event) {
     const checkbox = event.currentTarget
     if (checkbox.checked) {
-      this.toggleOn(checkbox)
+      //this.toggleOn(checkbox)
     } else if (!checkbox.checked) {
       this.toggleOffCss(checkbox)
     }
@@ -19,10 +19,6 @@ export default class extends Controller {
   }
 
   toggleOn(checkbox) {
-    const cl = checkbox.parentElement.classList
-    cl.remove('weui-btn_default')
-    cl.add('weui-btn_primary')
-
     if (this.onlyValue) {
       this.toggleOffOther(checkbox)
     }
