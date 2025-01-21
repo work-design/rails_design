@@ -1,7 +1,7 @@
 .button_tos {
-  .button_to:not(:first-child) {
-    padding-left: 1em;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 
   &.is-column {
     .button_to {
