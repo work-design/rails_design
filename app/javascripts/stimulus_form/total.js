@@ -12,7 +12,14 @@ export default class extends Controller {
     const reduce = event.currentTarget
 
     if (this.hasTotalTarget) {
-      this.totalTarget.value = (parseFloat(this.totalTarget.defaultValue || 0) + parseFloat(reduce.value) - parseFloat(reduce.defaultValue || 0)).toFixed(2)
+      const total = (parseFloat(this.totalTarget.defaultValue || 0) + parseFloat(reduce.value) - parseFloat(reduce.defaultValue || 0))
+
+      window.xxx = total
+      if (this.hasProfitTarget) {
+        this.totalTarget.value = (total + parseFloat(this.profitTarget.value || 0)).toFixed(2)
+      } else {
+        this.totalTarget.value = total.toFixed(2)
+      }
     }
   }
 
@@ -25,7 +32,7 @@ export default class extends Controller {
   }
 
   updateTotal(event) {
-    let total = event.currentTarget
+    const total = event.currentTarget
 
     if (this.hasReduceTarget) {
       this.reduceTarget.value = (parseFloat(this.reduceTarget.defaultValue || 0) + parseFloat(total.value) - parseFloat(total.defaultValue || 0)).toFixed(2)
