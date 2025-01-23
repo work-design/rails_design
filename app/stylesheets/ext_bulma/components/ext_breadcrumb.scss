@@ -17,6 +17,9 @@
     &.is-active::before {
       padding-right: 0.75em;
     }
+    &:empty + li {
+      padding-left: 0.75rem;
+    }
     &:empty + li::before {
       display: none;
     }
