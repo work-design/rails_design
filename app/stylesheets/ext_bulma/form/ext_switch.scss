@@ -1,3 +1,4 @@
+@use 'sass:list';
 @use 'bulma/sass/utilities/derived-variables' as dv;
 @use 'bulma/sass/utilities/initial-variables' as iv;
 
@@ -202,7 +203,7 @@ $control-line-height: 1em;
   }
 
   @each $name, $pair in $colors {
-    $color: nth($pair, 1);
+    $color: list.nth($pair, 1);
     &.is-#{$name} {
       &:checked {
         + label {
