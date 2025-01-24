@@ -34,11 +34,10 @@ export default class extends Controller {
     const total = event.currentTarget
 
     if (this.hasReduceTarget) {
-      const reduce = (parseFloat(this.reduceTarget.defaultValue || 0) + parseFloat(total.value) - parseFloat(total.defaultValue || 0))
-
       if (this.hasProfitTarget) {
         this.profitTarget.value = (parseFloat(total.value) - parseFloat(this.reduceTarget.value || 0)).toFixed(2)
       } else {
+        const reduce = (parseFloat(this.reduceTarget.defaultValue || 0) + parseFloat(total.value) - parseFloat(total.defaultValue || 0))
         this.reduceTarget.value = reduce.toFixed(2)
       }
     }
