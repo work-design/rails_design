@@ -37,7 +37,7 @@ export default class extends Controller {
       const reduce = (parseFloat(this.reduceTarget.defaultValue || 0) + parseFloat(total.value) - parseFloat(total.defaultValue || 0))
 
       if (this.hasProfitTarget) {
-        this.reduceTarget.value = (reduce - parseFloat(this.profitTarget.value || 0)).toFixed(2)
+        this.profitTarget.value = (reduce - parseFloat(this.profitTarget.value || 0)).toFixed(2)
       } else {
         this.reduceTarget.value = reduce.toFixed(2)
       }
