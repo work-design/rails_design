@@ -108,6 +108,10 @@
     .card-footer {
       flex-direction: column;
     }
+
+    .card-footer-item {
+      justify-content: flex-start;
+    }
   }
 }
 
