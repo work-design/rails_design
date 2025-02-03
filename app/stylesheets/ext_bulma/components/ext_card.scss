@@ -29,17 +29,7 @@
 
     .card-content {
       flex-grow: 1;
-    }
 
-    .card-footer {
-      justify-content: center;
-    }
-  }
-}
-
-.cards {
-  .card {
-    .card-content {
       h1, h2, h3 {
         text-align: center;
         font-weight: bold;
@@ -80,11 +70,9 @@
         }
       }
     }
-  }
 
-  &.is-animate-scale {
-    .card:hover {
-      transform: translate3d(0, -10px, 0);
+    .card-footer {
+      justify-content: center;
     }
   }
 }
@@ -105,6 +93,20 @@
       padding-right: 0.75rem;
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
+    }
+  }
+
+  &.is-animate-scale {
+    .card:hover {
+      transform: translate3d(0, -10px, 0);
+    }
+  }
+
+  &.as-horizontal {
+    flex-direction: row;
+
+    .card-footer {
+      flex-direction: column;
     }
   }
 }
