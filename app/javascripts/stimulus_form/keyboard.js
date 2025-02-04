@@ -63,6 +63,9 @@ export default class extends Controller {
     if (this.input.value === '') {
       this.dotElement.hidden = true
     }
+    if (this.input.value === '' || this.input.valueAsNumber === 0) {
+      this.submitTarget.disabled = true
+    }
   }
 
   get input() {
