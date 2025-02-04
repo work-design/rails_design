@@ -42,7 +42,9 @@ export default class extends Controller {
   }
 
   zeroEnter(event) {
-    this.enter(event)
+    if (this.input.valueAsNumber !== 0 || this.dotElement.hidden === false) {
+      this.enter(event)
+    }
   }
 
   dot() {
