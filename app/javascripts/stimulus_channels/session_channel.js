@@ -22,7 +22,10 @@ export default class extends BaseCable {
       disconnected() {
         console.debug('disconnected:', this.identifier)
       }
-
     })
+  }
+
+  disconnect() {
+    this.subscription.unsubscribe()
   }
 }

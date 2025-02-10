@@ -26,4 +26,8 @@ export default class extends BaseCable {
     })
   }
 
+  disconnect() {
+    this.subscription.unsubscribe()
+  }
+
 }
