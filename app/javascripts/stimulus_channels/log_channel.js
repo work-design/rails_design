@@ -13,14 +13,6 @@ export default class extends BaseCable {
           })
         }
         Turbo.visit(url)
-      },
-
-      connected() {
-        console.debug('connected:', this.identifier)
-      },
-
-      disconnected() {
-        console.debug('disconnected:', this.identifier)
       }
 
     })

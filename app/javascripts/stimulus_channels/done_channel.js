@@ -9,14 +9,6 @@ export default class extends BaseCable {
     this.subscription = BaseCable.consumer.subscriptions.create({ channel: 'Datum::DoneChannel' }, {
       received(data) {
         Turbo.renderStreamMessage(data)
-      },
-
-      connected() {
-        console.log('connected:', this.identifier)
-      },
-
-      disconnected() {
-        console.debug('disconnected:', this.identifier)
       }
     })
   }

@@ -9,14 +9,6 @@ export default class extends BaseCable {
         Turbo.renderStreamMessage(data)
 
         document.getElementById('notice_show').classList.add('color-danger')
-      },
-
-      connected() {
-        console.debug('connected:', this.identifier)
-      },
-
-      disconnected() {
-        console.debug('disconnected:', this.identifier)
       }
 
     })
