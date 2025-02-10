@@ -1,3 +1,6 @@
 import { createConsumer } from '@rails/actioncable/src'
 
-export default createConsumer()
+const consumer = createConsumer()
+window.consumer = consumer
+
+export default consumer
