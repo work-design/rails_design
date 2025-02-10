@@ -1,7 +1,6 @@
 import consumer from './cable'
-window.consumer = consumer
 
-consumer.subscriptions.create({ channel: 'Com::SessionChannel', room: 'room' }, {
+consumer.subscriptions.create({ channel: 'Com::LogChannel', room: 'room' }, {
 
   received(data) {
     const url = data.url || '/'
