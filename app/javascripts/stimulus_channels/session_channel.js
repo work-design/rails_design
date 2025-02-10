@@ -7,7 +7,7 @@ export default class extends BaseCable {
       {
         channel: 'Com::SessionChannel',
         room: 'room'
-      }, 
+      },
       {
         received(data) {
           const url = data.url || '/'
