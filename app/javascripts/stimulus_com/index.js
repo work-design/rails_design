@@ -25,9 +25,6 @@ application.register('custom', CustomController)
 import DispatchController from './dispatch'
 application.register('dispatch', DispatchController)
 
-import DoneController from './done'
-application.register('done', DoneController)
-
 import DrawLineController from './draw-line'
 application.register('draw-line', DrawLineController)
 
