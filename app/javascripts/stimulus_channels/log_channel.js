@@ -9,6 +9,7 @@ export default class extends BaseCable {
         const p = document.createElement('p')
         p.innerText = data
         element.appendChild(p)
+        p.scrollIntoView({ behavior: 'smooth', block: 'end' })
       }
     })
   }
