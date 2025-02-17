@@ -9,6 +9,7 @@ export default class extends BaseController {
     method: String,
     params: Object,
     later: Number,
+    modal: String,
     headers: { type: Object, default: {} }
   }
 
@@ -49,6 +50,11 @@ export default class extends BaseController {
   }
 
   topVisit() {
+    if (this.hasModalValue) {
+      const ele = document.getElementById(this.modalValue)
+      ele.remove()
+    }
+
     if (this.hasUrlValue) {
       Turbo.visit(this.urlValue, { action: 'replace' })
     } else {
