@@ -24,11 +24,11 @@ export default class extends BaseController {
         { 'Content-Type': 'application/json', 'X-CSRF-Token': this.csrfToken(), ...this.headersValue }
       )
     } else if (this.hasLaterValue) {
-      this.topVisit()
       this.timerId = setTimeout(() => {
         console.debug('Later visit:', this.timerId)
         this.laterVisit()
       }, this.laterValue * 1000)
+      this.topVisit()
     } else {
       this.addEvent(this.headersValue)
       this.topVisit()
