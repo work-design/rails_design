@@ -8,6 +8,8 @@ export default class extends BaseController {
     reload: Boolean,
     method: String,
     params: Object,
+    later: Number,
+    modal: String,
     headers: { type: Object, default: {} }
   }
 
@@ -21,6 +23,12 @@ export default class extends BaseController {
         JSON.stringify(this.paramsValue),
         { 'Content-Type': 'application/json', 'X-CSRF-Token': this.csrfToken(), ...this.headersValue }
       )
+    } else if (this.hasLaterValue) {
+      this.topVisit()
+      this.timerId = setTimeout(() => {
+        console.debug('Later visit:', this.timerId)
+        this.laterVisit()
+      }, this.laterValue * 1000)
     } else {
       this.addEvent(this.headersValue)
       this.topVisit()
@@ -42,11 +50,23 @@ export default class extends BaseController {
   }
 
   topVisit() {
+    if (this.hasModalValue) {
+      const ele = document.getElementById(this.modalValue)
+      ele && ele.remove()
+    }
+
     if (this.hasUrlValue) {
       Turbo.visit(this.urlValue, { action: 'replace' })
     } else {
       Turbo.visit(location.href, { action: 'replace' })
     }
+  }
+
+  laterVisit() {
+    if (this.timerId) {
+      clearTimeout(this.timerId)
+    }
+    this.topVisit()
   }
 
   visit() {
