@@ -108,6 +108,12 @@
   align-items: center;
 }
 
+.has-v-end {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
 .has-block-left,
 .has-block-right {
   column-gap: 0.5em;
