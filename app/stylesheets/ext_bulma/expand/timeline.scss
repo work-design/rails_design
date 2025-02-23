@@ -32,13 +32,13 @@
 
 // Some coloring to make our life easier.
 .event.life .marker {
-  fill: var(--melange_b_yellow);
+  fill: var(--bulma-warning);
 }
 .event.programming .marker {
   fill: var(--melange_b_magenta);
 }
 .event.family .marker {
-  fill: var(--melange_b_red);
+  fill: var(--bulma-danger);
 }
 .content time {
   font-family: concourse_4, Helvetica, sans-serif;
@@ -46,20 +46,25 @@
 }
 
 @media (min-width: 700px) {
-  // Place the line in the middle.
-  .events::before {
-    left: 50%;
+
+  .events {
+    &.is-centered::before {
+      left: 50%;
+    }
+
+    .event .marker {
+      //order: 1;
+    }
+
+    .content {
+      &.is-left {
+        width: 50%;
+        text-align: right;
+      }
+    }
   }
-  // Layout the marker after the content.
-  .event .marker {
-    order: 1;
-  }
+
   .event .content {
-    // Make the content take 50% space so the marker
-    // will be placed at 50% (on top of the line).
-    width: 50%;
-    // Event is to the left, align text towards the line.
-    text-align: right;
     // Avoid overlap with the marker.
     padding-inline: 1em;
   }
