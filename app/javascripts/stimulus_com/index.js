@@ -28,8 +28,8 @@ application.register('dispatch', DispatchController)
 import DrawLineController from './draw-line'
 application.register('draw-line', DrawLineController)
 
-import EmptyController from './empty'
-application.register('empty', EmptyController)
+import DetailsController from './details'
+application.register('details', DetailsController)
 
 import EnterSectionController from './enter-section'
 application.register('enter-section', EnterSectionController)
