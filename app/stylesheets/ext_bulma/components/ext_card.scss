@@ -1,5 +1,6 @@
 .cards {
   display: grid;
+  row-gap: 0.75rem;
 
   &.is-2, &.is-3, &.is-4 {
     gap: 0.75rem;
