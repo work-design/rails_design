@@ -17,6 +17,11 @@ export default class extends BaseController {
     if (this.hasUrlValue) {
       this.get(this.urlValue)
     }
+    Array.from(this.element.parentNode.children).filter(child => {
+      if (child !== this.element && child.matches('details.details')) {
+        child.open = false
+      }
+    })
   }
 
 }
