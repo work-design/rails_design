@@ -1,12 +1,19 @@
-td.has-inner-table {
+td.has-inner-table,
+td:has(table) {
   padding: 0;
+  border-left: solid 1px var(--bulma-text-light);
 
-  & > table {
+  & > .table {
     tr {
       background-color: transparent !important;
     }
-    tr:last-child > td {
-      border-bottom: none;
+    tbody {
+      tr > td {
+        border-bottom: solid 1px var(--bulma-text-light);
+      }
+      tr:last-child > td {
+        border-bottom: none;
+      }
     }
   }
 }
