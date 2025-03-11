@@ -63,3 +63,7 @@
 .button_to + .buttons {
   margin-left: 0.5rem;
 }
+
+[disabled].button_to {
+  cursor: not-allowed;
+}
