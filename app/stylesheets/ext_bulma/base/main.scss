@@ -18,7 +18,9 @@ main.container {
 }
 
 #admin_menu {
-  overflow-y: visible;
+  overflow-y: scroll;
+  height: 100vh;
+  scrollbar-width: none;
 }
 
 .as-vertical-middle {
