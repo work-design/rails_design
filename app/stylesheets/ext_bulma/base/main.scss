@@ -13,7 +13,12 @@ main.container {
 }
 
 #body {
-  overflow-x: auto;
+  overflow: auto;
+  height: 100vh;
+}
+
+#admin_menu {
+  overflow-y: visible;
 }
 
 .as-vertical-middle {
