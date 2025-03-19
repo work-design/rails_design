@@ -19,14 +19,6 @@
     margin-top: 0;
     margin-bottom: 0;
     padding: 0.5em 0.75em 0.5em 1.5em;
-    .dropdown {
-      float: right;
-      line-height: 1.5;
-      padding-left: 0.5em;
-    }
-    .dropdown:before {
-      content: '\f0d9';
-    }
   }
 
   .menu-list {
@@ -39,18 +31,6 @@
     a.is-active,
     a:hover {
       font-weight: bold;
-    }
-  }
-  &.is-active {
-    .menu-label {
-      border-bottom: none;
-      .dropdown:before {
-        content: '\f0d7';
-      }
-    }
-    .menu-list {
-      display: block;
-      border-bottom: solid 1px rgba(34, 36, 38, .1);
     }
   }
 }
