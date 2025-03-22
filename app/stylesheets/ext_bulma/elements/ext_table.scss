@@ -169,4 +169,10 @@ td:has(table) {
       border-bottom-width: 0;
     }
   }
+
+  tr.left-border {
+    td:first-child {
+      border-left: solid 1px var(--bulma-text-light);
+    }
+  }
 }
