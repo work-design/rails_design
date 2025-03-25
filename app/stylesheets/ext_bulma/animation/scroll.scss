@@ -1,0 +1,14 @@
+@keyframes scrollUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+.has-animate-scrollUp {
+  animation-name: scrollUp;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
