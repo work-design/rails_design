@@ -1,6 +1,9 @@
 import AlertController from './alert'
 application.register('alert', AlertController)
 
+import AnimateScrollController from './animate-scroll'
+application.register('animate-scroll', AnimateScrollController)
+
 import AnimateTyperController from './animate-typer'
 application.register('animate-typer', AnimateTyperController)
 

@@ -7,8 +7,20 @@
   }
 }
 
+@keyframes scrollDown {
+  to {
+    transform: translateY(0);
+  }
+}
+
 .has-animate-scrollUp {
   animation-name: scrollUp;
   animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+.has-animate-scrollDown {
+  animation-name: scrollDown;
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
