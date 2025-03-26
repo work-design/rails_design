@@ -18,8 +18,6 @@
   animation-iteration-count: infinite;
 }
 
-.has-animate-scrollDown {
-  animation-name: scrollDown;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
+.has-animate-scrollUp:hover {
+  animation-play-state: paused;
 }
