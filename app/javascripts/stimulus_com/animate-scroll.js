@@ -11,7 +11,7 @@ export default class extends Controller {
     //ele.classList.remove('invisible')
     //ele.style.animationDuration = `${ele.innerText.length * 200}ms`
     //ele.classList.add('has-animate-typer')
-    scroll.addEventListener('animationend', this.scrollBack, { once: true })
+   // scroll.addEventListener('animationend', this.scrollBack, { once: true })
   }
 
   scrollBack(e) {

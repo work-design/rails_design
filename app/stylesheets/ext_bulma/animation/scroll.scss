@@ -1,10 +1,16 @@
 @keyframes scrollUp {
+  from {
+    transform: translateY(0);
+  }
   to {
     transform: var(--animate-scroll-to);
   }
 }
 
 @keyframes scrollDown {
+  from {
+    transform: var(--animate-scroll-to);
+  }
   to {
     transform: translateY(0);
   }
@@ -12,8 +18,9 @@
 
 .has-animate-scrollUp {
   animation-name: scrollUp;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
+  animation-duration: 5s;
+  animation-fill-mode: none;
+  //animation-iteration-count: infinite;
 }
 
 .has-animate-scrollDown {
