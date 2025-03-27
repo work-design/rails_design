@@ -21,13 +21,17 @@ export default class extends Controller {
       scroll.style.setProperty('animation-iteration-count', 1)
       scroll.classList.add('has-animate-scrollUp')
       ele.scrollTo(0, 0)
+      scroll.addEventListener('animationend', this.resetAnimate, { once: true })
       scroll.addEventListener('mouseover', this.resetScroll, { once: true })
-      scroll.addEventListener('animationend', e => {
-        scroll.style.removeProperty('animation-iteration-count')
-        scroll.style.setProperty('--animate-scroll-from', '0')
-        scroll.style.setProperty('--animate-duration', duration)
-      }, { once: true })
+      scroll.addEventListener('mouseover', e => { scroll.removeEventListener('animationend', this.resetAnimate) }, { once: true })
     })
+  }
+
+  resetAnimate(e) {
+    const scroll = e.currentTarget
+    scroll.style.removeProperty('animation-iteration-count')
+    scroll.style.setProperty('--animate-scroll-from', '0')
+    scroll.style.setProperty('--animate-duration', '6s')
   }
 
   resetScroll(e) {
