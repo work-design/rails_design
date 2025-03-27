@@ -1,9 +1,9 @@
 @keyframes scrollUp {
   0% {
-    transform: translateY(0);
+    transform: translateY(var(--animate-scroll-from, 0));
   }
   90% {
-    transform: var(--animate-scroll-to);
+    transform: translateY(var(--animate-scroll-to, 0));
   }
   100% {
     transform: translateY(0);
@@ -12,7 +12,7 @@
 
 .has-animate-scrollUp {
   animation-name: scrollUp;
-  animation-duration: 5s;
+  animation-duration: var(--animate-duration, 5s);
   animation-fill-mode: forwards;
   animation-timing-function: linear;
   animation-iteration-count: infinite;

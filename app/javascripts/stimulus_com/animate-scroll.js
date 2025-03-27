@@ -6,7 +6,36 @@ export default class extends Controller {
   connect() {
     const ele = this.element
     const scroll = this.scrollTarget
-    scroll.style.setProperty('--animate-scroll-to', `translateY(-${scroll.scrollHeight - ele.clientHeight}px)`)
+    const distance = scroll.scrollHeight - ele.clientHeight
+    const duration = `${distance * 10 > 1000 ? distance * 10 : 1000}ms`
+    scroll.style.setProperty('--animate-scroll-from', `0`)
+    scroll.style.setProperty('--animate-scroll-to', `-${distance}px`)
+    scroll.style.setProperty('--animate-duration', duration)
+
+    scroll.addEventListener('mouseover', this.resetScroll, { once: true })
+
+    scroll.addEventListener('mouseleave', e => {
+      const distance = scroll.scrollHeight - ele.scrollTop
+      scroll.style.setProperty('--animate-scroll-from', `-${ele.scrollTop}px`)
+      scroll.style.setProperty('--animate-duration', `${distance * 10}ms`)
+      scroll.style.setProperty('animation-iteration-count', 1)
+      scroll.classList.add('has-animate-scrollUp')
+      ele.scrollTo(0, 0)
+      scroll.addEventListener('mouseover', this.resetScroll, { once: true })
+      scroll.addEventListener('animationend', e => {
+        scroll.style.removeProperty('animation-iteration-count')
+        scroll.style.setProperty('--animate-scroll-from', '0')
+        scroll.style.setProperty('--animate-duration', duration)
+      }, { once: true })
+    })
+  }
+
+  resetScroll(e) {
+    const scroll = e.currentTarget
+    const top = new DOMMatrix(getComputedStyle(scroll).transform)
+    scroll.parentNode.scrollTo(0, -top.m42)
+    scroll.style.removeProperty('transform')
+    scroll.classList.remove('has-animate-scrollUp')
   }
 
 }
