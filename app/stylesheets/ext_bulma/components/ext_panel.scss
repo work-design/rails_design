@@ -16,6 +16,19 @@
   }
 }
 
+.panel-tabs .button_to {
+  border-bottom-color: var(--bulma-panel-tab-border-bottom-color);
+  border-bottom-style: var(--bulma-panel-tab-border-bottom-style);
+  border-bottom-width: var(--bulma-panel-tab-border-bottom-width);
+  margin-bottom: calc(-1 * 1px);
+  padding: 0.75em;
+
+  &.is-active {
+    border-bottom-color: hsl(var(--bulma-panel-h), var(--bulma-panel-s), var(--bulma-panel-color-l));
+    color: var(--bulma-panel-tab-active-color);
+  }
+}
+
 .panel-block {
   .media {
     width: 100%;
