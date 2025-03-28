@@ -4,3 +4,15 @@
 .button_to + .dropdown {
   margin-left: 0.75rem;
 }
+
+.dropdown.pop-right {
+  width: 100%;
+
+  .dropdown-menu {
+    padding-bottom: var(--bulma-dropdown-content-offset);
+    padding-top: 0;
+    top: auto;
+    left: 100%;
+    bottom: 0;
+  }
+}
