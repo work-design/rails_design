@@ -41,6 +41,10 @@
   scrollbar-width: none;
 }
 
+.pop-right {
+  background-color: var(--admin-menu, #123);
+}
+
 .menu-wrap {
   background-color: var(--admin-menu, #123);
   .menu-label {
