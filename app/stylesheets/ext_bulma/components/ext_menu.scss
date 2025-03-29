@@ -35,6 +35,12 @@
   }
 }
 
+#admin_menu {
+  overflow-y: scroll;
+  height: calc(100vh - 60px);
+  scrollbar-width: none;
+}
+
 .menu-wrap {
   background-color: var(--admin-menu, #123);
   .menu-label {

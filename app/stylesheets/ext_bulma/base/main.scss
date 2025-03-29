@@ -17,12 +17,6 @@ main.container {
   height: 100vh;
 }
 
-#admin_menu {
-  overflow-y: scroll;
-  height: calc(100vh - 100px);
-  scrollbar-width: none;
-}
-
 .as-vertical-middle {
   display: flex;
   flex-direction: column;
