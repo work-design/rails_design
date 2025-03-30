@@ -5,7 +5,7 @@ import { Controller } from '@hotwired/stimulus'
 // 点击切换箭头，显示上一张或者下一张图片
 export default class extends Controller {
   static targets = [
-    'window'
+    'window', 'preview'
   ]
   static classes = [
     'hover'
