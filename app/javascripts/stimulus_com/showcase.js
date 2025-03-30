@@ -5,7 +5,7 @@ import { Controller } from '@hotwired/stimulus'
 // 点击切换箭头，显示上一张或者下一张图片
 export default class extends Controller {
   static targets = [
-    'window', 'preview'
+    'window', 'preview', 'image'
   ]
   static classes = [
     'hover'
@@ -28,6 +28,12 @@ export default class extends Controller {
       if (el.dataset.index !== ele.dataset.index) {
         el.style.zIndex = 0
       }
+    }
+  }
+
+  preview() {
+    if (this.hasPreviewTarget) {
+      this.previewTarget.classList.add('is-active')
     }
   }
 
