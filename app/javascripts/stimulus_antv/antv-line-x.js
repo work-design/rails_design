@@ -8,6 +8,7 @@ export default class extends AntvBaseController {
       x: 'name',
       y: 'value'
     })
+    this.chart.type = 'interval'
     this.chart.coordinate({ transform: [{ type: 'transpose' }] })
     this.chart.render()
   }
