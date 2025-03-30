@@ -31,9 +31,10 @@ export default class extends Controller {
     }
   }
 
-  preview() {
+  preview(e) {
     if (this.hasPreviewTarget) {
-      this.previewTarget.classList.add('is-active')
+      this.previewTarget.parentNode.parentNode.classList.add('is-active')
+      this.previewTarget.src = e.currentTarget.children[0].src
     }
   }
 
