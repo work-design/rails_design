@@ -1,11 +1,11 @@
-import { AntvBaseController } from './antv-base'
+import AntvBaseController from './antv-base'
 
 export default class extends AntvBaseController {
 
   connect() {
     super.connect()
     this.chart.encode({
-      x: 'year',
+      x: 'name',
       y: 'value'
     })
     this.chart.coordinate({ transform: [{ type: 'transpose' }] })

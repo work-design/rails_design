@@ -14,7 +14,7 @@ export default class extends Controller {
     this.chart.options({
       data: {
         type: 'fetch',
-        value: this.urlValue,
+        value: `${this.urlValue}.json`,
         format: 'json'
       }
     })
