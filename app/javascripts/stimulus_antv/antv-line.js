@@ -9,6 +9,7 @@ export default class extends AntvBaseController {
       y: 'value'
     })
     this.chart.axis('y', {
+      title: false,
       labelFormatter: (v) => `${v}`.replace(/\d{1,3}(?=(\d{3})+$)/g, (s) => `${s},`)
     })
     this.chart.line().encode('shape', 'smooth')

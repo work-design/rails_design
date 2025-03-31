@@ -15,6 +15,7 @@ export default class extends Controller {
       const url = new URL(this.urlValue, location.origin)
       url.pathname = `${url.pathname}.json`
       this.chart.options({
+        title: false,
         data: {
           type: 'fetch',
           value: url,
