@@ -11,13 +11,17 @@ export default class extends Controller {
       container: this.element,
       autoFit: true
     })
-    this.chart.options({
-      data: {
-        type: 'fetch',
-        value: `${this.urlValue}.json`,
-        format: 'json'
-      }
-    })
+    if (this.hasUrlValue) {
+      const url = new URL(this.urlValue, location.origin)
+      url.pathname = `${url.pathname}.json`
+      this.chart.options({
+        data: {
+          type: 'fetch',
+          value: url,
+          format: 'json'
+        }
+      })
+    }
   }
 
   disconnect() {
