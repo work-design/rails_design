@@ -45,6 +45,12 @@ export default class extends Controller {
 
   inputPost(input) {
     const body = new FormData()
+    let url
+    if (input.dataset.url) {
+      url = new URL(input.dataset.url, location.origin)
+    } else {
+      url = new URL(this.urlValue, location.origin)
+    }
 
     if (this.hasInputValue) {
       body.append(this.inputValue, input.value)
@@ -59,7 +65,7 @@ export default class extends Controller {
     }
 
     this.request(
-      this.urlValue,
+      url,
       'POST',
       body,
       { 'X-CSRF-Token': this.csrfToken() }
