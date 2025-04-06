@@ -71,6 +71,7 @@ export default class extends BaseController {
   choose(event) {
     const ele = event.currentTarget
     this.valueTarget.value = ele.dataset['id']
+    this.valueTarget.dispatchEvent(new Event('change')) // 触发事件
     this.inputTarget.value = ele.dataset['name']
     this.containerTarget.classList.add('display-none')
   }
