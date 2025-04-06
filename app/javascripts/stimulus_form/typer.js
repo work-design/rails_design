@@ -2,16 +2,16 @@ import BaseController from '../base_controller'
 
 // data-controller="typer"
 export default class extends BaseController {
-  static targets = ['input', 'value', 'content']
+  static targets = [
+    'input',
+    'value',
+    'content'
+  ]
   static values = {
     url: String
   }
 
   connect() {
-    this.initInput()
-  }
-
-  initInput() {
     const ele = this.inputTarget
     ele.addEventListener('input', this.form)
     ele.addEventListener('compositionstart', event => {
