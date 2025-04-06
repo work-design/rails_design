@@ -29,26 +29,24 @@ export default class extends BaseController {
 
     if (con.hasValueTarget) {
       con.valueTarget.removeAttribute('value')
-      if (!this.value) {
+      if (this.value) {
+        con.remoteFilter(this)
+      } else {
         con.clear()
-        return
       }
-    }
-
-    if (con.hasUrlValue) {
-      con.inputPost(this)
-    } else {
-      this.form.requestSubmit()
     }
   }
 
   conForm(ele) {
     this.valueTarget.removeAttribute('value')
-    if (!ele.value) {
+    if (ele.value) {
+      this.remoteFilter(ele)
+    } else {
       this.clear()
-      return
     }
+  }
 
+  remoteFilter(ele) {
     if (this.hasUrlValue) {
       this.inputPost(ele)
     } else {
