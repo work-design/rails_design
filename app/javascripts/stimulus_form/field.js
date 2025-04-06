@@ -1,19 +1,32 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static targets = ['node']
   static values = {
     index: Number,
-    label: { type: String, default: 'label.field_label' }
+    label: { type: String, default: 'label.field-label' },
+    body: { type: String, default: 'div.field-body' }
   }
 
   // data-action="click->field#add"
   add() {
-    const el = this.element.cloneNode(true)
-    const label = el.querySelector(this.labelValue)
+    const clonedItem = this.element.cloneNode(true)
+
+    // 移除 label 文字
+    const label = clonedItem.querySelector(this.labelValue)
     if (label) {
       label.innerText = ''
     }
+
+    // 移除标记不需要复制的内容
+    const body = clonedItem.querySelector(this.bodyValue)
+    if (body) {
+      Array.from(body.children).forEach(el => {
+        if (el.dataset.fieldClone === 'false') {
+          el.remove()
+        }
+      })
+    }
+
     const next = this.element.nextElementSibling
     let addIndex
     if (next) {
@@ -28,11 +41,14 @@ export default class extends Controller {
     }
 
     const nextIndex = this.indexValue + addIndex
-    el.setAttribute('data-field-index-value', nextIndex)
-    el.querySelectorAll('input, select').forEach(input => {
+    clonedItem.setAttribute('data-field-index-value', nextIndex)
+    clonedItem.querySelectorAll('input, select').forEach(input => {
       input.name = input.name.replace(`[${this.indexValue}]`, `[${nextIndex}]`)
       if (input.id) {
         input.id = input.id.replace(`${this.indexValue}`, `${nextIndex}`)
+      }
+      if (input.parentNode.id) {
+        input.parentNode.id = input.parentNode.id.replace(`${this.indexValue}`, `${nextIndex}`)
       }
       input.value = input.defaultValue
       input.autofocus = true
@@ -42,7 +58,7 @@ export default class extends Controller {
     })
 
     if (this.element.parentNode) {
-      this.element.parentNode.insertBefore(el, next)
+      this.element.parentNode.insertBefore(clonedItem, next)
     }
   }
 
