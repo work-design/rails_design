@@ -55,6 +55,9 @@ application.register('total', TotalController)
 import TyperController from './typer'
 application.register('typer', TyperController)
 
+import TyperLocalController from './typer-local'
+application.register('typer-local', TyperLocalController)
+
 import FieldController from './field'
 application.register('field', FieldController)
 
