@@ -50,17 +50,23 @@ export default class extends BaseController {
 
   doSearch(value) {
     this.contentTargets.forEach(el => {
-      if (el.dataset.name.startsWith(value)) {
-
+      const pel = el.parentNode
+      if (pel.dataset.name.startsWith(value)) {
+        pel.classList.remove('display-none')
+        el.innerHTML = el.parentNode.dataset.name.replace(
+          new RegExp(value, 'gi'),
+          '<span style="background-color: yellow;">$&</span>'
+        )
       } else {
-        el.classList.add('display-none')
+        pel.classList.add('display-none')
       }
     })
   }
 
   clear() {
     this.contentTargets.forEach(el => {
-      el.classList.remove('display-none')
+      el.parentNode.classList.remove('display-none')
+      el.innerHTML = el.parentNode.dataset.name
     })
   }
 
