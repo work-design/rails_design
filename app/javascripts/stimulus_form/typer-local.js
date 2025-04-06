@@ -5,7 +5,8 @@ export default class extends BaseController {
   static targets = [
     'input',
     'value',
-    'content'
+    'content',
+    'container'
   ]
   static values = {
     url: String
@@ -13,7 +14,7 @@ export default class extends BaseController {
 
   connect() {
     const ele = this.inputTarget
-    ele.addEventListener('input', this.form)
+    ele.addEventListener('input', this.search)
     ele.addEventListener('compositionstart', event => {
       event.target.removeEventListener('input', this.search)
     })
@@ -29,23 +30,21 @@ export default class extends BaseController {
 
     if (con.hasValueTarget) {
       con.valueTarget.removeAttribute('value')
-      if (!this.value) {
+      if (this.value) {
+        con.doSearch(this.value)
+      } else {
         con.clear()
-        return
       }
     }
-
-    con.doSearch(this.value)
   }
 
   conSearch(ele) {
     this.valueTarget.removeAttribute('value')
-    if (!ele.value) {
+    if (ele.value) {
+      this.doSearch(ele.value)
+    } else {
       this.clear()
-      return
     }
-
-    this.doSearch(ele.value)
   }
 
   doSearch(value) {
@@ -53,10 +52,7 @@ export default class extends BaseController {
       const pel = el.parentNode
       if (pel.dataset.name.startsWith(value)) {
         pel.classList.remove('display-none')
-        el.innerHTML = el.parentNode.dataset.name.replace(
-          new RegExp(value, 'gi'),
-          '<span style="background-color: yellow;">$&</span>'
-        )
+        el.innerHTML = el.parentNode.dataset.name.replace(new RegExp(value, 'gi'), '<span class="text-warning">$&</span>')
       } else {
         pel.classList.add('display-none')
       }
@@ -64,6 +60,7 @@ export default class extends BaseController {
   }
 
   clear() {
+    this.containerTarget.classList.remove('display-none')
     this.contentTargets.forEach(el => {
       el.parentNode.classList.remove('display-none')
       el.innerHTML = el.parentNode.dataset.name
@@ -75,7 +72,7 @@ export default class extends BaseController {
     const ele = event.currentTarget
     this.valueTarget.value = ele.dataset['id']
     this.inputTarget.value = ele.dataset['name']
-    ele.parentNode.replaceChildren()
+    this.containerTarget.classList.add('display-none')
   }
 
 }
