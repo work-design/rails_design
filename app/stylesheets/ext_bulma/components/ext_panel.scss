@@ -14,6 +14,14 @@
       background-color: white;
     }
   }
+
+  &[data-typer-local-target=container] {
+    position: absolute;
+    z-index: 1;
+    background-color: #ddd;
+    height: 90px;
+    overflow-y: scroll;
+  }
 }
 
 .panel-tabs .button_to {
