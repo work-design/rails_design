@@ -19,7 +19,7 @@
     position: absolute;
     z-index: 1;
     background-color: #ddd;
-    height: 90px;
+    max-height: 90px;
     overflow-y: scroll;
   }
 }

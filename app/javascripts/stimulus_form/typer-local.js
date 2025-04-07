@@ -14,8 +14,13 @@ export default class extends BaseController {
 
   connect() {
     const ele = this.inputTarget
+
     this.containerTarget.style.width = `${ele.clientWidth}px`
     this.containerTarget.classList.add('display-none')
+
+    ele.addEventListener('focus', () => {
+      this.containerTarget.classList.remove('display-none')
+    })
     ele.addEventListener('input', this.search)
     ele.addEventListener('compositionstart', event => {
       event.target.removeEventListener('input', this.search)
