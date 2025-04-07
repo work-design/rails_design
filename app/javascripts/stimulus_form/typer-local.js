@@ -48,6 +48,7 @@ export default class extends BaseController {
   }
 
   doSearch(value) {
+    this.containerTarget.classList.remove('display-none')
     this.contentTargets.forEach(el => {
       const pel = el.parentNode
       if (pel.dataset.name.startsWith(value)) {
