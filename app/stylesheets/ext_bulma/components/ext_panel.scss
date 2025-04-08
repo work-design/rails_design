@@ -17,10 +17,19 @@
 
   &[data-typer-local-target=container] {
     position: absolute;
-    z-index: 1;
-    background-color: #ddd;
-    max-height: 90px;
+    z-index: 5;
+    background-color: #222;
+    max-height: 200px;
     overflow-y: scroll;
+
+    .panel-block {
+      cursor: default;
+      color: white;
+    }
+
+    .panel-block:hover {
+      background-color: #5e206b;
+    }
   }
 }
 

@@ -15,11 +15,14 @@ export default class extends BaseController {
   connect() {
     const ele = this.inputTarget
 
-    this.containerTarget.style.width = `${ele.clientWidth}px`
+    this.containerTarget.style.minWidth = `${ele.clientWidth}px`
     this.containerTarget.classList.add('display-none')
 
     ele.addEventListener('focus', () => {
       this.containerTarget.classList.remove('display-none')
+    })
+    ele.addEventListener('blur', () => {
+      this.containerTarget.classList.add('display-none')
     })
     ele.addEventListener('input', this.search)
     ele.addEventListener('compositionstart', event => {
@@ -78,6 +81,7 @@ export default class extends BaseController {
   // click->typer#choose
   choose(event) {
     const ele = event.currentTarget
+    alart('dddd')
     this.valueTarget.value = ele.dataset['id']
     this.valueTarget.dispatchEvent(new Event('change')) // 触发事件
     this.inputTarget.value = ele.dataset['name']

@@ -11,6 +11,8 @@
 }
 
 form.modal-card {
+  overflow-y: hidden;
+
   .modal-card-foot {
     justify-content: center;
   }
