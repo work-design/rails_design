@@ -95,7 +95,6 @@ export default class extends BaseController {
     const ele = event.currentTarget
     const con = this.closest('[data-controller~=typer-local]').getController('typer-local')
 
-    window.xxx = con
     con.valueTarget.value = ele.dataset['id']
     con.valueTarget.dispatchEvent(new Event('change')) // 触发事件
     con.inputTarget.value = ele.dataset['name']
