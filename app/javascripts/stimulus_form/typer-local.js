@@ -21,8 +21,15 @@ export default class extends BaseController {
     ele.addEventListener('focus', () => {
       this.containerTarget.classList.remove('display-none')
     })
-    ele.addEventListener('blur', () => {
-      this.containerTarget.classList.add('display-none')
+    this.contentTargets.forEach(el => {
+      el.parentNode.addEventListener('click', this.choose)
+    })
+    ele.addEventListener('blur', this.hideContainer)
+    this.containerTarget.addEventListener('mouseenter', () => {
+      ele.removeEventListener('blur', this.hideContainer)
+      this.containerTarget.addEventListener('mouseleave', () => {
+        ele.addEventListener('blur', this.hideContainer)
+      })
     })
     ele.addEventListener('input', this.search)
     ele.addEventListener('compositionstart', event => {
@@ -78,14 +85,21 @@ export default class extends BaseController {
     })
   }
 
-  // click->typer#choose
+  hideContainer() {
+    const con = this.closest('[data-controller~=typer-local]').getController('typer-local')
+    con.containerTarget.classList.add('display-none')
+  }
+
+  // click->typer-local#choose
   choose(event) {
     const ele = event.currentTarget
-    alart('dddd')
-    this.valueTarget.value = ele.dataset['id']
-    this.valueTarget.dispatchEvent(new Event('change')) // 触发事件
-    this.inputTarget.value = ele.dataset['name']
-    this.containerTarget.classList.add('display-none')
+    const con = this.closest('[data-controller~=typer-local]').getController('typer-local')
+
+    window.xxx = con
+    con.valueTarget.value = ele.dataset['id']
+    con.valueTarget.dispatchEvent(new Event('change')) // 触发事件
+    con.inputTarget.value = ele.dataset['name']
+    con.containerTarget.classList.add('display-none')
   }
 
 }
