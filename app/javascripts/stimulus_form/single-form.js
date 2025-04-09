@@ -9,9 +9,7 @@ export default class extends BaseController {
   }
 
   connect() {
-    window.visualViewport.addEventListener('resize', () => {
-      console.debug('-------------, resize', window.visualViewport.height, document.body.clientHeight)
-    })
+
   }
 
   disconnect() {
@@ -22,8 +20,11 @@ export default class extends BaseController {
     const clonedItem = this.inputTarget.cloneNode(true)
     this.target.appendChild(clonedItem)
     this.target.parentNode.classList.remove('display-none')
-    clonedItem.addEventListener('focus', () => {
-      this.target.parentNode.style.top = `${window.visualViewport.height - this.target.parentNode.clientHeight}px`
+    window.visualViewport.addEventListener('resize', () => {
+      console.debug('-------------, resize', window.visualViewport.height, document.body.clientHeight)
+      if (window.visualViewport.height < 400) {
+        this.target.parentNode.style.top = `${window.visualViewport.height - this.target.parentNode.clientHeight}px`
+      }
     })
     clonedItem.focus()
   }
