@@ -2,6 +2,10 @@
   .image + .image {
     margin-left: 1em;
   }
+
+  .image {
+    overflow: hidden;
+  }
 }
 
 .image {

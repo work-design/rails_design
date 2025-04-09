@@ -10,6 +10,21 @@
   }
 }
 
+.modal.as-preview {
+  justify-content: flex-start;
+
+  .images {
+    z-index: 0;
+    background-color: white;
+    width: 100%;
+  }
+
+  .modal-content {
+    flex-grow: 1;
+    align-content: center;
+  }
+}
+
 form.modal-card {
   overflow-y: hidden;
 

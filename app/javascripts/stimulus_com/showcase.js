@@ -7,17 +7,17 @@ export default class extends Controller {
   static targets = [
     'window', 'preview', 'image'
   ]
-  static classes = [
-    'hover'
-  ]
+  static values = {
+    hover: { type: String, default: 'is-border' }
+  }
 
   // data-action="mouseover->showcase#show"
   show(event) {
     const ele = event.currentTarget
-    ele.classList.add(this.hoverClass)
+    ele.classList.add(this.hoverValue)
     for (const el of ele.parentElement.children) {
       if (el !== ele) {
-        el.classList.remove(this.hoverClass)
+        el.classList.remove(this.hoverValue)
       }
     }
 
