@@ -13,10 +13,15 @@ export default class extends Controller {
 
   // data-action="click->preview#show"
   show(event) {
+    const ele = event.currentTarget
     if (this.hasPreviewTarget) {
-      this.previewTarget.parentNode.parentNode.classList.add('is-active')
-      this.previewTarget.src = event.currentTarget.children[0].src
+      this.modal.classList.add('is-active', 'clipped')
+      document.documentElement.classList.add('clipped')
+      this.previewTarget.src = ele.children[0].src
     }
+
+    const target = this.windowTarget.querySelector(`[data-index="${ele.dataset.index}"`)
+    target.classList.add(this.hoverValue)
   }
 
   current(event) {
@@ -55,5 +60,16 @@ export default class extends Controller {
     this.previewTarget.src = ele.children[0].src
   }
 
+  hide() {
+    this.modal.classList.remove('is-active')
+    document.documentElement.classList.remove('clipped')
+    for (const el of this.windowTarget.children) {
+      el.classList.remove(this.hoverValue)
+    }
+  }
+
+  get modal() {
+    return this.previewTarget.parentNode.parentNode
+  }
 
 }
