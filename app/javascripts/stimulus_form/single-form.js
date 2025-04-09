@@ -23,7 +23,7 @@ export default class extends BaseController {
     this.target.appendChild(clonedItem)
     this.target.parentNode.classList.remove('display-none')
     clonedItem.addEventListener('focus', () => {
-      this.target.parentNode.style.bottom = `${document.body.clientHeight - window.visualViewport.height}px`
+      this.target.parentNode.style.top = `${window.visualViewport.height - this.target.parentNode.clientHeight}px`
     })
     clonedItem.focus()
   }
