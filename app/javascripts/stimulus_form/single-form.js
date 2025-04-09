@@ -10,7 +10,7 @@ export default class extends BaseController {
 
   connect() {
     window.visualViewport.addEventListener('resize', () => {
-      alert(window.visualViewport.height)
+      document.body.style.height = `${window.visualViewport.height}px`
     })
   }
 
