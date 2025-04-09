@@ -23,6 +23,20 @@
     flex-grow: 1;
     align-content: center;
   }
+
+  .modal-next,
+  .modal-prev {
+    position: fixed;
+    top: 50%;
+  }
+
+  .modal-next {
+    right: 20px;
+  }
+
+  .modal-prev {
+    left: 20px;
+  }
 }
 
 form.modal-card {
