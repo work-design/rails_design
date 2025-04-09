@@ -10,7 +10,7 @@ export default class extends BaseController {
 
   connect() {
     window.visualViewport.addEventListener('resize', () => {
-      console.debug('-------------, resize', window.visualViewport.height)
+      console.debug('-------------, resize', window.visualViewport.height, document.body.clientHeight)
     })
   }
 
@@ -22,6 +22,9 @@ export default class extends BaseController {
     const clonedItem = this.inputTarget.cloneNode(true)
     this.target.appendChild(clonedItem)
     this.target.parentNode.classList.remove('display-none')
+    clonedItem.addEventListener('focus', () => {
+      this.target.parentNode.style.bottom = `${document.body.clientHeight - window.visualViewport.height}px`
+    })
     clonedItem.focus()
   }
 
