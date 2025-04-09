@@ -9,12 +9,6 @@ export default class extends BaseController {
   }
 
   connect() {
-    window.addEventListener('resize', () => {
-      // 强制触发重绘
-      document.body.style.display = 'none';
-      document.body.offsetHeight; // 触发重绘
-      document.body.style.display = '';
-    });
   }
 
   prepare() {
