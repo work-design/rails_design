@@ -5,15 +5,20 @@ import { Controller } from '@hotwired/stimulus'
 // 点击切换箭头，显示上一张或者下一张图片
 export default class extends Controller {
   static targets = [
-    'window',
-    'image'
+    'window', 'preview', 'image'
   ]
   static values = {
     hover: { type: String, default: 'is-border' }
   }
 
-  // data-action="mouseover->showcase#show"
+  // data-action="click->preview#show"
   show(event) {
+
+    if (this.hasPreviewTarget) {
+      this.previewTarget.parentNode.parentNode.classList.add('is-active')
+      this.previewTarget.src = e.currentTarget.children[0].src
+    }
+
     const ele = event.currentTarget
     ele.classList.add(this.hoverValue)
     for (const el of ele.parentElement.children) {
