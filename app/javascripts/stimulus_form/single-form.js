@@ -9,14 +9,12 @@ export default class extends BaseController {
   }
 
   connect() {
-    window.visualViewport.addEventListener('resize', () => {
-      document.body.style.height = `${window.visualViewport.height}px`
-    })
   }
 
   prepare() {
     const clonedItem = this.inputTarget.cloneNode(true)
     this.target.appendChild(clonedItem)
+    this.target.parentNode.classList.remvoe('display-none')
     clonedItem.focus()
   }
 
