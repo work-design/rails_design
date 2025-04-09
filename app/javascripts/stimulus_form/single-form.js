@@ -14,7 +14,7 @@ export default class extends BaseController {
   prepare() {
     const clonedItem = this.inputTarget.cloneNode(true)
     this.target.appendChild(clonedItem)
-    this.target.parentNode.classList.remvoe('display-none')
+    this.target.parentNode.classList.remove('display-none')
     clonedItem.focus()
   }
 
