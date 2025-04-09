@@ -21,32 +21,38 @@ export default class extends Controller {
 
   current(event) {
     const ele = event.currentTarget
+    this.showTarget(ele)
+  }
 
+  next() {
+    const target = this.windowTarget.querySelector(`.${this.hoverValue}`)
+
+    if (target.nextElementSibling) {
+      this.showTarget(target.nextElementSibling)
+    } else {
+      this.showTarget(target.parentNode.firstElementChild)
+    }
+  }
+
+  prev() {
+    const target = this.windowTarget.querySelector(`.${this.hoverValue}`)
+
+    if (target.previousElementSibling) {
+      this.showTarget(target.previousElementSibling)
+    } else {
+      this.showTarget(target.parentNode.lastElementChild)
+    }
+  }
+
+  showTarget(ele) {
     ele.classList.add(this.hoverValue)
     for (const el of ele.parentElement.children) {
       if (el !== ele) {
         el.classList.remove(this.hoverValue)
       }
     }
-    
-    this.previewTarget.src = event.currentTarget.children[0].src
-  }
 
-  next() {
-
-
-    const target = this.windowTarget.querySelector(`[data-index="${ele.dataset.index}"`)
-    target.style.zIndex = 1
-
-    for (const el of this.windowTarget.children) {
-      if (el.dataset.index !== ele.dataset.index) {
-        el.style.zIndex = 0
-      }
-    }
-  }
-
-  prev() {
-
+    this.previewTarget.src = ele.children[0].src
   }
 
 
