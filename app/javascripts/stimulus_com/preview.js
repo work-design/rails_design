@@ -19,14 +19,21 @@ export default class extends Controller {
     }
   }
 
-  next() {
+  current(event) {
     const ele = event.currentTarget
+
     ele.classList.add(this.hoverValue)
     for (const el of ele.parentElement.children) {
       if (el !== ele) {
         el.classList.remove(this.hoverValue)
       }
     }
+    
+    this.previewTarget.src = event.currentTarget.children[0].src
+  }
+
+  next() {
+
 
     const target = this.windowTarget.querySelector(`[data-index="${ele.dataset.index}"`)
     target.style.zIndex = 1
@@ -41,5 +48,6 @@ export default class extends Controller {
   prev() {
 
   }
+
 
 }
