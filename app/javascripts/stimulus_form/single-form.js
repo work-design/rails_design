@@ -10,6 +10,7 @@ export default class extends BaseController {
 
   connect() {
     window.visualViewport.addEventListener('resize', () => {
+      document.documentElement.classList.add('clipped')
       document.documentElement.style.height = `${window.visualViewport.height}px`
       document.body.style.height = `${window.visualViewport.height}px`
     })
