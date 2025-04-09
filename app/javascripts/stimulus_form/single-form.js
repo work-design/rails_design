@@ -9,6 +9,9 @@ export default class extends BaseController {
   }
 
   connect() {
+    window.visualViewport.addEventListener('resize', () => {
+      alert(window.visualViewport.height)
+    })
   }
 
   prepare() {
