@@ -16,8 +16,12 @@
   z-index: 41;
 }
 
+main {
+  position: relative;
+}
+
 .form-bottom {
-  position: fixed;
+  position: absolute;
   width: 100%;
   bottom: 0;
 }
