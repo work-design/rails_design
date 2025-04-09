@@ -55,6 +55,9 @@ application.register('page', PageController)
 import PlayerController from './player'
 application.register('player', PlayerController)
 
+import PreviewController from './preview'
+application.register('preview', PreviewController)
+
 import PrintController from './print'
 application.register('print', PrintController)
 

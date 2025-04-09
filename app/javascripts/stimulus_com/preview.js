@@ -13,12 +13,13 @@ export default class extends Controller {
 
   // data-action="click->preview#show"
   show(event) {
-
     if (this.hasPreviewTarget) {
       this.previewTarget.parentNode.parentNode.classList.add('is-active')
-      this.previewTarget.src = e.currentTarget.children[0].src
+      this.previewTarget.src = event.currentTarget.children[0].src
     }
+  }
 
+  next() {
     const ele = event.currentTarget
     ele.classList.add(this.hoverValue)
     for (const el of ele.parentElement.children) {
@@ -35,6 +36,10 @@ export default class extends Controller {
         el.style.zIndex = 0
       }
     }
+  }
+
+  prev() {
+
   }
 
 }
