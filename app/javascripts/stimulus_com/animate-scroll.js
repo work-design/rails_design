@@ -10,17 +10,16 @@ export default class extends Controller {
     const ele = this.element
     const scroll = this.scrollTarget
     const distance = scroll.scrollHeight - ele.clientHeight
-    const duration = `${distance / this.speedValue * 1000}ms`
     scroll.style.setProperty('--animate-scroll-from', `0`)
     scroll.style.setProperty('--animate-scroll-to', `-${distance}px`)
-    scroll.style.setProperty('--animate-duration', duration)
+    scroll.style.setProperty('--animate-duration', `${distance / this.speedValue * 1000}ms`)
 
     scroll.addEventListener('mouseover', this.resetScroll, { once: true })
 
     scroll.addEventListener('mouseleave', e => {
       const distance = scroll.scrollHeight - ele.scrollTop
       scroll.style.setProperty('--animate-scroll-from', `-${ele.scrollTop}px`)
-      scroll.style.setProperty('--animate-duration', `${distance * 10}ms`)
+      scroll.style.setProperty('--animate-duration', `${distance / this.speedValue * 1000}ms`)
       scroll.style.setProperty('animation-iteration-count', 1)
       scroll.classList.add('has-animate-scrollUp')
       ele.scrollTo(0, 0)
@@ -30,11 +29,13 @@ export default class extends Controller {
     })
   }
 
-  resetAnimate(e) {
-    const scroll = e.currentTarget
+  resetAnimate(event) {
+    const scroll = event.currentTarget
+    const ele = scroll.parentNode
+    const distance = scroll.scrollHeight - ele.clientHeight
     scroll.style.removeProperty('animation-iteration-count')
     scroll.style.setProperty('--animate-scroll-from', '0')
-    scroll.style.setProperty('--animate-duration', '6s')
+    scroll.style.setProperty('--animate-duration', `${distance / this.speedValue * 1000}ms`)
   }
 
   resetScroll(e) {
