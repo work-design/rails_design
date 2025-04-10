@@ -10,7 +10,8 @@
 
 .image {
   &.is-border {
-    border: solid 1px red;
+    border: solid 2px var(--image-selected, var(--bulma-danger));
+    border-radius: 4px;
   }
 
   &.is-flex-item {

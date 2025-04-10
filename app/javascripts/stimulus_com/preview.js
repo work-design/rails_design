@@ -5,7 +5,7 @@ import { Controller } from '@hotwired/stimulus'
 // 点击切换箭头，显示上一张或者下一张图片
 export default class extends Controller {
   static targets = [
-    'window', 'preview', 'image'
+    'window', 'preview', 'image', 'position'
   ]
   static values = {
     hover: { type: String, default: 'is-border' }
@@ -17,11 +17,10 @@ export default class extends Controller {
     if (this.hasPreviewTarget) {
       this.modal.classList.add('is-active', 'clipped')
       document.documentElement.classList.add('clipped')
-      this.previewTarget.src = ele.children[0].src
     }
 
     const target = this.windowTarget.querySelector(`[data-index="${ele.dataset.index}"`)
-    target.classList.add(this.hoverValue)
+    this.showTarget(target)
   }
 
   current(event) {
@@ -51,6 +50,10 @@ export default class extends Controller {
 
   showTarget(ele) {
     ele.classList.add(this.hoverValue)
+    if (this.hasPositionTarget) {
+      this.positionTarget.innerText = parseInt(ele.dataset.index) + 1
+    }
+
     for (const el of ele.parentElement.children) {
       if (el !== ele) {
         el.classList.remove(this.hoverValue)
