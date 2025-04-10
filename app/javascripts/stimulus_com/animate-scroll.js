@@ -30,12 +30,14 @@ export default class extends Controller {
   }
 
   resetAnimate(event) {
+    const con = this.closest('[data-controller~=animate-scroll]').getController('animate-scroll')
     const scroll = event.currentTarget
     const ele = scroll.parentNode
     const distance = scroll.scrollHeight - ele.clientHeight
+    console.debug('resetAnimate distance', distance)
     scroll.style.removeProperty('animation-iteration-count')
     scroll.style.setProperty('--animate-scroll-from', '0')
-    scroll.style.setProperty('--animate-duration', `${distance / this.speedValue * 1000}ms`)
+    scroll.style.setProperty('--animate-duration', `${distance / con.speedValue * 1000}ms`)
   }
 
   resetScroll(e) {
