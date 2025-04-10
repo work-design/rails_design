@@ -21,3 +21,18 @@
 .has-animate-scrollUp:hover {
   animation-play-state: paused;
 }
+
+
+table.ghost-table {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+table.top-table {
+  thead {
+    opacity: 0.5;
+    background: transparent;
+  }
+}
