@@ -142,34 +142,6 @@ td:has(table) {
     }
   }
 
-  tr:nth-last-child(2) {
-    td[rowspan="2"],
-    th[rowspan="2"] {
-      border-bottom-width: 0;
-    }
-  }
-
-  tr:nth-last-child(3) {
-    td[rowspan="3"],
-    th[rowspan="3"] {
-      border-bottom-width: 0;
-    }
-  }
-
-  tr:nth-last-child(4) {
-    td[rowspan="4"],
-    th[rowspan="4"] {
-      border-bottom-width: 0;
-    }
-  }
-
-  tr:nth-last-child(5) {
-    td[rowspan="5"],
-    th[rowspan="5"] {
-      border-bottom-width: 0;
-    }
-  }
-
   tr.left-border {
     td:first-child {
       border-left: solid 1px var(--bulma-text-light);
