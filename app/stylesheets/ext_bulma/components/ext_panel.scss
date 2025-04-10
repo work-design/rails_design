@@ -41,7 +41,7 @@
   padding: 0.75em;
 
   &.is-active {
-    border-bottom-color: hsl(var(--bulma-panel-h), var(--bulma-panel-s), var(--bulma-panel-color-l));
+    border-bottom-color: var(--bulma-panel-tab-border-bottom-color, hsl(var(--bulma-panel-h), var(--bulma-panel-s), var(--bulma-panel-color-l)));
     color: var(--bulma-panel-tab-active-color);
   }
 }
