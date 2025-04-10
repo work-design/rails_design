@@ -23,16 +23,22 @@
 }
 
 
-table.ghost-table {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
+.ghost-table {
+  overflow-y: hidden;
+  padding-right: 15px;
+
+  table {
+    tbody {
+      visibility: collapse;
+      height: 0;
+    }
+  }
+
 }
 
 table.top-table {
   thead {
-    opacity: 0.5;
-    background: transparent;
+    visibility: collapse;
+    height: 0;
   }
 }
