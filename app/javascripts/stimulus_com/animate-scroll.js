@@ -3,13 +3,16 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
   static targets = ['scroll']
   static values = {
-    speed: { type: Number, default: 100 } // 默认速度 50px / s
+    speed: { type: Number, default: 50 } // 默认速度 50px / s
   }
 
   connect() {
     const ele = this.element
     const scroll = this.scrollTarget
     const distance = scroll.scrollHeight - ele.clientHeight
+    if (distance < 100) {
+      return
+    }
     scroll.style.setProperty('--animate-scroll-from', `0`)
     scroll.style.setProperty('--animate-scroll-to', `-${distance}px`)
     scroll.style.setProperty('--animate-duration', `${distance / this.speedValue * 1000}ms`)
