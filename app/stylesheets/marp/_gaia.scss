@@ -14,7 +14,7 @@ $color-dark: #455a64;
 $color-primary: #0288d1;
 $color-secondary: #81d4fa;
 
-@import 'highlight.js/styles/sunburst';
+@use 'highlight.js/styles/sunburst';
 
 @mixin color-scheme($bg, $text, $highlight) {
   --color-background: #{$bg};

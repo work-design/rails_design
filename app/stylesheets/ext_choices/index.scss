@@ -1,4 +1,4 @@
-@import 'choices.js/src/styles/choices';
+@use 'choices.js/src/styles/choices';
 
 .#{$choices-selector}__inner {
   min-height: 2.5em;

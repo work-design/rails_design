@@ -1,4 +1,4 @@
-@import 'gaia';
-@import 'carousel';
-@import 'bespoke';
-@import 'ppt';
+@forward 'gaia';
+@forward 'carousel';
+@forward 'bespoke';
+@forward 'ppt';
