@@ -40,6 +40,9 @@ application.register('enter-section', EnterSectionController)
 import FixedWidthController from './fixed-width'
 application.register('fixed-width', FixedWidthController)
 
+import FrameReloadController from './frame-reload'
+application.register('frame-reload', FrameReloadController)
+
 import HoverController from './hover'
 application.register('hover', HoverController)
 
