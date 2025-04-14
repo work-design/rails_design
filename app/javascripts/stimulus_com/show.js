@@ -2,6 +2,9 @@ import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
   static targets = ['src', 'item', 'check', 'hidden']
+  static values = {
+    toggle: String
+  }
 
   show() {
     this.itemTargets.forEach(el => {
@@ -18,22 +21,26 @@ export default class extends Controller {
   toggle(event) {
     const ele = event.currentTarget
     if (ele.checked) {
-      this.checkTargets.forEach(el => {
-        el.classList.remove('display-none')
-      })
-      this.hiddenTargets.forEach(el => {
-        el.classList.add('display-none')
-      })
+      if (this.hasToggleValue) {
+        this.checkTargets.forEach(el => {
+          el.classList.remove(this.toggleValue)
+        })
+        this.hiddenTargets.forEach(el => {
+          el.classList.add(this.toggleValue)
+        })
+      }
       document.querySelectorAll(`[name^="${ele.name.replace(/\[\w+]$/, '')}"]:not([name="${ele.name}"], [name="${ele.name.replace(/\[\w+]$/, '[id]')}"])`).forEach(ele => {
         ele.disabled = false
       })
     } else {
-      this.checkTargets.forEach(el => {
-        el.classList.add('display-none')
-      })
-      this.hiddenTargets.forEach(el => {
-        el.classList.remove('display-none')
-      })
+      if (this.hasToggleValue) {
+        this.checkTargets.forEach(el => {
+          el.classList.add(this.toggleValue)
+        })
+        this.hiddenTargets.forEach(el => {
+          el.classList.remove(this.toggleValue)
+        })
+      }
       document.querySelectorAll(`[name^="${ele.name.replace(/\[\w+]$/, '')}"]:not([name="${ele.name}"], [name="${ele.name.replace(/\[\w+]$/, '[id]')}"])`).forEach(ele => {
         ele.disabled = true
       })
