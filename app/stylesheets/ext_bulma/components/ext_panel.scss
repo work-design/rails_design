@@ -15,6 +15,10 @@
     }
   }
 
+  &.is-border {
+    border: solid 1px var(--ext-panel-border-color, var(--bulma-primary));
+  }
+
   &[data-typer-local-target=container] {
     position: absolute;
     z-index: 5;
