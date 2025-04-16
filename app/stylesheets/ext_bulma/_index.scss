@@ -2,10 +2,18 @@
 
 //$table-head-background-color: $white-ter;
 
-@use 'bulma/sass' with (
+@use 'bulma/sass/utilities' with (
   $helpers-prefix: '',
   $helpers-has-prefix: ''
 );
+@forward 'bulma/sass/base';
+@forward 'bulma/sass/elements';
+@forward 'bulma/sass/form';
+@forward 'bulma/sass/components';
+@forward 'bulma/sass/grid';
+@forward 'bulma/sass/layout';
+@forward 'bulma/sass/base/skeleton';
+@forward 'bulma/sass/helpers';
 
 @forward 'base/all';
 @forward 'animation/all';
@@ -17,3 +25,10 @@
 @forward 'layout/all';
 @forward 'utilities/all';
 @forward 'expand/all';
+
+@use 'bulma/sass/themes/light';
+@use 'bulma/sass/themes/setup';
+:root {
+  @include light.light-theme;
+  @include setup.setup-theme;
+}
