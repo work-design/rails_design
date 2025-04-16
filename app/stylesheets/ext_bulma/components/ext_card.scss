@@ -71,10 +71,6 @@
         }
       }
     }
-
-    .card-footer {
-      justify-content: center;
-    }
   }
 }
 
@@ -121,4 +117,8 @@
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
+}
+
+.card-footer {
+  justify-content: center;
 }
