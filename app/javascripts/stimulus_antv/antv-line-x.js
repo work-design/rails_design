@@ -17,9 +17,8 @@ export default class extends AntvBaseController {
       x: { title: false },
       y: { title: false }
     })
+    this.chart.label({ text: 'name', style: { fill: '#00f' } })
     this.chart.coordinate({ transform: [{ type: 'transpose' }] })
-    //this.chart.style({ stroke: "#666", ...this.styleValue })
-    //this.chart.options({ label: { fill: "#999" } })
     this.chart.render()
   }
 
