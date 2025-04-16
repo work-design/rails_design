@@ -6,6 +6,8 @@
   $helpers-prefix: '',
   $helpers-has-prefix: ''
 );
+
+@forward 'theme';
 @forward 'bulma/sass/base';
 @forward 'bulma/sass/elements';
 @forward 'bulma/sass/form';
@@ -25,10 +27,3 @@
 @forward 'layout/all';
 @forward 'utilities/all';
 @forward 'expand/all';
-
-@use 'bulma/sass/themes/light';
-@use 'bulma/sass/themes/setup';
-:root {
-  @include light.light-theme;
-  @include setup.setup-theme;
-}
