@@ -14,10 +14,9 @@ export default class extends AntvBaseController {
     })
     this.chart.type = 'interval'
     this.chart.axis({
-      x: { title: false },
+      x: { title: false, labelFill: 'white' },
       y: { title: false }
     })
-    this.chart.label({ text: 'name', style: { fill: '#00f' } })
     this.chart.coordinate({ transform: [{ type: 'transpose' }] })
     this.chart.render()
   }
