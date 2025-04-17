@@ -26,7 +26,9 @@
   overflow-y: hidden;
 }
 
-table[data-controller=animate-scroll] {
+[data-controller=animate-scroll] table {
+  border-collapse: separate;
+
   thead {
     position: sticky;
     z-index: 1;
