@@ -24,19 +24,18 @@
 
 .ghost-table {
   overflow-y: hidden;
-
-  table {
-    tbody {
-      visibility: collapse;
-      height: 0;
-    }
-  }
-
 }
 
-table.top-table {
+table[data-controller=animate-scroll] {
   thead {
-    visibility: collapse;
-    height: 0;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+  }
+
+  tfoot {
+    position: sticky;
+    z-index: 1;
+    bottom: 0;
   }
 }
