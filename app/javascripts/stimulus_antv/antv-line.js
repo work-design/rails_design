@@ -12,6 +12,7 @@ export default class extends AntvBaseController {
       title: false,
       labelFormatter: (v) => `${v}`.replace(/\d{1,3}(?=(\d{3})+$)/g, (s) => `${s},`)
     })
+    this.chart.label({ text: 'year', style: { fill: '#00f' } })
     this.chart.line().encode('shape', 'smooth')
     this.chart.point().encode('shape', 'point').tooltip(false)
     this.chart.render()
