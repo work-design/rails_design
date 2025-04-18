@@ -26,18 +26,30 @@
   overflow-y: hidden;
 }
 
-[data-controller=animate-scroll] table {
-  border-collapse: separate;
+[data-controller=animate-scroll] {
+  table {
+    border-collapse: separate;
 
-  thead {
-    position: sticky;
-    z-index: 1;
-    top: 0;
-  }
+    thead {
+      position: sticky;
+      z-index: 1;
+      top: 0;
+    }
 
-  tfoot {
-    position: sticky;
-    z-index: 1;
-    bottom: 0;
+    tfoot {
+      position: sticky;
+      z-index: 1;
+      bottom: 0;
+    }
+
+    &.is-bordered {
+      border-width: 0;
+
+      td, th {
+        border-top-width: 0;
+        border-right-width: 0;
+        border-left-width: 1px;
+      }
+    }
   }
 }
