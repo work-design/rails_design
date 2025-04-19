@@ -9,6 +9,7 @@ export default class extends Controller {
 
   copyInner() {
     navigator.clipboard.writeText(this.sourceTarget.innerText)
+    alert('复制成功!')
   }
 
   copy() {
