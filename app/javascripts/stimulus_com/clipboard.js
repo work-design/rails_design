@@ -21,6 +21,8 @@ export default class extends Controller {
         event.currentTarget.classList.add('display-none')
         event.currentTarget.classList.remove('has-animate-fade-in-out')
       }, { once: true })
+    } else {
+      alert('复制成功！')
     }
   }
 }
