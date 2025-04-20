@@ -21,7 +21,7 @@ body {
 }
 
 .form-bottom {
-  position: absolute;
+  position: sticky;
   width: 100%;
-  top: 100%;
+  bottom: 0;
 }
