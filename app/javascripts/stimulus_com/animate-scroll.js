@@ -9,7 +9,7 @@ export default class extends Controller {
   connect() {
     const ele = this.element
     const scroll = this.scrollTarget
-    const distance = scroll.scrollHeight - ele.clientHeight
+    const distance = scroll.clientHeight
     if (distance < 100) {
       return
     }
@@ -20,7 +20,7 @@ export default class extends Controller {
     scroll.addEventListener('mouseover', this.resetScroll, { once: true })
 
     scroll.addEventListener('mouseleave', e => {
-      const distance = scroll.scrollHeight - ele.scrollTop
+      const distance = scroll.clientHeight - ele.scrollTop
       scroll.style.setProperty('--animate-scroll-from', `-${ele.scrollTop}px`)
       scroll.style.setProperty('--animate-duration', `${distance / this.speedValue * 1000}ms`)
       scroll.style.setProperty('animation-iteration-count', 1)
@@ -35,8 +35,7 @@ export default class extends Controller {
   resetAnimate(event) {
     const con = this.closest('[data-controller~=animate-scroll]').getController('animate-scroll')
     const scroll = event.currentTarget
-    const ele = scroll.parentNode
-    const distance = scroll.scrollHeight - ele.clientHeight
+    const distance = scroll.clientHeight
     console.debug('resetAnimate distance', distance)
     scroll.style.removeProperty('animation-iteration-count')
     scroll.style.setProperty('--animate-scroll-from', '0')
@@ -46,7 +45,7 @@ export default class extends Controller {
   resetScroll(e) {
     const scroll = e.currentTarget
     const top = new DOMMatrix(getComputedStyle(scroll).transform)
-    scroll.parentNode.scrollTo(0, -top.m42)
+    scroll.parentNode.parentNode.scrollTo(0, -top.m42)
     scroll.style.removeProperty('transform')
     scroll.classList.remove('has-animate-scrollUp')
   }
