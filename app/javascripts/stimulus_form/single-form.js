@@ -28,8 +28,7 @@ export default class extends BaseController {
       if (visualViewport.height < this.initHeight) {
         form.style.top = `${visualViewport.height - form.clientHeight}px`
         form.classList.remove('invisible')
-        clonedItem.focus()
-        document.documentElement.scrollTo(0, 0)
+        clonedItem.focus({ preventScroll: true })
       } else if (visualViewport.height === this.initHeight) {
         form.classList.add('invisible')
       }
