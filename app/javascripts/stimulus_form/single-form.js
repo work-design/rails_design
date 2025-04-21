@@ -10,6 +10,7 @@ export default class extends BaseController {
 
   connect() {
     this.initHeight = visualViewport.height
+    console.debug('connect height:', this.initHeight)
   }
 
   disconnect() {
