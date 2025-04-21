@@ -9,6 +9,7 @@ export default class extends Controller {
 
   copyInner() {
     navigator.clipboard.writeText(this.sourceTarget.innerText)
+    alert('复制成功!')
   }
 
   copy() {
@@ -21,6 +22,8 @@ export default class extends Controller {
         event.currentTarget.classList.add('display-none')
         event.currentTarget.classList.remove('has-animate-fade-in-out')
       }, { once: true })
+    } else {
+      alert('复制成功！')
     }
   }
 }
