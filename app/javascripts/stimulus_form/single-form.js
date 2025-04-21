@@ -29,11 +29,11 @@ export default class extends BaseController {
         document.documentElement.scrollTo(0, 0)
         form.style.top = `${visualViewport.height - form.clientHeight}px`
         form.classList.remove('invisible')
+        clonedItem.focus()
       } else if (visualViewport.height === this.initHeight) {
         form.classList.add('invisible')
       }
     })
-    clonedItem.focus()
   }
 
   get target() {
