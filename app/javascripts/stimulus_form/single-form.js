@@ -26,10 +26,10 @@ export default class extends BaseController {
     visualViewport.addEventListener('resize', () => {
       console.debug('-------------resize', visualViewport.height, this.initHeight)
       if (visualViewport.height < this.initHeight) {
-        document.documentElement.scrollTo(0, 0)
         form.style.top = `${visualViewport.height - form.clientHeight}px`
         form.classList.remove('invisible')
         clonedItem.focus()
+        document.documentElement.scrollTo(0, 0)
       } else if (visualViewport.height === this.initHeight) {
         form.classList.add('invisible')
       }
