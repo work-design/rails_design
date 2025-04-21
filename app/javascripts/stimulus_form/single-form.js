@@ -27,7 +27,7 @@ export default class extends BaseController {
       console.debug('-------------resize', visualViewport.height, this.initHeight)
       if (visualViewport.height < this.initHeight) {
         //document.documentElement.scrollTo(0, 0)
-        form.sytle.bottom = 'auto'
+        form.style.bottom = 'auto'
         form.style.top = `${visualViewport.height - form.clientHeight}px`
         form.classList.remove('invisible')
       }
