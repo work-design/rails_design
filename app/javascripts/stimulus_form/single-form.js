@@ -25,7 +25,7 @@ export default class extends BaseController {
       if (visualViewport.height < this.initHeight) {
         //document.documentElement.scrollTo(0, 0)
         this.target.parentNode.style.top = `${visualViewport.height - this.target.parentNode.clientHeight}px`
-        this.target.parentNode.classList.remove('display-none')
+        this.target.parentNode.classList.remove('invisible')
       }
     })
     clonedItem.focus()
