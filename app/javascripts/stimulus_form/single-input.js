@@ -3,6 +3,7 @@ import BaseController from '../base_controller'
 // 底部表单
 export default class extends BaseController {
   static targets = ['input']
+  static outlets = ['form']
   static values = {
     id: { type: String, default: 'bottom-field' },
     url: String
@@ -14,23 +15,19 @@ export default class extends BaseController {
   }
 
   disconnect() {
-    this.targetForm.classList.add('invisible')
+    this.formOutletElement.classList.add('invisible')
   }
 
   prepare() {
-    const clonedItem = this.inputTarget.cloneNode(true)
-    this.target.innerHTML = ''
-    this.target.appendChild(clonedItem)
+    this.target.type = this.inputTarget.type
+    this.target.name = this.inputTarget.name
+    this.target.value = this.inputTarget.value
 
-    this.targetForm.classList.remove('invisible')
-    clonedItem.focus({ preventScroll: true })
+    this.formOutletElement.classList.remove('invisible')
+    this.target.focus({ preventScroll: true })
   }
 
   get target() {
-    return document.getElementById(this.idValue)
-  }
-
-  get targetForm() {
-    return this.target.parentNode
+    return this.formOutlet.inputTarget
   }
 }

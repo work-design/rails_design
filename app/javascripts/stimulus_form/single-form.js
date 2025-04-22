@@ -2,6 +2,7 @@ import BaseController from '../base_controller'
 
 // 底部表单
 export default class extends BaseController {
+  targets = ['input']
 
   connect() {
     visualViewport.addEventListener('resize', () => {
