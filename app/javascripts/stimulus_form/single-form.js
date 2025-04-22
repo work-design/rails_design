@@ -11,6 +11,15 @@ export default class extends BaseController {
   connect() {
     this.initHeight = visualViewport.height
     console.debug('connect height:', this.initHeight)
+
+    visualViewport.addEventListener('resize', () => {
+      console.debug('-------------resize', visualViewport.height, innerHeight)
+      if (visualViewport.height < innerHeight) {
+        this.targetForm.style.top = `${visualViewport.height - this.targetForm.clientHeight}px`
+      } else if (visualViewport.height === innerHeight) {
+        this.targetForm.classList.add('invisible')
+      }
+    })
   }
 
   disconnect() {
@@ -21,15 +30,6 @@ export default class extends BaseController {
     const clonedItem = this.inputTarget.cloneNode(true)
     this.target.innerHTML = ''
     this.target.appendChild(clonedItem)
-
-    visualViewport.addEventListener('resize', () => {
-      console.debug('-------------resize', visualViewport.height, innerHeight)
-      if (visualViewport.height < innerHeight) {
-        this.targetForm.style.top = `${visualViewport.height - this.targetForm.clientHeight}px`
-      } else if (visualViewport.height === innerHeight) {
-        this.targetForm.classList.add('invisible')
-      }
-    })
 
     this.targetForm.classList.remove('invisible')
     clonedItem.focus({ preventScroll: true })
