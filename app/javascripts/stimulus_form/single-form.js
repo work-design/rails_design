@@ -26,12 +26,13 @@ export default class extends BaseController {
       console.debug('-------------resize', visualViewport.height, innerHeight)
       if (visualViewport.height < innerHeight) {
         this.targetForm.style.top = `${visualViewport.height - this.targetForm.clientHeight}px`
-        this.targetForm.classList.remove('invisible')
-        clonedItem.focus({ preventScroll: true })
       } else if (visualViewport.height === innerHeight) {
         this.targetForm.classList.add('invisible')
       }
     })
+
+    this.targetForm.classList.remove('invisible')
+    clonedItem.focus({ preventScroll: true })
   }
 
   get target() {
