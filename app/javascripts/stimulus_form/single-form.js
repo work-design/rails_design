@@ -14,7 +14,6 @@ export default class extends BaseController {
   }
 
   disconnect() {
-    document.documentElement.style.removeProperty('height')
     this.targetForm.classList.add('invisible')
   }
 
