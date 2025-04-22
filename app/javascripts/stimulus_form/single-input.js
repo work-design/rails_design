@@ -3,7 +3,7 @@ import BaseController from '../base_controller'
 // 底部表单
 export default class extends BaseController {
   static targets = ['input']
-  static outlets = ['form']
+  static outlets = ['single-form']
   static values = {
     id: { type: String, default: 'bottom-field' },
     url: String
@@ -15,7 +15,7 @@ export default class extends BaseController {
   }
 
   disconnect() {
-    this.formOutletElement.classList.add('invisible')
+    this.singleFormOutletElement.classList.add('invisible')
   }
 
   prepare() {
@@ -23,11 +23,11 @@ export default class extends BaseController {
     this.target.name = this.inputTarget.name
     this.target.value = this.inputTarget.value
 
-    this.formOutletElement.classList.remove('invisible')
+    this.singleFormOutletElement.classList.remove('invisible')
     this.target.focus({ preventScroll: true })
   }
 
   get target() {
-    return this.formOutlet.inputTarget
+    return this.singleFormOutlet.inputTarget
   }
 }
