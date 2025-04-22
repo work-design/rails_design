@@ -38,7 +38,7 @@ export default class extends BaseController {
   get target() {
     return document.getElementById(this.idValue)
   }
-  
+
   get targetForm() {
     return target.parentNode
   }
