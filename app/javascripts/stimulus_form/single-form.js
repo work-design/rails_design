@@ -23,12 +23,12 @@ export default class extends BaseController {
     this.target.appendChild(clonedItem)
 
     visualViewport.addEventListener('resize', () => {
-      console.debug('-------------resize', visualViewport.height, this.initHeight)
-      if (visualViewport.height < this.initHeight) {
+      console.debug('-------------resize', visualViewport.height, innerHeight)
+      if (visualViewport.height < innerHeight) {
         this.targetForm.style.top = `${visualViewport.height - this.targetForm.clientHeight}px`
         this.targetForm.classList.remove('invisible')
         clonedItem.focus({ preventScroll: true })
-      } else if (visualViewport.height === this.initHeight) {
+      } else if (visualViewport.height === innerHeight) {
         this.targetForm.classList.add('invisible')
       }
     })
