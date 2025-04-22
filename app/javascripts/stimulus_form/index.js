@@ -46,6 +46,9 @@ application.register('search-input', SearchInputController)
 import SingleFormController from './single-form'
 application.register('single-form', SingleFormController)
 
+import SingleInputController from './single-input'
+application.register('single-input', SingleInputController)
+
 import TaxonController from './taxon'
 application.register('taxon', TaxonController)
 
