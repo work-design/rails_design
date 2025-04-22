@@ -39,6 +39,6 @@ export default class extends BaseController {
   }
 
   get targetForm() {
-    return target.parentNode
+    return this.target.parentNode
   }
 }
