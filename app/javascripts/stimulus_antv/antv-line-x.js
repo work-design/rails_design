@@ -17,7 +17,8 @@ export default class extends AntvBaseController {
       x: { title: false, animate: true, tick: false, labelFill: 'white' },
       y: { title: false, tickStroke: 'white', labelFill: 'white' }
     })
-    this.chart.label({ text: 'value', dx: 50, fill: 'white' })
+    this.chart.style('maxWidth', 10)
+    this.chart.label({ text: 'value', fill: 'white', dx: 2, textAlign: 'start' })
     this.chart.coordinate({ transform: [{ type: 'transpose' }] })
     this.chart.render()
   }
