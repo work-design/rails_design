@@ -30,11 +30,16 @@ dl.as-show {
       float: right;
     }
 
-    input {
+    input, textarea {
       text-align: right;
       font-size: var(--bulma-body-font-size);
       width: 100%;
       border: none;
+    }
+
+    textarea {
+      resize: none;
+      overflow: hidden;
     }
   }
 }

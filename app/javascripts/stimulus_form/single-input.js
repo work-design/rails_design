@@ -18,6 +18,14 @@ export default class extends BaseController {
     this.singleFormOutletElement.classList.add('invisible')
   }
 
+  inputTargetConnected(ele) {
+    if (ele.tagName === 'TEXTAREA') {
+      console.log('dddddd')
+      ele.style.height = 'auto'
+      ele.style.height = `${ele.scrollHeight}px`
+    }
+  }
+
   prepare() {
     this.target.type = this.inputTarget.type
     this.target.name = this.inputTarget.name
