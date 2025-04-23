@@ -1,3 +1,11 @@
+.weui-search-bar {
+  padding-left: 0;
+  padding-right: 0;
+
+  //替换后删除
+  background-color: unset;
+}
+
 .weui-search-bar__box {
   .weui-icon-clear {
     box-sizing: content-box;

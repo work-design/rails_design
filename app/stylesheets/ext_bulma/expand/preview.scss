@@ -19,12 +19,21 @@ dl.as-show {
     align-self: start;
     flex-shrink: 0;
   }
+
   dd {
+    flex-grow: 1;
     margin-left: 2rem;
     text-align: right;
     overflow-x: auto;
+
     img {
       float: right;
+    }
+
+    input {
+      text-align: right;
+      width: 100%;
+      border: none;
     }
   }
 }
