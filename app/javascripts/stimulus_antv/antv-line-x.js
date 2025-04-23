@@ -15,7 +15,7 @@ export default class extends AntvBaseController {
     this.chart.type = 'interval'
     this.chart.axis({
       x: { title: false, animate: true, tick: false, labelFill: 'white' },
-      y: { title: false, tickStroke: 'white', labelFill: 'white' }
+      y: { title: false, tick: false, label: false }
     })
     this.chart.style('maxWidth', 10)
     this.chart.label({ text: 'value', fill: 'white', dx: 2, textAlign: 'start', formatter: v => `¥${v.toFixed(2)}` })
