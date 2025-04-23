@@ -23,8 +23,8 @@ export default class extends BaseController {
     this.target.name = this.inputTarget.name
     this.target.value = this.inputTarget.value
 
-    this.singleFormOutletElement.classList.remove('invisible')
     this.target.focus({ preventScroll: true })
+    this.singleFormOutletElement.classList.remove('invisible')
   }
 
   get target() {
