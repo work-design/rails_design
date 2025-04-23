@@ -30,7 +30,7 @@ export default class extends BaseController {
     this.target.type = this.inputTarget.type
     this.target.name = this.inputTarget.name
     this.target.value = this.inputTarget.value
-    this.target.classList.add(ele.tagName.toLowerCase())
+    this.target.classList.add(this.inputTarget.tagName.toLowerCase())
 
     if (visualViewport.height < innerHeight) {
       this.singleFormOutletElement.classList.remove('invisible')
