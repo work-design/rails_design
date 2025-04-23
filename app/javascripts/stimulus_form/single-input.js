@@ -23,9 +23,9 @@ export default class extends BaseController {
     this.target.name = this.inputTarget.name
     this.target.value = this.inputTarget.value
 
-    this.target.focus({ preventScroll: true })
     if (innerHeight === visualViewport.height) {
       this.singleFormOutletElement.classList.remove('invisible')
+      this.target.focus({ preventScroll: true })
     }
   }
 

@@ -10,6 +10,7 @@ export default class extends BaseController {
       if (visualViewport.height < innerHeight) {
         this.element.style.top = `${visualViewport.height - this.element.clientHeight}px`
         this.element.classList.remove('invisible')
+        this.inputTarget.focus({ preventScroll: true })
       } else if (visualViewport.height === innerHeight) {
         this.element.classList.add('invisible')
       }
