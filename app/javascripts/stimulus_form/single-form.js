@@ -9,6 +9,7 @@ export default class extends BaseController {
       console.debug('-------------resize', visualViewport.height, innerHeight)
       if (visualViewport.height < innerHeight) {
         this.element.style.top = `${visualViewport.height - this.element.clientHeight}px`
+        this.element.classList.remove('invisible')
       } else if (visualViewport.height === innerHeight) {
         this.element.classList.add('invisible')
       }
@@ -18,5 +19,7 @@ export default class extends BaseController {
       this.element.classList.add('invisible')
     })
   }
+
+
 
 }
