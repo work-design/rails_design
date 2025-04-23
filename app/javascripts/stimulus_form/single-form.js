@@ -17,7 +17,7 @@ export default class extends BaseController {
     })
 
     this.inputTarget.addEventListener('blur', () => {
-      this.element.classList.add('invisible')
+      //this.element.classList.add('invisible')
     })
   }
 
