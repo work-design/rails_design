@@ -33,24 +33,22 @@ export default class extends BaseController {
       this.singleFormOutletElement.classList.remove('invisible')
       this.target.focus({ preventScroll: true })
     } else {
-      visualViewport.addEventListener('resize', this.resize, { once: true })
+      visualViewport.addEventListener('resize', () => {
+        console.debug('resize', visualViewport.height, innerHeight)
+        if (visualViewport.height < innerHeight) {
+          this.singleFormOutletElement.style.top = `${visualViewport.height - this.singleFormOutletElement.clientHeight}px`
+          this.singleFormOutletElement.classList.remove('invisible')
+          this.target.focus({ preventScroll: true })
+        } else if (visualViewport.height === innerHeight) {
+          this.singleFormOutletElement.classList.add('invisible')
+        }
+      }, { once: true })
     }
   }
 
   prepare() {
     this.target.type = this.inputTarget.type
     this.prepareArea()
-  }
-
-  resize() {
-    console.debug('-------------resize', visualViewport.height, innerHeight)
-    if (visualViewport.height < innerHeight) {
-      this.singleFormOutletElement.style.top = `${visualViewport.height - this.singleFormOutletElement.clientHeight}px`
-      this.singleFormOutletElement.classList.remove('invisible')
-      this.target.focus({ preventScroll: true })
-    } else if (visualViewport.height === innerHeight) {
-      this.singleFormOutletElement.classList.add('invisible')
-    }
   }
 
   get target() {
