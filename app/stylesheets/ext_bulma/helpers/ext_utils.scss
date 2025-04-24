@@ -7,12 +7,12 @@
   display: flex;
   justify-content: space-around;
   margin-top: -0.75rem !important;
-  margin-right: -0.75rem;
   margin-bottom: 1px !important;
-  margin-left: -0.75rem;
   padding: 0.75rem;
   position: sticky;
   bottom: -1px;
+  left: 0;
+  right: 0;
   transition-duration: 0.3s;
   transition-property: background-color;
 
