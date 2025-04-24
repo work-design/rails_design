@@ -39,6 +39,10 @@ export default class extends BaseController {
           this.singleFormOutletElement.style.top = `${visualViewport.height - this.singleFormOutletElement.clientHeight}px`
           this.singleFormOutletElement.classList.remove('invisible')
           this.target.focus({ preventScroll: true })
+
+          visualViewport.addEventListener('resize', () => {
+            this.singleFormOutletElement.classList.add('invisible')
+          }, { once: true })
         } else if (visualViewport.height === innerHeight) {
           this.singleFormOutletElement.classList.add('invisible')
         }
