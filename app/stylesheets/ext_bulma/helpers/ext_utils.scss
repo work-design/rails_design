@@ -68,6 +68,10 @@
   height: 100%;
 }
 
+.width-available {
+  width: -webkit-fill-available;
+}
+
 .is-safe-bottom {
   padding-bottom: env(safe-area-inset-bottom);
 }
