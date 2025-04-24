@@ -20,23 +20,24 @@ export default class extends BaseController {
 
   inputTargetConnected(ele) {
     if (ele.tagName === 'TEXTAREA') {
-      console.log('dddddd')
       ele.style.height = 'auto'
       ele.style.height = `${ele.scrollHeight}px`
     }
   }
 
-  prepare() {
-    this.target.type = this.inputTarget.type
+  prepareArea() {
     this.target.name = this.inputTarget.name
     this.target.value = this.inputTarget.value
-    this.target.classList.remove('input', 'textarea')
-    this.target.classList.add(this.inputTarget.tagName.toLowerCase())
 
     if (visualViewport.height < innerHeight) {
       this.singleFormOutletElement.classList.remove('invisible')
       this.target.focus({ preventScroll: true })
     }
+  }
+
+  prepare() {
+    this.target.type = this.inputTarget.type
+    this.prepareArea()
   }
 
   get target() {
