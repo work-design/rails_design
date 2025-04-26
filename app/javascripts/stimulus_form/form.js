@@ -35,7 +35,18 @@ export default class extends BaseController {
   }
 
   connect() {
-    this.setMinLength()
+    const fields = Array.from(this.element.elements).filter(input => input.type === 'text')
+
+    this.element.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        e.preventDefault()
+
+        const currentFieldIndex = fields.indexOf(e.target)
+        if (currentFieldIndex !== -1 && currentFieldIndex < fields.length - 1) {
+          fields[currentFieldIndex + 1].focus()
+        }
+      }
+    })
   }
 
   defaultValid(input) {
@@ -117,15 +128,6 @@ export default class extends BaseController {
     if (ele.type === 'text') {
       ele.setSelectionRange(0, ele.value.length)
     }
-  }
-
-  setMinLength() {
-    const labels = Array.from(this.element.querySelectorAll('.field-label > label.label'))
-    const lengths = labels.map(i => i.innerText.length)
-    const max = Math.max.apply(null, lengths)
-    Array.from(this.element.getElementsByClassName('field-label')).forEach(i => {
-      i.style.minWidth = `${max}ch`
-    })
   }
 
 }
