@@ -38,6 +38,7 @@ export default class extends BaseController {
     const fields = Array.from(this.element.elements).filter(input => input.type === 'text')
 
     this.element.addEventListener('keydown', e => {
+      window.xxx = e
       if (e.key === 'Enter') {
         e.preventDefault()
 
