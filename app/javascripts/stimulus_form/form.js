@@ -37,17 +37,13 @@ export default class extends BaseController {
   connect() {
     const fields = Array.from(this.element.elements).filter(input => input.type === 'text')
 
-    this.element.addEventListener('keydown', e => {
-      window.xxx = e
-      window.fields = fields
-      if (e.key === 'Enter') {
-        e.preventDefault()
-
-        const currentFieldIndex = fields.indexOf(e.target)
-        if (currentFieldIndex !== -1 && currentFieldIndex < fields.length - 1) {
-          fields[currentFieldIndex + 1].focus()
+    fields.slice(0, -1).forEach((ele, index) => {
+      ele.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+          e.preventDefault()
+          fields[index + 1].focus()
         }
-      }
+      })
     })
   }
 
