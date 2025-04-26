@@ -39,6 +39,7 @@ export default class extends BaseController {
 
     this.element.addEventListener('keydown', e => {
       window.xxx = e
+      window.fields = fields
       if (e.key === 'Enter') {
         e.preventDefault()
 
