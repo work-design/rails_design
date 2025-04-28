@@ -1,5 +1,6 @@
 import BaseCable from './base_cable'
 
+// 专门用于微信扫码登录
 export default class extends BaseCable {
 
   connect() {
