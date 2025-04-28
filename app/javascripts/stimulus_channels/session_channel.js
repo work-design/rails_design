@@ -6,7 +6,7 @@ export default class extends BaseCable {
   connect() {
     this.subscription = BaseCable.consumer.subscriptions.create(
       {
-        channel: 'Com::SessionChannel',
+        channel: 'Wechat::SessionChannel',
         room: 'room'
       },
       {
