@@ -4,6 +4,10 @@ import BaseCable from './base_cable'
 export default class extends BaseCable {
 
   connect() {
+    this.subscribe()
+  }
+
+  subscribe() {
     this.subscription = BaseCable.consumer.subscriptions.create(
       {
         channel: 'Wechat::SessionChannel',
