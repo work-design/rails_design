@@ -15,8 +15,12 @@ export default class extends BaseCable {
       },
       {
         received(data) {
-          const url = data.url || '/'
-          Turbo.visit(url)
+          if (data.data_url) {
+            document.getElementById('login_qrcode').src = data.data_url
+          } else {
+            const url = data.url || '/'
+            Turbo.visit(url)
+          }
         },
 
         connected() {
