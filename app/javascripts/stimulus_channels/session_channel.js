@@ -8,10 +8,12 @@ export default class extends BaseCable {
   }
 
   subscribe() {
+    const urlParams = new URLSearchParams(location.search)
+
     this.subscription = BaseCable.consumer.subscriptions.create(
       {
         channel: 'Wechat::SessionChannel',
-        room: 'room'
+        state: urlParams.get('state')
       },
       {
         received(data) {
