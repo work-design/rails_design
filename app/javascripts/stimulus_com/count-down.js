@@ -12,7 +12,13 @@ export default class extends Controller {
   }
 
   countDown() {
-    let countdown = this.timeValue
+    let countdown
+    if (this.hasTimeValue) {
+      countdown = this.timeValue
+    } else {
+      countdown = this.countTarget.innerText
+    }
+
     let value
     if (this.countTarget instanceof HTMLInputElement) {
       value = this.countTarget.value
