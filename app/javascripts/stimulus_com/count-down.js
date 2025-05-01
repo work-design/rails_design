@@ -2,7 +2,7 @@ import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
   static values = {
-    time: { type: Number, default: 60 },
+    time: Number,
     get: { type: String, default: '获取验证码' }
   }
   static targets = ['count', 'hidden', 'disabled']
@@ -26,8 +26,15 @@ export default class extends Controller {
       value = ''
     }
     this.setCount(value, countdown)
+    this.resetCounter(value, countdown)
+  }
 
-    let timer = setInterval(() => {
+  resetCounter(value, countdown) {
+    if (this.timer) {
+      clearInterval(this.timer)
+    }
+
+    this.timer = setInterval(() => {
       countdown--
       if (countdown <= 0) {
         if (this.hasDisabledTarget) {
@@ -35,7 +42,7 @@ export default class extends Controller {
         }
         this.setCount(value, this.getValue)
         this.hiddenTargets.forEach(el => { el.remove() })
-        clearInterval(timer)
+        clearInterval(this.timer)
       } else {
         this.setCount(value, countdown)
       }
