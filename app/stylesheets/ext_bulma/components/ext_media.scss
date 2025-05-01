@@ -11,6 +11,9 @@
   .box > &:last-child {
     padding-bottom: var(--bulma-media-spacing);
   }
+  &.is-fit {
+    width: min-content;
+  }
 
   &.is-middle {
     align-items: center;
