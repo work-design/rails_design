@@ -19,7 +19,7 @@ export default class extends BaseCable {
         received(data) {
           if (data.data_url) {
             document.getElementById('login_qrcode').src = data.data_url
-            document.getElementById('login_remaining').innerText = data.remaining
+            document.getElementById('login_count_down').getController('count-down').resetCounter('', data.remaining)
           } else {
             const url = data.url || '/'
             Turbo.visit(url)
