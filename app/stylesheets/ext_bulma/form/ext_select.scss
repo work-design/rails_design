@@ -3,3 +3,9 @@
     display: inline-flex;
   }
 }
+
+.textarea {
+  &.is-borderless {
+    border-style: none;
+  }
+}
