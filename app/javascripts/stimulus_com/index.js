@@ -86,6 +86,9 @@ application.register('slide', SlideController)
 import SlideYController from './slide_y'
 application.register('slide-y', SlideYController)
 
+import SseController from './sse'
+application.register('sse', SseController)
+
 import StickyBottomController from './sticky-bottom'
 application.register('sticky-bottom', StickyBottomController)
 
