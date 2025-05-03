@@ -67,6 +67,12 @@
   height: 100%;
 }
 
+.has-page {
+  display: flex;
+  flex-direction: column;
+  height: -webkit-fill-available;
+}
+
 .has-column-space-between {
   display: flex;
   flex-direction: column;
