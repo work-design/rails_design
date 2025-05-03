@@ -12,11 +12,14 @@ export default class extends Controller {
 
   commit(event) {
     event.preventDefault()
+    const body = new FormData(this.element)
     const container = document.getElementById('chat_box')
+    this.element.reset()
+    document.getElementById('content').focus()
 
     fetch(this.element.action, {
       method: this.element.method.toUpperCase(),
-      body: new FormData(this.element)
+      body: body
     }).then(async response => {
       const reader = response.body.getReader()
       let currentBuffer = ''
@@ -38,7 +41,8 @@ export default class extends Controller {
 
         for (const line of lines) {
           if (!line) {
-            container.append(JSON.parse(currentData).text)
+            console.debug(currentData)
+            container.append(JSON.parse(currentData).text || '')
             currentData = ''
           }
           if (line.startsWith(DATA_LINE)) {
@@ -48,7 +52,6 @@ export default class extends Controller {
           }
         }
       }
-
     })
   }
 
