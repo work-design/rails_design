@@ -49,6 +49,9 @@ application.register('single-form', SingleFormController)
 import SingleInputController from './single-input'
 application.register('single-input', SingleInputController)
 
+import SseFormController from './sse-form'
+application.register('sse-form', SseFormController)
+
 import TaxonController from './taxon'
 application.register('taxon', TaxonController)
 
