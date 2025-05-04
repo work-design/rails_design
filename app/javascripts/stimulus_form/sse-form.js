@@ -5,17 +5,19 @@ const ID_LINE = 'id:'
 const RETRY_LINE = 'retry:'
 
 export default class extends Controller {
+  static outlets = [ 'sse-receive', 'sse-send' ]
 
   connect() {
     this.decoder = new TextDecoder()
+    this.container = document.getElementById('chat_box')
   }
 
   commit(event) {
     event.preventDefault()
     const body = new FormData(this.element)
-    const container = document.getElementById('chat_box')
     this.element.reset()
     document.getElementById('content').focus()
+    this.xx()
 
     fetch(this.element.action, {
       method: this.element.method.toUpperCase(),
@@ -42,7 +44,7 @@ export default class extends Controller {
         for (const line of lines) {
           if (!line) {
             console.debug(currentData)
-            container.append(JSON.parse(currentData).text || '')
+            this.container.append(JSON.parse(currentData).text || '')
             currentData = ''
           }
           if (line.startsWith(DATA_LINE)) {
@@ -53,6 +55,12 @@ export default class extends Controller {
         }
       }
     })
+  }
+
+  xx() {
+    const clonedItem = this.sseSendOutletElement.cloneNode(true)
+    this.container.appendChild(clonedItem)
+    clonedItem.getController('sse-send').contentTarget.innerText = 'ddd'
   }
 
 
