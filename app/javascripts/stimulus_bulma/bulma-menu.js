@@ -21,6 +21,16 @@ export default class extends Controller {
         el.classList.remove('is-active')
       }
     })
+    if (ele.nextElementSibling.classList.contains('menu-list')) {
+      Array.from(ele.nextElementSibling.children).forEach(el => {
+        if (el.tagName !== 'A') {
+          el = el.firstElementChild
+        }
+        if (el.classList.contains('is-active')) {
+          el.classList.remove('is-active')
+        }
+      })
+    }
     ele.classList.add('is-active')
   }
 
