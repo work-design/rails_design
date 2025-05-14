@@ -13,7 +13,7 @@ export default class extends Controller {
 
   enter(event) {
     const ele = event.currentTarget
-    Array.from(ele.closest('.menu-list').children).forEach(el => {
+    this.element.querySelectorAll('.menu-item').forEach(el => {
       if (el.tagName !== 'A') {
         el = el.firstElementChild
       }
@@ -21,16 +21,6 @@ export default class extends Controller {
         el.classList.remove('is-active')
       }
     })
-    if (ele.nextElementSibling.classList.contains('menu-list')) {
-      Array.from(ele.nextElementSibling.children).forEach(el => {
-        if (el.tagName !== 'A') {
-          el = el.firstElementChild
-        }
-        if (el.classList.contains('is-active')) {
-          el.classList.remove('is-active')
-        }
-      })
-    }
     ele.classList.add('is-active')
   }
 
