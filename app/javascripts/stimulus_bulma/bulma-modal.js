@@ -52,7 +52,13 @@ export default class extends BaseController {
   closeCheck() {
     let arr = []
     Array.from(this.element.getElementsByTagName('input')).forEach(el => {
-      if (el.value !== el.defaultValue && el.labels[0]) {
+      if (el.value === el.defaultValue) {
+        return
+      }
+      if (el.type === 'datetime-local' && new Date(el.value).getTime() === new Date(el.defaultValue).getTime()) {
+        return
+      }
+      if (el.labels[0]) {
         arr.push(el.labels[0].innerText)
       }
     })
