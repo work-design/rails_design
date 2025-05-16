@@ -130,4 +130,8 @@ export default class extends BaseController {
     }
   }
 
+  reset() {
+    this.element.reset()
+  }
+
 }
