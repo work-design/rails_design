@@ -35,18 +35,18 @@ export default class extends BaseController {
   }
 
   connect() {
-    if (this.element.method === 'post') {
-      const fields = Array.from(this.element.elements).filter(input => input.type === 'text')
+    const fields = Array.from(this.element.elements)
 
-      fields.slice(0, -1).forEach((ele, index) => {
+    fields.slice(0, -1).forEach((ele, index) => {
+      if (ele.enterKeyHint === 'next') {
         ele.addEventListener('keydown', e => {
           if (e.key === 'Enter') {
             e.preventDefault()
             fields[index + 1].focus()
           }
         })
-      })
-    }
+      }
+    })
   }
 
   defaultValid(input) {
