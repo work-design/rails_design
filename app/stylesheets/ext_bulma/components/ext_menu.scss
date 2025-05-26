@@ -47,6 +47,10 @@
 
     background-color: hsl(var(--bulma-menu-item-h), var(--bulma-menu-item-s), calc(var(--bulma-menu-item-background-l) + var(--bulma-menu-item-background-l-delta)));
   }
+
+  &.as-logo {
+    --bulma-menu-item-radius: 0;
+  }
 }
 
 .menu-brand {
