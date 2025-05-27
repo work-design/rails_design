@@ -50,6 +50,11 @@
 
   &.as-logo {
     --bulma-menu-item-radius: 0;
+
+    .menu-item {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
 
