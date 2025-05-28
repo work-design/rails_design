@@ -18,6 +18,15 @@ export default class extends BaseController {
     this.post(this.urlValue, this.bodyValue)
   }
 
+  streamFormPost() {
+    const dom = document.getElementById(this.bodyValue)
+    if (dom) {
+      const body = {}
+      body[dom.name] = dom.value
+      this.post(this.urlValue, JSON.stringify(body))
+    }
+  }
+
   stream(event) {
     const ele = event.currentTarget
     this.inputGet(ele)
