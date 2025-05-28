@@ -14,11 +14,23 @@ input[type="file"]::-webkit-file-upload-button {
   height: 100%;
 }
 
-.file.as-boxed .file-cta {
-  height: 100%;
+.file {
+  &.as-boxed {
+    .file-cta {
+      height: 100%;
+    }
 
-  .file-icon {
-    margin-right: 0;
+    .file-icon {
+      margin-right: 0;
+    }
+  }
+
+  &.as-inline {
+    display: inline-flex;
+
+    .file-icon {
+      margin-right: 0;
+    }
   }
 }
 
