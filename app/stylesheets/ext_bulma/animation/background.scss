@@ -52,4 +52,5 @@
     radial-gradient(circle at var(--x-2) var(--y-2), var(--c-2) var(--s-start-2), transparent var(--s-end-2));
   animation: hero-gradient-animation 2s linear infinite alternate;
   background-blend-mode: normal, normal, normal;
+  height: 100%;
 }
