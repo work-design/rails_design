@@ -7,6 +7,12 @@
     overflow-y: scroll;
     height: 100px;
   }
+
+  .list {
+    width: max-content;
+    overflow-y: scroll;
+    height: 500px;
+  }
 }
 
 .popup-container {
