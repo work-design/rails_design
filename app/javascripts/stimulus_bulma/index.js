@@ -10,5 +10,8 @@ application.register('modal', ModalController)
 import NavbarController from './bulma-navbar'
 application.register('navbar', NavbarController)
 
+import PopupController from './bulma-popup'
+application.register('popup', PopupController)
+
 import SkeletonController from './bulma-skeleton'
 application.register('skeleton', SkeletonController)
