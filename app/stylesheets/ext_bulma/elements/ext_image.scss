@@ -66,7 +66,7 @@
 }
 
 /* 遮罩层样式 */
-.overlay {
+.image-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -81,7 +81,7 @@
   transition: opacity 0.3s ease;
 }
 
-.image:hover .overlay {
+.image:hover .image-overlay {
   opacity: 1;
   cursor: pointer;
 }
