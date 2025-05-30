@@ -26,6 +26,18 @@
   &.as-boxed + &.as-boxed {
     margin-top: 0;
   }
+
+  &.as-menu {
+    .media-content {
+      min-width: 0
+    }
+
+    .truncate {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 }
 
 .media-left,
