@@ -51,6 +51,12 @@
   }
 }
 
+.panel-heading {
+  &.is-narrow {
+    padding: 0.5rem 1rem;
+  }
+}
+
 .panel-block {
   .media {
     width: 100%;
