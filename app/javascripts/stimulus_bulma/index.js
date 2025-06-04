@@ -1,6 +1,9 @@
 import BulmaDropdownController from './bulma-dropdown'
 application.register('bulma-dropdown', BulmaDropdownController)
 
+import AutoActiveController from './auto-active'
+application.register('auto-active', AutoActiveController)
+
 import MenuController from './bulma-menu'
 application.register('menu', MenuController)
 
