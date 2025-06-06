@@ -14,8 +14,10 @@ main.container {
 }
 
 #body {
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
+  overflow: auto;
 }
 
 .as-vertical-middle {
