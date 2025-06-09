@@ -136,8 +136,10 @@ export default class extends BaseController {
 
   submit(e) {
     const el = e.currentTarget
-    e.preventDefault()
-    el.form.requestSubmit()
+    if (el.value) {
+      e.preventDefault()
+      el.form.requestSubmit()
+    }
   }
 
 }
