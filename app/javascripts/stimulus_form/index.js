@@ -13,6 +13,9 @@ application.register('enter', EnterController)
 import EqualController from './equal'
 application.register('equal', EqualController)
 
+import FilterInputController from './filter-input'
+application.register('filter-input', FilterInputController)
+
 import FormerController from './former'
 application.register('former', FormerController)
 
