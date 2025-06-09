@@ -1,3 +1,6 @@
+@use 'bulma/sass/utilities/initial-variables' as iv;
+@use 'bulma/sass/utilities/css-variables' as cv;
+
 .panel-block.flex-direction-column {
   .control + .control {
     padding-top: 1em;
@@ -17,7 +20,7 @@
   }
 
   &.is-border {
-    border: solid 1px var(--ext-panel-border-color, var(--bulma-primary));
+    border: solid 1px var(--ext-panel-border-color, cv.getVar('primary'));
   }
 
   &[data-typer-local-target=container] {
@@ -39,15 +42,15 @@
 }
 
 .panel-tabs .button_to {
-  border-bottom-color: var(--bulma-panel-tab-border-bottom-color);
-  border-bottom-style: var(--bulma-panel-tab-border-bottom-style);
-  border-bottom-width: var(--bulma-panel-tab-border-bottom-width);
+  border-bottom-color: cv.getVar('panel-tab-border-bottom-color');
+  border-bottom-style: cv.getVar('panel-tab-border-bottom-style');
+  border-bottom-width: cv.getVar('panel-tab-border-bottom-width');
   margin-bottom: calc(-1 * 1px);
   padding: 0.75em;
 
   &.is-active {
-    border-bottom-color: var(--bulma-panel-tab-border-bottom-color, hsl(var(--bulma-panel-h), var(--bulma-panel-s), var(--bulma-panel-color-l)));
-    color: var(--bulma-panel-tab-active-color);
+    border-bottom-color: cv.getVar('panel-tab-border-bottom-color', hsl(cv.getVar('panel-h'), cv.getVar('panel-s'), cv.getVar('panel-color-l')));
+    color: cv.getVar('panel-tab-active-color');
   }
 }
 
@@ -60,5 +63,12 @@
 .panel-block {
   .media {
     width: 100%;
+  }
+}
+
+form.#{iv.$class-prefix}panel-block {
+
+  &:hover {
+    background-color: cv.getVar('panel-block-hover-background-color');
   }
 }
