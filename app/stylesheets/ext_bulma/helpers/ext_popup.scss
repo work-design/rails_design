@@ -1,6 +1,7 @@
 .as-popup,
 .as-popdown {
   position: absolute;
+  z-index: 1;
 
   .grid {
     overflow-y: scroll;
