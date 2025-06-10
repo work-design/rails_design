@@ -9,7 +9,8 @@
 }
 
 .button_to {
-  display: inline;
+  display: inline-block;
+  max-width: 100%;
 
   i {
     line-height: 1;
