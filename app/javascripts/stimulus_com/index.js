@@ -55,6 +55,9 @@ application.register('notice', NoticeController)
 import PageController from './page'
 application.register('page', PageController)
 
+import PageIntersectController from './page-intersect'
+application.register('page-intersect', PageIntersectController)
+
 import PlayerController from './player'
 application.register('player', PlayerController)
 
