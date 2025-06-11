@@ -13,6 +13,7 @@ export default class extends TouchController {
     this.initStatus(event)
   }
 
+  // touchmove 监听
   move(event) {
     const offset = this.offset(event)
     if (offset.y < 0 && this.arriveBottom() && this.currentPage < this.totalPage) {
