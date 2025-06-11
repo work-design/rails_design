@@ -1,20 +1,23 @@
 import BaseController from '../base_controller'
 
 export default class extends BaseController {
-  static targets = ['sentinel', 'paging']
+  static targets = ['sentinel']
   static values = {
     url: String
   }
 
-  connect() {
+  initialize() {
     this.observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          console.debug('ddd', entry)
+          this.#appendPage()
         }
       }, { root: this.element })
     })
-    this.observer.observe(this.sentinelTarget)
+  }
+
+  sentinelTargetConnected(target) {
+    this.observer.observe(target)
   }
 
   disconnect() {
@@ -22,7 +25,7 @@ export default class extends BaseController {
   }
 
   #appendPage() {
-    const url = new URL(this.urlValue)
+    const url = new URL(this.urlValue, location.origin)
     this.currentPage = this.currentPage + 1
     url.searchParams.set('page', this.currentPage)
 
@@ -30,15 +33,15 @@ export default class extends BaseController {
   }
 
   get currentPage() {
-    return Number(this.pagingTarget.dataset.page) || 1
+    return Number(this.sentinelTarget.dataset.page) || 1
   }
 
   set currentPage(value) {
-    this.pagingTarget.dataset.page = value
+    this.sentinelTarget.dataset.page = value
   }
 
   get totalPage() {
-    return Number(this.pagingTarget.dataset.total) || 1
+    return Number(this.sentinelTarget.dataset.total) || 1
   }
 
 }
