@@ -33,6 +33,12 @@ export default class extends BaseController {
     }
   }
 
+  cancel() {
+    if (this.inputTarget.value.length === 0) {
+      Turbo.visit(location.pathname, { action: 'replace' })
+    }
+  }
+
   conForm(ele) {
     if (this.hasUrlValue) {
       this.inputPost(ele)

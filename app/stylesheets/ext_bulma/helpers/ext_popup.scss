@@ -1,7 +1,7 @@
-.as-popup {
+.as-popup,
+.as-popdown {
   position: absolute;
-  bottom: 100%;
-  top: auto;
+  z-index: 1;
 
   .grid {
     overflow-y: scroll;
@@ -11,9 +11,14 @@
   .list {
     width: max-content;
     overflow-y: scroll;
-    height: 500px;
+    max-height: 500px;
     min-width: 300px;
   }
+}
+
+.as-popup {
+  bottom: 100%;
+  top: auto;
 }
 
 .popup-container {

@@ -134,4 +134,12 @@ export default class extends BaseController {
     this.element.reset()
   }
 
+  submit(e) {
+    const el = e.currentTarget
+    if (el.value) {
+      e.preventDefault()
+      el.form.requestSubmit()
+    }
+  }
+
 }

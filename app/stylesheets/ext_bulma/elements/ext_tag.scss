@@ -1,12 +1,20 @@
-.tags.is-price {
-  .tag {
-    margin-bottom: 0;
-    padding-left: 2px;
-    padding-right: 2px;
-    height: unset;
+.tags {
+  &.has-addons {
+    flex-wrap: nowrap;
+    max-width: 100%;
   }
-  .tag:first-child {
-    padding-left: 4px;
+
+  &.is-price {
+    .tag {
+      margin-bottom: 0;
+      padding-left: 2px;
+      padding-right: 2px;
+      height: unset;
+    }
+
+    .tag:first-child {
+      padding-left: 4px;
+    }
   }
 }
 

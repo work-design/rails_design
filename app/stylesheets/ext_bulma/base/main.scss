@@ -1,7 +1,13 @@
-body {
+body,
+#body,
+.body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+}
+
+#body {
+  overflow: auto;
 }
 
 main,
@@ -11,11 +17,6 @@ main,
 
 main.container {
   width: 100%;
-}
-
-#body {
-  overflow: auto;
-  height: 100vh;
 }
 
 .as-vertical-middle {

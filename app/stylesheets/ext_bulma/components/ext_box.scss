@@ -1,3 +1,5 @@
+@use 'bulma/sass/utilities/css-variables' as cv;
+
 .as-tooltip {
   position: absolute;
   bottom: 100%;
@@ -34,6 +36,11 @@
     > :not(:last-child) {
       border-bottom: 1px solid hsl(0deg, 0%, 93%)
     }
+  }
+
+  &.is-active {
+    box-shadow: cv.getVar('box-link-active-shadow');
+    background-color: cv.getVar('white-ter');
   }
 
   &.as-bar {

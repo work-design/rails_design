@@ -11,8 +11,8 @@ export default class extends Controller {
     this.container = document.getElementById(`receive_${this.idValue}`)
     this.wrap = document.getElementById('chat_box')
 
-    this.eventSource.addEventListener('message', this.handleMessageEvent.bind(this));
-    this.eventSource.addEventListener('done', this.handleDoneEvent.bind(this));
+    this.eventSource.addEventListener('message', this.handleMessageEvent.bind(this))
+    this.eventSource.addEventListener('done', this.handleDoneEvent.bind(this))
   }
 
   handleMessageEvent(event) {

@@ -60,6 +60,12 @@
   justify-content: center;
 }
 
+.has-column-right {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
 .has-page-centered {
   display: flex;
   flex-direction: column;
