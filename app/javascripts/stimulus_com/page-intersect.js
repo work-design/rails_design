@@ -10,7 +10,7 @@ export default class extends BaseController {
     this.observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          this.#appendPage()
+          this.#appendPage(entry.target)
         }
       }, { root: this.element })
     })
@@ -24,24 +24,21 @@ export default class extends BaseController {
     this.observer.disconnect()
   }
 
-  #appendPage() {
+  #appendPage(entry) {
+    if (entry.dataset.page === entry.dataset.total) {
+      return
+    }
+
     const url = new URL(this.urlValue, location.origin)
-    this.currentPage = this.currentPage + 1
-    url.searchParams.set('page', this.currentPage)
+    const href = new URL(location.href)
+    const nextPage = (Number(entry.dataset.page) || 1) + 1
+    url.searchParams.set('page', nextPage)
+    if (href.searchParams.get('per')) {
+      url.searchParams.set('per', href.searchParams.get('per'))
+    }
 
+    entry.children[0].innerText = '加载中'
     this.get(url)
-  }
-
-  get currentPage() {
-    return Number(this.sentinelTarget.dataset.page) || 1
-  }
-
-  set currentPage(value) {
-    this.sentinelTarget.dataset.page = value
-  }
-
-  get totalPage() {
-    return Number(this.sentinelTarget.dataset.total) || 1
   }
 
 }
