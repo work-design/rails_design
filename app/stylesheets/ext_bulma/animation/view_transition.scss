@@ -1,0 +1,41 @@
+@keyframes fadeOutToRight {
+  100% {
+    opacity: 0;
+    transform: translateX(4rem);
+  }
+}
+
+@keyframes fadeInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-4rem);
+  }
+}
+
+@keyframes fadeOutToLeft {
+  100% {
+    opacity: 0;
+    transform: translateX(-4rem);
+  }
+}
+
+@keyframes fadeInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(4rem);
+  }
+}
+
+html[data-turbo-visit-direction="forward"]::view-transition-old(root) {
+  animation-name: fadeOutToRight;
+}
+html[data-turbo-visit-direction="forward"]::view-transition-new(root) {
+  animation-name: fadeInFromLeft;
+}
+
+html[data-turbo-visit-direction="back"]::view-transition-old(root) {
+  animation-name: fadeOutToLeft;
+}
+html[data-turbo-visit-direction="back"]::view-transition-new(root) {
+  animation-name: fadeInFromRight;
+}
