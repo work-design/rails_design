@@ -34,7 +34,9 @@ export default class extends BaseController {
 
   postInput(event) {
     const ele = event.currentTarget
-    this.inputPost(ele)
+    if (ele.value) {
+      this.inputPost(ele)
+    }
   }
 
   // turbo:submit-start@window->common#submit
