@@ -1,17 +1,18 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
+  static targets = ['template']
 
   connect() {
-    this.reload(this.element)
   }
 
-  reload(element) {
-    new Choices(element, {
-      noChoicesText: '无可选项',
-      itemSelectText: '点击选择',
-      removeItemButton: true
-    })
+  select(e) {
+    const ele = e.currentTarget
+    const cloned = this.templateTarget.cloneNode(true)
+    cloned.removeAttribute('data-choice-target')
+    cloned.value = ele.dataset.id
+
+    this.element.prepend(cloned)
   }
 
 }
