@@ -9,4 +9,9 @@ export default class extends Controller {
 
     this.templateTarget.after(input)
   }
+
+  remove(e) {
+    const ele = e.currentTarget
+    ele.parentNode.remove()
+  }
 }
