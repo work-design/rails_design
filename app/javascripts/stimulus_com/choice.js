@@ -1,7 +1,7 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static targets = ['template', 'tag', 'list']
+  static targets = ['template', 'tag', 'list', 'overlay']
 
   connect() {
   }
@@ -25,6 +25,7 @@ export default class extends Controller {
 
   toggle() {
     this.listTarget.classList.toggle('display-none')
+    this.overlayTarget.classList.remove('display-none')
   }
 
   restore(e) {
@@ -34,6 +35,11 @@ export default class extends Controller {
       ele.remove()
       tar.classList.remove('display-none')
     }
+  }
+
+  close(e) {
+    this.overlayTarget.classList.add('display-none')
+    this.listTarget.classList.add('display-none')
   }
 
 }
