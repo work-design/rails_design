@@ -1,4 +1,6 @@
 .tabs {
+  flex-shrink: 0;
+
   &.as-bottom {
     --bulma-tabs-toggle-link-radius: 0;
     --bulma-tabs-border-bottom-width: 0;
