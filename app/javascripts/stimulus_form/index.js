@@ -28,6 +28,9 @@ application.register('form', FormController)
 import InputController from './input'
 application.register('input', InputController)
 
+import InputCloneController from './input-clone'
+application.register('input-clone', InputCloneController)
+
 import KeyboardController from './keyboard'
 application.register('keyboard', KeyboardController)
 
