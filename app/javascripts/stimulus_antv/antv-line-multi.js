@@ -9,7 +9,11 @@ export default class extends AntvBaseController {
       y: 'value',
       color: 'symbol'
     })
-    this.chart.line().encode('shape', 'smooth')
+    this.chart.axis({
+      x: { title: false },
+      y: { title: false }
+    })
+    this.chart.line().encode('shape', 'line')
     this.chart.point().encode('shape', 'point').tooltip(false)
     this.chart.render()
   }
