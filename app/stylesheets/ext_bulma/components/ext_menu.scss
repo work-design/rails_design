@@ -42,10 +42,11 @@
 .menu {
   &.as-wrap {
     flex-grow: 1;
-    --bulma-menu-item-h: 172deg;
-    --bulma-menu-item-background-l-delta: -40%;
-
-    background-color: hsl(var(--bulma-menu-item-h), var(--bulma-menu-item-s), calc(var(--bulma-menu-item-background-l) + var(--bulma-menu-item-background-l-delta)));
+    background-color: hsl(
+      var(--bulma-menu-item-h),
+      var(--bulma-menu-item-s),
+      calc(var(--bulma-menu-item-background-l) + var(--bulma-menu-item-background-l-delta))
+    );
   }
 
   &.as-logo {
