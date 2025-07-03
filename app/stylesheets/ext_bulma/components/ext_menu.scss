@@ -31,12 +31,19 @@
 
 #admin_menu {
   overflow-y: scroll;
-  height: calc(100vh - 60px);
   scrollbar-width: none;
 }
 
+#admin_menu.auto {
+  height: calc(100vh - 60px);
+}
+
 .pop-right {
-  background-color: var(--admin-menu, #011);
+  //background-color: var(--admin-menu, #011);
+
+  .dropdown-trigger {
+    width: 100%;
+  }
 }
 
 .menu {
