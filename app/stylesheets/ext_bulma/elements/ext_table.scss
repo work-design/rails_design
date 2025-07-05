@@ -118,8 +118,13 @@ td:has(table) {
 
   &.as-boxed {
     thead {
-      border-top-left-radius: 6px;
-      border-top-right-radius: 6px;
+      th:first-child {
+        border-top-left-radius: var(--bulma-radius-large);
+      }
+
+      th:last-child {
+        border-top-right-radius: var(--bulma-radius-large);
+      }
     }
   }
 
