@@ -16,11 +16,35 @@
       padding-left: 4px;
     }
   }
+
+  &.is-tag-price {
+    .tag {
+      line-height: 2;
+    }
+  }
 }
 
-.tags.is-tag-price {
-  .tag {
-    line-height: 2;
+.tag {
+  vertical-align: top;
+}
+
+.as-attached-left {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.as-attached-right {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
+  .delete {
+    margin-left: 0;
+  }
+}
+
+.tag {
+  &.as-attached-right {
+    padding-left: 0;
   }
 }
 
