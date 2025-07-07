@@ -2,6 +2,7 @@
 .as-popdown {
   position: absolute;
   z-index: 1;
+  width: max-content;
 
   .grid {
     overflow-y: scroll;
