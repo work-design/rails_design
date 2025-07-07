@@ -125,7 +125,7 @@ export default class extends BaseController {
 
   focusEnd(event) {
     const ele = event.currentTarget
-    if (ele.type === 'text') {
+    if (['textarea', 'text'].includes(ele.type)) {
       ele.setSelectionRange(0, ele.value.length)
     }
   }
