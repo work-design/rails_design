@@ -8,7 +8,7 @@ module RailsDesign::IconHelper
 
   def svg_light_tag(name, **options)
     content_tag :svg, options do
-      content_tag :use, nil, 'href' => "/icons_light_1.svg##{name}"
+      content_tag :use, nil, 'href' => "#{asset_path 'icons_light.svg', host: request.host_with_port}##{name}"
     end
   end
 
