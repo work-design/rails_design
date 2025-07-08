@@ -5,13 +5,14 @@ export default class extends Controller {
 
   add(e) {
     const input = this.templateTarget.cloneNode(true)
-    input.removeAttribute('data-input-clone-target')
-    input.querySelectorAll('textarea, input').forEach(el => {
+    const inputs = input.querySelectorAll('textarea, input')
+    inputs.forEach(el => {
+      el.autofocus = false
       el.value = ''
-      el.focus()
     })
 
     this.templateTarget.after(input)
+    inputs[0].focus()
   }
 
   remove(e) {
