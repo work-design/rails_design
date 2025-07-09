@@ -11,6 +11,7 @@
   .box > &:last-child {
     padding-bottom: var(--bulma-media-spacing);
   }
+
   &.is-fit {
     width: fit-content;
   }
@@ -20,7 +21,7 @@
   }
 
   &.as-boxed {
-    padding: 1rem;
+    padding: 0.75rem;
   }
 
   &.as-boxed + &.as-boxed {
