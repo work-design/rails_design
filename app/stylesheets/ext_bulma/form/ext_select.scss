@@ -4,6 +4,13 @@
   }
 }
 
+.select-divider {
+  display: inline-flex;
+  height: 100%;
+  align-items: center;
+  padding-right: 4px;
+}
+
 .textarea {
   &.is-borderless {
     border-style: none;
