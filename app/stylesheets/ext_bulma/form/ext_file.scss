@@ -15,9 +15,9 @@ input[type="file"]::-webkit-file-upload-button {
 }
 
 .file {
-  &.as-boxed {
+  &.is-boxed {
     .file-cta {
-      height: 100%;
+      flex-grow: 1;
     }
 
     .file-icon {

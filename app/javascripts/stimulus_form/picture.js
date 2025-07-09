@@ -12,7 +12,6 @@ export default class extends Controller {
     input.disabled = true
     button.disabled = true
     Array.from(input.files).forEach(file => {
-      this.filenameTarget.innerText = file.name
       // todo file is image
       this.previewFile(file)
       let controller = new DirectUploadController(input, file)

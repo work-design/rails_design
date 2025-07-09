@@ -35,6 +35,17 @@
   &.is-36-h {
     height: 36px;
   }
+
+  &.as-hover {
+    .image:hover .image-overlay {
+      opacity: 1;
+      cursor: pointer;
+    }
+
+    .image:hover img {
+      transform: scale(1.1);
+    }
+  }
 }
 
 .is-avatar-center {
@@ -79,13 +90,4 @@
   align-items: center;
   opacity: 0;
   transition: opacity 0.3s ease;
-}
-
-.image:hover .image-overlay {
-  opacity: 1;
-  cursor: pointer;
-}
-
-.image:hover img {
-  transform: scale(1.1);
 }
