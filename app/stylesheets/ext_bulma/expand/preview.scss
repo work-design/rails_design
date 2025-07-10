@@ -41,5 +41,11 @@ dl.as-show {
       resize: none;
       overflow: hidden;
     }
+
+    &.no-wrap {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow-x: hidden;
+    }
   }
 }
