@@ -39,8 +39,8 @@ export default class extends Controller {
       if (countdown <= 0) {
         if (this.hasDisabledTarget) {
           this.disabledTarget.removeAttribute('disabled')
+          this.disabledTarget.innerText = this.getValue
         }
-        this.setCount(value, this.getValue)
         this.hiddenTargets.forEach(el => { el.remove() })
         clearInterval(this.timer)
       } else {
@@ -57,7 +57,7 @@ export default class extends Controller {
         this.countTarget.value = `${text} ${countdown}秒`
       }
     } else {
-      this.countTarget.innerText = countdown
+      this.countTarget.innerText = countdown.toString().padStart(this.timeValue.toString().length, '0')
     }
   }
 }
