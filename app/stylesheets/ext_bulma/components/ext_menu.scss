@@ -39,7 +39,7 @@
 }
 
 .pop-right {
-  //background-color: var(--admin-menu, #011);
+  background-color: var(--admin-menu, #011);
 
   .dropdown-trigger {
     width: 100%;
@@ -48,6 +48,8 @@
 
 .menu {
   &.as-wrap {
+    --bulma-menu-item-background-l-delta: -40%;
+
     flex-grow: 1;
     background-color: hsl(
       var(--bulma-menu-item-h),
