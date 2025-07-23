@@ -56,6 +56,10 @@
       var(--bulma-menu-item-s),
       calc(var(--bulma-menu-item-background-l) + var(--bulma-menu-item-background-l-delta))
     );
+
+    .menu-item {
+      border-radius: 0;
+    }
   }
 
   &.as-logo {
