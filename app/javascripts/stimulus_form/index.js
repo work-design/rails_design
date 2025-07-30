@@ -1,3 +1,6 @@
+import ButtonToController from './button-to'
+application.register('button-to', ButtonToController)
+
 import CheckController from './check'
 application.register('check', CheckController)
 

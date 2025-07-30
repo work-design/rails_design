@@ -35,18 +35,20 @@ export default class extends BaseController {
   }
 
   connect() {
-    const fields = Array.from(this.element.elements)
+    if (this.element.tagName === 'FORM') {
+      const fields = Array.from(this.element.elements)
 
-    fields.slice(0, -1).forEach((ele, index) => {
-      if (ele.enterKeyHint === 'next') {
-        ele.addEventListener('keydown', e => {
-          if (e.key === 'Enter') {
-            e.preventDefault()
-            fields[index + 1].focus()
-          }
-        })
-      }
-    })
+      fields.slice(0, -1).forEach((ele, index) => {
+        if (ele.enterKeyHint === 'next') {
+          ele.addEventListener('keydown', e => {
+            if (e.key === 'Enter') {
+              e.preventDefault()
+              fields[index + 1].focus()
+            }
+          })
+        }
+      })
+    }
   }
 
   defaultValid(input) {
