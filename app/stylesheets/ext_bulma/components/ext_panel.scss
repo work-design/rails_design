@@ -1,12 +1,6 @@
 @use 'bulma/sass/utilities/initial-variables' as iv;
 @use 'bulma/sass/utilities/css-variables' as cv;
 
-.panel-block.flex-direction-column {
-  .control + .control {
-    padding-top: 1em;
-  }
-}
-
 .panel {
   &.is-fit {
     width: fit-content;
