@@ -20,7 +20,8 @@ module SvgHelper
     builder = svg_builder
     add_symbols(builder.doc.css('defs').first)
 
-    Nokogiri::XML(builder.to_xml) {|doc| doc.default_xml.noblanks }.to_xml(NOKOGIRI_SAVE_OPTIONS.dup.merge(indent: 2))
+    r = Nokogiri::XML(builder.to_xml) {|doc| doc.default_xml.noblanks }.to_xml(NOKOGIRI_SAVE_OPTIONS.dup.merge(indent: 2))
+    Rails.root.join('app/assets/images', 'icons.svg').write r
   end
 
   def svg_parse(name, kind: 'regular')
