@@ -20,7 +20,7 @@ module SvgHelper
     icons_hash.each do |kind, icons|
       builder = svg_builder
       defs = builder.doc.css('defs').first
-      icons.each do |icon|
+      icons.uniq.sort.each do |icon|
         defs << svg_parse(icon, kind: kind)
       end
       r = Nokogiri::XML(builder.to_xml) {|doc| doc.default_xml.noblanks }.to_xml(NOKOGIRI_SAVE_OPTIONS.dup.merge(indent: 2))
