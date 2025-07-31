@@ -17,11 +17,15 @@ module SvgHelper
   end
 
   def builder
-    builder = svg_builder
-    add_symbols(builder.doc.css('defs').first)
-
-    r = Nokogiri::XML(builder.to_xml) {|doc| doc.default_xml.noblanks }.to_xml(NOKOGIRI_SAVE_OPTIONS.dup.merge(indent: 2))
-    Rails.root.join('app/assets/images', 'icons.svg').write r
+    icons_hash.each do |kind, icons|
+      builder = svg_builder
+      defs = builder.doc.css('defs').first
+      icons.each do |icon|
+        defs << svg_parse(icon, kind: kind)
+      end
+      r = Nokogiri::XML(builder.to_xml) {|doc| doc.default_xml.noblanks }.to_xml(NOKOGIRI_SAVE_OPTIONS.dup.merge(indent: 2))
+      Rails.root.join('app/assets/images', "icons_#{kind}.svg").write r
+    end
   end
 
   def svg_parse(name, kind: 'regular')
@@ -43,11 +47,7 @@ module SvgHelper
   end
 
   def add_symbols(defs)
-    icons_hash.each do |kind, icons|
-      icons.each do |icon|
-        defs << svg_parse(icon, kind: kind)
-      end
-    end
+
   end
 
 end
