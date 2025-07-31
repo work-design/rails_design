@@ -24,14 +24,4 @@ module RailsDesign::IconHelper
     "data:image/svg+xml;base64,#{base64_svg}"
   end
 
-  def svg_builder(name, ns: { 'svg' => 'http://www.w3.org/2000/svg' })
-    svg_content = Rails.application.assets.resolver.read("#{name}.svg")
-    svg = Nokogiri::XML(svg_content)
-
-    [
-      svg.xpath('//svg:path', ns)[0].to_xml,
-      svg.xpath('//svg:svg/@viewBox', ns)[0].text
-    ]
-  end
-
 end
