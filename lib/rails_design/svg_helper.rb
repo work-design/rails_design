@@ -5,7 +5,13 @@ module SvgHelper
   extend self
 
   def icons_hash
-    Rails::Engine.subclasses.each_with_object({}) do |engine, h|
+    if Rails.root.join('config/icons.yml').exist?
+      init_hash = YAML.load_file(Rails.root.join('config/icons.yml'))
+    else
+      init_hash = {}
+    end
+
+    Rails::Engine.subclasses.each_with_object(init_hash) do |engine, h|
       icon_path = engine.root.join('config/icons.yml')
       if icon_path.exist?
         YAML.safe_load_file(icon_path).each do |k, v|
@@ -44,10 +50,6 @@ module SvgHelper
         svg.defs {}
       end
     end
-  end
-
-  def add_symbols(defs)
-
   end
 
 end
