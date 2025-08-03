@@ -9,7 +9,8 @@ svg.icon {
     width: 1.5rem;
   }
 
-  & + span {
+  & + span,
+  & + strong {
     vertical-align: middle;
   }
 }
