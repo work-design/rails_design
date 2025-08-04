@@ -47,15 +47,14 @@
 }
 
 .menu {
-  &.as-wrap {
-    --bulma-menu-item-background-l-delta: -40%;
+  background-color: hsl(
+    var(--bulma-menu-item-h),
+    var(--bulma-menu-item-s),
+    calc(var(--bulma-menu-item-background-l) + var(--bulma-menu-item-background-l-delta))
+  );
 
+  &.as-wrap {
     flex-grow: 1;
-    background-color: hsl(
-      var(--bulma-menu-item-h),
-      var(--bulma-menu-item-s),
-      calc(var(--bulma-menu-item-background-l) + var(--bulma-menu-item-background-l-delta))
-    );
 
     .menu-item {
       border-radius: 0;
