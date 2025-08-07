@@ -1,0 +1,41 @@
+import { Controller } from '@hotwired/stimulus'
+
+export default class extends Controller {
+  static targets = ['trigger']
+  static values = {
+    openClass: String,
+    closeClass: String,
+  }
+
+  connect() {
+    this.element.addEventListener('mouseover', () => {
+      this.open()
+    })
+    this.element.addEventListener('mouseout', () => {
+      this.close()
+    })
+  }
+
+  open() {
+    this.element.classList.add('is-active')
+  }
+
+  close() {
+    this.element.classList.remove('is-active')
+  }
+
+  enter(event) {
+    const ele = event.currentTarget
+    this.element.querySelectorAll('.cell').forEach(el => {
+      if (el.tagName !== 'A') {
+        el = el.firstElementChild
+      }
+      if (el.classList.contains('is-active')) {
+        el.classList.remove('is-active')
+      }
+    })
+    ele.classList.add('is-active')
+    this.element.classList.remove('is-active')
+  }
+
+}

@@ -7,6 +7,9 @@ application.register('auto-active', AutoActiveController)
 import MenuController from './bulma-menu'
 application.register('menu', MenuController)
 
+import MenuPopupController from './bulma-menu-popup'
+application.register('menu-popup', MenuPopupController)
+
 import ModalController from './bulma-modal'
 application.register('modal', ModalController)
 
