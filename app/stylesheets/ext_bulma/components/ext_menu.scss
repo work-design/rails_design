@@ -38,6 +38,10 @@
   height: calc(100vh - 60px);
 }
 
+.menu-item > .pop-right {
+  width: 100%;
+}
+
 .pop-right {
   .dropdown-trigger {
     width: 100%;
