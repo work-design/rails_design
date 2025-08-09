@@ -44,6 +44,11 @@
   .dropdown-menu {
     top: 0;
   }
+
+  .dropdown-content {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 }
 
 .pop-right {
