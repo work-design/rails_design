@@ -40,6 +40,10 @@
 
 .menu-item > .pop-right {
   width: 100%;
+
+  .dropdown-menu {
+    top: 0;
+  }
 }
 
 .pop-right {
