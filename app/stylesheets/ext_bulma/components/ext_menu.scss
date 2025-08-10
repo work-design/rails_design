@@ -41,6 +41,9 @@
 .menu-item > .pop-right {
   width: 100%;
 
+  --bulma-scheme-main: hsl(var(--bulma-scheme-h), var(--bulma-scheme-s), 80%);
+
+
   .dropdown-menu {
     top: 0;
   }
