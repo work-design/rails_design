@@ -55,6 +55,10 @@
 .pop-right {
   .dropdown-trigger {
     width: 100%;
+
+    .icon {
+      --bulma-icon-dimensions-small: 1.5rem;
+    }
   }
 }
 
