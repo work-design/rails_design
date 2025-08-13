@@ -26,15 +26,19 @@ export default class extends Controller {
 
   enter(event) {
     const ele = event.currentTarget
+    ele.classList.add('is-active')
+
     this.element.querySelectorAll('.cell').forEach(el => {
-      if (el.tagName !== 'A') {
-        el = el.firstElementChild
-      }
       if (el.classList.contains('is-active')) {
         el.classList.remove('is-active')
       }
     })
-    ele.classList.add('is-active')
+    Array.from(this.element.closest('.menu-list').children).forEach(el => {
+      if (el.classList.contains('is-active')) {
+        el.classList.remove('is-active')
+      }
+    })
+    this.element.closest('.menu-item').classList.add('is-active')
     this.element.classList.remove('is-active')
   }
 
