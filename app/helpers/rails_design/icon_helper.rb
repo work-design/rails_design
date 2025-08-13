@@ -1,7 +1,7 @@
 module RailsDesign::IconHelper
 
   def svg_tag(name, kind: 'regular', **options)
-    content_tag :svg, options.with_defaults(class: 'icon') do
+    content_tag :svg, options.with_defaults(class: 'icon is-small') do
       content_tag :use, nil, 'href' => "#{asset_path "icons_#{kind}.svg", host: request.host_with_port}##{name}"
     end
   end
