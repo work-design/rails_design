@@ -12,4 +12,17 @@
     top: auto;
     left: 100%;
   }
+
+  .dropdown-trigger {
+    text-align: center;
+
+    svg {
+      font-size: 2em;
+    }
+    strong {
+      margin-top: 5px;
+      display: block;
+      font-size: 0.75rem;
+    }
+  }
 }
