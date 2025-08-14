@@ -68,6 +68,7 @@
   &.as-wrap {
     flex-grow: 1;
     overflow-y: scroll;
+    scrollbar-width: none;
 
     .menu-item {
       border-radius: 0;
