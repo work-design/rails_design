@@ -18,6 +18,7 @@ export default class extends Controller {
 
   open() {
     this.element.classList.add('is-active')
+    this.element.lastElementChild.style.top = `${this.element.offsetTop}px`
   }
 
   close() {

@@ -42,10 +42,6 @@
   --bulma-scheme-main: hsl(var(--bulma-menu-item-h), var(--bulma-menu-item-s), 95%);
   width: 100%;
 
-  .dropdown-menu {
-    top: 0;
-  }
-
   .dropdown-content {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -71,6 +67,7 @@
 
   &.as-wrap {
     flex-grow: 1;
+    overflow-y: scroll;
 
     .menu-item {
       border-radius: 0;

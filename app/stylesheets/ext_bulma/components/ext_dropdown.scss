@@ -5,24 +5,33 @@
   margin-left: 0.75rem;
 }
 
-.dropdown.pop-right {
-  padding: 0.5rem 0.75rem;
+.dropdown {
+  &.pop-right {
+    padding: 0.5rem 0.75rem;
 
-  .dropdown-menu {
-    padding-top: 0;
-    top: auto;
-    left: 100%;
+    .dropdown-menu {
+      position: fixed;
+      left: 90px;
+      padding-top: 0;
+    }
+
+    .dropdown-trigger {
+      text-align: center;
+
+      svg {
+        font-size: 2em;
+      }
+
+      div {
+        margin-top: 5px;
+        font-size: 0.9rem;
+      }
+    }
   }
 
-  .dropdown-trigger {
-    text-align: center;
-
-    svg {
-      font-size: 2em;
-    }
-    div {
-      margin-top: 5px;
-      font-size: 0.9rem;
+  &.popup-right {
+    .dropdown-menu {
+      left: 100%;
     }
   }
 }
