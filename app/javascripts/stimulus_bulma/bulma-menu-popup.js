@@ -27,7 +27,7 @@ export default class extends Controller {
   enter(event) {
     const ele = event.currentTarget
 
-    this.element.querySelectorAll('.cell').forEach(el => {
+    this.element.closest('.menu-list').querySelectorAll('.cell').forEach(el => {
       if (el.classList.contains('is-active')) {
         el.classList.remove('is-active')
       }
