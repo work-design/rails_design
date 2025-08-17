@@ -2,6 +2,10 @@ dl.as-show {
   padding: var(--bulma-block-spacing);
   margin-bottom: var(--bulma-block-spacing);
 
+  &.grid {
+    column-gap: 3rem;
+  }
+
   & > div,
   & > a {
     display: flex;
