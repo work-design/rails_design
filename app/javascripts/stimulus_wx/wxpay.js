@@ -22,24 +22,24 @@ export default class extends Controller {
     })
 
     if (this.autoValue) {
-      this.chooseWXPay()
+      if (typeof WeixinJSBridge === 'undefined') {
+        document.addEventListener('WeixinJSBridgeReady', this.onBridgeReady, false)
+      } else {
+        this.onBridgeReady()
+      }
     }
   }
 
-  chooseWXPay() {
+  onBridgeReady() {
     wx.ready(() => {
-      wx.chooseWXPay({
-        ...this.paramsValue,
-        success: res => {
-          console.debug('chooseWXPay success', res)
-          if (this.hasLoadTarget) {
-            this.loadTarget.style.removeProperty('display')
+      WeixinJSBridge.invoke(
+        'getBrandWCPayRequest',
+        this.optionsValue,
+        res => {
+          if (res.err_msg === 'get_brand_wcpay_request:ok') {
+            alert('pay success')
           }
-        },
-        error: e => {
-          alert(JSON.stringify(e))
-        }
-      })
+        })
     })
   }
 
