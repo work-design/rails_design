@@ -25,7 +25,7 @@ export default class extends BaseController {
         this.post(this.urlValue, JSON.stringify(res))
       },
       fail: res => {
-        weixin_fetch({ success: this.openAddress, controller: this })
+        alert(JSON.stringify(res))
       }
     })
   }
