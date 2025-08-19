@@ -5,9 +5,6 @@ window.Idiomorph = Idiomorph
 import './dataset'
 import './utils'
 
-import './wxwork_script'
-import './weixin_script'
-
 import '../stimulus_base'
 import '../stimulus_com'
 import '../stimulus_channels'

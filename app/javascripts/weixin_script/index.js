@@ -50,15 +50,15 @@ const weixin_fetch = function({ url = location.href, success, ...args } = {}) {
 }
 window.weixin_fetch = weixin_fetch
 
-const weixin_script = document.getElementById('weixin_script')
+const index = document.getElementById('weixin_script')
 const wxwork_script = document.getElementById('wxwork_script')
 
-if (weixin_script && wxwork_script) {
+if (index && wxwork_script) {
   wxwork_script.addEventListener('load', event => {
     wxwork_fetch()
   })
-} else if (weixin_script) {
-  weixin_script.addEventListener('load', event => {
+} else if (index) {
+  index.addEventListener('load', event => {
     weixin_fetch()
   })
 }
