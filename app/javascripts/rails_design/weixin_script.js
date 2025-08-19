@@ -8,7 +8,7 @@ const weixin_fetch = function({ url = location.href, success, ...args } = {}) {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({url: url})
+      body: JSON.stringify({ url: url })
     }).then(response => {
       return response.json()
     }).then(body => {
@@ -22,7 +22,7 @@ const weixin_fetch = function({ url = location.href, success, ...args } = {}) {
         openTagList: body['open_tags']
       }
       if (body['beta']) {
-        Object.assign(config, {beta: true})
+        Object.assign(config, { beta: true })
       }
       if (body['debug']) {
         alert('body is:' + JSON.stringify(config))
