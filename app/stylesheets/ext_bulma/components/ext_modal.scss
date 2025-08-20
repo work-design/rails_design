@@ -10,6 +10,12 @@
   }
 }
 
+.modal-card-body {
+  &.is-narrow {
+    --bulma-modal-card-body-padding: 0.75rem;
+  }
+}
+
 .modal.as-preview {
   justify-content: flex-start;
 
