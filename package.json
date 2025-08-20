@@ -30,8 +30,7 @@
     "highlight.js": "^11.5.1",
     "idiomorph": "^0.3.0",
     "luxon": "^3.5.0",
-    "sortablejs": "^1.15.2",
-    "weui": "^2.6.7"
+    "sortablejs": "^1.15.2"
   },
   "devDependencies": {
     "jest": "^27.0.6"
