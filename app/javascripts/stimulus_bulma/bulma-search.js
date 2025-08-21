@@ -20,11 +20,11 @@ export default class extends Controller {
   }
 
   cancel(e) {
+    Turbo.visit(location.pathname, { action: 'replace' })
+
     const el = e.currentTarget
     el.classList.add('display-none')
     this.inputTarget.blur()
-
-    Turbo.visit(location.href, { action: 'replace' })
   }
 
 }
