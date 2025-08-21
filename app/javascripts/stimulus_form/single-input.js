@@ -25,9 +25,10 @@ export default class extends BaseController {
     }
   }
 
-  prepareArea() {
+  prepareArea(e) {
     this.target.name = this.inputTarget.name
     this.target.value = this.inputTarget.value
+    console.debug(document.activeElement)
 
     if (visualViewport.height < innerHeight) {
       this.singleFormOutletElement.classList.remove('invisible')
@@ -50,9 +51,9 @@ export default class extends BaseController {
     }
   }
 
-  prepare() {
+  prepare(e) {
     this.target.type = this.inputTarget.type
-    this.prepareArea()
+    this.prepareArea(e)
   }
 
   get target() {
