@@ -1,7 +1,7 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static targets = ['input', 'label']
+  static targets = ['input', 'cancel']
 
   connect() {
     if (this.hasInputTarget && this.inputTarget.value.length > 0) {
@@ -10,15 +10,8 @@ export default class extends Controller {
   }
 
   focus() {
-    this.element.classList.add('weui-search-bar_focusing')
+    this.cancelTarget.classList.remove('display-none')
     this.inputTarget.focus()
-  }
-
-  doSearch(element) {
-    let ele = element.currentTarget
-    if (ele.value.length) {
-
-    }
   }
 
   clear() {
@@ -26,10 +19,12 @@ export default class extends Controller {
     this.inputTarget.focus()
   }
 
-  cancel() {
-    Turbo.visit(location.pathname, { action: 'replace' })
-    this.element.classList.remove('weui-search-bar_focusing')
+  cancel(e) {
+    const el = e.currentTarget
+    el.classList.add('display-none')
     this.inputTarget.blur()
+
+    Turbo.visit(location.href, { action: 'replace' })
   }
 
 }
