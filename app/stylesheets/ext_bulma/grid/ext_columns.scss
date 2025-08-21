@@ -16,11 +16,6 @@ main.columns {
   }
 }
 
-.columns.is-flex-direction-column.is-variable > .column {
-  padding-top: var(--columnGap);
-  padding-bottom: var(--columnGap);
-}
-
 .columns {
   &.as-border > .column + .column {
     border-left: 1px solid rgba(0, 0, 0, 0.1);
