@@ -1,9 +1,6 @@
 import MaskController from './weui-mask'
 application.register('mask', MaskController)
 
-import SearchController from './weui-search'
-application.register('search', SearchController)
-
 import WeuiActionsheetController from './weui-actionsheet'
 application.register('weui-actionsheet', WeuiActionsheetController)
 

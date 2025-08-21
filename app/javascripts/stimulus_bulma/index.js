@@ -19,5 +19,8 @@ application.register('navbar', NavbarController)
 import PopupController from './bulma-popup'
 application.register('popup', PopupController)
 
+import SearchController from './bulma-search'
+application.register('search', SearchController)
+
 import SkeletonController from './bulma-skeleton'
 application.register('skeleton', SkeletonController)
