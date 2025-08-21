@@ -18,6 +18,10 @@ export default class extends Controller {
     checkbox.form.requestSubmit()
   }
 
+  submit(e) {
+    e.currentTarget.form.requestSubmit()
+  }
+
   toggleOn(checkbox) {
     if (this.onlyValue) {
       this.toggleOffOther(checkbox)
