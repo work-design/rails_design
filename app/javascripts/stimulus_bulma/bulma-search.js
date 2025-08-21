@@ -5,13 +5,8 @@ export default class extends Controller {
 
   connect() {
     if (this.hasInputTarget && this.inputTarget.value.length > 0) {
-      this.focus()
+      this.cancelTarget.classList.remove('display-none')
     }
-  }
-
-  focus() {
-    this.cancelTarget.classList.remove('display-none')
-    this.inputTarget.focus()
   }
 
   clear() {
