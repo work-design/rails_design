@@ -1,3 +1,6 @@
+import AssignController from './assign'
+application.register('assign', AssignController)
+
 import ButtonToController from './button-to'
 application.register('button-to', ButtonToController)
 
