@@ -1,8 +1,7 @@
 @use 'bulma/sass/themes/light';
 @use 'bulma/sass/themes/setup';
 
-:root,
-.theme-light {
+:root {
   @include light.light-theme;
 }
 
