@@ -33,11 +33,11 @@ export default class extends AudioPlayerController {
     const ele = e.currentTarget
     if (this.mediaTarget.played.length === 0 || this.mediaTarget.paused) {
       this.mediaTarget.play()
-      ele.children[0].classList.replace('fa-play', 'fa-pause')
+      this.changeSvg(ele.children[0], 'pause')
       this.coverTarget.style.animationPlayState = 'running'
     } else {
       this.mediaTarget.pause()
-      ele.children[0].classList.replace('fa-pause', 'fa-play')
+      this.changeSvg(ele.children[0], 'play')
       this.coverTarget.style.animationPlayState = 'paused'
     }
   }

@@ -1,6 +1,6 @@
-import { Controller } from '@hotwired/stimulus'
+import SvgController from '../svg_controller'
 
-export default class extends Controller {
+export default class extends SvgController {
   static targets = ['item']
 
   collapse(event) {
@@ -13,7 +13,7 @@ export default class extends Controller {
       el = el.nextElementSibling
     }
 
-    ele.classList.replace('fa-caret-down', 'fa-caret-right')
+    this.changeSvg(ele, 'caret-right')
     ele.dataset['action'] = 'click->tree#expand'
   }
 
@@ -27,7 +27,7 @@ export default class extends Controller {
       el = el.nextElementSibling
     }
 
-    ele.classList.replace('fa-caret-right', 'fa-caret-down')
+    this.changeSvg(ele, 'caret-down')
     ele.dataset['action'] = 'click->tree#collapse'
   }
 

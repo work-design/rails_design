@@ -1,6 +1,6 @@
-import { Controller } from '@hotwired/stimulus'
+import SvgController from '../svg_controller'
 
-export default class extends Controller {
+export default class extends SvgController {
   static values = {
     auto: String,
     url: String,
