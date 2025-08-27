@@ -1,6 +1,6 @@
-import { Controller } from '@hotwired/stimulus'
+import SvgController from '../svg_controller'
 
-export default class extends Controller {
+export default class extends SvgController {
   static targets = ['item', 'checkbox']
   static values = {
     hide: Boolean
@@ -42,7 +42,7 @@ export default class extends Controller {
     }
 
     this.collapseCheckbox()
-    ele.classList.replace('fa-caret-down', 'fa-caret-right')
+    this.changeSvg(ele, 'caret-right')
     ele.dataset['action'] = 'click->tree-remote#expand'
   }
 
@@ -50,7 +50,7 @@ export default class extends Controller {
     const ele = event.currentTarget
     ele.parentNode.removeEventListener('click', this.disableLink)
 
-    ele.classList.replace('fa-caret-right', 'fa-caret-down')
+    this.changeSvg(ele, 'caret-down')
     ele.dataset['action'] = 'click->tree-remote#collapse'
   }
 
