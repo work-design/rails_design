@@ -3,7 +3,7 @@
     place-items: center;
 
     .cell {
-      i {
+      svg {
         font-size: 1.5em;
         color: var(--bulma-primary);
       }
@@ -15,7 +15,8 @@
         font-size: 0.8em;
         color: var(--bulma-grey);
       }
-      i + span, strong, div {
+      svg + span, strong,
+      div + span, strong {
         margin-top: 0.25rem;
       }
     }
