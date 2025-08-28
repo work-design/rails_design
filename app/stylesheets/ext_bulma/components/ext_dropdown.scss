@@ -6,7 +6,8 @@
 }
 
 .dropdown {
-  &.pop-right {
+  &.pop-right,
+  &.pop-right-bottom {
     padding: 0.5rem 0.75rem;
 
     .dropdown-menu {
@@ -26,6 +27,13 @@
         margin-top: 5px;
         font-size: 0.9rem;
       }
+    }
+  }
+
+  &.pop-right-bottom {
+    .dropdown-menu {
+      bottom: 0;
+      top: auto;
     }
   }
 
