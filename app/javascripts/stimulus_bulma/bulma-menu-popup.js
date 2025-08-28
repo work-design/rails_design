@@ -18,7 +18,17 @@ export default class extends Controller {
 
   open() {
     this.element.classList.add('is-active')
-    this.element.lastElementChild.style.top = `${this.element.offsetTop - this.element.parentElement.parentElement.parentElement.scrollTop}px`
+    const dropdownMenu = this.element.lastElementChild
+    const menu = this.element.parentElement.parentElement.parentElement
+    const top = this.element.offsetTop - menu.scrollTop // 当前元素的上边距离页面顶部的距离
+    const height = dropdownMenu.firstElementChild.clientHeight // 当前弹出框的实际高度
+
+    if (top + height > innerHeight) {
+      dropdownMenu.style.top = 'auto'
+      dropdownMenu.style.bottom = '0'
+    } else {
+      dropdownMenu.style.top = `${top}px`
+    }
   }
 
   close() {
