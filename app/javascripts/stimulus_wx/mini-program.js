@@ -11,9 +11,16 @@ export default class extends Controller {
   }
 
   connect() {
+    const weixin_script = document.getElementById('weixin_script')
     if (window.__wxjs_environment === 'miniprogram') {
       if (this.directValue) {
-        this.navTo()
+        if (typeof wx === 'undefined') {
+          weixin_script.addEventListener('load', () => {
+            this.navTo()
+          })
+        } else {
+          this.navTo()
+        }
       }
     }
   }
