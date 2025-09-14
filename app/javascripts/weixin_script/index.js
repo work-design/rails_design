@@ -44,7 +44,6 @@ const weixin_fetch = function({ url = location.href, success, ...args } = {}) {
     })
   })
 }
-window.weixin_fetch = weixin_fetch
 
 const weixin_script = document.getElementById('weixin_script')
 const wxwork_script = document.getElementById('wxwork_script')

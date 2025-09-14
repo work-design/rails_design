@@ -1,4 +1,4 @@
-import './weixin_script'
+import '../weixin_script'
 const wxwork_fetch = function({ url = location.href, success, ...args } = {}) {
   weixin_fetch({
     url: url,
