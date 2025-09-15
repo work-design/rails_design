@@ -18,6 +18,13 @@
   text-decoration: line-through;
 }
 
+.truncate {
+  display: block;
+  white-space: nowrap;
+  overflow-x: hidden !important;
+  text-overflow: ellipsis;
+}
+
 del {
   text-decoration: none;
   background: linear-gradient(to left top, transparent 47.75%, currentColor 49.5%, currentColor 50.5%, transparent 52.25%);
