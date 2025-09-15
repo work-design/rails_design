@@ -31,13 +31,18 @@
       top: 0;
     }
 
+    .modal-card-title {
+      line-height: 22.5px;
+    }
+
     .modal-card-head {
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
       border-start-start-radius: 0;
       border-start-end-radius: 0;
     }
 
     .modal-card-body {
-      background-color: #ededed;
       flex-grow: 0;
     }
   }
