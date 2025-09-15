@@ -3,6 +3,16 @@ body {
   height: 100%;
 }
 
+.box.as-bar {
+  padding-top: 0;
+}
+
+.modal.is-mobile-top {
+  .modal-card-head {
+    padding-top: 0;
+  }
+}
+
 .has-page-centered {
   display: flex;
   flex-direction: column;
