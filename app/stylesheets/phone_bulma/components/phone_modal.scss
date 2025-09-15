@@ -18,4 +18,23 @@
       padding-bottom: max(env(safe-area-inset-bottom), var(--bulma-modal-card-head-padding));
     }
   }
+
+  &.is-mobile-bottom {
+    .modal-card-foot {
+      border-end-start-radius: 0;
+      border-end-end-radius: 0;
+      padding-bottom: max(env(safe-area-inset-bottom), var(--bulma-modal-card-head-padding));
+    }
+  }
+
+  &.is-mobile-top {
+    .modal-card {
+      top: 0;
+    }
+
+    .modal-card-head {
+      border-start-start-radius: 0;
+      border-start-end-radius: 0;
+    }
+  }
 }
