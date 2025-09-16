@@ -1,13 +1,3 @@
-.has-animate-scale {
-  transition: height;
-  transition-duration: 2s;
-  transition-timing-function: ease;
-}
-
-.has-animate-scale:hover {
-  transform: translate3d(0, -2%, 0);
-}
-
 .has-animate-color {
   transition-property: color, background-color;
   transition-duration: 0.3s;
@@ -15,19 +5,4 @@
 
 .has-animate-background {
 
-}
-
-.has-fade-start {
-  opacity: 0;
-  transform: translate3d(0, 100px, 0);
-}
-
-.has-fade-animate {
-  transition-property: opacity, transform;
-  transition-duration: 0.5s;
-}
-
-.has-fade-end {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
 }

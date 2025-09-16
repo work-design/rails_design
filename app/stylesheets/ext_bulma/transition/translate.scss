@@ -1,0 +1,24 @@
+.has-animate-scale {
+  transition-property: height;
+  transition-duration: 2s;
+  transition-timing-function: ease;
+}
+
+.has-animate-scale:hover {
+  transform: translateY(-2%);
+}
+
+.has-fade-start {
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.has-fade-end {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.has-fade-animate {
+  transition-property: opacity, transform;
+  transition-duration: 0.5s;
+}

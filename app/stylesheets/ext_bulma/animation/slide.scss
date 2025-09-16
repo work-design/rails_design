@@ -7,6 +7,15 @@
   }
 }
 
+@keyframes slideDownFromTop {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 @keyframes slideDown {
   from {
     transform: translateY(0);
@@ -28,3 +37,8 @@
   animation-fill-mode: forwards;
 }
 
+.has-animate-slide-top-down {
+  animation-name: slideDownFromTop;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
