@@ -17,6 +17,11 @@
   &.is-small.is-radius {
     border-radius: 5px;
   }
+
+  .icon.is-small {
+    height: var(--bulma-icon-dimensions-small);
+    width: var(--bulma-icon-dimensions-small);
+  }
 }
 
 .buttons {
