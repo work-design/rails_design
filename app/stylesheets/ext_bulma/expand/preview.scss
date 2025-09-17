@@ -64,5 +64,17 @@ dl.as-show {
       text-overflow: ellipsis;
       overflow-x: hidden;
     }
+
+    &.has-select::after {
+      display: inline-block;
+      content: '';
+      font-size: 15px;
+      height: 1rem;
+      width: 1rem;
+      background-image: url(icons/chevron-right.svg);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
   }
 }
