@@ -55,9 +55,6 @@ application.register('qq-map', QqMapController)
 import SearchInputController from './search-input'
 application.register('search-input', SearchInputController)
 
-import SingleFormController from './single-form'
-application.register('single-form', SingleFormController)
-
 import SingleInputController from './single-input'
 application.register('single-input', SingleInputController)
 
