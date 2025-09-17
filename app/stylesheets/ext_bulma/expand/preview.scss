@@ -34,10 +34,15 @@ dl.as-show {
       float: right;
     }
 
-    input, textarea {
+    input,
+    textarea {
       text-align: right;
       font-size: var(--bulma-body-font-size);
       width: 100%;
+    }
+
+    input:not(:focus),
+    textarea:not(:focus) {
       border: none;
     }
 
