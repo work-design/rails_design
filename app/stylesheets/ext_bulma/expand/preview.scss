@@ -36,6 +36,7 @@ dl.as-show {
 
     input,
     textarea {
+      padding-inline: 0;
       text-align: right;
       font-size: var(--bulma-body-font-size);
       width: 100%;
@@ -43,7 +44,12 @@ dl.as-show {
 
     input:not(:focus),
     textarea:not(:focus) {
-      border: none;
+      border-color: transparent;
+    }
+
+    input:focus,
+    textarea:focus {
+      padding-inline: 0.5rem;
     }
 
     textarea {
