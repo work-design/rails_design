@@ -8,6 +8,7 @@ export default class extends Controller {
     if (ele.tagName === 'TEXTAREA' && ele.enterKeyHint === 'done') {
       ele.addEventListener('keydown', e => {
         if (e.key === 'Enter') {
+          e.preventDefault()
           ele.form.requestSubmit()
         }
       })
