@@ -30,26 +30,23 @@ export default class extends BaseController {
     this.target.value = this.inputTarget.value
     console.debug(document.activeElement)
 
-    if (visualViewport.height < innerHeight) {
-      this.singleFormOutletElement.classList.remove('invisible')
-      this.target.focus({ preventScroll: true })
-    } else {
-      visualViewport.addEventListener('resize', () => {
-        console.debug('resize', visualViewport.height, innerHeight)
-        if (visualViewport.height < innerHeight) {
-          this.singleFormOutletElement.style.top = `${visualViewport.height - this.singleFormOutletElement.clientHeight}px`
-          this.singleFormOutletElement.classList.remove('invisible')
-          this.target.focus({ preventScroll: true })
+    const handleResize = () => {
+      if (visualViewport.height < innerHeight) {
+        this.singleFormOutletElement.style.top = `${visualViewport.height - this.singleFormOutletElement.clientHeight}px`
+        this.singleFormOutletElement.classList.remove('invisible')
+        this.target.focus({ preventScroll: true })
+      } else {
+        this.singleFormOutletElement.classList.add('invisible')
+        visualViewport.removeEventListener('resize', handleResize)
+      }
 
-          visualViewport.addEventListener('resize', () => {
-            this.singleFormOutletElement.classList.add('invisible')
-          }, { once: true })
-        } else if (visualViewport.height === innerHeight) {
-          this.singleFormOutletElement.classList.add('invisible')
-        }
-      }, { once: true })
+      console.debug('Resize detected:', visualViewport.height, innerHeight)
     }
+
+    visualViewport.addEventListener('resize', handleResize)
   }
+
+
 
   prepare(e) {
     this.target.type = this.inputTarget.type
