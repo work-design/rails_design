@@ -2,7 +2,7 @@ import { Controller } from '@hotwired/stimulus'
 
 // 底部表单
 export default class extends Controller {
-  static targets = ['input']
+  static targets = ['input', 'select']
 
   inputTargetConnected(ele) {
     ele.removeAttribute('id')
@@ -17,6 +17,12 @@ export default class extends Controller {
       if (['textarea', 'text'].includes(ele.type)) {
         ele.setSelectionRange(ele.value.length, ele.value.length)
       }
+    })
+  }
+
+  selectTargetConnected(ele) {
+    ele.addEventListener('click', e => {
+      ele.form.requestSubmit()
     })
   }
 
