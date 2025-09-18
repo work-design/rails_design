@@ -37,6 +37,9 @@ application.register('input', InputController)
 import InputCloneController from './input-clone'
 application.register('input-clone', InputCloneController)
 
+import InputSelectController from './input-select'
+application.register('input-select', InputSelectController)
+
 import KeyboardController from './keyboard'
 application.register('keyboard', KeyboardController)
 
