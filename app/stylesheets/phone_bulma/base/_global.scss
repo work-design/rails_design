@@ -21,7 +21,8 @@ main {
   & > .box:first-child:not(.as-bar),
   & > .media:first-child,
   & > .fixed-grid:first-child,
-  & > .as-show:first-child {
+  & > .as-show:first-child,
+  & > #form_wrapper:first-child {
     margin-top: 0.75rem;
   }
 }
