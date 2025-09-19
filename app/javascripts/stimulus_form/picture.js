@@ -14,7 +14,7 @@ export default class extends Controller {
     Array.from(input.files).forEach(file => {
       // todo file is image
       this.previewFile(file)
-      let controller = new DirectUploadController(input, file)
+      const controller = new DirectUploadController(input, file)
       controller.start(error => {
         console.error('upload,er', error)
         input.disabled = false
@@ -56,12 +56,11 @@ export default class extends Controller {
     const cloned = template.cloneNode(true)
     cloned.classList.remove('display-none')
 
-    let img = cloned.querySelector('img')
-    img.src = window.URL.createObjectURL(file) //创建一个object URL，并不是你的本地路径
-    img.onload = function(e) {
-      console.debug(e)
-      window.URL.revokeObjectURL(img.src) //图片加载后，释放object URL
-    }
+    const img = cloned.querySelector('img')
+    img.src = window.URL.createObjectURL(file) // 创建一个object URL，并不是你的本地路径
+    img.addEventListener('load', () => {
+      window.URL.revokeObjectURL(img.src) // 图片加载后，释放object URL
+    })
 
     template.after(cloned)
   }
@@ -73,7 +72,7 @@ export default class extends Controller {
     }
     const fileInput = this.element.querySelector('input[type=file]')
     if (fileInput) {
-      input.disabled = false
+      fileInput.disabled = false
     }
   }
 
