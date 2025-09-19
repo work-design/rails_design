@@ -66,14 +66,15 @@ export default class extends Controller {
     template.after(cloned)
   }
 
-  removePreview(event) {
-    const wrap = event.currentTarget.parentNode.parentNode
-    wrap.style.display = 'none'
-    wrap.querySelector('input').remove()
-    const up = this.uploadDivTarget
-    const input = up.querySelector('input[type=file]')
-    up.style.display = 'block'
-    input.disabled = false
+  removePreview() {
+    const valueInput = this.element.querySelector('input[type=hidden]')
+    if (valueInput) {
+      valueInput.remove()
+    }
+    const fileInput = this.element.querySelector('input[type=file]')
+    if (fileInput) {
+      input.disabled = false
+    }
   }
 
 }
