@@ -25,32 +25,6 @@ export default class extends Controller {
     input.value = null
   }
 
-  dropFile(event) {
-    event.preventDefault()
-    event.stopPropagation()
-    for (var i = 0; i < event.dataTransfer.files.length; i++) {
-      var file = e.dataTransfer.files[i]
-      console.debug('drop文件', file.name)
-    }
-  }
-
-  pasteFile(event) {
-    const result = false
-    const clipboardData = event.clipboardData
-    let items
-
-    if (typeof clipboardData === 'object') {
-      items = clipboardData.items || clipboardData.files || []
-
-      for (let i = 0; i < items.length; i++) {
-        let item = items[i]
-        console.debug('粘贴', item)
-      }
-    }
-
-    if (result) { event.preventDefault() }
-  }
-
   previewFile(file) {
     const template = this.previewTarget
     const cloned = template.cloneNode(true)
