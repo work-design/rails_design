@@ -54,7 +54,7 @@ export default class extends Controller {
   previewFile(file) {
     const template = this.previewTarget
     const cloned = template.cloneNode(true)
-    cloned.style.display = 'block'
+    cloned.classList.remove('display-none')
 
     let img = cloned.querySelector('img')
     img.src = window.URL.createObjectURL(file) //创建一个object URL，并不是你的本地路径
