@@ -65,15 +65,19 @@ export default class extends Controller {
     template.after(cloned)
   }
 
-  removePreview() {
+  removePreview(e) {
     const valueInput = this.element.querySelector('input[type=hidden]')
     if (valueInput) {
       valueInput.remove()
     }
+
     const fileInput = this.element.querySelector('input[type=file]')
     if (fileInput) {
       fileInput.disabled = false
     }
+
+    const wrap = e.currentTarget.parentNode.parentNode
+    wrap.remove()
   }
 
 }
