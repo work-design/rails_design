@@ -8,12 +8,17 @@ export default class extends Controller {
   //<input type="file" data-action="picture#upload">
   upload(event) {
     const input = event.currentTarget
-    const button = Array.from(input.form.elements).find(el => el.type === 'submit' && el.name === 'commit')
+    const button = Array.from(input.form.elements).find(el =>
+      el.type === 'submit' && el.name === 'commit'
+    )
+
     input.disabled = true
     button.disabled = true
+
     Array.from(input.files).forEach(file => {
-      // todo file is image
-      this.previewFile(file)
+      if (file.type.startsWith('image/')) {
+        this.previewFile(file)
+      }
       const controller = new DirectUploadController(input, file)
       controller.start(error => {
         console.error('upload,er', error)
