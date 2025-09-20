@@ -1,5 +1,5 @@
-@use 'bulma/sass/themes/light';
-@use 'bulma/sass/themes/setup';
+@use '../sass/themes/light';
+@use '../sass/themes/setup';
 
 :root {
   @include light.light-theme;

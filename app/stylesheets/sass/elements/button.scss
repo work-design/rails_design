@@ -173,14 +173,14 @@ $no-palette: ("white", "black", "light", "dark");
   border-style: cv.getVar("button-border-style");
   border-width: cv.getVar("button-border-width");
   box-shadow:
-    0px 0.0625em 0.125em
+    0 0.0625em 0.125em
       hsla(
         cv.getVar("button-outer-shadow-h"),
         cv.getVar("button-outer-shadow-s"),
         cv.getVar("button-outer-shadow-l"),
         cv.getVar("button-outer-shadow-a")
       ),
-    0px 0.125em 0.25em
+    0 0.125em 0.25em
       hsla(
         cv.getVar("button-outer-shadow-h"),
         cv.getVar("button-outer-shadow-s"),
@@ -228,10 +228,7 @@ $no-palette: ("white", "black", "light", "dark");
   }
 
   .#{iv.$class-prefix}icon {
-    &,
-    &.#{iv.$class-prefix}is-small,
-    &.#{iv.$class-prefix}is-medium,
-    &.#{iv.$class-prefix}is-large {
+    & {
       height: 1.5em;
       width: 1.5em;
     }

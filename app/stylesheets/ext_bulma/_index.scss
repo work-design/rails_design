@@ -1,21 +1,19 @@
 @charset "utf-8";
 
-//$table-head-background-color: $white-ter;
-
-@use 'bulma/sass/utilities' with (
+@use '../sass/utilities' with (
   $helpers-prefix: '',
   $helpers-has-prefix: ''
 );
 
 @forward 'theme';
-@forward 'bulma/sass/base';
-@forward 'bulma/sass/elements';
-@forward 'bulma/sass/form';
-@forward 'bulma/sass/components';
-@forward 'bulma/sass/grid';
-@forward 'bulma/sass/layout';
-@forward 'bulma/sass/base/skeleton';
-@forward 'bulma/sass/helpers';
+@forward '../sass/base';
+@forward '../sass/elements';
+@forward '../sass/form';
+@forward '../sass/components';
+@forward '../sass/grid';
+@forward '../sass/layout';
+@forward '../sass/base/skeleton';
+@forward '../sass/helpers';
 
 @forward 'base/all';
 @forward 'animation/all';
