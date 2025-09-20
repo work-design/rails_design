@@ -237,6 +237,11 @@ $file-colors: shared.$form-colors !default;
     cv.getVar("file-s"),
     calc(#{cv.getVar("file-border-l")} + #{cv.getVar("file-border-l-delta")})
   );
+  background-color: hsl(
+    cv.getVar("file-h"),
+    cv.getVar("file-s"),
+    calc(#{cv.getVar("file-background-l")} + #{cv.getVar("file-background-l-delta")})
+  );
 
   &:hover {
     @include cv.register-vars(
@@ -280,15 +285,6 @@ $file-colors: shared.$form-colors !default;
 }
 
 .#{iv.$class-prefix}file-cta {
-  background-color: hsl(
-    cv.getVar("file-h"),
-    cv.getVar("file-s"),
-    calc(
-      #{cv.getVar("file-background-l")} + #{cv.getVar(
-          "file-background-l-delta"
-        )}
-    )
-  );
   color: hsl(
     cv.getVar("file-h"),
     cv.getVar("file-s"),
