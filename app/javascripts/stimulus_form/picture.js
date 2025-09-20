@@ -3,7 +3,7 @@ import { Controller } from '@hotwired/stimulus'
 
 // <input type="file" data-controller="picture">
 export default class extends Controller {
-  static targets = ['src', 'filename', 'preview', 'uploadDiv']
+  static targets = ['src', 'filename', 'preview', 'upload']
 
   //<input type="file" data-action="picture#upload">
   upload(event) {
@@ -42,6 +42,11 @@ export default class extends Controller {
     })
 
     template.after(cloned)
+
+    const uploadIcon = this.uploadTarget.querySelector('.file-cta')
+    if (uploadIcon) {
+      uploadIcon.classList.add('invisible')
+    }
   }
 
   removePreview(e) {
@@ -53,6 +58,11 @@ export default class extends Controller {
     const fileInput = this.element.querySelector('input[type=file]')
     if (fileInput) {
       fileInput.disabled = false
+    }
+
+    const uploadIcon = this.uploadTarget.querySelector('.file-cta')
+    if (uploadIcon) {
+      uploadIcon.classList.remove('invisible')
     }
 
     const wrap = e.currentTarget.parentNode
