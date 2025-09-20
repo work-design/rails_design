@@ -50,7 +50,7 @@ export default class extends Controller {
       fileInput.disabled = false
     }
 
-    const wrap = e.currentTarget.parentNode.parentNode
+    const wrap = e.currentTarget.parentNode
     wrap.remove()
   }
 
