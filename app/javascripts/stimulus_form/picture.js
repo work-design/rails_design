@@ -27,6 +27,15 @@ export default class extends Controller {
       })
     })
 
+    if (input.multiple) {
+
+    } else {
+      const uploadIcon = this.uploadTarget.querySelector('.file-cta')
+      if (uploadIcon) {
+        uploadIcon.classList.add('invisible')
+      }
+    }
+
     input.value = null
   }
 
@@ -42,11 +51,6 @@ export default class extends Controller {
     })
 
     template.after(cloned)
-
-    const uploadIcon = this.uploadTarget.querySelector('.file-cta')
-    if (uploadIcon) {
-      uploadIcon.classList.add('invisible')
-    }
   }
 
   removePreview(e) {
