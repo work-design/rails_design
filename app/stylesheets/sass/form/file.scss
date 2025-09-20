@@ -232,6 +232,11 @@ $file-colors: shared.$form-colors !default;
   justify-content: flex-start;
   overflow: hidden;
   position: relative;
+  border-color: hsl(
+      cv.getVar("file-h"),
+      cv.getVar("file-s"),
+      calc(#{cv.getVar("file-border-l")} + #{cv.getVar("file-border-l-delta")})
+  );
 
   &:hover {
     @include cv.register-vars(
@@ -267,11 +272,6 @@ $file-colors: shared.$form-colors !default;
 .#{iv.$class-prefix}file-cta,
 .#{iv.$class-prefix}file-name {
   @extend %control;
-  border-color: hsl(
-    cv.getVar("file-h"),
-    cv.getVar("file-s"),
-    calc(#{cv.getVar("file-border-l")} + #{cv.getVar("file-border-l-delta")})
-  );
   border-radius: cv.getVar("file-radius");
   font-size: 1em;
   padding-left: 1em;
