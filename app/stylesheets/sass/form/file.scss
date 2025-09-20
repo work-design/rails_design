@@ -233,9 +233,9 @@ $file-colors: shared.$form-colors !default;
   overflow: hidden;
   position: relative;
   border-color: hsl(
-      cv.getVar("file-h"),
-      cv.getVar("file-s"),
-      calc(#{cv.getVar("file-border-l")} + #{cv.getVar("file-border-l-delta")})
+    cv.getVar("file-h"),
+    cv.getVar("file-s"),
+    calc(#{cv.getVar("file-border-l")} + #{cv.getVar("file-border-l-delta")})
   );
 
   &:hover {
