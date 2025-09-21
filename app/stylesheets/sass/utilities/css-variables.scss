@@ -364,7 +364,7 @@
       "-#{$bg}-invert-l"
     );
 
-    // Resiter the color using that lightness
+    // Register the color using that lightness
     $bg-invert-l: getVar($name, "", "-#{$bg}-invert-l");
     @include register-var(
       "#{$name}-#{$bg}-invert",
