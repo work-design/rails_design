@@ -12,11 +12,11 @@ export default class extends Controller {
     const element = event.currentTarget
     let value
 
-    if (this.dotElement.hidden) {
+    if (this.dotElement.classList.contains('invisible')) {
       value = this.input.value.concat(element.innerText)
     } else {
       value = this.input.value.concat('.', element.innerText)
-      this.dotElement.hidden = true
+      this.dotElement.classList.add('invisible')
     }
 
     if (this.hasDigitValue) {
@@ -42,7 +42,7 @@ export default class extends Controller {
   }
 
   zeroEnter(event) {
-    if (this.input.valueAsNumber !== 0 || this.dotElement.hidden === false) {
+    if (this.input.valueAsNumber !== 0 || this.dotElement.classList.contains('invisible')) {
       this.enter(event)
     }
   }
@@ -52,16 +52,16 @@ export default class extends Controller {
 
     } else if (this.input.value === '') {
       this.input.value = '0'
-      this.dotElement.hidden = false
+      this.dotElement.classList.remove('invisible')
     } else {
-      this.dotElement.hidden = false
+      this.dotElement.classList.remove('invisible')
     }
   }
 
   backspace() {
     this.input.value = this.input.value.slice(0, -1)
     if (this.input.value === '') {
-      this.dotElement.hidden = true
+      this.dotElement.classList.add('invisible')
     }
     if (this.input.value === '' || this.input.valueAsNumber === 0) {
       this.submitTarget.disabled = true
