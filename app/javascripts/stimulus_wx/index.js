@@ -3,6 +3,9 @@ import '../stimulus_base'
 import MiniProgramController from './mini-program'
 application.register('mini-program', MiniProgramController)
 
+import MpMessageController from './mp-message'
+application.register('mp-message', MpMessageController)
+
 import ScanController from './scan'
 application.register('scan', ScanController)
 
