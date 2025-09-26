@@ -4,7 +4,9 @@ body {
 }
 
 .as-bar {
-  padding-top: 0;
+  .bar-title {
+    padding-top: 0;
+  }
 }
 
 .modal.is-mobile-top {
