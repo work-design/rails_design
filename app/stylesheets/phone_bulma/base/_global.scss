@@ -18,7 +18,7 @@ main {
     margin-bottom: var(--bulma-block-spacing);
   }
 
-  & > .box:first-child:not(.as-bar),
+  & > .box:first-child,
   & > .media:first-child,
   & > .fixed-grid:first-child,
   & > .as-show:first-child,

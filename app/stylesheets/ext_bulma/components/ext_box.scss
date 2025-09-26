@@ -42,19 +42,6 @@
     box-shadow: cv.getVar('box-link-active-shadow');
     background-color: cv.getVar('white-ter');
   }
-
-  &.as-bar {
-    --bulma-box-radius: 0;
-    --bulma-box-padding: 0.75rem 1rem;
-    display: flex;
-    align-items: center;
-    margin-bottom: 0;
-
-    .weui-title {
-      flex-grow: 1;
-      text-align: center;
-    }
-  }
 }
 
 .box-header {

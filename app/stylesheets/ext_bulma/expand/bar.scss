@@ -1,0 +1,19 @@
+.as-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  background-color: var(--bulma-scheme-main);
+
+  a {
+    display: inline-flex;
+    height: 100%;
+    align-items: center;
+  }
+
+  .weui-title {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    flex-grow: 1;
+    text-align: center;
+  }
+}
