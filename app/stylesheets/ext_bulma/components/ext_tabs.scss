@@ -24,10 +24,6 @@
     }
   }
 
-  &.as-bottom:last-child {
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-
   &.as-navbar {
     --bulma-tabs-border-bottom-width: 0;
 
