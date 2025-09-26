@@ -3,8 +3,8 @@
   .box-body > & {
     --bulma-media-spacing: 0.75rem;
 
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .box > &:first-child,
@@ -12,7 +12,8 @@
     padding-top: var(--bulma-media-spacing);
   }
 
-  .box > &:last-child {
+  .box > &:last-child,
+  .box-body > &:last-child {
     padding-bottom: var(--bulma-media-spacing);
   }
 
