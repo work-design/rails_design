@@ -19,7 +19,8 @@
 }
 
 .as-bottom:last-child {
-  box-shadow: inset #ddd 0 5px 20px;
+  background-color: var(--bulma-scheme-main);
+  box-shadow: inset #ddd 0 5px 0.75rem;
   margin-bottom: 0;
   padding-top: 0.75rem;
   padding-bottom: max(env(safe-area-inset-bottom), 0.75rem);
