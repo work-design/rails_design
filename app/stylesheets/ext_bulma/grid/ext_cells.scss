@@ -3,6 +3,9 @@
     place-items: center;
 
     .cell {
+      button {
+        line-height: inherit;
+      }
       svg {
         font-size: 1.5em;
         color: var(--bulma-primary);
