@@ -30,10 +30,6 @@ dl.as-show {
     text-align: right;
     overflow-x: auto;
 
-    img {
-      float: right;
-    }
-
     input,
     textarea {
       padding-inline: 0;
@@ -71,6 +67,7 @@ dl.as-show {
       height: 1rem;
       width: 1rem;
       vertical-align: middle;
+      color: lightgray;
       background-image: url(icons/chevron-right.svg);
       background-position: center;
       background-repeat: no-repeat;
