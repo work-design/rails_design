@@ -3,8 +3,10 @@
   align-items: center;
   margin-bottom: 0;
   background-color: var(--bulma-scheme-main);
+  height: 45px; // 有在弹出框中应用(position: fixed), 必须指定高度；
 
-  a {
+  a,
+  button {
     display: inline-flex;
     height: 100%;
     align-items: center;
