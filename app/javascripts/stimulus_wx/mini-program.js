@@ -36,9 +36,10 @@ export default class extends Controller {
   }
 
   navTo() {
-    const query = new URLSearchParams(this.dataValue).toString()
+    let query = new URLSearchParams(this.dataValue).toString()
     let url = this.urlValue
     if (query.length > 0) {
+      query = query.replace(/\+/g, '%20') // 将 + 转为 %20 方便 decodeURLParams 解析
       if (this.urlValue.includes('?')) {
         url = this.urlValue.concat('&').concat(query)
       } else {
