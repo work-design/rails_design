@@ -22,7 +22,7 @@ export default class extends Controller {
 
       controller.directUploadWillCreateBlobWithXHR = (xhr) => {
         if (input.dataset.service) {
-          xhr.setRequestHeader('service_name', input.dataset.service)
+          xhr.setRequestHeader('Service-Name', input.dataset.service)
         }
       }
 
