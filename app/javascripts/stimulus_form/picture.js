@@ -20,6 +20,11 @@ export default class extends Controller {
         this.previewFile(file)
       }
       const controller = new DirectUploadController(input, file)
+
+      controller.directUploadWillCreateBlobWithXHR = (xhr) => {
+
+      }
+
       controller.start(error => {
         console.error('upload,er', error)
         input.disabled = false
