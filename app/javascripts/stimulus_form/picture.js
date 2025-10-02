@@ -11,7 +11,6 @@ export default class extends Controller {
     const button = Array.from(input.form.elements).find(el =>
       el.type === 'submit' && el.name === 'commit'
     )
-
     input.disabled = true
     button.disabled = true
 
@@ -22,11 +21,16 @@ export default class extends Controller {
       const controller = new DirectUploadController(input, file)
 
       controller.directUploadWillCreateBlobWithXHR = (xhr) => {
-
+        if (input.dataset.service) {
+          xhr.setRequestHeader('service_name', input.dataset.service)
+        }
       }
 
       controller.start(error => {
-        console.error('upload,er', error)
+        if (error) {
+          console.error('upload err', error)
+        }
+
         input.disabled = false
         button.disabled = false
       })
