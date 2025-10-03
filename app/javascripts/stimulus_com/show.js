@@ -6,6 +6,11 @@ export default class extends Controller {
     toggle: String
   }
 
+  connect() {
+    this.element.addEventListener('mouseenter', this.show)
+    this.element.addEventListener('mouseleave', this.hide)
+  }
+
   show() {
     this.itemTargets.forEach(el => {
       el.classList.remove('visibility-hidden')
