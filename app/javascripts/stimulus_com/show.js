@@ -7,20 +7,19 @@ export default class extends Controller {
   }
 
   connect() {
-    this.element.addEventListener('mouseenter', this.show)
-    this.element.addEventListener('mouseleave', this.hide)
-  }
+    const show = () => {
+      this.itemTargets.forEach(el => {
+        el.classList.remove('visibility-hidden')
+      })
+    }
+    const hide = () => {
+      this.itemTargets.forEach(el => {
+        el.classList.add('visibility-hidden')
+      })
+    }
 
-  show() {
-    this.itemTargets.forEach(el => {
-      el.classList.remove('visibility-hidden')
-    })
-  }
-
-  hide() {
-    this.itemTargets.forEach(el => {
-      el.classList.add('visibility-hidden')
-    })
+    this.element.addEventListener('mouseenter', show)
+    this.element.addEventListener('mouseleave', hide)
   }
 
   toggle(event) {
