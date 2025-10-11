@@ -317,7 +317,7 @@ $no-palette: ("white", "black", "light", "dark");
           "button-l": #{cv.getVar($name, "", "-l")},
           "button-background-l": #{cv.getVar($name, "", "-l")},
           "button-border-l": #{cv.getVar($name, "", "-l")},
-          "button-border-width": 0px,
+          "button-border-width": 0,
           "button-color-l": #{cv.getVar($name, "", "-invert-l")},
           "button-outer-shadow-a": 0,
         )

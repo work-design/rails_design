@@ -193,14 +193,14 @@ $pagination-shadow-inset: inset 0 0.0625em 0.125em
   border-style: cv.getVar("pagination-item-border-style");
   border-width: cv.getVar("pagination-item-border-width");
   box-shadow:
-    0px 0.0625em 0.125em
+    0 0.0625em 0.125em
       hsla(
         cv.getVar("pagination-item-outer-shadow-h"),
         cv.getVar("pagination-item-outer-shadow-s"),
         cv.getVar("pagination-item-outer-shadow-l"),
         cv.getVar("pagination-item-outer-shadow-a")
       ),
-    0px 0.125em 0.25em
+    0 0.125em 0.25em
       hsla(
         cv.getVar("pagination-item-outer-shadow-h"),
         cv.getVar("pagination-item-outer-shadow-s"),
