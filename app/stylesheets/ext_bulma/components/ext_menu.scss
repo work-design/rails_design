@@ -65,14 +65,17 @@
     calc(var(--bulma-menu-item-background-l) + var(--bulma-menu-item-background-l-delta))
   );
 
+  &.as-side,
+  &.as-wrap {
+    .menu-item {
+      border-radius: 0;
+    }
+  }
+
   &.as-wrap {
     flex-grow: 1;
     overflow-y: scroll;
     scrollbar-width: none;
-
-    .menu-item {
-      border-radius: 0;
-    }
   }
 
   &.as-logo {
