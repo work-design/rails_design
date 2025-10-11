@@ -4,6 +4,3 @@
 [submodule "docker"]
   path = docker
   url = git@github.com:work-design/docker.git
-[submodule "pico"]
-  path = pico
-  url = git@github.com:picocss/pico.git
