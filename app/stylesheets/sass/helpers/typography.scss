@@ -44,7 +44,7 @@ $alignments: (
   "centered": "center",
   "justified": "justify",
   "left": "left",
-  "right": "right",
+  "right": "right"
 );
 
 @each $alignment, $text-align in $alignments {

@@ -5,7 +5,7 @@ $radii: (
   "small": "radius-small",
   "normal": "radius",
   "large": "radius-large",
-  "rounded": "radius-rounded",
+  "rounded": "radius-rounded"
 );
 
 @each $name, $var in $radii {
