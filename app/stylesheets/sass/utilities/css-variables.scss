@@ -95,11 +95,7 @@
       @if $ratio > 5 {
         $found-decent-color: true;
       } @else {
-        $on-scheme-color: color.adjust(
-          $on-scheme-color,
-          $lightness: 5%,
-          $space: hsl
-        );
+        $on-scheme-color: color.adjust($on-scheme-color, $lightness: 5%, $space: hsl);
         $fg-lum: fn.bulmaColorLuminance($on-scheme-color);
       }
     }
@@ -110,11 +106,7 @@
       @if $ratio > 5 {
         $found-decent-color: true;
       } @else {
-        $on-scheme-color: color.adjust(
-          $on-scheme-color,
-          $lightness: -5%,
-          $space: hsl
-        );
+        $on-scheme-color: color.adjust($on-scheme-color, $lightness: -5%, $space: hsl);
         $fg-lum: fn.bulmaColorLuminance($on-scheme-color);
       }
     }
@@ -127,10 +119,7 @@
   );
   @include register-var($name, $on-scheme-lightness, "", "-on-scheme-l");
   $on-scheme-l: getVar($name, "", "-on-scheme-l");
-  @include register-var(
-    "#{$name}-on-scheme",
-    buildHslaString($name, $on-scheme-l)
-  );
+  @include register-var("#{$name}-on-scheme", buildHslaString($name, $on-scheme-l));
 }
 
 @mixin v1-generate-on-scheme-colors($name, $base, $scheme-main) {
