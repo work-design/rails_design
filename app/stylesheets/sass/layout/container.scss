@@ -50,9 +50,7 @@ $container-max-width: iv.$fullhd !default;
   }
 
   @include mx.fullhd {
-    &:not(.#{iv.$class-prefix}is-max-tablet):not(
-        .#{iv.$class-prefix}is-max-desktop
-      ):not(.#{iv.$class-prefix}is-max-widescreen) {
+    &:not(.#{iv.$class-prefix}is-max-tablet):not(.#{iv.$class-prefix}is-max-desktop):not(.#{iv.$class-prefix}is-max-widescreen) {
       max-width: min(iv.$fullhd, $container-max-width) - $container-offset;
     }
   }
