@@ -253,15 +253,13 @@ $digits: (
   // Hover
   a.#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name},
   button.#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name},
-  #{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name}.is-hoverable {
+  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name}.is-hoverable {
     &:hover,
     &:focus-visible {
       color: hsl(
         #{cv.getVar($name, "", "-h")},
         #{cv.getVar($name, "", "-s")},
-        calc(
-          #{cv.getVar($name, "", "-l")} + #{cv.getVar("hover-color-l-delta")}
-        )
+        calc(#{cv.getVar($name, "", "-l")} + #{cv.getVar("hover-color-l-delta")})
       ) !important;
     }
 
@@ -269,25 +267,20 @@ $digits: (
       color: hsl(
         #{cv.getVar($name, "", "-h")},
         #{cv.getVar($name, "", "-s")},
-        calc(
-          #{cv.getVar($name, "", "-l")} + #{cv.getVar("active-color-l-delta")}
-        )
+        calc(#{cv.getVar($name, "", "-l")} + #{cv.getVar("active-color-l-delta")})
       ) !important;
     }
   }
 
   a.#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name},
   button.#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name},
-  #{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name}.is-hoverable {
+  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name}.is-hoverable {
     &:hover,
     &:focus-visible {
       background-color: hsl(
         #{cv.getVar($name, "", "-h")},
         #{cv.getVar($name, "", "-s")},
-        calc(
-          #{cv.getVar($name, "", "-l")} +
-            #{cv.getVar("hover-background-l-delta")}
-        )
+        calc(#{cv.getVar($name, "", "-l")} + #{cv.getVar("hover-background-l-delta")})
       ) !important;
     }
 
@@ -295,10 +288,7 @@ $digits: (
       background-color: hsl(
         #{cv.getVar($name, "", "-h")},
         #{cv.getVar($name, "", "-s")},
-        calc(
-          #{cv.getVar($name, "", "-l")} +
-            #{cv.getVar("active-background-l-delta")}
-        )
+        calc(#{cv.getVar($name, "", "-l")} + #{cv.getVar("active-background-l-delta")})
       ) !important;
     }
   }
