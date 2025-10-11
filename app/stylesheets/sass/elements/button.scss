@@ -234,23 +234,17 @@ $no-palette: ("white", "black", "light", "dark");
     }
 
     &:first-child:not(:last-child) {
-      margin-inline-start: calc(
-        -0.5 * #{cv.getVar("button-padding-horizontal")}
-      );
-      margin-inline-end: calc(#{cv.getVar("button-padding-horizontal")} * 0.25);
+      margin-inline-start: calc(-0.5 * #{cv.getVar("button-padding-horizontal")});
+      margin-inline-end: calc(0.25 * #{cv.getVar("button-padding-horizontal")});
     }
 
     &:last-child:not(:first-child) {
-      margin-inline-start: calc(
-        #{cv.getVar("button-padding-horizontal")} * 0.25
-      );
+      margin-inline-start: calc(0.25 * #{cv.getVar("button-padding-horizontal")});
       margin-inline-end: calc(-0.5 * #{cv.getVar("button-padding-horizontal")});
     }
 
     &:first-child:last-child {
-      margin-inline-start: calc(
-        -0.5 * #{cv.getVar("button-padding-horizontal")}
-      );
+      margin-inline-start: calc(-0.5 * #{cv.getVar("button-padding-horizontal")});
       margin-inline-end: calc(-0.5 * #{cv.getVar("button-padding-horizontal")});
     }
   }
@@ -260,10 +254,8 @@ $no-palette: ("white", "black", "light", "dark");
   &.#{iv.$class-prefix}is-hovered {
     @include cv.register-vars(
       (
-        "button-background-l-delta": #{cv.getVar(
-            "button-hover-background-l-delta"
-          )},
-        "button-border-l-delta": #{cv.getVar("button-hover-border-l-delta")},
+        "button-background-l-delta": #{cv.getVar("button-hover-background-l-delta")},
+        "button-border-l-delta": #{cv.getVar("button-hover-border-l-delta")}
       )
     );
   }
@@ -290,11 +282,9 @@ $no-palette: ("white", "black", "light", "dark");
   &.#{iv.$class-prefix}is-active {
     @include cv.register-vars(
       (
-        "button-background-l-delta": #{cv.getVar(
-            "button-active-background-l-delta"
-          )},
+        "button-background-l-delta": #{cv.getVar("button-active-background-l-delta")},
         "button-border-l-delta": #{cv.getVar("button-active-border-l-delta")},
-        "button-outer-shadow-a": 0,
+        "button-outer-shadow-a": 0
       )
     );
   }
@@ -317,7 +307,7 @@ $no-palette: ("white", "black", "light", "dark");
           "button-l": #{cv.getVar($name, "", "-l")},
           "button-background-l": #{cv.getVar($name, "", "-l")},
           "button-border-l": #{cv.getVar($name, "", "-l")},
-          "button-border-width": 0,
+          "button-border-width": 0px,
           "button-color-l": #{cv.getVar($name, "", "-invert-l")},
           "button-outer-shadow-a": 0,
         )
@@ -425,11 +415,7 @@ $no-palette: ("white", "black", "light", "dark");
     background-color: hsl(
       #{cv.getVar("button-h")},
       #{cv.getVar("button-s")},
-      calc(
-        #{cv.getVar("button-color-l")} + #{cv.getVar(
-            "button-background-l-delta"
-          )}
-      )
+      calc(#{cv.getVar("button-color-l")} + #{cv.getVar("button-background-l-delta")})
     );
     color: hsl(
       #{cv.getVar("button-h")},
@@ -543,14 +529,8 @@ $no-palette: ("white", "black", "light", "dark");
 
   &.#{iv.$class-prefix}is-rounded {
     border-radius: cv.getVar("radius-rounded");
-    padding-left: calc(
-      #{cv.getVar("button-padding-horizontal")} + #{$button-rounded-padding-horizontal-offset} -
-        #{cv.getVar("button-border-width")}
-    );
-    padding-right: calc(
-      #{cv.getVar("button-padding-horizontal")} + #{$button-rounded-padding-horizontal-offset} -
-        #{cv.getVar("button-border-width")}
-    );
+    padding-left: calc(#{cv.getVar("button-padding-horizontal")} + #{$button-rounded-padding-horizontal-offset} - #{cv.getVar("button-border-width")});
+    padding-right: calc(#{cv.getVar("button-padding-horizontal")} + #{$button-rounded-padding-horizontal-offset} - #{cv.getVar("button-border-width")});
   }
 }
 
