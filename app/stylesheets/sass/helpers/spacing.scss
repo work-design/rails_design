@@ -2,13 +2,13 @@
 
 $spacing-shortcuts: (
   "margin": "m",
-  "padding": "p",
+  "padding": "p"
 ) !default;
 $spacing-directions: (
   "top": "t",
   "right": "r",
   "bottom": "b",
-  "left": "l",
+  "left": "l"
 ) !default;
 $spacing-horizontal: "x" !default;
 $spacing-vertical: "y" !default;
@@ -19,8 +19,7 @@ $spacing-values: (
   "3": 0.75rem,
   "4": 1rem,
   "5": 1.5rem,
-  "6": 3rem,
-  "auto": auto,
+  "6": 3rem
 ) !default;
 
 @each $property, $shortcut in $spacing-shortcuts {
