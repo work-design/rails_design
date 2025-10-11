@@ -15,14 +15,14 @@
 @forward '../sass/base/skeleton';
 @forward '../sass/helpers';
 
-@forward 'base/all';
-@forward 'animation/all';
-@forward 'components/all';
-@forward 'elements/all';
-@forward 'form/all';
-@forward 'grid/all';
-@forward 'helpers/all';
-@forward 'layout/all';
-@forward 'transition/all';
-@forward 'utilities/all';
-@forward 'expand/all';
+@forward 'base';
+@forward 'animation';
+@forward 'components';
+@forward 'elements';
+@forward 'form';
+@forward 'grid';
+@forward 'helpers';
+@forward 'layout';
+@forward 'transition';
+@forward 'utilities';
+@forward 'expand';
