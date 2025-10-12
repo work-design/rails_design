@@ -1,3 +1,11 @@
-input[type="number"].text-centered::-webkit-inner-spin-button {
-  display: none;
+.input {
+  &.as-number {
+    text-align: center;
+    height: 1.5rem;
+    width: 3em;
+
+    &::-webkit-inner-spin-button {
+      display: none;
+    }
+  }
 }
