@@ -116,7 +116,7 @@ $tag-colors: dv.$colors !default;
           "tag-h": #{cv.getVar($name, "", "-h")},
           "tag-s": #{cv.getVar($name, "", "-s")},
           "tag-background-l": #{cv.getVar($name, "", "-l")},
-          "tag-color-l": #{cv.getVar($name, "", "-invert-l")},
+          "tag-color-l": #{cv.getVar($name, "", "-invert-l")}
         )
       );
 
@@ -124,7 +124,7 @@ $tag-colors: dv.$colors !default;
         @include cv.register-vars(
           (
             "tag-background-l": #{cv.getVar("light-l")},
-            "tag-color-l": #{cv.getVar($name, "", "-light-invert-l")},
+            "tag-color-l": #{cv.getVar($name, "", "-light-invert-l")}
           )
         );
       }
@@ -204,7 +204,7 @@ button.#{iv.$class-prefix}tag,
   &:hover {
     @include cv.register-vars(
       (
-        "tag-background-l-delta": #{cv.getVar("tag-hover-background-l-delta")},
+        "tag-background-l-delta": #{cv.getVar("tag-hover-background-l-delta")}
       )
     );
   }
@@ -212,7 +212,7 @@ button.#{iv.$class-prefix}tag,
   &:active {
     @include cv.register-vars(
       (
-        "tag-background-l-delta": #{cv.getVar("tag-active-background-l-delta")},
+        "tag-background-l-delta": #{cv.getVar("tag-active-background-l-delta")}
       )
     );
   }
