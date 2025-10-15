@@ -55,6 +55,10 @@ dl.as-show {
       overflow: hidden;
     }
 
+    .image {
+      display: inline-block;
+    }
+
     &.no-wrap {
       white-space: nowrap;
       text-overflow: ellipsis;
