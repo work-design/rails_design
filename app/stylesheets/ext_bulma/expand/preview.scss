@@ -66,16 +66,18 @@ dl.as-show {
       overflow-x: hidden;
     }
 
-    &.has-select::after {
-      display: inline-block;
-      content: '';
-      height: 1rem;
-      width: 1rem;
-      vertical-align: middle;
-      color: lightgray;
-      background-image: url(icons/chevron-right.svg);
-      background-position: center;
-      background-repeat: no-repeat;
+    form.has-select {
+      button::after {
+        display: inline-block;
+        content: '';
+        height: 1em;
+        width: 1em;
+        vertical-align: middle;
+        color: red;
+        background-image: url(icons/chevron-right.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+      }
     }
   }
 }
