@@ -23,21 +23,13 @@
   &.is-normal {
     padding: 1rem;
   }
-  &.is-padding-less,
-  &.is-border {
+  &.is-padding-less {
     --bulma-box-padding: 0;
 
     > :only-child {
       border-radius: var(--bulma-box-radius);
     }
   }
-
-  &.is-border {
-    > :not(:last-child) {
-      border-bottom: 1px solid hsl(0deg, 0%, 93%)
-    }
-  }
-
   &.is-active {
     box-shadow: cv.getVar('box-link-active-shadow');
     background-color: cv.getVar('white-ter');
