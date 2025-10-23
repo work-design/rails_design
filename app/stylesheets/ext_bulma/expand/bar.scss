@@ -1,5 +1,6 @@
 .as-bar {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   margin-bottom: 0;
   background-color: var(--bulma-scheme-main);
