@@ -7,7 +7,6 @@
   }
 }
 
-
 @keyframes fadeOut {
   from {
     opacity: 1;
@@ -33,6 +32,12 @@
   }
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes pulsate {
+  50% {
+    opacity: 0.5;
   }
 }
 
