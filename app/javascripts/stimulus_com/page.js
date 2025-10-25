@@ -1,65 +1,44 @@
-import TouchController from './touch'
+import BaseController from '../base_controller'
 
-export default class extends TouchController {
-  static targets = ['paging', 'loading', 'tip']
-
-  connect() {
-    this.element.addEventListener('touchstart', event => {
-      this.start(event)
-    }, { passive: true })
+export default class extends BaseController {
+  static targets = ['sentinel']
+  static values = {
+    url: String
   }
 
-  start(event) {
-    this.initStatus(event)
-  }
-
-  // touchmove 监听
-  move(event) {
-    const offset = this.offset(event)
-    if (offset.y < 0 && this.arriveBottom() && this.currentPage < this.totalPage) {
-      this.loadingTarget.style.display = 'flex'
-      this.appendPage()
-    } else {
-      console.log('未触发翻页')
-    }
-  }
-
-  arriveBottom() {
-    const wrap = this.element.parentNode.parentNode
-    const toBottom = wrap.scrollHeight - (wrap.clientHeight + wrap.scrollTop)
-    console.debug('to bottom', toBottom)
-    if (this.hasTipTarget) {
-      return toBottom < this.tipTarget.clientHeight
-    } else {
-      return false
-    }
-  }
-
-  appendPage() {
-    const url = new URL(location.href)
-    this.currentPage = this.currentPage + 1
-    url.searchParams.set('page', this.currentPage)
-
-    fetch(url, {
-      headers: {
-        Accept: 'text/vnd.turbo-stream.html'
-      }
-    }).then(response => {
-      return response.text()
-    }).then(body => {
-      Turbo.renderStreamMessage(body)
+  initialize() {
+    this.observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.#appendPage(entry.target)
+        }
+      }, { root: this.element })
     })
   }
 
-  get currentPage() {
-    return Number(this.pagingTarget.dataset.page) || 1
+  sentinelTargetConnected(target) {
+    this.observer.observe(target)
   }
 
-  set currentPage(value) {
-    this.pagingTarget.dataset.page = value
+  disconnect() {
+    this.observer.disconnect()
   }
 
-  get totalPage() {
-    return Number(this.pagingTarget.dataset.total) || 1
+  #appendPage(entry) {
+    if (entry.dataset.page === entry.dataset.total) {
+      return
+    }
+
+    const url = new URL(this.urlValue, location.origin)
+    const href = new URL(location.href)
+    const nextPage = (Number(entry.dataset.page) || 1) + 1
+    url.searchParams.set('page', nextPage)
+    if (href.searchParams.get('per')) {
+      url.searchParams.set('per', href.searchParams.get('per'))
+    }
+
+    entry.children[0].innerText = '加载中'
+    this.get(url)
   }
+
 }
