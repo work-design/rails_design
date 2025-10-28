@@ -1,8 +1,8 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/derived-variables" as dv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/extends";
-@use "../utilities/mixins" as mx;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/derived-variables' as dv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/mixins' as mx;
+@use '../utilities/extends';
 
 $table-color: cv.getVar("text-strong") !default;
 $table-background-color: cv.getVar("scheme-main") !default;
@@ -222,9 +222,7 @@ $table-colors: dv.$colors !default;
             background-color: cv.getVar("table-row-hover-background-color");
 
             &:nth-child(even) {
-              background-color: cv.getVar(
-                "table-striped-row-even-hover-background-color"
-              );
+              background-color: cv.getVar("table-striped-row-even-hover-background-color");
             }
           }
         }
@@ -243,9 +241,7 @@ $table-colors: dv.$colors !default;
     tbody {
       tr:not(.#{iv.$class-prefix}is-selected) {
         &:nth-child(even) {
-          background-color: cv.getVar(
-            "table-striped-row-even-background-color"
-          );
+          background-color: cv.getVar("table-striped-row-even-background-color");
         }
       }
     }

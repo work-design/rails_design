@@ -6,6 +6,20 @@ dl.as-show {
     column-gap: 3rem;
   }
 
+  &.is-striped {
+    padding-left: 0;
+    padding-right: 0;
+
+    & > div {
+      padding-left: var(--bulma-block-spacing);
+      padding-right: var(--bulma-block-spacing);
+    }
+
+    & > div:nth-child(even) {
+      background-color: var(--bulma-scheme-main-bis);
+    }
+  }
+
   & > div,
   & > a {
     display: flex;
