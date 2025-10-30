@@ -5,16 +5,10 @@
 
     padding-left: 1rem;
     padding-right: 1rem;
-  }
-
-  .box > &:first-child,
-  .box-body > &:first-child {
     padding-top: var(--bulma-media-spacing);
-  }
-
-  .box > &:last-child,
-  .box-body > &:last-child {
     padding-bottom: var(--bulma-media-spacing);
+    margin-bottom: 0;
+    margin-top: 0;
   }
 
   &.is-fit {
