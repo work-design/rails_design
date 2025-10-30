@@ -1,7 +1,7 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static targets = ['trigger']
+  static targets = ['trigger', 'aim']
   static values = {
     openClass: String,
     closeClass: String,
@@ -14,6 +14,11 @@ export default class extends Controller {
     this.element.addEventListener('mouseout', () => {
       this.close()
     })
+  }
+
+  aimTargetConnected(target) {
+    const x = this.element.getBoundingClientRect()
+    target.style.left = `${x.width}px`
   }
 
   open() {

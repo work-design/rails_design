@@ -16,6 +16,9 @@ application.register('cable', CableController)
 import CommonController from './common'
 application.register('common', CommonController)
 
+import ComputedStyleController from './computed-style'
+application.register('computed-style', ComputedStyleController)
+
 import ClipboardController from './clipboard'
 application.register('clipboard', ClipboardController)
 
