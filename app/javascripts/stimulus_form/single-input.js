@@ -18,6 +18,11 @@ export default class extends Controller {
         ele.setSelectionRange(ele.value.length, ele.value.length)
       }
     })
+    ele.addEventListener('blur', e => {
+      if (e.target.value !== e.target.defaultValue) {
+        ele.form.requestSubmit()
+      }
+    })
   }
 
   selectTargetConnected(ele) {
