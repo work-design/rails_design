@@ -83,6 +83,10 @@ dl.as-show {
     form.has-select {
       display: inline-block;
 
+      button > * {
+        vertical-align: middle;
+      }
+
       button::after {
         display: inline-block;
         content: '';
