@@ -18,6 +18,7 @@ export default class extends Controller {
 
   aimTargetConnected(target) {
     const x = this.element.getBoundingClientRect()
+    console.debug('menu-popup width', x.width)
     target.style.left = `${x.width}px`
   }
 
