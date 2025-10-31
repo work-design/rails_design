@@ -14,12 +14,17 @@ export default class extends Controller {
     this.element.addEventListener('mouseout', () => {
       this.close()
     })
+  }
 
-    if (this.hasAimTarget) {
-      const x = this.element.getBoundingClientRect()
-      console.debug('menu-popup width', x.width)
-      this.aimTarget.style.left = `${x.width}px`
-    }
+  aimTargetConnected(target) {
+    const ro = new ResizeObserver(([entry]) => {
+      const { width, height } = entry.contentRect
+      console.log('首次排版完成', width, height, target)
+      target.style.left = `${x.width}px`
+
+      ro.unobserve(entry.target)
+    })
+    ro.observe(this.element)
   }
 
   open() {
