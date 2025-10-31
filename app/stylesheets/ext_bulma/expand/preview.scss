@@ -7,16 +7,19 @@ dl.as-show {
   }
 
   &.is-striped {
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0;
 
     & > div {
-      padding-left: var(--bulma-block-spacing);
-      padding-right: var(--bulma-block-spacing);
+      padding: 0.5rem var(--bulma-block-spacing);
     }
 
     & > div:nth-child(even) {
       background-color: var(--bulma-scheme-main-bis);
+    }
+
+    & > div:last-child {
+      border-bottom-left-radius: var(--bulma-radius-large);
+      border-bottom-right-radius: var(--bulma-radius-large);
     }
   }
 
