@@ -20,7 +20,7 @@ export default class extends Controller {
     const ro = new ResizeObserver(([entry]) => {
       const { width, height } = entry.contentRect
       console.log('首次排版完成', width, height, target)
-      target.style.left = `${x.width}px`
+      target.style.left = `${width}px`
 
       ro.unobserve(entry.target)
     })
