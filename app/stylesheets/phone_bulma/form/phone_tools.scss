@@ -7,3 +7,9 @@
 .field {
   --bulma-block-spacing: 1rem;
 }
+
+label.field {
+  input + span {
+    margin-left: 0.25rem;
+  }
+}
