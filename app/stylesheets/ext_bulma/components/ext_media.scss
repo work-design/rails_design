@@ -72,6 +72,12 @@
     align-items: end;
   }
 
+  &.as-centered {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
   .fa-chevron-right,
   .fa-qrcode {
     color: var(--bulma-grey);
