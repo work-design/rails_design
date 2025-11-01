@@ -19,7 +19,6 @@ export default class extends Controller {
   aimTargetConnected(target) {
     const ro = new ResizeObserver(([entry]) => {
       const box = entry.borderBoxSize[0]
-      console.log('首次排版完成', box, target)
       target.style.left = `${box.inlineSize}px`
 
       ro.unobserve(entry.target)
