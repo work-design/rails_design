@@ -1,5 +1,6 @@
 .modal-card {
-  .modal-card-body:first-child {
+  .modal-card-body:first-child,
+  .as-bar {
     border-start-start-radius: var(--bulma-modal-card-head-radius);
     border-start-end-radius: var(--bulma-modal-card-head-radius);
   }
