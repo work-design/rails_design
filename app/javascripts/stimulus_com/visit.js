@@ -56,9 +56,9 @@ export default class extends BaseController {
     }
 
     if (this.hasUrlValue) {
-      Turbo.visit(this.urlValue, { action: 'replace' })
+      Turbo.visit(this.urlValue)
     } else {
-      Turbo.visit(location.href, { action: 'replace' })
+      Turbo.visit(location.href)
     }
   }
 
