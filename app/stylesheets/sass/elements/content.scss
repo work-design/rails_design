@@ -1,8 +1,8 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/derived-variables" as dv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/extends";
-@use "../utilities/mixins" as mx;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/derived-variables' as dv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/mixins' as mx;
+@use '../utilities/extends';
 
 $content-heading-color: #{cv.getVar("text-strong")} !default;
 $content-heading-weight: #{cv.getVar("weight-extrabold")} !default;
@@ -45,7 +45,7 @@ $content-table-foot-cell-color: #{cv.getVar("text-strong")} !default;
       "content-table-head-cell-color": #{$content-table-head-cell-color},
       "content-table-body-last-row-cell-border-bottom-width": #{$content-table-body-last-row-cell-border-bottom-width},
       "content-table-foot-cell-border-width": #{$content-table-foot-cell-border-width},
-      "content-table-foot-cell-color": #{$content-table-foot-cell-color},
+      "content-table-foot-cell-color": #{$content-table-foot-cell-color}
     )
   );
 }
@@ -255,9 +255,7 @@ $content-table-foot-cell-color: #{cv.getVar("text-strong")} !default;
         &:last-child {
           td,
           th {
-            border-bottom-width: cv.getVar(
-              "content-table-body-last-row-cell-border-bottom-width"
-            );
+            border-bottom-width: cv.getVar("content-table-body-last-row-cell-border-bottom-width");
           }
         }
       }
