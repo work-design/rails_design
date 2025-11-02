@@ -86,9 +86,11 @@ $grid-container-name: bulma-fixed-grid;
   @include cv.register-vars(
     (
       "grid-gap": $grid-gap,
+      "grid-column-gap": $grid-gap,
+      "grid-row-gap": $grid-gap,
       "grid-column-min": 9rem,
       "grid-cell-column-span": 1,
-      "grid-cell-row-span": 1,
+      "grid-cell-row-span": 1
     )
   );
 
@@ -97,17 +99,11 @@ $grid-container-name: bulma-fixed-grid;
   gap: cv.getVar("grid-gap");
   column-gap: #{cv.getVarWithBackup("grid-column-gap", "grid-gap")};
   row-gap: #{cv.getVarWithBackup("grid-row-gap", "grid-gap")};
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(#{cv.getVar("grid-column-min")}, 1fr)
-  );
+  grid-template-columns: repeat(auto-fit, minmax(#{cv.getVar("grid-column-min")}, 1fr));
   grid-template-rows: auto;
 
   &.is-auto-fill {
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(#{cv.getVar("grid-column-min")}, 1fr)
-    );
+    grid-template-columns: repeat(auto-fill, minmax(#{cv.getVar("grid-column-min")}, 1fr));
   }
 
   @for $i from 1 through 32 {
