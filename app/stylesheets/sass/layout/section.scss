@@ -1,6 +1,6 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/mixins" as mx;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/mixins' as mx;
 
 $section-padding: 3rem 1.5rem !default;
 $section-padding-desktop: 3rem 3rem !default;
@@ -13,7 +13,7 @@ $section-padding-large: 18rem 6rem !default;
       "section-padding": #{$section-padding},
       "section-padding-desktop": #{$section-padding-desktop},
       "section-padding-medium": #{$section-padding-medium},
-      "section-padding-large": #{$section-padding-large},
+      "section-padding-large": #{$section-padding-large}
     )
   );
   padding: cv.getVar("section-padding");

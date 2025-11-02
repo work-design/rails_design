@@ -116,11 +116,7 @@ button {
   cursor: pointer;
 
   &:focus-visible {
-    outline-color: hsl(
-      cv.getVar("focus-h"),
-      cv.getVar("focus-s"),
-      cv.getVar("focus-l")
-    );
+    outline-color: hsl(cv.getVar("focus-h"), cv.getVar("focus-s"), cv.getVar("focus-l"));
     outline-offset: cv.getVar("focus-offset");
     outline-style: cv.getVar("focus-style");
     outline-width: cv.getVar("focus-width");
