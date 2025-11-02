@@ -1,7 +1,7 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/extends";
-@use "../utilities/mixins";
+@use '../utilities/css-variables' as cv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/extends';
+@use '../utilities/mixins';
 
 $breadcrumb-item-color: cv.getVar("link-text") !default;
 $breadcrumb-item-hover-color: cv.getVar("link-text-hover") !default;
@@ -36,8 +36,7 @@ $breadcrumb-item-separator-color: cv.getVar("border") !default;
     color: cv.getVar("breadcrumb-item-color");
     display: flex;
     justify-content: center;
-    padding: cv.getVar("breadcrumb-item-padding-vertical")
-      cv.getVar("breadcrumb-item-padding-horizontal");
+    padding: cv.getVar("breadcrumb-item-padding-vertical") cv.getVar("breadcrumb-item-padding-horizontal");
 
     &:hover {
       color: cv.getVar("breadcrumb-item-hover-color");

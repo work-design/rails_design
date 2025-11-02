@@ -1,7 +1,7 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/extends";
-@use "../utilities/mixins" as mx;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/mixins' as mx;
+@use '../utilities/extends';
 
 $card-color: cv.getVar("text") !default;
 $card-background-color: cv.getVar("scheme-main") !default;

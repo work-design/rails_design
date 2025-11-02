@@ -1,8 +1,8 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/derived-variables" as dv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/extends";
-@use "../utilities/mixins" as mx;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/derived-variables' as dv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/mixins' as mx;
+@use '../utilities/extends';
 
 $message-h: cv.getVar("scheme-h");
 $message-s: cv.getVar("scheme-s");
@@ -60,11 +60,7 @@ $message-colors: dv.$colors !default;
 .#{iv.$class-prefix}message {
   @extend %block;
   border-radius: cv.getVar("message-radius");
-  color: hsl(
-    #{cv.getVar("message-h")},
-    #{cv.getVar("message-s")},
-    #{cv.getVar("message-color-l")}
-  );
+  color: hsl(#{cv.getVar("message-h")}, #{cv.getVar("message-s")}, #{cv.getVar("message-color-l")});
   font-size: cv.getVar("size-normal");
 
   strong {
@@ -98,15 +94,10 @@ $message-colors: dv.$colors !default;
         (
           "message-h": #{cv.getVar($name, "", "-h")},
           "message-s": #{cv.getVar($name, "", "-s")},
-          "message-border-l":
-            calc(
-              #{cv.getVar($name, "", "-l")} + #{cv.getVar(
-                  "message-border-l-delta"
-                )}
-            ),
+          "message-border-l": calc(#{cv.getVar($name, "", "-l")} + #{cv.getVar("message-border-l-delta")}),
           "message-color-l": #{cv.getVar($name, "", "-on-scheme-l")},
           "message-header-background-l": #{cv.getVar($name, "", "-l")},
-          "message-header-color-l": #{cv.getVar($name, "", "-invert-l")},
+          "message-header-color-l": #{cv.getVar($name, "", "-invert-l")}
         )
       );
     }
@@ -115,18 +106,10 @@ $message-colors: dv.$colors !default;
 
 .#{iv.$class-prefix}message-header {
   align-items: center;
-  background-color: hsl(
-    #{cv.getVar("message-h")},
-    #{cv.getVar("message-s")},
-    #{cv.getVar("message-header-background-l")}
-  );
+  background-color: hsl(#{cv.getVar("message-h")}, #{cv.getVar("message-s")}, #{cv.getVar("message-header-background-l")});
   border-start-start-radius: cv.getVar("message-header-radius");
   border-start-end-radius: cv.getVar("message-header-radius");
-  color: hsl(
-    #{cv.getVar("message-h")},
-    #{cv.getVar("message-s")},
-    #{cv.getVar("message-header-color-l")}
-  );
+  color: hsl(#{cv.getVar("message-h")}, #{cv.getVar("message-s")}, #{cv.getVar("message-header-color-l")});
   display: flex;
   font-weight: cv.getVar("message-header-weight");
   justify-content: space-between;
@@ -148,16 +131,8 @@ $message-colors: dv.$colors !default;
 }
 
 .#{iv.$class-prefix}message-body {
-  background-color: hsl(
-    #{cv.getVar("message-h")},
-    #{cv.getVar("message-s")},
-    #{cv.getVar("message-background-l")}
-  );
-  border-inline-start-color: hsl(
-    #{cv.getVar("message-h")},
-    #{cv.getVar("message-s")},
-    #{cv.getVar("message-border-l")}
-  );
+  background-color: hsl(#{cv.getVar("message-h")}, #{cv.getVar("message-s")}, #{cv.getVar("message-background-l")});
+  border-inline-start-color: hsl(#{cv.getVar("message-h")}, #{cv.getVar("message-s")}, #{cv.getVar("message-border-l")});
   border-inline-start-style: #{cv.getVar("message-border-style")};
   border-inline-start-width: #{cv.getVar("message-border-width")};
   border-radius: cv.getVar("message-body-radius");
@@ -165,16 +140,8 @@ $message-colors: dv.$colors !default;
 
   code,
   pre {
-    background-color: hsl(
-      #{cv.getVar("message-h")},
-      #{cv.getVar("message-s")},
-      #{cv.getVar("message-header-color-l")}
-    );
-    color: hsl(
-      #{cv.getVar("message-h")},
-      #{cv.getVar("message-s")},
-      #{cv.getVar("message-header-background-l")}
-    );
+    background-color: hsl(#{cv.getVar("message-h")}, #{cv.getVar("message-s")}, #{cv.getVar("message-header-color-l")});
+    color: hsl(#{cv.getVar("message-h")}, #{cv.getVar("message-s")}, #{cv.getVar("message-header-background-l")});
   }
 
   pre code {

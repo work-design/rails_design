@@ -1,7 +1,7 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/extends";
-@use "../utilities/mixins" as mx;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/mixins' as mx;
+@use '../utilities/extends';
 
 $dropdown-menu-min-width: 12rem !default;
 
@@ -19,9 +19,7 @@ $dropdown-item-l: cv.getVar("scheme-main-l");
 $dropdown-item-background-l: cv.getVar("scheme-main-l");
 $dropdown-item-background-l-delta: 0%;
 $dropdown-item-hover-background-l-delta: cv.getVar("hover-background-l-delta");
-$dropdown-item-active-background-l-delta: cv.getVar(
-  "active-background-l-delta"
-);
+$dropdown-item-active-background-l-delta: cv.getVar("active-background-l-delta");
 $dropdown-item-color-l: cv.getVar("text-strong-l");
 $dropdown-item-selected-h: cv.getVar("link-h");
 $dropdown-item-selected-s: cv.getVar("link-s");
@@ -56,7 +54,7 @@ $dropdown-divider-background-color: cv.getVar("border-weak") !default;
       "dropdown-item-selected-l": #{$dropdown-item-selected-l},
       "dropdown-item-selected-background-l": #{$dropdown-item-selected-background-l},
       "dropdown-item-selected-color-l": #{$dropdown-item-selected-color-l},
-      "dropdown-divider-background-color": #{$dropdown-divider-background-color},
+      "dropdown-divider-background-color": #{$dropdown-divider-background-color}
     )
   );
   // prettier-ignore-end
@@ -126,11 +124,7 @@ button.#{iv.$class-prefix}dropdown-item {
   background-color: hsl(
     #{cv.getVar("dropdown-item-h")},
     #{cv.getVar("dropdown-item-s")},
-    calc(
-      #{cv.getVar("dropdown-item-background-l")} + #{cv.getVar(
-          "dropdown-item-background-l-delta"
-        )}
-    )
+    calc(#{cv.getVar("dropdown-item-background-l")} + #{cv.getVar("dropdown-item-background-l-delta")})
   );
   padding-inline-end: 3rem;
   text-align: inherit;
@@ -140,12 +134,8 @@ button.#{iv.$class-prefix}dropdown-item {
   &:hover {
     @include cv.register-vars(
       (
-        "dropdown-item-background-l-delta": #{cv.getVar(
-            "dropdown-item-hover-background-l-delta"
-          )},
-        "dropdown-item-border-l-delta": #{cv.getVar(
-            "dropdown-item-hover-border-l-delta"
-          )},
+        "dropdown-item-background-l-delta": #{cv.getVar("dropdown-item-hover-background-l-delta")},
+        "dropdown-item-border-l-delta": #{cv.getVar("dropdown-item-hover-border-l-delta")}
       )
     );
   }
@@ -153,12 +143,8 @@ button.#{iv.$class-prefix}dropdown-item {
   &:active {
     @include cv.register-vars(
       (
-        "dropdown-item-background-l-delta": #{cv.getVar(
-            "dropdown-item-active-background-l-delta"
-          )},
-        "dropdown-item-border-l-delta": #{cv.getVar(
-            "dropdown-item-active-border-l-delta"
-          )},
+        "dropdown-item-background-l-delta": #{cv.getVar("dropdown-item-active-background-l-delta")},
+        "dropdown-item-border-l-delta": #{cv.getVar("dropdown-item-active-border-l-delta")}
       )
     );
   }
@@ -170,9 +156,7 @@ button.#{iv.$class-prefix}dropdown-item {
         "dropdown-item-h": #{cv.getVar("dropdown-item-selected-h")},
         "dropdown-item-s": #{cv.getVar("dropdown-item-selected-s")},
         "dropdown-item-l": #{cv.getVar("dropdown-item-selected-l")},
-        "dropdown-item-background-l": #{cv.getVar(
-            "dropdown-item-selected-background-l"
-          )},
+        "dropdown-item-background-l": #{cv.getVar("dropdown-item-selected-background-l")},
         "dropdown-item-color-l": #{cv.getVar("dropdown-item-selected-color-l")},
       )
     );
