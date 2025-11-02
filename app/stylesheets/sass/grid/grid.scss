@@ -4,7 +4,7 @@
 @use '../utilities/extends';
 
 $max-column-count: 12;
-$grip-gap: 0.75rem;
+$grid-gap: 0.75rem;
 $column-min-base: 1.5rem;
 
 @mixin fixed-grid-properties($suffix: "") {
@@ -85,7 +85,7 @@ $grid-container-name: bulma-fixed-grid;
 .#{iv.$class-prefix}grid {
   @include cv.register-vars(
     (
-      "grid-gap": $grip-gap,
+      "grid-gap": $grid-gap,
       "grid-column-min": 9rem,
       "grid-cell-column-span": 1,
       "grid-cell-row-span": 1,
