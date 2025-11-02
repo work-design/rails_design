@@ -1,10 +1,9 @@
-@use "sass:list";
-
-@use "../utilities/css-variables" as cv;
-@use "../utilities/derived-variables" as dv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/extends";
-@use "../utilities/mixins" as mx;
+@use 'sass:list';
+@use '../utilities/css-variables' as cv;
+@use '../utilities/derived-variables' as dv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/mixins' as mx;
+@use '../utilities/extends';
 
 $button-h: #{cv.getVar("scheme-h")};
 $button-s: #{cv.getVar("scheme-s")};
@@ -37,13 +36,7 @@ $button-rounded-padding-horizontal-offset: 0.25em !default;
 
 $button-focus-border-color: cv.getVar("link-focus-border") !default;
 $button-focus-box-shadow-size: 0 0 0 0.125em !default;
-$button-focus-box-shadow-color: hsla(
-  #{cv.getVar("link-h")},
-  #{cv.getVar("link-s")},
-  #{cv.getVar("link-on-scheme-l")},
-  0.25
-) !default;
-
+$button-focus-box-shadow-color: hsla(#{cv.getVar("link-h")}, #{cv.getVar("link-s")}, #{cv.getVar("link-on-scheme-l")}, 0.25) !default;
 $button-active-color: cv.getVar("link-active") !default;
 $button-active-border-color: cv.getVar("link-active-border") !default;
 
@@ -157,18 +150,12 @@ $no-palette: ("white", "black", "light", "dark");
   background-color: hsl(
     #{cv.getVar("button-h")},
     #{cv.getVar("button-s")},
-    calc(
-      #{cv.getVar("button-background-l")} + #{cv.getVar(
-          "button-background-l-delta"
-        )}
-    )
+    calc(#{cv.getVar("button-background-l")} + #{cv.getVar("button-background-l-delta")})
   );
   border-color: hsl(
     #{cv.getVar("button-h")},
     #{cv.getVar("button-s")},
-    calc(
-      #{cv.getVar("button-border-l")} + #{cv.getVar("button-border-l-delta")}
-    )
+    calc(#{cv.getVar("button-border-l")} + #{cv.getVar("button-border-l-delta")})
   );
   border-style: cv.getVar("button-border-style");
   border-width: cv.getVar("button-border-width");
@@ -196,26 +183,10 @@ $no-palette: ("white", "black", "light", "dark");
   font-weight: cv.getVar("button-weight");
   height: auto;
   justify-content: center;
-  padding-bottom: calc(
-    #{cv.getVar("button-padding-vertical")} - #{cv.getVar(
-        "button-border-width"
-      )}
-  );
-  padding-left: calc(
-    #{cv.getVar("button-padding-horizontal")} - #{cv.getVar(
-        "button-border-width"
-      )}
-  );
-  padding-right: calc(
-    #{cv.getVar("button-padding-horizontal")} - #{cv.getVar(
-        "button-border-width"
-      )}
-  );
-  padding-top: calc(
-    #{cv.getVar("button-padding-vertical")} - #{cv.getVar(
-        "button-border-width"
-      )}
-  );
+  padding-top: calc(#{cv.getVar("button-padding-vertical")} - #{cv.getVar("button-border-width")});
+  padding-bottom: calc(#{cv.getVar("button-padding-vertical")} - #{cv.getVar("button-border-width")});
+  padding-left: calc(#{cv.getVar("button-padding-horizontal")} - #{cv.getVar("button-border-width")});
+  padding-right: calc(#{cv.getVar("button-padding-horizontal")} - #{cv.getVar("button-border-width")});
   text-align: center;
   white-space: nowrap;
 
@@ -264,18 +235,8 @@ $no-palette: ("white", "black", "light", "dark");
   &.#{iv.$class-prefix}is-focused {
     @include cv.register-var("button-border-width", 1px);
 
-    border-color: hsl(
-      #{cv.getVar("focus-h")},
-      #{cv.getVar("focus-s")},
-      #{cv.getVar("focus-l")}
-    );
-    box-shadow: cv.getVar("focus-shadow-size")
-      hsla(
-        cv.getVar("focus-h"),
-        cv.getVar("focus-s"),
-        cv.getVar("focus-l"),
-        cv.getVar("focus-shadow-alpha")
-      );
+    border-color: hsl(#{cv.getVar("focus-h")}, #{cv.getVar("focus-s")}, #{cv.getVar("focus-l")});
+    box-shadow: cv.getVar("focus-shadow-size") hsla(cv.getVar("focus-h"), cv.getVar("focus-s"), cv.getVar("focus-l"), cv.getVar("focus-shadow-alpha"));
   }
 
   &:active,
@@ -370,12 +331,7 @@ $no-palette: ("white", "black", "light", "dark");
     @include cv.register-vars(
       (
         "button-border-width": max(1px, 0.0625em),
-        "loading-color":
-        hsl(
-          #{cv.getVar("button-h")},
-          #{cv.getVar("button-s")},
-          #{cv.getVar("button-l")}
-        ),
+        "loading-color": hsl(#{cv.getVar("button-h")}, #{cv.getVar("button-s")}, #{cv.getVar("button-l")})
       )
     );
 
