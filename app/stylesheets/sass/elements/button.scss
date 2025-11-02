@@ -156,10 +156,8 @@ $no-palette: ("white", "black", "light", "dark");
   font-weight: cv.getVar("button-weight");
   height: auto;
   justify-content: center;
-  padding-top: calc(#{cv.getVar("button-padding-vertical")} - #{cv.getVar("button-border-width")});
-  padding-bottom: calc(#{cv.getVar("button-padding-vertical")} - #{cv.getVar("button-border-width")});
-  padding-left: calc(#{cv.getVar("button-padding-horizontal")} - #{cv.getVar("button-border-width")});
-  padding-right: calc(#{cv.getVar("button-padding-horizontal")} - #{cv.getVar("button-border-width")});
+  padding-block: calc(#{cv.getVar("button-padding-vertical")} - #{cv.getVar("button-border-width")});
+  padding-inline: calc(#{cv.getVar("button-padding-horizontal")} - #{cv.getVar("button-border-width")});
   text-align: center;
   white-space: nowrap;
 
