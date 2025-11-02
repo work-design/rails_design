@@ -135,50 +135,23 @@ $no-palette: ("white", "black", "light", "dark");
       "button-outer-shadow-s": #{$button-outer-shadow-s},
       "button-outer-shadow-l": #{$button-outer-shadow-l},
       "button-outer-shadow-a": #{$button-outer-shadow-a},
-      "loading-color":
-        hsl(
-          #{cv.getVar("button-h")},
-          #{cv.getVar("button-s")},
-          #{cv.getVar("button-color-l")}
-        ),
+      "loading-color": hsl(#{cv.getVar("button-h")}, #{cv.getVar("button-s")}, #{cv.getVar("button-color-l")})
     )
   );
 
   @extend %control;
   @extend %unselectable;
 
-  background-color: hsl(
-    #{cv.getVar("button-h")},
-    #{cv.getVar("button-s")},
-    calc(#{cv.getVar("button-background-l")} + #{cv.getVar("button-background-l-delta")})
-  );
-  border-color: hsl(
-    #{cv.getVar("button-h")},
-    #{cv.getVar("button-s")},
-    calc(#{cv.getVar("button-border-l")} + #{cv.getVar("button-border-l-delta")})
-  );
+  background-color: hsl(#{cv.getVar("button-h")}, #{cv.getVar("button-s")}, calc(#{cv.getVar("button-background-l")} + #{cv.getVar("button-background-l-delta")}));
+  border-color: hsl(#{cv.getVar("button-h")}, #{cv.getVar("button-s")}, calc(#{cv.getVar("button-border-l")} + #{cv.getVar("button-border-l-delta")}));
   border-style: cv.getVar("button-border-style");
   border-width: cv.getVar("button-border-width");
   box-shadow:
     0 0.0625em 0.125em
-      hsla(
-        cv.getVar("button-outer-shadow-h"),
-        cv.getVar("button-outer-shadow-s"),
-        cv.getVar("button-outer-shadow-l"),
-        cv.getVar("button-outer-shadow-a")
-      ),
+      hsla(cv.getVar("button-outer-shadow-h"), cv.getVar("button-outer-shadow-s"), cv.getVar("button-outer-shadow-l"), cv.getVar("button-outer-shadow-a")),
     0 0.125em 0.25em
-      hsla(
-        cv.getVar("button-outer-shadow-h"),
-        cv.getVar("button-outer-shadow-s"),
-        cv.getVar("button-outer-shadow-l"),
-        cv.getVar("button-outer-shadow-a")
-      );
-  color: hsl(
-    #{cv.getVar("button-h")},
-    #{cv.getVar("button-s")},
-    #{cv.getVar("button-color-l")}
-  );
+      hsla(cv.getVar("button-outer-shadow-h"), cv.getVar("button-outer-shadow-s"), cv.getVar("button-outer-shadow-l"), cv.getVar("button-outer-shadow-a"));
+  color: hsl(#{cv.getVar("button-h")}, #{cv.getVar("button-s")}, #{cv.getVar("button-color-l")});
   cursor: pointer;
   font-weight: cv.getVar("button-weight");
   height: auto;
@@ -336,22 +309,14 @@ $no-palette: ("white", "black", "light", "dark");
     );
 
     background-color: transparent;
-    border-color: hsl(
-      #{cv.getVar("button-h")},
-      #{cv.getVar("button-s")},
-      #{cv.getVar("button-l")}
-    );
-    color: hsl(
-      #{cv.getVar("button-h")},
-      #{cv.getVar("button-s")},
-      #{cv.getVar("button-l")}
-    );
+    border-color: hsl(#{cv.getVar("button-h")}, #{cv.getVar("button-s")}, #{cv.getVar("button-l")});
+    color: hsl(#{cv.getVar("button-h")}, #{cv.getVar("button-s")}, #{cv.getVar("button-l")});
 
     &:hover {
       @include cv.register-vars(
         (
           "button-border-width": max(2px, 0.125em),
-          "button-outer-shadow-alpha": 1,
+          "button-outer-shadow-alpha": 1
         )
       );
     }
@@ -368,16 +333,8 @@ $no-palette: ("white", "black", "light", "dark");
   }
 
   &.#{iv.$class-prefix}is-inverted {
-    background-color: hsl(
-      #{cv.getVar("button-h")},
-      #{cv.getVar("button-s")},
-      calc(#{cv.getVar("button-color-l")} + #{cv.getVar("button-background-l-delta")})
-    );
-    color: hsl(
-      #{cv.getVar("button-h")},
-      #{cv.getVar("button-s")},
-      #{cv.getVar("button-background-l")}
-    );
+    background-color: hsl(#{cv.getVar("button-h")}, #{cv.getVar("button-s")}, calc(#{cv.getVar("button-color-l")} + #{cv.getVar("button-background-l-delta")}));
+    color: hsl(#{cv.getVar("button-h")}, #{cv.getVar("button-s")}, #{cv.getVar("button-background-l")});
   }
 
   &.#{iv.$class-prefix}is-text {
