@@ -14,8 +14,7 @@
 
 .card-content {
   h3::before {
-    font-family: 'Font Awesome 6 Free';
-    content: "\f10d";
+    content: url(icons/quote-left.svg);
     color: hsl(347, 90%, 96%);
     padding-right: 0.5rem;
   }
@@ -47,8 +46,7 @@
       background-color: hsl(347, 90%, 96%);
 
       h3::before {
-        font-family: 'Font Awesome 6 Free';
-        content: "\21";
+        content: url(icons/minus.svg);
         color: hsl(348, 86%, 43%);
         padding-right: 0.5rem;
       }
@@ -57,8 +55,7 @@
       background-color: hsl(171, 100%, 96%);
 
       h3::before {
-        font-family: 'Font Awesome 6 Free';
-        content: "\f00c";
+        content: url(icons/check.svg);
         color: hsl(171, 100%, 29%);
         padding-right: 0.5rem;
       }
