@@ -15,7 +15,9 @@
 .card-content {
   h3::before {
     content: url(icons/quote-left.svg);
-    color: hsl(347, 90%, 96%);
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
     padding-right: 0.5rem;
   }
 }
