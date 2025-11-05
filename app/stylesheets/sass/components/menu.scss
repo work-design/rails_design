@@ -83,17 +83,9 @@ $menu-label-spacing: 1em !default;
   button,
   .#{iv.$class-prefix}menu-item {
     @extend %reset;
-    background-color: hsl(
-      #{cv.getVar("menu-item-h")},
-      #{cv.getVar("menu-item-s")},
-      calc(#{cv.getVar("menu-item-background-l")} + #{cv.getVar("menu-item-background-l-delta")})
-    );
+    background-color: hsl(#{cv.getVar("menu-item-h")}, #{cv.getVar("menu-item-s")}, calc(#{cv.getVar("menu-item-background-l")} + #{cv.getVar("menu-item-background-l-delta")}));
+    color: hsl(#{cv.getVar("menu-item-h")}, #{cv.getVar("menu-item-s")}, #{cv.getVar("menu-item-color-l")});
     border-radius: cv.getVar("menu-item-radius");
-    color: hsl(
-      #{cv.getVar("menu-item-h")},
-      #{cv.getVar("menu-item-s")},
-      #{cv.getVar("menu-item-color-l")}
-    );
     display: block;
     padding: cv.getVar("menu-list-link-padding");
     text-align: left;
@@ -101,13 +93,17 @@ $menu-label-spacing: 1em !default;
 
     &:hover {
       @include cv.register-vars(
-        ("menu-item-background-l-delta": #{cv.getVar("menu-item-hover-background-l-delta")})
+        (
+          "menu-item-background-l-delta": #{cv.getVar("menu-item-hover-background-l-delta")}
+        )
       );
     }
 
     &:active {
       @include cv.register-vars(
-        ("menu-item-background-l-delta": #{cv.getVar("menu-item-active-background-l-delta")})
+        (
+          "menu-item-background-l-delta": #{cv.getVar("menu-item-active-background-l-delta")}
+        )
       );
     }
 
@@ -120,7 +116,7 @@ $menu-label-spacing: 1em !default;
           "menu-item-s": #{cv.getVar("menu-item-selected-s")},
           "menu-item-l": #{cv.getVar("menu-item-selected-l")},
           "menu-item-background-l": #{cv.getVar("menu-item-selected-background-l")},
-          "menu-item-color-l": #{cv.getVar("menu-item-selected-color-l")},
+          "menu-item-color-l": #{cv.getVar("menu-item-selected-color-l")}
         )
       );
     }
