@@ -33,8 +33,6 @@ export default class extends Controller {
     this.timer = setInterval(() => {
       countdown--
       if (countdown <= 0) {
-        clearInterval(this.timer)
-
         if (this.hasDisabledTarget) {
           this.disabledTarget.removeAttribute('disabled')
           this.disabledTarget.innerText = this.getValue
@@ -44,6 +42,8 @@ export default class extends Controller {
         if (this.reloadValue) {
           Turbo.visit(location.href)
         }
+
+        clearInterval(this.timer)
       } else {
         this.setCount(value, countdown)
       }
