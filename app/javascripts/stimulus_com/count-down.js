@@ -13,7 +13,7 @@ export default class extends Controller {
   }
 
   countDown() {
-    this.initCounter = this.defaultCounter
+    this.initCounter = this.defaultCounter()
 
     let value
     if (this.countTarget instanceof HTMLInputElement) {
