@@ -33,7 +33,7 @@ export default class extends Controller {
     this.timer = setInterval(() => {
       countdown--
       if (countdown <= 0) {
-        console.debug('--------为什么会有 c', countdown)
+        console.debug('--------为什么会有 c', this.timer)
         clearInterval(this.timer)
 
         if (this.hasDisabledTarget) {
@@ -46,6 +46,7 @@ export default class extends Controller {
           Turbo.visit(location.href, { action: 'replace' })
         }
       } else {
+        console.debug('--------为什么会有 c', countdown)
         this.setCount(value, countdown)
       }
     }, 1000, countdown)
