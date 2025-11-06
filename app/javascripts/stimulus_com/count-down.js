@@ -52,6 +52,7 @@ export default class extends Controller {
   }
 
   setCount(text, countdown) {
+    console.debug('--------sehz c', countdown)
     if (this.countTarget instanceof HTMLInputElement) {
       if (countdown <= 0) {
         this.countTarget.value = `${text}`
