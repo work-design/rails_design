@@ -45,7 +45,6 @@ export default class extends Controller {
           Turbo.visit(location.href, { action: 'replace' })
         }
       } else {
-        console.debug('----', countdown)
         this.setCount(value, countdown)
       }
     }, 1000, countdown)
