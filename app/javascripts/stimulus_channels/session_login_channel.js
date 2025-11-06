@@ -8,17 +8,14 @@ export default class extends BaseCable {
   }
 
   subscribe() {
-    const urlParams = new URLSearchParams(location.search)
-
     this.subscription = BaseCable.consumer.subscriptions.create(
       {
-        channel: 'Wechat::SessionChannel',
-        state: urlParams.get('state')
+        channel: 'Wechat::SessionLoginChannel',
       },
       {
         received(data) {
-          document.getElementById('login_qrcode').src = data.data_url
-          document.getElementById('login_count_down').getController('count-down').resetCounter('', data.remaining)
+          const url = data.url || '/'
+          Turbo.visit(url)
         }
      }
     )
