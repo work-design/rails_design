@@ -40,7 +40,7 @@ export default class extends Controller {
         this.hiddenTargets.forEach(el => { el.remove() })
 
         if (this.reloadValue) {
-          Turbo.visit(location.href)
+          Turbo.visit(location.href, { frame: 'box' })
         }
 
         clearInterval(this.timer)
