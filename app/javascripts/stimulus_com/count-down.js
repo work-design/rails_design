@@ -3,7 +3,8 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
   static values = {
     time: Number,
-    get: { type: String, default: '获取验证码' }
+    get: { type: String, default: '获取验证码' },
+    reload: { type: Boolean, default: false }
   }
   static targets = ['count', 'hidden', 'disabled']
 
@@ -37,12 +38,17 @@ export default class extends Controller {
     this.timer = setInterval(() => {
       countdown--
       if (countdown <= 0) {
+        clearInterval(this.timer)
+
         if (this.hasDisabledTarget) {
           this.disabledTarget.removeAttribute('disabled')
           this.disabledTarget.innerText = this.getValue
         }
         this.hiddenTargets.forEach(el => { el.remove() })
-        clearInterval(this.timer)
+
+        if (this.reloadValue) {
+          Turbo.visit(location.href, { action: 'replace' })
+        }
       } else {
         this.setCount(value, countdown)
       }
