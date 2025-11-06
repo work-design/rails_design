@@ -13,7 +13,7 @@ export default class extends Controller {
   }
 
   countDown() {
-    const countdown = this.defaultCounter
+    this.initCounter = this.defaultCounter
 
     let value
     if (this.countTarget instanceof HTMLInputElement) {
@@ -21,8 +21,8 @@ export default class extends Controller {
     } else {
       value = ''
     }
-    this.setCount(value, countdown)
-    this.resetCounter(value, countdown)
+    this.setCount(value, this.initCounter)
+    this.resetCounter(value, this.initCounter)
   }
 
   resetCounter(value, countdown) {
@@ -58,17 +58,15 @@ export default class extends Controller {
         this.countTarget.value = `${text} ${countdown}秒`
       }
     } else {
-      this.countTarget.innerText = countdown.toString().padStart(this.defaultCounter.toString().length, '0')
+      this.countTarget.innerText = countdown.toString().padStart(this.initCounter.toString().length, '0')
     }
   }
 
-  get defaultCounter() {
-    let countdown
+  defaultCounter() {
     if (this.hasTimeValue) {
-      countdown = this.timeValue
+      return this.timeValue
     } else {
-      countdown = parseInt(this.countTarget.innerText)
+      return parseInt(this.countTarget.innerText)
     }
-    return countdown
   }
 }
