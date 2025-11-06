@@ -13,12 +13,7 @@ export default class extends Controller {
   }
 
   countDown() {
-    let countdown
-    if (this.hasTimeValue) {
-      countdown = this.timeValue
-    } else {
-      countdown = this.countTarget.innerText
-    }
+    const countdown = this.defaultCounter
 
     let value
     if (this.countTarget instanceof HTMLInputElement) {
@@ -50,6 +45,7 @@ export default class extends Controller {
           Turbo.visit(location.href, { action: 'replace' })
         }
       } else {
+        console.debug('----', countdown)
         this.setCount(value, countdown)
       }
     }, 1000, countdown)
@@ -63,7 +59,17 @@ export default class extends Controller {
         this.countTarget.value = `${text} ${countdown}秒`
       }
     } else {
-      this.countTarget.innerText = countdown.toString().padStart(this.timeValue.toString().length, '0')
+      this.countTarget.innerText = countdown.toString().padStart(this.defaultCounter.toString().length, '0')
     }
+  }
+
+  get defaultCounter() {
+    let countdown
+    if (this.hasTimeValue) {
+      countdown = this.timeValue
+    } else {
+      countdown = parseInt(this.countTarget.innerText)
+    }
+    return countdown
   }
 }
