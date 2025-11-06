@@ -7,5 +7,8 @@ application.register('notice-channel', NoticeChannel)
 import SessionChannel from './session_channel'
 application.register('session-channel', SessionChannel)
 
+import SessionInitChannel from './session_init_channel'
+application.register('session-init-channel', SessionInitChannel)
+
 import DoneChannel from './done_channel'
 application.register('done', DoneChannel)
