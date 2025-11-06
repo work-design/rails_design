@@ -21,7 +21,6 @@ export default class extends Controller {
     } else {
       value = ''
     }
-    console.debug('------', value, this.initCounter)
     this.setCount(value, this.initCounter)
     this.resetCounter(value, this.initCounter)
   }
@@ -43,7 +42,7 @@ export default class extends Controller {
         this.hiddenTargets.forEach(el => { el.remove() })
 
         if (this.reloadValue) {
-          Turbo.visit(location.href, { action: 'replace' })
+          Turbo.visit(location.href)
         }
       } else {
         this.setCount(value, countdown)
