@@ -21,6 +21,7 @@ export default class extends Controller {
     } else {
       value = ''
     }
+    console.debug('------', value, this.initCounter)
     this.setCount(value, this.initCounter)
     this.resetCounter(value, this.initCounter)
   }
@@ -33,7 +34,6 @@ export default class extends Controller {
     this.timer = setInterval(() => {
       countdown--
       if (countdown <= 0) {
-        console.debug('--------timer---', this.timer)
         clearInterval(this.timer)
 
         if (this.hasDisabledTarget) {
@@ -46,14 +46,12 @@ export default class extends Controller {
           Turbo.visit(location.href, { action: 'replace' })
         }
       } else {
-        console.debug('--------为什么会有 c', countdown)
         this.setCount(value, countdown)
       }
     }, 1000, countdown)
   }
 
   setCount(text, countdown) {
-    console.debug('--------sehz c', countdown)
     if (this.countTarget instanceof HTMLInputElement) {
       if (countdown <= 0) {
         this.countTarget.value = `${text}`
