@@ -33,6 +33,7 @@ export default class extends Controller {
     this.timer = setInterval(() => {
       countdown--
       if (countdown <= 0) {
+        console.debug('--------为什么会有 c', countdown)
         clearInterval(this.timer)
 
         if (this.hasDisabledTarget) {
