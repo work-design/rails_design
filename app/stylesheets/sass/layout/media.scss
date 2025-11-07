@@ -1,14 +1,9 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/extends";
-@use "../utilities/mixins" as mx;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/mixins' as mx;
+@use '../utilities/extends';
 
-$media-border-color: hsla(
-  #{cv.getVar("scheme-h")},
-  #{cv.getVar("scheme-s")},
-  #{cv.getVar("border-l")},
-  0.5
-) !default;
+$media-border-color: hsla(#{cv.getVar("scheme-h")}, #{cv.getVar("scheme-s")}, #{cv.getVar("border-l")}, 0.5) !default;
 $media-border-size: 1px !default;
 $media-spacing: 1rem !default;
 $media-spacing-large: 1.5rem !default;
@@ -28,7 +23,7 @@ $media-level-2-spacing: 0.5rem !default;
       "media-content-spacing": #{$media-content-spacing},
       "media-level-1-spacing": #{$media-level-1-spacing},
       "media-level-1-content-spacing": #{$media-level-1-content-spacing},
-      "media-level-2-spacing": #{$media-level-2-spacing},
+      "media-level-2-spacing": #{$media-level-2-spacing}
     )
   );
   align-items: flex-start;

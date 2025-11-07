@@ -1,4 +1,4 @@
-@use "../utilities/css-variables" as cv;
+@use '../utilities/css-variables' as cv;
 
 @mixin setup-theme() {
   @include cv.register-vars(

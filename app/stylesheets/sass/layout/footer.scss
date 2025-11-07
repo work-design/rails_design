@@ -1,5 +1,5 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/initial-variables" as iv;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/initial-variables' as iv;
 
 $footer-background-color: cv.getVar("scheme-main-bis") !default;
 $footer-color: false !default;
@@ -10,7 +10,7 @@ $footer-padding: 3rem 1.5rem 6rem !default;
     (
       "footer-background-color": #{$footer-background-color},
       "footer-color": #{$footer-color},
-      "footer-padding": #{$footer-padding},
+      "footer-padding": #{$footer-padding}
     )
   );
 

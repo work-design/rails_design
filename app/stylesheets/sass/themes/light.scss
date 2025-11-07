@@ -1,11 +1,11 @@
-@use "sass:list";
-@use "sass:meta";
+@use 'sass:list';
+@use 'sass:meta';
 
-@use "../utilities/css-variables" as cv;
-@use "../utilities/derived-variables" as dv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/functions" as fn;
-@use "setup";
+@use '../utilities/css-variables' as cv;
+@use '../utilities/derived-variables' as dv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/functions' as fn;
+@use 'setup';
 
 // The main lightness of this theme
 $scheme-main-l: 100%;
@@ -91,7 +91,7 @@ $scheme-main: hsl(iv.$scheme-h, iv.$scheme-s, $scheme-main-l);
       // Using px values to prevent half pixel issues
       "burger-gap": 5px,
       "burger-item-height": 2px,
-      "burger-item-width": 20px,
+      "burger-item-width": 20px
     )
   );
 
