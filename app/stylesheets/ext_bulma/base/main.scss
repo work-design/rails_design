@@ -1,12 +1,14 @@
 body,
 #body,
+#panel,
 .body {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
-#body {
+#body,
+#panel {
   overflow: auto;
   view-transition-name: main;
 }
