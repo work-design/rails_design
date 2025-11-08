@@ -30,6 +30,10 @@ $breadcrumb-item-separator-color: cv.getVar("border") !default;
   @extend %unselectable;
   font-size: cv.getVar("size-normal");
   white-space: nowrap;
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 
   a {
     align-items: center;
@@ -65,14 +69,6 @@ $breadcrumb-item-separator-color: cv.getVar("border") !default;
     }
   }
 
-  ul,
-  ol {
-    align-items: flex-start;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
-
   .#{iv.$class-prefix}icon {
     &:first-child {
       margin-inline-end: 0.5em;
@@ -85,17 +81,11 @@ $breadcrumb-item-separator-color: cv.getVar("border") !default;
 
   // Alignment
   &.#{iv.$class-prefix}is-centered {
-    ol,
-    ul {
-      justify-content: center;
-    }
+    justify-content: center;
   }
 
   &.#{iv.$class-prefix}is-right {
-    ol,
-    ul {
-      justify-content: flex-end;
-    }
+    justify-content: flex-end;
   }
 
   // Sizes
@@ -134,5 +124,9 @@ $breadcrumb-item-separator-color: cv.getVar("border") !default;
     li + li::before {
       content: "≻";
     }
+  }
+
+  &:empty {
+    margin-bottom: 0;
   }
 }
