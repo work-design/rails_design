@@ -137,7 +137,7 @@ $navbar-colors: dv.$colors !default;
       "navbar-dropdown-item-color-l": #{$navbar-dropdown-item-color-l},
       "navbar-divider-background-l": #{$navbar-divider-background-l},
       "navbar-divider-height": #{$navbar-divider-height},
-      "navbar-bottom-box-shadow-size": #{$navbar-bottom-box-shadow-size},
+      "navbar-bottom-box-shadow-size": #{$navbar-bottom-box-shadow-size}
     )
   );
 }
@@ -174,7 +174,7 @@ $navbar-colors: dv.$colors !default;
               #{cv.getVar("navbar-dropdown-item-background-l")}
             ),
           "navbar-dropdown-item-h": #{cv.getVar($name, "", "-h")},
-          "navbar-dropdown-item-s": #{cv.getVar($name, "", "-s")},
+          "navbar-dropdown-item-s": #{cv.getVar($name, "", "-s")}
         )
       );
     }
@@ -279,7 +279,6 @@ a.#{iv.$class-prefix}navbar-item,
   cursor: pointer;
 
   &:focus,
-  &:focus-within,
   &:hover {
     @include cv.register-vars(
       (
@@ -573,7 +572,6 @@ a.#{iv.$class-prefix}navbar-item,
 
     &.#{iv.$class-prefix}is-active,
     &.#{iv.$class-prefix}is-hoverable:focus,
-    &.#{iv.$class-prefix}is-hoverable:focus-within,
     &.#{iv.$class-prefix}is-hoverable:hover {
       .#{iv.$class-prefix}navbar-dropdown {
         display: block;
