@@ -1,7 +1,13 @@
-@use "../utilities/initial-variables" as iv;
+@use '../utilities/initial-variables' as iv;
 
 .#{iv.$class-prefix}#{iv.$helpers-prefix}clipped {
   overflow: hidden !important;
+  scrollbar-gutter: stable;
+  background-color: hsla(var(--bulma-scheme-h), var(--bulma-scheme-s), var(--bulma-scheme-invert-l), 0.86);
+
+  body {
+    background-color: var(--bulma-body-background-color);
+  }
 }
 
 $overflows: auto clip hidden scroll visible;
