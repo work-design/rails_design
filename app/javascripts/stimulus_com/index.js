@@ -43,6 +43,9 @@ application.register('enter-section', EnterSectionController)
 import FixedWidthController from './fixed-width'
 application.register('fixed-width', FixedWidthController)
 
+import FetchAutoController from './fetch-auto'
+application.register('fetch-auto', FetchAutoController)
+
 import FrameReloadController from './frame-reload'
 application.register('frame-reload', FrameReloadController)
 
