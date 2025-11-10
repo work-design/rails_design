@@ -6,9 +6,6 @@ const I18N = {
 
 // data-controller="modal"
 export default class extends BaseController {
-  static values = {
-    url: String
-  }
 
   connect() {
     document.documentElement.classList.add('clipped')
@@ -24,12 +21,7 @@ export default class extends BaseController {
     const ele = e.currentTarget
     if (this.closeCheck()) {
       ele.form.requestSubmit()
-
-      if (this.hasUrlValue) {
-        Turbo.visit(this.urlValue)
-      } else {
-        this.element.remove()
-      }
+      this.element.remove()
     }
   }
 
