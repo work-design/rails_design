@@ -1,18 +1,19 @@
+@forward 'shared';
+@forward 'input-textarea';
+@forward 'checkbox-radio';
+@forward 'select';
+@forward 'select_ext';
+@forward 'file';
+@forward 'tools';
+@forward 'tools_ext';
+
 @forward 'button_ext';
 @forward 'checkbox_ext';
 @forward 'file_ext';
 @forward 'general_ext';
 @forward 'radio_ext';
-@forward 'select_ext';
-@forward 'switch_ext';
-@forward 'tools_ext';
 
-@forward 'shared';
-@forward 'input-textarea';
-@forward 'checkbox-radio';
-@forward 'select';
-@forward 'file';
-@forward 'tools';
+@forward 'switch_ext';
 
 .required.field > .checkbox:after,
 .required.field>label:after,

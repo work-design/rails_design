@@ -11,9 +11,6 @@ $switch-paddle-background-active: var(--bulma-primary) !default;
 $switch-paddle-offset: 0.25rem !default;
 $switch-paddle-transition: all 0.25s ease-out !default;
 $switch-focus: 1px dotted var(--bulma-text-dark) !default;
-$colors: dv.$colors;
-$control-height: 1em;
-$control-line-height: 1em;
 
 @mixin switch-size($size) {
   $switch-height: $size * 1.5;
@@ -27,8 +24,8 @@ $control-line-height: 1em;
     align-items: center;
     justify-content: flex-start;
     font-size: $size;
-    height: $control-height;
-    line-height: $control-line-height;
+    height: 1em;
+    line-height: 1em;
     padding-left: $switch-width + .5;
     padding-top: .2rem;
     cursor: pointer;
@@ -202,7 +199,7 @@ $control-line-height: 1em;
     @include switch-size(iv.$size-4);
   }
 
-  @each $name, $pair in $colors {
+  @each $name, $pair in dv.$colors {
     $color: list.nth($pair, 1);
     &.is-#{$name} {
       &:checked {

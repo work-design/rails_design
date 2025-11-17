@@ -1,5 +1,5 @@
-@use '../sass/themes/light';
-@use '../sass/themes/setup';
+@use 'themes/light';
+@use 'themes/setup';
 
 :root {
   @include light.light-theme;

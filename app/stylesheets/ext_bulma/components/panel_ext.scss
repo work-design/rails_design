@@ -1,5 +1,5 @@
-@use '../../sass/utilities/initial-variables' as iv;
-@use '../../sass/utilities/css-variables' as cv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/css-variables' as cv;
 
 .panel {
   &.is-fit {
