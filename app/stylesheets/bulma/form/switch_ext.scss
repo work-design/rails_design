@@ -1,4 +1,5 @@
 @use 'sass:list';
+@use 'sass:math';
 @use '../utilities/derived-variables' as dv;
 @use '../utilities/initial-variables' as iv;
 
@@ -62,13 +63,11 @@ $switch-focus: 1px dotted var(--bulma-text-dark) !default;
     + label {
       padding-left: 0;
       padding-right: $switch-width + .5;
-      &::before,
-      &:before {
+      &::before {
         left: auto;
         right: 0;
       }
-      &::after,
-      &:after {
+      &::after {
         left: auto;
         right: $paddle-active-offest;
       }
@@ -77,8 +76,7 @@ $switch-focus: 1px dotted var(--bulma-text-dark) !default;
 
   &:checked {
     + label {
-      &::before,
-      &:before {
+      &::before {
         background: $switch-background-active;
       }
       &::after {
@@ -88,8 +86,7 @@ $switch-focus: 1px dotted var(--bulma-text-dark) !default;
 
     &.is-rtl {
       + label {
-        &::after,
-        &:after {
+        &::after {
           left: auto;
           right: $switch-paddle-offset;
         }
@@ -99,27 +96,23 @@ $switch-focus: 1px dotted var(--bulma-text-dark) !default;
 
   &.is-outlined {
     + label {
-      &::before,
-      &:before {
+      &::before {
         background-color: transparent;
         border-color: $switch-background;
       }
 
-      &::after,
-      &:after {
+      &::after {
         background: $switch-background;
       }
     }
 
     &:checked {
       + label {
-        &::before,
-        &:before {
+        &::before {
           background-color: transparent;
           border-color: $switch-background-active;
         }
-        &::after,
-        &:after {
+        &::after {
           background: $switch-paddle-background-active;
         }
       }
@@ -128,13 +121,11 @@ $switch-focus: 1px dotted var(--bulma-text-dark) !default;
 
   &.is-thin {
     + label {
-      &::before,
-      &:before {
-        top: divide($switch-height, 2.75);
-        height: divide($switch-height, 4);
+      &::before {
+        top: math.div($switch-height, 2.75);
+        height: math.div($switch-height, 4);
       }
-      &::after,
-      &:after {
+      &::after {
         box-shadow: 0 0 3px var(--bulma-text-dark);
       }
     }
@@ -142,118 +133,106 @@ $switch-focus: 1px dotted var(--bulma-text-dark) !default;
 
   &.is-rounded {
     + label {
-      &::before,
-      &:before {
+      &::before {
         border-radius: var(--bulma-radius-large);
       }
-      &::after,
-      &:after {
+      &::after {
         border-radius: 50%;
       }
     }
   }
 }
 
-.switch[type="checkbox"] {
-  outline: 0;
-  user-select: none;
-  display: inline-block;
-  position: absolute;
-  opacity: 0;
-  &:focus {
-    + label {
-      &::before,
-      &:before,
-      &::after,
-      &:after {
-        outline: $switch-focus;
-      }
-    }
-  }
-  &[disabled] {
-    cursor: not-allowed;
-    + label {
-      opacity: 0.5;
-      &::before,
-      &:before {
-        opacity: 0.5;
-      }
-      &::after,
-      &:after {
-        opacity: 0.5;
-      }
-      &:hover {
-        cursor: not-allowed;
-      }
-    }
-  }
-
-  @include switch-size(iv.$size-6);
-  &.is-small {
-    @include switch-size(iv.$size-7);
-  }
-  &.is-medium {
-    @include switch-size(iv.$size-5);
-  }
-  &.is-large {
-    @include switch-size(iv.$size-4);
-  }
-
-  @each $name, $pair in dv.$colors {
-    $color: list.nth($pair, 1);
-    &.is-#{$name} {
-      &:checked {
-        + label {
-          &::before,
-          &:before {
-            background: $color;
-          }
+.switch {
+  [type="checkbox"] {
+    outline: 0;
+    user-select: none;
+    display: inline-block;
+    position: absolute;
+    opacity: 0;
+    &:focus {
+      + label {
+        &::before {
+          outline: $switch-focus;
         }
       }
-      &.is-outlined {
+    }
+    &[disabled] {
+      cursor: not-allowed;
+      + label {
+        opacity: 0.5;
+        &::before {
+          opacity: 0.5;
+        }
+        &::after {
+          opacity: 0.5;
+        }
+        &:hover {
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    @include switch-size(iv.$size-6);
+    &.is-small {
+      @include switch-size(iv.$size-7);
+    }
+    &.is-medium {
+      @include switch-size(iv.$size-5);
+    }
+    &.is-large {
+      @include switch-size(iv.$size-4);
+    }
+
+    @each $name, $pair in dv.$colors {
+      $color: list.nth($pair, 1);
+      &.is-#{$name} {
         &:checked {
           + label {
-            &::before,
-            &:before {
-              background-color: transparent;
-              border-color: $color !important;
-            }
-            &::after,
-            &:after {
+            &::before {
               background: $color;
             }
           }
         }
-      }
-      &.is-thin {
         &.is-outlined {
-          + label {
-            &::after,
-            &:after {
-              box-shadow: none;
+          &:checked {
+            + label {
+              &::before {
+                background-color: transparent;
+                border-color: $color !important;
+              }
+              &::after {
+                background: $color;
+              }
+            }
+          }
+        }
+        &.is-thin {
+          &.is-outlined {
+            + label {
+              &::after {
+                box-shadow: none;
+              }
             }
           }
         }
       }
-    }
-    &.is-unchecked-#{$name} {
-      + label {
-        &::before,
-        &:before {
-          background: $color;
-        }
-      }
-
-      &.is-outlined {
+      &.is-unchecked-#{$name} {
         + label {
-          &::before,
-          &:before {
-            background-color: transparent;
-            border-color: $color !important;
-          }
-          &::after,
-          &:after {
+          &::before {
             background: $color;
+          }
+        }
+
+        &.is-outlined {
+          + label {
+            &::before {
+              background-color: transparent;
+              border-color: $color !important;
+            }
+            &::after {
+              background: $color;
+            }
           }
         }
       }
