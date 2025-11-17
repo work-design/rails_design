@@ -1,8 +1,8 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/derived-variables" as dv;
-@use "../utilities/extends";
-@use "../utilities/mixins" as mx;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/derived-variables' as dv;
+@use '../utilities/mixins' as mx;
+@use '../utilities/extends';
 
 $pagination-margin: -0.25rem !default;
 $pagination-min-width: cv.getVar("control-height") !default;
@@ -11,12 +11,8 @@ $pagination-item-h: cv.getVar("scheme-h");
 $pagination-item-s: cv.getVar("scheme-s");
 $pagination-item-l: cv.getVar("scheme-main-l");
 $pagination-item-background-l-delta: 0%;
-$pagination-item-hover-background-l-delta: cv.getVar(
-  "hover-background-l-delta"
-);
-$pagination-item-active-background-l-delta: cv.getVar(
-  "active-background-l-delta"
-);
+$pagination-item-hover-background-l-delta: cv.getVar("hover-background-l-delta");
+$pagination-item-active-background-l-delta: cv.getVar("active-background-l-delta");
 $pagination-item-border-l: cv.getVar("border-l");
 $pagination-item-border-l-delta: 0%;
 $pagination-item-border-style: solid !default;
@@ -53,14 +49,7 @@ $pagination-current-background-color: cv.getVar("link") !default;
 $pagination-current-border-color: cv.getVar("link") !default;
 
 $pagination-ellipsis-color: cv.getVar("text-weak") !default;
-
-$pagination-shadow-inset: inset 0 0.0625em 0.125em
-  hsla(
-    #{cv.getVar("scheme-h")},
-    #{cv.getVar("scheme-s")},
-    #{cv.getVar("scheme-invert-l")},
-    0.2
-  ) !default;
+$pagination-shadow-inset: inset 0 0.0625em 0.125em hsla(#{cv.getVar("scheme-h")}, #{cv.getVar("scheme-s")}, #{cv.getVar("scheme-invert-l")}, 0.2) !default;
 
 .#{iv.$class-prefix}pagination {
   @include cv.register-vars(
@@ -104,7 +93,7 @@ $pagination-shadow-inset: inset 0 0.0625em 0.125em
       "pagination-selected-item-l": #{$pagination-selected-item-l},
       "pagination-selected-item-background-l": #{$pagination-selected-item-background-l},
       "pagination-selected-item-border-l": #{$pagination-selected-item-border-l},
-      "pagination-selected-item-color-l": #{$pagination-selected-item-color-l},
+      "pagination-selected-item-color-l": #{$pagination-selected-item-color-l}
     )
   );
 }
@@ -156,11 +145,7 @@ $pagination-shadow-inset: inset 0 0.0625em 0.125em
 .#{iv.$class-prefix}pagination-ellipsis {
   @extend %control;
   @extend %unselectable;
-  color: hsl(
-    #{cv.getVar("pagination-item-h")},
-    #{cv.getVar("pagination-item-s")},
-    #{cv.getVar("pagination-item-color-l")}
-  );
+  color: hsl(#{cv.getVar("pagination-item-h")}, #{cv.getVar("pagination-item-s")}, #{cv.getVar("pagination-item-color-l")});
   font-size: cv.getVar("pagination-item-font-size");
   justify-content: center;
   margin: cv.getVar("pagination-item-margin");
@@ -219,12 +204,8 @@ $pagination-shadow-inset: inset 0 0.0625em 0.125em
   &:hover {
     @include cv.register-vars(
       (
-        "pagination-item-background-l-delta": #{cv.getVar(
-            "pagination-item-hover-background-l-delta"
-          )},
-        "pagination-item-border-l-delta": #{cv.getVar(
-            "pagination-item-hover-border-l-delta"
-          )},
+        "pagination-item-background-l-delta": #{cv.getVar("pagination-item-hover-background-l-delta")},
+        "pagination-item-border-l-delta": #{cv.getVar("pagination-item-hover-border-l-delta")},
       )
     );
   }
@@ -232,12 +213,8 @@ $pagination-shadow-inset: inset 0 0.0625em 0.125em
   &:focus {
     @include cv.register-vars(
       (
-        "pagination-item-background-l-delta": #{cv.getVar(
-            "pagination-item-hover-background-l-delta"
-          )},
-        "pagination-item-border-l-delta": #{cv.getVar(
-            "pagination-item-hover-border-l-delta"
-          )},
+        "pagination-item-background-l-delta": #{cv.getVar("pagination-item-hover-background-l-delta")},
+        "pagination-item-border-l-delta": #{cv.getVar("pagination-item-hover-border-l-delta")},
       )
     );
   }
@@ -271,15 +248,9 @@ $pagination-shadow-inset: inset 0 0.0625em 0.125em
         "pagination-item-h": #{cv.getVar("pagination-selected-item-h")},
         "pagination-item-s": #{cv.getVar("pagination-selected-item-s")},
         "pagination-item-l": #{cv.getVar("pagination-selected-item-l")},
-        "pagination-item-background-l": #{cv.getVar(
-            "pagination-selected-item-background-l"
-          )},
-        "pagination-item-border-l": #{cv.getVar(
-            "pagination-selected-item-border-l"
-          )},
-        "pagination-item-color-l": #{cv.getVar(
-            "pagination-selected-item-color-l"
-          )},
+        "pagination-item-background-l": #{cv.getVar("pagination-selected-item-background-l")},
+        "pagination-item-border-l": #{cv.getVar("pagination-selected-item-border-l")},
+        "pagination-item-color-l": #{cv.getVar("pagination-selected-item-color-l")}
       )
     );
   }

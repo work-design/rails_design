@@ -1,8 +1,8 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/derived-variables" as dv;
-@use "../utilities/extends";
-@use "../utilities/mixins" as mx;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/derived-variables' as dv;
+@use '../utilities/mixins' as mx;
+@use '../utilities/extends';
 
 $panel-margin: cv.getVar("block-spacing") !default;
 $panel-item-border: 1px solid cv.getVar("border-weak") !default;
@@ -57,7 +57,7 @@ $panel-colors: dv.$colors !default;
       "panel-block-active-border-left-color": #{$panel-block-active-border-left-color},
       "panel-block-active-color": #{$panel-block-active-color},
       "panel-block-active-icon-color": #{$panel-block-active-icon-color},
-      "panel-icon-color": #{$panel-icon-color},
+      "panel-icon-color": #{$panel-icon-color}
     )
   );
 }
@@ -137,11 +137,7 @@ $panel-colors: dv.$colors !default;
 
     // Modifiers
     &.#{iv.$class-prefix}is-active {
-      border-bottom-color: hsl(
-        cv.getVar("panel-h"),
-        cv.getVar("panel-s"),
-        cv.getVar("panel-color-l")
-      );
+      border-bottom-color: hsl(cv.getVar("panel-h"), cv.getVar("panel-s"), cv.getVar("panel-color-l"));
       color: cv.getVar("panel-tab-active-color");
     }
   }
@@ -183,11 +179,7 @@ $panel-colors: dv.$colors !default;
     color: cv.getVar("panel-block-active-color");
 
     .#{iv.$class-prefix}panel-icon {
-      color: hsl(
-        cv.getVar("panel-h"),
-        cv.getVar("panel-s"),
-        cv.getVar("panel-color-l")
-      );
+      color: hsl(cv.getVar("panel-h"), cv.getVar("panel-s"), cv.getVar("panel-color-l"));
     }
   }
 
