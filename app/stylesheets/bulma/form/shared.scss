@@ -1,8 +1,8 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/derived-variables" as dv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/extends";
-@use "../utilities/mixins" as mx;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/derived-variables' as dv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/mixins' as mx;
+@use '../utilities/extends';
 
 $form-colors: dv.$colors !default;
 
@@ -13,11 +13,7 @@ $input-border-style: solid !default;
 $input-border-width: cv.getVar("control-border-width") !default;
 $input-border-l: cv.getVar("border-l") !default;
 $input-border-l-delta: 0% !default;
-$input-border-color: hsl(
-  cv.getVar("input-h"),
-  cv.getVar("input-s"),
-  calc(#{cv.getVar("input-border-l")} + #{cv.getVar("input-border-l-delta")})
-) !default;
+$input-border-color: hsl(cv.getVar("input-h"), cv.getVar("input-s"), calc(#{cv.getVar("input-border-l")} + #{cv.getVar("input-border-l-delta")})) !default;
 $input-hover-border-l-delta: #{cv.getVar("hover-border-l-delta")} !default;
 $input-active-border-l-delta: #{cv.getVar("active-border-l-delta")} !default;
 $input-color-l: cv.getVar("text-strong-l") !default;
@@ -31,12 +27,7 @@ $input-shadow: inset 0 0.0625em 0.125em
     #{cv.getVar("scheme-invert-l")},
     0.05
   ) !default;
-$input-placeholder-color: hsla(
-  #{cv.getVar("text-h")},
-  #{cv.getVar("text-s")},
-  #{cv.getVar("text-strong-l")},
-  0.3
-) !default;
+$input-placeholder-color: hsla(#{cv.getVar("text-h")}, #{cv.getVar("text-s")}, #{cv.getVar("text-strong-l")}, 0.3) !default;
 
 $input-focus-h: cv.getVar("focus-h") !default;
 $input-focus-s: cv.getVar("focus-s") !default;
@@ -47,12 +38,7 @@ $input-focus-shadow-alpha: cv.getVar("focus-shadow-alpha") !default;
 $input-disabled-color: cv.getVar("text-weak") !default;
 $input-disabled-background-color: cv.getVar("background") !default;
 $input-disabled-border-color: cv.getVar("background") !default;
-$input-disabled-placeholder-color: hsla(
-  #{cv.getVar("text-h")},
-  #{cv.getVar("text-s")},
-  #{cv.getVar("text-weak-l")},
-  0.3
-) !default;
+$input-disabled-placeholder-color: hsla(#{cv.getVar("text-h")}, #{cv.getVar("text-s")}, #{cv.getVar("text-weak-l")}, 0.3) !default;
 
 $input-arrow: cv.getVar("link") !default;
 
@@ -97,29 +83,17 @@ $input-radius: cv.getVar("radius") !default;
       "input-icon-color": #{$input-icon-color},
       "input-icon-hover-color": #{$input-icon-hover-color},
       "input-icon-focus-color": #{$input-icon-focus-color},
-      "input-radius": #{$input-radius},
+      "input-radius": #{$input-radius}
     )
   );
 }
 
 @mixin input {
   @extend %control;
-  background-color: hsl(
-    #{cv.getVar("input-h")},
-    #{cv.getVar("input-s")},
-    calc(
-      #{cv.getVar("input-background-l")} + #{cv.getVar(
-          "input-background-l-delta"
-        )}
-    )
-  );
+  background-color: hsl(#{cv.getVar("input-h")}, #{cv.getVar("input-s")}, calc(#{cv.getVar("input-background-l")} + #{cv.getVar("input-background-l-delta")}));
   border-color: cv.getVar("input-border-color");
   border-radius: cv.getVar("input-radius");
-  color: hsl(
-    #{cv.getVar("input-h")},
-    #{cv.getVar("input-s")},
-    #{cv.getVar("input-color-l")}
-  );
+  color: hsl(#{cv.getVar("input-h")}, #{cv.getVar("input-s")}, #{cv.getVar("input-color-l")});
 
   @include mx.placeholder {
     color: cv.getVar("input-placeholder-color");
@@ -129,7 +103,7 @@ $input-radius: cv.getVar("radius") !default;
   &.#{iv.$class-prefix}is-hovered {
     @include cv.register-vars(
       (
-        "input-border-l-delta": #{cv.getVar("input-hover-border-l-delta")},
+        "input-border-l-delta": #{cv.getVar("input-hover-border-l-delta")}
       )
     );
   }
@@ -138,7 +112,7 @@ $input-radius: cv.getVar("radius") !default;
   &.#{iv.$class-prefix}is-active {
     @include cv.register-vars(
       (
-        "input-border-l-delta": #{cv.getVar("input-active-border-l-delta")},
+        "input-border-l-delta": #{cv.getVar("input-active-border-l-delta")}
       )
     );
   }
@@ -146,18 +120,8 @@ $input-radius: cv.getVar("radius") !default;
   &:focus,
   &:focus-within,
   &.#{iv.$class-prefix}is-focused {
-    border-color: hsl(
-      cv.getVar("input-focus-h"),
-      cv.getVar("input-focus-s"),
-      cv.getVar("input-focus-l")
-    );
-    box-shadow: cv.getVar("input-focus-shadow-size")
-      hsla(
-        cv.getVar("input-focus-h"),
-        cv.getVar("input-focus-s"),
-        cv.getVar("input-focus-l"),
-        cv.getVar("input-focus-shadow-alpha")
-      );
+    border-color: hsl(cv.getVar("input-focus-h"), cv.getVar("input-focus-s"), cv.getVar("input-focus-l"));
+    box-shadow: cv.getVar("input-focus-shadow-size") hsla(cv.getVar("input-focus-h"), cv.getVar("input-focus-s"), cv.getVar("input-focus-l"), cv.getVar("input-focus-shadow-alpha"));
   }
 
   &[disabled],

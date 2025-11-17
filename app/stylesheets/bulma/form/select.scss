@@ -1,8 +1,8 @@
-@use "shared";
-@use "../utilities/controls";
-@use "../utilities/css-variables" as cv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/extends";
+@use '../utilities/css-variables' as cv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/extends';
+@use '../utilities/controls';
+@use 'shared';
 
 $select-colors: shared.$form-colors !default;
 
@@ -13,7 +13,7 @@ $select-colors: shared.$form-colors !default;
       "input-s": #{cv.getVar("scheme-s")},
       "input-border-style": solid,
       "input-border-width": 1px,
-      "input-border-l": #{cv.getVar("border-l")},
+      "input-border-l": #{cv.getVar("border-l")}
     )
   );
 
@@ -84,7 +84,7 @@ $select-colors: shared.$form-colors !default;
           "input-focus-s": #{cv.getVar($name, "", "-s")},
           "input-focus-l": #{cv.getVar($name, "", "-l")},
           "input-border-l": #{cv.getVar($name, "", "-l")},
-          "arrow-color": #{cv.getVar($name)},
+          "arrow-color": #{cv.getVar($name)}
         )
       );
     }
