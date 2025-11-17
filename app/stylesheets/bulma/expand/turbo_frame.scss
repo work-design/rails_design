@@ -1,0 +1,20 @@
+turbo-frame {
+  position: relative;
+
+  .loading {
+    text-align: center;
+    background-color: #ccc;
+    color: red;
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+  }
+
+  &[busy] {
+    .loading {
+      display: block;
+    }
+  }
+}
