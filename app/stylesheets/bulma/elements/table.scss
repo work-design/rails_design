@@ -29,9 +29,7 @@ $table-row-active-background-color: cv.getVar("primary") !default;
 $table-row-active-color: cv.getVar("primary-invert") !default;
 
 $table-striped-row-even-background-color: cv.getVar("scheme-main-bis") !default;
-$table-striped-row-even-hover-background-color: cv.getVar(
-  "scheme-main-ter"
-) !default;
+$table-striped-row-even-hover-background-color: cv.getVar("scheme-main-ter") !default;
 
 $table-colors: dv.$colors !default;
 
@@ -57,7 +55,7 @@ $table-colors: dv.$colors !default;
       "table-row-active-background-color": #{$table-row-active-background-color},
       "table-row-active-color": #{$table-row-active-color},
       "table-striped-row-even-background-color": #{$table-striped-row-even-background-color},
-      "table-striped-row-even-hover-background-color": #{$table-striped-row-even-hover-background-color},
+      "table-striped-row-even-hover-background-color": #{$table-striped-row-even-hover-background-color}
     )
   );
 }
@@ -76,7 +74,7 @@ $table-colors: dv.$colors !default;
     border-width: cv.getVar("table-cell-border-width");
     color: cv.getVar("table-color");
     padding: cv.getVar("table-cell-padding");
-    vertical-align: top;
+    vertical-align: middle;
 
     // Colors
     @each $name, $pair in $table-colors {
@@ -86,7 +84,7 @@ $table-colors: dv.$colors !default;
             "table-color": #{cv.getVar($name, "", "-invert")},
             "table-cell-heading-color": #{cv.getVar($name, "", "-invert")},
             "table-cell-background-color": #{cv.getVar($name)},
-            "table-cell-border-color": #{cv.getVar($name)},
+            "table-cell-border-color": #{cv.getVar($name)}
           )
         );
       }

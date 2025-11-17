@@ -42,8 +42,8 @@ td:has(table) {
     }
   }
 
-  th, td {
-    vertical-align: middle;
+  th,
+  td {
     max-width: 20em;
     overflow-wrap: break-word;
 
