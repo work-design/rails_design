@@ -1,9 +1,9 @@
-@use "sass:list";
+@use 'sass:list';
 
-@use "shared";
-@use "../utilities/css-variables" as cv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/controls";
+@use '../utilities/css-variables' as cv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/controls';
+@use 'shared';
 
 $textarea-padding: cv.getVar("control-padding-horizontal") !default;
 $textarea-max-height: 40em !default;
@@ -35,7 +35,7 @@ $textarea-colors: shared.$form-colors !default;
           "input-focus-h": #{cv.getVar($name, "", "-h")},
           "input-focus-s": #{cv.getVar($name, "", "-s")},
           "input-focus-l": #{cv.getVar($name, "", "-l")},
-          "input-border-l": #{cv.getVar($name, "", "-l")},
+          "input-border-l": #{cv.getVar($name, "", "-l")}
         )
       );
     }
