@@ -1,6 +1,6 @@
-@use "css-variables" as cv;
-@use "derived-variables" as dv;
-@use "initial-variables" as iv;
+@use 'css-variables' as cv;
+@use 'derived-variables' as dv;
+@use 'initial-variables' as iv;
 
 $control-radius: cv.getVar("radius") !default;
 $control-radius-small: cv.getVar("radius-small") !default;
