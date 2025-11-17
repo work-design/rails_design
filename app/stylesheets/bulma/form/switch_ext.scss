@@ -54,12 +54,14 @@ $switch-focus: 1px dotted var(--bulma-text-dark) !default;
     transform: translate3d(0, 0, 0);
     border-radius: $switch-radius;
     background: $switch-paddle-background;
-    transition: $switch-paddle-transition;content: '';
+    transition: $switch-paddle-transition;
+    content: '';
   }
 
   &.is-rtl {
     padding-left: 0;
     padding-right: $switch-width + .5;
+
     &::before {
       left: auto;
       right: 0;
@@ -70,71 +72,60 @@ $switch-focus: 1px dotted var(--bulma-text-dark) !default;
     }
   }
 
-  &:checked {
-    label {
-      &::before {
-        background: $switch-background-active;
-      }
-      &::after {
-        left: $paddle-active-offest;
-      }
+  &:has(> input[type="checkbox"]:checked) {
+    &::before {
+      background: $switch-background-active;
+    }
+    &::after {
+      left: $paddle-active-offest;
     }
 
     &.is-rtl {
-      + label {
-        &::after {
-          left: auto;
-          right: $switch-paddle-offset;
-        }
+      &::after {
+        left: auto;
+        right: $switch-paddle-offset;
       }
     }
   }
 
   &.is-outlined {
-    + label {
-      &::before {
-        background-color: transparent;
-        border-color: $switch-background;
-      }
-
-      &::after {
-        background: $switch-background;
-      }
+    &::before {
+      background-color: transparent;
+      border-color: $switch-background;
     }
 
-    &:checked {
-      + label {
-        &::before {
-          background-color: transparent;
-          border-color: $switch-background-active;
-        }
-        &::after {
-          background: $switch-paddle-background-active;
-        }
+    &::after {
+      background: $switch-background;
+    }
+
+    &:has(> input[type="checkbox"]:checked) {
+
+      &::before {
+        background-color: transparent;
+        border-color: $switch-background-active;
+      }
+      &::after {
+        background: $switch-paddle-background-active;
       }
     }
   }
 
   &.is-thin {
-    + label {
-      &::before {
-        top: math.div($switch-height, 2.75);
-        height: math.div($switch-height, 4);
-      }
-      &::after {
-        box-shadow: 0 0 3px var(--bulma-text-dark);
-      }
+    &::before {
+      top: math.div($switch-height, 2.75);
+      height: math.div($switch-height, 4);
+    }
+    &::after {
+      box-shadow: 0 0 3px var(--bulma-text-dark);
     }
   }
 
   &.is-rounded {
-    + label {
-      &::before {
-        border-radius: var(--bulma-radius-large);
-      }
-      &::after {
-        border-radius: 50%;
-      }
+    &::before {
+      border-radius: var(--bulma-radius-large);
+    }
+    &::after {
+      border-radius: 50%;
     }
   }
 }
@@ -193,14 +184,12 @@ $switch-focus: 1px dotted var(--bulma-text-dark) !default;
         }
         &.is-outlined {
           &:checked {
-            + label {
-              &::before {
-                background-color: transparent;
-                border-color: $color !important;
-              }
-              &::after {
-                background: $color;
-              }
+            &::before {
+              background-color: transparent;
+              border-color: $color !important;
+            }
+            &::after {
+              background: $color;
             }
           }
         }
@@ -215,21 +204,17 @@ $switch-focus: 1px dotted var(--bulma-text-dark) !default;
         }
       }
       &.is-unchecked-#{$name} {
-        + label {
-          &::before {
-            background: $color;
-          }
+        &::before {
+          background: $color;
         }
 
         &.is-outlined {
-          + label {
-            &::before {
-              background-color: transparent;
-              border-color: $color !important;
-            }
-            &::after {
-              background: $color;
-            }
+          &::before {
+            background-color: transparent;
+            border-color: $color !important;
+          }
+          &::after {
+            background: $color;
           }
         }
       }
