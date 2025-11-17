@@ -1,21 +1,15 @@
 @charset "utf-8";
 
-@use '../sass/utilities' with (
+@use 'utilities' with (
   $helpers-prefix: '',
   $helpers-has-prefix: ''
 );
 
 @forward 'theme';
-@forward '../sass/base';
-@forward '../sass/elements';
-@forward '../sass/form';
-@forward '../sass/components';
-@forward '../sass/grid';
-@forward '../sass/layout';
-@forward '../sass/base/skeleton';
-@forward '../sass/helpers';
 
 @forward 'base';
+@forward 'base/skeleton';
+
 @forward 'animation';
 @forward 'components';
 @forward 'elements';
