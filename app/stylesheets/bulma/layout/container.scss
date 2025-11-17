@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use '../utilities/initial-variables' as iv;
 @use '../utilities/mixins' as mx;
 
@@ -27,7 +28,7 @@ $container-max-width: iv.$fullhd !default;
 
   @include mx.until-widescreen {
     &.#{iv.$class-prefix}is-widescreen:not(.#{iv.$class-prefix}is-max-tablet):not(.#{iv.$class-prefix}is-max-desktop) {
-      max-width: min(iv.$widescreen, $container-max-width) - $container-offset;
+      max-width: math.min(iv.$widescreen, $container-max-width) - $container-offset;
     }
   }
 
@@ -35,19 +36,19 @@ $container-max-width: iv.$fullhd !default;
     &.#{iv.$class-prefix}is-fullhd:not(.#{iv.$class-prefix}is-max-tablet):not(
         .#{iv.$class-prefix}is-max-desktop
       ):not(.#{iv.$class-prefix}is-max-widescreen) {
-      max-width: min(iv.$fullhd, $container-max-width) - $container-offset;
+      max-width: math.min(iv.$fullhd, $container-max-width) - $container-offset;
     }
   }
 
   @include mx.widescreen {
     &:not(.#{iv.$class-prefix}is-max-tablet):not(.#{iv.$class-prefix}is-max-desktop) {
-      max-width: min(iv.$widescreen, $container-max-width) - $container-offset;
+      max-width: math.min(iv.$widescreen, $container-max-width) - $container-offset;
     }
   }
 
   @include mx.fullhd {
     &:not(.#{iv.$class-prefix}is-max-tablet):not(.#{iv.$class-prefix}is-max-desktop):not(.#{iv.$class-prefix}is-max-widescreen) {
-      max-width: min(iv.$fullhd, $container-max-width) - $container-offset;
+      max-width: math.min(iv.$fullhd, $container-max-width) - $container-offset;
     }
   }
 }
