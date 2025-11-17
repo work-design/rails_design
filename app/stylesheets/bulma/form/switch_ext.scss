@@ -18,7 +18,8 @@ $switch-focus: 1px dotted var(--bulma-text-dark) !default;
   $paddle-height: $switch-height - ($switch-paddle-offset * 2);
   $paddle-width: $switch-height - ($switch-paddle-offset * 2);
   $paddle-active-offest: $switch-width - $paddle-width - ($switch-paddle-offset * 1.5);
-  + label {
+
+  label {
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -30,8 +31,7 @@ $switch-focus: 1px dotted var(--bulma-text-dark) !default;
     padding-top: .2rem;
     cursor: pointer;
 
-    &::before,
-    &:before {
+    &::before {
       position: absolute;
       display: block;
       top: calc( 50% - #{$switch-height} / 2 );
@@ -44,8 +44,8 @@ $switch-focus: 1px dotted var(--bulma-text-dark) !default;
       content: '';
     }
 
-    &::after,
-    &:after { display: block;
+    &::after {
+      display: block;
       position: absolute;
       top: calc( 50% - #{$paddle-height} / 2 );
       left: $switch-paddle-offset;
