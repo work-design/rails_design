@@ -144,6 +144,19 @@ $switch-focus: 1px dotted var(--bulma-text-dark) !default;
 }
 
 .switch {
+  @include switch-size(iv.$size-6);
+
+  &.is-small {
+    @include switch-size(iv.$size-7);
+  }
+  &.is-medium {
+    @include switch-size(iv.$size-5);
+  }
+  &.is-large {
+    @include switch-size(iv.$size-4);
+  }
+
+
   [type="checkbox"] {
     outline: 0;
     user-select: none;
@@ -171,17 +184,6 @@ $switch-focus: 1px dotted var(--bulma-text-dark) !default;
           cursor: not-allowed;
         }
       }
-    }
-
-    @include switch-size(iv.$size-6);
-    &.is-small {
-      @include switch-size(iv.$size-7);
-    }
-    &.is-medium {
-      @include switch-size(iv.$size-5);
-    }
-    &.is-large {
-      @include switch-size(iv.$size-4);
     }
 
     @each $name, $pair in dv.$colors {
