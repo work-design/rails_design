@@ -16,6 +16,10 @@ export default class extends BaseController {
     }
   }
 
+  submit(el) {
+    el.currentTarget.form.requestSubmit()
+  }
+
   // label wrap input
   toggle() {
     if (this.hasCheckboxTarget) {
