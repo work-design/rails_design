@@ -20,62 +20,58 @@ $switch-focus: 1px dotted var(--bulma-text-dark) !default;
   $paddle-width: $switch-height - ($switch-paddle-offset * 2);
   $paddle-active-offest: $switch-width - $paddle-width - ($switch-paddle-offset * 1.5);
 
-  label {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: $size;
-    height: 1em;
-    line-height: 1em;
-    padding-left: $switch-width + .5;
-    padding-top: .2rem;
-    cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: $size;
+  height: 1em;
+  line-height: 1em;
+  padding-left: $switch-width + .5;
+  padding-top: .2rem;
+  cursor: pointer;
 
-    &::before {
-      position: absolute;
-      display: block;
-      top: calc( 50% - #{$switch-height} / 2 );
-      left: 0;
-      width: $switch-width;
-      height: $switch-height;
-      border: $switch-border;
-      border-radius: $switch-radius;
-      background: $switch-background;
-      content: '';
-    }
+  &::before {
+    position: absolute;
+    display: block;
+    top: calc( 50% - #{$switch-height} / 2 );
+    left: 0;
+    width: $switch-width;
+    height: $switch-height;
+    border: $switch-border;
+    border-radius: $switch-radius;
+    background: $switch-background;
+    content: '';
+  }
 
-    &::after {
-      display: block;
-      position: absolute;
-      top: calc( 50% - #{$paddle-height} / 2 );
-      left: $switch-paddle-offset;
-      width: $paddle-width;
-      height: $paddle-height;
-      transform: translate3d(0, 0, 0);
-      border-radius: $switch-radius;
-      background: $switch-paddle-background;
-      transition: $switch-paddle-transition;content: '';
-    }
+  &::after {
+    display: block;
+    position: absolute;
+    top: calc( 50% - #{$paddle-height} / 2 );
+    left: $switch-paddle-offset;
+    width: $paddle-width;
+    height: $paddle-height;
+    transform: translate3d(0, 0, 0);
+    border-radius: $switch-radius;
+    background: $switch-paddle-background;
+    transition: $switch-paddle-transition;content: '';
   }
 
   &.is-rtl {
-    + label {
-      padding-left: 0;
-      padding-right: $switch-width + .5;
-      &::before {
-        left: auto;
-        right: 0;
-      }
-      &::after {
-        left: auto;
-        right: $paddle-active-offest;
-      }
+    padding-left: 0;
+    padding-right: $switch-width + .5;
+    &::before {
+      left: auto;
+      right: 0;
+    }
+    &::after {
+      left: auto;
+      right: $paddle-active-offest;
     }
   }
 
   &:checked {
-    + label {
+    label {
       &::before {
         background: $switch-background-active;
       }
@@ -155,7 +151,6 @@ $switch-focus: 1px dotted var(--bulma-text-dark) !default;
   &.is-large {
     @include switch-size(iv.$size-4);
   }
-
 
   [type="checkbox"] {
     outline: 0;
