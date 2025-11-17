@@ -1,9 +1,9 @@
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/css-variables" as cv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/css-variables' as cv;
 
-@use "light";
-@use "dark";
-@use "setup";
+@use 'light';
+@use 'dark';
+@use 'setup';
 
 #{iv.$variables-host} {
   @include light.light-theme;
