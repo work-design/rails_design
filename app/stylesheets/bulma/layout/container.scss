@@ -26,9 +26,7 @@ $container-max-width: iv.$fullhd !default;
   }
 
   @include mx.until-widescreen {
-    &.#{iv.$class-prefix}is-widescreen:not(
-        .#{iv.$class-prefix}is-max-tablet
-      ):not(.#{iv.$class-prefix}is-max-desktop) {
+    &.#{iv.$class-prefix}is-widescreen:not(.#{iv.$class-prefix}is-max-tablet):not(.#{iv.$class-prefix}is-max-desktop) {
       max-width: min(iv.$widescreen, $container-max-width) - $container-offset;
     }
   }
@@ -42,9 +40,7 @@ $container-max-width: iv.$fullhd !default;
   }
 
   @include mx.widescreen {
-    &:not(.#{iv.$class-prefix}is-max-tablet):not(
-        .#{iv.$class-prefix}is-max-desktop
-      ) {
+    &:not(.#{iv.$class-prefix}is-max-tablet):not(.#{iv.$class-prefix}is-max-desktop) {
       max-width: min(iv.$widescreen, $container-max-width) - $container-offset;
     }
   }
