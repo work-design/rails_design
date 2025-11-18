@@ -1,8 +1,8 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/derived-variables" as dv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/extends";
-@use "../utilities/mixins" as mx;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/derived-variables' as dv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/mixins' as mx;
+@use '../utilities/extends';
 
 $tag-h: cv.getVar("scheme-h");
 $tag-s: cv.getVar("scheme-s");
@@ -85,13 +85,7 @@ $tag-colors: dv.$colors !default;
   );
 
   align-items: center;
-  background-color: hsl(
-    cv.getVar("tag-h"),
-    cv.getVar("tag-s"),
-    calc(
-      #{cv.getVar("tag-background-l")} + #{cv.getVar("tag-background-l-delta")}
-    )
-  );
+  background-color: hsl(cv.getVar("tag-h"), cv.getVar("tag-s"), calc(#{cv.getVar("tag-background-l")} + #{cv.getVar("tag-background-l-delta")}));
   border-radius: $tag-radius;
   color: hsl(cv.getVar("tag-h"), cv.getVar("tag-s"), cv.getVar("tag-color-l"));
   display: inline-flex;

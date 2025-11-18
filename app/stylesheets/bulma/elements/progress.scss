@@ -102,6 +102,10 @@ $progress-colors: dv.$colors !default;
   &.#{iv.$class-prefix}is-large {
     height: cv.getVar("size-large");
   }
+
+  &.is-tiny {
+    height: 2px;
+  }
 }
 
 @keyframes moveIndeterminate {
