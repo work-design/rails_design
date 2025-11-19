@@ -1,6 +1,6 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/derived-variables" as dv;
-@use "../utilities/initial-variables" as iv;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/derived-variables' as dv;
+@use '../utilities/initial-variables' as iv;
 
 $digits: (
   "00",
@@ -31,17 +31,8 @@ $digits: (
 }
 
 @each $name, $color in dv.$colors {
-  $background: hsl(
-    #{cv.getVar($name, "", "-h")},
-    #{cv.getVar($name, "", "-s")},
-    #{cv.getVar($name, "", "-l")}
-  );
-
-  $color: hsl(
-    #{cv.getVar($name, "", "-h")},
-    #{cv.getVar($name, "", "-s")},
-    #{cv.getVar($name, "", "-l")}
-  );
+  $background: hsl(#{cv.getVar($name, "", "-h")}, #{cv.getVar($name, "", "-s")}, #{cv.getVar($name, "", "-l")});
+  $color: hsl(#{cv.getVar($name, "", "-h")}, #{cv.getVar($name, "", "-s")}, #{cv.getVar($name, "", "-l")});
 
   .#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name} {
     color: $color !important;
@@ -53,36 +44,20 @@ $digits: (
 
   // Invert
   .#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name}-invert {
-    color: hsl(
-      #{cv.getVar($name, "", "-h")},
-      #{cv.getVar($name, "", "-s")},
-      #{cv.getVar($name, "", "-invert-l")}
-    ) !important;
+    color: hsl(#{cv.getVar($name, "", "-h")}, #{cv.getVar($name, "", "-s")}, #{cv.getVar($name, "", "-invert-l")}) !important;
   }
 
   .#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name}-invert {
-    background-color: hsl(
-      #{cv.getVar($name, "", "-h")},
-      #{cv.getVar($name, "", "-s")},
-      #{cv.getVar($name, "", "-invert-l")}
-    ) !important;
+    background-color: hsl(#{cv.getVar($name, "", "-h")}, #{cv.getVar($name, "", "-s")}, #{cv.getVar($name, "", "-invert-l")}) !important;
   }
 
   // On Scheme
   .#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name}-on-scheme {
-    color: hsl(
-      #{cv.getVar($name, "", "-h")},
-      #{cv.getVar($name, "", "-s")},
-      #{cv.getVar($name, "", "-on-scheme-l")}
-    ) !important;
+    color: hsl(#{cv.getVar($name, "", "-h")}, #{cv.getVar($name, "", "-s")}, #{cv.getVar($name, "", "-on-scheme-l")}) !important;
   }
 
   .#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name}-on-scheme {
-    background-color: hsl(
-      #{cv.getVar($name, "", "-h")},
-      #{cv.getVar($name, "", "-s")},
-      #{cv.getVar($name, "", "-on-scheme-l")}
-    ) !important;
+    background-color: hsl(#{cv.getVar($name, "", "-h")}, #{cv.getVar($name, "", "-s")}, #{cv.getVar($name, "", "-on-scheme-l")}) !important;
   }
 
   // Light
