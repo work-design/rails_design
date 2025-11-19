@@ -33,7 +33,7 @@ $file-name-max-width: 16em !default;
 
 $file-colors: shared.$form-colors !default;
 
-.#{iv.$class-prefix}file {
+.file {
   @extend %block;
   @extend %unselectable;
 
@@ -58,7 +58,7 @@ $file-colors: shared.$form-colors !default;
       "file-name-color-l": #{$file-name-color-l},
       "file-color-l-delta": #{$file-color-l-delta},
       "file-hover-color-l-delta": #{$file-hover-color-l-delta},
-      "file-active-color-l-delta": #{$file-active-color-l-delta},
+      "file-active-color-l-delta": #{$file-active-color-l-delta}
     )
   );
 
@@ -69,7 +69,7 @@ $file-colors: shared.$form-colors !default;
 
   // Colors
   @each $name, $pair in $file-colors {
-    &.#{iv.$class-prefix}is-#{$name} {
+    &.is-#{$name} {
       @include cv.register-vars(
         (
           "file-h": #{cv.getVar($name, "", "-h")},
@@ -84,108 +84,108 @@ $file-colors: shared.$form-colors !default;
   }
 
   // Sizes
-  &.#{iv.$class-prefix}is-small {
+  &.is-small {
     font-size: cv.getVar("size-small");
   }
 
-  &.#{iv.$class-prefix}is-normal {
+  &.is-normal {
     font-size: cv.getVar("size-normal");
   }
 
-  &.#{iv.$class-prefix}is-medium {
+  &.is-medium {
     font-size: cv.getVar("size-medium");
 
-    .#{iv.$class-prefix}file-icon {
-      .#{iv.$class-prefix}fa {
+    .file-icon {
+      .fa {
         font-size: 1.5rem;
       }
     }
   }
 
-  &.#{iv.$class-prefix}is-large {
+  &.is-large {
     font-size: cv.getVar("size-large");
 
-    .#{iv.$class-prefix}file-icon {
-      .#{iv.$class-prefix}fa {
+    .file-icon {
+      .fa {
         font-size: 2rem;
       }
     }
   }
 
   // Modifiers
-  &.#{iv.$class-prefix}has-name {
-    .#{iv.$class-prefix}file-cta {
+  &.has-name {
+    .file-cta {
       border-end-end-radius: 0;
       border-start-end-radius: 0;
     }
 
-    .#{iv.$class-prefix}file-name {
+    .file-name {
       border-end-start-radius: 0;
       border-start-start-radius: 0;
     }
 
-    &.#{iv.$class-prefix}is-empty {
-      .#{iv.$class-prefix}file-cta {
+    &.is-empty {
+      .file-cta {
         border-radius: cv.getVar("file-radius");
       }
 
-      .#{iv.$class-prefix}file-name {
+      .file-name {
         display: none;
       }
     }
   }
 
-  &.#{iv.$class-prefix}is-boxed {
-    .#{iv.$class-prefix}file-label {
+  &.is-boxed {
+    .file-label {
       flex-direction: column;
     }
 
-    .#{iv.$class-prefix}file-cta {
+    .file-cta {
       flex-direction: column;
       height: auto;
       padding: 1em 3em;
     }
 
-    .#{iv.$class-prefix}file-name {
+    .file-name {
       border-width: 0 1px 1px;
     }
 
-    .#{iv.$class-prefix}file-icon {
+    .file-icon {
       height: 1.5em;
       width: 1.5em;
 
-      .#{iv.$class-prefix}fa {
+      .fa {
         font-size: 1.5rem;
       }
     }
 
-    &.#{iv.$class-prefix}is-small {
-      .#{iv.$class-prefix}file-icon .#{iv.$class-prefix}fa {
+    &.is-small {
+      .file-icon .fa {
         font-size: 1rem;
       }
     }
 
-    &.#{iv.$class-prefix}is-medium {
-      .#{iv.$class-prefix}file-icon .#{iv.$class-prefix}fa {
+    &.is-medium {
+      .file-icon .fa {
         font-size: 2rem;
       }
     }
 
-    &.#{iv.$class-prefix}is-large {
-      .#{iv.$class-prefix}file-icon .#{iv.$class-prefix}fa {
+    &.is-large {
+      .file-icon .fa {
         font-size: 2.5rem;
       }
     }
 
-    &.#{iv.$class-prefix}has-name {
-      .#{iv.$class-prefix}file-cta {
+    &.has-name {
+      .file-cta {
         border-end-end-radius: 0;
         border-end-start-radius: 0;
         border-start-end-radius: cv.getVar("file-radius");
         border-start-start-radius: cv.getVar("file-radius");
       }
 
-      .#{iv.$class-prefix}file-name {
+      .file-name {
         border-end-end-radius: cv.getVar("file-radius");
         border-end-start-radius: cv.getVar("file-radius");
         border-start-end-radius: 0;
@@ -195,29 +195,29 @@ $file-colors: shared.$form-colors !default;
     }
   }
 
-  &.#{iv.$class-prefix}is-centered {
+  &.is-centered {
     justify-content: center;
   }
 
-  &.#{iv.$class-prefix}is-fullwidth {
-    .#{iv.$class-prefix}file-label {
+  &.is-fullwidth {
+    .file-label {
       width: 100%;
     }
 
-    .#{iv.$class-prefix}file-name {
+    .file-name {
       flex-grow: 1;
       max-width: none;
     }
   }
 
-  &.#{iv.$class-prefix}is-right {
+  &.is-right {
     justify-content: flex-end;
 
-    .#{iv.$class-prefix}file-cta {
+    .file-cta {
       border-radius: 0 cv.getVar("file-radius") cv.getVar("file-radius") 0;
     }
 
-    .#{iv.$class-prefix}file-name {
+    .file-name {
       border-radius: cv.getVar("file-radius") 0 0 cv.getVar("file-radius");
       border-width: 1px 0 1px 1px;
       order: -1;
@@ -225,7 +225,7 @@ $file-colors: shared.$form-colors !default;
   }
 }
 
-.#{iv.$class-prefix}file-label {
+.file-label {
   align-items: stretch;
   display: flex;
   cursor: pointer;
@@ -234,24 +234,16 @@ $file-colors: shared.$form-colors !default;
   position: relative;
   border-style: solid;
   border-width: var(--bulma-control-border-width);
-  border-color: hsl(
-    cv.getVar("file-h"),
-    cv.getVar("file-s"),
-    calc(#{cv.getVar("file-border-l")} + #{cv.getVar("file-border-l-delta")})
-  );
+  border-color: hsl(cv.getVar("file-h"), cv.getVar("file-s"), calc(#{cv.getVar("file-border-l")} + #{cv.getVar("file-border-l-delta")}));
   border-radius: cv.getVar("file-radius");
-  background-color: hsl(
-    cv.getVar("file-h"),
-    cv.getVar("file-s"),
-    calc(#{cv.getVar("file-background-l")} + #{cv.getVar("file-background-l-delta")})
-  );
+  background-color: hsl(cv.getVar("file-h"), cv.getVar("file-s"), calc(#{cv.getVar("file-background-l")} + #{cv.getVar("file-background-l-delta")}));
 
   &:hover {
     @include cv.register-vars(
       (
         "file-background-l-delta": #{cv.getVar("file-hover-background-l-delta")},
         "file-border-l-delta": #{cv.getVar("file-hover-border-l-delta")},
-        "file-color-l-delta": #{cv.getVar("file-hover-color-l-delta")},
+        "file-color-l-delta": #{cv.getVar("file-hover-color-l-delta")}
       )
     );
   }
@@ -261,13 +253,13 @@ $file-colors: shared.$form-colors !default;
       (
         "file-background-l-delta": #{cv.getVar("file-active-background-l-delta")},
         "file-border-l-delta": #{cv.getVar("file-active-border-l-delta")},
-        "file-color-l-delta": #{cv.getVar("file-active-color-l-delta")},
+        "file-color-l-delta": #{cv.getVar("file-active-color-l-delta")}
       )
     );
   }
 }
 
-.#{iv.$class-prefix}file-input {
+.file-input {
   height: 100%;
   left: 0;
   opacity: 0;
@@ -277,8 +269,8 @@ $file-colors: shared.$form-colors !default;
   width: 100%;
 }
 
-.#{iv.$class-prefix}file-cta,
-.#{iv.$class-prefix}file-name {
+.file-cta,
+.file-name {
   @extend %control;
   font-size: 1em;
   padding-left: 1em;
@@ -286,15 +278,11 @@ $file-colors: shared.$form-colors !default;
   white-space: nowrap;
 }
 
-.#{iv.$class-prefix}file-cta {
-  color: hsl(
-    cv.getVar("file-h"),
-    cv.getVar("file-s"),
-    calc(#{cv.getVar("file-cta-color-l")} + #{cv.getVar("file-color-l-delta")})
-  );
+.file-cta {
+  color: hsl(cv.getVar("file-h"), cv.getVar("file-s"), calc(#{cv.getVar("file-cta-color-l")} + #{cv.getVar("file-color-l-delta")}));
 }
 
-.#{iv.$class-prefix}file-name {
+.file-name {
   border-color: hsl(
     cv.getVar("file-h"),
     cv.getVar("file-s"),
@@ -314,7 +302,7 @@ $file-colors: shared.$form-colors !default;
   text-overflow: ellipsis;
 }
 
-.#{iv.$class-prefix}file-icon {
+.file-icon {
   align-items: center;
   display: flex;
   height: 1em;
@@ -322,7 +310,7 @@ $file-colors: shared.$form-colors !default;
   margin-inline-end: 0.5em;
   width: 1em;
 
-  .#{iv.$class-prefix}fa {
+  .fa {
     font-size: 1rem;
   }
 }
