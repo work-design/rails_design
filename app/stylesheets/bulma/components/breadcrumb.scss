@@ -12,7 +12,7 @@ $breadcrumb-item-padding-horizontal: 0.75em !default;
 
 $breadcrumb-item-separator-color: cv.getVar("border") !default;
 
-.#{iv.$class-prefix}breadcrumb {
+.breadcrumb {
   @include cv.register-vars(
     (
       "breadcrumb-item-color": #{$breadcrumb-item-color},
@@ -25,7 +25,7 @@ $breadcrumb-item-separator-color: cv.getVar("border") !default;
   );
 }
 
-.#{iv.$class-prefix}breadcrumb {
+.breadcrumb {
   @extend %block;
   @extend %unselectable;
   font-size: cv.getVar("size-normal");
@@ -55,7 +55,7 @@ $breadcrumb-item-separator-color: cv.getVar("border") !default;
       padding-inline-start: 0;
     }
 
-    &.#{iv.$class-prefix}is-active {
+    &.is-active {
       a {
         color: cv.getVar("breadcrumb-item-active-color");
         cursor: default;
@@ -69,7 +69,7 @@ $breadcrumb-item-separator-color: cv.getVar("border") !default;
     }
   }
 
-  .#{iv.$class-prefix}icon {
+  .icon {
     &:first-child {
       margin-inline-end: 0.5em;
     }
@@ -80,47 +80,47 @@ $breadcrumb-item-separator-color: cv.getVar("border") !default;
   }
 
   // Alignment
-  &.#{iv.$class-prefix}is-centered {
+  &.is-centered {
     justify-content: center;
   }
 
-  &.#{iv.$class-prefix}is-right {
+  &.is-right {
     justify-content: flex-end;
   }
 
   // Sizes
-  &.#{iv.$class-prefix}is-small {
+  &.is-small {
     font-size: cv.getVar("size-small");
   }
 
-  &.#{iv.$class-prefix}is-medium {
+  &.is-medium {
     font-size: cv.getVar("size-medium");
   }
 
-  &.#{iv.$class-prefix}is-large {
+  &.is-large {
     font-size: cv.getVar("size-large");
   }
 
   // Styles
-  &.#{iv.$class-prefix}has-arrow-separator {
+  &.has-arrow-separator {
     li + li::before {
       content: "→";
     }
   }
 
-  &.#{iv.$class-prefix}has-bullet-separator {
+  &.has-bullet-separator {
     li + li::before {
       content: "•";
     }
   }
 
-  &.#{iv.$class-prefix}has-dot-separator {
+  &.has-dot-separator {
     li + li::before {
       content: "·";
     }
   }
 
-  &.#{iv.$class-prefix}has-succeeds-separator {
+  &.has-succeeds-separator {
     li + li::before {
       content: "≻";
     }
