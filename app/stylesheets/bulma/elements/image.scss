@@ -6,7 +6,7 @@
 
 $dimensions: 16 24 32 48 64 96 128 !default;
 
-.#{iv.$class-prefix}image {
+.image {
   display: block;
   position: relative;
 
@@ -15,26 +15,26 @@ $dimensions: 16 24 32 48 64 96 128 !default;
     height: auto;
     width: 100%;
 
-    &.#{iv.$class-prefix}is-rounded {
+    &.is-rounded {
       border-radius: cv.getVar("radius-rounded");
     }
   }
 
-  &.#{iv.$class-prefix}is-fullwidth {
+  &.is-fullwidth {
     width: 100%;
   }
 
   // Ratio
-  &.#{iv.$class-prefix}is-square {
+  &.is-square {
     img,
-    .#{iv.$class-prefix}has-ratio {
+    .has-ratio {
       @include mx.overlay;
       height: 100%;
       width: 100%;
     }
   }
 
-  &.#{iv.$class-prefix}is-square {
+  &.is-square {
     aspect-ratio: 1;
   }
 
@@ -42,11 +42,11 @@ $dimensions: 16 24 32 48 64 96 128 !default;
     $w: list.nth($pair, 1);
     $h: list.nth($pair, 2);
 
-    &.#{iv.$class-prefix}is-#{$w}by#{$h} {
+    &.is-#{$w}by#{$h} {
       aspect-ratio: #{$w} / #{$h};
 
       img,
-      .#{iv.$class-prefix}has-ratio {
+      .has-ratio {
         @include mx.overlay;
         height: 100%;
         width: 100%;
@@ -56,7 +56,7 @@ $dimensions: 16 24 32 48 64 96 128 !default;
 
   // Sizes
   @each $dimension in $dimensions {
-    &.#{iv.$class-prefix}is-#{$dimension}x#{$dimension} {
+    &.is-#{$dimension}x#{$dimension} {
       height: $dimension * 1px;
       width: $dimension * 1px;
     }

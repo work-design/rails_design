@@ -1,8 +1,8 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/derived-variables" as dv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/extends";
-@use "../utilities/mixins" as mx;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/derived-variables' as dv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/mixins' as mx;
+@use '../utilities/extends';
 
 $progress-bar-background-color: cv.getVar("border-weak") !default;
 $progress-value-background-color: cv.getVar("text") !default;
@@ -12,18 +12,18 @@ $progress-indeterminate-duration: 1.5s !default;
 
 $progress-colors: dv.$colors !default;
 
-.#{iv.$class-prefix}progress {
+.progress {
   @include cv.register-vars(
     (
       "progress-border-radius": #{$progress-border-radius},
       "progress-bar-background-color": #{$progress-bar-background-color},
       "progress-value-background-color": #{$progress-value-background-color},
-      "progress-indeterminate-duration": #{$progress-indeterminate-duration},
+      "progress-indeterminate-duration": #{$progress-indeterminate-duration}
     )
   );
 }
 
-.#{iv.$class-prefix}progress {
+.progress {
   @extend %block;
 
   appearance: none;
@@ -54,7 +54,7 @@ $progress-colors: dv.$colors !default;
 
   // Colors
   @each $name, $pair in $progress-colors {
-    &.#{iv.$class-prefix}is-#{$name} {
+    &.is-#{$name} {
       @include cv.register-var(
         "progress-value-background-color",
         #{cv.getVar($name)}
@@ -91,15 +91,15 @@ $progress-colors: dv.$colors !default;
   }
 
   // Sizes
-  &.#{iv.$class-prefix}is-small {
+  &.is-small {
     height: cv.getVar("size-small");
   }
 
-  &.#{iv.$class-prefix}is-medium {
+  &.is-medium {
     height: cv.getVar("size-medium");
   }
 
-  &.#{iv.$class-prefix}is-large {
+  &.is-large {
     height: cv.getVar("size-large");
   }
 

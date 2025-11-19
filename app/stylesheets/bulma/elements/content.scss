@@ -26,7 +26,7 @@ $content-table-body-last-row-cell-border-bottom-width: 0 !default;
 $content-table-foot-cell-border-width: 2px 0 0 !default;
 $content-table-foot-cell-color: #{cv.getVar("text-strong")} !default;
 
-.#{iv.$class-prefix}content {
+.content {
   @include cv.register-vars(
     (
       "content-heading-color": #{$content-heading-color},
@@ -50,7 +50,7 @@ $content-table-foot-cell-color: #{cv.getVar("text-strong")} !default;
   );
 }
 
-.#{iv.$class-prefix}content {
+.content {
   @extend %block;
 
   // Inline
@@ -141,19 +141,19 @@ $content-table-foot-cell-color: #{cv.getVar("text-strong")} !default;
     &:not([type]) {
       list-style-type: decimal;
 
-      &.#{iv.$class-prefix}is-lower-alpha {
+      &.is-lower-alpha {
         list-style-type: lower-alpha;
       }
 
-      &.#{iv.$class-prefix}is-lower-roman {
+      &.is-lower-roman {
         list-style-type: lower-roman;
       }
 
-      &.#{iv.$class-prefix}is-upper-alpha {
+      &.is-upper-alpha {
         list-style-type: upper-alpha;
       }
 
-      &.#{iv.$class-prefix}is-upper-roman {
+      &.is-upper-roman {
         list-style-type: upper-roman;
       }
     }
@@ -262,26 +262,26 @@ $content-table-foot-cell-color: #{cv.getVar("text-strong")} !default;
     }
   }
 
-  .#{iv.$class-prefix}tabs {
+  .tabs {
     li + li {
       margin-top: 0;
     }
   }
 
   // Sizes
-  &.#{iv.$class-prefix}is-small {
+  &.is-small {
     font-size: cv.getVar("size-small");
   }
 
-  &.#{iv.$class-prefix}is-normal {
+  &.is-normal {
     font-size: cv.getVar("size-normal");
   }
 
-  &.#{iv.$class-prefix}is-medium {
+  &.is-medium {
     font-size: cv.getVar("size-medium");
   }
 
-  &.#{iv.$class-prefix}is-large {
+  &.is-large {
     font-size: cv.getVar("size-large");
   }
 }

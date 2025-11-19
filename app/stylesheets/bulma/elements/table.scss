@@ -33,7 +33,7 @@ $table-striped-row-even-hover-background-color: cv.getVar("scheme-main-ter") !de
 
 $table-colors: dv.$colors !default;
 
-.#{iv.$class-prefix}table {
+.table {
   @include cv.register-vars(
     (
       "table-color": #{$table-color},
@@ -60,7 +60,7 @@ $table-colors: dv.$colors !default;
   );
 }
 
-.#{iv.$class-prefix}table {
+.table {
   @extend %block;
 
   background-color: cv.getVar("table-background-color");
@@ -78,7 +78,7 @@ $table-colors: dv.$colors !default;
 
     // Colors
     @each $name, $pair in $table-colors {
-      &.#{iv.$class-prefix}is-#{$name} {
+      &.is-#{$name} {
         @include cv.register-vars(
           (
             "table-color": #{cv.getVar($name, "", "-invert")},
@@ -91,12 +91,12 @@ $table-colors: dv.$colors !default;
     }
 
     // Modifiers
-    &.#{iv.$class-prefix}is-narrow {
+    &.is-narrow {
       white-space: nowrap;
       width: 1%;
     }
 
-    &.#{iv.$class-prefix}is-selected {
+    &.is-selected {
       background-color: cv.getVar("table-row-active-background-color");
       color: cv.getVar("table-row-active-color");
 
@@ -106,7 +106,7 @@ $table-colors: dv.$colors !default;
       }
     }
 
-    &.#{iv.$class-prefix}is-vcentered {
+    &.is-vcentered {
       vertical-align: middle;
     }
   }
@@ -120,7 +120,7 @@ $table-colors: dv.$colors !default;
   }
 
   tr {
-    &.#{iv.$class-prefix}is-selected {
+    &.is-selected {
       background-color: cv.getVar("table-row-active-background-color");
       color: cv.getVar("table-row-active-color");
 
@@ -137,7 +137,7 @@ $table-colors: dv.$colors !default;
     }
 
     @each $name, $pair in $table-colors {
-      &.#{iv.$class-prefix}is-#{$name} {
+      &.is-#{$name} {
         @include cv.register-vars(
           (
             "table-color": #{cv.getVar($name, "", "-invert")},
@@ -184,7 +184,7 @@ $table-colors: dv.$colors !default;
   }
 
   // Modifiers
-  &.#{iv.$class-prefix}is-bordered {
+  &.is-bordered {
     td,
     th {
       border-width: 1px;
@@ -200,22 +200,22 @@ $table-colors: dv.$colors !default;
     }
   }
 
-  &.#{iv.$class-prefix}is-fullwidth {
+  &.is-fullwidth {
     width: 100%;
   }
 
-  &.#{iv.$class-prefix}is-hoverable {
+  &.is-hoverable {
     tbody {
-      tr:not(.#{iv.$class-prefix}is-selected) {
+      tr:not(.is-selected) {
         &:hover {
           background-color: cv.getVar("table-row-hover-background-color");
         }
       }
     }
 
-    &.#{iv.$class-prefix}is-striped {
+    &.is-striped {
       tbody {
-        tr:not(.#{iv.$class-prefix}is-selected) {
+        tr:not(.is-selected) {
           &:hover {
             background-color: cv.getVar("table-row-hover-background-color");
 
@@ -228,16 +228,16 @@ $table-colors: dv.$colors !default;
     }
   }
 
-  &.#{iv.$class-prefix}is-narrow {
+  &.is-narrow {
     td,
     th {
       padding: 0.25em 0.5em;
     }
   }
 
-  &.#{iv.$class-prefix}is-striped {
+  &.is-striped {
     tbody {
-      tr:not(.#{iv.$class-prefix}is-selected) {
+      tr:not(.is-selected) {
         &:nth-child(even) {
           background-color: cv.getVar("table-striped-row-even-background-color");
         }
@@ -246,7 +246,7 @@ $table-colors: dv.$colors !default;
   }
 }
 
-.#{iv.$class-prefix}table-container {
+.table-container {
   @extend %block;
   @include mx.overflow-touch;
   overflow: auto;
