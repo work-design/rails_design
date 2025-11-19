@@ -15,7 +15,7 @@ $box-link-active-shadow:
   inset 0 1px 2px hsla(#{cv.getVar("scheme-h")}, #{cv.getVar("scheme-s")}, #{cv.getVar("scheme-invert-l")}, 0.2),
   0 0 0 1px cv.getVar("link") !default;
 
-.#{iv.$class-prefix}box {
+.box {
   @include cv.register-vars(
     (
       "box-background-color": #{$box-background-color},
@@ -29,7 +29,7 @@ $box-link-active-shadow:
   );
 }
 
-.#{iv.$class-prefix}box {
+.box {
   @extend %block;
   background-color: cv.getVar("box-background-color");
   border-radius: cv.getVar("box-radius");
@@ -39,7 +39,7 @@ $box-link-active-shadow:
   padding: cv.getVar("box-padding");
 }
 
-a.#{iv.$class-prefix}box {
+a.box {
   &:hover,
   &:focus {
     box-shadow: cv.getVar("box-link-hover-shadow");

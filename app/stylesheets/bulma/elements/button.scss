@@ -79,7 +79,7 @@ $button-responsive-sizes: (
 
 $no-palette: ("white", "black", "light", "dark");
 
-.#{iv.$class-prefix}button {
+.button {
   @include cv.register-vars(
     (
       "button-family": #{$button-family},
@@ -110,12 +110,12 @@ $no-palette: ("white", "black", "light", "dark");
       "button-disabled-opacity": #{$button-disabled-opacity},
       "button-static-color": #{$button-static-color},
       "button-static-background-color": #{$button-static-background-color},
-      "button-static-border-color": #{$button-static-border-color},
+      "button-static-border-color": #{$button-static-border-color}
     )
   );
 }
 
-.#{iv.$class-prefix}button {
+.button {
   @include cv.register-vars(
     (
       "button-h": #{$button-h},
@@ -169,7 +169,7 @@ $no-palette: ("white", "black", "light", "dark");
     color: inherit;
   }
 
-  .#{iv.$class-prefix}icon {
+  .icon {
     & {
       height: 1.5em;
       width: 1.5em;
@@ -193,7 +193,7 @@ $no-palette: ("white", "black", "light", "dark");
 
   // States
   &:hover,
-  &.#{iv.$class-prefix}is-hovered {
+  &.is-hovered {
     @include cv.register-vars(
       (
         "button-background-l-delta": #{cv.getVar("button-hover-background-l-delta")},
@@ -203,7 +203,7 @@ $no-palette: ("white", "black", "light", "dark");
   }
 
   &:focus-visible,
-  &.#{iv.$class-prefix}is-focused {
+  &.is-focused {
     @include cv.register-var("button-border-width", 1px);
 
     border-color: hsl(#{cv.getVar("focus-h")}, #{cv.getVar("focus-s")}, #{cv.getVar("focus-l")});
@@ -211,7 +211,7 @@ $no-palette: ("white", "black", "light", "dark");
   }
 
   &:active,
-  &.#{iv.$class-prefix}is-active {
+  &.is-active {
     @include cv.register-vars(
       (
         "button-background-l-delta": #{cv.getVar("button-active-background-l-delta")},
@@ -231,7 +231,7 @@ $no-palette: ("white", "black", "light", "dark");
 
   // Colors
   @each $name, $pair in $button-colors {
-    &.#{iv.$class-prefix}is-#{$name} {
+    &.is-#{$name} {
       @include cv.register-vars(
         (
           "button-h": #{cv.getVar($name, "", "-h")},
@@ -241,49 +241,49 @@ $no-palette: ("white", "black", "light", "dark");
           "button-border-l": #{cv.getVar($name, "", "-l")},
           "button-border-width": 0px,
           "button-color-l": #{cv.getVar($name, "", "-invert-l")},
-          "button-outer-shadow-a": 0,
+          "button-outer-shadow-a": 0
         )
       );
 
       &:focus-visible,
-      &.#{iv.$class-prefix}is-focused {
+      &.is-focused {
         @include cv.register-var("button-border-width", 1px);
       }
 
       @if not list.index($no-palette, $name) {
-        &.#{iv.$class-prefix}is-light {
+        &.is-light {
           @include cv.register-vars(
             (
               "button-background-l": #{cv.getVar("light-l")},
-              "button-color-l": #{cv.getVar($name, "", "-light-invert-l")},
+              "button-color-l": #{cv.getVar($name, "", "-light-invert-l")}
             )
           );
         }
 
-        &.#{iv.$class-prefix}is-dark {
+        &.is-dark {
           @include cv.register-vars(
             (
               "button-background-l": #{cv.getVar("dark-l")},
-              "button-color-l": #{cv.getVar($name, "", "-dark-invert-l")},
+              "button-color-l": #{cv.getVar($name, "", "-dark-invert-l")}
             )
           );
         }
       }
 
-      &.#{iv.$class-prefix}is-soft {
+      &.is-soft {
         @include cv.register-vars(
           (
             "button-background-l": #{cv.getVar("soft-l")},
-            "button-color-l": #{cv.getVar("soft-invert-l")},
+            "button-color-l": #{cv.getVar("soft-invert-l")}
           )
         );
       }
 
-      &.#{iv.$class-prefix}is-bold {
+      &.is-bold {
         @include cv.register-vars(
           (
             "button-background-l": #{cv.getVar("bold-l")},
-            "button-color-l": #{cv.getVar("bold-invert-l")},
+            "button-color-l": #{cv.getVar("bold-invert-l")}
           )
         );
       }
@@ -298,7 +298,7 @@ $no-palette: ("white", "black", "light", "dark");
   }
 
   // Styles
-  &.#{iv.$class-prefix}is-outlined {
+  &.is-outlined {
     @include cv.register-vars(
       (
         "button-border-width": max(1px, 0.0625em),
@@ -330,25 +330,25 @@ $no-palette: ("white", "black", "light", "dark");
     }
   }
 
-  &.#{iv.$class-prefix}is-inverted {
+  &.is-inverted {
     background-color: hsl(#{cv.getVar("button-h")}, #{cv.getVar("button-s")}, calc(#{cv.getVar("button-color-l")} + #{cv.getVar("button-background-l-delta")}));
     color: hsl(#{cv.getVar("button-h")}, #{cv.getVar("button-s")}, #{cv.getVar("button-background-l")});
   }
 
-  &.#{iv.$class-prefix}is-text {
+  &.is-text {
     background-color: transparent;
     border-color: transparent;
     color: cv.getVar("button-text-color");
     text-decoration: cv.getVar("button-text-decoration");
 
     &:hover,
-    &.#{iv.$class-prefix}is-hovered {
+    &.is-hovered {
       background-color: cv.getVar("button-text-hover-background-color");
       color: cv.getVar("button-text-hover-color");
     }
 
     &:active,
-    &.#{iv.$class-prefix}is-active {
+    &.is-active {
       // background-color: bulmaDarken($button-text-hover-background-color, 5%);
       color: cv.getVar("button-text-hover-color");
     }
@@ -361,7 +361,7 @@ $no-palette: ("white", "black", "light", "dark");
     }
   }
 
-  &.#{iv.$class-prefix}is-ghost {
+  &.is-ghost {
     background: cv.getVar("button-ghost-background");
     border-color: cv.getVar("button-ghost-border-color");
     box-shadow: none;
@@ -369,56 +369,56 @@ $no-palette: ("white", "black", "light", "dark");
     text-decoration: cv.getVar("button-ghost-decoration");
 
     &:hover,
-    &.#{iv.$class-prefix}is-hovered {
+    &.is-hovered {
       color: cv.getVar("button-ghost-hover-color");
       text-decoration: cv.getVar("button-ghost-hover-decoration");
     }
   }
 
   // Sizes
-  &.#{iv.$class-prefix}is-small {
+  &.is-small {
     @include cv.register-vars(
       (
         "control-size": #{cv.getVar("size-small")},
-        "control-radius": #{cv.getVar("radius-small")},
+        "control-radius": #{cv.getVar("radius-small")}
       )
     );
   }
 
-  &.#{iv.$class-prefix}is-normal {
+  &.is-normal {
     @include cv.register-vars(
       (
         "control-size": #{cv.getVar("size-normal")},
-        "control-radius": #{cv.getVar("radius")},
+        "control-radius": #{cv.getVar("radius")}
       )
     );
   }
 
-  &.#{iv.$class-prefix}is-medium {
+  &.is-medium {
     @include cv.register-vars(
       (
         "control-size": #{cv.getVar("size-medium")},
-        "control-radius": #{cv.getVar("radius-medium")},
+        "control-radius": #{cv.getVar("radius-medium")}
       )
     );
   }
 
-  &.#{iv.$class-prefix}is-large {
+  &.is-large {
     @include cv.register-vars(
       (
         "control-size": #{cv.getVar("size-large")},
-        "control-radius": #{cv.getVar("radius-medium")},
+        "control-radius": #{cv.getVar("radius-medium")}
       )
     );
   }
 
   // Modifiers
-  &.#{iv.$class-prefix}is-fullwidth {
+  &.is-fullwidth {
     display: flex;
     width: 100%;
   }
 
-  &.#{iv.$class-prefix}is-loading {
+  &.is-loading {
     box-shadow: none;
     color: transparent !important;
     pointer-events: none;
@@ -430,7 +430,7 @@ $no-palette: ("white", "black", "light", "dark");
     }
   }
 
-  &.#{iv.$class-prefix}is-static {
+  &.is-static {
     background-color: cv.getVar("button-static-background-color");
     border-color: cv.getVar("button-static-border-color");
     color: cv.getVar("button-static-color");
@@ -438,14 +438,14 @@ $no-palette: ("white", "black", "light", "dark");
     pointer-events: none;
   }
 
-  &.#{iv.$class-prefix}is-rounded {
+  &.is-rounded {
     border-radius: cv.getVar("radius-rounded");
     padding-left: calc(#{cv.getVar("button-padding-horizontal")} + #{$button-rounded-padding-horizontal-offset} - #{cv.getVar("button-border-width")});
     padding-right: calc(#{cv.getVar("button-padding-horizontal")} + #{$button-rounded-padding-horizontal-offset} - #{cv.getVar("button-border-width")});
   }
 }
 
-.#{iv.$class-prefix}buttons {
+.buttons {
   @extend %block;
   align-items: center;
   display: flex;
@@ -454,37 +454,37 @@ $no-palette: ("white", "black", "light", "dark");
   justify-content: flex-start;
 
   // Sizes
-  &.#{iv.$class-prefix}are-small {
+  &.are-small {
     @include cv.register-vars(
       (
         "control-size": #{cv.getVar("size-small")},
-        "control-radius": #{cv.getVar("radius-small")},
+        "control-radius": #{cv.getVar("radius-small")}
       )
     );
   }
 
-  &.#{iv.$class-prefix}are-medium {
+  &.are-medium {
     @include cv.register-vars(
       (
         "control-size": #{cv.getVar("size-medium")},
-        "control-radius": #{cv.getVar("radius-medium")},
+        "control-radius": #{cv.getVar("radius-medium")}
       )
     );
   }
 
-  &.#{iv.$class-prefix}are-large {
+  &.are-large {
     @include cv.register-vars(
       (
         "control-size": #{cv.getVar("size-large")},
-        "control-radius": #{cv.getVar("radius-large")},
+        "control-radius": #{cv.getVar("radius-large")}
       )
     );
   }
 
-  &.#{iv.$class-prefix}has-addons {
+  &.has-addons {
     gap: 0;
 
-    .#{iv.$class-prefix}button {
+    .button {
       &:not(:first-child) {
         border-end-start-radius: 0;
         border-start-start-radius: 0;
@@ -497,15 +497,15 @@ $no-palette: ("white", "black", "light", "dark");
       }
 
       &:hover,
-      &.#{iv.$class-prefix}is-hovered {
+      &.is-hovered {
         z-index: 2;
       }
 
       &:focus,
-      &.#{iv.$class-prefix}is-focused,
+      &.is-focused,
       &:active,
-      &.#{iv.$class-prefix}is-active,
-      &.#{iv.$class-prefix}is-selected {
+      &.is-active,
+      &.is-selected {
         z-index: 3;
 
         &:hover {
@@ -513,18 +513,18 @@ $no-palette: ("white", "black", "light", "dark");
         }
       }
 
-      &.#{iv.$class-prefix}is-expanded {
+      &.is-expanded {
         flex-grow: 1;
         flex-shrink: 1;
       }
     }
   }
 
-  &.#{iv.$class-prefix}is-centered {
+  &.is-centered {
     justify-content: center;
   }
 
-  &.#{iv.$class-prefix}is-right {
+  &.is-right {
     justify-content: flex-end;
   }
 }
@@ -533,12 +533,12 @@ $no-palette: ("white", "black", "light", "dark");
   @include mx.breakpoint($bp-name) {
     @each $size, $value in $bp-sizes {
       @if $size != "normal" {
-        .#{iv.$class-prefix}button.#{iv.$class-prefix}is-responsive.#{iv.$class-prefix}is-#{$size} {
+        .button.is-responsive.is-#{$size} {
           font-size: $value;
         }
       } @else {
-        .#{iv.$class-prefix}button.#{iv.$class-prefix}is-responsive,
-        .#{iv.$class-prefix}button.#{iv.$class-prefix}is-responsive.#{iv.$class-prefix}is-normal {
+        .button.is-responsive,
+        .button.is-responsive.is-normal {
           font-size: $value;
         }
       }
