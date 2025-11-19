@@ -1,6 +1,6 @@
 @use '../utilities/initial-variables' as iv;
 
-.#{iv.$class-prefix}#{iv.$helpers-prefix}clipped {
+.clipped {
   overflow: hidden !important;
   scrollbar-gutter: stable;
   background-color: hsla(var(--bulma-scheme-h), var(--bulma-scheme-s), var(--bulma-scheme-invert-l), 0.86);
@@ -13,15 +13,15 @@
 $overflows: auto clip hidden scroll visible;
 
 @each $overflow in $overflows {
-  .#{iv.$class-prefix}#{iv.$helpers-prefix}overflow-#{$overflow} {
+  .overflow-#{$overflow} {
     overflow: $overflow !important;
   }
 
-  .#{iv.$class-prefix}#{iv.$helpers-prefix}overflow-x-#{$overflow} {
+  .overflow-x-#{$overflow} {
     overflow-x: $overflow !important;
   }
 
-  .#{iv.$class-prefix}#{iv.$helpers-prefix}overflow-y-#{$overflow} {
+  .overflow-y-#{$overflow} {
     overflow-y: $overflow !important;
   }
 }

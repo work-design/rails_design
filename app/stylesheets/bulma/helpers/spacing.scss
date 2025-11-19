@@ -1,4 +1,4 @@
-@use "../utilities/initial-variables" as iv;
+@use '../utilities/initial-variables' as iv;
 
 $spacing-shortcuts: (
   "margin": "m",
@@ -25,20 +25,20 @@ $spacing-values: (
 @each $property, $shortcut in $spacing-shortcuts {
   @each $name, $value in $spacing-values {
     // All directions
-    .#{iv.$class-prefix}#{$shortcut}-#{$name} {
+    .#{$shortcut}-#{$name} {
       #{$property}: $value !important;
     }
 
     // Cardinal directions
     @each $direction, $suffix in $spacing-directions {
-      .#{iv.$class-prefix}#{$shortcut}#{$suffix}-#{$name} {
+      .#{$shortcut}#{$suffix}-#{$name} {
         #{$property}-#{$direction}: $value !important;
       }
     }
 
     // Horizontal axis
     @if $spacing-horizontal != null {
-      .#{iv.$class-prefix}#{$shortcut}#{$spacing-horizontal}-#{$name} {
+      .#{$shortcut}#{$spacing-horizontal}-#{$name} {
         #{$property}-left: $value !important;
         #{$property}-right: $value !important;
       }
@@ -46,7 +46,7 @@ $spacing-values: (
 
     // Vertical axis
     @if $spacing-vertical != null {
-      .#{iv.$class-prefix}#{$shortcut}#{$spacing-vertical}-#{$name} {
+      .#{$shortcut}#{$spacing-vertical}-#{$name} {
         #{$property}-top: $value !important;
         #{$property}-bottom: $value !important;
       }
