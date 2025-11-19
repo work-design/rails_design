@@ -1,11 +1,10 @@
 @use '../utilities/css-variables' as cv;
-@use '../utilities/initial-variables' as iv;
 
 $footer-background-color: cv.getVar("scheme-main-bis") !default;
 $footer-color: false !default;
 $footer-padding: 3rem 1.5rem 6rem !default;
 
-.#{iv.$class-prefix}footer {
+.footer {
   @include cv.register-vars(
     (
       "footer-background-color": #{$footer-background-color},

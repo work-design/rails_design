@@ -1,12 +1,11 @@
 @use '../utilities/css-variables' as cv;
-@use '../utilities/initial-variables' as iv;
 @use '../utilities/extends';
 @use '../utilities/controls';
 @use 'shared';
 
 $select-colors: shared.$form-colors !default;
 
-.#{iv.$class-prefix}select {
+.select {
   @include cv.register-vars(
     (
       "input-h": #{cv.getVar("scheme-h")},
@@ -22,11 +21,11 @@ $select-colors: shared.$form-colors !default;
   position: relative;
   vertical-align: top;
 
-  &:not(.#{iv.$class-prefix}is-multiple) {
+  &:not(.is-multiple) {
     height: shared.$input-height;
   }
 
-  &:not(.#{iv.$class-prefix}is-multiple):not(.#{iv.$class-prefix}is-loading) {
+  &:not(.is-multiple):not(.is-loading) {
     &::after {
       @extend %arrow;
       inset-inline-end: 1.125em;
@@ -34,7 +33,7 @@ $select-colors: shared.$form-colors !default;
     }
   }
 
-  &.#{iv.$class-prefix}is-rounded {
+  &.is-rounded {
     select {
       border-radius: cv.getVar("radius-rounded");
       padding-inline-start: 1em;
@@ -74,7 +73,7 @@ $select-colors: shared.$form-colors !default;
 
   // Colors
   @each $name, $pair in $select-colors {
-    &.#{iv.$class-prefix}is-#{$name} {
+    &.is-#{$name} {
       @include cv.register-vars(
         (
           "input-h": #{cv.getVar($name, "", "-h")},
@@ -91,27 +90,27 @@ $select-colors: shared.$form-colors !default;
   }
 
   // Sizes
-  &.#{iv.$class-prefix}is-small {
+  &.is-small {
     @include controls.control-small;
   }
 
-  &.#{iv.$class-prefix}is-medium {
+  &.is-medium {
     @include controls.control-medium;
   }
 
-  &.#{iv.$class-prefix}is-large {
+  &.is-large {
     @include controls.control-large;
   }
 
   // Modifiers
-  &.#{iv.$class-prefix}is-disabled {
+  &.is-disabled {
     &::after {
       border-color: shared.$input-disabled-color !important;
       opacity: 0.5;
     }
   }
 
-  &.#{iv.$class-prefix}is-fullwidth {
+  &.is-fullwidth {
     width: 100%;
 
     select {
@@ -119,7 +118,7 @@ $select-colors: shared.$form-colors !default;
     }
   }
 
-  &.#{iv.$class-prefix}is-loading {
+  &.is-loading {
     &::after {
       @extend %loader;
       inset-inline-end: 0.625em;
@@ -129,15 +128,15 @@ $select-colors: shared.$form-colors !default;
       transform: none;
     }
 
-    &.#{iv.$class-prefix}is-small:after {
+    &.is-small:after {
       font-size: cv.getVar("size-small");
     }
 
-    &.#{iv.$class-prefix}is-medium:after {
+    &.is-medium:after {
       font-size: cv.getVar("size-medium");
     }
 
-    &.#{iv.$class-prefix}is-large:after {
+    &.is-large:after {
       font-size: cv.getVar("size-large");
     }
   }

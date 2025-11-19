@@ -283,18 +283,10 @@ $file-colors: shared.$form-colors !default;
 }
 
 .file-name {
-  border-color: hsl(
-    cv.getVar("file-h"),
-    cv.getVar("file-s"),
-    calc(#{cv.getVar("file-border-l")} + #{cv.getVar("file-color-l-delta")})
-  );
+  border-color: hsl(cv.getVar("file-h"), cv.getVar("file-s"), calc(#{cv.getVar("file-border-l")} + #{cv.getVar("file-color-l-delta")}));
   border-style: cv.getVar("file-name-border-style");
   border-width: cv.getVar("file-name-border-width");
-  color: hsl(
-    cv.getVar("file-h"),
-    cv.getVar("file-s"),
-    calc(#{cv.getVar("file-name-color-l")} + #{cv.getVar("file-color-l-delta")})
-  );
+  color: hsl(cv.getVar("file-h"), cv.getVar("file-s"), calc(#{cv.getVar("file-name-color-l")} + #{cv.getVar("file-color-l-delta")}));
   display: block;
   max-width: cv.getVar("file-name-max-width");
   overflow: hidden;
@@ -310,7 +302,7 @@ $file-colors: shared.$form-colors !default;
   margin-inline-end: 0.5em;
   width: 1em;
 
-  .fa {
+  .icon {
     font-size: 1rem;
   }
 }
