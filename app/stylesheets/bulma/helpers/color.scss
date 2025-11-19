@@ -26,7 +26,7 @@ $digits: (
   "100"
 );
 
-.#{iv.$class-prefix}#{iv.$helpers-has-prefix}background {
+.#{iv.$helpers-has-prefix}background {
   background-color: cv.getVar("background");
 }
 
@@ -34,34 +34,34 @@ $digits: (
   $background: hsl(#{cv.getVar($name, "", "-h")}, #{cv.getVar($name, "", "-s")}, #{cv.getVar($name, "", "-l")});
   $color: hsl(#{cv.getVar($name, "", "-h")}, #{cv.getVar($name, "", "-s")}, #{cv.getVar($name, "", "-l")});
 
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name} {
+  .#{iv.$helpers-has-prefix}text-#{$name} {
     color: $color !important;
   }
 
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name} {
+  .#{iv.$helpers-has-prefix}background-#{$name} {
     background-color: $background !important;
   }
 
   // Invert
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name}-invert {
+  .#{iv.$helpers-has-prefix}text-#{$name}-invert {
     color: hsl(#{cv.getVar($name, "", "-h")}, #{cv.getVar($name, "", "-s")}, #{cv.getVar($name, "", "-invert-l")}) !important;
   }
 
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name}-invert {
+  .#{iv.$helpers-has-prefix}background-#{$name}-invert {
     background-color: hsl(#{cv.getVar($name, "", "-h")}, #{cv.getVar($name, "", "-s")}, #{cv.getVar($name, "", "-invert-l")}) !important;
   }
 
   // On Scheme
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name}-on-scheme {
+  .#{iv.$helpers-has-prefix}text-#{$name}-on-scheme {
     color: hsl(#{cv.getVar($name, "", "-h")}, #{cv.getVar($name, "", "-s")}, #{cv.getVar($name, "", "-on-scheme-l")}) !important;
   }
 
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name}-on-scheme {
+  .#{iv.$helpers-has-prefix}background-#{$name}-on-scheme {
     background-color: hsl(#{cv.getVar($name, "", "-h")}, #{cv.getVar($name, "", "-s")}, #{cv.getVar($name, "", "-on-scheme-l")}) !important;
   }
 
   // Light
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name}-light {
+  .#{iv.$helpers-has-prefix}text-#{$name}-light {
     color: hsl(
       #{cv.getVar($name, "", "-h")},
       #{cv.getVar($name, "", "-s")},
@@ -69,7 +69,7 @@ $digits: (
     ) !important;
   }
 
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name}-light {
+  .#{iv.$helpers-has-prefix}background-#{$name}-light {
     background-color: hsl(
       #{cv.getVar($name, "", "-h")},
       #{cv.getVar($name, "", "-s")},
@@ -77,7 +77,7 @@ $digits: (
     ) !important;
   }
 
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name}-light-invert {
+  .#{iv.$helpers-has-prefix}text-#{$name}-light-invert {
     color: hsl(
       #{cv.getVar($name, "", "-h")},
       #{cv.getVar($name, "", "-s")},
@@ -85,7 +85,7 @@ $digits: (
     ) !important;
   }
 
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name}-light-invert {
+  .#{iv.$helpers-has-prefix}background-#{$name}-light-invert {
     background-color: hsl(
       #{cv.getVar($name, "", "-h")},
       #{cv.getVar($name, "", "-s")},
@@ -94,7 +94,7 @@ $digits: (
   }
 
   // Dark
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name}-dark {
+  .#{iv.$helpers-has-prefix}text-#{$name}-dark {
     color: hsl(
       #{cv.getVar($name, "", "-h")},
       #{cv.getVar($name, "", "-s")},
@@ -102,7 +102,7 @@ $digits: (
     ) !important;
   }
 
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name}-dark {
+  .#{iv.$helpers-has-prefix}background-#{$name}-dark {
     background-color: hsl(
       #{cv.getVar($name, "", "-h")},
       #{cv.getVar($name, "", "-s")},
@@ -110,7 +110,7 @@ $digits: (
     ) !important;
   }
 
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name}-dark-invert {
+  .#{iv.$helpers-has-prefix}text-#{$name}-dark-invert {
     color: hsl(
       #{cv.getVar($name, "", "-h")},
       #{cv.getVar($name, "", "-s")},
@@ -118,7 +118,7 @@ $digits: (
     ) !important;
   }
 
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name}-dark-invert {
+  .#{iv.$helpers-has-prefix}background-#{$name}-dark-invert {
     background-color: hsl(
       #{cv.getVar($name, "", "-h")},
       #{cv.getVar($name, "", "-s")},
@@ -127,7 +127,7 @@ $digits: (
   }
 
   // Soft/Bold
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name}-soft {
+  .#{iv.$helpers-has-prefix}text-#{$name}-soft {
     color: hsl(
       #{cv.getVar($name, "", "-h")},
       #{cv.getVar($name, "", "-s")},
@@ -135,7 +135,7 @@ $digits: (
     ) !important;
   }
 
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name}-soft {
+  .#{iv.$helpers-has-prefix}background-#{$name}-soft {
     background-color: hsl(
       #{cv.getVar($name, "", "-h")},
       #{cv.getVar($name, "", "-s")},
@@ -143,7 +143,7 @@ $digits: (
     ) !important;
   }
 
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name}-bold {
+  .#{iv.$helpers-has-prefix}text-#{$name}-bold {
     color: hsl(
       #{cv.getVar($name, "", "-h")},
       #{cv.getVar($name, "", "-s")},
@@ -151,7 +151,7 @@ $digits: (
     ) !important;
   }
 
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name}-bold {
+  .#{iv.$helpers-has-prefix}background-#{$name}-bold {
     background-color: hsl(
       #{cv.getVar($name, "", "-h")},
       #{cv.getVar($name, "", "-s")},
@@ -159,7 +159,7 @@ $digits: (
     ) !important;
   }
 
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name}-soft-invert {
+  .#{iv.$helpers-has-prefix}text-#{$name}-soft-invert {
     color: hsl(
       #{cv.getVar($name, "", "-h")},
       #{cv.getVar($name, "", "-s")},
@@ -167,7 +167,7 @@ $digits: (
     ) !important;
   }
 
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name}-soft-invert {
+  .#{iv.$helpers-has-prefix}background-#{$name}-soft-invert {
     background-color: hsl(
       #{cv.getVar($name, "", "-h")},
       #{cv.getVar($name, "", "-s")},
@@ -175,7 +175,7 @@ $digits: (
     ) !important;
   }
 
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name}-bold-invert {
+  .#{iv.$helpers-has-prefix}text-#{$name}-bold-invert {
     color: hsl(
       #{cv.getVar($name, "", "-h")},
       #{cv.getVar($name, "", "-s")},
@@ -183,7 +183,7 @@ $digits: (
     ) !important;
   }
 
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name}-bold-invert {
+  .#{iv.$helpers-has-prefix}background-#{$name}-bold-invert {
     background-color: hsl(
       #{cv.getVar($name, "", "-h")},
       #{cv.getVar($name, "", "-s")},
@@ -192,7 +192,7 @@ $digits: (
   }
 
   @each $digit in $digits {
-    .#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name}-#{$digit} {
+    .#{iv.$helpers-has-prefix}text-#{$name}-#{$digit} {
       color: hsl(
         #{cv.getVar($name, "", "-h")},
         #{cv.getVar($name, "", "-s")},
@@ -200,7 +200,7 @@ $digits: (
       ) !important;
     }
 
-    .#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name}-#{$digit} {
+    .#{iv.$helpers-has-prefix}background-#{$name}-#{$digit} {
       background-color: hsl(
         #{cv.getVar($name, "", "-h")},
         #{cv.getVar($name, "", "-s")},
@@ -208,7 +208,7 @@ $digits: (
       ) !important;
     }
 
-    .#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name}-#{$digit}-invert {
+    .#{iv.$helpers-has-prefix}text-#{$name}-#{$digit}-invert {
       color: hsl(
         #{cv.getVar($name, "", "-h")},
         #{cv.getVar($name, "", "-s")},
@@ -216,7 +216,7 @@ $digits: (
       ) !important;
     }
 
-    .#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name}-#{$digit}-invert {
+    .#{iv.$helpers-has-prefix}background-#{$name}-#{$digit}-invert {
       background-color: hsl(
         #{cv.getVar($name, "", "-h")},
         #{cv.getVar($name, "", "-s")},
@@ -226,9 +226,9 @@ $digits: (
   }
 
   // Hover
-  a.#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name},
-  button.#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name},
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name}.is-hoverable {
+  a.#{iv.$helpers-has-prefix}text-#{$name},
+  button.#{iv.$helpers-has-prefix}text-#{$name},
+  .#{iv.$helpers-has-prefix}text-#{$name}.is-hoverable {
     &:hover,
     &:focus-visible {
       color: hsl(
@@ -247,9 +247,9 @@ $digits: (
     }
   }
 
-  a.#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name},
-  button.#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name},
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name}.is-hoverable {
+  a.#{iv.$helpers-has-prefix}background-#{$name},
+  button.#{iv.$helpers-has-prefix}background-#{$name},
+  .#{iv.$helpers-has-prefix}background-#{$name}.is-hoverable {
     &:hover,
     &:focus-visible {
       background-color: hsl(
@@ -269,7 +269,7 @@ $digits: (
   }
 
   // Palettes
-  .#{iv.$class-prefix}#{iv.$helpers-prefix}palette-#{$name} {
+  .#{iv.$helpers-prefix}palette-#{$name} {
     --h: #{cv.getVar($name, "", "-h")};
     --s: #{cv.getVar($name, "", "-s")};
     --l: #{cv.getVar($name, "", "-l")};
@@ -283,27 +283,27 @@ $digits: (
 }
 
 @each $name, $shade in dv.$shades {
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-#{$name} {
+  .#{iv.$helpers-has-prefix}text-#{$name} {
     color: $shade !important;
   }
 
-  .#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-#{$name} {
+  .#{iv.$helpers-has-prefix}background-#{$name} {
     background-color: $shade !important;
   }
 }
 
-.#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-current {
+.#{iv.$helpers-has-prefix}text-current {
   color: currentColor !important;
 }
 
-.#{iv.$class-prefix}#{iv.$helpers-has-prefix}text-inherit {
+.#{iv.$helpers-has-prefix}text-inherit {
   color: inherit !important;
 }
 
-.#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-current {
+.#{iv.$helpers-has-prefix}background-current {
   background-color: currentColor !important;
 }
 
-.#{iv.$class-prefix}#{iv.$helpers-has-prefix}background-inherit {
+.#{iv.$helpers-has-prefix}background-inherit {
   background-color: inherit !important;
 }
