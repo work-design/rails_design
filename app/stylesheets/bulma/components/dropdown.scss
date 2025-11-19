@@ -29,7 +29,7 @@ $dropdown-item-selected-color-l: cv.getVar("link-invert-l");
 
 $dropdown-divider-background-color: cv.getVar("border-weak") !default;
 
-.#{iv.$class-prefix}dropdown {
+.dropdown {
   // prettier-ignore-start
   @include cv.register-vars(
     (
@@ -60,27 +60,27 @@ $dropdown-divider-background-color: cv.getVar("border-weak") !default;
   // prettier-ignore-end
 }
 
-.#{iv.$class-prefix}dropdown {
+.dropdown {
   display: inline-flex;
   position: relative;
   vertical-align: top;
 
-  &.#{iv.$class-prefix}is-active,
-  &.#{iv.$class-prefix}is-hoverable:hover {
-    .#{iv.$class-prefix}dropdown-menu {
+  &.is-active,
+  &.is-hoverable:hover {
+    .dropdown-menu {
       display: block;
     }
   }
 
-  &.#{iv.$class-prefix}is-right {
-    .#{iv.$class-prefix}dropdown-menu {
+  &.is-right {
+    .dropdown-menu {
       left: auto;
       right: 0;
     }
   }
 
-  &.#{iv.$class-prefix}is-up {
-    .#{iv.$class-prefix}dropdown-menu {
+  &.is-up {
+    .dropdown-menu {
       bottom: 100%;
       padding-bottom: cv.getVar("dropdown-content-offset");
       padding-top: initial;
@@ -89,7 +89,7 @@ $dropdown-divider-background-color: cv.getVar("border-weak") !default;
   }
 }
 
-.#{iv.$class-prefix}dropdown-menu {
+.dropdown-menu {
   display: none;
   @include mx.ltr-position(0, false);
   min-width: cv.getVar("dropdown-menu-min-width");
@@ -99,7 +99,7 @@ $dropdown-divider-background-color: cv.getVar("border-weak") !default;
   z-index: cv.getVar("dropdown-content-z");
 }
 
-.#{iv.$class-prefix}dropdown-content {
+.dropdown-content {
   background-color: cv.getVar("dropdown-content-background-color");
   border-radius: cv.getVar("dropdown-content-radius");
   box-shadow: cv.getVar("dropdown-content-shadow");
@@ -107,20 +107,16 @@ $dropdown-divider-background-color: cv.getVar("border-weak") !default;
   padding-top: cv.getVar("dropdown-content-padding-top");
 }
 
-.#{iv.$class-prefix}dropdown-item {
-  color: hsl(
-    #{cv.getVar("dropdown-item-h")},
-    #{cv.getVar("dropdown-item-s")},
-    #{cv.getVar("dropdown-item-color-l")}
-  );
+.dropdown-item {
+  color: hsl(#{cv.getVar("dropdown-item-h")}, #{cv.getVar("dropdown-item-s")}, #{cv.getVar("dropdown-item-color-l")});
   display: block;
   font-size: 0.875rem;
   line-height: 1.5;
   padding: 0.375rem 1rem;
 }
 
-a.#{iv.$class-prefix}dropdown-item,
-button.#{iv.$class-prefix}dropdown-item {
+a.dropdown-item,
+button.dropdown-item {
   background-color: hsl(
     #{cv.getVar("dropdown-item-h")},
     #{cv.getVar("dropdown-item-s")},
@@ -149,21 +145,21 @@ button.#{iv.$class-prefix}dropdown-item {
     );
   }
 
-  &.#{iv.$class-prefix}is-active,
-  &.#{iv.$class-prefix}is-selected {
+  &.is-active,
+  &.is-selected {
     @include cv.register-vars(
       (
         "dropdown-item-h": #{cv.getVar("dropdown-item-selected-h")},
         "dropdown-item-s": #{cv.getVar("dropdown-item-selected-s")},
         "dropdown-item-l": #{cv.getVar("dropdown-item-selected-l")},
         "dropdown-item-background-l": #{cv.getVar("dropdown-item-selected-background-l")},
-        "dropdown-item-color-l": #{cv.getVar("dropdown-item-selected-color-l")},
+        "dropdown-item-color-l": #{cv.getVar("dropdown-item-selected-color-l")}
       )
     );
   }
 }
 
-.#{iv.$class-prefix}dropdown-divider {
+.dropdown-divider {
   background-color: cv.getVar("dropdown-divider-background-color");
   border: none;
   display: block;

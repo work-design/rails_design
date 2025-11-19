@@ -30,7 +30,7 @@ $message-body-pre-code-background-color: transparent !default;
 $message-header-body-border-width: 0 !default;
 $message-colors: dv.$colors !default;
 
-.#{iv.$class-prefix}message {
+.message {
   @include cv.register-vars(
     (
       "message-border-l-delta": #{$message-border-l-delta},
@@ -52,12 +52,12 @@ $message-colors: dv.$colors !default;
       "message-border-width": #{$message-border-width},
       "message-color-l": #{$message-color-l},
       "message-header-background-l": #{$message-header-background-l},
-      "message-header-color-l": #{$message-header-color-l},
+      "message-header-color-l": #{$message-header-color-l}
     )
   );
 }
 
-.#{iv.$class-prefix}message {
+.message {
   @extend %block;
   border-radius: cv.getVar("message-radius");
   color: hsl(#{cv.getVar("message-h")}, #{cv.getVar("message-s")}, #{cv.getVar("message-color-l")});
@@ -67,29 +67,29 @@ $message-colors: dv.$colors !default;
     color: currentColor;
   }
 
-  a:not(.#{iv.$class-prefix}button):not(.#{iv.$class-prefix}tag):not(
-      .#{iv.$class-prefix}dropdown-item
+  a:not(.button):not(.tag):not(
+      .dropdown-item
     ) {
     color: currentColor;
     text-decoration: underline;
   }
 
   // Sizes
-  &.#{iv.$class-prefix}is-small {
+  &.is-small {
     font-size: cv.getVar("size-small");
   }
 
-  &.#{iv.$class-prefix}is-medium {
+  &.is-medium {
     font-size: cv.getVar("size-medium");
   }
 
-  &.#{iv.$class-prefix}is-large {
+  &.is-large {
     font-size: cv.getVar("size-large");
   }
 
   // Colors
   @each $name, $components in $message-colors {
-    &.#{iv.$class-prefix}is-#{$name} {
+    &.is-#{$name} {
       @include cv.register-vars(
         (
           "message-h": #{cv.getVar($name, "", "-h")},
@@ -104,7 +104,7 @@ $message-colors: dv.$colors !default;
   }
 }
 
-.#{iv.$class-prefix}message-header {
+.message-header {
   align-items: center;
   background-color: hsl(#{cv.getVar("message-h")}, #{cv.getVar("message-s")}, #{cv.getVar("message-header-background-l")});
   border-start-start-radius: cv.getVar("message-header-radius");
@@ -117,20 +117,20 @@ $message-colors: dv.$colors !default;
   padding: cv.getVar("message-header-padding");
   position: relative;
 
-  .#{iv.$class-prefix}delete {
+  .delete {
     flex-grow: 0;
     flex-shrink: 0;
     margin-inline-start: 0.75em;
   }
 
-  & + .#{iv.$class-prefix}message-body {
+  & + .message-body {
     border-width: cv.getVar("message-header-body-border-width");
     border-start-start-radius: 0;
     border-start-end-radius: 0;
   }
 }
 
-.#{iv.$class-prefix}message-body {
+.message-body {
   background-color: hsl(#{cv.getVar("message-h")}, #{cv.getVar("message-s")}, #{cv.getVar("message-background-l")});
   border-inline-start-color: hsl(#{cv.getVar("message-h")}, #{cv.getVar("message-s")}, #{cv.getVar("message-border-l")});
   border-inline-start-style: #{cv.getVar("message-border-style")};

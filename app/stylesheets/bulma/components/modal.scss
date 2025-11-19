@@ -6,12 +6,7 @@
 
 $modal-z: 40 !default;
 
-$modal-background-background-color: hsla(
-  #{cv.getVar("scheme-h")},
-  #{cv.getVar("scheme-s")},
-  #{cv.getVar("scheme-invert-l")},
-  0.86
-) !default;
+$modal-background-background-color: hsla(#{cv.getVar("scheme-h")}, #{cv.getVar("scheme-s")}, #{cv.getVar("scheme-invert-l")}, 0.86) !default;
 
 $modal-content-width: 40rem !default;
 $modal-content-margin-mobile: 1.25rem !default;
@@ -40,7 +35,7 @@ $modal-card-body-padding: 2rem !default;
 
 $modal-breakpoint: iv.$tablet !default;
 
-.#{iv.$class-prefix}modal {
+.modal {
   @include cv.register-vars(
     (
       "modal-z": #{$modal-z},
@@ -62,12 +57,12 @@ $modal-breakpoint: iv.$tablet !default;
       "modal-card-foot-background-color": #{$modal-card-foot-background-color},
       "modal-card-foot-radius": #{$modal-card-foot-radius},
       "modal-card-body-background-color": #{$modal-card-body-background-color},
-      "modal-card-body-padding": #{$modal-card-body-padding},
+      "modal-card-body-padding": #{$modal-card-body-padding}
     )
   );
 }
 
-.#{iv.$class-prefix}modal {
+.modal {
   @extend %overlay;
 
   align-items: center;
@@ -79,18 +74,18 @@ $modal-breakpoint: iv.$tablet !default;
   z-index: cv.getVar("modal-z");
 
   // Modifiers
-  &.#{iv.$class-prefix}is-active {
+  &.is-active {
     display: flex;
   }
 }
 
-.#{iv.$class-prefix}modal-background {
+.modal-background {
   @extend %overlay;
   background-color: cv.getVar("modal-background-background-color");
 }
 
-.#{iv.$class-prefix}modal-content,
-.#{iv.$class-prefix}modal-card {
+.modal-content,
+.modal-card {
   margin: 0 cv.getVar("modal-content-margin-mobile");
   max-height: calc(100vh - #{cv.getVar("modal-content-spacing-mobile")});
   overflow: auto;
@@ -105,7 +100,7 @@ $modal-breakpoint: iv.$tablet !default;
   }
 }
 
-.#{iv.$class-prefix}modal-close {
+.modal-close {
   @extend %delete;
   background: none;
   height: cv.getVar("modal-close-dimensions");
@@ -115,7 +110,7 @@ $modal-breakpoint: iv.$tablet !default;
   width: cv.getVar("modal-close-dimensions");
 }
 
-.#{iv.$class-prefix}modal-card {
+.modal-card {
   display: flex;
   flex-direction: column;
   max-height: calc(100vh - #{cv.getVar("modal-card-spacing")});
@@ -123,8 +118,8 @@ $modal-breakpoint: iv.$tablet !default;
   overflow-y: visible;
 }
 
-.#{iv.$class-prefix}modal-card-head,
-.#{iv.$class-prefix}modal-card-foot {
+.modal-card-head,
+.modal-card-foot {
   align-items: center;
   display: flex;
   flex-shrink: 0;
@@ -133,14 +128,14 @@ $modal-breakpoint: iv.$tablet !default;
   position: relative;
 }
 
-.#{iv.$class-prefix}modal-card-head {
+.modal-card-head {
   background-color: cv.getVar("modal-card-head-background-color");
   border-start-start-radius: cv.getVar("modal-card-head-radius");
   border-start-end-radius: cv.getVar("modal-card-head-radius");
   box-shadow: cv.getVar("shadow");
 }
 
-.#{iv.$class-prefix}modal-card-title {
+.modal-card-title {
   color: cv.getVar("modal-card-title-color");
   flex-grow: 1;
   flex-shrink: 0;
@@ -148,13 +143,13 @@ $modal-breakpoint: iv.$tablet !default;
   line-height: cv.getVar("modal-card-title-line-height");
 }
 
-.#{iv.$class-prefix}modal-card-foot {
+.modal-card-foot {
   background-color: cv.getVar("modal-card-foot-background-color");
   border-end-start-radius: cv.getVar("modal-card-foot-radius");
   border-end-end-radius: cv.getVar("modal-card-foot-radius");
 }
 
-.#{iv.$class-prefix}modal-card-body {
+.modal-card-body {
   @include mx.overflow-touch;
   background-color: cv.getVar("modal-card-body-background-color");
   flex-grow: 1;

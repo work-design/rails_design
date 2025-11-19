@@ -20,14 +20,13 @@ $breadcrumb-item-separator-color: cv.getVar("border") !default;
       "breadcrumb-item-active-color": #{$breadcrumb-item-active-color},
       "breadcrumb-item-padding-vertical": #{$breadcrumb-item-padding-vertical},
       "breadcrumb-item-padding-horizontal": #{$breadcrumb-item-padding-horizontal},
-      "breadcrumb-item-separator-color": #{$breadcrumb-item-separator-color},
+      "breadcrumb-item-separator-color": #{$breadcrumb-item-separator-color}
     )
   );
 }
 
 .breadcrumb {
   @extend %block;
-  @extend %unselectable;
   font-size: cv.getVar("size-normal");
   white-space: nowrap;
   align-items: flex-start;
@@ -99,6 +98,11 @@ $breadcrumb-item-separator-color: cv.getVar("border") !default;
 
   &.is-large {
     font-size: cv.getVar("size-large");
+  }
+
+  &.is-border {
+    border-bottom: solid 1px rgba(34, 36, 38, .1);
+    padding-bottom: 0.5em;
   }
 
   // Styles

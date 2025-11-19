@@ -29,7 +29,7 @@ $menu-label-font-size: 0.75em !default;
 $menu-label-letter-spacing: 0.1em !default;
 $menu-label-spacing: 1em !default;
 
-.#{iv.$class-prefix}menu {
+.menu {
   @include cv.register-vars(
     (
       "menu-item-h": #{$menu-item-h},
@@ -54,34 +54,34 @@ $menu-label-spacing: 1em !default;
       "menu-label-color": #{$menu-label-color},
       "menu-label-font-size": #{$menu-label-font-size},
       "menu-label-letter-spacing": #{$menu-label-letter-spacing},
-      "menu-label-spacing": #{$menu-label-spacing},
+      "menu-label-spacing": #{$menu-label-spacing}
     )
   );
 }
 
-.#{iv.$class-prefix}menu {
+.menu {
   font-size: cv.getVar("size-normal");
 
   // Sizes
-  &.#{iv.$class-prefix}is-small {
+  &.is-small {
     font-size: cv.getVar("size-small");
   }
 
-  &.#{iv.$class-prefix}is-medium {
+  &.is-medium {
     font-size: cv.getVar("size-medium");
   }
 
-  &.#{iv.$class-prefix}is-large {
+  &.is-large {
     font-size: cv.getVar("size-large");
   }
 }
 
-.#{iv.$class-prefix}menu-list {
+.menu-list {
   line-height: cv.getVar("menu-list-line-height");
 
   a,
   button,
-  .#{iv.$class-prefix}menu-item {
+  .menu-item {
     @extend %reset;
     background-color: hsl(#{cv.getVar("menu-item-h")}, #{cv.getVar("menu-item-s")}, calc(#{cv.getVar("menu-item-background-l")} + #{cv.getVar("menu-item-background-l-delta")}));
     color: hsl(#{cv.getVar("menu-item-h")}, #{cv.getVar("menu-item-s")}, #{cv.getVar("menu-item-color-l")});
@@ -108,8 +108,8 @@ $menu-label-spacing: 1em !default;
     }
 
     // Modifiers
-    &.#{iv.$class-prefix}is-active,
-    &.#{iv.$class-prefix}is-selected {
+    &.is-active,
+    &.is-selected {
       @include cv.register-vars(
         (
           "menu-item-h": #{cv.getVar("menu-item-selected-h")},
@@ -131,7 +131,7 @@ $menu-label-spacing: 1em !default;
   }
 }
 
-.#{iv.$class-prefix}menu-label {
+.menu-label {
   color: cv.getVar("menu-label-color");
   font-size: cv.getVar("menu-label-font-size");
   letter-spacing: cv.getVar("menu-label-letter-spacing");

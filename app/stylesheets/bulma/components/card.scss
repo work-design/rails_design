@@ -12,12 +12,7 @@ $card-header-background-color: transparent !default;
 $card-header-color: cv.getVar("text-strong") !default;
 $card-header-padding: 0.75rem 1rem !default;
 $card-header-shadow: 0 0.125em 0.25em
-  hsla(
-    #{cv.getVar("scheme-h")},
-    #{cv.getVar("scheme-s")},
-    #{cv.getVar("scheme-invert-l")},
-    0.1
-  ) !default;
+  hsla(#{cv.getVar("scheme-h")}, #{cv.getVar("scheme-s")}, #{cv.getVar("scheme-invert-l")}, 0.1) !default;
 $card-header-weight: cv.getVar("weight-bold") !default;
 
 $card-content-background-color: transparent !default;
@@ -29,7 +24,7 @@ $card-footer-padding: 0.75rem !default;
 
 $card-media-margin: cv.getVar("block-spacing") !default;
 
-.#{iv.$class-prefix}card {
+.card {
   @include cv.register-vars(
     (
       "card-color": #{$card-color},
@@ -46,12 +41,12 @@ $card-media-margin: cv.getVar("block-spacing") !default;
       "card-footer-background-color": #{$card-footer-background-color},
       "card-footer-border-top": #{$card-footer-border-top},
       "card-footer-padding": #{$card-footer-padding},
-      "card-media-margin": #{$card-media-margin},
+      "card-media-margin": #{$card-media-margin}
     )
   );
 }
 
-.#{iv.$class-prefix}card {
+.card {
   @extend %block;
   background-color: cv.getVar("card-background-color");
   border-radius: cv.getVar("card-radius");
@@ -73,7 +68,7 @@ $card-media-margin: cv.getVar("block-spacing") !default;
   }
 }
 
-.#{iv.$class-prefix}card-header {
+.card-header {
   @extend %card-item;
   background-color: cv.getVar("card-header-background-color");
   align-items: stretch;
@@ -81,7 +76,7 @@ $card-media-margin: cv.getVar("block-spacing") !default;
   display: flex;
 }
 
-.#{iv.$class-prefix}card-header-title {
+.card-header-title {
   align-items: center;
   color: cv.getVar("card-header-color");
   display: flex;
@@ -89,12 +84,12 @@ $card-media-margin: cv.getVar("block-spacing") !default;
   font-weight: cv.getVar("card-header-weight");
   padding: cv.getVar("card-header-padding");
 
-  &.#{iv.$class-prefix}is-centered {
+  &.is-centered {
     justify-content: center;
   }
 }
 
-.#{iv.$class-prefix}card-header-icon {
+.card-header-icon {
   @include mx.reset;
 
   align-items: center;
@@ -104,7 +99,7 @@ $card-media-margin: cv.getVar("block-spacing") !default;
   padding: cv.getVar("card-header-padding");
 }
 
-.#{iv.$class-prefix}card-image {
+.card-image {
   display: block;
   position: relative;
 
@@ -123,14 +118,14 @@ $card-media-margin: cv.getVar("block-spacing") !default;
   }
 }
 
-.#{iv.$class-prefix}card-content {
+.card-content {
   @extend %card-item;
 
   background-color: cv.getVar("card-content-background-color");
   padding: cv.getVar("card-content-padding");
 }
 
-.#{iv.$class-prefix}card-footer {
+.card-footer {
   @extend %card-item;
 
   background-color: cv.getVar("card-footer-background-color");
@@ -139,7 +134,7 @@ $card-media-margin: cv.getVar("block-spacing") !default;
   display: flex;
 }
 
-.#{iv.$class-prefix}card-footer-item {
+.card-footer-item {
   align-items: center;
   display: flex;
   flex-basis: 0;
@@ -155,8 +150,8 @@ $card-media-margin: cv.getVar("block-spacing") !default;
 
 // Combinations
 
-.#{iv.$class-prefix}card {
-  .#{iv.$class-prefix}media:not(:last-child) {
+.card {
+  .media:not(:last-child) {
     margin-bottom: cv.getVar("card-media-margin");
   }
 }
