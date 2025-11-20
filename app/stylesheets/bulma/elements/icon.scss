@@ -1,5 +1,4 @@
 @use '../utilities/css-variables' as cv;
-@use '../utilities/initial-variables' as iv;
 
 $icon-dimensions: 1.5rem !default;
 $icon-dimensions-small: 1rem !default;
@@ -15,7 +14,7 @@ $icon-text-spacing: 0.25em !default;
       "icon-dimensions-small": #{$icon-dimensions-small},
       "icon-dimensions-medium": #{$icon-dimensions-medium},
       "icon-dimensions-large": #{$icon-dimensions-large},
-      "icon-text-spacing": #{$icon-text-spacing},
+      "icon-text-spacing": #{$icon-text-spacing}
     )
   );
 }

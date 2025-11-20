@@ -51,7 +51,7 @@ $pagination-current-border-color: cv.getVar("link") !default;
 $pagination-ellipsis-color: cv.getVar("text-weak") !default;
 $pagination-shadow-inset: inset 0 0.0625em 0.125em hsla(#{cv.getVar("scheme-h")}, #{cv.getVar("scheme-s")}, #{cv.getVar("scheme-invert-l")}, 0.2) !default;
 
-.#{iv.$class-prefix}pagination {
+.pagination {
   @include cv.register-vars(
     (
       "pagination-margin": #{$pagination-margin},
@@ -98,51 +98,51 @@ $pagination-shadow-inset: inset 0 0.0625em 0.125em hsla(#{cv.getVar("scheme-h")}
   );
 }
 
-.#{iv.$class-prefix}pagination {
+.pagination {
   @extend %block;
 
   font-size: cv.getVar("size-normal");
   margin: cv.getVar("pagination-margin");
 
   // Sizes
-  &.#{iv.$class-prefix}is-small {
+  &.is-small {
     font-size: cv.getVar("size-small");
   }
 
-  &.#{iv.$class-prefix}is-medium {
+  &.is-medium {
     font-size: cv.getVar("size-medium");
   }
 
-  &.#{iv.$class-prefix}is-large {
+  &.is-large {
     font-size: cv.getVar("size-large");
   }
 
-  &.#{iv.$class-prefix}is-rounded {
-    .#{iv.$class-prefix}pagination-previous,
-    .#{iv.$class-prefix}pagination-next {
+  &.is-rounded {
+    .pagination-previous,
+    .pagination-next {
       padding-left: 1em;
       padding-right: 1em;
       border-radius: cv.getVar("radius-rounded");
     }
 
-    .#{iv.$class-prefix}pagination-link {
+    .pagination-link {
       border-radius: cv.getVar("radius-rounded");
     }
   }
 }
 
-.#{iv.$class-prefix}pagination,
-.#{iv.$class-prefix}pagination-list {
+.pagination,
+.pagination-list {
   align-items: center;
   display: flex;
   justify-content: center;
   text-align: center;
 }
 
-.#{iv.$class-prefix}pagination-previous,
-.#{iv.$class-prefix}pagination-next,
-.#{iv.$class-prefix}pagination-link,
-.#{iv.$class-prefix}pagination-ellipsis {
+.pagination-previous,
+.pagination-next,
+.pagination-link,
+.pagination-ellipsis {
   @extend %control;
   @extend %unselectable;
   color: hsl(#{cv.getVar("pagination-item-h")}, #{cv.getVar("pagination-item-s")}, #{cv.getVar("pagination-item-color-l")});
@@ -154,9 +154,9 @@ $pagination-shadow-inset: inset 0 0.0625em 0.125em hsla(#{cv.getVar("scheme-h")}
   text-align: center;
 }
 
-.#{iv.$class-prefix}pagination-previous,
-.#{iv.$class-prefix}pagination-next,
-.#{iv.$class-prefix}pagination-link {
+.pagination-previous,
+.pagination-next,
+.pagination-link {
   background-color: hsl(
     #{cv.getVar("pagination-item-h")},
     #{cv.getVar("pagination-item-s")},
@@ -224,7 +224,7 @@ $pagination-shadow-inset: inset 0 0.0625em 0.125em hsla(#{cv.getVar("scheme-h")}
   }
 
   &[disabled],
-  &.#{iv.$class-prefix}is-disabled {
+  &.is-disabled {
     background-color: cv.getVar("pagination-disabled-background-color");
     border-color: cv.getVar("pagination-disabled-border-color");
     box-shadow: none;
@@ -233,16 +233,16 @@ $pagination-shadow-inset: inset 0 0.0625em 0.125em hsla(#{cv.getVar("scheme-h")}
   }
 }
 
-.#{iv.$class-prefix}pagination-previous,
-.#{iv.$class-prefix}pagination-next {
+.pagination-previous,
+.pagination-next {
   padding-left: cv.getVar("pagination-nav-padding-left");
   padding-right: cv.getVar("pagination-nav-padding-right");
   white-space: nowrap;
 }
 
-.#{iv.$class-prefix}pagination-link {
-  &.#{iv.$class-prefix}is-current,
-  &.#{iv.$class-prefix}is-selected {
+.pagination-link {
+  &.is-current,
+  &.is-selected {
     @include cv.register-vars(
       (
         "pagination-item-h": #{cv.getVar("pagination-selected-item-h")},
@@ -256,12 +256,12 @@ $pagination-shadow-inset: inset 0 0.0625em 0.125em hsla(#{cv.getVar("scheme-h")}
   }
 }
 
-.#{iv.$class-prefix}pagination-ellipsis {
+.pagination-ellipsis {
   color: cv.getVar("pagination-ellipsis-color");
   pointer-events: none;
 }
 
-.#{iv.$class-prefix}pagination-list {
+.pagination-list {
   flex-wrap: wrap;
 
   li {
@@ -270,17 +270,17 @@ $pagination-shadow-inset: inset 0 0.0625em 0.125em hsla(#{cv.getVar("scheme-h")}
 }
 
 @include mx.mobile {
-  .#{iv.$class-prefix}pagination {
+  .pagination {
     flex-wrap: wrap;
   }
 
-  .#{iv.$class-prefix}pagination-previous,
-  .#{iv.$class-prefix}pagination-next {
+  .pagination-previous,
+  .pagination-next {
     flex-grow: 1;
     flex-shrink: 1;
   }
 
-  .#{iv.$class-prefix}pagination-list {
+  .pagination-list {
     li {
       flex-grow: 1;
       flex-shrink: 1;
@@ -289,59 +289,59 @@ $pagination-shadow-inset: inset 0 0.0625em 0.125em hsla(#{cv.getVar("scheme-h")}
 }
 
 @include mx.tablet {
-  .#{iv.$class-prefix}pagination-list {
+  .pagination-list {
     flex-grow: 1;
     flex-shrink: 1;
     justify-content: flex-start;
     order: 1;
   }
 
-  .#{iv.$class-prefix}pagination-previous,
-  .#{iv.$class-prefix}pagination-next,
-  .#{iv.$class-prefix}pagination-link,
-  .#{iv.$class-prefix}pagination-ellipsis {
+  .pagination-previous,
+  .pagination-next,
+  .pagination-link,
+  .pagination-ellipsis {
     margin-bottom: 0;
     margin-top: 0;
   }
 
-  .#{iv.$class-prefix}pagination-previous {
+  .pagination-previous {
     order: 2;
   }
 
-  .#{iv.$class-prefix}pagination-next {
+  .pagination-next {
     order: 3;
   }
 
-  .#{iv.$class-prefix}pagination {
+  .pagination {
     justify-content: space-between;
     margin-bottom: 0;
     margin-top: 0;
 
-    &.#{iv.$class-prefix}is-centered {
-      .#{iv.$class-prefix}pagination-previous {
+    &.is-centered {
+      .pagination-previous {
         order: 1;
       }
 
-      .#{iv.$class-prefix}pagination-list {
+      .pagination-list {
         justify-content: center;
         order: 2;
       }
 
-      .#{iv.$class-prefix}pagination-next {
+      .pagination-next {
         order: 3;
       }
     }
 
-    &.#{iv.$class-prefix}is-right {
-      .#{iv.$class-prefix}pagination-previous {
+    &.is-right {
+      .pagination-previous {
         order: 1;
       }
 
-      .#{iv.$class-prefix}pagination-next {
+      .pagination-next {
         order: 2;
       }
 
-      .#{iv.$class-prefix}pagination-list {
+      .pagination-list {
         justify-content: flex-end;
         order: 3;
       }

@@ -1,8 +1,7 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/derived-variables" as dv;
-@use "../utilities/extends";
-@use "../utilities/mixins" as mx;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/derived-variables' as dv;
+@use '../utilities/mixins' as mx;
+@use '../utilities/extends';
 
 $tabs-border-bottom-color: cv.getVar("border") !default;
 $tabs-border-bottom-style: solid !default;
@@ -32,7 +31,7 @@ $tabs-toggle-link-active-background-color: cv.getVar("link") !default;
 $tabs-toggle-link-active-border-color: cv.getVar("link") !default;
 $tabs-toggle-link-active-color: cv.getVar("link-invert") !default;
 
-.#{iv.$class-prefix}tabs {
+.tabs {
   @include cv.register-vars(
     (
       "tabs-border-bottom-color": #{$tabs-border-bottom-color},
@@ -58,12 +57,12 @@ $tabs-toggle-link-active-color: cv.getVar("link-invert") !default;
       "tabs-toggle-link-radius": #{$tabs-toggle-link-radius},
       "tabs-toggle-link-active-background-color": #{$tabs-toggle-link-active-background-color},
       "tabs-toggle-link-active-border-color": #{$tabs-toggle-link-active-border-color},
-      "tabs-toggle-link-active-color": #{$tabs-toggle-link-active-color},
+      "tabs-toggle-link-active-color": #{$tabs-toggle-link-active-color}
     )
   );
 }
 
-.#{iv.$class-prefix}tabs {
+.tabs {
   @extend %block;
   @extend %unselectable;
   @include mx.overflow-touch;
@@ -98,7 +97,7 @@ $tabs-toggle-link-active-color: cv.getVar("link-invert") !default;
   li {
     display: block;
 
-    &.#{iv.$class-prefix}is-active {
+    &.is-active {
       a {
         border-bottom-color: cv.getVar("tabs-link-active-border-bottom-color");
         color: cv.getVar("tabs-link-active-color");
@@ -116,24 +115,24 @@ $tabs-toggle-link-active-color: cv.getVar("link-invert") !default;
     flex-shrink: 0;
     justify-content: flex-start;
 
-    &.#{iv.$class-prefix}is-left {
+    &.is-left {
       padding-right: 0.75em;
     }
 
-    &.#{iv.$class-prefix}is-center {
+    &.is-center {
       flex: none;
       justify-content: center;
       padding-left: 0.75em;
       padding-right: 0.75em;
     }
 
-    &.#{iv.$class-prefix}is-right {
+    &.is-right {
       justify-content: flex-end;
       padding-left: 0.75em;
     }
   }
 
-  .#{iv.$class-prefix}icon {
+  .icon {
     &:first-child {
       margin-inline-end: 0.5em;
     }
@@ -144,20 +143,20 @@ $tabs-toggle-link-active-color: cv.getVar("link-invert") !default;
   }
 
   // Alignment
-  &.#{iv.$class-prefix}is-centered {
+  &.is-centered {
     ul {
       justify-content: center;
     }
   }
 
-  &.#{iv.$class-prefix}is-right {
+  &.is-right {
     ul {
       justify-content: flex-end;
     }
   }
 
   // Styles
-  &.#{iv.$class-prefix}is-boxed {
+  &.is-boxed {
     a {
       border: 1px solid transparent;
       border-start-start-radius: cv.getVar("tabs-boxed-link-radius");
@@ -172,7 +171,7 @@ $tabs-toggle-link-active-color: cv.getVar("link-invert") !default;
     }
 
     li {
-      &.#{iv.$class-prefix}is-active {
+      &.is-active {
         a {
           background-color: cv.getVar(
             "tabs-boxed-link-active-background-color"
@@ -186,14 +185,14 @@ $tabs-toggle-link-active-color: cv.getVar("link-invert") !default;
     }
   }
 
-  &.#{iv.$class-prefix}is-fullwidth {
+  &.is-fullwidth {
     li {
       flex-grow: 1;
       flex-shrink: 0;
     }
   }
 
-  &.#{iv.$class-prefix}is-toggle {
+  &.is-toggle {
     a {
       border-color: cv.getVar("tabs-toggle-link-border-color");
       border-style: cv.getVar("tabs-toggle-link-border-style");
@@ -225,7 +224,7 @@ $tabs-toggle-link-active-color: cv.getVar("link-invert") !default;
         border-end-end-radius: cv.getVar("tabs-toggle-link-radius");
       }
 
-      &.#{iv.$class-prefix}is-active {
+      &.is-active {
         a {
           background-color: cv.getVar(
             "tabs-toggle-link-active-background-color"
@@ -241,7 +240,7 @@ $tabs-toggle-link-active-color: cv.getVar("link-invert") !default;
       border-bottom: none;
     }
 
-    &.#{iv.$class-prefix}is-toggle-rounded {
+    &.is-toggle-rounded {
       li {
         &:first-child a {
           border-start-start-radius: cv.getVar("radius-rounded");
@@ -259,15 +258,15 @@ $tabs-toggle-link-active-color: cv.getVar("link-invert") !default;
   }
 
   // Sizes
-  &.#{iv.$class-prefix}is-small {
+  &.is-small {
     font-size: cv.getVar("size-small");
   }
 
-  &.#{iv.$class-prefix}is-medium {
+  &.is-medium {
     font-size: cv.getVar("size-medium");
   }
 
-  &.#{iv.$class-prefix}is-large {
+  &.is-large {
     font-size: cv.getVar("size-large");
   }
 }
