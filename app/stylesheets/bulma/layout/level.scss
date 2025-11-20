@@ -5,7 +5,7 @@
 
 $level-item-spacing: calc(#{cv.getVar("block-spacing")} * 0.5) !default;
 
-.#{iv.$class-prefix}level {
+.level {
   @extend %block;
   @include cv.register-var("level-item-spacing", #{$level-item-spacing});
   align-items: center;
@@ -24,17 +24,17 @@ $level-item-spacing: calc(#{cv.getVar("block-spacing")} * 0.5) !default;
   }
 
   // Modifiers
-  &.#{iv.$class-prefix}is-mobile {
+  &.is-mobile {
     display: flex;
     flex-direction: row;
 
-    .#{iv.$class-prefix}level-left,
-    .#{iv.$class-prefix}level-right {
+    .level-left,
+    .level-right {
       display: flex;
     }
 
-    .#{iv.$class-prefix}level-item {
-      &:not(.#{iv.$class-prefix}is-narrow) {
+    .level-item {
+      &:not(.is-narrow) {
         flex-grow: 1;
       }
     }
@@ -45,15 +45,15 @@ $level-item-spacing: calc(#{cv.getVar("block-spacing")} * 0.5) !default;
     display: flex;
     flex-direction: row;
 
-    & > .#{iv.$class-prefix}level-item {
-      &:not(.#{iv.$class-prefix}is-narrow) {
+    & > .level-item {
+      &:not(.is-narrow) {
         flex-grow: 1;
       }
     }
   }
 }
 
-.#{iv.$class-prefix}level-item {
+.level-item {
   align-items: center;
   display: flex;
   flex-basis: auto;
@@ -61,28 +61,28 @@ $level-item-spacing: calc(#{cv.getVar("block-spacing")} * 0.5) !default;
   flex-shrink: 0;
   justify-content: center;
 
-  .#{iv.$class-prefix}title,
-  .#{iv.$class-prefix}subtitle {
+  .title,
+  .subtitle {
     margin-bottom: 0;
   }
 }
 
-.#{iv.$class-prefix}level-left,
-.#{iv.$class-prefix}level-right {
+.level-left,
+.level-right {
   flex-basis: auto;
   flex-grow: 0;
   flex-shrink: 0;
   gap: $level-item-spacing;
 
-  .#{iv.$class-prefix}level-item {
+  .level-item {
     // Modifiers
-    &.#{iv.$class-prefix}is-flexible {
+    &.is-flexible {
       flex-grow: 1;
     }
   }
 }
 
-.#{iv.$class-prefix}level-left {
+.level-left {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -94,7 +94,7 @@ $level-item-spacing: calc(#{cv.getVar("block-spacing")} * 0.5) !default;
   }
 }
 
-.#{iv.$class-prefix}level-right {
+.level-right {
   align-items: center;
   display: flex;
   flex-direction: column;

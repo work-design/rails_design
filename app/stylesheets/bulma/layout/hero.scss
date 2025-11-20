@@ -17,7 +17,7 @@ $hero-gradient-l-offset: 5% !default;
 $hero-colors: dv.$colors !default;
 
 // Main container
-.#{iv.$class-prefix}hero {
+.hero {
   @include cv.register-vars(
     (
       "hero-body-padding": #{$hero-body-padding},
@@ -32,17 +32,17 @@ $hero-colors: dv.$colors !default;
   );
 }
 
-.#{iv.$class-prefix}hero {
+.hero {
   align-items: stretch;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  .#{iv.$class-prefix}navbar {
+  .navbar {
     background: none;
   }
 
-  .#{iv.$class-prefix}tabs {
+  .tabs {
     ul {
       border-bottom: none;
     }
@@ -50,7 +50,7 @@ $hero-colors: dv.$colors !default;
 
   // Colors
   @each $name, $pair in $hero-colors {
-    &.#{iv.$class-prefix}is-#{$name} {
+    &.is-#{$name} {
       @include cv.register-vars(
         (
           "hero-h": #{cv.getVar($name, "", "-h")},
@@ -66,7 +66,7 @@ $hero-colors: dv.$colors !default;
       background-color: hsl(#{cv.getVar("hero-h")}, #{cv.getVar("hero-s")}, #{cv.getVar("hero-background-l")});
       color: $color;
 
-      .#{iv.$class-prefix}navbar {
+      .navbar {
         @include cv.register-vars(
           (
             "navbar-item-color": $color,
@@ -78,7 +78,7 @@ $hero-colors: dv.$colors !default;
         );
       }
 
-      .#{iv.$class-prefix}tabs {
+      .tabs {
         @include cv.register-vars(
           (
             "tabs-link-color": $color,
@@ -89,7 +89,7 @@ $hero-colors: dv.$colors !default;
         );
       }
 
-      .#{iv.$class-prefix}subtitle {
+      .subtitle {
         @include cv.register-vars(
           (
             "subtitle-color": $color,
@@ -98,7 +98,7 @@ $hero-colors: dv.$colors !default;
         );
       }
 
-      .#{iv.$class-prefix}title {
+      .title {
         @include cv.register-vars(
           (
             "title-color": $color,
@@ -108,7 +108,7 @@ $hero-colors: dv.$colors !default;
       }
 
       // Modifiers
-      &.#{iv.$class-prefix}is-bold {
+      &.is-bold {
         $gradient-top-left: hsl(
           calc(#{cv.getVar("hero-h")} - #{$hero-gradient-h-offset}),
           calc(#{cv.getVar("hero-s")} + #{$hero-gradient-s-offset}),
@@ -133,7 +133,7 @@ $hero-colors: dv.$colors !default;
         );
 
         @include mx.mobile {
-          .#{iv.$class-prefix}navbar-menu {
+          .navbar-menu {
             background-image: linear-gradient(
               141deg,
               $gradient-top-left 0%,
@@ -147,54 +147,54 @@ $hero-colors: dv.$colors !default;
   }
 
   // Sizes
-  &.#{iv.$class-prefix}is-small {
-    .#{iv.$class-prefix}hero-body {
+  &.is-small {
+    .hero-body {
       padding: cv.getVar("hero-body-padding-small");
     }
   }
 
-  &.#{iv.$class-prefix}is-medium {
+  &.is-medium {
     @include mx.tablet {
-      .#{iv.$class-prefix}hero-body {
+      .hero-body {
         padding: cv.getVar("hero-body-padding-medium");
       }
     }
   }
 
-  &.#{iv.$class-prefix}is-large {
+  &.is-large {
     @include mx.tablet {
-      .#{iv.$class-prefix}hero-body {
+      .hero-body {
         padding: cv.getVar("hero-body-padding-large");
       }
     }
   }
 
-  &.#{iv.$class-prefix}is-halfheight,
-  &.#{iv.$class-prefix}is-fullheight,
-  &.#{iv.$class-prefix}is-fullheight-with-navbar {
-    .#{iv.$class-prefix}hero-body {
+  &.is-halfheight,
+  &.is-fullheight,
+  &.is-fullheight-with-navbar {
+    .hero-body {
       align-items: center;
       display: flex;
 
-      & > .#{iv.$class-prefix}container {
+      & > .container {
         flex-grow: 1;
         flex-shrink: 1;
       }
     }
   }
 
-  &.#{iv.$class-prefix}is-halfheight {
+  &.is-halfheight {
     min-height: 50vh;
   }
 
-  &.#{iv.$class-prefix}is-fullheight {
+  &.is-fullheight {
     min-height: 100vh;
   }
 }
 
 // Components
 
-.#{iv.$class-prefix}hero-video {
+.hero-video {
   @extend %overlay;
   overflow: hidden;
 
@@ -208,7 +208,7 @@ $hero-colors: dv.$colors !default;
   }
 
   // Modifiers
-  &.#{iv.$class-prefix}is-transparent {
+  &.is-transparent {
     opacity: 0.3;
   }
 
@@ -218,12 +218,12 @@ $hero-colors: dv.$colors !default;
   }
 }
 
-.#{iv.$class-prefix}hero-buttons {
+.hero-buttons {
   margin-top: 1.5rem;
 
   // Responsiveness
   @include mx.mobile {
-    .#{iv.$class-prefix}button {
+    .button {
       display: flex;
 
       &:not(:last-child) {
@@ -236,7 +236,7 @@ $hero-colors: dv.$colors !default;
     display: flex;
     justify-content: center;
 
-    .#{iv.$class-prefix}button:not(:last-child) {
+    .button:not(:last-child) {
       margin-inline-end: 1.5rem;
     }
   }
@@ -244,13 +244,13 @@ $hero-colors: dv.$colors !default;
 
 // Containers
 
-.#{iv.$class-prefix}hero-head,
-.#{iv.$class-prefix}hero-foot {
+.hero-head,
+.hero-foot {
   flex-grow: 0;
   flex-shrink: 0;
 }
 
-.#{iv.$class-prefix}hero-body {
+.hero-body {
   flex-grow: 1;
   flex-shrink: 0;
   padding: cv.getVar("hero-body-padding");
