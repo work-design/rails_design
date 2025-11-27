@@ -15,11 +15,20 @@ dl.as-show {
 
     & > div:nth-child(even) {
       background-color: var(--bulma-scheme-main-bis);
+
+      .input,
+      .textarea {
+        background-color: var(--bulma-scheme-main-bis);
+      }
     }
 
     & > div:last-child {
       border-bottom-left-radius: var(--bulma-radius-large);
       border-bottom-right-radius: var(--bulma-radius-large);
+    }
+
+    dt {
+      align-self: center;
     }
   }
 
